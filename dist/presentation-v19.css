@@ -1,0 +1,23 @@
+/* A brief illustrated pause; action phases keep the living scene visible. */
+.dialogue-wrap.story-illustrated-v19{background:#10151d;isolation:isolate}
+.story-illustration-v19{position:absolute;inset:0 0 clamp(155px,23vh,220px);margin:0;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 55%,#302521,#0b1119 85%);pointer-events:none;z-index:0}
+.story-illustration-v19 img{display:block;width:100%;height:100%;min-height:0;object-fit:contain;object-position:center;user-select:none}
+.story-illustration-v19.is-new img{animation:story-art-appear-v19 .55s ease both}
+.story-illustrated-v19 .scene-label{top:18px;left:22px;max-width:calc(100% - 44px);background:#121b24aa;color:#f1e3c6;border-color:#ba9869;z-index:2}
+.story-illustrated-v19 .dialogue-card{left:50%;bottom:18px;width:min(1120px,94vw);min-height:135px;max-height:42vh;border-color:#8e795f;border-radius:4px;background:linear-gradient(115deg,#162029fa,#241f25fc);box-shadow:0 0 35px #05080c90;z-index:3}
+.story-illustrated-v19 .dialogue-copy .speaker{color:#e6c994}
+.story-illustrated-v19 .dialogue-copy .line{font-size:clamp(16px,1.35vw,21px);line-height:1.75;color:#f4eee4}
+.saint-memories-v19{margin:24px 0 8px;padding:20px 0;border-top:1px solid #bc9c643d}
+.saint-memories-v19 h3{color:#dcc69c;font-size:18px;margin:0 0 14px}
+.saint-memories-v19 ul{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px 22px}
+.saint-memories-v19 li{display:flex;flex-direction:column;gap:4px;font-size:16px;color:#e9e4d9}
+.saint-memories-v19 small{font-size:14px;color:#aab7ba}
+.saint-memories-v19 p{font-size:16px;line-height:1.7;color:#c8d0ce;margin:16px 0 0}
+@keyframes story-art-appear-v19{from{opacity:0}to{opacity:1}}
+@media(max-width:650px){.story-illustration-v19{inset:0 0 215px}.story-illustrated-v19 .dialogue-card{bottom:12px;padding:15px 17px;max-height:46vh;min-height:155px}.story-illustrated-v19 .scene-label{top:12px;left:12px;font-size:14px}.story-illustrated-v19 .dialogue-copy .speaker{font-size:18px}.story-illustrated-v19 .dialogue-copy .line{font-size:16px;line-height:1.7}}
+@media(max-height:520px) and (min-width:651px){.story-illustration-v19{inset:0 0 130px}.story-illustrated-v19 .dialogue-card{bottom:8px;min-height:110px;padding:10px 20px;max-height:48vh}.story-illustrated-v19 .dialogue-copy .speaker{font-size:16px;margin-bottom:4px}.story-illustrated-v19 .dialogue-copy .line{font-size:16px;line-height:1.5;min-height:0}.story-illustrated-v19 .scene-label{top:10px;font-size:14px}}
+@media(prefers-reduced-motion:reduce){.story-illustration-v19 img{animation:none}}
+
+/* Compact display control stays with the HUD, outside cinematic overlays. */
+.top-nav .fullscreen-compact{display:inline-flex;align-items:center;justify-content:center;min-width:32px}
+.fullscreen-toggle svg{display:block;pointer-events:none}

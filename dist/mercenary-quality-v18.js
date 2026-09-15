@@ -1,0 +1,4 @@
+export const MERCENARY_QUALITIES_V18=Object.freeze({common:{name:'普通',initial:0,perLevel:0,color:'#c6c9cb'},uncommon:{name:'精良',initial:2,perLevel:.20,color:'#8bc09b'},rare:{name:'稀有',initial:3,perLevel:.35,color:'#85bada'},epic:{name:'史诗',initial:4,perLevel:.50,color:'#bb97d6'}});
+const qualityById={bastion:'uncommon',outrider:'common',arcanist:'rare',vyra:'rare',linet:'uncommon',serin:'epic'};
+export function mercenaryQualityV18(p){return MERCENARY_QUALITIES_V18[p?.quality]||MERCENARY_QUALITIES_V18[qualityById[p?.templateId||p?.mercenaryId]]||null;}
+export function mercenaryQualityBonusV18(p,key){const q=mercenaryQualityV18(p);if(!q||p.id!=='merc-'+p.mercenaryId)return 0;const amount=q.initial+Math.floor(Math.max(0,p.level-1)*q.perLevel),main={shadow:'dex',oath:'str',ember:'wis'}[p.cls];return key===main?amount:key==='vit'?Math.floor(amount*.6):0;}

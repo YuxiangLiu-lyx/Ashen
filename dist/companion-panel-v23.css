@@ -1,0 +1,57 @@
+/* Shared hero panel, inventory, paperdoll, attributes and skill-tree classes
+   supply the layout; these rules only cover party-specific controls. */
+.companion-panel-v23{width:min(1120px,96vw)}
+.companion-panel-v23 .panel-head small{display:block;color:#a9b9b5;font-size:12px;margin-bottom:3px}
+.companion-panel-v23 .panel-head h2{margin:0}
+.companion-switch-v23{padding:8px 22px!important;background:#111e2699;gap:7px;border-bottom:1px solid #b69c6936}
+.companion-switch-v23 button{display:flex;align-items:center;gap:8px;font-size:14px;flex:0 0 auto}
+.companion-switch-v23 button small{font-size:11px;color:#a6b7ae}
+.companion-panel-v23 .tabs{flex-shrink:0}
+.companion-panel-v23 .paperdoll-person canvas{max-width:100%;height:258px}
+.companion-panel-v23 .companion-portrait-v23{display:flex;align-items:flex-start;justify-content:center;min-height:365px;overflow:hidden}
+.companion-panel-v23 .companion-portrait-v23 .portrait-art{position:static;inset:auto;width:100%;height:auto;max-width:100%;max-height:570px;object-fit:contain;object-position:center top;pointer-events:none}
+.companion-panel-v23 .companion-portrait-v23 canvas{max-width:100%;height:auto;max-height:450px;object-fit:contain}
+.companion-panel-v23 .companion-manage-v23{padding-top:12px;border-top:1px solid #bca57533;margin-top:16px}
+.companion-confirm-v23{border:1px solid #ad876367;border-radius:7px;padding:16px;background:#322726b8;margin:14px 0}
+.companion-confirm-v23 h3{color:#e8d0ad;font-weight:400;margin:0 0 8px}
+.companion-confirm-v23 p{font-size:14px;line-height:1.8}
+.companion-confirm-v23 .danger-v23{border-color:#b57368;color:#efd0c7}
+.companion-readonly-v23{color:#d8c29d;font-size:13px;background:#302b2866;padding:9px 12px;border-radius:5px}
+.companion-result-v23{font-size:14px;line-height:1.8;color:#d3e3bd;border-left:2px solid #839c70;padding:7px 12px;background:#23322780}
+.companion-study-v23{margin-top:22px}
+.companion-study-v23 h3{margin:2px 0}
+.companion-study-v23 summary{cursor:pointer;color:#cbb990;padding:7px 0;font-size:13px}
+.companion-study-v23 details p{font-size:13px;line-height:1.8}
+.companion-recruit-grid-v23,.companion-owned-grid-v23{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.companion-recruit-grid-v23 .merc-contract,.companion-owned-grid-v23 .merc-contract{min-width:0;display:block}
+.companion-recruit-portrait-v23{float:right;width:70px;height:88px;object-fit:cover;object-position:top;border-radius:6px;margin:0 0 8px 10px}
+.quality-uncommon-v23{color:#8bc09b}
+.companion-panel-v23 .note-card p{line-height:1.85}
+.companion-panel-v23 .tree-node span{overflow-wrap:anywhere}
+@media(max-width:720px){
+ .companion-recruit-grid-v23,.companion-owned-grid-v23{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .companion-switch-v23{padding:7px 14px!important}
+ .companion-switch-v23 button{padding:7px 10px}
+ .companion-panel-v23 .companion-portrait-v23{display:none}
+ .companion-panel-v23 .attrs-layout{grid-template-columns:1fr}
+ .companion-recruit-portrait-v23{width:54px;height:70px}
+}
+@media(max-width:450px){.companion-recruit-grid-v23,.companion-owned-grid-v23{grid-template-columns:1fr}.companion-panel-v23 .row{flex-wrap:wrap}}
+@media(max-height:550px) and (orientation:landscape){
+ .companion-panel-v23{max-height:96dvh}
+ .companion-panel-v23 .panel-head{padding:8px 16px}
+ .companion-panel-v23 .panel-body{padding:10px 16px}
+ .companion-panel-v23 .panel-head h2{font-size:21px}
+ .companion-switch-v23{padding:4px 16px!important}
+ .companion-switch-v23 button{padding:5px 9px}
+ .companion-panel-v23>.tabs:not(.companion-switch-v23) button{padding:8px 14px}
+ .companion-panel-v23 .companion-portrait-v23{display:flex;min-height:280px}
+ .companion-panel-v23 .attrs-layout{grid-template-columns:minmax(150px,.7fr) minmax(300px,1.3fr);gap:18px}
+ .companion-panel-v23 .companion-portrait-v23 .portrait-art{max-height:390px}
+ .companion-panel-v23 .inventory-workspace.with-doll{grid-template-columns:minmax(275px,.9fr) minmax(260px,1fr);gap:16px}
+ .companion-panel-v23 .doll-column{padding-right:14px}
+ .companion-panel-v23 .paperdoll{grid-template-columns:68px minmax(100px,1fr) 68px;grid-template-rows:repeat(3,77px) 56px;gap:8px}
+ .companion-panel-v23 .paperdoll-person canvas{height:210px}
+ .companion-panel-v23 .skills-workspace{grid-template-columns:1fr 1fr;gap:16px}
+ .companion-panel-v23 .activation-slot{min-height:65px}
+}

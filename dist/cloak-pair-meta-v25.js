@@ -1,0 +1,1 @@
+export const CLOAK_PAIR_META_V25=[{"sourceRect": [57, 52, 670, 857], "anchor": [335.0, 855], "referenceHeight": 853}, {"sourceRect": [842, 76, 660, 865], "anchor": [330.0, 863], "referenceHeight": 861}];

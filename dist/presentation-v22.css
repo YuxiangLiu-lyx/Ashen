@@ -1,0 +1,11 @@
+/* Quiet corner notices; no centre-screen reward banner. Full text remains in bags/journal. */
+.toast-stack{left:auto;right:max(16px,env(safe-area-inset-right));top:auto;bottom:154px;transform:none;width:min(340px,72vw);text-align:left;z-index:8;pointer-events:none!important}
+.toast{padding:7px 11px;margin:4px 0;background:#132027dd;border-left:2px solid #b59c6b66;border-radius:3px;color:#c9d0cc;font-size:12px;line-height:1.6;box-shadow:0 3px 12px #0003;animation:notice-enter-v22 .18s ease both}
+/* Continuous illustrations reserve a real lower dialogue region, with no overlaid portrait. */
+.story-illustrated-v19 .dialogue-card{background:linear-gradient(110deg,#131f29fc,#201e24fc)}
+.story-art-hold-v22 .dialogue-card{pointer-events:none}
+.story-action-hint-v22{font-size:12px;color:#a7b0b5;min-height:30px;padding-top:5px}
+@keyframes notice-enter-v22{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:700px){.toast-stack{top:auto;bottom:182px;right:12px;width:min(290px,68vw)}.toast{font-size:11px;padding:6px 9px}}
+@media(max-height:520px) and (orientation:landscape){.toast-stack{top:auto;bottom:117px;right:12px;width:min(310px,40vw)}}
+@media(prefers-reduced-motion:reduce){.toast{animation:none}}
