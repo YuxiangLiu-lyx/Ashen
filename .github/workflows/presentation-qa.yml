@@ -5,6 +5,9 @@ on:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: presentation-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   candidate:
     if: github.ref == 'refs/heads/fix/v28.1-presentation'
@@ -19,12 +22,12 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Materialize checksum-verified V28.1 changes
+      - name: Materialize checksum-verified V28.1 changes and refinements
         id: transfer
         run: |
           python3 - <<'PY'
           from pathlib import Path, PurePosixPath
-          import hashlib, json, lzma, subprocess, os
+          import hashlib, json, lzma, zlib, subprocess, os
           folder=Path('tools/v281-transfer')
           active=folder.exists()
           with open(os.environ['GITHUB_OUTPUT'],'a') as out:
@@ -38,10 +41,12 @@ jobs:
           payload=json.loads(raw)
           subprocess.run(['git','merge-base','--is-ancestor',payload['base_commit'],'HEAD'],check=True)
           paths=[]
-          for entry in payload['files']:
+          def apply(entry,refinement=False):
               rel=PurePosixPath(entry['path'])
               assert not rel.is_absolute() and '..' not in rel.parts
               assert rel.parts[0] in {'dist','source','docs','tests','tools','README.md','BACKUP_STATUS.md'}
+              if refinement:
+                  assert str(rel) in paths
               p=Path(rel)
               if entry['old_sha256'] is None:
                   assert not p.exists(), str(p)+' unexpectedly exists'
@@ -57,10 +62,17 @@ jobs:
               assert hashlib.sha256(encoded).hexdigest()==entry['new_sha256'],str(p)+' result mismatch'
               p.parent.mkdir(parents=True,exist_ok=True)
               p.write_bytes(encoded)
-              paths.append(str(rel))
+              if not refinement:
+                  paths.append(str(rel))
+          for entry in payload['files']:
+              apply(entry)
+          refined=zlib.decompress(b''.join((Path('tools/v281-refinement')/f'part{i:02}').read_bytes() for i in range(1,10)))
+          assert hashlib.sha256(refined).hexdigest()=='e19f5fb6c408b0c5b3232c4098c91dbc4bc472cf70cfbd6d8b5b3a8124d6c9f3'
+          for entry in json.loads(refined)['files']:
+              apply(entry,True)
           Path('/tmp/ashen-v281-paths.json').write_text(json.dumps(paths))
           subprocess.run(['git','add','--',*paths],check=True)
-          print('Verified and materialized',len(paths),'files')
+          print('Verified and materialized',len(paths),'files including final refinements')
           PY
       - name: Restore original runtime images
         run: python3 tools/restore_archives.py
@@ -73,12 +85,12 @@ jobs:
         run: sudo apt-get update -qq && sudo apt-get install -y fonts-noto-cjk
       - name: Check every JavaScript module
         run: find dist -name '*.js' -print0 | xargs -0 -n1 node --check
-      - name: Run 20 presentation regression tests
+      - name: Run presentation regression tests
         run: |
           mkdir -p qa-export
           set -o pipefail
           node --test tests/presentation-v281.test.mjs | tee qa-export/node-tests.txt
-      - name: Run actual HTTP Chromium scenes
+      - name: Run actual HTTP Chromium scenes and visual gallery
         run: node tests/browser-presentation-v281.mjs
       - name: Record evidence and publish tested candidate
         if: steps.transfer.outputs.active == 'true'
@@ -88,22 +100,27 @@ jobs:
           python3 - <<'PY'
           from pathlib import Path
           from datetime import datetime, timezone
-          import json, os, shutil, subprocess
+          import json, os, re, shutil, subprocess
           browser=json.loads(Path('qa-export/browser/BROWSER_QA.json').read_text())
+          tap=Path('qa-export/node-tests.txt').read_text()
+          passed=int(re.search(r'^# pass (\d+)$',tap,re.M).group(1))
+          assert passed==23 and re.search(r'^# fail 0$',tap,re.M)
+          assert not browser['uncaught_errors'] and not browser['chapter8_cg_requests']
           now=datetime.now(timezone.utc).isoformat()
           evidence=Path('docs/v28.1/screenshots');evidence.mkdir(parents=True,exist_ok=True)
           for p in Path('qa-export/browser').glob('*.png'):
               shutil.copy2(p,evidence/p.name)
-          report={'version':'28.1','checked_at_utc':now,'workflow_run_id':os.environ['QA_RUN_ID'],'candidate_parent':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'node_tests_passed':20,'browser':browser,'site_deployed':False,'full_manual_eight_chapter_playthrough':False}
+          report={'version':'28.1','checked_at_utc':now,'workflow_run_id':os.environ['QA_RUN_ID'],'candidate_parent':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'node_tests_passed':passed,'browser':browser,'site_deployed':False,'full_manual_eight_chapter_playthrough':False}
           Path('docs/v28.1/QA_REMOTE.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
           p=Path('source/CURRENT_STATE.json');state=json.loads(p.read_text())
-          state.update(checked_at_utc=now,browser_interaction_retested=True,browser_qa_status='passed: real HTTP Chromium title, class previews, chapter checkpoints and four chapter 8 scenes; not a complete playthrough',runtime_resource_bytes=sum(f.stat().st_size for f in Path('dist').rglob('*') if f.is_file()))
+          state.update(checked_at_utc=now,browser_interaction_retested=True,browser_qa_status='passed: real HTTP Chromium title, class previews, chapter checkpoints, chapter 8 narration and portraits, and actual-renderer gallery; not a complete playthrough',runtime_resource_bytes=sum(f.stat().st_size for f in Path('dist').rglob('*') if f.is_file()))
+          state['v28_1']['node_tests_passed']=passed
           p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
           with Path('source/progress.txt').open('a') as f:
-              f.write('\n'+now+' · V28.1 远端验收\n20 项 Node 测试通过；完整 HTTP Chromium 加载、三职业预览、后续章节入口及四段第八章演出检查通过；无未捕获异常，无第八章大图请求。证据：docs/v28.1/QA_REMOTE.json 与 screenshots/。本轮没有发布原站，也没有声称完成八章人工通关。\n')
+              f.write('\n'+now+' · V28.1 远端验收\n23 项 Node 测试通过；完整 HTTP Chromium 加载、三职业预览、后续章节入口、四段第八章旁白/对白及正式渲染器画廊检查通过。第八章小立绘保留，无大图请求，无未捕获异常。证据：docs/v28.1/QA_REMOTE.json 与 screenshots/。本轮没有发布原站，也没有声称完成八章人工通关。\n')
           paths=json.loads(Path('/tmp/ashen-v281-paths.json').read_text())
           subprocess.run(['git','add','--',*paths,'dist/assets/v281','docs/v28.1/QA_REMOTE.json','docs/v28.1/screenshots','source/CURRENT_STATE.json','source/progress.txt'],check=True)
-          subprocess.run(['git','rm','-r','--','tools/v281-transfer'],check=True)
+          subprocess.run(['git','rm','-r','--','tools/v281-transfer','tools/v281-refinement'],check=True)
           PY
           git config user.name Tourist
           git config user.email 138776726+YuxiangLiu-lyx@users.noreply.github.com
