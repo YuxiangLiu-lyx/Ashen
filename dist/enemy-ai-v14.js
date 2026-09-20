@@ -34,7 +34,7 @@ function tuneBossStats(e){
   // Older restore migration must not reset newly tuned bosses to V13 profile HP.
   e.v13Tuned=true;
 }
-const attackDamage=(e,n)=>Math.round(n*bossScale(e).damage);
+const attackDamage=(e,n)=>Math.round(n*bossScale(e).damage*(e.v28DamageMultiplier||1));
 // Actor references belong only to this live encounter, never to a saved game.
 const basicLocks=new WeakMap(),attackEncounters=new WeakMap();
 const liveActor=p=>!!p&&!p.dead&&!p.downed&&Number.isFinite(p.hp)&&p.hp>0;

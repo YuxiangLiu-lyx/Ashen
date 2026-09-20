@@ -98,21 +98,23 @@ export function monsterPoseV8(a,time=0){
 }
 
 export function drawMonster(c,bank,a,time=0){
-  if(CH5_VISUAL_FAMILIES[a.type])a={...a,type:CH5_VISUAL_FAMILIES[a.type]};
-  if(drawHellMonster(c,bank,a,time))return;
-  const {cfg,index}=monsterPoseV8(a,time),f=bank.frame(cfg.sheet,index);
-  if(!f?.meta)return;
-  const m=f.meta,k=cfg.size/m.bodyHeight,lift=a.type==='bat'?29+Math.sin(time*2.4+(a.flapOffset||0))*.7:0;
   c.save();
-  if(a.elite)c.filter='brightness(1.12) saturate(.65)';
-  c.translate(Math.round(a.x),Math.round(a.y-lift));
-  // Mirroring changes facing only; the actual six poses articulate limbs independently.
-  if(Math.cos(a.angle||0)<0)c.scale(-1,1);
-  // Narrative guards keep their armored bodies when falling; combat state is untouched.
-  if(a.fall&&(a.type==='guard'||a.type==='captain'))c.rotate(a.fall*1.43);
-  c.imageSmoothingEnabled=false;
-  c.drawImage(bank.images[cfg.sheet],f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);
-  c.restore();
+  try{
+    if(a.v28Filter)c.filter=a.v28Filter;
+    if(a.v28VisualType)a={...a,type:a.v28VisualType};
+    if(CH5_VISUAL_FAMILIES[a.type])a={...a,type:CH5_VISUAL_FAMILIES[a.type]};
+    if(drawHellMonster(c,bank,a,time))return;
+    const {cfg,index}=monsterPoseV8(a,time),f=bank.frame(cfg.sheet,index);
+    if(!f?.meta)return;
+    const m=f.meta,k=cfg.size/m.bodyHeight,lift=a.type==='bat'?29+Math.sin(time*2.4+(a.flapOffset||0))*.7:0;
+    c.save();
+    c.translate(Math.round(a.x),Math.round(a.y-lift));
+    if(Math.cos(a.angle||0)<0)c.scale(-1,1);
+    if(a.fall&&(a.type==='guard'||a.type==='captain'))c.rotate(a.fall*1.43);
+    c.imageSmoothingEnabled=false;
+    c.drawImage(bank.images[cfg.sheet],f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);
+    c.restore();
+  }finally{c.restore();}
 }
 
 export {SCENERY};
