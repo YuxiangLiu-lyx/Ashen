@@ -1,3 +1,6 @@
+import {actorHeightV281,CREATURE_HEIGHT,walkPhaseV281} from './presentation-metrics-v281.js';
+import {frameFootPointsV281,drawCutoutGaitV281,monsterStyleV281,drawMonsterOrnamentV281} from './actor-art-v281.js';
+import {drawFittedEquipmentV281,drawWeaponSignatureV281,weaponAngleV281} from './equipment-art-v281.js';
 import {sceneryAlphaV26} from './scene-geometry-v26.js';
 import {sagaSpeakerPortraitV25} from './saga-art-v25.js';
 import {installRomanceWorldFramesV20,drawRomanceFrameV20,drawRomancePropV20} from './romance-world-v20.js';
@@ -72,22 +75,23 @@ export function drawHero(c,bank,p,x,y,time=0,extra={}){
  if(p.cls==='saint'){drawNPC(c,bank,{id:'saint',x,y,angle:extra.angle??p.angle,moving:extra.moving??p.moving,walkDistance:(extra.anim??p.anim)*18},time,{size:extra.size||84});return;}
  const noen=!p.mercenaryId&&['shadow','oath','ember'].includes(p.cls),look=appearance(p),cls={shadow:0,oath:1,ember:2}[p.cls],duration=extra.cinematic?(p.cls==='oath'?.44:.36):p.attackKind==='attack'?(p.attackDuration||.36):p.attackKind==='cleave'?.48:p.cls==='oath'?.44:.36,attack=extra.attack??p.attackAnim,phase=Math.max(0,Math.min(3,Math.floor((duration-attack)/duration*4))),back=Math.sin(extra.angle??p.angle)<-.22,idle=!(extra.moving??p.moving)&&!(attack>0),calm=heroCalmFrameV24(bank,p,extra),bodyName=calm?.sheet||(idle?'idleBodies':back?'backBodies':'bodies'),frame=calm?.index??(idle?cls+(back?3:0):back?cls*4+((extra.moving??p.moving)||attack>0?Math.floor(extra.anim??p.anim)%4:1):cls*8+(attack>0?4+phase:(extra.moving??p.moving)?Math.floor(extra.anim??p.anim)%4:0)),f=calm?.frame||bank.frame(bodyName,frame);if(!f)return;
  const meta=f.meta,foot=meta.footAnchorLocal,unit=84/(calm?calm.referenceHeight:idle?f.h:Math.max(...bank.frames[bodyName].slice(cls*(back?4:8),cls*(back?4:8)+4).map(a=>a.h))),local=a=>[(a[0]-foot[0])*unit,(a[1]-foot[1])*unit];
- c.save();c.translate(Math.round(x),Math.round(y));const zoom=(extra.size||84)/84;c.scale((Math.cos(extra.angle??p.angle)<0?-1:1)*zoom,zoom);c.imageSmoothingEnabled=!!calm;
+ c.save();c.translate(Math.round(x),Math.round(y));const zoom=(extra.size||84)/84;c.scale((Math.cos(extra.angle??p.angle)<0?-1:1)*zoom,zoom);c.imageSmoothingEnabled=true;
  const head=local(meta.headAnchorLocal),hand=local(meta.primaryHandLocal),offhand=local(meta.secondaryHandLocal);
  // Generic legacy hood/cape/paired boots do not follow a living body.
  // Noen keeps authored clothing/feet during movement and attack transitions;
  // inventory stats/slots and the three original class attack bodies are unchanged.
- if(look.chest&&!noen){const cf=bank.frame('layers',look.chest.layer);attach(c,bank,look.chest.layer,[head[0]-9,head[1]+16],cf.meta.shoulderAttachLocal,59);}
+ // The fitted armour is drawn after the original body, using this frame's anatomical rig.
  c.save();if(look.chest?.tier==='epic')c.filter='brightness(1.12) saturate(1.12)';c.drawImage(bank.images[bodyName],f.x,f.y,f.w,f.h,(f.x-f.cell.x-foot[0])*unit,(f.y-f.cell.y-foot[1])*unit,f.w*unit,f.h*unit);c.restore();
- if(look.feet&&!noen)bank.draw(c,'layers',11,3,0,28,20);
- if(look.head!==null&&!noen){const hf=bank.frame('layers',look.head);attach(c,bank,look.head,head,hf.meta.faceOpeningCenterLocal||hf.meta.headAttachLocal,33);}
- if(look.hands){const glove=bank.frame('layers',10),k=11/glove.h;for(const [i,at] of [offhand,hand].entries()){if(calm?.back&&i===0)continue;const sx=glove.cell.x+(i?197:74),sy=glove.cell.y+101;ctxGlove(c,bank,sx,sy,109,132,at,k);}}
- if(look.weapon&&!extra.hideWeapon){const layer=look.weapon==='daggers'?0:['greatsword','sword'].includes(look.weapon)?1:look.weaponTier==='epic'?3:2,wf=bank.frame('layers',layer),wm=wf.meta;let grip=wm.gripLocal,tip=wm.tipLocal;if(layer===0){grip=grip[0];tip=tip[0];}const sourceAngle=Math.atan2(tip[1]-grip[1],tip[0]-grip[0]);const target=['staff','wand'].includes(look.weapon)?(attack>0&&p.attackKind==='cleave'?[-2,-1.2,.3,.9][phase]:attack>0?[-1.3,-1.65,-.55,-1.3][phase]:-1.3):attack>0?[-1.9,-1.1,.3,.8][phase]:calm&&look.weapon==='greatsword'?-.85:calm&&look.weapon==='sword'?.3:.9;const size=look.weapon==='daggers'?30:look.weapon==='greatsword'?59:look.weapon==='sword'?42:look.weapon==='wand'?32:49;c.save();if(look.weaponTier==='rare')c.filter='brightness(1.12)';if(look.weaponTier==='epic')c.filter='brightness(1.2) saturate(1.25)';attach(c,bank,layer,hand,grip,size,target-sourceAngle,layer===0?0:null);if(layer===0&&look.offhand&&!calm?.back){const offGrip=wm.gripLocal[1],offTip=wm.tipLocal[1],oa=Math.atan2(offTip[1]-offGrip[1],offTip[0]-offGrip[0]);attach(c,bank,0,offhand,offGrip,size,(attack>0?-target:1.4)-oa,1);}c.restore();}
- if(look.offhand&&look.weapon!=='daggers'&&!extra.hideWeapon&&!calm?.back){const layer=['sword','greatsword'].includes(look.offhand)?1:2,wf=bank.frame('layers',layer),wm=wf.meta,grip=wm.gripLocal,tip=wm.tipLocal,source=Math.atan2(tip[1]-grip[1],tip[0]-grip[0]);attach(c,bank,layer,offhand,grip,look.offhand==='wand'?30:39,(attack>0?-.9:calm?.4:1.4)-source);}
- if(look.relic&&!calm?.back)bank.draw(c,'equipIcons',3,head[0],head[1]+31,9,9);c.restore();
+ const feet=frameFootPointsV281(bank,bodyName,frame,f,unit,foot);
+ drawFittedEquipmentV281(c,p.gear,{head,hand,offhand,feet},p.cls,time,{back,hideWeapon:extra.hideWeapon});
+
+
+ if(look.weapon&&!extra.hideWeapon){const layer=look.weapon==='daggers'?0:['greatsword','sword'].includes(look.weapon)?1:look.weaponTier==='epic'?3:2,wf=bank.frame('layers',layer),wm=wf.meta;let grip=wm.gripLocal,tip=wm.tipLocal;if(layer===0){grip=grip[0];tip=tip[0];}const sourceAngle=Math.atan2(tip[1]-grip[1],tip[0]-grip[0]);const authoredTarget=['staff','wand'].includes(look.weapon)?(attack>0&&p.attackKind==='cleave'?[-2,-1.2,.3,.9][phase]:attack>0?[-1.3,-1.65,-.55,-1.3][phase]:-1.3):attack>0?[-1.9,-1.1,.3,.8][phase]:calm&&look.weapon==='greatsword'?-.85:calm&&look.weapon==='sword'?.3:.9;const target=weaponAngleV281(look.weapon,hand,offhand,authoredTarget);const size=look.weapon==='daggers'?30:look.weapon==='greatsword'?59:look.weapon==='sword'?42:look.weapon==='wand'?32:49;c.save();if(look.weaponTier==='rare')c.filter='brightness(1.12)';if(look.weaponTier==='epic')c.filter='brightness(1.2) saturate(1.25)';attach(c,bank,layer,hand,grip,size,target-sourceAngle,layer===0?0:null);drawWeaponSignatureV281(c,p.gear.weapon||p.gear.offhand,hand,target,size,offhand);if(layer===0&&look.offhand&&!calm?.back){const offGrip=wm.gripLocal[1],offTip=wm.tipLocal[1],oa=Math.atan2(offTip[1]-offGrip[1],offTip[0]-offGrip[0]);attach(c,bank,0,offhand,offGrip,size,(attack>0?-target:1.4)-oa,1);drawWeaponSignatureV281(c,p.gear.offhand,offhand,attack>0?-target:1.4,size);}c.restore();}
+ if(look.offhand&&look.weapon!=='daggers'&&!extra.hideWeapon&&!calm?.back){const layer=['sword','greatsword'].includes(look.offhand)?1:2,wf=bank.frame('layers',layer),wm=wf.meta,grip=wm.gripLocal,tip=wm.tipLocal,source=Math.atan2(tip[1]-grip[1],tip[0]-grip[0]);attach(c,bank,layer,offhand,grip,look.offhand==='wand'?30:39,(attack>0?-.9:calm?.4:1.4)-source);drawWeaponSignatureV281(c,p.gear.offhand,offhand,attack>0?-.9:calm?.4:1.4,look.offhand==='wand'?30:39);}
+ c.restore();
 }
-function anchored(c,bank,name,index,x,y,size,flip=false,fall=0){const f=bank.frame(name,index);if(!f)return;const m=f.meta,k=size/(m.bodyHeight||f.h);c.save();c.translate(x,y);if(flip)c.scale(-1,1);if(fall)c.rotate(fall*1.43);c.drawImage(bank.images[name],f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);c.restore();}
-export function drawNPC(c,bank,a,time=0,{hood=false,size=82}={}){if(drawSocialActorV20(c,bank,a,time,{hood,size}))return;if(drawIdentityActorV18(c,bank,a,time,{hood,size}))return;if(['mentor','leon'].includes(a.id)){drawMonster(c,bank,{...a,type:'captain',walkDistance:a.walkDistance||0},time);return;}if(drawHellNPC(c,bank,a,time,size))return;const back=Math.sin(a.angle||0)<-.22,flip=Math.cos(a.angle||0)<0,index=hood?12:NPC_INDEX[a.id]??a.sprite??3;if(['seline','hester'].includes(a.id)){anchored(c,bank,'chapterBodies',(a.id==='hester'?4:0)+(a.moving&&!back?2+Math.floor((a.walkDistance||time*60)/18)%2:back?1:0),a.x,a.y,size,flip,a.fall||0);return;}if(['guard1','guard2','messenger','bridgewatch','bren','bodyguard1','bodyguard2','bodyguard3'].includes(a.id)){drawMonster(c,bank,{...a,type:['bren','bodyguard1'].includes(a.id)?'captain':'guard',walkDistance:a.walkDistance||time*75},time);return;}if(a.id==='lotti'){anchored(c,bank,'lottiBodies',(back?4:0)+(a.moving?1+Math.floor(time*8)%3:0),a.x,a.y,size,flip);return;}if(a.id==='sister'){anchored(c,bank,'sisterBodies',(back?4:0)+(a.moving?1+Math.floor(time*8)%3:0),a.x,a.y,size,flip);return;}if(back){anchored(c,bank,'backNPC',index,a.x,a.y,size,flip,a.fall||0);return;}if(a.id==='sister'){anchored(c,bank,a.moving?'darkWalk':'backNPC',a.moving?Math.floor((a.walkDistance||time*65)/18)%4:13,a.x,a.y,size,flip);return;}if(a.id==='saint'&&a.moving){const row=hood?1:0,frame=row*4+(a.moving?Math.floor((a.walkDistance||time*65)/18)%4:1),f=bank.frame('storyWalk',frame);if(f){const m=f.meta,k=m.worldScale*size/80;c.save();c.translate(a.x,a.y);if(flip)c.scale(-1,1);c.drawImage(bank.images.storyWalk,f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);c.restore();return;}}const f=bank.frame('actors',index);if(!f)return;c.save();c.translate(a.x,a.y);if(flip)c.scale(-1,1);if(a.fall)c.rotate(a.fall*1.43);bank.draw(c,'actors',index,0,0,f.w*size/f.h,size);c.restore();}
+function anchored(c,bank,name,index,x,y,size,flip=false,fall=0,actor=null){const f=bank.frame(name,index);if(!f)return;const m=f.meta,k=size/(m.bodyHeight||f.h);c.save();c.translate(x,y);if(flip)c.scale(-1,1);if(fall)c.rotate(fall*1.43);drawCutoutGaitV281(c,bank.images[name],[f.x,f.y,f.w,f.h],[(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k],actor||{});c.restore();}
+export function drawNPC(c,bank,a,time=0,{hood=false,size=82}={}){if(drawSocialActorV20(c,bank,a,time,{hood,size}))return;if(drawIdentityActorV18(c,bank,a,time,{hood,size}))return;if(['mentor','leon'].includes(a.id)){drawMonster(c,bank,{...a,type:'captain',walkDistance:a.walkDistance||0},time);return;}if(drawHellNPC(c,bank,a,time,size))return;const back=Math.sin(a.angle||0)<-.22,flip=Math.cos(a.angle||0)<0,index=hood?12:NPC_INDEX[a.id]??a.sprite??3;if(['seline','hester'].includes(a.id)){anchored(c,bank,'chapterBodies',(a.id==='hester'?4:0)+(a.moving&&!back?2+Math.floor((a.walkDistance||time*60)/18)%2:back?1:0),a.x,a.y,size,flip,a.fall||0,back?a:null);return;}if(['guard1','guard2','messenger','bridgewatch','bren','bodyguard1','bodyguard2','bodyguard3'].includes(a.id)){drawMonster(c,bank,{...a,type:['bren','bodyguard1'].includes(a.id)?'captain':'guard',walkDistance:a.walkDistance||time*75},time);return;}if(a.id==='lotti'){anchored(c,bank,'lottiBodies',(back?4:0)+(a.moving?1+walkPhaseV281(a,72,3):0),a.x,a.y,size,flip);return;}if(a.id==='sister'){anchored(c,bank,'sisterBodies',(back?4:0)+(a.moving?1+walkPhaseV281(a,72,3):0),a.x,a.y,size,flip);return;}if(back){anchored(c,bank,'backNPC',index,a.x,a.y,size,flip,a.fall||0,a);return;}if(a.id==='sister'){anchored(c,bank,a.moving?'darkWalk':'backNPC',a.moving?Math.floor((a.walkDistance||time*65)/18)%4:13,a.x,a.y,size,flip);return;}if(a.id==='saint'&&a.moving){const row=hood?1:0,frame=row*4+(a.moving?Math.floor((a.walkDistance||time*65)/18)%4:1),f=bank.frame('storyWalk',frame);if(f){const m=f.meta,k=m.worldScale*size/80;c.save();c.translate(a.x,a.y);if(flip)c.scale(-1,1);c.drawImage(bank.images.storyWalk,f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);c.restore();return;}}const f=bank.frame('actors',index);if(!f)return;c.save();c.translate(a.x,a.y);if(flip)c.scale(-1,1);if(a.fall)c.rotate(a.fall*1.43);drawCutoutGaitV281(c,bank.images.actors,[f.x,f.y,f.w,f.h],[-f.w*size/f.h/2,-size,f.w*size/f.h,size],a);c.restore();}
 export function monsterPoseV8(a,time=0){
   const cfg=MONSTER_CYCLES[a.type]||MONSTER_CYCLES.guard;
   const isGuard=a.type==='guard'||a.type==='captain';
@@ -98,22 +102,30 @@ export function monsterPoseV8(a,time=0){
 }
 
 export function drawMonster(c,bank,a,time=0){
+  const style=monsterStyleV281(a,CH5_VISUAL_FAMILIES),native=style.type,source=a;
+  const base=CREATURE_HEIGHT[native]||88;
+  a={...a,type:native,size:style.height};
   c.save();
   try{
-    if(a.v28Filter)c.filter=a.v28Filter;
-    if(a.v28VisualType)a={...a,type:a.v28VisualType};
-    if(CH5_VISUAL_FAMILIES[a.type])a={...a,type:CH5_VISUAL_FAMILIES[a.type]};
-    if(drawHellMonster(c,bank,a,time))return;
-    const {cfg,index}=monsterPoseV8(a,time),f=bank.frame(cfg.sheet,index);
-    if(!f?.meta)return;
-    const m=f.meta,k=cfg.size/m.bodyHeight,lift=a.type==='bat'?29+Math.sin(time*2.4+(a.flapOffset||0))*.7:0;
+    drawMonsterOrnamentV281(c,source,style,time,true);
     c.save();
-    c.translate(Math.round(a.x),Math.round(a.y-lift));
-    if(Math.cos(a.angle||0)<0)c.scale(-1,1);
-    if(a.fall&&(a.type==='guard'||a.type==='captain'))c.rotate(a.fall*1.43);
-    c.imageSmoothingEnabled=false;
-    c.drawImage(bank.images[cfg.sheet],f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);
-    c.restore();
+    try{
+      const originalHeight={rat:39,wolf:62,bat:52,guard:80,captain:94,hellHound:62,hellSoul:88,hellGuard:95,hellJailer:142,deepHound:62,deepSoul:88,deepGuard:95,deepElite:95,ironScuttler:110,furnaceSentinel:132,odric:122,martha:114,severin:134,bloodDemon:180}[native]||base;
+      const scale=style.height/originalHeight;
+      c.translate(source.x,source.y);c.scale(scale,scale);c.translate(-source.x,-source.y);
+      if(!drawHellMonster(c,bank,a,time)){
+        const {cfg,index}=monsterPoseV8(a,time),f=bank.frame(cfg.sheet,index);
+        if(f?.meta){
+          const m=f.meta,k=cfg.size/m.bodyHeight,lift=native==='bat'?25+Math.sin(time*2.4+(a.flapOffset||0))*.6:0;
+          c.translate(Math.round(a.x),Math.round(a.y-lift));
+          if(Math.cos(a.angle||0)<0)c.scale(-1,1);
+          if(a.fall&&(native==='guard'||native==='captain'))c.rotate(a.fall*1.43);
+          c.imageSmoothingEnabled=true;
+          c.drawImage(bank.images[cfg.sheet],f.x,f.y,f.w,f.h,(f.x-f.cell.x-m.footAnchorLocal[0])*k,(f.y-f.cell.y-m.footAnchorLocal[1])*k,f.w*k,f.h*k);
+        }
+      }
+    }finally{c.restore();}
+    drawMonsterOrnamentV281(c,source,style,time,false);
   }finally{c.restore();}
 }
 

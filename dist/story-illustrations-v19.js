@@ -1,3 +1,4 @@
+import {chapterEightSceneV281,chapterEightArtV281} from './presentation-metrics-v281.js';
 import {SAGA_ILLUSTRATIONS_V25} from './saga-art-v25.js';
 import {CHARACTER_ART_V24} from './character-art-v24.js';
 import {CITY_MOMENTS_ILLUSTRATIONS_V24} from './city-moments-art-v24.js';
@@ -22,12 +23,13 @@ let visibleIllustration=null;
 const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 
 export function sceneIllustrationV19(flow,beats){
+ if(chapterEightSceneV281(flow?.cine?.id||flow?.g?.pending?.id,flow?.cine?.map||flow?.g?.map))return null;
  const cue=illustrationCueV22(flow,beats);
  return cue&&STORY_ILLUSTRATIONS_V19[cue.id]?{id:cue.id,...STORY_ILLUSTRATIONS_V19[cue.id]}:null;
 }
 
 export function loadStoryIllustrationV19(id,onReady){
- const art=STORY_ILLUSTRATIONS_V19[id];if(!art||typeof Image==='undefined')return false;
+ const art=STORY_ILLUSTRATIONS_V19[id];if(chapterEightArtV281(id)||!art||typeof Image==='undefined')return false;
  const current=images.get(id);if(current){if(current.state==='loading')current.onReady=onReady;return current.state==='ready';}
  const img=new Image(),entry={state:'loading',img,onReady};images.set(id,entry);
  img.decoding='async';img.onload=()=>{entry.state=img.naturalWidth>0&&img.naturalHeight>0?'ready':'failed';const notify=entry.onReady;entry.onReady=null;if(entry.state==='ready')notify?.();};
@@ -36,11 +38,12 @@ export function loadStoryIllustrationV19(id,onReady){
 }
 
 export function prepareSceneIllustrationsV19(sceneId,beats,onReady){
+ if(chapterEightSceneV281(sceneId))return;
  for(const id of new Set((beats?.[sceneId]||[]).map(c=>c.id)))loadStoryIllustrationV19(id,onReady);
 }
 
 export function storyIllustrationHTMLV19(art){
- if(!art||images.get(art.id)?.state!=='ready'){visibleIllustration=null;return '';}
+ if(!art||chapterEightArtV281(art.id)||images.get(art.id)?.state!=='ready'){visibleIllustration=null;return '';}
  const entering=visibleIllustration!==art.id;visibleIllustration=art.id;
  return `<figure class="story-illustration-v19${entering?' is-new':''}" data-scene-art="${escape(art.id)}"><img src="${escape(art.src)}" alt="${escape(art.alt)}" decoding="async" draggable="false"></figure>`;
 }

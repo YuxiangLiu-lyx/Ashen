@@ -1,11 +1,9 @@
 # 当前接续入口
 
-以 `CURRENT_STATE.json` 和根目录 `BACKUP_STATUS.md` 判断当前状态。产品 V27 的当前实际代码在 `../dist/`，图片通过 `../tools/restore_archives.py` 从已跟踪的分卷恢复。
+当前版本为 **V28.1 美工/表现修复版**，源代码在 `../dist/`。先读根目录 `AGENTS.md`、`NEXT_SESSION_PROMPT.md`、`BACKUP_STATUS.md`、本目录 `CURRENT_STATE.json` 和本轮用户需求。不要按沿用的 v14 文件名回退版本。
 
-开工顺序：根目录 `AGENTS.md` → `NEXT_SESSION_PROMPT.md` → 当前状态 → 本次用户需求。接着按具体修改阅读对应 JS 模块及历史设计文件。不要因为入口沿用 v14 文件名、历史文档写着 V9/V26，就回退当前游戏。
+V27 图片由 `../tools/restore_archives.py` 还原；5 张 V28.1 衍生图片已直接跟踪，也可用 `../tools/build_presentation_assets.py` 重建。脚底碰撞、比例/步态、装备和怪物外观分别在四个 `*-v281.js` 模块内，接入点仍是原有 core/game/visuals/staging。
 
-当前剧情与任务原文保存在 `dist/core-v14.js` 导入的内容模块中，V26 第八章与 V27 澄璃改写均已恢复。现有美術与地图、人物姿态映射保留在对应 art / meta / scene / presentation 模块中。历史部门稿、原图、未实现伏笔和记录见 `history/`，使用前核对其版本及“仅记录未实现”标记。
+V28.1 完成范围、QA 和限制在 `../docs/v28.1/`。第八章大图已从当前演出中删除，但对白、小立绘、任务、场景演出以及历史 CG 文件保留。
 
-原始开发仓库最新 source/ 全文和完整 Git 祖先未取回，此目录是新的恢复交接说明。禁止伪造原作者文档、生成记录或原始提交历史。
-
-本次要求：把可取回的最新版代码、文案、图片及历史全部保存至 `YuxiangLiu-lyx/Ashen`，并令后续模型每轮实际提交推送；不能只输出“已上传”而不验证远端。
+原始开发仓库最新 source/ 全文与完整 Git 祖先仍未取回。历史档案不得冒充现行版本或新图生成记录。每次实际开发结束必须提交推送 GitHub Ashen/main 并核验远端；GitHub 保存不等于网站发布。

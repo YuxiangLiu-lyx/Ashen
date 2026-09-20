@@ -1,3 +1,6 @@
+import {installPresentationPhysicsV281} from './presentation-physics-v281.js';
+import {CH5_VISUAL_FAMILIES as PRESENTATION_ALIASES_V281} from './chapter5-world-v14.js';
+import {invalidateSceneGeometryV281,mapFurnitureV26} from './scene-geometry-v26.js';
 import {installChengliTextV27} from './chengli-text-v27.js';
 import {installChapter67StagingV26} from './saga-staging67-v26.js';
 import {installChapter8StagingV26} from './v26-story8-staging.js';
@@ -266,3 +269,5 @@ const restoreBeforeTextV26=RPG.prototype.restore;
 RPG.prototype.restore=function(saved){return restoreBeforeTextV26.call(this,migrateDialogueSaveV26(saved));};
 // V28 is installed last so it wraps every historical combat/story extension without replacing them.
 installCombatOverhaulV28(RPG,{loot,SKILLS,ITEMS});
+
+installPresentationPhysicsV281(RPG,{MAPS,SCENERY,aliases:PRESENTATION_ALIASES_V281,furniture:mapFurnitureV26,invalidateGeometry:invalidateSceneGeometryV281});

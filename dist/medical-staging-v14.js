@@ -151,7 +151,8 @@ export function medicalPatientPose(cine,a,patientPosition){
 export function medicalDepth(a,kind='npc',cine=null){
   if(a._medicalTween)return Math.max(a.y,a._medicalTween.target?.[1]??a.y)-9.8;
   if(!a.transportWalk&&a.fall&&['cart','cot'].includes(a.patientSurface||a.attachedTo)){const support=cine?.get(a.attachedTo);return (support?.y??a.y)+(support?.depthYOffset??-10)+.2;}
-  return a.depthY??a.y+(a.depthYOffset??(kind==='stageprop'?-10:0));
+  if(kind==='scenery'&&a.flat)return a.depthY??0;
+  return a.footY??a.depthY??a.y+(a.depthYOffset??(kind==='stageprop'?-10:0));
 }
 /** Draw a plain black scene transition in screen coordinates after scene art, only during the action outro. */
 export function medicalCurtainAlpha(cine){const out=cine?._medicalOutro,d=cine?.stage.outro?.fadeOut;if(!out||!d)return 0;return clamp((cine.time-(out.end-d))/d);}

@@ -1,3 +1,4 @@
+import {drawFittedEquipmentV281,drawWeaponSignatureV281} from './equipment-art-v281.js';
 import {IDENTITY_META_V18} from './identity-meta-v18.js';
 
 // One stable identity controls exploration, staging, companion combat and paper dolls.
@@ -57,11 +58,12 @@ function weapon(c,bank,type,at,rotation,rarity,offhand=false){
 function equipment(c,bank,actor,pose,extra){
  const g=actor.gear;if(!g||pose.life||extra.hideWeapon)return;
  const hands=handCoordinates[pose.column],primary=g.weapon||g.offhand,secondary=g.weapon?g.offhand:null;
- if(primary?.weaponType){const ranged=['wand','staff'].includes(primary.weaponType),rotation=pose.attack?(pose.column===7?-1.9:pose.column===3?-.15:.8):ranged?-1.35:.9;weapon(c,bank,primary.weaponType,hands[0],rotation,primary.rarity);}
- if(secondary?.weaponType)weapon(c,bank,secondary.weaponType,hands[1],pose.attack?.45:1.4,secondary.rarity,true);
- if(g.relic&&bank.frame('equipIcons',3))bank.draw(c,'equipIcons',3,-3,-35,8,8);
+ if(primary?.weaponType){const ranged=['wand','staff'].includes(primary.weaponType),rotation=pose.attack?(pose.column===7?-1.9:pose.column===3?-.15:.8):ranged?-1.35:.9;weapon(c,bank,primary.weaponType,hands[0],rotation,primary.rarity);drawWeaponSignatureV281(c,primary,hands[0],rotation,primary.weaponType==='wand'?32:49,hands[1]);}
+ if(secondary?.weaponType){weapon(c,bank,secondary.weaponType,hands[1],pose.attack?.45:1.4,secondary.rarity,true);drawWeaponSignatureV281(c,secondary,hands[1],pose.attack?.45:1.4,32);}
+ drawFittedEquipmentV281(c,g,{head:[0,-65],hand:hands[0],offhand:hands[1]},actor.cls||'saint',0,{back:pose.back});
+
  // A fitted metal brow piece, rather than the old generic men's whole-head sprite.
- if(g.head){c.strokeStyle=actor.cls==='oath'?'#c8d6d9':actor.cls==='shadow'?'#8f83a3':'#b7bbdd';c.lineWidth=1.8;c.beginPath();c.moveTo(-7,-66);c.quadraticCurveTo(1,-63,9,-67);c.stroke();}
+
 }
 export function drawIdentityActorV18(c,bank,actor,time=0,extra={}){
  if(extra.pose!==undefined)actor={...actor,pose:extra.pose};

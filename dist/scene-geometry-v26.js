@@ -1,7 +1,10 @@
+import {supplementalFootprintsV281} from './presentation-physics-v281.js';
+import {actorHeightV281} from './presentation-metrics-v281.js';
 // Shared foot-space navigation and alpha-aware foreground cutaway. Raster artwork remains unchanged.
 let worldMaps={},worldScenery={};
 const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),seated=new Set(['sit','seated','drink','listen','seated-listen','bench-wood','bench-stone']),resting=new Set(['lying','sleep','sleep-bed','carried']);
 const extraCache=new Map();
+export function invalidateSceneGeometryV281(map=null){if(map==null)extraCache.clear();else extraCache.delete(map);}
 export function furnitureFootprintV26(o){
  if(o.geometryV26===false||o.romanceWaterV20||o.flat&&['details'].includes(o.sheet))return null;
  if(o.footprintV26)return {id:o.id,box:o.footprintV26,seat:!!o.socialFurnitureV20};
@@ -32,8 +35,8 @@ export function furnitureFootprintV26(o){
 }
 export function mapFurnitureV26(map){
  const rows=worldScenery[map]||[],props=worldMaps[map]?.props||[],cached=extraCache.get(map);if(cached?.rows===rows&&cached.length===rows.length&&cached.propLength===props.length)return cached.items;
- const items=rows.map(furnitureFootprintV26).filter(Boolean);
- for(const p of props){if(!p.action||p.nativeV18||!p.art)continue;const f=furnitureFootprintV26({...p,...p.art,asset:p.art.index});if(f)items.push({...f,prop:true});}
+ const items=rows.flatMap((o,i)=>[furnitureFootprintV26(o),...supplementalFootprintsV281(o)].filter(Boolean).map(f=>({...f,id:f.id??`${map}:scenery:${i}`})));
+ for(const p of props){if(!p.action||p.nativeV18||!p.art)continue;const art={...p,...p.art,asset:p.art.index};for(const f of [furnitureFootprintV26(art),...supplementalFootprintsV281(art)].filter(Boolean))items.push({...f,prop:true});}
  extraCache.set(map,{rows,length:rows.length,propLength:props.length,items});return items;
 }
 const aliveFootprint=(g,o)=>!o.prop||g.props.some(p=>p.id===o.id&&!p.broken&&(!p.used||g.questPropNeeded?.(p.id)));
@@ -128,7 +131,7 @@ export function sceneryAlphaV26(bank,o,people=[]){
  for(const a of Array.isArray(people)?people:[people]){
   if(!a||a.visible===false||a.renderAs==='prop'||a.compositeParentV20||a.fall||resting.has(a.pose))continue;
   if((a.depthY??a.y)>=depth-.5)continue;
-  for(const [dx,dy]of [[0,-62],[-9,-49],[9,-49],[0,-34]]){const x=a.x+dx,y=a.y+dy;if(x<projection.left||x>=projection.left+projection.w||y<projection.top||y>=projection.top+projection.h)continue;if(opaqueAt(bank,o,projection,x,y))return .30;}
+  const bodyHeight=a.renderHeightV281||actorHeightV281(a);for(const [dx,dy]of [[0,-bodyHeight*.80],[-9,-bodyHeight*.63],[9,-bodyHeight*.63],[0,-bodyHeight*.43]]){const x=a.x+dx,y=a.y+dy;if(x<projection.left||x>=projection.left+projection.w||y<projection.top||y>=projection.top+projection.h)continue;if(opaqueAt(bank,o,projection,x,y))return .30;}
  }
  return 1;
 }
