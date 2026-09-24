@@ -1,0 +1,87 @@
+name: Verify public playable page
+on:
+  push:
+    branches: [verify/web-preview]
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /tests/browser-web-play.py
+            /docs/web-play/
+            /.github/workflows/
+      - run: python3 -m pip install playwright==1.57.0
+      - name: Inspect CDN responses and run the real browser flow
+        run: |
+          mkdir -p qa-public
+          python3 - <<'PY'
+          import importlib.util,json,shutil,time,urllib.request,urllib.error
+          from pathlib import Path
+          from datetime import datetime,timezone
+          from urllib.parse import urlparse
+          from playwright.sync_api import sync_playwright
+          sha='bf817e34896b2d237ff468dfbd88bc117074a726'
+          urls=[f'https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/{sha}/index.html',f'https://raw.githack.com/YuxiangLiu-lyx/Ashen/{sha}/index.html']
+          report={'web_commit':sha,'checked_at_utc':datetime.now(timezone.utc).isoformat(),'passed':False,'diagnostics':[]}
+          spec=importlib.util.spec_from_file_location('webqa','tests/browser-web-play.py');qa=importlib.util.module_from_spec(spec);spec.loader.exec_module(qa)
+          exe=shutil.which('google-chrome') or shutil.which('chromium')
+          with sync_playwright() as pw:
+              browser=pw.chromium.launch(executable_path=exe,args=['--no-sandbox','--disable-dev-shm-usage'])
+              for index,url in enumerate(urls):
+                  item={'url':url,'errors':[],'bad_responses':[],'failed_requests':[],'console':[]}
+                  for relative in ['index.html','game-v14.js','asset-map.js']:
+                      test=url.rsplit('/',1)[0]+'/'+relative
+                      try:
+                          with urllib.request.urlopen(test,timeout=20) as r:
+                              sample=r.read(450)
+                              item.setdefault('http',[]).append({'file':relative,'status':r.status,'type':r.headers.get('Content-Type'),'sample':sample.decode('utf-8','replace')})
+                      except Exception as e:item.setdefault('http',[]).append({'file':relative,'error':str(e)})
+                  context=browser.new_context(viewport={'width':1440,'height':900})
+                  context.add_cookies([{'name':'__Http-phish','value':'1','domain':urlparse(url).hostname,'path':'/','secure':True,'httpOnly':True}])
+                  page=context.new_page()
+                  page.on('pageerror',lambda e:item['errors'].append(str(e)))
+                  page.on('console',lambda m:item['console'].append(m.text) if m.type=='error' else None)
+                  page.on('requestfailed',lambda r:item['failed_requests'].append({'url':r.url,'error':r.failure}))
+                  page.on('response',lambda r:item['bad_responses'].append({'url':r.url,'status':r.status}) if r.status>=400 else None)
+                  try:
+                      r=page.goto(url,wait_until='domcontentloaded',timeout=60000);item['document_status']=r.status
+                      try:page.wait_for_function('window.__ASHEN_WEB__?.ready===true',timeout=60000)
+                      except Exception as e:item['wait_error']=str(e)
+                      item['state']=page.evaluate('({url:location.href,title:document.title,text:document.body.innerText.slice(0,1800),ready:window.__ASHEN_WEB__?.ready,loaded:window.__ASHEN_WEB__?.loaded,total:window.__ASHEN_WEB__?.total})')
+                      page.screenshot(path=f'qa-public/cdn-{index}.png')
+                  except Exception as e:item['navigation_error']=str(e)
+                  report['diagnostics'].append(item);print(json.dumps(item,ensure_ascii=False),flush=True)
+                  context.close()
+                  if item.get('state',{}).get('ready'):
+                      try:
+                          result=qa.run_case(browser,url,'public-web',Path('qa-public'),remote=True)
+                          report.update(passed=True,public_preview_url=url,gameplay=result)
+                          break
+                      except Exception as e:report['gameplay_error']=str(e)
+              browser.close()
+          Path('qa-public/PUBLIC_PREVIEW_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          print('PUBLIC_RESULT',report['passed'])
+          PY
+      - name: Save the actual verification result
+        run: |
+          cp qa-public/PUBLIC_PREVIEW_QA.json docs/web-play/PUBLIC_PREVIEW_QA.json
+          git config user.name Tourist
+          git config user.email 138776726+YuxiangLiu-lyx@users.noreply.github.com
+          git add docs/web-play/PUBLIC_PREVIEW_QA.json
+          git commit -m 'test: record public webpage delivery and browser results [skip ci]'
+          git push origin HEAD:verify/web-preview
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: public-web-verification-${{ github.run_id }}
+          path: qa-public/
+          retention-days: 7
