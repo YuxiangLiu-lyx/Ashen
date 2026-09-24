@@ -34,34 +34,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Restore exact web builder sources
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import hashlib,json,zlib
-          packed=b''.join((Path('tools/web-play-transfer')/f'part{i:02}').read_bytes() for i in range(1,7))
-          assert hashlib.sha256(packed).hexdigest()=='fb29119762d5228bda187f06c4a5a2f3d5c88f7085d0aba952e9fa523ca5639c'
-          files=json.loads(zlib.decompress(packed))
-          assert set(files)=={'web/launcher.html','tools/build_web_play.py','tests/browser-web-play.py'}
-          for name,text in files.items():
-              p=Path(name);assert not p.exists(),name
-              if name=='web/launcher.html':
-                  old="window.__ASHEN_WEB__={version:'28.1',"
-                  new="window.__ASHEN_WEB__={queue:[],running:0,run(task){return new Promise((resolve,reject)=>{this.queue.push({task,resolve,reject});this.drain();});},drain(){while(this.running<4&&this.queue.length){const {task,resolve,reject}=this.queue.shift();this.running++;Promise.resolve().then(task).then(resolve,reject).finally(()=>{this.running--;this.drain();});}},version:'28.1',"
-                  assert text.count(old)==1;text=text.replace(old,new)
-              if name=='tools/build_web_play.py':
-                  old=" async load(...args){args[1]=globalThis.__ASHEN_WEB__.asset(args[1]);try{await this.loadWebOriginal(...args);globalThis.__ASHEN_WEB__.done();}catch(error){throw new Error('素材 '+args[0]+' 未能加载：'+error.message);}}"
-                  new=" async load(...args){return globalThis.__ASHEN_WEB__.run(async()=>{args[1]=globalThis.__ASHEN_WEB__.asset(args[1]);try{await this.loadWebOriginal(...args);globalThis.__ASHEN_WEB__.done();}catch(error){throw new Error('素材 '+args[0]+' 未能加载：'+error.message);}});}"
-                  assert text.count(old)==1;text=text.replace(old,new)
-              if name=='tests/browser-web-play.py':
-                  old="localStorage.setItem('ashen-vow-rpg-v10',JSON.stringify(g.snapshot()));return e.id;"
-                  new="return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};"
-                  assert text.count(old)==1;text=text.replace(old,new)
-                  old='    enemy_id=page.evaluate(fixture,module)\n'
-                  new='    test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]\n    # Use normal import so beforeunload autosave cannot overwrite the fixture.\n    page.keyboard.press("Escape");page.locator(\'[data-act="import-save"]\').click()\n    page.locator("#saveTransfer").fill(test_save["raw"]);page.locator(\'[data-act="confirm-import"]\').click()\n    page.wait_for_timeout(500)\n'
-                  assert text.count(old)==1;text=text.replace(old,new)
-              p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8')
-          PY
+      - name: Prepare builder and UI regression tests
+        run: python3 tools/web_play_ci.py prepare
       - name: Restore game art and install build dependencies
         run: |
           python3 tools/restore_archives.py
@@ -78,38 +52,7 @@ jobs:
         run: python3 tests/browser-web-play.py --build web-build --out qa-export/web-play
       - name: Publish tested static website without rewriting history
         id: publish
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          import os,subprocess
-          def git(*args,**kw):return subprocess.check_output(['git',*args],text=True,**kw).strip()
-          ref='refs/heads/web-play'
-          exists=git('ls-remote','origin',ref)
-          parent=None
-          if exists:
-              subprocess.run(['git','fetch','origin',ref],check=True)
-              parent=git('rev-parse','FETCH_HEAD')
-              names=git('ls-tree','-r','--name-only',parent).splitlines()
-              assert 'BUILD.json' in names,'Refusing to replace an unrecognized web-play branch'
-          env=os.environ.copy();env['GIT_INDEX_FILE']=str(Path('/tmp/ashen-web-index').resolve())
-          subprocess.run(['git','read-tree','--empty'],check=True,env=env)
-          rows=[]
-          for p in sorted(Path('web-build/site').rglob('*')):
-              if not p.is_file():continue
-              sha=git('hash-object','-w',str(p));rows.append('100644 '+sha+'\t'+p.relative_to('web-build/site').as_posix()+'\0')
-          subprocess.run(['git','update-index','-z','--index-info'],input=''.join(rows),text=True,env=env,check=True)
-          tree=git('write-tree',env=env)
-          env.update(GIT_AUTHOR_NAME='Tourist',GIT_AUTHOR_EMAIL='138776726+YuxiangLiu-lyx@users.noreply.github.com',GIT_COMMITTER_NAME='Tourist',GIT_COMMITTER_EMAIL='138776726+YuxiangLiu-lyx@users.noreply.github.com')
-          args=['commit-tree',tree,'-m','build: publish tested V28.1 playable website']+(['-p',parent] if parent else [])
-          sha=git(*args,env=env)
-          subprocess.run(['git','push','origin',sha+':'+ref],check=True)
-          actual=git('ls-remote','origin',ref).split()[0];assert actual==sha
-          url=f'https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/{sha}/index.html'
-          Path('qa-export/PUBLIC_URL.txt').write_text(url+'\n')
-          Path('qa-export/WEB_COMMIT.txt').write_text(sha+'\n')
-          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('url='+url+'\nsha='+sha+'\n')
-          print(url)
-          PY
+        run: python3 tools/web_play_ci.py publish
       - name: Verify public preview in Chrome
         id: public
         continue-on-error: true
@@ -118,35 +61,13 @@ jobs:
         env:
           PUBLIC_RESULT: ${{ steps.public.outcome }}
           RUN_ID: ${{ github.run_id }}
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          from datetime import datetime,timezone
-          import json,os,shutil
-          folder=Path('docs/web-play');folder.mkdir(parents=True,exist_ok=True)
-          manifest=json.loads(Path('web-build/WEB_BUILD_MANIFEST.json').read_text())
-          report={'version':'28.1','checked_at_utc':datetime.now(timezone.utc).isoformat(),'workflow_run_id':os.environ['RUN_ID'],'web_commit':Path('qa-export/WEB_COMMIT.txt').read_text().strip(),'public_preview_url':Path('qa-export/PUBLIC_URL.txt').read_text().strip(),'public_preview_verified':os.environ['PUBLIC_RESULT']=='success','local_browser_qa':json.loads(Path('qa-export/web-play/WEB_QA.json').read_text()),'offline_html_bytes':manifest['offline_html_bytes'],'offline_sha256':manifest['offline_sha256'],'original_game_modified':False,'original_site_deployed':False,'hosting':'public source preview CDN, not GitHub Pages','full_eight_chapter_playthrough':False}
-          (folder/'WEB_RELEASE.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-          shutil.copy2('web-build/WEB_BUILD_MANIFEST.json',folder/'ASSET_MANIFEST.json')
-          for file in Path('qa-export').glob('**/WEB_QA.json'):
-              shutil.copy2(file,folder/(file.parent.name+'-QA.json'))
-          (folder/'README.md').write_text('# V28.1 网页试玩\n\n网页预览：'+report['public_preview_url']+'\n\n这是公开源码 CDN 试玩，非原域名部署。首次访问可能显示确认页面。状态以 WEB_RELEASE.json 为准。\n\n离线试玩：构建生成的 Ashen-V28.1-Play.html 完整下载后用桌面 Chrome/Edge 打开；无需服务器、登录或运行期联网。\n\n```bash\npython3 tools/restore_archives.py\npython3 -m pip install Pillow==12.0.0\npython3 tools/build_web_play.py --output web-build\n```\n\nWASD/方向键移动，J 普攻，1–6 技能，F 交互。剧情测试可直接选择后续章节。存档属于当前浏览器，请用游戏内导出存档保留重要进度。\n')
-          p=Path('source/CURRENT_STATE.json');state=json.loads(p.read_text());state['web_play']={k:report[k] for k in ['checked_at_utc','web_commit','public_preview_url','public_preview_verified','offline_sha256']};p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
-          with Path('source/progress.txt').open('a') as f:f.write('\n'+report['checked_at_utc']+' · V28.1 网页试玩构建\n完整原游戏打包为独立网页及无运行期联网的单文件 HTML；实际文件/HTTP/移动端 Chrome 测试通过。公共预览验证：'+str(report['public_preview_verified'])+'。详见 docs/web-play/WEB_RELEASE.json。原站未部署。\n')
-          PY
-          git config user.name Tourist
-          git config user.email 138776726+YuxiangLiu-lyx@users.noreply.github.com
-          git add web/launcher.html tools/build_web_play.py tests/browser-web-play.py docs/web-play source/progress.txt source/CURRENT_STATE.json
-          git rm -r tools/web-play-transfer
-          git commit -m 'feat: ship verified playable website and standalone offline HTML builder'
-          git push origin HEAD:build/web-play
-          git rev-parse HEAD > qa-export/SOURCE_COMMIT.txt
+        run: python3 tools/web_play_ci.py record
       - name: Export artifacts and diagnostic sources
         if: always()
         run: |
           mkdir -p qa-export
           cp web-build/WEB_BUILD_MANIFEST.json qa-export/ 2>/dev/null || true
-          tar -czf qa-export/web-builder-sources.tar.gz web/launcher.html tools/build_web_play.py tests/browser-web-play.py .github/workflows/web-play.yml
+          tar -czf qa-export/web-builder-sources.tar.gz web/launcher.html tools/build_web_play.py tests/browser-web-play.py tools/web_play_ci.py .github/workflows/web-play.yml
           if [ -f web-build/Ashen-V28.1-Play.html ]; then zip -j -6 qa-export/Ashen-V28.1-Offline.zip web-build/Ashen-V28.1-Play.html; fi
       - uses: actions/upload-artifact@v4
         if: always()
