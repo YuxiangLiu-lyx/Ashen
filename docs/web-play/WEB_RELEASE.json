@@ -1,10 +1,10 @@
 {
   "version": "28.1",
-  "checked_at_utc": "2026-09-24T06:48:48.781073+00:00",
+  "checked_at_utc": "2026-09-24T06:58:41.385250+00:00",
   "workflow_run_id": "35965793439",
-  "web_commit": "bf817e34896b2d237ff468dfbd88bc117074a726",
-  "public_preview_url": "https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/bf817e34896b2d237ff468dfbd88bc117074a726/index.html",
-  "public_preview_verified": false,
+  "web_commit": "8816dd2486ca0f029977f6ecb2ad800c733bc609",
+  "public_preview_url": "https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html",
+  "public_preview_verified": true,
   "local_browser_qa": {
     "version": "28.1",
     "passed": true,
@@ -71,5 +71,42 @@
   "original_game_modified": false,
   "original_site_deployed": false,
   "hosting": "public source preview CDN, not GitHub Pages",
-  "full_eight_chapter_playthrough": false
+  "full_eight_chapter_playthrough": false,
+  "previous_public_verification": {
+    "workflow_run_id": "35965793439",
+    "passed": false,
+    "web_commit": "bf817e34896b2d237ff468dfbd88bc117074a726"
+  },
+  "public_verification_run_id": "35967071396",
+  "online_only_fix": "Request crossOrigin=anonymous before image src to allow pixel processing after image-CDN redirects. Offline HTML unchanged.",
+  "public_browser_qa": {
+    "version": "28.1",
+    "passed": true,
+    "results": [
+      {
+        "case": "public-web",
+        "url": "https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html",
+        "checks": [
+          "all_assets_loaded",
+          "three_class_choices",
+          "start_new_journey",
+          "intro_to_live_game",
+          "keyboard_movement",
+          "browser_save",
+          "inventory_ui",
+          "continue_saved_journey",
+          "attack_kills_enemy",
+          "combat_rewards",
+          "export_save_text",
+          "chapter8_checkpoint",
+          "no_chapter8_large_cg"
+        ],
+        "first_load_seconds": 13.25,
+        "uncaught_errors": [],
+        "network_requests": 670,
+        "chapter8_cg_requests": []
+      }
+    ],
+    "scope": "Packaged file/HTTP entry, start, movement, combat, inventory, save/export and chapter test. Not an eight-chapter playthrough."
+  }
 }

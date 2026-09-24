@@ -69,7 +69,13 @@ def build(output: Path, workers: int = 4) -> dict:
             target=site/web_path;target.parent.mkdir(parents=True,exist_ok=True);target.write_bytes(data)
             mapping[rel]=web_path;embedded[rel]={'mime':'image/webp','data':base64.b64encode(data).decode('ascii')};manifest.append(record)
             if n%20==0: print(f'Assets prepared: {n}/{len(assets)}',flush=True)
-    for name,code in modules.items(): (site/name).write_text(code,encoding='utf-8')
+    for name,code in modules.items():
+        # Hosted atlases may redirect to an image CDN; request CORS permission
+        # before assigning src so legitimate pixel reads remain origin-clean.
+        # This changes online output only. Offline Blob images stay unchanged.
+        if name == 'visuals-v14.js':
+            code = require_replace(code, 'im.src=url;await im.decode();', "im.crossOrigin='anonymous';im.src=url;await im.decode();")
+        (site/name).write_text(code,encoding='utf-8')
     css_online=re.sub(r'''url\((['"]?)(assets/[^)'"\s]+)\1\)''',lambda m:'url("'+mapping.get(m[2],m[2])+'")',css)
     (site/'play.css').write_text(css_online,encoding='utf-8')
     (site/'asset-map.js').write_text('window.__ASHEN_WEB__.mapping='+json.dumps(mapping,ensure_ascii=False)+';\n',encoding='utf-8')

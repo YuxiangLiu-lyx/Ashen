@@ -73,6 +73,6 @@ V28 不覆盖 V27 的剧情与地图结构，而是在最终运行时追加 `dis
 
 
 ## 网页试玩入口
-[V28.1 在线试玩](https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/bf817e34896b2d237ff468dfbd88bc117074a726/index.html)（公共源码预览托管，原站未覆盖）。发布与浏览器验证状态见 `docs/web-play/WEB_RELEASE.json`。
+[V28.1 在线试玩](https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html)（公共源码预览托管，原站未覆盖）。发布与浏览器验证状态见 `docs/web-play/WEB_RELEASE.json`。
 
 无需启动本地服务器的单文件离线版，可由 `tools/build_web_play.py` 构建，详见 `docs/web-play/README.md`。

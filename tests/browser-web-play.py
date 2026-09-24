@@ -29,7 +29,12 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page=context.new_page();errors=[];requests=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.on('request',lambda r:requests.append(r.url))
-    start=time.monotonic();page.goto(url,wait_until='domcontentloaded',timeout=180000);ready(page)
+    start=time.monotonic();page.goto(url,wait_until='domcontentloaded',timeout=180000)
+    try:ready(page)
+    except Exception:
+        (out/(label+'-load-failure.json')).write_text(json.dumps({'url':page.url,'errors':errors,'text':page.locator('body').inner_text()[:9000]},ensure_ascii=False,indent=2))
+        page.screenshot(path=str(out/(label+'-load-failure.png')))
+        raise
     checks=['all_assets_loaded'];first_load=round(time.monotonic()-start,2)
     page.screenshot(path=str(out/(label+'-title.png')))
     assert '0.28.1' in page.locator('#ui').inner_text()

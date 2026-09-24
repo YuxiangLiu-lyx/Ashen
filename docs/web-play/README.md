@@ -1,6 +1,6 @@
 # V28.1 网页试玩
 
-网页预览：https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/bf817e34896b2d237ff468dfbd88bc117074a726/index.html
+网页预览：https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html
 
 这是公开源码 CDN 试玩，非原域名部署。首次访问可能显示确认页面。状态以 WEB_RELEASE.json 为准。
 
