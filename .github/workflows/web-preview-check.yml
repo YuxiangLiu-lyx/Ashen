@@ -17,67 +17,83 @@ jobs:
           sparse-checkout-cone-mode: false
           sparse-checkout: |
             /tests/browser-web-play.py
+            /tools/build_web_play.py
             /docs/web-play/
+            /source/
+            /README.md
             /.github/workflows/
       - run: python3 -m pip install playwright==1.57.0
-      - name: Inspect CDN responses and run the real browser flow
+      - name: Apply online-only CORS loading and publish the corrected file
+        id: publish
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           mkdir -p qa-public
           python3 - <<'PY'
-          import importlib.util,json,shutil,time,urllib.request,urllib.error
+          from pathlib import Path
+          import base64,json,os,urllib.request
+          repo='YuxiangLiu-lyx/Ashen'
+          def api(path,data=None):
+              req=urllib.request.Request('https://api.github.com/repos/'+repo+'/'+path,data=None if data is None else json.dumps(data).encode(),method='GET' if data is None else 'PUT',headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json','X-GitHub-Api-Version':'2022-11-28'})
+              with urllib.request.urlopen(req,timeout=60) as r:return json.load(r)
+          p=Path('tools/build_web_play.py');s=p.read_text()
+          old="    for name,code in modules.items(): (site/name).write_text(code,encoding='utf-8')"
+          new="    for name,code in modules.items():\n        # Hosted atlases may redirect to an image CDN; request CORS permission\n        # before assigning src so legitimate pixel reads remain origin-clean.\n        # This changes online output only. Offline Blob images stay unchanged.\n        if name == 'visuals-v14.js':\n            code = require_replace(code, 'im.src=url;await im.decode();', \"im.crossOrigin='anonymous';im.src=url;await im.decode();\")\n        (site/name).write_text(code,encoding='utf-8')"
+          if old in s:
+              assert s.count(old)==1;s=s.replace(old,new);p.write_text(s)
+          else:assert new in s
+          entry=api('contents/visuals-v14.js?ref=web-play');text=base64.b64decode(entry['content']).decode()
+          old="im.src=url;await im.decode();";new="im.crossOrigin='anonymous';im.src=url;await im.decode();"
+          if new not in text:
+              assert text.count(old)==1;text=text.replace(old,new)
+              result=api('contents/visuals-v14.js',{'message':'fix: keep hosted image atlases origin-clean through CORS','branch':'web-play','sha':entry['sha'],'content':base64.b64encode(text.encode()).decode()})
+              sha=result['commit']['sha']
+          else:sha=api('git/ref/heads/web-play')['object']['sha']
+          assert api('git/ref/heads/web-play')['object']['sha']==sha
+          url=f'https://rawcdn.githack.com/{repo}/{sha}/index.html'
+          Path('qa-public/PUBLIC_URL.txt').write_text(url+'\n');Path('qa-public/WEB_COMMIT.txt').write_text(sha+'\n')
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:f.write('url='+url+'\n')
+          # Improve failure evidence without relaxing any gameplay assertion.
+          p=Path('tests/browser-web-play.py');s=p.read_text();old="    start=time.monotonic();page.goto(url,wait_until='domcontentloaded',timeout=180000);ready(page)"
+          new="    start=time.monotonic();page.goto(url,wait_until='domcontentloaded',timeout=180000)\n    try:ready(page)\n    except Exception:\n        (out/(label+'-load-failure.json')).write_text(json.dumps({'url':page.url,'errors':errors,'text':page.locator('body').inner_text()[:9000]},ensure_ascii=False,indent=2))\n        page.screenshot(path=str(out/(label+'-load-failure.png')))\n        raise"
+          if old in s:
+              assert s.count(old)==1;s=s.replace(old,new);p.write_text(s)
+          print(url)
+          PY
+      - name: Verify corrected public webpage with movement combat and saves
+        id: public
+        continue-on-error: true
+        run: python3 tests/browser-web-play.py --remote '${{ steps.publish.outputs.url }}' --out qa-public
+      - name: Preserve the real result and reproducible source fix
+        env:
+          PUBLIC_RESULT: ${{ steps.public.outcome }}
+          RUN_ID: ${{ github.run_id }}
+        run: |
+          python3 - <<'PY'
           from pathlib import Path
           from datetime import datetime,timezone
-          from urllib.parse import urlparse
-          from playwright.sync_api import sync_playwright
-          sha='bf817e34896b2d237ff468dfbd88bc117074a726'
-          urls=[f'https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/{sha}/index.html',f'https://raw.githack.com/YuxiangLiu-lyx/Ashen/{sha}/index.html']
-          report={'web_commit':sha,'checked_at_utc':datetime.now(timezone.utc).isoformat(),'passed':False,'diagnostics':[]}
-          spec=importlib.util.spec_from_file_location('webqa','tests/browser-web-play.py');qa=importlib.util.module_from_spec(spec);spec.loader.exec_module(qa)
-          exe=shutil.which('google-chrome') or shutil.which('chromium')
-          with sync_playwright() as pw:
-              browser=pw.chromium.launch(executable_path=exe,args=['--no-sandbox','--disable-dev-shm-usage'])
-              for index,url in enumerate(urls):
-                  item={'url':url,'errors':[],'bad_responses':[],'failed_requests':[],'console':[]}
-                  for relative in ['index.html','game-v14.js','asset-map.js']:
-                      test=url.rsplit('/',1)[0]+'/'+relative
-                      try:
-                          with urllib.request.urlopen(test,timeout=20) as r:
-                              sample=r.read(450)
-                              item.setdefault('http',[]).append({'file':relative,'status':r.status,'type':r.headers.get('Content-Type'),'sample':sample.decode('utf-8','replace')})
-                      except Exception as e:item.setdefault('http',[]).append({'file':relative,'error':str(e)})
-                  context=browser.new_context(viewport={'width':1440,'height':900})
-                  context.add_cookies([{'name':'__Http-phish','value':'1','domain':urlparse(url).hostname,'path':'/','secure':True,'httpOnly':True}])
-                  page=context.new_page()
-                  page.on('pageerror',lambda e:item['errors'].append(str(e)))
-                  page.on('console',lambda m:item['console'].append(m.text) if m.type=='error' else None)
-                  page.on('requestfailed',lambda r:item['failed_requests'].append({'url':r.url,'error':r.failure}))
-                  page.on('response',lambda r:item['bad_responses'].append({'url':r.url,'status':r.status}) if r.status>=400 else None)
-                  try:
-                      r=page.goto(url,wait_until='domcontentloaded',timeout=60000);item['document_status']=r.status
-                      try:page.wait_for_function('window.__ASHEN_WEB__?.ready===true',timeout=60000)
-                      except Exception as e:item['wait_error']=str(e)
-                      item['state']=page.evaluate('({url:location.href,title:document.title,text:document.body.innerText.slice(0,1800),ready:window.__ASHEN_WEB__?.ready,loaded:window.__ASHEN_WEB__?.loaded,total:window.__ASHEN_WEB__?.total})')
-                      page.screenshot(path=f'qa-public/cdn-{index}.png')
-                  except Exception as e:item['navigation_error']=str(e)
-                  report['diagnostics'].append(item);print(json.dumps(item,ensure_ascii=False),flush=True)
-                  context.close()
-                  if item.get('state',{}).get('ready'):
-                      try:
-                          result=qa.run_case(browser,url,'public-web',Path('qa-public'),remote=True)
-                          report.update(passed=True,public_preview_url=url,gameplay=result)
-                          break
-                      except Exception as e:report['gameplay_error']=str(e)
-              browser.close()
-          Path('qa-public/PUBLIC_PREVIEW_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
-          print('PUBLIC_RESULT',report['passed'])
+          import json,os,shutil
+          folder=Path('docs/web-play');report=json.loads((folder/'WEB_RELEASE.json').read_text())
+          url=Path('qa-public/PUBLIC_URL.txt').read_text().strip();sha=Path('qa-public/WEB_COMMIT.txt').read_text().strip()
+          proof=Path('qa-public/WEB_QA.json');passed=os.environ['PUBLIC_RESULT']=='success' and proof.is_file() and json.loads(proof.read_text()).get('passed') is True
+          report['previous_public_verification']={'workflow_run_id':report['workflow_run_id'],'passed':report['public_preview_verified'],'web_commit':report['web_commit']}
+          report.update(checked_at_utc=datetime.now(timezone.utc).isoformat(),public_verification_run_id=os.environ['RUN_ID'],public_preview_url=url,web_commit=sha,public_preview_verified=passed,online_only_fix='Request crossOrigin=anonymous before image src to allow pixel processing after image-CDN redirects. Offline HTML unchanged.')
+          if proof.is_file():
+              report['public_browser_qa']=json.loads(proof.read_text());shutil.copy2(proof,folder/'public-web-QA.json')
+          else:
+              for p in Path('qa-public').glob('*failure.json'):shutil.copy2(p,folder/p.name)
+          (folder/'WEB_RELEASE.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+          for p in [Path('README.md'),folder/'README.md']:
+              s=p.read_text();import re
+              s=re.sub(r'https://rawcdn\.githack\.com/YuxiangLiu-lyx/Ashen/[0-9a-f]{40}/index\.html',url,s);p.write_text(s)
+          p=Path('source/CURRENT_STATE.json');state=json.loads(p.read_text());state['web_play'].update(checked_at_utc=report['checked_at_utc'],web_commit=sha,public_preview_url=url,public_preview_verified=passed);p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
+          with Path('source/progress.txt').open('a') as f:f.write('\n'+report['checked_at_utc']+' · 在线试玩 CORS 修复\n图集经托管重定向后采用明确 CORS 请求，避免画布污染；只调整在线构建，不改变离线 HTML 或原游戏。公开页面全流程浏览器验收：'+str(passed)+'。证据 docs/web-play/WEB_RELEASE.json。\n')
+          print('PUBLIC_GAMEPLAY_PASSED',passed)
           PY
-      - name: Save the actual verification result
-        run: |
-          cp qa-public/PUBLIC_PREVIEW_QA.json docs/web-play/PUBLIC_PREVIEW_QA.json
           git config user.name Tourist
           git config user.email 138776726+YuxiangLiu-lyx@users.noreply.github.com
-          git add docs/web-play/PUBLIC_PREVIEW_QA.json
-          git commit -m 'test: record public webpage delivery and browser results [skip ci]'
+          git add tools/build_web_play.py tests/browser-web-play.py docs/web-play source README.md
+          git commit -m 'fix: preserve online canvas access and record public gameplay verification [skip ci]'
           git push origin HEAD:verify/web-preview
       - uses: actions/upload-artifact@v4
         if: always()
