@@ -15,7 +15,22 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /dist/
+            /source/
+            /tools/
+            /tests/
+            /web/
+            /.github/
+            /docs/
+            /README.md
+            /BACKUP_STATUS.md
+            /AGENTS.md
+            /.gitignore
+            /archives/runtime-assets*
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
@@ -37,6 +52,13 @@ jobs:
               if name=='tools/build_web_play.py':
                   old=" async load(...args){args[1]=globalThis.__ASHEN_WEB__.asset(args[1]);try{await this.loadWebOriginal(...args);globalThis.__ASHEN_WEB__.done();}catch(error){throw new Error('素材 '+args[0]+' 未能加载：'+error.message);}}"
                   new=" async load(...args){return globalThis.__ASHEN_WEB__.run(async()=>{args[1]=globalThis.__ASHEN_WEB__.asset(args[1]);try{await this.loadWebOriginal(...args);globalThis.__ASHEN_WEB__.done();}catch(error){throw new Error('素材 '+args[0]+' 未能加载：'+error.message);}});}"
+                  assert text.count(old)==1;text=text.replace(old,new)
+              if name=='tests/browser-web-play.py':
+                  old="localStorage.setItem('ashen-vow-rpg-v10',JSON.stringify(g.snapshot()));return e.id;"
+                  new="return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};"
+                  assert text.count(old)==1;text=text.replace(old,new)
+                  old='    enemy_id=page.evaluate(fixture,module)\n'
+                  new='    test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]\n    # Use normal import so beforeunload autosave cannot overwrite the fixture.\n    page.keyboard.press("Escape");page.locator(\'[data-act="import-save"]\').click()\n    page.locator("#saveTransfer").fill(test_save["raw"]);page.locator(\'[data-act="confirm-import"]\').click()\n    page.wait_for_timeout(500)\n'
                   assert text.count(old)==1;text=text.replace(old,new)
               p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text,encoding='utf-8')
           PY
@@ -109,11 +131,12 @@ jobs:
           for file in Path('qa-export').glob('**/WEB_QA.json'):
               shutil.copy2(file,folder/(file.parent.name+'-QA.json'))
           (folder/'README.md').write_text('# V28.1 网页试玩\n\n网页预览：'+report['public_preview_url']+'\n\n这是公开源码 CDN 试玩，非原域名部署。首次访问可能显示确认页面。状态以 WEB_RELEASE.json 为准。\n\n离线试玩：构建生成的 Ashen-V28.1-Play.html 完整下载后用桌面 Chrome/Edge 打开；无需服务器、登录或运行期联网。\n\n```bash\npython3 tools/restore_archives.py\npython3 -m pip install Pillow==12.0.0\npython3 tools/build_web_play.py --output web-build\n```\n\nWASD/方向键移动，J 普攻，1–6 技能，F 交互。剧情测试可直接选择后续章节。存档属于当前浏览器，请用游戏内导出存档保留重要进度。\n')
+          p=Path('source/CURRENT_STATE.json');state=json.loads(p.read_text());state['web_play']={k:report[k] for k in ['checked_at_utc','web_commit','public_preview_url','public_preview_verified','offline_sha256']};p.write_text(json.dumps(state,ensure_ascii=False,indent=2)+'\n')
           with Path('source/progress.txt').open('a') as f:f.write('\n'+report['checked_at_utc']+' · V28.1 网页试玩构建\n完整原游戏打包为独立网页及无运行期联网的单文件 HTML；实际文件/HTTP/移动端 Chrome 测试通过。公共预览验证：'+str(report['public_preview_verified'])+'。详见 docs/web-play/WEB_RELEASE.json。原站未部署。\n')
           PY
           git config user.name Tourist
           git config user.email 138776726+YuxiangLiu-lyx@users.noreply.github.com
-          git add web/launcher.html tools/build_web_play.py tests/browser-web-play.py docs/web-play source/progress.txt
+          git add web/launcher.html tools/build_web_play.py tests/browser-web-play.py docs/web-play source/progress.txt source/CURRENT_STATE.json
           git rm -r tools/web-play-transfer
           git commit -m 'feat: ship verified playable website and standalone offline HTML builder'
           git push origin HEAD:build/web-play
