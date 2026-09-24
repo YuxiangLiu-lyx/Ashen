@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="烬誓：圣女与影刃 V28.1 完整网页试玩。三种职业、即时战斗、八章剧情与独立剧情测试。">
+<title>烬誓 · 圣女与影刃 — V28.1 试玩</title>
+<!--GAME_STYLES-->
+<style>
+#boot{position:fixed;inset:0;z-index:10000;display:grid;place-items:center;background:radial-gradient(ellipse at 70% 15%,#32413c 0,#14242a 45%,#0b131b 100%);color:#eadcc0;padding:24px;font:16px/1.8 'PingFang SC','Microsoft YaHei',sans-serif}#boot .boot-card{width:min(580px,100%);text-align:center}#boot .boot-kicker{font:12px/1.5 Georgia,serif;letter-spacing:.45em;color:#cfb782}#boot h1{font-family:'Songti SC',Georgia,serif;font-size:70px;font-weight:400;letter-spacing:.2em;margin:16px 0 0}#boot h2{font-size:17px;font-weight:400;letter-spacing:.25em;margin-bottom:34px}#boot p{margin:8px 0;color:#aab9b5}#boot progress{display:block;width:100%;height:6px;accent-color:#d8b875;margin:24px 0 12px}#boot-status{font-size:14px}#boot .boot-detail{font-size:12px;color:#92a49f}#boot-error{white-space:pre-wrap;overflow-wrap:anywhere;text-align:left;color:#efb5a4;max-height:34vh;overflow:auto}#boot button{margin:14px 0}#offline-badge{position:fixed;right:10px;bottom:8px;font-size:11px;z-index:10;color:#b5c2b1;pointer-events:none}#boot details{font-size:13px;text-align:left;border:1px solid #4a5650;padding:12px 16px;margin-top:26px;border-radius:6px}#boot summary{cursor:pointer;color:#d4c49e}.title{overflow-y:auto}.title .title-inner{padding-bottom:24px}.title footer{pointer-events:none}@media(max-height:620px){.title{padding:30px 6vw;align-items:flex-start}.title h1{font-size:54px}.title .sub{margin-bottom:12px}.title .intro{margin-bottom:14px}.title .note{margin-top:12px}.title footer{position:relative;bottom:auto;left:auto;align-self:flex-end;max-width:180px;font-size:11px}#boot h1{font-size:50px}#boot h2{margin-bottom:16px}}
+</style>
+</head>
+<body>
+<main id="game"><canvas id="world" aria-label="烬誓战斗场景"></canvas><div id="ui"></div></main>
+<section id="boot" aria-label="游戏加载"><div class="boot-card"><div class="boot-kicker">ASHEN VOW · V28.1</div><h1>烬誓</h1><h2>圣女与影刃</h2><p>灯火未熄，长路待行。</p><progress id="boot-progress" max="100" value="1"></progress><p id="boot-status" role="status" aria-live="polite">正在准备旅程…</p><p class="boot-detail">桌面键鼠 · 手机横屏 · 无需登录</p><details><summary>试玩与存档说明</summary><p>“开始新旅程”体验正常剧情；“剧情测试 · 免伤”可从指定章节试玩，测试进度与正式进度分开。</p><p>移动：WASD／方向键；普攻：J；技能：数字 1–6；交互：F。也可以点击画面与界面按钮。</p><p>存档保存在当前浏览器。更换设备、网址或使用无痕窗口不会自动同步；重要进度请通过游戏内的导出存档功能另存。</p></details><pre id="boot-error" hidden></pre><button id="boot-retry" hidden onclick="location.reload()">重新加载</button></div></section>
+<noscript>请启用 JavaScript 后再打开游戏。</noscript>
+<script>
+window.__ASHEN_WEB__={queue:[],running:0,run(task){return new Promise((resolve,reject)=>{this.queue.push({task,resolve,reject});this.drain();});},drain(){while(this.running<4&&this.queue.length){const {task,resolve,reject}=this.queue.shift();this.running++;Promise.resolve().then(task).then(resolve,reject).finally(()=>{this.running--;this.drain();});}},version:'28.1',loaded:0,total:1,ready:false,urls:new Map(),
+ asset(path){const p=String(path).replace(/^\.\//,'');const packed=this.assets?.[p];if(packed){if(!this.urls.has(p)){const binary=atob(packed.data),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);this.urls.set(p,URL.createObjectURL(new Blob([bytes],{type:packed.mime})));delete this.assets[p].data;}return this.urls.get(p);}if(this.urls.has(p))return this.urls.get(p);return this.mapping?.[p]||path;},
+ begin(total){this.total=total;this.report();},
+ report(){const bar=document.getElementById('boot-progress'),status=document.getElementById('boot-status');if(bar)bar.value=5+90*this.loaded/this.total;if(status)status.textContent=`正在整理行装 · ${this.loaded} / ${this.total}`;},
+ done(){this.loaded++;this.report();},
+ finish(){this.ready=true;document.getElementById('boot')?.remove();},
+ fail(error){console.error(error);const boot=document.getElementById('boot');if(!boot)return;document.getElementById('boot-status').textContent='暂时未能完成加载';const el=document.getElementById('boot-error');el.hidden=false;el.textContent=String(error?.message||error)+'\n离线版请先完整下载文件，再用 Chrome 或 Edge 打开。';document.getElementById('boot-retry').hidden=false;}
+};
+</script>
+<!--GAME_PAYLOAD-->
+</body></html>
