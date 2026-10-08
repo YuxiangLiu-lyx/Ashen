@@ -1,0 +1,52 @@
+{
+  "schema": 1,
+  "id": "harness-ci-20261007",
+  "goal": "Harness CI 与 GitHub 保存验收",
+  "acceptance": [
+    "记录两个 main CI 的真实结果与核验过的远端提交"
+  ],
+  "baseline_commit": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+  "modules": [
+    "harness",
+    "build"
+  ],
+  "status": "complete",
+  "created_at_utc": "2026-10-08T03:59:42.165537+00:00",
+  "updated_at_utc": "2026-10-08T04:02:17.976190+00:00",
+  "decisions": [
+    "源码验收提交1013ae7已推送并核对远端；后续只保存CI回执，不再修改已验证的实现"
+  ],
+  "completed": [
+    "main远端SHA与本地一致",
+    "两个main CI均completed/success；回执包含实际步骤、日志摘录、制品校验值和检查提交",
+    "元数据更新后的fast通过15测试，源码指纹与最终release完全相同"
+  ],
+  "remaining": [],
+  "blockers": [],
+  "next": "No required task work remains",
+  "required_checks": [
+    "fast"
+  ],
+  "checks": [
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T04:01:53.979736+00:00",
+      "finished_at_utc": "2026-10-08T04:02:01.557691+00:00",
+      "head_commit": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-ci-20261007/001-fast.txt",
+      "output_sha256": "92f0e8a0ac35330d250291e8195220dfb87d39dc0b2ae32a871c5a1f478c0f21"
+    }
+  ],
+  "summary": "远端main已核验，两个CI成功，回执与实际源码一致；保存本次元数据",
+  "completed_at_utc": "2026-10-08T04:02:18.088218+00:00",
+  "verified_source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451"
+}

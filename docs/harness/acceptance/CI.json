@@ -1,0 +1,279 @@
+{
+  "schema": 1,
+  "observed_at_utc": "2026-10-08 04:01:43 UTC",
+  "checked_commit": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+  "implementation_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+  "verified_source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+  "source": "GitHub Actions REST API via connected GitHub tools; job statuses and log excerpts fetched after completion",
+  "runs": [
+    {
+      "id": 37725237762,
+      "name": "Agent Harness and Balance Lab",
+      "head_sha": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/YuxiangLiu-lyx/Ashen/actions/runs/37725237762",
+      "run_started_at": "2026-10-08T03:58:19Z",
+      "updated_at": "2026-10-08T04:00:11Z",
+      "jobs": [
+        {
+          "id": 113141790542,
+          "name": "verify",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 37725237762,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run python3 tools/harness/index.py --check",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run python3 tools/harness/check.py --tier fast",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run python3 tools/restore_archives.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run python3 tools/harness/check.py --tier integration",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Release prerequisites",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 9
+            },
+            {
+              "name": "Full release acceptance (no publishing)",
+              "status": "completed",
+              "conclusion": "skipped",
+              "number": 10
+            },
+            {
+              "name": "Reproducible runtime experiment",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 11
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 12
+            },
+            {
+              "name": "Post Run actions/setup-python@v5",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 22
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 23
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 24
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 25
+            }
+          ]
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11527062834,
+          "name": "harness-and-lab-evidence",
+          "size_in_bytes": 16857068,
+          "url": "https://api.github.com/repos/YuxiangLiu-lyx/Ashen/actions/artifacts/11527062834",
+          "archive_download_url": "https://api.github.com/repos/YuxiangLiu-lyx/Ashen/actions/artifacts/11527062834/zip",
+          "expired": false,
+          "created_at": "2026-10-08T04:00:07Z",
+          "expires_at": "2026-10-22T04:00:05Z",
+          "updated_at": "2026-10-08T04:00:07Z",
+          "digest": "sha256:98a24a8d272178d4b7911c974707c7a183b262387633b8de6bae7ef76907cf60",
+          "workflow_run": {
+            "id": 37725237762,
+            "repository_id": 1370609383,
+            "head_repository_id": 1370609383,
+            "head_branch": "main",
+            "head_sha": "1013ae77a70f957542cc9b2930ffebf3b9475a9c"
+          }
+        }
+      ]
+    },
+    {
+      "id": 37725237734,
+      "name": "Presentation QA",
+      "head_sha": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+      "event": "push",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/YuxiangLiu-lyx/Ashen/actions/runs/37725237734",
+      "run_started_at": "2026-10-08T03:58:19Z",
+      "updated_at": "2026-10-08T03:59:34Z",
+      "jobs": [
+        {
+          "id": 113141790671,
+          "name": "main-qa",
+          "status": "completed",
+          "conclusion": "success",
+          "run_id": 37725237734,
+          "logs_url": null,
+          "steps": [
+            {
+              "name": "Set up job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 1
+            },
+            {
+              "name": "Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 2
+            },
+            {
+              "name": "Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 3
+            },
+            {
+              "name": "Run python3 tools/restore_archives.py",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 4
+            },
+            {
+              "name": "Run sudo apt-get update -qq && sudo apt-get install -y fonts-noto-cjk",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 5
+            },
+            {
+              "name": "Run find dist -name '*.js' -print0 | xargs -0 -n1 node --check",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 6
+            },
+            {
+              "name": "Run node --test tests/presentation-v281.test.mjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 7
+            },
+            {
+              "name": "Run node tests/browser-presentation-v281.mjs",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 8
+            },
+            {
+              "name": "Run actions/upload-artifact@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 9
+            },
+            {
+              "name": "Post Run actions/setup-node@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 17
+            },
+            {
+              "name": "Post Run actions/checkout@v4",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 18
+            },
+            {
+              "name": "Complete job",
+              "status": "completed",
+              "conclusion": "success",
+              "number": 19
+            }
+          ]
+        },
+        {
+          "id": 113141792244,
+          "name": "candidate",
+          "status": "completed",
+          "conclusion": "skipped",
+          "run_id": 37725237734,
+          "logs_url": null,
+          "steps": null
+        }
+      ],
+      "artifacts": [
+        {
+          "id": 11527163957,
+          "name": "ashen-main-qa-37725237734",
+          "size_in_bytes": 17191288,
+          "url": "https://api.github.com/repos/YuxiangLiu-lyx/Ashen/actions/artifacts/11527163957",
+          "archive_download_url": "https://api.github.com/repos/YuxiangLiu-lyx/Ashen/actions/artifacts/11527163957/zip",
+          "expired": false,
+          "created_at": "2026-10-08T03:59:30Z",
+          "expires_at": "2026-10-15T03:59:28Z",
+          "updated_at": "2026-10-08T03:59:30Z",
+          "digest": "sha256:c31960a9f9b70d61b70e093396d194b95be25b372d55e07ad970c5bce3083a65",
+          "workflow_run": {
+            "id": 37725237734,
+            "repository_id": 1370609383,
+            "head_repository_id": 1370609383,
+            "head_branch": "main",
+            "head_sha": "1013ae77a70f957542cc9b2930ffebf3b9475a9c"
+          }
+        }
+      ]
+    }
+  ],
+  "remote_release_tier": "Skipped (manual option was not selected); full release acceptance was run locally on implementation_commit",
+  "site_deployed": false,
+  "log_excerpts": "docs/harness/acceptance/CI_LOG_EXCERPTS.txt",
+  "artifact_note": "Artifact metadata and digest retained; ZIP files were not downloaded. Durable local baseline, full release logs and experiments are separately committed. GitHub artifacts expire at their listed dates."
+}

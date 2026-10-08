@@ -13,3 +13,5 @@ Harness包括14个语义系统、251个索引输入、592条字面依赖、28个
 新会话只需“在Ashen按AGENTS执行：修改暗影流血连招，保留Boss与旧档兼容。”自动化Router能定位core/balance/skills/enemy-ai/V28/V17/progression/growth/equipment/enchant/save保护及现行约束，默认不读历史。中途接续用task.py list/resume；完整短命令见WORKFLOW.md与NEXT_SESSION_PROMPT.md。本次没有另开独立真人/LLM Codex会话，验收证明仓库发现和接续工具可独立工作，不声称测过模型的所有执行行为。
 
 Balance Lab未实现全八章可达/材料来源/经济路线、真实玩家能力分布、完整弹丸技能因果归因、全装备空间最优解或任意代码无限循环证明；已实现的五条经济路径是显式前置事件账本。原始未发布source/完整Git祖先/部分未引用资产仍缺失，损坏V9 zip仍原样保留；没有用重建稿充当原件。116展开原图保持未跟踪并保留，字节已在未改的校验分卷，不以忽略/删除消除提示。GitHub保存与网站发行分开，本轮没有部署站点。
+
+远端验收：提交1013ae77a70f957542cc9b2930ffebf3b9475a9c已推送main并由ls-remote核对。GitHub Harness CI（run 37725237762）和原Presentation QA（run 37725237734）均success，原始步骤回执与日志摘录见CI.json/CI_LOG_EXCERPTS.txt。远端执行integration与20次真实实验，release手动选项未启用；完整release以本地固定实现提交回执为证。本回执提交只更新元数据与证据，251个源码/规则输入指纹与已验证版本相同。最终保存SHA通过本文件Git历史与远端main定位，GitHub保存仍不代表网站发行。
