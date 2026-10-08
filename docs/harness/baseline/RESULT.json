@@ -1,0 +1,48 @@
+{
+  "baseline_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "checked_at_utc": "2026-10-08T03:18:51.518889+00:00",
+  "node": "v25.2.1",
+  "python": "Python 3.13.7",
+  "checks": [
+    {
+      "command": [
+        "python3",
+        "tools/restore_archives.py"
+      ],
+      "exit_code": 0,
+      "output": "docs/harness/baseline/01-output.txt"
+    },
+    {
+      "command": [
+        "python3",
+        "tools/restore_archives.py",
+        "--all",
+        "--verify-only"
+      ],
+      "exit_code": 0,
+      "output": "docs/harness/baseline/02-output.txt"
+    },
+    {
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs"
+      ],
+      "exit_code": 0,
+      "output": "docs/harness/baseline/03-output.txt"
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-presentation-v281.mjs"
+      ],
+      "exit_code": 0,
+      "output": "docs/harness/baseline/04-output.txt"
+    }
+  ],
+  "passed": true,
+  "limitations": [
+    "No full eight-chapter manual playthrough",
+    "Original unpublished source and full original Git history remain missing"
+  ]
+}

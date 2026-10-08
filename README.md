@@ -76,3 +76,15 @@ V28 不覆盖 V27 的剧情与地图结构，而是在最终运行时追加 `dis
 [V28.1 在线试玩](https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html)（公共源码预览托管，原站未覆盖）。发布与浏览器验证状态见 `docs/web-play/WEB_RELEASE.json`。
 
 无需启动本地服务器的单文件离线版，可由 `tools/build_web_play.py` 构建，详见 `docs/web-play/README.md`。
+
+## Agent Harness 与 Balance Lab
+
+新会话可直接说“修改暗影流血连招”，按根AGENTS自动定位。结构化模块图、按任务检索、六项项目Skills、持久任务与分级CI在 `tools/harness/`、`source/harness/`、`.agents/skills/`。短流程和接续例子见 [WORKFLOW](docs/harness/WORKFLOW.md)。
+
+```bash
+python3 tools/harness/context.py --task "修改暗影流血连招"
+python3 tools/harness/check.py --tier fast
+node tools/balance_lab/run.mjs combat --config tools/balance_lab/examples/shadow-captain.json --trials 20
+```
+
+Lab直接调用真实RPG，支持固定种子、职业/装备/技能、AI战斗、统计、效果查询、候选Build搜索与第五章经济账本。范围及限制见 [Lab](docs/balance-lab/README.md)；本轮不改V28.1正式规则，不发布网站。验收在 `docs/harness/ACCEPTANCE.json`，历史入口原文与原QA保留。

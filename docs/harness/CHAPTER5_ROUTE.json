@@ -1,0 +1,339 @@
+{
+  "status": "ok",
+  "task": "调整第五章任务奖励",
+  "basis_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "source_fingerprint": "8740f865a24dc344662ea401bfea64c23b5118d3f45797e5c16a8d032320d8b3",
+  "modules": [
+    "economy"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/ECONOMY.md",
+      "reasons": [
+        "economy: current constraints"
+      ],
+      "priority": 134,
+      "category": "current_rules",
+      "sha256": "9f24567bafb4841905ca0d9f7230fe8402b17d71d3bc1942b38701dd0be6a3d4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 经济与奖励约束",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "第五章配置在 chapter5-economy；执行在 chapter5-runtime 的 quest-claim、handleHellDeath、chapter5Action。三条支线有资源、击杀和领取条件；主线奖励在 apply 分支和 Saga 接续中，不能只汇总配置表就声称模拟整章。使用运行方法核对支付、一次性 claims、满包队列、材料消耗和领取后重试。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1155
+    },
+    {
+      "path": "dist/chapter5-economy-v14.js",
+      "reasons": [
+        "economy: task matched 任务奖励, 第五章任务, 第五章, 奖励; maintained entry"
+      ],
+      "priority": 114,
+      "category": "current_code",
+      "sha256": "c20eb1f13c86a54b858d9c60731c60dd4c5e30fed6a92c6b862532c2d4447d7f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Pure data; safe to import from growth without a runtime/data circular import.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const CH5_MATERIALS={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " ch5GoldSand:{name:'残温金砂',kind:'material',desc:'星屑矿庭与空甲中留下的细金砂，用于铸造职业套装。',sell:3,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " ch5LampCore:{name:'凝灯芯',kind:'material',desc:'亡灵的灯火凝成的芯，用于调药、换取技法与契约。',sell:3,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " ch5Dew:{name:'穹顶凝露',kind:'material',desc:'凝露水院收集的净露。再回到水院时，收集器可能重新积满。',sell:2,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " ch5PrizeCoin:{name:'回铃铜券',kind:'currency',desc:'三盏回铃的奖券；仅在游艺厅兑换物品，没有现金用途。',sell:0,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " ch5CourierPage:{name:'沾灰的名册页',kind:'quest',desc:'练场空甲携带的名册页。维兰正在清点这些名字。',sell:0,stack:99}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "};",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6372
+    },
+    {
+      "path": "dist/chapter5-runtime-v14.js",
+      "reasons": [
+        "economy: task matched 任务奖励, 第五章任务, 第五章, 奖励; maintained entry"
+      ],
+      "priority": 113,
+      "category": "current_code",
+      "sha256": "11ae63209e00fc3d043e50a7c76d76f339a868ac8bb5367390d51e7f94ec6841",
+      "excerpts": [
+        {
+          "line": 48,
+          "text": "export function validateChapter5Save(s){if(!s.ch5)return;const a=s.ch5;if(a.schema!==1||!Number.isInteger(a.seed)||a.seed<0||a.seed>4294967295||!a.claims||!a.visits||!a.quests||!a.crafts||a.activeBoss)throw new Error('阙灯城旅程记录不完整。');for(const[id,q]of Object.entries(a.quests))if(!CH5_QUESTS[id]||typeof q.claimed!=='boolean'||!Number.isInteger(q.kills)||q.kills<0||q.kills>99999)throw new Error('第五章差事记录不完整。');if(a.bookOffer&&(!Array.isArray(a.bookOffer.items)||a.bookOffer.items.length<1||a.bookOffer.items.length>3))throw new Error('技法换取记录不完整。');}",
+          "truncated": false
+        },
+        {
+          "line": 109,
+          "text": "  else if(a==='exit-done'){this.knowledge.saint=[...new Set([...(this.knowledge.saint||[]),'church-banner-at-exit','bodies-suspected'])];this.knowledge.hero=[...new Set([...(this.knowledge.hero||[]),'exit-ambush-suspected'])];this.flags.ch5Complete=true;this.flags.complete=false;this.chapter=29;this.quests.ch5='done';s.stage='complete';once(this,'exit-reward',()=>{this.gainXP(850);this.p.gold+=180;});this.say('第五章 · 灯火之后，已完成。可以继续探索阙灯城。');}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 33584
+    },
+    {
+      "path": "dist/quest-service-v14.js",
+      "reasons": [
+        "economy: task matched 任务奖励, 第五章任务, 第五章, 奖励; maintained entry"
+      ],
+      "priority": 112,
+      "category": "current_code",
+      "sha256": "1c48a9e2bdd8a4aa2db742beb0e89a788d188617d41273a08907b5f980023470",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {FAREWELL_IDS} from './mechanisms-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "// This is the final presentation resolver, installed after all chapter modules.",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "// Markers and menu priority use the SAME semantic option state, never label text.",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const QUEST_PRIORITY={ready:0,advance:0,available:1,waiting:2,service:3,daily:4};",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function mapRegion(map){return map.startsWith('ch5')?5:map.startsWith('deep')?4:map.startsWith('hell')?3:['post','inn','bridge','manor','chamber','spillway','exile','bridgecellar','wellcrypt'].includes(map)?2:1;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function chapterRegion(g){return mapRegion(g.map);}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6974
+    },
+    {
+      "path": "dist/systems-data-v14.js",
+      "reasons": [
+        "economy: task matched 任务奖励, 第五章任务, 第五章, 奖励; maintained entry"
+      ],
+      "priority": 111,
+      "category": "current_code",
+      "sha256": "cd0ce651cbd9401fee9ec3ab36b691b58a9e38638d82aac7461040b33e36c60c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// V13 canonical values. No DOM, save state or random work at module load.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const POTION_CD=7;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const POTIONS=Object.fromEntries(['hp','mp'].flatMap(kind=>[0,1,2,3].map(i=>{",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " const id=kind+['','Medium','Large','Grand'][i],amount=(kind==='hp'?[90,180,320,480]:[60,100,160,240])[i];",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " return [id,{name:['小型','中型','大型','特制'][i]+(kind==='hp'?'疗伤药':'清醒药'),kind,amount,tier:i+1,region:i+1,cost:(kind==='hp'?[12,22,36,52]:[12,24,40,60])[i],category:'consumable',desc:`恢复 ${amount} ${kind==='hp'?'生命':'法力'}。疗伤药与清醒药分别计算 ${POTION_CD} 秒冷却，同类不同规格共用；对应状态已满时不消耗。`}];",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "})));",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const QUALITIES={",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " common:{name:'普通',color:'#d5d2cc',power:1},uncommon:{name:'精良',color:'#71bc83',power:2},rare:{name:'稀有',color:'#70a9eb',power:3},epic:{name:'史诗',color:'#b08cea',power:4},legendary:{name:'传说',color:'#eda656',power:5},abyssal:{name:'黑曜',color:'#16151c',power:6}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 5462
+    },
+    {
+      "path": "dist/combat-overhaul-v28.js",
+      "reasons": [
+        "economy: 一次性领取、材料支付、满包队列、章节 RNG 和存档 claims 不能重复发奖。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "f5b1e63f95af615b868e3563eecf936651c88643684d504c7614814b0e6e5187",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// V28 combat-system overhaul. Installed last so legacy story/runtime behavior stays intact.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// The project still uses the existing sprite atlases; variants select different families and",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// render filters instead of inventing missing binary assets.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const V28_VERSION=28;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const V28_RARE_DROP_CHANCE=.01;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export const V28_ENEMY_VARIANTS=Object.freeze([",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 11322
+    },
+    {
+      "path": "dist/save-protection-v23.js",
+      "reasons": [
+        "economy: 一次性领取、材料支付、满包队列、章节 RNG 和存档 claims 不能重复发奖。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "b970a46c4d0ed3d5cd36dca851ac60e19f7873bc19267f9ebbf7c61415a361b8",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Preserve pre-reconstruction save bytes. Unsupported progress is never guessed,",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// skipped or converted to an empty state. This is not proof of real V22 compatibility.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const KNOWN_TOP_LEVEL_V23=new Set(['version','map','chapter','time','p','flags','quests','states','pending','companion','pendingRewards','knowledge','relations','beforeDeparture','ch3','v11','v12','v13','ch5','mercenariesV14','hellActivitiesV15','hellActivitiesV17','saintBondV17','hellExpeditionsV18','cityStoriesV18','discoveryV19','saintStoryV18','romanceV20','arrivalV22','cityMomentsV24','sagaV25','sagaV26','memoryV13']);",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "// These four actual production helpers intentionally create dialogue in pending.lines.",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const INLINE_SCENES_V23=new Set(['_spoken','_hellTalk','_explore','_post_sign']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function assertSupportedSavedProgressV23(save,dialogues){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " if(!save||typeof save!=='object'||Array.isArray(save))return; // existing parser owns shape errors",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const unknown=Object.keys(save).filter(k=>!KNOWN_TOP_LEVEL_V23.has(k));",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2453
+    }
+  ],
+  "excerpt_bytes": 5295,
+  "max_files": 8,
+  "budget_bytes": 24000,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/presentation-v281.test.mjs"
+  ],
+  "risks": [
+    "一次性领取、材料支付、满包队列、章节 RNG 和存档 claims 不能重复发奖。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

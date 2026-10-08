@@ -1,0 +1,573 @@
+{
+  "status": "ok",
+  "task": "修改地图表现",
+  "basis_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "source_fingerprint": "8740f865a24dc344662ea401bfea64c23b5118d3f45797e5c16a8d032320d8b3",
+  "modules": [
+    "maps",
+    "art"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints",
+        "art: current constraints"
+      ],
+      "priority": 126,
+      "category": "current_rules",
+      "sha256": "0ad6fcd287a7b9257403dde332f78d4e8375ee5072321f79e8b2361e933d8b97",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 地图与资产约束",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "world/各 chapter-world 配置及 scene-geometry、presentation-physics 控制真实地图/足部碰撞；visuals/art/actor-art/equipment-art 控制绘制。地图表现任务默认不改战斗或经济。118地图和封锁出口基线在 tests/fixtures/v28-navigation.json；原本锁住的出口不能改成新增问题，也不能通过更改基线掩盖回归。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "已有回归包含图集哈希、正式渲染器画廊、地图和章节回放；它们不是完整八章人工通关。改动资产后检查 preload/HTML/离线构建与引用完整性。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 975
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints",
+        "art: current constraints"
+      ],
+      "priority": 126,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# V28.1 · 美工 / 表现修复",
+          "truncated": false
+        },
+        {
+          "line": 38,
+          "text": "本地23项 Node 测试通过，包括所有118张地图注册/已开放出口、9个后续章节/职业检查点构造与读档、27段医疗/坐席/第八章演出路由、24件装备映射、5张图集 SHA256、碰撞和步态。地图审计以V28真实基线导出，不把原来就有的封锁出口当作新增问题。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4137
+    },
+    {
+      "path": "dist/world-v14.js",
+      "reasons": [
+        "maps: task matched 地图, 地图表现; maintained entry"
+      ],
+      "priority": 106,
+      "category": "current_code",
+      "sha256": "b4664a6e47ef43e73d36f7a5680f4780253bac9ac9bd9431badc3cb92a154a29",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {romanceActionArtV20} from './romance-world-v20.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {configureQualityWorld,secretPropArt} from './quality-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {configureChapterWorld} from './chapter-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {DENSITY} from './density-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {configureMechanisms} from './mechanisms-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {WORLD_ADDITIONS} from './exploration-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const prop=(id,asset,x,y,w,h,box=null,sheet='world')=>({id,asset,x,y,w,h,box,sheet});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9517
+    },
+    {
+      "path": "dist/scene-geometry-v26.js",
+      "reasons": [
+        "maps: task matched 地图, 地图表现; maintained entry"
+      ],
+      "priority": 105,
+      "category": "current_code",
+      "sha256": "6c53829d10a6e9830d315f277867d85af3bf3c88c8960421d5feef74704a0313",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {supplementalFootprintsV281} from './presentation-physics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {actorHeightV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// Shared foot-space navigation and alpha-aware foreground cutaway. Raster artwork remains unchanged.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "let worldMaps={},worldScenery={};",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),seated=new Set(['sit','seated','drink','listen','seated-listen','bench-wood','bench-stone']),resting=new Set(['lying','sleep','sleep-bed','carried']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const extraCache=new Map();",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function invalidateSceneGeometryV281(map=null){if(map==null)extraCache.clear();else extraCache.delete(map);}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function furnitureFootprintV26(o){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15034
+    },
+    {
+      "path": "dist/presentation-physics-v281.js",
+      "reasons": [
+        "maps: task matched 地图, 地图表现; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "5d8fbff6cc52412b87200a60a2f5fd9cf3b28c5a119dec7b516de1f701d4c151",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {footRadiusV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const validFootBoxV281=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function pointInFootBoxV281(x,y,b,pad=0){return validFootBoxV281(b)&&x>b[0]-pad&&x<b[0]+b[2]+pad&&y>b[1]-pad&&y<b[1]+b[3]+pad;}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function segmentFootBoxV281(a,b,box,pad=0){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " if(!validFootBoxV281(box))return false;let lo=0,hi=1;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " for(const [p,d,mn,mx]of [[a.x,b.x-a.x,box[0]-pad,box[0]+box[2]+pad],[a.y,b.y-a.y,box[1]-pad,box[1]+box[3]+pad]]){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(Math.abs(d)<1e-9){if(p<=mn||p>=mx)return false;continue;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  const u=(mn-p)/d,v=(mx-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));if(lo>=hi)return false;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6309
+    },
+    {
+      "path": "dist/navigation-v14.js",
+      "reasons": [
+        "maps: task matched 地图, 地图表现; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "c996284776d6bc237eecba1e403f36d798a8db17b8fed17410d3775429d669b8",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "export function routeHint(g,goal){if(goal.trial)return '留意首领聚光与落点。要中止挑战，可回试炼石选择退出，已通关层数保留。';if(!goal.map)return '可以回访白榆城，或沿王道寻找尚未完成的线索。';let t=(goal.map===g.map?g.enemies.find(e=>e.id===goal.target&&!e.dead):null)||(goal.map===g.map?g.npcs:MAPS[goal.map].npcs).find(n=>n.id===goal.target)||MAPS[goal.map].props.find(n=>n.id===goal.target)||MAPS[goal.map].doors.find(n=>n.to===goal.target);if(goal.map==='inn'&&goal.target==='seline'&&g.flags.pumpFixed)t={...t,x:540,y:660};if(goal.map===g.map){if(t&&g.enemies.some(e=>e.id===t.id))return `敌人在${direction(t.x,t.y)}一带。留意抬手，沿井边绕开夹击。`;if(t)return `就在${MA",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 2208
+    },
+    {
+      "path": "dist/actor-art-v281.js",
+      "reasons": [
+        "art: task matched 表现; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {actorHeightV281,nativeMonsterTypeV281,movingPoseV281,walkPhaseV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "const feetCache=new WeakMap();",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function frameFootPointsV281(bank,sheet,index,f,unit,foot){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " let cache=feetCache.get(bank);if(!cache){cache=new Map();feetCache.set(bank,cache);}const key=sheet+':'+index+':'+f.x+':'+f.y;",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " let points=cache.get(key);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " if(!points){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  points=[];try{",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "   const image=bank.images[sheet],height=Math.max(2,Math.ceil(f.h*.23)),top=f.y+f.h-height;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6255
+    },
+    {
+      "path": "dist/world-entry-v22.js",
+      "reasons": [
+        "maps: task matched 地图, 地图表现; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "eb9ee8e1ec0147f616603d0447e3e7efd83ef772eb437d3e1d6e71607abbd81b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Reconstructed V21/V22 behaviour from the published V20 baseline and user requests.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// This module is not an assertion of byte-identical recovery of the original release.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {DIALOGUES,MAPS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {CHAPTER_STAGING} from './chapter-staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {CITY_ARCHITECTURE_META_V19 as architecture,CITY_FURNISHINGS_META_V19 as furnishings} from './world-art-meta-v19.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const copy=v=>structuredClone(v),ID='v22CityArrival',ACTION='v22arrival:complete:';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10519
+    },
+    {
+      "path": "dist/equipment-art-v281.js",
+      "reasons": [
+        "art: task matched 表现; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "deff0e3c8349095cea130b38a371e23a8b8ce3a7950b5c4a8a730e80381770a5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Small fitted details are anchored to the existing body rig, not a second floating costume.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "const PALETTES=Object.freeze({common:['#433d36','#8a8170'],uncommon:['#39443b','#8c987f'],rare:['#3a4851','#8296a0'],epic:['#48414f','#9c8aab'],legendary:['#554434','#baa071'],abyssal:['#25232b','#8f809c']});",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const SIGNATURES=Object.freeze({",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " 'v28-greyfang-edge':'fang','v28-cinder-cuff':'ember','v28-road-charm':'knot','v28-night-runner':'wing','v28-stonewatch':'plate','v28-spark-grip':'spark',",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " 'v28-bonebrand':'bone','v28-ash-hood':'hood','v28-soul-knot':'knot','v28-tide-mail':'scale','v28-rift-boots':'split','v28-oath-ember':'ember',",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " 'v28-bloodwell':'fang','v28-lantern-crown':'crown','v28-executor-shell':'plate','v28-frost-bite':'frost','v28-prayer-thread':'chain','v28-black-iron-step':'plate',",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " 'v28-voidfang':'split','v28-mirrorflame':'mirror','v28-greycrown':'crown','v28-ashen-vow':'eclipse','v28-nameless-echo':'orbit','v28-last-guard':'raven'",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6720
+    },
+    {
+      "path": "dist/presentation-metrics-v281.js",
+      "reasons": [
+        "art: task matched 表现; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "e77cba30451de6e89bed9f56bfef3e710f2e4d97ae4d20460421e8616e695702",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// V28.1 visual contracts. All positions and sort depths are ground/foot pivots.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const PRESENTATION_VERSION='28.1';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const HUMAN_HEIGHT=Object.freeze({hero:84,saint:80,chengli:81,npc:82});",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const CREATURE_HEIGHT=Object.freeze({rat:38,bat:48,wolf:62,guard:82,captain:105,hellHound:65,hellSoul:83,hellGuard:88,hellJailer:132,deepHound:68,deepSoul:84,deepGuard:90,deepElite:98,ironScuttler:111,furnaceSentinel:129,odric:121,martha:114,severin:130,bloodDemon:166});",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const BOSS_ART_V281=Object.freeze({ch5Gatekeeper:'furnaceSentinel',v25PursuitKnight:'severin',v25FinalJudge:'severin',v25TrialMaster:'odric',v25BrokerChief:'severin',v25GrainChief:'captain',v25BridgeMarshal:'captain'});",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function nativeMonsterTypeV281(a,aliases={}){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " const t=String(a?.type||'guard');",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " if(BOSS_ART_V281[t])return BOSS_ART_V281[t];",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2536
+    },
+    {
+      "path": "dist/visuals-v14.js",
+      "reasons": [
+        "art: task matched 表现; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "16ed855237097e0f84285203d704ee3cf579cfa349b506b5696b356ebf42f2e4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {actorHeightV281,CREATURE_HEIGHT,walkPhaseV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {frameFootPointsV281,drawCutoutGaitV281,monsterStyleV281,drawMonsterOrnamentV281} from './actor-art-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {drawFittedEquipmentV281,drawWeaponSignatureV281,weaponAngleV281} from './equipment-art-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {sceneryAlphaV26} from './scene-geometry-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {sagaSpeakerPortraitV25} from './saga-art-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {installRomanceWorldFramesV20,drawRomanceFrameV20,drawRomancePropV20} from './romance-world-v20.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {movementRenderAngleV23} from './movement-v23.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {heroCalmFrameV24} from './movement-v24.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 20853
+    },
+    {
+      "path": "dist/art-v14.js",
+      "reasons": [
+        "art: task matched 表现; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "2c08a5a9d6ea40481e51c66247c6796ca81a13da959de84243d97d64551e4eac",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MEDICAL_CART_META_V12} from './medical-cart-meta-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {HESTER_META} from './hester-meta-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {DEEP_BOSS_META,DEEP_PORTRAIT_META,DEEP_PROP_META} from './deep-art-meta-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {MEDICAL_META} from './medical-meta-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {COURT_ACTOR_META} from './court-actor-meta-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function installV11Frames(bank,name){const meta={medicalCart:MEDICAL_CART_META_V12,hesterActions:HESTER_META,deepBosses:DEEP_BOSS_META,deepPortraits:DEEP_PORTRAIT_META,deepProps:DEEP_PROP_META,medicalProps:MEDICAL_META,courtActors:COURT_ACTOR_META}[name];if(!meta)return;bank.frames[name]=meta.items.map(m=>{const[x,y,w,h]=m.sourceRect,f={x,y,w,h,cell:{x,y,w,h},meta:m};if(m.clipPolygon){const c=document.createElement('canvas');c.width=w;c.height=h;const ctx=c.getContext('2d');ctx.beginPath();m.clipPolygon.forEach(([px,py],i)=>i?ctx.lineTo(px,py):ctx.moveTo(px,py));ctx.closePath();ctx.clip",
+          "truncated": true
+        },
+        {
+          "line": 7,
+          "text": "export function drawV11Frame(c,bank,name,index,x,y,unit,flip=false){const f=bank.frame(name,index);if(!f)return;const[ax,ay]=f.meta.anchorInSourceRect;c.save();c.translate(Math.round(x),Math.round(y));if(flip)c.scale(-1,1);c.imageSmoothingEnabled=true;if(f.cached)c.drawImage(f.cached,-ax*unit,-ay*unit,f.w*unit,f.h*unit);else c.drawImage(bank.images[name],f.x,f.y,f.w,f.h,-ax*unit,-ay*unit,f.w*unit,f.h*unit);c.restore();}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function drawV11Monster(c,bank,a,time){if(a.type==='bloodDemon'){const im=bank.images.bloodDemon;if(!im)return true;const i=a.wind>0||a.attackAnim>0?3:a.moving?[1,0,2,0][Math.floor((a.walkDistance||0)/36)%4]:0,anchors=[[324.5,605],[336,598],[328.5,596],[330,604]],k=180/590;c.save();c.translate(Math.round(a.x),Math.round(a.y));if(Math.cos(a.angle||0)<0)c.scale(-1,1);if(a.fall){c.globalAlpha=.42;c.rotate(-.3);}c.imageSmoothingEnabled=true;c.drawImage(im,i%",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 3887
+    }
+  ],
+  "excerpt_bytes": 8784,
+  "max_files": 16,
+  "budget_bytes": 24000,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/presentation-v281.test.mjs",
+    "node tests/browser-presentation-v281.mjs"
+  ],
+  "risks": [
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。",
+    "保留原图和校验来源；第八章禁用大图但保留小立绘；物种与 AI 不变。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

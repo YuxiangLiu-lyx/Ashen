@@ -1,0 +1,45 @@
+name: Agent Harness and Balance Lab
+on:
+  pull_request:
+  push:
+    branches: [main, refactor/agent-harness-balance-lab]
+  workflow_dispatch:
+    inputs:
+      release:
+        description: Run archive, offline build and UI release checks (no deployment)
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - run: python3 tools/harness/index.py --check
+      - run: python3 tools/harness/check.py --tier fast
+      - run: python3 tools/restore_archives.py
+      - run: python3 tools/harness/check.py --tier integration
+      - name: Release prerequisites
+        if: inputs.release == true
+        run: python3 -m pip install -r requirements-qa.lock.txt
+      - name: Full release acceptance (no publishing)
+        if: inputs.release == true
+        run: python3 tools/harness/check.py --tier release
+      - name: Reproducible runtime experiment
+        run: node tools/balance_lab/run.mjs combat --config tools/balance_lab/examples/shadow-captain.json --trials 20 --output qa-export/ci-experiment
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: harness-and-lab-evidence
+          path: qa-export/
+          retention-days: 14

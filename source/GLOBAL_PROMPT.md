@@ -1,5 +1,3 @@
-# 后续开发入口
+# 项目指令定位
 
-执行根目录 AGENTS.md 与 NEXT_SESSION_PROMPT.md 的保存规则。每轮结束必须提交、推送 GitHub Ashen/main 并验证远端包含本轮提交。
-
-先读 CURRENT_STATE.json、BACKUP_STATUS.md 和对应版本 docs/；当前为 V28.1，旧文档不得覆盖已核实的新代码。保留原始图、衍生来源和历史，不能以重建稿冒充恢复原件。网站发布、源码保存、自动验证、人工试玩分别记录。
+唯一执行入口为根 AGENTS.md。当前状态在 CURRENT_STATE.json，按任务检索 docs/harness规则和 .agents/skills；不要求每次读完整历史。恢复范围以 BACKUP_STATUS.md为准，版本以当前代码与发布回执为准。旧入口原文保留在 docs/harness/history，不作为重复权威。

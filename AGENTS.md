@@ -1,32 +1,13 @@
-# Ashen 项目执行要求
+# Ashen Agent 入口
 
-先读 README.md、BACKUP_STATUS.md 和 source/CURRENT_STATE.json，核实本仓库的恢复范围及缺口。
+本仓库为《烬誓：圣女与影刃》V28.1恢复运行快照，运行代码在dist。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
 
-## GitHub 保存与接续（长期执行）
+1. 开工先检查 `git status --short --branch`、remote、HEAD并fetch GitHub Ashen/main；保留现场，干净可快进时merge --ff-only。大型修改用分支/worktree。读README、BACKUP_STATUS、source/README、source/CURRENT_STATE.json及source/GLOBAL_PROMPT；恢复范围不能仅凭聊天记忆判断。
+2. 当前用户授权决定目标；当前代码＋可重复测试描述实际行为；CURRENT_STATE及发布回执描述版本/发行；按需规则在docs/harness。历史档案仅追溯，FUTURE_ONLY不自动实装。冲突/缺失须明确报告并搜索调用者，不能猜测或把设计稿当运行事实。
+3. 无论需求长短，先运行 `python3 tools/harness/context.py --task "用户需求"`。索引过期先运行index.py再复核modules.json中的语义映射。看返回原因、入口、风险、测试和deferred，预算不足用--expand/--max-files/--budget；不要默认读全剧情/美术/历史。用rg检查实际代码和覆盖关系。
+4. 使用 `.agents/skills/` 中与改动直接相关的Skill，只读选中项；简单任务不触发全部Skills。跨系统、存档、重构或发布任务先写简短执行计划和验收；小改动可直接实施。所有实际改动用 `python3 tools/harness/task.py start --id <ID> --goal "需求" --accept "可验证标准"`，先list/resume已有任务避免重建状态。
+5. 修改前保存真实基线；不擅自平衡游戏、不弱化有效测试、不覆盖用户/其他Agent工作。RPG安装顺序及存档是兼容边界。Lab复用真实运行规则，假设/限制明确，优化候选不直接覆盖正式游戏。
+6. 用check.py --recommend读取按改动范围建议，执行fast及相关专项；重大集成做integration，完整发行做release。记录子进程结果：task.py run --id <ID> -- <命令>。失败不能写成成功，未做的检查/发行不能宣称完成。跨上下文先task.py resume及Git状态，持续更新decisions/progress/next。
+7. 收尾更新CURRENT_STATE、progress、任务和docs验收；审查diff/未跟踪/ignore/staged，提交真实内容并推送授权的GitHub main，无需重复确认。禁止force push、reset --hard或clean。推送后ls-remote核对HEAD或fetch确认祖先才说已上传；失败保留本地SHA/文件并记未完成远端同步。详细资产、归档、版本与Git规则见[Git保存细则](docs/harness/GIT_SAVE.md)。GitHub保存不等于网站发布。
 
-本节增补现有项目规则，不替换剧情、战斗、美术、存档与发行约束。用户已授权将本项目及后续开发结果持续推送至 `https://github.com/YuxiangLiu-lyx/Ashen`，默认分支 `main`；正常保存不重复索要推送许可。
-
-### 开工
-
-1. 检查 `git status --short --branch`、`git remote -v` 和当前提交。保留未提交工作；不擅自覆盖、丢弃或回退用户及其他 Agent 的改动。
-2. 确认一个远端确实指向上述 GitHub 仓库。已有其他平台的 `origin` 时保留它，可另设 `github` 远端。以下 `<远端>` 指该 GitHub 远端。
-3. 先 `git fetch <远端>`，检查本地与远端差异。干净且可快进时执行 `git merge --ff-only <远端>/main`；有本地工作或分叉时先保护现场并整合，不能以强制重置解决。首次接续可直接 clone 仓库。
-4. 读取根目录 `AGENTS.md`、`source/README.md`、`source/CURRENT_STATE.json`（以 README 实际指向为准）、`source/GLOBAL_PROMPT.md`，再读它们指定的当前需求、剧情、战斗、美术、Agent 记录及 QA。依据当前权威文档和发布回执判断版本，不仅凭聊天记忆或文件名。
-
-### 必须保存的内容
-
-- 运行代码、构建及恢复脚本、依赖清单与锁文件、完整文案、设定、当前状态、需求和验收记录。
-- 使用中的图片及其他资源文件；可取回的原图、衍生图、旧版资源和生成说明、角色/场景对应关系。只有临时下载链接不算备份；当前不使用的历史图也应保留可追溯版本。
-- 保持历史交付与原始文件，不把旧版说明改写成新版。记录每批恢复文件的来源、原路径、版本、校验值及缺失项；无法取回的内容明确写“缺失”，不得用重建稿冒充原件。
-- 产品版本、平台版本、运行源码提交、文档/备份提交分别记录；GitHub 保存成功不等于网站已发布。大文件超限时使用可用且已验证的 Git LFS 或完整外置归档并记录固定版本、校验及恢复方式，不能静默排除。密钥、凭据、私有 `.env` 和用户私人存档不入库。
-
-### 每轮工作结束
-
-1. 更新 `source/` 当前状态、完成度、已知限制、对应版本总结与 `docs/` 验收；保留旧记录。说明实际完成的检查，不虚称测试或发行成功。
-2. 检查 `git diff`、未跟踪文件和忽略规则，确认代码、文案、图片及历史记录齐全；排除缓存与凭据。将本轮应保存的文件 `git add`，再检查 `git diff --cached --stat` 和暂存内容。
-3. 创建描述实际改动的 `git commit`，推送至上述 GitHub 仓库的 `main`。若需先整合远端改动，保持已有历史；禁止 `push --force`、`reset --hard` 或 `clean` 覆盖现场。
-4. 推送后再次读取 `git ls-remote <远端> refs/heads/main`，与本地 `git rev-parse HEAD` 核对。若他人刚提交，应 fetch 并确认本轮提交是远端分支的祖先；不能只凭 push 命令执行过就报告成功。使用 LFS 时还须确认实际大文件对象已上传并可拉回。
-5. 交付时给出 GitHub 仓库/提交链接、提交 SHA、保存范围与具体缺失项。只有远端验证通过才说“已上传”。无新增变更时不制造空提交，确认远端包含当前成果即可。
-6. 推送失败时保留本地提交与全部文件，记录失败原因、待上传分支和 SHA；必要时生成含本地提交的 Git bundle（LFS 对象另行保留）。明确写“未完成远端同步”，不要宣称已备份。
-
-本规则要求每次实际工作结束保存；不代表已配置后台自动上传或定时任务。多 Agent 由主整合者统一复核、提交、推送，避免互相覆盖。
+短命令及任务接续：[WORKFLOW](docs/harness/WORKFLOW.md)。source/tasks/active只放未完成任务，历史已完成任务按需读取。

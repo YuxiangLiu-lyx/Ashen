@@ -1,0 +1,794 @@
+{
+  "status": "ok",
+  "task": "修改暗影流血连招",
+  "basis_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "source_fingerprint": "8740f865a24dc344662ea401bfea64c23b5118d3f45797e5c16a8d032320d8b3",
+  "modules": [
+    "combat"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 126,
+      "category": "current_rules",
+      "sha256": "6b9bbf3b882aac7f01f26af441b62efdb6c8c8e64060d3f285817ad07fa229a8",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "暗影 q 实际位移/命中并加两层流血；普攻加一层，血棘可能额外加层；上限四层，五秒刷新。e 在145距离内消耗流血，每层追加13原始伤害，再走真实伤害结算。血刃转职另用 careerBleed：上限30层、持续6秒、按基础战力/敏捷/力量结算；bloodHarvest消耗裂伤。不得把基础四层规则套到转职。Boss 对直接伤害和 DOT 有不同防御；不能只比较技能表的 damage 字段。V28 不增加第二个技能解释器。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1564
+    },
+    {
+      "path": "docs/v28/COMBAT_OVERHAUL.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 126,
+      "category": "current_rules",
+      "sha256": "c4e2c4ff882a577d719da212c4f3bcc96758c832cd52da72f1b2bd64cb7ced6a",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# V28 Combat Overhaul",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "日期：2026-09-19  ",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "基线：V27 recovered runtime  ",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "运行入口：dist/game-v14.js -> dist/core-v14.js -> dist/combat-overhaul-v28.js",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "## 目标",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3618
+    },
+    {
+      "path": "dist/core-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 106,
+      "category": "current_code",
+      "sha256": "a27b27dedff11bf8d692be3c8ea3e8dbd63cab0e40bd3ad809d14ba54add4ba0",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {installPresentationPhysicsV281} from './presentation-physics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {CH5_VISUAL_FAMILIES as PRESENTATION_ALIASES_V281} from './chapter5-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {invalidateSceneGeometryV281,mapFurnitureV26} from './scene-geometry-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {installChengliTextV27} from './chengli-text-v27.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {installChapter67StagingV26} from './saga-staging67-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {installChapter8StagingV26} from './v26-story8-staging.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {installSagaV26} from './saga-runtime-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {SAGA_CHAINS67_V26} from './saga-chains67-v26.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 77185
+    },
+    {
+      "path": "dist/balance-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 105,
+      "category": "current_code",
+      "sha256": "f2a2e7ffcab9c66d8f2dc68ce40410df75ad1c4d3605cdcec74cc74589af7e67",
+      "excerpts": [
+        {
+          "line": 48,
+          "text": "  shadow:{q:{cost:12,cd:5,base:1.65,dex:3,str:1.2,label:'首次伤害',extra:'255距离内突进命中，附加2层流血；没有无敌帧。'},e:{cost:17,cd:7,base:1.1,dex:2,str:1.5,label:'基础伤害',extra:'消耗目标流血，每层额外13伤害（最多4层）；把握收割时机。'}},",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6084
+    },
+    {
+      "path": "dist/skills-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "e4beb471a5cbd21bfc2b92a0b3379c39fb709bada2d1ced273cb409815202986",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {skillRankMultiplierV17,skillRankDurationV17,skillRankSupportV17} from './rank-scaling-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {progressionSkillNumbers} from './progression-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {arcaneBonus} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {enchantStat,modifySkill} from './enchantments-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {chapter3SkillNumbers,hellDamageFactor} from './chapter3-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// All skill numbers shown in the interface and consumed by combat share this source.",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {totalAttributes,damageModifier,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {SKILL_SPEC as spec} from './balance-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3806
+    },
+    {
+      "path": "dist/enemy-ai-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "375fbae2b0eb6977f443c194afb713b9c4222e27fcdb7390625514606125e8bb",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {playerProjectileSourceValidV17} from './combat-input-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const ENEMY_STATES=Object.freeze({IDLE:'IDLE',PATROL:'PATROL',ALERT:'ALERT',COMBAT:'COMBAT',RETURNING:'RETURNING',DEAD:'DEAD'});",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const boss=e=>e.type==='captain'||e.type==='hellJailer'||!!e.isBoss||!!profileForEnemy(e.type).isBoss;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const formidable=e=>boss(e)||e.elite||e.isBoss===true;",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const arenaLocked=e=>boss(e)||e.isBossArena===true||e.isBoss===true;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 24288
+    },
+    {
+      "path": "dist/combat-overhaul-v28.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "f5b1e63f95af615b868e3563eecf936651c88643684d504c7614814b0e6e5187",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// V28 combat-system overhaul. Installed last so legacy story/runtime behavior stays intact.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// The project still uses the existing sprite atlases; variants select different families and",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// render filters instead of inventing missing binary assets.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const V28_VERSION=28;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const V28_RARE_DROP_CHANCE=.01;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export const V28_ENEMY_VARIANTS=Object.freeze([",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 11322
+    },
+    {
+      "path": "dist/combat-input-v17.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "b371c776bbbf31bd574e03aa4be6ffd4645b4e95426b70e180f54bcbc3451008",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {HELL_SKILL_BOOKS,SAINT_SKILLS} from './chapter3-combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {PROGRESSION_SKILLS} from './progression-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// Player input is transient: never store queued intent or actor references in saves.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const SKILL_INPUT_WINDOW_V17 = .35;",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const SKILL_INPUT_TAIL_V17 = .30;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const pendingSkills = new WeakMap();",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const projectileOwners = new WeakMap();",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const installed = new WeakSet();",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6193
+    },
+    {
+      "path": "dist/chapter3-skills-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "ebb8886a3edbd8ba9b38340fbae205156d357b1b620035e0a0e21209c3af3552",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {isStoryTestV25} from './story-test-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {skillRankMultiplierV17,skillRankDurationV17,skillRankSupportV17} from './rank-scaling-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {arcaneBonus} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {enchantStat,modifySkill} from './enchantments-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {HELL_SKILL_BOOKS,SAINT_SKILLS,HELL_UNIQUES,SOUL_LAMP_SYSTEM} from './chapter3-combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {totalAttributes,vitalStats,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export const EXTRA_SKILLS=Object.fromEntries([...HELL_SKILL_BOOKS,...SAINT_SKILLS].map(v=>[v.id,v]));",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10849
+    },
+    {
+      "path": "dist/progression-data-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "117828bbc22b33ac0bf2082c7065391ac1b8b889972c34831d1080c6c886b814",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": " bloodblade:{id:'bloodblade',cls:'shadow',name:'血刃',summary:'持续流血、引爆创口；适合贴身周旋。',growth:{str:2,dex:2,vit:1,wis:0},bonus:{str:3,dex:3,vit:2,wis:0},trait:'刻骨',traitDesc:`普攻每次施加一层裂伤，最多${BLOODBLADE_BLEED_MAX_STACKS}层；每次叠加刷新6秒持续时间。每秒每层造成 基础战力×0.08 + 敏捷×0.12 + 力量×0.08 伤害。裂伤不会触发吸血或装备连锁。`,skills:['bloodCarve','bloodFan','bloodHarvest','bloodRenew','bloodBinding']},",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15995
+    },
+    {
+      "path": "dist/progression-runtime-v14.js",
+      "reasons": [
+        "combat: task matched 流血, 连招, 暗影; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "680300608f35bfc3b5f8296b9c4a49bf4ab02c21220e0444f82a5b673a056b0c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {isStoryTestV25} from './story-test-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {BLOODBLADE_BLEED_MAX_STACKS,CAREERS,PROGRESSION_SKILLS,careerFor,MEMORY_CAREERS,careerSkillUnlocked,careerUnlockedSkills,CAREER_STAGE_LABELS} from './progression-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {progressionSkillNumbers,isCareerDamage} from './progression-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {totalAttributes,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {cleanBindings} from './attunement-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {ITEMS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const state=p=>{",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19666
+    },
+    {
+      "path": "dist/enchantments-v14.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "8c03b6ff9a113b78f426d78808f63d61aedfe73b031456ab4672d13d6247217f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {ENCHANT_DEFS as DEFS,ENCHANT_RULES as RULES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export {DEFS as ENCHANT_DEFS,RULES as ENCHANT_RULES};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const rows=p=>Object.values(p.gear||{}).filter(Boolean).map(i=>({i,e:i.enchantment,d:DEFS[i.enchantment?.defId]})).filter(r=>r.d&&r.d.slots.includes(r.i.slot));",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function enchantStat(p,key){return rows(p).reduce((n,{e,d})=>n+(d.kind==='stat'&&d.stat===key?e.value:0),0);}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export function enchantDescription(e){const d=DEFS[e?.defId];return d?`${RULES.qualityNames[e.quality]} · ${d.name}：${d.display.replaceAll('{value}',e.value).replaceAll('{decimal}',(e.value/10).toFixed(1))}`:'尚无刻印';}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function skillEnchantRows(p,k){const m=new Map();for(const r of rows(p)){if(r.d.kind!=='skill'||!r.d.skills.includes(k))continue;const key=r.d.stackGroup||r.d.id;if(!m.has(key)||m.get(key).e.value<r.e.value)m.set(key,r);}return [...m.values()];}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function modifySkill(p,k,s,{range,radius,hpCap,maxHP}={}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " if(!s)return s;s={...s};let mult=1,healMult=1,shieldMult=1;const desc=[];const baseCd=s.cd;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4457
+    },
+    {
+      "path": "dist/equipment-v14.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "ccec9087de19832d2a4f9ecfe24fb766d94260da500c330736745f6a56311097",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {QUALITIES,gearQuality} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {createHellRouteGearV15} from './hell-route-gear-v15.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function gearBudgetV17(cls,lv,slot,rarity){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " const power=QUALITIES[rarity]?.power||1,primary={shadow:'dex',oath:'str',ember:'wis',saint:'wis'}[cls]||'vit',late=Math.max(0,Math.min(32,lv)-6);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " return {gearGrowthVersion:17,attrs:power>1?{[primary]:Math.ceil((power-1)*(1+Math.max(0,Math.min(32,lv)-5)*.25)),...(power>=4?{vit:Math.ceil((power-2)*(1+Math.max(0,Math.min(32,lv)-5)*.12))}:{})}:{},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  atk:slot==='weapon'||slot==='offhand'?lv+power*2+Math.ceil(late*(power-1)*.33):slot==='hands'||slot==='relic'?power+Math.ceil(late*(power-1)*.1):0,",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  hp:(slot==='chest'?12+power*9:slot==='head'?power*6:slot==='feet'||slot==='relic'?power*4:0)+(late>0&&['chest','head','feet','relic'].includes(slot)?Math.ceil(late*power*(slot==='chest'?.8:.3)):0)};",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7162
+    },
+    {
+      "path": "dist/growth-v14.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "294685ef0467382a5ceae1e69ff666d6d523d14bab1f7e9387d1946dfa0e7c5f",
+      "excerpts": [
+        {
+          "line": 13,
+          "text": " shadow:{name:'疾刃',desc:'攻速额外 +15%。短刃普攻按力量×1.4 + 敏捷×1.1加成，命中积累流血。'},",
+          "truncated": false
+        },
+        {
+          "line": 16,
+          "text": " saint:{name:'慈悲圣职',desc:'治疗与护盾效果 +20%。神圣普攻不造成流血，也不触发血棘；圣光战技适合精神成长，仍可研习其他战技。'}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4694
+    },
+    {
+      "path": "dist/save-protection-v23.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "b970a46c4d0ed3d5cd36dca851ac60e19f7873bc19267f9ebbf7c61415a361b8",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Preserve pre-reconstruction save bytes. Unsupported progress is never guessed,",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// skipped or converted to an empty state. This is not proof of real V22 compatibility.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const KNOWN_TOP_LEVEL_V23=new Set(['version','map','chapter','time','p','flags','quests','states','pending','companion','pendingRewards','knowledge','relations','beforeDeparture','ch3','v11','v12','v13','ch5','mercenariesV14','hellActivitiesV15','hellActivitiesV17','saintBondV17','hellExpeditionsV18','cityStoriesV18','discoveryV19','saintStoryV18','romanceV20','arrivalV22','cityMomentsV24','sagaV25','sagaV26','memoryV13']);",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "// These four actual production helpers intentionally create dialogue in pending.lines.",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const INLINE_SCENES_V23=new Set(['_spoken','_hellTalk','_explore','_post_sign']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function assertSupportedSavedProgressV23(save,dialogues){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " if(!save||typeof save!=='object'||Array.isArray(save))return; // existing parser owns shape errors",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const unknown=Object.keys(save).filter(k=>!KNOWN_TOP_LEVEL_V23.has(k));",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2453
+    }
+  ],
+  "excerpt_bytes": 8237,
+  "max_files": 16,
+  "budget_bytes": 24000,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node tests/browser-balance-lab.mjs"
+  ],
+  "risks": [
+    "V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 219
+    },
+    {
+      "name": "installChapter4",
+      "line": 220
+    },
+    {
+      "name": "installPacing",
+      "line": 222
+    },
+    {
+      "name": "installQuestService",
+      "line": 223
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 228
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 230
+    },
+    {
+      "name": "installChapter5",
+      "line": 231
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 232
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 233
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 234
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 236
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 237
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 238
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 239
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 240
+    },
+    {
+      "name": "installCityV18",
+      "line": 241
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 243
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 244
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 246
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 249
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 250
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 251
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 252
+    },
+    {
+      "name": "installSagaV25",
+      "line": 257
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 261
+    },
+    {
+      "name": "installSagaV26",
+      "line": 264
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 271
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 273
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

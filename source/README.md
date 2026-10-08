@@ -1,9 +1,10 @@
 # 当前接续入口
 
-当前版本为 **V28.1 美工/表现修复版**，源代码在 `../dist/`。先读根目录 `AGENTS.md`、`NEXT_SESSION_PROMPT.md`、`BACKUP_STATUS.md`、本目录 `CURRENT_STATE.json` 和本轮用户需求。不要按沿用的 v14 文件名回退版本。
+当前产品 V28.1，运行代码在 ../dist/；CURRENT_STATE.json 记录产品/平台/发布状态，BACKUP_STATUS.md记录恢复边界。先按根AGENTS执行，不按v14文件名回退版本。
 
-V27 图片由 `../tools/restore_archives.py` 还原；5 张 V28.1 衍生图片已直接跟踪，也可用 `../tools/build_presentation_assets.py` 重建。脚底碰撞、比例/步态、装备和怪物外观分别在四个 `*-v281.js` 模块内，接入点仍是原有 core/game/visuals/staging。
+- 用户任务 → ../tools/harness/context.py → harness/modules.json语义与index.json自动依赖/内容哈希。
+- 未完成任务 → tasks/active；先task.py list/resume，再对照Git现场；完成任务归档到tasks/archive。
+- 按需约束 → ../docs/harness；工具/短示例 → WORKFLOW.md；数值实验 → ../docs/balance-lab/README.md。
+- 版本历史/原件 → ../history与../archives，默认不加载。原始完整Git祖先和最新未发布source仍缺失。
 
-V28.1 完成范围、QA 和限制在 `../docs/v28.1/`。第八章大图已从当前演出中删除，但对白、小立绘、任务、场景演出以及历史 CG 文件保留。
-
-原始开发仓库最新 source/ 全文与完整 Git 祖先仍未取回。历史档案不得冒充现行版本或新图生成记录。每次实际开发结束必须提交推送 GitHub Ashen/main 并核验远端；GitHub 保存不等于网站发布。
+V28.1表现约束与旧QA保留在 ../docs/v28.1/，原站/网页回执保留在 ../docs/web-play/。原图由restore_archives.py还原，5张衍生图直接跟踪。GitHub保存不是站点发布。
