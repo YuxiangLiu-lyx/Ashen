@@ -1,3 +1,4 @@
+import {configureExplorationWorldV29} from './world-design-v29.js';
 import {romanceActionArtV20} from './romance-world-v20.js';
 import {configureQualityWorld,secretPropArt} from './quality-world-v14.js';
 import {configureChapterWorld} from './chapter-world-v14.js';
@@ -48,6 +49,7 @@ export function configureWorld(maps){
  maps.chapel.npcs.find(n=>n.id==='prelate').x=1230;maps.chapel.npcs.find(n=>n.id==='prelate').y=530;
  maps.canal.spawns=maps.canal.spawns.map(s=>s[1]===720&&s[2]===830?[s[0],640,830]:s[1]===700&&s[2]===330?[s[0],640,330]:s);
  for(const o of SCENERY.exile)if(o.x>980)o.cold=true;maps.town.sub='井边仍有人等着，午钟迟迟没响';maps.alley.sub='贴着墙走，水渠就在东面';
+ configureExplorationWorldV29(maps,SCENERY,WATERS,BRIDGES,BOUNDARIES);
 }
 export function actionPropArt(p,g){const romance=romanceActionArtV20(p);if(romance!==undefined)return romance;if(p.nativeV18)return null;if(p.art){if(p.art.sheet==='details'&&p.art.index===15)return null;return p.art;}const secretArt=secretPropArt(p);if(secretArt!==undefined)return secretArt;
  if(p.action?.startsWith('ch2-')){if(['ch2-sign'].includes(p.action))return {sheet:'details',index:4,w:70,h:95};if(p.action==='ch2-tools')return {sheet:'details',index:7,w:52,h:33};if(['ch2-paper','ch2-cache'].includes(p.action))return {sheet:'details',index:0,w:38,h:27};return null;}if(['echoMachine','resetBench'].includes(p.action))return null;if(p.action==='echoCrystal')return {sheet:'mechanisms',index:3,w:72,h:60};if(p.action==='echoNotes')return {sheet:'mechanisms',index:6,w:37,h:31};if(p.action==='echoValve')return {sheet:'chapterProps',index:5,w:75,h:118};

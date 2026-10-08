@@ -1,0 +1,3109 @@
+{
+  "schema": 1,
+  "baseline": true,
+  "head": "fb20a3dcb6e3ebc89ec6c03ab903dc5697c1dde9",
+  "checkedAt": "2026-10-08T05:25:42.526Z",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "scope": "Actual runtime renderer: four-map staged overview; gameplay checks are separate",
+  "results": [
+    {
+      "map": "road",
+      "state": {
+        "mode": "play",
+        "map": "road",
+        "x": 800,
+        "y": 540,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {}
+      },
+      "data": {
+        "map": {
+          "name": "旧王道",
+          "sub": "沿着石墙向白榆城走",
+          "atlas": "exterior",
+          "cell": 1,
+          "doors": [
+            {
+              "x": 160,
+              "y": 540,
+              "to": "hall",
+              "tx": 800,
+              "ty": 880,
+              "label": "灰烛会馆"
+            },
+            {
+              "x": 1430,
+              "y": 540,
+              "to": "town",
+              "tx": 230,
+              "ty": 610,
+              "label": "白榆城"
+            },
+            {
+              "x": 920,
+              "y": 190,
+              "to": "grove",
+              "tx": 800,
+              "ty": 880,
+              "label": "溪边旧径",
+              "hidden": "rumor"
+            },
+            {
+              "x": 1050,
+              "y": 870,
+              "to": "millpath",
+              "tx": 800,
+              "ty": 270,
+              "label": "旧磨坊小径",
+              "direction": "东南"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "courier",
+              "name": "信使阿林",
+              "x": 430,
+              "y": 400,
+              "sprite": 3,
+              "angle": 0.9380474917927135
+            }
+          ],
+          "spawns": [
+            [
+              "wolf",
+              900,
+              430
+            ],
+            [
+              "wolf",
+              1130,
+              700
+            ],
+            [
+              "rat",
+              800,
+              820
+            ],
+            [
+              "wolf",
+              1180,
+              400,
+              "road-v8-patrol"
+            ]
+          ],
+          "props": [
+            {
+              "id": "herb1",
+              "type": "herb",
+              "x": 650,
+              "y": 290,
+              "label": "银叶草",
+              "action": "herb"
+            },
+            {
+              "id": "herb2",
+              "type": "herb",
+              "x": 1090,
+              "y": 800,
+              "label": "银叶草",
+              "action": "herb"
+            },
+            {
+              "id": "herb3",
+              "type": "herb",
+              "x": 1270,
+              "y": 320,
+              "label": "银叶草",
+              "action": "herb"
+            },
+            {
+              "id": "letter",
+              "type": "crate",
+              "x": 1000,
+              "y": 650,
+              "label": "翻倒的邮袋",
+              "action": "letter",
+              "flat": true
+            },
+            {
+              "id": "roadpot",
+              "type": "pot",
+              "x": 650,
+              "y": 900
+            }
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              660,
+              200
+            ],
+            [
+              1040,
+              0,
+              560,
+              230
+            ],
+            [
+              0,
+              860,
+              600,
+              220
+            ],
+            [
+              1190,
+              880,
+              410,
+              200
+            ],
+            [
+              0,
+              200,
+              180,
+              190
+            ],
+            [
+              0,
+              680,
+              180,
+              180
+            ],
+            [
+              1450,
+              230,
+              150,
+              160
+            ],
+            [
+              1450,
+              690,
+              150,
+              190
+            ],
+            [
+              390,
+              720,
+              130,
+              45
+            ],
+            [
+              720,
+              260,
+              90,
+              45
+            ],
+            [
+              1315,
+              800,
+              90,
+              35
+            ],
+            [
+              513,
+              391,
+              34,
+              14
+            ],
+            [
+              954,
+              730,
+              112,
+              40
+            ]
+          ],
+          "encounters": [
+            {
+              "groupId": "v9-road-east",
+              "bounds": [
+                760,
+                345,
+                575,
+                540
+              ],
+              "size": 4,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "road-0",
+                "road-1",
+                "road-2",
+                "road-v8-patrol"
+              ],
+              "types": [
+                "wolf",
+                "wolf",
+                "rat"
+              ],
+              "count": [
+                3,
+                4
+              ],
+              "area": [
+                760,
+                345,
+                575,
+                540
+              ],
+              "center": [
+                1047.5,
+                615
+              ],
+              "spread": [
+                262.5,
+                245
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            }
+          ],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "road-wall",
+            "asset": 5,
+            "x": 455,
+            "y": 765,
+            "w": 150,
+            "h": 85,
+            "box": [
+              390,
+              720,
+              130,
+              45
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "road-tree",
+            "asset": 4,
+            "x": 765,
+            "y": 305,
+            "w": 225,
+            "h": 270,
+            "box": [
+              720,
+              260,
+              90,
+              45
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "road-tree2",
+            "asset": 4,
+            "x": 1360,
+            "y": 835,
+            "w": 235,
+            "h": 285,
+            "box": [
+              1315,
+              800,
+              90,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "road-sign",
+            "asset": 15,
+            "x": 530,
+            "y": 405,
+            "w": 68,
+            "h": 95,
+            "box": [
+              513,
+              391,
+              34,
+              14
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v8-road-lowwall",
+            "asset": 5,
+            "x": 1010,
+            "y": 770,
+            "w": 136,
+            "h": 83,
+            "box": [
+              954,
+              730,
+              112,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-90",
+            "asset": 4,
+            "x": 50,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-90",
+            "asset": 4,
+            "x": 176,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-90",
+            "asset": 4,
+            "x": 302,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-90",
+            "asset": 4,
+            "x": 428,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-90",
+            "asset": 4,
+            "x": 554,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-226",
+            "asset": 4,
+            "x": 72,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-226",
+            "asset": 4,
+            "x": 198,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-226",
+            "asset": 4,
+            "x": 324,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-226",
+            "asset": 4,
+            "x": 450,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-226",
+            "asset": 4,
+            "x": 576,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1090-90",
+            "asset": 4,
+            "x": 1112,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1216-90",
+            "asset": 4,
+            "x": 1238,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1342-90",
+            "asset": 4,
+            "x": 1364,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1468-90",
+            "asset": 4,
+            "x": 1490,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1594-90",
+            "asset": 4,
+            "x": 1616,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1090-226",
+            "asset": 4,
+            "x": 1090,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1216-226",
+            "asset": 4,
+            "x": 1216,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1342-226",
+            "asset": 4,
+            "x": 1342,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1468-226",
+            "asset": 4,
+            "x": 1468,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1594-226",
+            "asset": 4,
+            "x": 1594,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-950",
+            "asset": 4,
+            "x": 50,
+            "y": 950,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-950",
+            "asset": 4,
+            "x": 176,
+            "y": 950,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-302-950",
+            "asset": 4,
+            "x": 302,
+            "y": 950,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-428-950",
+            "asset": 4,
+            "x": 428,
+            "y": 950,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-554-950",
+            "asset": 4,
+            "x": 554,
+            "y": 950,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-1086",
+            "asset": 4,
+            "x": 72,
+            "y": 1086,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-1086",
+            "asset": 4,
+            "x": 198,
+            "y": 1086,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-302-1086",
+            "asset": 4,
+            "x": 324,
+            "y": 1086,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-428-1086",
+            "asset": 4,
+            "x": 450,
+            "y": 1086,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-554-1086",
+            "asset": 4,
+            "x": 576,
+            "y": 1086,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1240-970",
+            "asset": 4,
+            "x": 1240,
+            "y": 970,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1366-970",
+            "asset": 4,
+            "x": 1366,
+            "y": 970,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1492-970",
+            "asset": 4,
+            "x": 1492,
+            "y": 970,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1240-1106",
+            "asset": 4,
+            "x": 1262,
+            "y": 1106,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1366-1106",
+            "asset": 4,
+            "x": 1388,
+            "y": 1106,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1492-1106",
+            "asset": 4,
+            "x": 1514,
+            "y": 1106,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-290",
+            "asset": 4,
+            "x": 50,
+            "y": 290,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-290",
+            "asset": 4,
+            "x": 176,
+            "y": 290,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-426",
+            "asset": 4,
+            "x": 72,
+            "y": 426,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-426",
+            "asset": 4,
+            "x": 198,
+            "y": 426,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-50-770",
+            "asset": 4,
+            "x": 50,
+            "y": 770,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-176-770",
+            "asset": 4,
+            "x": 176,
+            "y": 770,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-1500-320",
+            "asset": 4,
+            "x": 1500,
+            "y": 320,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1500-780",
+            "asset": 4,
+            "x": 1500,
+            "y": 780,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1500-916",
+            "asset": 4,
+            "x": 1522,
+            "y": 916,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "courier",
+            "name": "信使阿林",
+            "x": 430,
+            "y": 400,
+            "sprite": 3,
+            "angle": 0.9380474917927135,
+            "kind": "npc"
+          },
+          {
+            "id": "herb1",
+            "type": "herb",
+            "x": 650,
+            "y": 290,
+            "label": "银叶草",
+            "action": "herb",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 650,
+            "drawY": 290,
+            "kind": "prop"
+          },
+          {
+            "id": "herb2",
+            "type": "herb",
+            "x": 1090,
+            "y": 800,
+            "label": "银叶草",
+            "action": "herb",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1090,
+            "drawY": 800,
+            "kind": "prop"
+          },
+          {
+            "id": "herb3",
+            "type": "herb",
+            "x": 1270,
+            "y": 320,
+            "label": "银叶草",
+            "action": "herb",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1270,
+            "drawY": 320,
+            "kind": "prop"
+          },
+          {
+            "id": "letter",
+            "type": "crate",
+            "x": 1000,
+            "y": 650,
+            "label": "翻倒的邮袋",
+            "action": "letter",
+            "flat": true,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1000,
+            "drawY": 650,
+            "kind": "prop"
+          },
+          {
+            "x": 160,
+            "y": 540,
+            "to": "hall",
+            "tx": 800,
+            "ty": 880,
+            "label": "灰烛会馆",
+            "id": "hall",
+            "kind": "door"
+          },
+          {
+            "x": 1430,
+            "y": 540,
+            "to": "town",
+            "tx": 230,
+            "ty": 610,
+            "label": "白榆城",
+            "id": "town",
+            "kind": "door"
+          },
+          {
+            "x": 1050,
+            "y": 870,
+            "to": "millpath",
+            "tx": 800,
+            "ty": 270,
+            "label": "旧磨坊小径",
+            "direction": "东南",
+            "id": "millpath",
+            "kind": "door"
+          }
+        ],
+        "enemy": [
+          {
+            "id": "road-0",
+            "type": "wolf",
+            "x": 900,
+            "y": 430,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "road-1",
+            "type": "wolf",
+            "x": 1130,
+            "y": 700,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "road-2",
+            "type": "rat",
+            "x": 800,
+            "y": 820,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "road-v8-patrol",
+            "type": "wolf",
+            "x": 1180,
+            "y": 400,
+            "hp": 224,
+            "dead": false
+          }
+        ]
+      }
+    },
+    {
+      "map": "millpath",
+      "state": {
+        "mode": "play",
+        "map": "millpath",
+        "x": 820,
+        "y": 540,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {}
+      },
+      "data": {
+        "map": {
+          "name": "旧磨坊小径",
+          "sub": "南风卷过空屋，后檐下还堆着旧工具",
+          "atlas": "exterior",
+          "cell": 3,
+          "ground": "millPath",
+          "doors": [
+            {
+              "x": 800,
+              "y": 180,
+              "to": "road",
+              "tx": 1090,
+              "ty": 805,
+              "label": "旧王道"
+            },
+            {
+              "x": 1180,
+              "y": 870,
+              "to": "echo",
+              "tx": 300,
+              "ty": 810,
+              "label": "回水机房 · 建议Lv.3"
+            }
+          ],
+          "npcs": [],
+          "spawns": [
+            [
+              "rat",
+              470,
+              540
+            ],
+            [
+              "rat",
+              690,
+              680
+            ],
+            [
+              "wolf",
+              1120,
+              590
+            ],
+            [
+              "bat",
+              1120,
+              790
+            ],
+            [
+              "rat",
+              1040,
+              700,
+              "millpath-v8-rat"
+            ],
+            [
+              "bat",
+              530,
+              760,
+              "millpath-v9-bat"
+            ]
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              690,
+              190
+            ],
+            [
+              910,
+              0,
+              690,
+              190
+            ],
+            [
+              0,
+              190,
+              195,
+              735
+            ],
+            [
+              1430,
+              190,
+              170,
+              735
+            ],
+            [
+              0,
+              925,
+              1600,
+              155
+            ],
+            [
+              340,
+              245,
+              300,
+              115
+            ],
+            [
+              280,
+              525,
+              100,
+              35
+            ],
+            [
+              610,
+              537,
+              180,
+              53
+            ],
+            [
+              1250,
+              345,
+              80,
+              35
+            ],
+            [
+              263,
+              733,
+              74,
+              37
+            ],
+            [
+              1320,
+              810,
+              80,
+              40
+            ],
+            [
+              680,
+              835,
+              160,
+              40
+            ],
+            [
+              1010,
+              330,
+              100,
+              35
+            ],
+            [
+              835,
+              711,
+              90,
+              29
+            ]
+          ],
+          "props": [
+            {
+              "id": "mill-copper",
+              "action": "copperPackage",
+              "type": "bundle",
+              "x": 430,
+              "y": 560,
+              "label": "西墙下的油布包"
+            },
+            {
+              "id": "mill-practice",
+              "action": "practiceBench",
+              "type": "book",
+              "x": 700,
+              "y": 512,
+              "label": "旧练习台上的字迹",
+              "depthY": 591,
+              "interactX": 700,
+              "interactY": 615
+            },
+            {
+              "id": "mill-door",
+              "action": "millDoor",
+              "type": "door",
+              "x": 485,
+              "y": 400,
+              "label": "顶住的磨坊门",
+              "depthY": 401
+            },
+            {
+              "id": "mill-barrel",
+              "type": "barrel",
+              "x": 1210,
+              "y": 695
+            },
+            {
+              "id": "mill-pot",
+              "type": "pot",
+              "x": 990,
+              "y": 790
+            },
+            {
+              "id": "mill-wheel",
+              "action": "millWheel",
+              "type": "wheel",
+              "x": 1210,
+              "y": 390,
+              "label": "拆下的轮轴"
+            }
+          ],
+          "encounters": [
+            {
+              "groupId": "v9-mill-west",
+              "bounds": [
+                400,
+                490,
+                350,
+                340
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "millpath-0",
+                "millpath-1",
+                "millpath-v9-bat"
+              ],
+              "types": [
+                "rat",
+                "rat",
+                "bat"
+              ],
+              "count": [
+                3,
+                3
+              ],
+              "area": [
+                400,
+                490,
+                350,
+                340
+              ],
+              "center": [
+                575,
+                660
+              ],
+              "spread": [
+                150,
+                145
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            },
+            {
+              "groupId": "v9-mill-east",
+              "bounds": [
+                935,
+                505,
+                380,
+                360
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "millpath-2",
+                "millpath-3",
+                "millpath-v8-rat"
+              ],
+              "types": [
+                "wolf",
+                "bat",
+                "rat"
+              ],
+              "count": [
+                3,
+                4
+              ],
+              "area": [
+                935,
+                505,
+                380,
+                360
+              ],
+              "center": [
+                1125,
+                685
+              ],
+              "spread": [
+                165,
+                155
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            }
+          ],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "mill-building",
+            "asset": 0,
+            "x": 490,
+            "y": 360,
+            "w": 350,
+            "h": 315,
+            "box": [
+              340,
+              245,
+              300,
+              115
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-west-wall",
+            "asset": 5,
+            "x": 330,
+            "y": 560,
+            "w": 130,
+            "h": 80,
+            "box": [
+              280,
+              525,
+              100,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-practice-table",
+            "asset": 9,
+            "x": 700,
+            "y": 590,
+            "w": 190,
+            "h": 115,
+            "box": [
+              610,
+              537,
+              180,
+              53
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-north-tree",
+            "asset": 4,
+            "x": 1290,
+            "y": 380,
+            "w": 235,
+            "h": 290,
+            "box": [
+              1250,
+              345,
+              80,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-west-tree",
+            "asset": 4,
+            "x": 300,
+            "y": 770,
+            "w": 215,
+            "h": 265,
+            "box": [
+              263,
+              733,
+              74,
+              37
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-east-tree",
+            "asset": 4,
+            "x": 1360,
+            "y": 850,
+            "w": 235,
+            "h": 290,
+            "box": [
+              1320,
+              810,
+              80,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-low-wall",
+            "asset": 5,
+            "x": 760,
+            "y": 875,
+            "w": 185,
+            "h": 90,
+            "box": [
+              680,
+              835,
+              160,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "mill-old-sacks",
+            "asset": 6,
+            "x": 1060,
+            "y": 365,
+            "w": 122,
+            "h": 88,
+            "box": [
+              1010,
+              330,
+              100,
+              35
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "echo-entrance",
+            "sheet": "mechanisms",
+            "asset": 2,
+            "x": 1180,
+            "y": 904,
+            "w": 160,
+            "h": 170
+          },
+          {
+            "id": "v8-mill-sacks",
+            "asset": 9,
+            "x": 880,
+            "y": 740,
+            "w": 105,
+            "h": 65,
+            "box": [
+              835,
+              711,
+              90,
+              29
+            ],
+            "sheet": "details"
+          },
+          {
+            "id": "edge-tree-0-50-90",
+            "asset": 4,
+            "x": 50,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-90",
+            "asset": 4,
+            "x": 176,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-90",
+            "asset": 4,
+            "x": 302,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-90",
+            "asset": 4,
+            "x": 428,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-90",
+            "asset": 4,
+            "x": 554,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-680-90",
+            "asset": 4,
+            "x": 680,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-226",
+            "asset": 4,
+            "x": 72,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-226",
+            "asset": 4,
+            "x": 198,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-226",
+            "asset": 4,
+            "x": 324,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-226",
+            "asset": 4,
+            "x": 450,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-226",
+            "asset": 4,
+            "x": 576,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-680-226",
+            "asset": 4,
+            "x": 702,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-960-90",
+            "asset": 4,
+            "x": 982,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1086-90",
+            "asset": 4,
+            "x": 1108,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1212-90",
+            "asset": 4,
+            "x": 1234,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1338-90",
+            "asset": 4,
+            "x": 1360,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1464-90",
+            "asset": 4,
+            "x": 1486,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1590-90",
+            "asset": 4,
+            "x": 1612,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-960-226",
+            "asset": 4,
+            "x": 960,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1086-226",
+            "asset": 4,
+            "x": 1086,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1212-226",
+            "asset": 4,
+            "x": 1212,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1338-226",
+            "asset": 4,
+            "x": 1338,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1464-226",
+            "asset": 4,
+            "x": 1464,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1590-226",
+            "asset": 4,
+            "x": 1590,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-280",
+            "asset": 4,
+            "x": 50,
+            "y": 280,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-280",
+            "asset": 4,
+            "x": 176,
+            "y": 280,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-416",
+            "asset": 4,
+            "x": 72,
+            "y": 416,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-416",
+            "asset": 4,
+            "x": 198,
+            "y": 416,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-552",
+            "asset": 4,
+            "x": 50,
+            "y": 552,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-552",
+            "asset": 4,
+            "x": 176,
+            "y": 552,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-688",
+            "asset": 4,
+            "x": 72,
+            "y": 688,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-688",
+            "asset": 4,
+            "x": 198,
+            "y": 688,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-824",
+            "asset": 4,
+            "x": 50,
+            "y": 824,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-824",
+            "asset": 4,
+            "x": 176,
+            "y": 824,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-960",
+            "asset": 4,
+            "x": 72,
+            "y": 960,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-960",
+            "asset": 4,
+            "x": 198,
+            "y": 960,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-280",
+            "asset": 4,
+            "x": 1502,
+            "y": 280,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-416",
+            "asset": 4,
+            "x": 1480,
+            "y": 416,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-552",
+            "asset": 4,
+            "x": 1502,
+            "y": 552,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-688",
+            "asset": 4,
+            "x": 1480,
+            "y": 688,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-824",
+            "asset": 4,
+            "x": 1502,
+            "y": 824,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1480-960",
+            "asset": 4,
+            "x": 1480,
+            "y": 960,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-1015",
+            "asset": 4,
+            "x": 72,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-1015",
+            "asset": 4,
+            "x": 198,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-302-1015",
+            "asset": 4,
+            "x": 324,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-428-1015",
+            "asset": 4,
+            "x": 450,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-554-1015",
+            "asset": 4,
+            "x": 576,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-680-1015",
+            "asset": 4,
+            "x": 702,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-806-1015",
+            "asset": 4,
+            "x": 828,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-932-1015",
+            "asset": 4,
+            "x": 954,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1058-1015",
+            "asset": 4,
+            "x": 1080,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1184-1015",
+            "asset": 4,
+            "x": 1206,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1310-1015",
+            "asset": 4,
+            "x": 1332,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1436-1015",
+            "asset": 4,
+            "x": 1458,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1562-1015",
+            "asset": 4,
+            "x": 1584,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "mill-copper",
+            "action": "copperPackage",
+            "type": "bundle",
+            "x": 430,
+            "y": 560,
+            "label": "西墙下的油布包",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 430,
+            "drawY": 560,
+            "kind": "prop"
+          },
+          {
+            "id": "mill-practice",
+            "action": "practiceBench",
+            "type": "book",
+            "x": 700,
+            "y": 615,
+            "label": "旧练习台上的字迹",
+            "depthY": 591,
+            "interactX": 700,
+            "interactY": 615,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 700,
+            "drawY": 512,
+            "kind": "prop"
+          },
+          {
+            "id": "mill-door",
+            "action": "millDoor",
+            "type": "door",
+            "x": 485,
+            "y": 400,
+            "label": "顶住的磨坊门",
+            "depthY": 401,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 485,
+            "drawY": 400,
+            "kind": "prop"
+          },
+          {
+            "id": "mill-wheel",
+            "action": "millWheel",
+            "type": "wheel",
+            "x": 1210,
+            "y": 390,
+            "label": "拆下的轮轴",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1210,
+            "drawY": 390,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 180,
+            "to": "road",
+            "tx": 1090,
+            "ty": 805,
+            "label": "旧王道",
+            "id": "road",
+            "kind": "door"
+          },
+          {
+            "x": 1180,
+            "y": 870,
+            "to": "echo",
+            "tx": 300,
+            "ty": 810,
+            "label": "回水机房 · 建议Lv.3",
+            "id": "echo",
+            "kind": "door"
+          }
+        ],
+        "enemy": [
+          {
+            "id": "millpath-0",
+            "type": "rat",
+            "x": 470,
+            "y": 540,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "millpath-1",
+            "type": "rat",
+            "x": 690,
+            "y": 680,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "millpath-2",
+            "type": "wolf",
+            "x": 1120,
+            "y": 590,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "millpath-3",
+            "type": "bat",
+            "x": 1120,
+            "y": 790,
+            "hp": 115,
+            "dead": false
+          },
+          {
+            "id": "millpath-v8-rat",
+            "type": "rat",
+            "x": 1040,
+            "y": 700,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "millpath-v9-bat",
+            "type": "bat",
+            "x": 530,
+            "y": 760,
+            "hp": 115,
+            "dead": false
+          }
+        ]
+      }
+    },
+    {
+      "map": "echo",
+      "state": {
+        "mode": "play",
+        "map": "echo",
+        "x": 800,
+        "y": 540,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "echoBookOrder": [
+            "fireboltBook",
+            "tetherBook",
+            "cleaveBook",
+            "frostBook",
+            "sprintBook"
+          ],
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {}
+      },
+      "data": {
+        "map": {
+          "name": "回水机房",
+          "sub": "水还在流，机轮却一动不动",
+          "atlas": "interior",
+          "cell": 3,
+          "ground": "stone",
+          "doors": [
+            {
+              "x": 300,
+              "y": 890,
+              "to": "millpath",
+              "tx": 1180,
+              "ty": 800,
+              "label": "旧磨坊小径"
+            }
+          ],
+          "npcs": [],
+          "spawns": [
+            [
+              "bat",
+              460,
+              490
+            ],
+            [
+              "wolf",
+              980,
+              770
+            ],
+            [
+              "wolf",
+              1110,
+              465,
+              "echo-warden"
+            ],
+            [
+              "rat",
+              510,
+              720,
+              "echo-v8-rat"
+            ],
+            [
+              "rat",
+              390,
+              820,
+              "echo-v9-rat"
+            ],
+            [
+              "bat",
+              1170,
+              710,
+              "echo-v9-bat"
+            ],
+            [
+              "rat",
+              1280,
+              865,
+              "echo-v9-rat-east"
+            ]
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              190
+            ],
+            [
+              0,
+              190,
+              150,
+              890
+            ],
+            [
+              1450,
+              190,
+              150,
+              890
+            ],
+            [
+              150,
+              945,
+              1300,
+              135
+            ],
+            [
+              1135,
+              290,
+              150,
+              60
+            ],
+            [
+              368,
+              290,
+              164,
+              40
+            ],
+            [
+              519,
+              252,
+              22,
+              18
+            ],
+            [
+              889,
+              832,
+              22,
+              18
+            ],
+            [
+              950,
+              601,
+              60,
+              24
+            ],
+            [
+              655,
+              190,
+              100,
+              300
+            ],
+            [
+              655,
+              670,
+              100,
+              275
+            ]
+          ],
+          "props": [
+            {
+              "id": "echo-machine",
+              "action": "echoMachine",
+              "type": "machine",
+              "x": 1210,
+              "y": 350,
+              "interactX": 1210,
+              "interactY": 450,
+              "label": "旧回声机"
+            },
+            {
+              "id": "echo-notes",
+              "action": "echoNotes",
+              "type": "book",
+              "x": 450,
+              "y": 260,
+              "depthY": 331,
+              "interactX": 450,
+              "interactY": 370,
+              "label": "留在石台上的检修簿"
+            },
+            {
+              "id": "echo-crystal-west",
+              "action": "echoCrystal",
+              "type": "crystal",
+              "x": 385,
+              "y": 635,
+              "label": "石缝中的晶簇"
+            },
+            {
+              "id": "echo-crystal-east",
+              "action": "echoCrystal",
+              "type": "crystal",
+              "x": 1200,
+              "y": 810,
+              "label": "水轮旁的回声晶簇"
+            },
+            {
+              "id": "echo-valve",
+              "action": "echoValve",
+              "type": "wheel",
+              "x": 850,
+              "y": 315,
+              "interactX": 850,
+              "interactY": 385,
+              "label": "配重泄压阀"
+            },
+            {
+              "id": "echo-pot",
+              "type": "pot",
+              "x": 545,
+              "y": 840
+            }
+          ],
+          "encounters": [
+            {
+              "groupId": "v9-echo-west",
+              "bounds": [
+                310,
+                420,
+                285,
+                455
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "echo-0",
+                "echo-v8-rat",
+                "echo-v9-rat"
+              ],
+              "types": [
+                "bat",
+                "rat",
+                "rat"
+              ],
+              "count": [
+                3,
+                3
+              ],
+              "area": [
+                310,
+                420,
+                285,
+                455
+              ],
+              "center": [
+                452.5,
+                647.5
+              ],
+              "spread": [
+                117.5,
+                202.5
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            },
+            {
+              "groupId": "v9-echo-east",
+              "bounds": [
+                885,
+                660,
+                440,
+                230
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "echo-1",
+                "echo-v9-bat",
+                "echo-v9-rat-east"
+              ],
+              "types": [
+                "wolf",
+                "bat",
+                "rat"
+              ],
+              "count": [
+                3,
+                3
+              ],
+              "area": [
+                885,
+                660,
+                440,
+                230
+              ],
+              "center": [
+                1105,
+                775
+              ],
+              "spread": [
+                195,
+                90
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            },
+            {
+              "groupId": "v9-echo-unique",
+              "bounds": [
+                1010,
+                365,
+                210,
+                220
+              ],
+              "size": 1,
+              "danger": "elite",
+              "refresh": "never",
+              "bossId": "echo-warden",
+              "spawnIds": [
+                "echo-warden"
+              ],
+              "types": [
+                "wolf"
+              ],
+              "count": [
+                1,
+                1
+              ],
+              "area": [
+                1010,
+                365,
+                210,
+                220
+              ],
+              "center": [
+                1115,
+                475
+              ],
+              "spread": [
+                80,
+                85
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": true
+            }
+          ],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "echo-arch",
+            "sheet": "mechanisms",
+            "asset": 2,
+            "x": 300,
+            "y": 937,
+            "w": 145,
+            "h": 138
+          },
+          {
+            "id": "echo-machine-base",
+            "sheet": "mechanisms",
+            "asset": 0,
+            "x": 1210,
+            "y": 350,
+            "w": 195,
+            "h": 195,
+            "box": [
+              1135,
+              290,
+              150,
+              60
+            ]
+          },
+          {
+            "id": "echo-left-table",
+            "sheet": "world",
+            "asset": 9,
+            "x": 450,
+            "y": 330,
+            "w": 185,
+            "h": 98,
+            "box": [
+              368,
+              290,
+              164,
+              40
+            ]
+          },
+          {
+            "id": "echo-lamp1",
+            "sheet": "world",
+            "asset": 14,
+            "x": 530,
+            "y": 270,
+            "w": 44,
+            "h": 127,
+            "box": [
+              519,
+              252,
+              22,
+              18
+            ]
+          },
+          {
+            "id": "echo-lamp2",
+            "sheet": "world",
+            "asset": 14,
+            "x": 900,
+            "y": 850,
+            "w": 44,
+            "h": 127,
+            "box": [
+              889,
+              832,
+              22,
+              18
+            ]
+          },
+          {
+            "id": "echo-ruin1",
+            "sheet": "world",
+            "asset": 5,
+            "x": 680,
+            "y": 470,
+            "w": 132,
+            "h": 83
+          },
+          {
+            "id": "echo-ruin2",
+            "sheet": "world",
+            "asset": 5,
+            "x": 680,
+            "y": 700,
+            "w": 132,
+            "h": 83
+          },
+          {
+            "id": "v8-echo-stone",
+            "asset": 3,
+            "x": 980,
+            "y": 625,
+            "w": 80,
+            "h": 58,
+            "box": [
+              950,
+              601,
+              60,
+              24
+            ],
+            "sheet": "details"
+          }
+        ],
+        "targets": [
+          {
+            "id": "echo-machine",
+            "action": "echoMachine",
+            "type": "machine",
+            "x": 1210,
+            "y": 450,
+            "interactX": 1210,
+            "interactY": 450,
+            "label": "旧回声机",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1210,
+            "drawY": 350,
+            "kind": "prop"
+          },
+          {
+            "id": "echo-notes",
+            "action": "echoNotes",
+            "type": "book",
+            "x": 450,
+            "y": 370,
+            "depthY": 331,
+            "interactX": 450,
+            "interactY": 370,
+            "label": "留在石台上的检修簿",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 450,
+            "drawY": 260,
+            "kind": "prop"
+          },
+          {
+            "id": "echo-crystal-west",
+            "action": "echoCrystal",
+            "type": "crystal",
+            "x": 385,
+            "y": 635,
+            "label": "石缝中的晶簇",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 385,
+            "drawY": 635,
+            "kind": "prop"
+          },
+          {
+            "id": "echo-crystal-east",
+            "action": "echoCrystal",
+            "type": "crystal",
+            "x": 1200,
+            "y": 810,
+            "label": "水轮旁的回声晶簇",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1200,
+            "drawY": 810,
+            "kind": "prop"
+          },
+          {
+            "id": "echo-valve",
+            "action": "echoValve",
+            "type": "wheel",
+            "x": 850,
+            "y": 385,
+            "interactX": 850,
+            "interactY": 385,
+            "label": "配重泄压阀",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 850,
+            "drawY": 315,
+            "kind": "prop"
+          },
+          {
+            "x": 300,
+            "y": 890,
+            "to": "millpath",
+            "tx": 1180,
+            "ty": 800,
+            "label": "旧磨坊小径",
+            "id": "millpath",
+            "kind": "door"
+          }
+        ],
+        "enemy": [
+          {
+            "id": "echo-0",
+            "type": "bat",
+            "x": 460,
+            "y": 490,
+            "hp": 115,
+            "dead": false
+          },
+          {
+            "id": "echo-1",
+            "type": "wolf",
+            "x": 980,
+            "y": 770,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "echo-warden",
+            "type": "wolf",
+            "x": 1110,
+            "y": 465,
+            "hp": 1045,
+            "dead": false
+          },
+          {
+            "id": "echo-v8-rat",
+            "type": "rat",
+            "x": 510,
+            "y": 720,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "echo-v9-rat",
+            "type": "rat",
+            "x": 390,
+            "y": 820,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "echo-v9-bat",
+            "type": "bat",
+            "x": 1170,
+            "y": 710,
+            "hp": 115,
+            "dead": false
+          },
+          {
+            "id": "echo-v9-rat-east",
+            "type": "rat",
+            "x": 1280,
+            "y": 865,
+            "hp": 104,
+            "dead": false
+          }
+        ]
+      }
+    },
+    {
+      "map": "workshop",
+      "state": {
+        "mode": "play",
+        "map": "workshop",
+        "x": 800,
+        "y": 540,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {}
+      },
+      "data": {
+        "map": {
+          "name": "白榆修理铺",
+          "sub": "新添的茶杯还冒着热气",
+          "atlas": "interior",
+          "cell": 0,
+          "safe": true,
+          "ground": "wood",
+          "doors": [
+            {
+              "x": 800,
+              "y": 940,
+              "to": "town",
+              "tx": 1170,
+              "ty": 420,
+              "label": "白榆城"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "lotti",
+              "name": "洛缇",
+              "x": 880,
+              "y": 650,
+              "angle": 2.199114857512855
+            }
+          ],
+          "spawns": [],
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              190
+            ],
+            [
+              0,
+              190,
+              150,
+              890
+            ],
+            [
+              1450,
+              190,
+              150,
+              890
+            ],
+            [
+              150,
+              945,
+              520,
+              135
+            ],
+            [
+              930,
+              945,
+              520,
+              135
+            ],
+            [
+              325,
+              305,
+              210,
+              60
+            ],
+            [
+              1100,
+              250,
+              240,
+              50
+            ],
+            [
+              975,
+              546,
+              250,
+              64
+            ],
+            [
+              1040,
+              685,
+              200,
+              40
+            ],
+            [
+              360,
+              760,
+              240,
+              60
+            ],
+            [
+              717,
+              338,
+              26,
+              17
+            ],
+            [
+              1260,
+              795,
+              100,
+              35
+            ],
+            [
+              325,
+              540,
+              130,
+              45
+            ]
+          ],
+          "props": [
+            {
+              "id": "repair-bench",
+              "action": "copperBench",
+              "type": "book",
+              "x": 1100,
+              "y": 535,
+              "label": "压在木柄下的便条",
+              "depthY": 611,
+              "interactX": 1100,
+              "interactY": 638
+            },
+            {
+              "id": "repair-shelf",
+              "action": "repairShelf",
+              "type": "shelf",
+              "x": 430,
+              "y": 365,
+              "label": "分门摆好的零件",
+              "depthY": 366,
+              "interactX": 430,
+              "interactY": 430
+            },
+            {
+              "id": "repair-invoice",
+              "action": "repairInvoice",
+              "type": "book",
+              "x": 480,
+              "y": 760,
+              "label": "等待取件的纸牌",
+              "depthY": 821,
+              "interactX": 480,
+              "interactY": 855
+            },
+            {
+              "id": "repair-sign",
+              "action": "workshopSign",
+              "type": "book",
+              "x": 920,
+              "y": 865,
+              "label": "修理铺的木牌"
+            },
+            {
+              "id": "training-dummy",
+              "type": "dummy",
+              "training": true,
+              "x": 740,
+              "y": 460,
+              "label": "旧练习木桩"
+            },
+            {
+              "id": "reset-bench",
+              "action": "resetBench",
+              "type": "machine",
+              "x": 390,
+              "y": 585,
+              "interactX": 390,
+              "interactY": 665,
+              "label": "炼洗台"
+            }
+          ],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "repair-north-shelf",
+            "asset": 3,
+            "x": 430,
+            "y": 365,
+            "w": 240,
+            "h": 243,
+            "box": [
+              325,
+              305,
+              210,
+              60
+            ],
+            "sheet": "newProps"
+          },
+          {
+            "id": "repair-east-shelf",
+            "asset": 13,
+            "x": 1220,
+            "y": 300,
+            "w": 180,
+            "h": 170,
+            "box": [
+              1100,
+              250,
+              240,
+              50
+            ],
+            "sheet": "newProps"
+          },
+          {
+            "id": "repair-main-table",
+            "asset": 2,
+            "x": 1100,
+            "y": 610,
+            "w": 270,
+            "h": 190,
+            "box": [
+              975,
+              546,
+              250,
+              64
+            ],
+            "sheet": "newProps"
+          },
+          {
+            "id": "repair-bench-seat",
+            "asset": 10,
+            "x": 1140,
+            "y": 725,
+            "w": 210,
+            "h": 90,
+            "box": [
+              1040,
+              685,
+              200,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "repair-west-table",
+            "asset": 9,
+            "x": 480,
+            "y": 820,
+            "w": 255,
+            "h": 125,
+            "box": [
+              360,
+              760,
+              240,
+              60
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "repair-lamp",
+            "asset": 14,
+            "x": 730,
+            "y": 355,
+            "w": 48,
+            "h": 150,
+            "box": [
+              717,
+              338,
+              26,
+              17
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "repair-stockbag",
+            "asset": 9,
+            "x": 1310,
+            "y": 830,
+            "w": 110,
+            "h": 75,
+            "box": [
+              1260,
+              795,
+              100,
+              35
+            ],
+            "sheet": "details"
+          },
+          {
+            "id": "shop-exit-frame",
+            "asset": 11,
+            "x": 800,
+            "y": 964,
+            "w": 96,
+            "h": 125,
+            "box": null,
+            "sheet": "newProps"
+          },
+          {
+            "id": "reset-base",
+            "sheet": "mechanisms",
+            "asset": 1,
+            "x": 390,
+            "y": 585,
+            "w": 160,
+            "h": 143,
+            "box": [
+              325,
+              540,
+              130,
+              45
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "id": "lotti",
+            "name": "洛缇",
+            "x": 880,
+            "y": 650,
+            "angle": 2.199114857512855,
+            "kind": "npc"
+          },
+          {
+            "id": "repair-bench",
+            "action": "copperBench",
+            "type": "book",
+            "x": 1100,
+            "y": 638,
+            "label": "压在木柄下的便条",
+            "depthY": 611,
+            "interactX": 1100,
+            "interactY": 638,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1100,
+            "drawY": 535,
+            "kind": "prop"
+          },
+          {
+            "id": "repair-shelf",
+            "action": "repairShelf",
+            "type": "shelf",
+            "x": 430,
+            "y": 430,
+            "label": "分门摆好的零件",
+            "depthY": 366,
+            "interactX": 430,
+            "interactY": 430,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 430,
+            "drawY": 365,
+            "kind": "prop"
+          },
+          {
+            "id": "repair-invoice",
+            "action": "repairInvoice",
+            "type": "book",
+            "x": 480,
+            "y": 855,
+            "label": "等待取件的纸牌",
+            "depthY": 821,
+            "interactX": 480,
+            "interactY": 855,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 480,
+            "drawY": 760,
+            "kind": "prop"
+          },
+          {
+            "id": "repair-sign",
+            "action": "workshopSign",
+            "type": "book",
+            "x": 920,
+            "y": 865,
+            "label": "修理铺的木牌",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 920,
+            "drawY": 865,
+            "kind": "prop"
+          },
+          {
+            "id": "reset-bench",
+            "action": "resetBench",
+            "type": "machine",
+            "x": 390,
+            "y": 665,
+            "interactX": 390,
+            "interactY": 665,
+            "label": "炼洗台",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 390,
+            "drawY": 585,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 940,
+            "to": "town",
+            "tx": 1170,
+            "ty": 420,
+            "label": "白榆城",
+            "id": "town",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    }
+  ],
+  "errors": []
+}

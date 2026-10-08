@@ -1,3 +1,4 @@
+import {validateWorldSaveV29} from './world-runtime-v29.js';
 import {migrateDialogueSaveV26} from './dialogue-save-migration-v26.js';
 import {validateSagaSaveV26} from './saga-state-v26.js';
 import {validateSagaSaveV25} from './saga-state-v25.js';
@@ -29,7 +30,7 @@ export function parseSave(text,depth=0){
  if(typeof text!=='string'||text.length>2000000)throw new Error('存档过大或内容为空。');
  const envelope=JSON.parse(text),s=migrateDialogueSaveV26(envelope?.format==='ashen-vow-save'?envelope.save:envelope);
  if(!s||![2,3,4,5,6,7,8,9,10,11,12,13,14,15].includes(s.version)||!CLASSES[s.p?.cls]||!MAPS[s.map])throw new Error('这不是兼容的烬誓存档。');
- assertSupportedSavedProgressV23(s,DIALOGUES);validateSagaSaveV25(s);validateSagaSaveV26(s);
+ validateWorldSaveV29(s);assertSupportedSavedProgressV23(s,DIALOGUES);validateSagaSaveV25(s);validateSagaSaveV26(s);
  validateCitySaveV18(s);validateHellActivitiesSaveV17(s);validateHellExpeditionsSaveV18(s);validateSaintBondSaveV17(s);validateSaintStorySaveV18(s);validateRomanceSaveV20(s);validateArrivalSaveV22(s);validateCityMomentsSaveV24(s);validateDiscoverySaveV19(s);validateHellActivitiesSaveV15(s);validateChapter5Save(s);validateMercenarySave(s);validateSystemsSave(s);if(!validMemoryResume(s))throw new Error('回忆检查点不完整。');validateChapter3Save(s);validateV11Save(s);validatePacingSave(s);
  const p=s.p,num=(n,min,max)=>Number.isFinite(n)&&n>=min&&n<=max;
  if(!num(p.level,1,sagaSavedLevelCapV25(s))||!Number.isInteger(p.level)||!num(p.x,0,1600)||!num(p.y,0,1080)||!num(s.chapter,0,40)||!Array.isArray(p.bag)||p.bag.length>60||!p.gear||!p.skills||!p.items||!p.attrs||!Array.isArray(p.bar)||!Array.isArray(p.knownBooks))throw new Error('人物数据不完整。');

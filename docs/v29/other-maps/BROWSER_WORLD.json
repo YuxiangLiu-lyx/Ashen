@@ -1,0 +1,4732 @@
+{
+  "schema": 1,
+  "baseline": false,
+  "head": "fb20a3dcb6e3ebc89ec6c03ab903dc5697c1dde9",
+  "checkedAt": "2026-10-08T05:42:32.342Z",
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/154.0.0.0 Safari/537.36",
+  "scope": "Actual runtime renderer: staged overviews and separate continuous gameplay fixture",
+  "results": [
+    {
+      "map": "hall",
+      "state": {
+        "mode": "play",
+        "map": "hall",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "灰烛会馆",
+          "sub": "壁炉边有人等你",
+          "atlas": "interior",
+          "cell": 0,
+          "safe": true,
+          "doors": [
+            {
+              "x": 1430,
+              "y": 520,
+              "to": "warehouse",
+              "tx": 230,
+              "ty": 540,
+              "label": "旧库房"
+            },
+            {
+              "x": 800,
+              "y": 960,
+              "to": "road",
+              "tx": 230,
+              "ty": 550,
+              "label": "旧王道"
+            },
+            {
+              "x": 800,
+              "y": 190,
+              "to": "guestroom",
+              "tx": 800,
+              "ty": 850,
+              "label": "会馆客房",
+              "direction": "北"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "steward",
+              "name": "管家奥伦",
+              "x": 600,
+              "y": 500,
+              "sprite": 2,
+              "angle": 0.4636476090008061
+            },
+            {
+              "id": "sister",
+              "name": "薇蕾娜",
+              "x": 1180,
+              "y": 635,
+              "sprite": 1,
+              "angle": -3.049746527325056
+            },
+            {
+              "id": "clerk",
+              "name": "书记官鲁恩",
+              "x": 1010,
+              "y": 385,
+              "sprite": 3,
+              "angle": 2.3444303270425864
+            }
+          ],
+          "props": [
+            {
+              "id": "hallbook",
+              "type": "book",
+              "x": 320,
+              "y": 320,
+              "label": "练习笔记",
+              "action": "pointBook",
+              "flat": true
+            },
+            {
+              "id": "hallpot",
+              "type": "pot",
+              "x": 1360,
+              "y": 320
+            }
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              690,
+              180
+            ],
+            [
+              910,
+              0,
+              690,
+              180
+            ],
+            [
+              0,
+              900,
+              690,
+              180
+            ],
+            [
+              920,
+              900,
+              680,
+              180
+            ],
+            [
+              0,
+              180,
+              200,
+              255
+            ],
+            [
+              0,
+              605,
+              200,
+              295
+            ],
+            [
+              1450,
+              180,
+              150,
+              255
+            ],
+            [
+              1450,
+              620,
+              150,
+              280
+            ],
+            [
+              240,
+              210,
+              200,
+              65
+            ],
+            [
+              300,
+              680,
+              290,
+              85
+            ],
+            [
+              980,
+              200,
+              300,
+              60
+            ],
+            [
+              1150,
+              835,
+              210,
+              40
+            ],
+            [
+              226,
+              521,
+              28,
+              19
+            ],
+            [
+              915,
+              545,
+              210,
+              70
+            ]
+          ],
+          "spawns": [],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "hall-shelf",
+            "asset": 11,
+            "x": 340,
+            "y": 275,
+            "w": 205,
+            "h": 165,
+            "box": [
+              240,
+              210,
+              200,
+              65
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-table",
+            "asset": 9,
+            "x": 445,
+            "y": 765,
+            "w": 290,
+            "h": 145,
+            "box": [
+              300,
+              680,
+              290,
+              85
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-records",
+            "asset": 11,
+            "x": 1130,
+            "y": 260,
+            "w": 300,
+            "h": 165,
+            "box": [
+              980,
+              200,
+              300,
+              60
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-bench",
+            "asset": 10,
+            "x": 1255,
+            "y": 875,
+            "w": 210,
+            "h": 85,
+            "box": [
+              1150,
+              835,
+              210,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-lamp",
+            "asset": 14,
+            "x": 240,
+            "y": 540,
+            "w": 52,
+            "h": 150,
+            "box": [
+              226,
+              521,
+              28,
+              19
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "commission-paper",
+            "asset": 7,
+            "x": 1085,
+            "y": 510,
+            "w": 29,
+            "h": 20,
+            "box": null,
+            "sheet": "details",
+            "depthY": 615.1,
+            "flat": true
+          },
+          {
+            "map": "hall",
+            "id": "commission-desk",
+            "asset": 9,
+            "sheet": "world",
+            "x": 1020,
+            "y": 615,
+            "w": 235,
+            "h": 145,
+            "box": [
+              915,
+              545,
+              210,
+              70
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "id": "steward",
+            "name": "管家奥伦",
+            "x": 600,
+            "y": 500,
+            "sprite": 2,
+            "angle": 0.4636476090008061,
+            "kind": "npc"
+          },
+          {
+            "id": "sister",
+            "name": "薇蕾娜",
+            "x": 1180,
+            "y": 635,
+            "sprite": 1,
+            "angle": -3.049746527325056,
+            "kind": "npc"
+          },
+          {
+            "id": "clerk",
+            "name": "书记官鲁恩",
+            "x": 1010,
+            "y": 385,
+            "sprite": 3,
+            "angle": 2.3444303270425864,
+            "kind": "npc"
+          },
+          {
+            "id": "hallbook",
+            "type": "book",
+            "x": 320,
+            "y": 320,
+            "label": "练习笔记",
+            "action": "pointBook",
+            "flat": true,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 320,
+            "drawY": 320,
+            "kind": "prop"
+          },
+          {
+            "x": 1430,
+            "y": 520,
+            "to": "warehouse",
+            "tx": 230,
+            "ty": 540,
+            "label": "旧库房",
+            "id": "warehouse",
+            "kind": "door"
+          },
+          {
+            "x": 800,
+            "y": 960,
+            "to": "road",
+            "tx": 230,
+            "ty": 550,
+            "label": "旧王道",
+            "id": "road",
+            "kind": "door"
+          },
+          {
+            "x": 800,
+            "y": 190,
+            "to": "guestroom",
+            "tx": 800,
+            "ty": 850,
+            "label": "会馆客房",
+            "direction": "北",
+            "id": "guestroom",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    },
+    {
+      "map": "town",
+      "state": {
+        "mode": "play",
+        "map": "town",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "白榆城",
+          "sub": "井边仍有人等着，午钟迟迟没响",
+          "atlas": "exterior",
+          "cell": 0,
+          "safe": true,
+          "doors": [
+            {
+              "x": 150,
+              "y": 610,
+              "to": "road",
+              "tx": 1340,
+              "ty": 540,
+              "label": "旧王道"
+            },
+            {
+              "x": 820,
+              "y": 180,
+              "to": "chapel",
+              "tx": 780,
+              "ty": 900,
+              "label": "礼拜厅",
+              "gate": "chapel"
+            },
+            {
+              "x": 1430,
+              "y": 500,
+              "to": "alley",
+              "tx": 230,
+              "ty": 530,
+              "label": "北门小巷"
+            },
+            {
+              "x": 1170,
+              "y": 340,
+              "to": "workshop",
+              "tx": 800,
+              "ty": 850,
+              "label": "修理铺",
+              "direction": "东北"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "herbalist",
+              "name": "药师米拉",
+              "x": 480,
+              "y": 585,
+              "sprite": 4,
+              "angle": 0.05449145624073119
+            },
+            {
+              "id": "woman",
+              "name": "蕾娜",
+              "x": 990,
+              "y": 760,
+              "sprite": 6,
+              "angle": -2.4416997838705496
+            },
+            {
+              "id": "oldwoman",
+              "name": "修钟人的妹妹",
+              "x": 1240,
+              "y": 405,
+              "sprite": 6,
+              "angle": 2.44685437739309
+            },
+            {
+              "id": "watch",
+              "name": "门卫托马",
+              "x": 760,
+              "y": 340,
+              "sprite": 7,
+              "angle": 1.3521273809209546
+            },
+            {
+              "id": "dolly",
+              "name": "朵莉",
+              "x": 710,
+              "y": 680,
+              "sprite": 11,
+              "angle": -0.7266423406817256
+            }
+          ],
+          "props": [
+            {
+              "id": "well",
+              "type": "pot",
+              "x": 900,
+              "y": 700,
+              "label": "井沿的刻字",
+              "action": "well"
+            },
+            {
+              "id": "towncrate",
+              "type": "crate",
+              "x": 380,
+              "y": 800
+            },
+            {
+              "id": "townbook",
+              "type": "book",
+              "x": 1290,
+              "y": 840,
+              "label": "公告栏",
+              "action": "notice"
+            }
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              650,
+              200
+            ],
+            [
+              960,
+              0,
+              640,
+              200
+            ],
+            [
+              0,
+              200,
+              195,
+              240
+            ],
+            [
+              1470,
+              200,
+              130,
+              180
+            ],
+            [
+              0,
+              740,
+              190,
+              340
+            ],
+            [
+              1470,
+              650,
+              130,
+              430
+            ],
+            [
+              0,
+              925,
+              650,
+              155
+            ],
+            [
+              1000,
+              960,
+              600,
+              120
+            ],
+            [
+              230,
+              220,
+              330,
+              135
+            ],
+            [
+              1020,
+              205,
+              300,
+              80
+            ],
+            [
+              250,
+              850,
+              320,
+              75
+            ],
+            [
+              1050,
+              895,
+              320,
+              55
+            ],
+            [
+              350,
+              495,
+              210,
+              40
+            ],
+            [
+              515,
+              694,
+              140,
+              41
+            ],
+            [
+              689,
+              284,
+              22,
+              16
+            ],
+            [
+              929,
+              314,
+              22,
+              16
+            ],
+            [
+              867,
+              677,
+              66,
+              28
+            ]
+          ],
+          "spawns": [],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "west-home",
+            "asset": 0,
+            "x": 395,
+            "y": 355,
+            "w": 365,
+            "h": 325,
+            "box": [
+              230,
+              220,
+              330,
+              135
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "east-workshop",
+            "asset": 0,
+            "x": 1170,
+            "y": 285,
+            "w": 330,
+            "h": 300,
+            "box": [
+              1020,
+              205,
+              300,
+              80
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "south-home",
+            "asset": 0,
+            "x": 410,
+            "y": 925,
+            "w": 350,
+            "h": 315,
+            "box": [
+              250,
+              850,
+              320,
+              75
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "south-shop",
+            "asset": 0,
+            "x": 1210,
+            "y": 950,
+            "w": 350,
+            "h": 320,
+            "box": [
+              1050,
+              895,
+              320,
+              55
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "medicine",
+            "asset": 2,
+            "x": 455,
+            "y": 535,
+            "w": 220,
+            "h": 155,
+            "box": [
+              350,
+              495,
+              210,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "tailor",
+            "asset": 3,
+            "x": 585,
+            "y": 735,
+            "w": 180,
+            "h": 145,
+            "box": [
+              515,
+              694,
+              140,
+              41
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "lamp-nw",
+            "asset": 14,
+            "x": 700,
+            "y": 300,
+            "w": 43,
+            "h": 140,
+            "box": [
+              689,
+              284,
+              22,
+              16
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "lamp-ne",
+            "asset": 14,
+            "x": 940,
+            "y": 330,
+            "w": 43,
+            "h": 140,
+            "box": [
+              929,
+              314,
+              22,
+              16
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "north-chapel",
+            "asset": 1,
+            "x": 820,
+            "y": 155,
+            "w": 270,
+            "h": 250,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "well-base",
+            "asset": 8,
+            "x": 900,
+            "y": 700,
+            "w": 90,
+            "h": 82,
+            "box": [
+              867,
+              677,
+              66,
+              28
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-90",
+            "asset": 4,
+            "x": 50,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-90",
+            "asset": 4,
+            "x": 176,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-90",
+            "asset": 4,
+            "x": 302,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-90",
+            "asset": 4,
+            "x": 428,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-90",
+            "asset": 4,
+            "x": 554,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-226",
+            "asset": 4,
+            "x": 72,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-226",
+            "asset": 4,
+            "x": 198,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-226",
+            "asset": 4,
+            "x": 324,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-226",
+            "asset": 4,
+            "x": 450,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-226",
+            "asset": 4,
+            "x": 576,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1010-90",
+            "asset": 4,
+            "x": 1032,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1136-90",
+            "asset": 4,
+            "x": 1158,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1262-90",
+            "asset": 4,
+            "x": 1284,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1388-90",
+            "asset": 4,
+            "x": 1410,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1514-90",
+            "asset": 4,
+            "x": 1536,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1010-226",
+            "asset": 4,
+            "x": 1010,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1136-226",
+            "asset": 4,
+            "x": 1136,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1262-226",
+            "asset": 4,
+            "x": 1262,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1388-226",
+            "asset": 4,
+            "x": 1388,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1514-226",
+            "asset": 4,
+            "x": 1514,
+            "y": 226,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-290",
+            "asset": 4,
+            "x": 50,
+            "y": 290,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-290",
+            "asset": 4,
+            "x": 176,
+            "y": 290,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-426",
+            "asset": 4,
+            "x": 72,
+            "y": 426,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-426",
+            "asset": 4,
+            "x": 198,
+            "y": 426,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1520-290",
+            "asset": 4,
+            "x": 1542,
+            "y": 290,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-830",
+            "asset": 4,
+            "x": 50,
+            "y": 830,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-830",
+            "asset": 4,
+            "x": 176,
+            "y": 830,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-966",
+            "asset": 4,
+            "x": 72,
+            "y": 966,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-966",
+            "asset": 4,
+            "x": 198,
+            "y": 966,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-1102",
+            "asset": 4,
+            "x": 50,
+            "y": 1102,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-1102",
+            "asset": 4,
+            "x": 176,
+            "y": 1102,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-1520-740",
+            "asset": 4,
+            "x": 1520,
+            "y": 740,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-1520-876",
+            "asset": 4,
+            "x": 1542,
+            "y": 876,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-1520-1012",
+            "asset": 4,
+            "x": 1520,
+            "y": 1012,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-50-1015",
+            "asset": 4,
+            "x": 72,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-176-1015",
+            "asset": 4,
+            "x": 198,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-302-1015",
+            "asset": 4,
+            "x": 324,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-428-1015",
+            "asset": 4,
+            "x": 450,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-554-1015",
+            "asset": 4,
+            "x": 576,
+            "y": 1015,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1050-1050",
+            "asset": 4,
+            "x": 1050,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1176-1050",
+            "asset": 4,
+            "x": 1176,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1302-1050",
+            "asset": 4,
+            "x": 1302,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1428-1050",
+            "asset": 4,
+            "x": 1428,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1554-1050",
+            "asset": 4,
+            "x": 1554,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "herbalist",
+            "name": "药师米拉",
+            "x": 480,
+            "y": 585,
+            "sprite": 4,
+            "angle": 0.05449145624073119,
+            "kind": "npc"
+          },
+          {
+            "id": "woman",
+            "name": "蕾娜",
+            "x": 990,
+            "y": 760,
+            "sprite": 6,
+            "angle": -2.4416997838705496,
+            "kind": "npc"
+          },
+          {
+            "id": "oldwoman",
+            "name": "修钟人的妹妹",
+            "x": 1240,
+            "y": 405,
+            "sprite": 6,
+            "angle": 2.44685437739309,
+            "kind": "npc"
+          },
+          {
+            "id": "watch",
+            "name": "门卫托马",
+            "x": 760,
+            "y": 340,
+            "sprite": 7,
+            "angle": 1.3521273809209546,
+            "kind": "npc"
+          },
+          {
+            "id": "dolly",
+            "name": "朵莉",
+            "x": 710,
+            "y": 680,
+            "sprite": 11,
+            "angle": -0.7266423406817256,
+            "kind": "npc"
+          },
+          {
+            "id": "well",
+            "type": "pot",
+            "x": 900,
+            "y": 700,
+            "label": "井沿的刻字",
+            "action": "well",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 900,
+            "drawY": 700,
+            "kind": "prop"
+          },
+          {
+            "id": "townbook",
+            "type": "book",
+            "x": 1290,
+            "y": 840,
+            "label": "公告栏",
+            "action": "notice",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1290,
+            "drawY": 840,
+            "kind": "prop"
+          },
+          {
+            "x": 150,
+            "y": 610,
+            "to": "road",
+            "tx": 1340,
+            "ty": 540,
+            "label": "旧王道",
+            "id": "road",
+            "kind": "door"
+          },
+          {
+            "x": 820,
+            "y": 180,
+            "to": "chapel",
+            "tx": 780,
+            "ty": 900,
+            "label": "礼拜厅",
+            "gate": "chapel",
+            "id": "chapel",
+            "kind": "door"
+          },
+          {
+            "x": 1430,
+            "y": 500,
+            "to": "alley",
+            "tx": 230,
+            "ty": 530,
+            "label": "北门小巷",
+            "id": "alley",
+            "kind": "door"
+          },
+          {
+            "x": 1170,
+            "y": 340,
+            "to": "workshop",
+            "tx": 800,
+            "ty": 850,
+            "label": "修理铺",
+            "direction": "东北",
+            "id": "workshop",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    },
+    {
+      "map": "grove",
+      "state": {
+        "mode": "play",
+        "map": "grove",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "溪边旧径",
+          "sub": "这里很久没人走过了",
+          "atlas": "exterior",
+          "cell": 3,
+          "doors": [
+            {
+              "x": 800,
+              "y": 960,
+              "to": "road",
+              "tx": 920,
+              "ty": 280,
+              "label": "旧王道"
+            }
+          ],
+          "npcs": [],
+          "spawns": [
+            [
+              "wolf",
+              650,
+              450
+            ],
+            [
+              "wolf",
+              1020,
+              650
+            ],
+            [
+              "wolf",
+              480,
+              600,
+              "grove-v8-wolf"
+            ],
+            [
+              "rat",
+              520,
+              830,
+              "grove-v9-rat"
+            ],
+            [
+              "bat",
+              1220,
+              460,
+              "grove-v9-bat"
+            ],
+            [
+              "rat",
+              1250,
+              780,
+              "grove-v9-rat-east"
+            ]
+          ],
+          "props": [
+            {
+              "id": "stone",
+              "type": "crate",
+              "x": 1250,
+              "y": 320,
+              "label": "第三块松石",
+              "action": "secret"
+            },
+            {
+              "id": "groveherb",
+              "type": "herb",
+              "x": 400,
+              "y": 700,
+              "label": "银叶草",
+              "action": "herb"
+            }
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              660,
+              175
+            ],
+            [
+              990,
+              0,
+              610,
+              175
+            ],
+            [
+              0,
+              175,
+              215,
+              575
+            ],
+            [
+              1450,
+              175,
+              150,
+              575
+            ],
+            [
+              0,
+              750,
+              310,
+              100
+            ],
+            [
+              1360,
+              750,
+              240,
+              100
+            ],
+            [
+              0,
+              850,
+              570,
+              230
+            ],
+            [
+              1060,
+              850,
+              540,
+              230
+            ],
+            [
+              264,
+              450,
+              72,
+              40
+            ],
+            [
+              1340,
+              680,
+              80,
+              40
+            ],
+            [
+              1046,
+              214,
+              68,
+              31
+            ],
+            [
+              1027,
+              328,
+              46,
+              17
+            ],
+            [
+              1125,
+              313,
+              50,
+              17
+            ],
+            [
+              549,
+              662,
+              72,
+              28
+            ],
+            [
+              790,
+              175,
+              120,
+              310
+            ],
+            [
+              790,
+              620,
+              120,
+              200
+            ]
+          ],
+          "encounters": [
+            {
+              "groupId": "v9-grove-west",
+              "bounds": [
+                390,
+                365,
+                335,
+                520
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "grove-0",
+                "grove-v8-wolf",
+                "grove-v9-rat"
+              ],
+              "types": [
+                "wolf",
+                "rat",
+                "bat"
+              ],
+              "count": [
+                3,
+                4
+              ],
+              "area": [
+                390,
+                365,
+                335,
+                520
+              ],
+              "center": [
+                557.5,
+                625
+              ],
+              "spread": [
+                142.5,
+                235
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            },
+            {
+              "groupId": "v9-grove-east",
+              "bounds": [
+                960,
+                405,
+                395,
+                435
+              ],
+              "size": 3,
+              "danger": "ordinary",
+              "refresh": "revisit",
+              "spawnIds": [
+                "grove-1",
+                "grove-v9-bat",
+                "grove-v9-rat-east"
+              ],
+              "types": [
+                "wolf",
+                "bat",
+                "rat"
+              ],
+              "count": [
+                3,
+                3
+              ],
+              "area": [
+                960,
+                405,
+                395,
+                435
+              ],
+              "center": [
+                1157.5,
+                622.5
+              ],
+              "spread": [
+                172.5,
+                192.5
+              ],
+              "entryExclusionRadius": 160,
+              "aggroShareRadius": 190,
+              "unique": false
+            }
+          ],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "grove-tree1",
+            "asset": 4,
+            "x": 300,
+            "y": 490,
+            "w": 240,
+            "h": 310,
+            "box": [
+              264,
+              450,
+              72,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "grove-tree2",
+            "asset": 4,
+            "x": 1380,
+            "y": 720,
+            "w": 250,
+            "h": 320,
+            "box": [
+              1340,
+              680,
+              80,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "grove-tree3",
+            "asset": 4,
+            "x": 1080,
+            "y": 245,
+            "w": 220,
+            "h": 285,
+            "box": [
+              1046,
+              214,
+              68,
+              31
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "stone1",
+            "asset": 3,
+            "x": 1050,
+            "y": 345,
+            "w": 52,
+            "h": 34,
+            "box": [
+              1027,
+              328,
+              46,
+              17
+            ],
+            "sheet": "details"
+          },
+          {
+            "id": "stone2",
+            "asset": 3,
+            "x": 1150,
+            "y": 330,
+            "w": 54,
+            "h": 36,
+            "box": [
+              1125,
+              313,
+              50,
+              17
+            ],
+            "sheet": "details"
+          },
+          {
+            "id": "v8-grove-stone",
+            "asset": 3,
+            "x": 585,
+            "y": 690,
+            "w": 92,
+            "h": 64,
+            "box": [
+              549,
+              662,
+              72,
+              28
+            ],
+            "sheet": "details"
+          },
+          {
+            "id": "edge-tree-0-50-90",
+            "asset": 4,
+            "x": 50,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-90",
+            "asset": 4,
+            "x": 176,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-90",
+            "asset": 4,
+            "x": 302,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-90",
+            "asset": 4,
+            "x": 428,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-90",
+            "asset": 4,
+            "x": 554,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1040-90",
+            "asset": 4,
+            "x": 1062,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1166-90",
+            "asset": 4,
+            "x": 1188,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1292-90",
+            "asset": 4,
+            "x": 1314,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1418-90",
+            "asset": 4,
+            "x": 1440,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-1544-90",
+            "asset": 4,
+            "x": 1566,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-265",
+            "asset": 4,
+            "x": 72,
+            "y": 265,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-265",
+            "asset": 4,
+            "x": 198,
+            "y": 265,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-401",
+            "asset": 4,
+            "x": 50,
+            "y": 401,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-401",
+            "asset": 4,
+            "x": 176,
+            "y": 401,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-537",
+            "asset": 4,
+            "x": 72,
+            "y": 537,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-537",
+            "asset": 4,
+            "x": 198,
+            "y": 537,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-50-673",
+            "asset": 4,
+            "x": 50,
+            "y": 673,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-176-673",
+            "asset": 4,
+            "x": 176,
+            "y": 673,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1500-265",
+            "asset": 4,
+            "x": 1500,
+            "y": 265,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1500-401",
+            "asset": 4,
+            "x": 1522,
+            "y": 401,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1500-537",
+            "asset": 4,
+            "x": 1500,
+            "y": 537,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-1500-673",
+            "asset": 4,
+            "x": 1522,
+            "y": 673,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-50-840",
+            "asset": 4,
+            "x": 50,
+            "y": 840,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-176-840",
+            "asset": 4,
+            "x": 176,
+            "y": 840,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-302-840",
+            "asset": 4,
+            "x": 302,
+            "y": 840,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-1410-840",
+            "asset": 4,
+            "x": 1432,
+            "y": 840,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-5-1536-840",
+            "asset": 4,
+            "x": 1558,
+            "y": 840,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-50-940",
+            "asset": 4,
+            "x": 50,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-176-940",
+            "asset": 4,
+            "x": 176,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-302-940",
+            "asset": 4,
+            "x": 302,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-428-940",
+            "asset": 4,
+            "x": 428,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-554-940",
+            "asset": 4,
+            "x": 554,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-50-1076",
+            "asset": 4,
+            "x": 72,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-176-1076",
+            "asset": 4,
+            "x": 198,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-302-1076",
+            "asset": 4,
+            "x": 324,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-428-1076",
+            "asset": 4,
+            "x": 450,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-6-554-1076",
+            "asset": 4,
+            "x": 576,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1110-940",
+            "asset": 4,
+            "x": 1132,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1236-940",
+            "asset": 4,
+            "x": 1258,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1362-940",
+            "asset": 4,
+            "x": 1384,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1488-940",
+            "asset": 4,
+            "x": 1510,
+            "y": 940,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1110-1076",
+            "asset": 4,
+            "x": 1110,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1236-1076",
+            "asset": 4,
+            "x": 1236,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1362-1076",
+            "asset": 4,
+            "x": 1362,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-7-1488-1076",
+            "asset": 4,
+            "x": 1488,
+            "y": 1076,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "stone",
+            "type": "crate",
+            "x": 1250,
+            "y": 320,
+            "label": "第三块松石",
+            "action": "secret",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1250,
+            "drawY": 320,
+            "kind": "prop"
+          },
+          {
+            "id": "groveherb",
+            "type": "herb",
+            "x": 400,
+            "y": 700,
+            "label": "银叶草",
+            "action": "herb",
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 400,
+            "drawY": 700,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 960,
+            "to": "road",
+            "tx": 920,
+            "ty": 280,
+            "label": "旧王道",
+            "id": "road",
+            "kind": "door"
+          }
+        ],
+        "enemy": [
+          {
+            "id": "grove-0",
+            "type": "wolf",
+            "x": 650,
+            "y": 450,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "grove-1",
+            "type": "wolf",
+            "x": 1020,
+            "y": 650,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "grove-v8-wolf",
+            "type": "wolf",
+            "x": 480,
+            "y": 600,
+            "hp": 224,
+            "dead": false
+          },
+          {
+            "id": "grove-v9-rat",
+            "type": "rat",
+            "x": 520,
+            "y": 830,
+            "hp": 104,
+            "dead": false
+          },
+          {
+            "id": "grove-v9-bat",
+            "type": "bat",
+            "x": 1220,
+            "y": 460,
+            "hp": 115,
+            "dead": false
+          },
+          {
+            "id": "grove-v9-rat-east",
+            "type": "rat",
+            "x": 1250,
+            "y": 780,
+            "hp": 104,
+            "dead": false
+          }
+        ]
+      }
+    },
+    {
+      "map": "post",
+      "state": {
+        "mode": "play",
+        "map": "post",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "灰石驿站",
+          "sub": "车轮压过石缝，旅店门前还亮着灯",
+          "safe": true,
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              150
+            ],
+            [
+              0,
+              960,
+              600,
+              120
+            ],
+            [
+              1050,
+              960,
+              550,
+              120
+            ],
+            [
+              0,
+              150,
+              130,
+              810
+            ],
+            [
+              1470,
+              150,
+              130,
+              810
+            ],
+            [
+              610,
+              215,
+              380,
+              130
+            ],
+            [
+              190,
+              215,
+              260,
+              150
+            ],
+            [
+              365,
+              610,
+              115,
+              40
+            ],
+            [
+              455,
+              738,
+              90,
+              32
+            ],
+            [
+              1260,
+              320,
+              60,
+              35
+            ],
+            [
+              805,
+              751,
+              130,
+              29
+            ],
+            [
+              1028,
+              436,
+              24,
+              19
+            ],
+            [
+              1055,
+              812,
+              130,
+              33
+            ],
+            [
+              1100,
+              422,
+              180,
+              33
+            ]
+          ],
+          "doors": [
+            {
+              "x": 800,
+              "y": 395,
+              "to": "inn",
+              "tx": 800,
+              "ty": 875,
+              "label": "旅店后屋",
+              "direction": "北"
+            },
+            {
+              "x": 1430,
+              "y": 650,
+              "to": "bridge",
+              "tx": 230,
+              "ty": 600,
+              "label": "灰桥关道",
+              "gate": "ch2-road"
+            }
+          ],
+          "npcs": [],
+          "spawns": [],
+          "props": [
+            {
+              "id": "post-training",
+              "type": "crate",
+              "training": true,
+              "x": 1190,
+              "y": 790
+            },
+            {
+              "id": "post-pot",
+              "type": "pot",
+              "x": 460,
+              "y": 820
+            },
+            {
+              "id": "post-crate",
+              "type": "crate",
+              "x": 420,
+              "y": 815
+            },
+            {
+              "id": "post-sign",
+              "action": "ch2-sign",
+              "label": "驿站路牌",
+              "x": 1090,
+              "y": 380
+            },
+            {
+              "id": "v9-post-wedge",
+              "action": "v9-post-wedge",
+              "label": "滑出车轮的木楔",
+              "x": 425,
+              "y": 670,
+              "secret": false,
+              "mapMarker": false,
+              "interactX": 425,
+              "interactY": 725,
+              "art": {
+                "sheet": "details",
+                "index": 3,
+                "w": 38,
+                "h": 27
+              }
+            }
+          ],
+          "qualityWorldV9": true,
+          "encounters": [],
+          "ambientActors": [
+            {
+              "id": "roadElder",
+              "sprite": 7,
+              "x": 580,
+              "y": 630,
+              "angle": -0.3,
+              "size": 78,
+              "name": "",
+              "ambient": true,
+              "nonInteractive": true,
+              "mapMarker": false
+            }
+          ],
+          "contentVersion": 9,
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "post-inn",
+            "asset": 0,
+            "x": 800,
+            "y": 360,
+            "w": 430,
+            "h": 310,
+            "box": [
+              610,
+              215,
+              380,
+              130
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "post-stable",
+            "asset": 0,
+            "x": 320,
+            "y": 385,
+            "w": 285,
+            "h": 250,
+            "box": [
+              190,
+              215,
+              260,
+              150
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "post-cart",
+            "asset": 3,
+            "x": 425,
+            "y": 650,
+            "w": 170,
+            "h": 110,
+            "box": [
+              365,
+              610,
+              115,
+              40
+            ],
+            "sheet": "qualityWorld"
+          },
+          {
+            "id": "post-sacks",
+            "asset": 6,
+            "x": 500,
+            "y": 770,
+            "w": 110,
+            "h": 85,
+            "box": [
+              455,
+              738,
+              90,
+              32
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "post-tree",
+            "asset": 4,
+            "x": 1290,
+            "y": 355,
+            "w": 205,
+            "h": 250,
+            "box": [
+              1260,
+              320,
+              60,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "post-bench",
+            "asset": 10,
+            "x": 870,
+            "y": 780,
+            "w": 150,
+            "h": 70,
+            "box": [
+              805,
+              751,
+              130,
+              29
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "post-lamp",
+            "asset": 14,
+            "x": 1040,
+            "y": 455,
+            "w": 43,
+            "h": 125,
+            "box": [
+              1028,
+              436,
+              24,
+              19
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v9-post-cargo",
+            "asset": 6,
+            "x": 1120,
+            "y": 845,
+            "w": 150,
+            "h": 96,
+            "box": [
+              1055,
+              812,
+              130,
+              33
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "v9-post-side-wall",
+            "asset": 5,
+            "x": 1190,
+            "y": 455,
+            "w": 200,
+            "h": 90,
+            "box": [
+              1100,
+              422,
+              180,
+              33
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-50-90",
+            "asset": 4,
+            "x": 50,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-176-90",
+            "asset": 4,
+            "x": 176,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-302-90",
+            "asset": 4,
+            "x": 302,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-428-90",
+            "asset": 4,
+            "x": 428,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-554-90",
+            "asset": 4,
+            "x": 554,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-680-90",
+            "asset": 4,
+            "x": 680,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-806-90",
+            "asset": 4,
+            "x": 806,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-932-90",
+            "asset": 4,
+            "x": 932,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-1058-90",
+            "asset": 4,
+            "x": 1058,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-1184-90",
+            "asset": 4,
+            "x": 1184,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-1310-90",
+            "asset": 4,
+            "x": 1310,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-1436-90",
+            "asset": 4,
+            "x": 1436,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-0-1562-90",
+            "asset": 4,
+            "x": 1562,
+            "y": 90,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-50-1050",
+            "asset": 4,
+            "x": 50,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-176-1050",
+            "asset": 4,
+            "x": 176,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-302-1050",
+            "asset": 4,
+            "x": 302,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-428-1050",
+            "asset": 4,
+            "x": 428,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-1-554-1050",
+            "asset": 4,
+            "x": 554,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-1100-1050",
+            "asset": 4,
+            "x": 1122,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-1226-1050",
+            "asset": 4,
+            "x": 1248,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-1352-1050",
+            "asset": 4,
+            "x": 1374,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-2-1478-1050",
+            "asset": 4,
+            "x": 1500,
+            "y": 1050,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-240",
+            "asset": 4,
+            "x": 50,
+            "y": 240,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-376",
+            "asset": 4,
+            "x": 72,
+            "y": 376,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-512",
+            "asset": 4,
+            "x": 50,
+            "y": 512,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-648",
+            "asset": 4,
+            "x": 72,
+            "y": 648,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-784",
+            "asset": 4,
+            "x": 50,
+            "y": 784,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-3-50-920",
+            "asset": 4,
+            "x": 72,
+            "y": 920,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-240",
+            "asset": 4,
+            "x": 1542,
+            "y": 240,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-376",
+            "asset": 4,
+            "x": 1520,
+            "y": 376,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-512",
+            "asset": 4,
+            "x": 1542,
+            "y": 512,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-648",
+            "asset": 4,
+            "x": 1520,
+            "y": 648,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-784",
+            "asset": 4,
+            "x": 1542,
+            "y": 784,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          },
+          {
+            "id": "edge-tree-4-1520-920",
+            "asset": 4,
+            "x": 1520,
+            "y": 920,
+            "w": 154,
+            "h": 184,
+            "box": null,
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "post-sign",
+            "action": "ch2-sign",
+            "label": "驿站路牌",
+            "x": 1090,
+            "y": 380,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1090,
+            "drawY": 380,
+            "kind": "prop"
+          },
+          {
+            "id": "v9-post-wedge",
+            "action": "v9-post-wedge",
+            "label": "滑出车轮的木楔",
+            "x": 425,
+            "y": 725,
+            "secret": false,
+            "mapMarker": false,
+            "interactX": 425,
+            "interactY": 725,
+            "art": {
+              "sheet": "details",
+              "index": 3,
+              "w": 38,
+              "h": 27
+            },
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 425,
+            "drawY": 670,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 395,
+            "to": "inn",
+            "tx": 800,
+            "ty": 875,
+            "label": "旅店后屋",
+            "direction": "北",
+            "id": "inn",
+            "kind": "door"
+          },
+          {
+            "x": 1430,
+            "y": 650,
+            "to": "bridge",
+            "tx": 230,
+            "ty": 600,
+            "label": "灰桥关道",
+            "gate": "ch2-road",
+            "id": "bridge",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    },
+    {
+      "map": "inn",
+      "state": {
+        "mode": "play",
+        "map": "inn",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "灰石旅店后屋",
+          "sub": "前廊通着街道，后屋的桌上压着一封信",
+          "safe": true,
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              150
+            ],
+            [
+              0,
+              960,
+              600,
+              120
+            ],
+            [
+              1050,
+              960,
+              550,
+              120
+            ],
+            [
+              0,
+              150,
+              130,
+              810
+            ],
+            [
+              1470,
+              150,
+              130,
+              810
+            ],
+            [
+              910,
+              460,
+              215,
+              55
+            ],
+            [
+              1140,
+              240,
+              180,
+              70
+            ],
+            [
+              248,
+              302,
+              124,
+              38
+            ],
+            [
+              150,
+              735,
+              540,
+              35
+            ],
+            [
+              1005,
+              735,
+              460,
+              35
+            ],
+            [
+              461,
+              580,
+              58,
+              30
+            ],
+            [
+              295,
+              470,
+              130,
+              25
+            ]
+          ],
+          "doors": [
+            {
+              "x": 800,
+              "y": 940,
+              "to": "post",
+              "tx": 800,
+              "ty": 445,
+              "label": "驿站街道"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "seline",
+              "name": "塞琳",
+              "x": 1020,
+              "y": 620,
+              "angle": 0,
+              "sprite": 8
+            }
+          ],
+          "spawns": [],
+          "props": [
+            {
+              "id": "inn-pump",
+              "action": "ch2-pump",
+              "label": "后院水泵",
+              "x": 490,
+              "y": 610,
+              "interactX": 490,
+              "interactY": 700
+            },
+            {
+              "id": "inn-rest",
+              "action": "ch2-rest",
+              "label": "炉边长凳",
+              "x": 310,
+              "y": 340,
+              "interactX": 340,
+              "interactY": 430
+            },
+            {
+              "id": "inn-paper",
+              "action": "ch2-paper",
+              "label": "折好的路图",
+              "x": 1060,
+              "y": 440,
+              "interactX": 1110,
+              "interactY": 610,
+              "flat": true,
+              "depthY": 515.1
+            }
+          ],
+          "qualityWorldV9": true,
+          "encounters": [],
+          "ambientActors": [],
+          "contentVersion": 9,
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "inn-desk",
+            "asset": 9,
+            "x": 1020,
+            "y": 515,
+            "w": 240,
+            "h": 140,
+            "box": [
+              910,
+              460,
+              215,
+              55
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "inn-shelf",
+            "asset": 11,
+            "x": 1230,
+            "y": 310,
+            "w": 205,
+            "h": 165,
+            "box": [
+              1140,
+              240,
+              180,
+              70
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "inn-hearth",
+            "asset": 1,
+            "x": 310,
+            "y": 340,
+            "w": 150,
+            "h": 160,
+            "box": [
+              248,
+              302,
+              124,
+              38
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "inn-divider-west",
+            "asset": 5,
+            "x": 420,
+            "y": 770,
+            "w": 540,
+            "h": 90,
+            "box": [
+              150,
+              735,
+              540,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "inn-divider-east",
+            "asset": 5,
+            "x": 1240,
+            "y": 770,
+            "w": 470,
+            "h": 90,
+            "box": [
+              1005,
+              735,
+              460,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "inn-pump-base",
+            "asset": 5,
+            "x": 490,
+            "y": 610,
+            "w": 85,
+            "h": 135,
+            "box": [
+              461,
+              580,
+              58,
+              30
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "inn-bench",
+            "asset": 10,
+            "x": 360,
+            "y": 495,
+            "w": 150,
+            "h": 65,
+            "box": [
+              295,
+              470,
+              130,
+              25
+            ],
+            "sheet": "world"
+          }
+        ],
+        "targets": [
+          {
+            "id": "seline",
+            "name": "塞琳",
+            "x": 1020,
+            "y": 620,
+            "angle": 0,
+            "sprite": 8,
+            "kind": "npc"
+          },
+          {
+            "id": "inn-pump",
+            "action": "ch2-pump",
+            "label": "后院水泵",
+            "x": 490,
+            "y": 700,
+            "interactX": 490,
+            "interactY": 700,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 490,
+            "drawY": 610,
+            "kind": "prop"
+          },
+          {
+            "id": "inn-rest",
+            "action": "ch2-rest",
+            "label": "炉边长凳",
+            "x": 340,
+            "y": 430,
+            "interactX": 340,
+            "interactY": 430,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 310,
+            "drawY": 340,
+            "kind": "prop"
+          },
+          {
+            "id": "inn-paper",
+            "action": "ch2-paper",
+            "label": "折好的路图",
+            "x": 1110,
+            "y": 610,
+            "interactX": 1110,
+            "interactY": 610,
+            "flat": true,
+            "depthY": 515.1,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1060,
+            "drawY": 440,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 940,
+            "to": "post",
+            "tx": 800,
+            "ty": 445,
+            "label": "驿站街道",
+            "id": "post",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    },
+    {
+      "map": "bridgecellar",
+      "state": {
+        "mode": "play",
+        "map": "bridgecellar",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "v9CellarVisited": true,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "桥下旧收费室",
+          "sub": "绳索磨亮了井口，干燥的石台高过旧水线",
+          "atlas": "interior",
+          "cell": 0,
+          "ground": "stone",
+          "safe": true,
+          "secret": true,
+          "mapMarker": false,
+          "chapter": 2,
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              255
+            ],
+            [
+              0,
+              255,
+              320,
+              825
+            ],
+            [
+              1280,
+              255,
+              320,
+              825
+            ],
+            [
+              320,
+              925,
+              960,
+              155
+            ],
+            [
+              410,
+              422,
+              200,
+              48
+            ],
+            [
+              980,
+              335,
+              220,
+              70
+            ],
+            [
+              649,
+              347,
+              22,
+              18
+            ],
+            [
+              410,
+              722,
+              110,
+              33
+            ],
+            [
+              1150,
+              645,
+              100,
+              35
+            ]
+          ],
+          "doors": [
+            {
+              "x": 800,
+              "y": 880,
+              "to": "bridge",
+              "tx": 930,
+              "ty": 845,
+              "label": "爬回南沟",
+              "manualOnly": true
+            }
+          ],
+          "npcs": [],
+          "spawns": [],
+          "props": [
+            {
+              "id": "v9-toll-box",
+              "action": "v9-toll-box",
+              "label": "包着旧绳的木匣",
+              "x": 1100,
+              "y": 390,
+              "secret": true,
+              "mapMarker": false,
+              "interactX": 1100,
+              "interactY": 500,
+              "type": "crate",
+              "art": {
+                "sheet": "world",
+                "index": 12,
+                "w": 61,
+                "h": 53
+              }
+            },
+            {
+              "id": "v9-toll-scale",
+              "action": "v9-toll-scale",
+              "label": "空着的秤盘",
+              "x": 510,
+              "y": 405,
+              "secret": true,
+              "mapMarker": false,
+              "interactX": 510,
+              "interactY": 520,
+              "art": {
+                "sheet": "details",
+                "index": 5,
+                "w": 38,
+                "h": 28
+              },
+              "flat": true,
+              "depthY": 470.1
+            }
+          ],
+          "qualityWorldV9": true,
+          "encounters": [],
+          "ambientActors": [],
+          "contentVersion": 9,
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "v9-cellar-table",
+            "asset": 9,
+            "x": 510,
+            "y": 470,
+            "w": 220,
+            "h": 120,
+            "box": [
+              410,
+              422,
+              200,
+              48
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v9-cellar-north-shelf",
+            "asset": 11,
+            "x": 1090,
+            "y": 405,
+            "w": 245,
+            "h": 165,
+            "box": [
+              980,
+              335,
+              220,
+              70
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v9-cellar-lamp",
+            "asset": 14,
+            "x": 660,
+            "y": 365,
+            "w": 42,
+            "h": 128,
+            "box": [
+              649,
+              347,
+              22,
+              18
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v9-cellar-sacks",
+            "asset": 6,
+            "x": 465,
+            "y": 755,
+            "w": 135,
+            "h": 90,
+            "box": [
+              410,
+              722,
+              110,
+              33
+            ],
+            "sheet": "chapterProps"
+          },
+          {
+            "id": "v9-cellar-cracked-wall",
+            "asset": 5,
+            "x": 1200,
+            "y": 680,
+            "w": 125,
+            "h": 95,
+            "box": [
+              1150,
+              645,
+              100,
+              35
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "v9-cellar-exit",
+            "asset": 1,
+            "x": 800,
+            "y": 935,
+            "w": 150,
+            "h": 143,
+            "box": null,
+            "sheet": "qualityWorld"
+          }
+        ],
+        "targets": [
+          {
+            "id": "v9-toll-box",
+            "action": "v9-toll-box",
+            "label": "包着旧绳的木匣",
+            "x": 1100,
+            "y": 500,
+            "secret": true,
+            "mapMarker": false,
+            "interactX": 1100,
+            "interactY": 500,
+            "type": "crate",
+            "art": {
+              "sheet": "world",
+              "index": 12,
+              "w": 61,
+              "h": 53
+            },
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1100,
+            "drawY": 390,
+            "kind": "prop"
+          },
+          {
+            "id": "v9-toll-scale",
+            "action": "v9-toll-scale",
+            "label": "空着的秤盘",
+            "x": 510,
+            "y": 520,
+            "secret": true,
+            "mapMarker": false,
+            "interactX": 510,
+            "interactY": 520,
+            "art": {
+              "sheet": "details",
+              "index": 5,
+              "w": 38,
+              "h": 28
+            },
+            "flat": true,
+            "depthY": 470.1,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 510,
+            "drawY": 405,
+            "kind": "prop"
+          },
+          {
+            "x": 800,
+            "y": 880,
+            "to": "bridge",
+            "tx": 930,
+            "ty": 845,
+            "label": "爬回南沟",
+            "manualOnly": true,
+            "id": "bridge",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    },
+    {
+      "map": "hellGrotto",
+      "state": {
+        "mode": "play",
+        "map": "hellGrotto",
+        "x": 800,
+        "y": 540,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "盐骨苔窟",
+          "sub": "蓝草沿盐痕生长，洞中的两道石脊之间留着旧路",
+          "entry": [
+            510,
+            830
+          ],
+          "layout": "crescent-salt-shelves",
+          "doors": [
+            {
+              "x": 510,
+              "y": 940,
+              "to": "hellCamp",
+              "tx": 650,
+              "ty": 285,
+              "label": "余烬营地",
+              "direction": "西南"
+            },
+            {
+              "x": 1430,
+              "y": 400,
+              "to": "hellMine",
+              "tx": 280,
+              "ty": 400,
+              "label": "无灯矿道",
+              "direction": "东"
+            }
+          ],
+          "npcs": [],
+          "props": [
+            {
+              "id": "salt-moss",
+              "action": "ch3-salt-moss",
+              "label": "盐骨苔",
+              "x": 730,
+              "y": 430,
+              "interactX": 730,
+              "interactY": 510,
+              "art": {
+                "sheet": "hellWorld",
+                "index": 14,
+                "w": 90,
+                "h": 68
+              },
+              "box": [
+                699,
+                414,
+                62,
+                16
+              ],
+              "questMaterial": true
+            },
+            {
+              "id": "hellGrotto-gather-0",
+              "action": "ch3-gather",
+              "label": "微温的草丛",
+              "x": 568,
+              "y": 670,
+              "interactX": 540,
+              "interactY": 685,
+              "resource": "emberHerb",
+              "renewable": true,
+              "art": {
+                "sheet": "hellWorld",
+                "index": 14,
+                "w": 47,
+                "h": 39
+              },
+              "hp": 999
+            },
+            {
+              "id": "hellGrotto-gather-1",
+              "action": "ch3-gather",
+              "label": "积灰的旧兵器",
+              "x": 1198,
+              "y": 710,
+              "interactX": 1170,
+              "interactY": 725,
+              "resource": "cinderIron",
+              "renewable": true,
+              "art": {
+                "sheet": "hellProps",
+                "index": 2,
+                "w": 60,
+                "h": 54
+              },
+              "hp": 999
+            }
+          ],
+          "size": [
+            1600,
+            1080
+          ],
+          "footBounds": [
+            135,
+            155,
+            1465,
+            965
+          ],
+          "chapterRegion": 3,
+          "safe": false,
+          "blocks": [
+            [
+              0,
+              0,
+              1600,
+              150
+            ],
+            [
+              0,
+              965,
+              400,
+              115
+            ],
+            [
+              620,
+              965,
+              980,
+              115
+            ],
+            [
+              0,
+              150,
+              130,
+              815
+            ],
+            [
+              1470,
+              150,
+              130,
+              140
+            ],
+            [
+              1470,
+              510,
+              130,
+              455
+            ],
+            [
+              360,
+              492,
+              120,
+              38
+            ],
+            [
+              702,
+              605,
+              146,
+              40
+            ],
+            [
+              862,
+              430,
+              136,
+              40
+            ],
+            [
+              498,
+              266,
+              124,
+              34
+            ],
+            [
+              1249,
+              565,
+              102,
+              30
+            ],
+            [
+              955,
+              835,
+              150,
+              35
+            ],
+            [
+              265,
+              795,
+              70,
+              30
+            ],
+            [
+              1274,
+              317,
+              22,
+              18
+            ],
+            [
+              699,
+              414,
+              62,
+              16
+            ]
+          ],
+          "spawns": [
+            [
+              "hellHound",
+              460,
+              610,
+              "ch3-grotto-1"
+            ],
+            [
+              "hellSoul",
+              540,
+              650,
+              "ch3-grotto-2"
+            ],
+            [
+              "hellHound",
+              400,
+              670,
+              "ch3-grotto-3"
+            ],
+            [
+              "hellSoul",
+              990,
+              700,
+              "ch3-grotto-4"
+            ],
+            [
+              "hellSoul",
+              1080,
+              630,
+              "ch3-grotto-5"
+            ],
+            [
+              "hellGuard",
+              1170,
+              690,
+              "ch3-grotto-6"
+            ],
+            [
+              "hellSoul",
+              950,
+              300,
+              "ch3-grotto-7"
+            ],
+            [
+              "hellHound",
+              1060,
+              290,
+              "ch3-grotto-8"
+            ],
+            [
+              "hellGuard",
+              1120,
+              420,
+              "ch3-grotto-9"
+            ]
+          ],
+          "enemyGroups": [
+            "ch3-grotto-lower-shelf",
+            "ch3-grotto-salt-pool",
+            "ch3-grotto-high-ledge"
+          ],
+          "encounters": [
+            {
+              "id": "ch3-grotto-lower-shelf",
+              "spawnIds": [
+                "ch3-grotto-1",
+                "ch3-grotto-2",
+                "ch3-grotto-3"
+              ],
+              "anchor": [
+                467,
+                643
+              ],
+              "radius": 75,
+              "leash": 310
+            },
+            {
+              "id": "ch3-grotto-salt-pool",
+              "spawnIds": [
+                "ch3-grotto-4",
+                "ch3-grotto-5",
+                "ch3-grotto-6"
+              ],
+              "anchor": [
+                1080,
+                673
+              ],
+              "radius": 75,
+              "leash": 310
+            },
+            {
+              "id": "ch3-grotto-high-ledge",
+              "spawnIds": [
+                "ch3-grotto-7",
+                "ch3-grotto-8",
+                "ch3-grotto-9"
+              ],
+              "anchor": [
+                1043,
+                337
+              ],
+              "radius": 75,
+              "leash": 310
+            }
+          ]
+        },
+        "scenery": [
+          {
+            "id": "grotto-west-rib",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 420,
+            "y": 530,
+            "w": 165,
+            "h": 127,
+            "box": [
+              360,
+              492,
+              120,
+              38
+            ]
+          },
+          {
+            "id": "grotto-low-rib",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 775,
+            "y": 645,
+            "w": 198,
+            "h": 134,
+            "box": [
+              702,
+              605,
+              146,
+              40
+            ]
+          },
+          {
+            "id": "grotto-east-rib",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 930,
+            "y": 470,
+            "w": 187,
+            "h": 142,
+            "box": [
+              862,
+              430,
+              136,
+              40
+            ]
+          },
+          {
+            "id": "grotto-upper-bones",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 560,
+            "y": 300,
+            "w": 168,
+            "h": 122,
+            "box": [
+              498,
+              266,
+              124,
+              34
+            ]
+          },
+          {
+            "id": "grotto-east-shelf",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 1300,
+            "y": 595,
+            "w": 143,
+            "h": 98,
+            "box": [
+              1249,
+              565,
+              102,
+              30
+            ]
+          },
+          {
+            "id": "grotto-south-shelf",
+            "sheet": "hellWorld",
+            "asset": 4,
+            "x": 1030,
+            "y": 870,
+            "w": 207,
+            "h": 121,
+            "box": [
+              955,
+              835,
+              150,
+              35
+            ]
+          },
+          {
+            "id": "grotto-old-pipe",
+            "sheet": "hellWorld",
+            "asset": 9,
+            "x": 300,
+            "y": 825,
+            "w": 94,
+            "h": 112,
+            "box": [
+              265,
+              795,
+              70,
+              30
+            ]
+          },
+          {
+            "id": "grotto-mine-route-lamp",
+            "sheet": "hellWorld",
+            "asset": 15,
+            "x": 1285,
+            "y": 335,
+            "w": 42,
+            "h": 100,
+            "box": [
+              1274,
+              317,
+              22,
+              18
+            ]
+          },
+          {
+            "id": "grotto-moss-trail-1",
+            "sheet": "hellWorld",
+            "asset": 14,
+            "x": 630,
+            "y": 505,
+            "w": 70,
+            "h": 53,
+            "box": null,
+            "flat": true,
+            "depthY": 0
+          },
+          {
+            "id": "grotto-moss-trail-2",
+            "sheet": "hellWorld",
+            "asset": 14,
+            "x": 690,
+            "y": 375,
+            "w": 75,
+            "h": 54,
+            "box": null,
+            "flat": true,
+            "depthY": 0
+          },
+          {
+            "id": "grotto-moss-trail-3",
+            "sheet": "hellWorld",
+            "asset": 14,
+            "x": 805,
+            "y": 415,
+            "w": 63,
+            "h": 48,
+            "box": null,
+            "flat": true,
+            "depthY": 0
+          },
+          {
+            "id": "grotto-moss-trail-4",
+            "sheet": "hellWorld",
+            "asset": 14,
+            "x": 535,
+            "y": 875,
+            "w": 50,
+            "h": 38,
+            "box": null,
+            "flat": true,
+            "depthY": 0
+          },
+          {
+            "id": "grotto-salt-crack",
+            "sheet": "hellWorld",
+            "asset": 6,
+            "x": 1110,
+            "y": 535,
+            "w": 236,
+            "h": 47,
+            "box": null,
+            "flat": true,
+            "depthY": 0
+          }
+        ],
+        "targets": [
+          {
+            "id": "salt-moss",
+            "action": "ch3-salt-moss",
+            "label": "盐骨苔",
+            "x": 730,
+            "y": 510,
+            "interactX": 730,
+            "interactY": 510,
+            "art": {
+              "sheet": "hellWorld",
+              "index": 14,
+              "w": 90,
+              "h": 68
+            },
+            "box": [
+              699,
+              414,
+              62,
+              16
+            ],
+            "questMaterial": true,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 730,
+            "drawY": 430,
+            "kind": "prop"
+          },
+          {
+            "id": "hellGrotto-gather-0",
+            "action": "ch3-gather",
+            "label": "微温的草丛",
+            "x": 540,
+            "y": 685,
+            "interactX": 540,
+            "interactY": 685,
+            "resource": "emberHerb",
+            "renewable": true,
+            "art": {
+              "sheet": "hellWorld",
+              "index": 14,
+              "w": 47,
+              "h": 39
+            },
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 568,
+            "drawY": 670,
+            "kind": "prop"
+          },
+          {
+            "id": "hellGrotto-gather-1",
+            "action": "ch3-gather",
+            "label": "积灰的旧兵器",
+            "x": 1170,
+            "y": 725,
+            "interactX": 1170,
+            "interactY": 725,
+            "resource": "cinderIron",
+            "renewable": true,
+            "art": {
+              "sheet": "hellProps",
+              "index": 2,
+              "w": 60,
+              "h": 54
+            },
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 1198,
+            "drawY": 710,
+            "kind": "prop"
+          },
+          {
+            "x": 510,
+            "y": 940,
+            "to": "hellCamp",
+            "tx": 650,
+            "ty": 285,
+            "label": "余烬营地",
+            "direction": "西南",
+            "id": "hellCamp",
+            "kind": "door"
+          },
+          {
+            "x": 1430,
+            "y": 400,
+            "to": "hellMine",
+            "tx": 280,
+            "ty": 400,
+            "label": "无灯矿道",
+            "direction": "东",
+            "id": "hellMine",
+            "kind": "door"
+          }
+        ],
+        "enemy": [
+          {
+            "id": "ch3-grotto-1",
+            "type": "hellHound",
+            "x": 460,
+            "y": 610,
+            "hp": 634,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-2",
+            "type": "hellSoul",
+            "x": 540,
+            "y": 650,
+            "hp": 553,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-3",
+            "type": "hellHound",
+            "x": 400,
+            "y": 670,
+            "hp": 634,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-4",
+            "type": "hellSoul",
+            "x": 990,
+            "y": 700,
+            "hp": 553,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-5",
+            "type": "hellSoul",
+            "x": 1080,
+            "y": 630,
+            "hp": 541,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-6",
+            "type": "hellGuard",
+            "x": 1170,
+            "y": 690,
+            "hp": 1152,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-7",
+            "type": "hellSoul",
+            "x": 950,
+            "y": 300,
+            "hp": 541,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-8",
+            "type": "hellHound",
+            "x": 1060,
+            "y": 290,
+            "hp": 646,
+            "dead": false
+          },
+          {
+            "id": "ch3-grotto-9",
+            "type": "hellGuard",
+            "x": 1120,
+            "y": 420,
+            "hp": 1173,
+            "dead": false
+          }
+        ]
+      }
+    },
+    {
+      "map": "ch5Square",
+      "state": {
+        "mode": "play",
+        "map": "hall",
+        "x": 800,
+        "y": 720,
+        "hp": 170,
+        "mp": 84,
+        "active": false,
+        "pending": null,
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8
+          ]
+        },
+        "quests": {},
+        "transition": null,
+        "moveTo": null,
+        "target": null,
+        "auto": false
+      },
+      "data": {
+        "map": {
+          "name": "灰烛会馆",
+          "sub": "壁炉边有人等你",
+          "atlas": "interior",
+          "cell": 0,
+          "safe": true,
+          "doors": [
+            {
+              "x": 1430,
+              "y": 520,
+              "to": "warehouse",
+              "tx": 230,
+              "ty": 540,
+              "label": "旧库房"
+            },
+            {
+              "x": 800,
+              "y": 960,
+              "to": "road",
+              "tx": 230,
+              "ty": 550,
+              "label": "旧王道"
+            },
+            {
+              "x": 800,
+              "y": 190,
+              "to": "guestroom",
+              "tx": 800,
+              "ty": 850,
+              "label": "会馆客房",
+              "direction": "北"
+            }
+          ],
+          "npcs": [
+            {
+              "id": "steward",
+              "name": "管家奥伦",
+              "x": 600,
+              "y": 500,
+              "sprite": 2,
+              "angle": 0.4636476090008061
+            },
+            {
+              "id": "sister",
+              "name": "薇蕾娜",
+              "x": 1180,
+              "y": 635,
+              "sprite": 1,
+              "angle": -3.049746527325056
+            },
+            {
+              "id": "clerk",
+              "name": "书记官鲁恩",
+              "x": 1010,
+              "y": 385,
+              "sprite": 3,
+              "angle": 2.3444303270425864
+            }
+          ],
+          "props": [
+            {
+              "id": "hallbook",
+              "type": "book",
+              "x": 320,
+              "y": 320,
+              "label": "练习笔记",
+              "action": "pointBook",
+              "flat": true
+            },
+            {
+              "id": "hallpot",
+              "type": "pot",
+              "x": 1360,
+              "y": 320
+            }
+          ],
+          "blocks": [
+            [
+              0,
+              0,
+              690,
+              180
+            ],
+            [
+              910,
+              0,
+              690,
+              180
+            ],
+            [
+              0,
+              900,
+              690,
+              180
+            ],
+            [
+              920,
+              900,
+              680,
+              180
+            ],
+            [
+              0,
+              180,
+              200,
+              255
+            ],
+            [
+              0,
+              605,
+              200,
+              295
+            ],
+            [
+              1450,
+              180,
+              150,
+              255
+            ],
+            [
+              1450,
+              620,
+              150,
+              280
+            ],
+            [
+              240,
+              210,
+              200,
+              65
+            ],
+            [
+              300,
+              680,
+              290,
+              85
+            ],
+            [
+              980,
+              200,
+              300,
+              60
+            ],
+            [
+              1150,
+              835,
+              210,
+              40
+            ],
+            [
+              226,
+              521,
+              28,
+              19
+            ],
+            [
+              915,
+              545,
+              210,
+              70
+            ]
+          ],
+          "spawns": [],
+          "worldV4": true
+        },
+        "scenery": [
+          {
+            "id": "hall-shelf",
+            "asset": 11,
+            "x": 340,
+            "y": 275,
+            "w": 205,
+            "h": 165,
+            "box": [
+              240,
+              210,
+              200,
+              65
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-table",
+            "asset": 9,
+            "x": 445,
+            "y": 765,
+            "w": 290,
+            "h": 145,
+            "box": [
+              300,
+              680,
+              290,
+              85
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-records",
+            "asset": 11,
+            "x": 1130,
+            "y": 260,
+            "w": 300,
+            "h": 165,
+            "box": [
+              980,
+              200,
+              300,
+              60
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-bench",
+            "asset": 10,
+            "x": 1255,
+            "y": 875,
+            "w": 210,
+            "h": 85,
+            "box": [
+              1150,
+              835,
+              210,
+              40
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "hall-lamp",
+            "asset": 14,
+            "x": 240,
+            "y": 540,
+            "w": 52,
+            "h": 150,
+            "box": [
+              226,
+              521,
+              28,
+              19
+            ],
+            "sheet": "world"
+          },
+          {
+            "id": "commission-paper",
+            "asset": 7,
+            "x": 1085,
+            "y": 510,
+            "w": 29,
+            "h": 20,
+            "box": null,
+            "sheet": "details",
+            "depthY": 615.1,
+            "flat": true
+          },
+          {
+            "map": "hall",
+            "id": "commission-desk",
+            "asset": 9,
+            "sheet": "world",
+            "x": 1020,
+            "y": 615,
+            "w": 235,
+            "h": 145,
+            "box": [
+              915,
+              545,
+              210,
+              70
+            ]
+          }
+        ],
+        "targets": [
+          {
+            "id": "steward",
+            "name": "管家奥伦",
+            "x": 600,
+            "y": 500,
+            "sprite": 2,
+            "angle": 0.4636476090008061,
+            "kind": "npc"
+          },
+          {
+            "id": "sister",
+            "name": "薇蕾娜",
+            "x": 1180,
+            "y": 635,
+            "sprite": 1,
+            "angle": -3.049746527325056,
+            "kind": "npc"
+          },
+          {
+            "id": "clerk",
+            "name": "书记官鲁恩",
+            "x": 1010,
+            "y": 385,
+            "sprite": 3,
+            "angle": 2.3444303270425864,
+            "kind": "npc"
+          },
+          {
+            "id": "hallbook",
+            "type": "book",
+            "x": 320,
+            "y": 320,
+            "label": "练习笔记",
+            "action": "pointBook",
+            "flat": true,
+            "hp": 999,
+            "used": false,
+            "broken": false,
+            "drawX": 320,
+            "drawY": 320,
+            "kind": "prop"
+          },
+          {
+            "x": 1430,
+            "y": 520,
+            "to": "warehouse",
+            "tx": 230,
+            "ty": 540,
+            "label": "旧库房",
+            "id": "warehouse",
+            "kind": "door"
+          },
+          {
+            "x": 800,
+            "y": 960,
+            "to": "road",
+            "tx": 230,
+            "ty": 550,
+            "label": "旧王道",
+            "id": "road",
+            "kind": "door"
+          },
+          {
+            "x": 800,
+            "y": 190,
+            "to": "guestroom",
+            "tx": 800,
+            "ty": 850,
+            "label": "会馆客房",
+            "direction": "北",
+            "id": "guestroom",
+            "kind": "door"
+          }
+        ],
+        "enemy": []
+      }
+    }
+  ],
+  "journey": {},
+  "errors": []
+}

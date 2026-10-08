@@ -1,15 +1,15 @@
 {
   "project": "Ashen / 烬誓：圣女与影刃",
-  "product_version": "28.1",
+  "product_version": "29",
   "platform_version": 29,
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v28.1_presentation_repairs_on_v28",
+  "snapshot_type": "v29_authored_exploration_demo_on_v28_1",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 187,
+  "runtime_modules": 191,
   "runtime_stylesheets": 7,
   "runtime_images": 121,
   "runtime_resource_bytes": 268457745,
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "BACKUP_STATUS.md and docs/v28.1/RELEASE.md; staging and renderer checks are not a complete eight-chapter manual playthrough.",
-  "checked_at_utc": "2026-09-20T04:51:23.186748+00:00",
+  "known_limits": "BACKUP_STATUS.md; docs/v29/RELEASE.md. Four-map demonstration only; remaining 114 maps structurally audited, not redesigned. Not a complete eight-chapter manual playthrough.",
+  "checked_at_utc": "2026-10-08T05:50:13.268583+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "28.1",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "passed: real HTTP Chromium title, class previews, chapter checkpoints, chapter 8 narration and portraits, and actual-renderer gallery; not a complete playthrough",
+  "browser_qa_status": "V29 continuous browser journey under verification; historic V28.1 receipts retained separately",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -117,5 +117,38 @@
       "ttk_median_seconds": 10.625,
       "ttk_p90_seconds": 11.3
     }
+  },
+  "v29": {
+    "status": "in_progress",
+    "task_id": "v29-exploration-20261008",
+    "base_commit": "fb20a3dcb6e3ebc89ec6c03ab903dc5697c1dde9",
+    "maps_rebuilt": [
+      "road",
+      "millpath",
+      "echo",
+      "workshop"
+    ],
+    "other_maps_rebuilt": 0,
+    "other_maps_audited": 114,
+    "opt_in_reuse": "guestroom existing journal/basin/rest interactions",
+    "runtime_modules": [
+      "world-design-v29.js",
+      "world-runtime-v29.js",
+      "world-art-v29.js",
+      "world-dialogues-v29.js"
+    ],
+    "save_schema": 15,
+    "quest_ids_renamed": false,
+    "combat_formulas_changed": false,
+    "reward_values_changed": false,
+    "original_assets_modified": false,
+    "site_deployed": false,
+    "evidence": "docs/v29/",
+    "runtime_commit": "pending implementation commit",
+    "limitations": [
+      "Existing atlas tree silhouettes still repeat; no new sprite set",
+      "No complete campaign playthrough",
+      "4 pre-existing non-demo interaction-anchor diagnostics require browser review"
+    ]
   }
 }
