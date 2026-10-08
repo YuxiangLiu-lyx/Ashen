@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
-  "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+  "basis_commit": "fb20a3dcb6e3ebc89ec6c03ab903dc5697c1dde9",
+  "source_fingerprint": "698968b0ad82f354dd941ee40feec3f4127f53a8e0bc6901d711e77287cf6ad0",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "05cc73d7a978e403a9d85423d8ac74cbbdc02b657bf740391795bc1069d74acb",
@@ -1514,8 +1514,8 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "a27b27dedff11bf8d692be3c8ea3e8dbd63cab0e40bd3ad809d14ba54add4ba0",
-      "bytes": 77185,
+      "sha256": "48d754f950938a431849bfdd254ef6167ea484752e6901a89c2aececce74719c",
+      "bytes": 77362,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -1597,6 +1597,7 @@
         "dist/v26-story8-text.js",
         "dist/world-art-v19.js",
         "dist/world-entry-v22.js",
+        "dist/world-runtime-v29.js",
         "dist/world-v14.js"
       ],
       "symbols": [
@@ -2220,8 +2221,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "37fcd28a4b5485af2f7392a336ce2b7a1495bafadf94a37f4de17e2f017aa538",
-      "bytes": 104516,
+      "sha256": "9bad60581ac2938172cbc511a1bf9588eb0418c6544c82854113335b9c0adce0",
+      "bytes": 104857,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2278,6 +2279,8 @@
         "dist/telegraphs-v14.js",
         "dist/visuals-v14.js",
         "dist/world-art-v19.js",
+        "dist/world-art-v29.js",
+        "dist/world-runtime-v29.js",
         "dist/world-v14.js"
       ],
       "symbols": [
@@ -4753,8 +4756,8 @@
       ]
     },
     "dist/save-transfer-v14.js": {
-      "sha256": "f546f26676568c61e1ae90a89794e792e3f062b102f522cdac03e244309249a4",
-      "bytes": 8221,
+      "sha256": "07ac8bb9f976e2b6e591a3fa83d2ad7596466316177fe57766f0740156767c7f",
+      "bytes": 8306,
       "imports": [
         "dist/chapter3-save-v14.js",
         "dist/chapter5-runtime-v14.js",
@@ -4780,7 +4783,8 @@
         "dist/save-v14.js",
         "dist/story-flow-v14.js",
         "dist/systems-runtime-v14.js",
-        "dist/world-entry-v22.js"
+        "dist/world-entry-v22.js",
+        "dist/world-runtime-v29.js"
       ],
       "symbols": [
         "at",
@@ -5474,8 +5478,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "16ed855237097e0f84285203d704ee3cf579cfa349b506b5696b356ebf42f2e4",
-      "bytes": 20853,
+      "sha256": "7ba4283883ad9fc2158fec329a3acb188c620b8a9eae947012706e233428606d",
+      "bytes": 20929,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -5502,6 +5506,7 @@
         "dist/social-staging-v20.js",
         "dist/world-art-meta-v19.js",
         "dist/world-art-v19.js",
+        "dist/world-art-v29.js",
         "dist/world-v14.js"
       ],
       "symbols": [
@@ -5635,6 +5640,85 @@
         "art"
       ]
     },
+    "dist/world-art-v29.js": {
+      "sha256": "da8fe6bbdb479dfcb9d35b3ef0d128304f6a842d0e4cdb5eb795c7246d71707b",
+      "bytes": 6996,
+      "imports": [
+        "dist/world-design-v29.js",
+        "dist/world-runtime-v29.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "a",
+        "box",
+        "bridge",
+        "c",
+        "canvas",
+        "design",
+        "drawWorldActionV29",
+        "drawWorldEffectsV29",
+        "drawWorldPropV29",
+        "drawWorldSceneryV29",
+        "effect",
+        "f",
+        "layer",
+        "m",
+        "mask",
+        "offset",
+        "op",
+        "outdoor",
+        "p",
+        "pathPaint",
+        "pool",
+        "progress",
+        "road",
+        "route",
+        "shade",
+        "slab",
+        "tiles",
+        "worldGroundV29"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
+    "dist/world-design-v29.js": {
+      "sha256": "c95add5c7fcaf0516e6a31dcd3c093e055a545244133c1aa9c4bcd92f7d275e9",
+      "bytes": 10673,
+      "imports": [],
+      "symbols": [
+        "DEMO_MAPS_V29",
+        "WORLD_REGIONS_V29",
+        "clue",
+        "configureExplorationWorldV29",
+        "group",
+        "id",
+        "p",
+        "plant",
+        "road",
+        "rock",
+        "scene",
+        "tree",
+        "updateProp",
+        "wall"
+      ],
+      "modules": [
+        "maps"
+      ]
+    },
+    "dist/world-dialogues-v29.js": {
+      "sha256": "811dfdf74c9599f0809afd1471ce74733e98ec6ce4c9d2597be5ebfb664ebc20",
+      "bytes": 3886,
+      "imports": [],
+      "symbols": [
+        "WORLD_DIALOGUES_V29"
+      ],
+      "modules": [
+        "story",
+        "maps"
+      ]
+    },
     "dist/world-entry-v22.js": {
       "sha256": "eb9ee8e1ec0147f616603d0447e3e7efd83ef772eb437d3e1d6e71607abbd81b",
       "bytes": 10519,
@@ -5678,9 +5762,57 @@
         "maps"
       ]
     },
+    "dist/world-runtime-v29.js": {
+      "sha256": "d98d3751c62fdb855525f8820b359c9c3381b405bd7e21fc207e99cb93d210a5",
+      "bytes": 10606,
+      "imports": [
+        "dist/world-design-v29.js",
+        "dist/world-dialogues-v29.js"
+      ],
+      "symbols": [
+        "P",
+        "at",
+        "base",
+        "beforeValve",
+        "cues",
+        "demo",
+        "e",
+        "fresh",
+        "goal",
+        "group",
+        "hp",
+        "id",
+        "installWorldExplorationV29",
+        "migrate",
+        "oldEnsure",
+        "oldSkill",
+        "op",
+        "operations",
+        "p",
+        "result",
+        "running",
+        "scenes",
+        "spawn",
+        "spawns",
+        "st",
+        "state",
+        "t",
+        "validateWorldSaveV29",
+        "value",
+        "w",
+        "worldFeedbackV29",
+        "worldOperationV29",
+        "worldProgressV29",
+        "worldPropVisibleV29"
+      ],
+      "modules": [
+        "economy",
+        "maps"
+      ]
+    },
     "dist/world-v14.js": {
-      "sha256": "b4664a6e47ef43e73d36f7a5680f4780253bac9ac9bd9431badc3cb92a154a29",
-      "bytes": 9517,
+      "sha256": "259e8c468b9cb59bc89f83e4a194804c67820e34dbf963be677d49ba00ad80fe",
+      "bytes": 9656,
       "imports": [
         "dist/chapter-world-v14.js",
         "dist/density-v14.js",
@@ -5688,7 +5820,8 @@
         "dist/mechanisms-v14.js",
         "dist/quality-world-v14.js",
         "dist/romance-world-v20.js",
-        "dist/staging-v14.js"
+        "dist/staging-v14.js",
+        "dist/world-design-v29.js"
       ],
       "symbols": [
         "BOUNDARIES",
@@ -5737,6 +5870,13 @@
     "docs/harness/ECONOMY.md": {
       "sha256": "9f24567bafb4841905ca0d9f7230fe8402b17d71d3bc1942b38701dd0be6a3d4",
       "bytes": 1155,
+      "imports": [],
+      "symbols": [],
+      "modules": []
+    },
+    "docs/harness/EXPLORATION.md": {
+      "sha256": "d2be76fd6331c2dc218ca19d9152183f407e4f1ce01a18c5a96ab9b4c81160b3",
+      "bytes": 2134,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -5840,8 +5980,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "3e61e3272cde34c4ce53711a99e70df073a5fe88aa01ce9cb4047683c31fbc34",
-      "bytes": 13957,
+      "sha256": "8f4ba393766c748f6360bba919b928f749ee4f3c3f7c20b915194470d59ff2a7",
+      "bytes": 14655,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -5991,6 +6131,40 @@
         "build"
       ]
     },
+    "tests/browser-world-v29.mjs": {
+      "sha256": "c1e786ea24eb537ef02394d906d8109d8f8d380687eebac53b02acb1978b7669",
+      "bytes": 10781,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "Q",
+        "baseline",
+        "browser",
+        "button",
+        "deadline",
+        "dialogue",
+        "door",
+        "e",
+        "fight",
+        "hook",
+        "journey",
+        "loaded",
+        "map",
+        "object",
+        "original",
+        "out",
+        "outputArg",
+        "p",
+        "root",
+        "s",
+        "state",
+        "walk"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tests/fixtures/v28-navigation.json": {
       "sha256": "ad7527c75ccf80167da556ee743b9e6b4290a3de28e266401f78b15e757388fb",
       "bytes": 9788,
@@ -6078,6 +6252,41 @@
         "src",
         "type",
         "x"
+      ],
+      "modules": []
+    },
+    "tests/world-v29.test.mjs": {
+      "sha256": "93a9cb8289093b555fc4f7d3d3c174970662e3543e8f1c15b3f93637a0b7643c",
+      "bytes": 7022,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/data-v14.js",
+        "dist/save-transfer-v14.js",
+        "dist/world-design-v29.js",
+        "dist/world-runtime-v29.js",
+        "tools/world_audit.mjs"
+      ],
+      "symbols": [
+        "accepted",
+        "at",
+        "clear",
+        "e",
+        "finish",
+        "g",
+        "game",
+        "gold",
+        "hp",
+        "id",
+        "operate",
+        "phase",
+        "pos",
+        "r",
+        "report",
+        "s",
+        "saved",
+        "st",
+        "t",
+        "w"
       ],
       "modules": []
     },
@@ -6276,6 +6485,33 @@
         "lab"
       ]
     },
+    "tools/browser_session.mjs": {
+      "sha256": "8fc54034504475145acc2c5b852834548d2c752bf46585ca5c354e2335a491f2",
+      "bytes": 4806,
+      "imports": [],
+      "symbols": [
+        "browserSession",
+        "call",
+        "chrome",
+        "close",
+        "delay",
+        "dist",
+        "end",
+        "evaluate",
+        "file",
+        "id",
+        "mime",
+        "p",
+        "page",
+        "pending",
+        "profile",
+        "r",
+        "rel",
+        "server",
+        "value"
+      ],
+      "modules": []
+    },
     "tools/build_presentation_assets.py": {
       "sha256": "dd2870f2fdc78c8cedd6b6f7944c4eb15914ad015f85472aaa9cdeaefe9f9f96",
       "bytes": 2544,
@@ -6314,8 +6550,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "39db04b7e102729a238f2840a0a3ee6140b6bf787c9908eb5074a20b0b365589",
-      "bytes": 5558,
+      "sha256": "036333cc8175860fdb5a90871ea9d03af91929b51ebc3158d9037e12a9fd3813",
+      "bytes": 5648,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6393,120 +6629,148 @@
       "modules": [
         "build"
       ]
+    },
+    "tools/world_audit.mjs": {
+      "sha256": "6092f8e3e2ccae71fe4361c9db8c38aae104a9aa61eaf9b0121721d320d8ec1c",
+      "bytes": 3377,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/world-design-v29.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "at",
+        "entry",
+        "g",
+        "i",
+        "inspectWorldMap",
+        "nx",
+        "p",
+        "seen",
+        "t",
+        "targets",
+        "unreachable",
+        "x"
+      ],
+      "modules": []
     }
   },
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 219
-    },
-    {
-      "name": "installChapter4",
       "line": 220
     },
     {
-      "name": "installPacing",
-      "line": 222
+      "name": "installChapter4",
+      "line": 221
     },
     {
-      "name": "installQuestService",
+      "name": "installPacing",
       "line": 223
     },
     {
+      "name": "installQuestService",
+      "line": 224
+    },
+    {
       "name": "installSystemsV13",
-      "line": 228
+      "line": 229
     },
     {
       "name": "installProgressionV14",
-      "line": 230
-    },
-    {
-      "name": "installChapter5",
       "line": 231
     },
     {
-      "name": "installMercenariesV14",
+      "name": "installChapter5",
       "line": 232
     },
     {
-      "name": "installMemoryV13",
+      "name": "installMercenariesV14",
       "line": 233
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMemoryV13",
       "line": 234
     },
     {
-      "name": "installDialogueTextV16",
-      "line": 236
+      "name": "installHellActivitiesV15",
+      "line": 235
     },
     {
-      "name": "installGrowthV17",
+      "name": "installDialogueTextV16",
       "line": 237
     },
     {
-      "name": "installHellActivitiesV17",
+      "name": "installGrowthV17",
       "line": 238
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installHellActivitiesV17",
       "line": 239
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installSaintBondsV17",
       "line": 240
     },
     {
-      "name": "installCityV18",
+      "name": "installHellExpeditionsV18",
       "line": 241
     },
     {
-      "name": "installDiscoveryV19",
-      "line": 243
+      "name": "installCityV18",
+      "line": 242
     },
     {
-      "name": "installSaintStoryV18",
+      "name": "installDiscoveryV19",
       "line": 244
     },
     {
+      "name": "installSaintStoryV18",
+      "line": 245
+    },
+    {
       "name": "installRomanceV20",
-      "line": 246
+      "line": 247
     },
     {
       "name": "installCombatInputV17",
-      "line": 249
-    },
-    {
-      "name": "installPartyRewardHooksV18",
       "line": 250
     },
     {
-      "name": "installArrivalV22",
+      "name": "installPartyRewardHooksV18",
       "line": 251
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installArrivalV22",
       "line": 252
     },
     {
+      "name": "installCityMomentsV24",
+      "line": 253
+    },
+    {
       "name": "installSagaV25",
-      "line": 257
+      "line": 258
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 261
+      "line": 262
     },
     {
       "name": "installSagaV26",
-      "line": 264
+      "line": 265
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 271
+      "line": 272
     },
     {
       "name": "installPresentationPhysicsV281",
-      "line": 273
+      "line": 274
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 276
     }
   ],
   "missing_imports": [],

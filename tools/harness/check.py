@@ -90,9 +90,10 @@ def main():
     if args.tier in ['core', 'integration', 'release']:
         assets()
         commands += [[sys.executable, 'tools/harness/runtime_audit.py'],
-                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs']]
+                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs', 'tests/world-v29.test.mjs']]
     if args.tier in ['integration', 'release']:
-        commands += [['node', 'tests/browser-presentation-v281.mjs'], ['node', 'tests/browser-balance-lab.mjs']]
+        commands += [['node', 'tests/browser-presentation-v281.mjs'], ['node', 'tests/browser-balance-lab.mjs'],
+                     ['node', 'tests/browser-world-v29.mjs']]
     if args.tier == 'release':
         commands += [[sys.executable, 'tools/restore_archives.py', '--all', '--verify-only'],
                      [sys.executable, 'tools/build_web_play.py', '--output', 'qa-export/release-build'],

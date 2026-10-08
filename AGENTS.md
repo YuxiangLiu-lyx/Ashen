@@ -1,6 +1,6 @@
 # Ashen Agent 入口
 
-本仓库为《烬誓：圣女与影刃》V28.1恢复运行快照，运行代码在dist。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
+本仓库为《烬誓：圣女与影刃》V29世界探索示范版（基于V28.1恢复运行快照），运行代码在dist。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
 
 1. 开工先检查 `git status --short --branch`、remote、HEAD并fetch GitHub Ashen/main；保留现场，干净可快进时merge --ff-only。大型修改用分支/worktree。读README、BACKUP_STATUS、source/README、source/CURRENT_STATE.json及source/GLOBAL_PROMPT；恢复范围不能仅凭聊天记忆判断。
 2. 当前用户授权决定目标；当前代码＋可重复测试描述实际行为；CURRENT_STATE及发布回执描述版本/发行；按需规则在docs/harness。历史档案仅追溯，FUTURE_ONLY不自动实装。冲突/缺失须明确报告并搜索调用者，不能猜测或把设计稿当运行事实。
