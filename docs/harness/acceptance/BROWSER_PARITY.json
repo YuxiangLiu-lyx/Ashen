@@ -1,6 +1,6 @@
 {
-  "schema": 1,
-  "createdAtUTC": "2026-10-08T03:51:28.959Z",
+  "passed": true,
+  "checkedAtUTC": "2026-10-08T03:51:41.905Z",
   "code": {
     "headCommit": "5e793cb68fc5551e52543d52f4f50298840155fc",
     "runtimeTree": "50f94f0518f208889077fe86e8a47c7467c93add",
@@ -203,290 +203,228 @@
     "node": "v25.2.1",
     "productVersion": "28.1"
   },
-  "experiment": {
-    "kind": "effects",
-    "catalog": {
-      "term": "bleed",
-      "effects": [
-        {
-          "id": "shadow:q",
-          "source": "dist/balance-v14.js",
-          "runtime": "dist/core-v14.js",
-          "spec": {
-            "cost": 12,
-            "cd": 5,
-            "base": 1.65,
-            "dex": 3,
-            "str": 1.2,
-            "label": "首次伤害",
-            "extra": "255距离内突进命中，附加2层流血；没有无敌帧。"
-          },
-          "applies": [
-            "bleed"
-          ],
-          "consumes": []
-        },
-        {
-          "id": "shadow:e",
-          "source": "dist/balance-v14.js",
-          "runtime": "dist/core-v14.js",
-          "spec": {
-            "cost": 17,
-            "cd": 7,
-            "base": 1.1,
-            "dex": 2,
-            "str": 1.5,
-            "label": "基础伤害",
-            "extra": "消耗目标流血，每层额外13伤害（最多4层）；把握收割时机。"
-          },
-          "applies": [],
-          "consumes": [
-            "bleed"
-          ]
-        },
-        {
-          "id": "bloodCarve",
-          "source": "dist/progression-data-v14.js",
-          "runtime": "dist/progression-runtime-v14.js",
-          "spec": {
-            "id": "bloodCarve",
-            "career": "bloodblade",
-            "name": "剔骨刻痕",
-            "kind": "target",
-            "mp": 24,
-            "cd": 6,
-            "icon": 1,
-            "formula": {
-              "B": 0.9,
-              "str": 1.6,
-              "dex": 2.5
-            },
-            "description": "近身斩击并施加3层裂伤，最多30层；刷新6秒持续时间。",
-            "rank": 8,
-            "level": 1,
-            "school": "melee",
-            "range": 155,
-            "bleed": 3,
-            "fx": "cut",
-            "weapon": true
-          },
-          "applies": [
-            "careerBleed"
-          ],
-          "consumes": [],
-          "interactions": {
-            "manaHit": false,
-            "drain": 0,
-            "hpCost": 0,
-            "conditionalDamage": {
-              "marked": null,
-              "shield": null,
-              "burn": null,
-              "frozen": null,
-              "execute": null
-            }
-          }
-        },
-        {
-          "id": "bloodFan",
-          "source": "dist/progression-data-v14.js",
-          "runtime": "dist/progression-runtime-v14.js",
-          "spec": {
-            "id": "bloodFan",
-            "career": "bloodblade",
-            "name": "绯刃散华",
-            "kind": "pulse",
-            "mp": 34,
-            "cd": 12,
-            "icon": 10,
-            "formula": {
-              "B": 1.1,
-              "dex": 2.3
-            },
-            "description": "周围至多6个目标受到伤害并增加2层裂伤。",
-            "rank": 8,
-            "level": 1,
-            "school": "melee",
-            "range": 190,
-            "maxTargets": 6,
-            "bleed": 2,
-            "fx": "spin",
-            "weapon": true
-          },
-          "applies": [
-            "careerBleed"
-          ],
-          "consumes": [],
-          "interactions": {
-            "manaHit": false,
-            "drain": 0,
-            "hpCost": 0,
-            "conditionalDamage": {
-              "marked": null,
-              "shield": null,
-              "burn": null,
-              "frozen": null,
-              "execute": null
-            }
-          }
-        },
-        {
-          "id": "bloodHarvest",
-          "source": "dist/progression-data-v14.js",
-          "runtime": "dist/progression-runtime-v14.js",
-          "spec": {
-            "id": "bloodHarvest",
-            "career": "bloodblade",
-            "name": "终红",
-            "kind": "target",
-            "mp": 32,
-            "cd": 14,
-            "icon": 2,
-            "formula": {
-              "B": 1.1,
-              "str": 2,
-              "dex": 2
-            },
-            "description": "引爆目标裂伤：每层额外造成本次基础伤害的18%；消耗全部裂伤。",
-            "rank": 8,
-            "level": 1,
-            "school": "melee",
-            "range": 170,
-            "consumeBleed": true,
-            "fx": "impact",
-            "weapon": true
-          },
-          "applies": [],
-          "consumes": [
-            "careerBleed"
-          ],
-          "interactions": {
-            "manaHit": false,
-            "drain": 0,
-            "hpCost": 0,
-            "conditionalDamage": {
-              "marked": null,
-              "shield": null,
-              "burn": null,
-              "frozen": null,
-              "execute": null
-            }
-          }
-        },
-        {
-          "id": "bloodRenew",
-          "source": "dist/progression-data-v14.js",
-          "runtime": "dist/progression-runtime-v14.js",
-          "spec": {
-            "id": "bloodRenew",
-            "career": "bloodblade",
-            "name": "回红",
-            "kind": "heal",
-            "mp": 30,
-            "cd": 22,
-            "icon": 14,
-            "formula": {
-              "vit": 2,
-              "wis": 1,
-              "constant": 45
-            },
-            "description": "恢复生命，上限为最大生命18%；附近有裂伤敌人时治疗提高30%，仍受上限约束。",
-            "rank": 8,
-            "level": 1,
-            "school": "buff",
-            "hpCap": 0.18,
-            "bleedHeal": true,
-            "fx": "holyHeal"
-          },
-          "applies": [],
-          "consumes": [],
-          "interactions": {
-            "manaHit": false,
-            "drain": 0,
-            "hpCost": 0,
-            "conditionalDamage": {
-              "marked": null,
-              "shield": null,
-              "burn": null,
-              "frozen": null,
-              "execute": null
-            }
-          }
-        },
-        {
-          "id": "bloodBinding",
-          "source": "dist/progression-data-v14.js",
-          "runtime": "dist/progression-runtime-v14.js",
-          "spec": {
-            "id": "bloodBinding",
-            "career": "bloodblade",
-            "name": "血线缚足",
-            "kind": "target",
-            "mp": 28,
-            "cd": 16,
-            "icon": 7,
-            "formula": {
-              "B": 0.6,
-              "dex": 1.8
-            },
-            "description": "普通敌人束缚2秒；首领只减速25%持续2.5秒。附加1层裂伤。",
-            "rank": 8,
-            "level": 1,
-            "school": "melee",
-            "range": 270,
-            "bleed": 1,
-            "control": 2,
-            "fx": "soulBind"
-          },
-          "applies": [
-            "careerBleed",
-            "control"
-          ],
-          "consumes": [],
-          "interactions": {
-            "manaHit": false,
-            "drain": 0,
-            "hpCost": 0,
-            "conditionalDamage": {
-              "marked": null,
-              "shield": null,
-              "burn": null,
-              "frozen": null,
-              "execute": null
+  "gameEntry": "dist/index.html",
+  "fixtureCount": 14,
+  "exactFullEventParity": true,
+  "uncaughtErrors": [],
+  "fixtures": [
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "captain",
+        "seed": 42,
+        "gearRarity": "common"
+      },
+      "outcome": "loss",
+      "ttk": null,
+      "eventsSHA256": "bf61b146221eea143f83db0d1d02113cb07ca445f6b924512bc1739b4c4af27c"
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "captain",
+        "seed": 42,
+        "gearRarity": "common"
+      },
+      "outcome": "win",
+      "ttk": 31.75,
+      "eventsSHA256": "7283f8a0e27238b768075c97607775f098b8b006394391ad0fbd68ef8835d05c"
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "enemy": "captain",
+        "seed": 42,
+        "gearRarity": "common"
+      },
+      "outcome": "loss",
+      "ttk": null,
+      "eventsSHA256": "ede0f3275926c8aed76fbf182786ab4eb42259d4c18006605d72df27ea57a6fd"
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "deepElite",
+        "seed": 77,
+        "strategy": "defensive"
+      },
+      "outcome": "win",
+      "ttk": 12.85,
+      "eventsSHA256": "44d37d2b04b6895af2c96ead84922eadd21540e7fd543315fd21c887ab14fa39"
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "career": "bloodblade",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "bloodCarve": 1,
+          "bloodFan": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 6.3,
+      "eventsSHA256": "d8749462c8a01f4a327523482cebdb22bbd631de917b386f0e6be1182bbdeec1"
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "career": "assassin",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "assassinMark": 1,
+          "assassinSever": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 7.15,
+      "eventsSHA256": "2766691c4db0ed2263d9b5e4978d1c63002205c14768e277abfc5eeeb5142aa8"
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "career": "nightmare",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "nightFrenzy": 1,
+          "nightMomentum": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 6.125,
+      "eventsSHA256": "aaae0f382ac82136d296dc02674466389de66cfdd0e438895b563f75d1b5cbf6"
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "career": "dreadguard",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "guardAegis": 1,
+          "guardBash": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 13.3,
+      "eventsSHA256": "cc609a73aeadc3b6b5996352a593b93f5b9ac5281b175f5f87e3be0281e06026"
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "career": "berserker",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "rageAwaken": 1,
+          "rageSunder": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 6.15,
+      "eventsSHA256": "288f3cff914de677696da2d54c53fa578292252ae3c2d82cd24afde39de6a0f2"
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "career": "spellbreaker",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "breakerEdge": 1,
+          "breakerSeal": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 14.75,
+      "eventsSHA256": "84bfd75e476633225f65c11998f77d702c83538bf56f050cc0bf66cf3d030005"
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "career": "pyromancer",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "pyroLance": 1,
+          "pyroCrown": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 10.45,
+      "eventsSHA256": "c8078ea5a7d3c7d43477382bc6a6e4672eaeea478fa14bcf44aafef26a313752"
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "career": "frostweaver",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "frostNeedle": 1,
+          "frostPrison": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 10.475,
+      "eventsSHA256": "c1c4fe1d171176518fc5c0ef5780f105f3c8fd637c9b5ca43a82b64d22d03985"
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "career": "riftmage",
+        "enemy": "captain",
+        "level": 16,
+        "seed": 71,
+        "skills": {
+          "riftLance": 1,
+          "riftFocus": 1
+        }
+      },
+      "outcome": "win",
+      "ttk": 10.425,
+      "eventsSHA256": "eb5f8b0048d614abca8a6cc0d26f2cdffbd42aac22336730b9596e7e6e1e73e5"
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "captain",
+        "seed": 5,
+        "gear": {
+          "weapon": {
+            "affix": "storm",
+            "enchantment": {
+              "schema": 1,
+              "defId": "emberTouch",
+              "quality": "common",
+              "value": 7,
+              "nonce": "fixture"
             }
           }
         }
-      ],
-      "edges": [
-        {
-          "from": "shadow:q",
-          "to": "shadow:e",
-          "state": "bleed",
-          "kind": "apply-consume"
-        },
-        {
-          "from": "bloodCarve",
-          "to": "bloodHarvest",
-          "state": "careerBleed",
-          "kind": "apply-consume"
-        },
-        {
-          "from": "bloodFan",
-          "to": "bloodHarvest",
-          "state": "careerBleed",
-          "kind": "apply-consume"
-        },
-        {
-          "from": "bloodBinding",
-          "to": "bloodHarvest",
-          "state": "careerBleed",
-          "kind": "apply-consume"
-        }
-      ],
-      "limits": [
-        "Base/common skill effects have partial semantic annotations; actual code remains authority",
-        "Conditional damage relations and cooldown guards are descriptors, not an independent combat interpreter"
-      ]
+      },
+      "outcome": "win",
+      "ttk": 17.975,
+      "eventsSHA256": "4c78b7799cf55b4b5137e8257ea1cefe53b2ea0a21e71df7a10aac2949f4b04f"
     }
-  }
+  ],
+  "limitations": [
+    "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+    "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+    "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+    "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+    "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+    "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+  ]
 }

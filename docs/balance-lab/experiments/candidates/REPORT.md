@@ -1,8 +1,8 @@
 # Ashen Balance Lab
-Code commit: a36a66153401139474edf285015aa0da89771d2c
-Content SHA256: 0690b8dbd22793ac05fa48677e680841b0d6584569396c03cc9c74b01b5b619d
+Code commit: 5e793cb68fc5551e52543d52f4f50298840155fc
+Content SHA256: 0f1a48785c5d27a4139a4c490f0ce82aee6b404deee304a1781c85a3e2ffd2c6
 Kind: candidate-search
-JSON SHA256: 68e401f387171a3fb3b35b146b60bd979cc1a3525e05dbd8b312550b1ec4f8ed
+JSON SHA256: 526c488d3ff4248769a52caaa80e7e2c29d14345252fa3702942577850871b3a
 
 shadow/captain/combo: 20 runs, win 1, TTK median 10.625, p90 10.875, mean received 169.40
 shadow/captain/combo: 20 runs, win 1, TTK median 10.875, p90 11.725, mean received 176.40

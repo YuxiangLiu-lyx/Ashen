@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "id": "harness-lab-20261007",
+  "goal": "重构 Ashen Harness 和数值模拟经济实验系统",
+  "acceptance": [
+    "11项新会话与实验场景可重复验收，保持V28.1游戏行为和资产",
+    "提供可运行上下文路由Skills任务接续CI及真实代码Balance Lab"
+  ],
+  "baseline_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "modules": [
+    "harness",
+    "economy",
+    "lab"
+  ],
+  "status": "complete",
+  "created_at_utc": "2026-10-08T03:36:02.251802+00:00",
+  "updated_at_utc": "2026-10-08T03:55:14.698666+00:00",
+  "decisions": [
+    "不修改dist游戏规则；Lab直接复用完整RPG与后续覆盖层",
+    "索引用内容哈希失效，语义仅少量人工维护；旧入口原文归档",
+    "基础bleed与careerBleed分开；V28高等级旧图/满包既有行为保留"
+  ],
+  "completed": [
+    "现状基线：归档校验、23项原回归和原Chrome集成全部通过",
+    "轻量模块图Router六项Skills持久任务及分级CI已实现",
+    "真实RPG模拟、24项V28效果目录、九转职配置、候选搜索与第五章经济账本完成",
+    "原游戏全部回归和离线UI验证已通过；最后目录修订要求在固定提交重新验证",
+    "固定5e793cb完成最终release：15Harness、44Node、14浏览器战斗一致性、全归档和离线UI均通过",
+    "11项验收、代码参数实验、短任务模板及原始请求已经入库记录"
+  ],
+  "remaining": [],
+  "blockers": [],
+  "next": "No required task work remains",
+  "required_checks": [
+    "release",
+    "skills"
+  ],
+  "checks": [
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:36:51.795019+00:00",
+      "finished_at_utc": "2026-10-08T03:38:42.277535+00:00",
+      "head_commit": "a36a66153401139474edf285015aa0da89771d2c",
+      "source_fingerprint": "fd543ff0faee8830af69a9ecea8b49d862f9d37f3c66d233449ec2415b28374c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/001-release.txt",
+      "output_sha256": "07639474090cd1c39907b774f5dfec678d80196b4b1279fc845a48e832360d88"
+    },
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:41:56.980691+00:00",
+      "finished_at_utc": "2026-10-08T03:43:24.416537+00:00",
+      "head_commit": "a36a66153401139474edf285015aa0da89771d2c",
+      "source_fingerprint": "8740f865a24dc344662ea401bfea64c23b5118d3f45797e5c16a8d032320d8b3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/002-release.txt",
+      "output_sha256": "8e19742a73c7c3bc666c13f562e138808d1fb73c0cae778c2ed5c012fe72bf37"
+    },
+    {
+      "label": "skills",
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import subprocess; from pathlib import Path; [subprocess.run([\".venv/bin/python\", \"/Users/liuyuxiang/.codex/skills/.system/skill-creator/scripts/quick_validate.py\", str(p)], check=True) for p in sorted(Path(\".agents/skills\").iterdir())]"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:43:56.137932+00:00",
+      "finished_at_utc": "2026-10-08T03:43:56.325787+00:00",
+      "head_commit": "a36a66153401139474edf285015aa0da89771d2c",
+      "source_fingerprint": "8740f865a24dc344662ea401bfea64c23b5118d3f45797e5c16a8d032320d8b3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/003-skills.txt",
+      "output_sha256": "c86f3921652ce0a374f0acba220eadffa8ff049610448eef521f2ed8881634dc"
+    },
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:47:28.926097+00:00",
+      "finished_at_utc": "2026-10-08T03:48:59.661629+00:00",
+      "head_commit": "a36a66153401139474edf285015aa0da89771d2c",
+      "source_fingerprint": "6b7796ac2e1c19f6886810335f6a7287126377c2e5635e02c91625f58b52bda2",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/harness-lab-20261007/004-release.txt",
+      "output_sha256": "682892ce319d60ce3d03bdaaf4a2f3ee59480355562de6d31dfbee1a83811f86"
+    },
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:51:15.908811+00:00",
+      "finished_at_utc": "2026-10-08T03:52:43.725853+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/005-release.txt",
+      "output_sha256": "69729c8af4746bd8340e2b7a1d47173dfd0eeaaf23d4d0030a42760126c890ad"
+    },
+    {
+      "label": "skills",
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import subprocess; from pathlib import Path; [subprocess.run([\".venv/bin/python\", \"/Users/liuyuxiang/.codex/skills/.system/skill-creator/scripts/quick_validate.py\", str(p)], check=True) for p in sorted(Path(\".agents/skills\").iterdir())]"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:53:48.175775+00:00",
+      "finished_at_utc": "2026-10-08T03:53:48.367327+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/006-skills.txt",
+      "output_sha256": "c86f3921652ce0a374f0acba220eadffa8ff049610448eef521f2ed8881634dc"
+    }
+  ],
+  "request_file": "source/tasks/requests/harness-lab-20261007.txt",
+  "baseline_evidence": "docs/harness/baseline/RESULT.json",
+  "plan": [
+    "核实快照范围、Git与原行为基线",
+    "精简入口与权威规则",
+    "模块索引、Router、Skills与持久任务",
+    "分级验证、检索/失效测试及CI",
+    "复用真实RPG的战斗实验与浏览器一致性",
+    "效果/候选搜索与成长经济基础",
+    "固定源码提交的最终回归、状态同步与远端保存"
+  ],
+  "summary": "Harness V1完整可用，Balance Lab真实规则与经济基础通过实际验证；高级范围和原恢复缺失已记录",
+  "completed_at_utc": "2026-10-08T03:55:14.745052+00:00",
+  "verified_source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451"
+}

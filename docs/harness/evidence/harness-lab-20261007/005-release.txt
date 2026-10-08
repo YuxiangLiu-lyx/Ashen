@@ -1,0 +1,962 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python -m unittest discover -s tests/harness -v
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 8.031s
+
+OK
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tools/harness/runtime_audit.py
+Parsed 187 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (261.386417ms)
+✔ all base classes run real ordinary, elite and boss encounters (423.2385ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (59.224541ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (0.686ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (1.899834ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (82.465458ms)
+✔ real AI damage, resources and distinct policies affect outcomes (263.650042ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.272958ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.403167ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.160916ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.122958ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.082209ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.083417ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (4.278959ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (0.373334ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.348333ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (0.681083ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (1.747166ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (1.779ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (500.766375ms)
+✔ distribution separates censored fights and reports confidence interval (57.1475ms)
+✔ native species is independent of V28 player-level skin fields (0.462166ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.177333ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.1105ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.065208ms)
+✔ footprint validation and segment clipping handle boundaries (0.097875ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.12425ms)
+✔ arch posts block sides without sealing the central doorway (0.069209ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (1.56875ms)
+✔ walk phase advances with travelled distance, not wall time (0.226958ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.2585ms)
+✔ resting/carry transfers never receive fake walking limbs (0.068292ms)
+✔ all 24 rare gear IDs have appearance signatures (0.066084ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.315125ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.294209ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.278ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.510625ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (10.999833ms)
+✔ all nine later-chapter/class checkpoints construct and restore (297.338917ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (226.948334ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (11.051792ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.340042ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.122708ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.142208ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1775.571833
+RUN: node tests/browser-presentation-v281.mjs
+Browser QA passed: 16 checks, 269 resource requests, no runtime exceptions.
+RUN: node tests/browser-balance-lab.mjs
+{"passed":true,"fixtureCount":14,"exactFullEventParity":true}
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tools/restore_archives.py --all --verify-only
+Verified: runtime-assets.manifest.json (116 files)
+Verified: library-originals.manifest.json (135 files)
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tools/build_web_play.py --output qa-export/release-build
+Assets prepared: 20/116
+Assets prepared: 40/116
+Assets prepared: 60/116
+Assets prepared: 80/116
+Assets prepared: 100/116
+{
+  "version": "28.1",
+  "source_commit": "74365109dd289c1f6ce09890e69a7873868c902e",
+  "module_count": 187,
+  "image_count": 116,
+  "original_images_bytes": 262215319,
+  "web_images_bytes": 150413474,
+  "offline_html_bytes": 204180877,
+  "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81",
+  "original_dist_modified": false
+}
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tests/browser-web-play.py --build qa-export/release-build
+{"case": "offline-file", "url": "offline-file", "checks": ["all_assets_loaded", "three_class_choices", "start_new_journey", "intro_to_live_game", "keyboard_movement", "browser_save", "inventory_ui", "continue_saved_journey", "attack_kills_enemy", "combat_rewards", "export_save_text", "chapter8_checkpoint", "no_chapter8_large_cg"], "first_load_seconds": 3.99, "uncaught_errors": [], "network_requests": 0, "chapter8_cg_requests": []}
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /play.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /asset-map.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /game-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /presentation-metrics-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter5-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /scene-geometry-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-test-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-staging67-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-test-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-art-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-world-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-ui-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-stats-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /save-protection-v23.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /presentation-v22.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-illustrations-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-staging-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-illustrations-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /world-art-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /identity-visuals-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-activities-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-expeditions-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /social-staging-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-bonds-ui-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /combat-input-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter5-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /progression-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /mercenary-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /mercenary-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /progression-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /systems-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /memory-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /telegraphs-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /growth-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /systems-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /combat-visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /medical-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /enchantments-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /art-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter4-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /effects-quality-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /narrative-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /mechanisms-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /attunement-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /save-transfer-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-flow-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /equipment-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /audio-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /presentation-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /navigation-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-moments-world-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] code 404, message File not found
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /core-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-test-seeds-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-nodes-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-state-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /character-art-meta-v27.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /movement-v23.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /cloak-pair-meta-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hero-actions-meta-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /presentation-physics-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-moments-art-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /character-art-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /movement-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /social-companion-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /social-art-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /cinematics-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-story-text-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter67-text-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /world-art-meta-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /equipment-art-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /identity-meta-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-bonds-story-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-combat-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-combat-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /combat-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter34-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /exploration-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /activity-gear-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-activities-v15.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter5-economy-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /expedition-world-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /mercenary-quality-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /progression-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /memory-combat-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /orientation-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /enemy-ai-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /memory-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /rank-scaling-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-route-gear-v15.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /medical-cart-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hester-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /deep-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /medical-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-props-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /court-actor-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /npc-actions-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hell-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter4-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /lifecycle-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter-dialogues-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-save-migration-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-state-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-moments-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /world-entry-v22.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-runtime-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /discovery-runtime-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-runtime-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter5-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-story-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saint-bonds-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /pacing-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /systems-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /save-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-save-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /actor-art-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-world-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /art-quality-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /monster-walk-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter-world-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /lotti-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /sister-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /new-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /asset-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /idle-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /quality-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /audio-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /density-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /progression-skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /balance-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chengli-text-v27.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-staging67-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /v26-story8-staging.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-runtime-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-chains67-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /v26-story8-chains.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /v26-story67-text.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-staging8-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /v26-story8-text.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-staging-runtime-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /saga-runtime-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter8-text-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /growth-runtime-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /combat-overhaul-v28.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /quest-service-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-runtime-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /display-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /secrets-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-quality-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-polish-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /new-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-revisions-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /story-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /hero-calm-meta-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /scene-arrival-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter3-sidequests-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter2-court-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /reviewed-dialogue-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /staging-extension-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-migrations-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-moments-text-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-moments-staging-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-staging-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /discovery-text-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-text-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-story-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /city-world-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /quest-dialogue-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /pacing-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /chapter5-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /romance-props-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-text-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /dialogue-migrations-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /narrative-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v25/chengli-teacup-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v281/chengli-actions.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v281/women-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v281/chengli-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/keyart.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v27/elyria-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v27/chengli-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v27/chengli-portrait-quiet.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:11] "GET /assets/v281/elyria-life.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v25/cloak-pair-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v25/hero-actions-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/city-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/city-service-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/party-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/saint-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/hero-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v18/party-portraits-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v14/service-portraits-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v14/ground-tiles-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v14/portraits-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v14/portraits-extra-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v14/city-props-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v20/social-actions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v20/social-companions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v24/noen-walk-v24.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v20/social-benches-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v20/romance-props-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v19/city-architecture-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v19/city-furnishings-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:12] "GET /assets/v13/blood-demon-atlas-v13.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v12/combat-effects-atlas-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v12/medical-cart-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v11/hester-actions-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v11/medical-court-props-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v11/court-actors-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v281/deep-bosses.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v11/deep-npc-portraits-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v11/deep-props-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v10/hell-props-supplement-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v10/npc-actions-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v10/hell-environment-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v10/hell-enemies-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v10/hell-npc-portraits-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v9/skill-vfx-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v9/environment-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v8/monsters-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v8/guards-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v8/chapter-portraits-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v8/chapter-world-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v8/chapter-props-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v7/lotti-portrait-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v7/lotti-world-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v7/worldprops-atlas-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v6/vilerena-world-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v6/hero-idle-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v6/vilerena-portrait-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v5/hero-back-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v5/npc-directions-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:13] "GET /assets/v5/monsters-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v5/sister-walk-dark-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v5/npc-portraits-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v5/exploration-props-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v5/discovery-icons-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/main-portraits.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/hero-bodies.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/actors-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/equipment-layers.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/terrain-tiles.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/world-props.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/equipment-icons.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/details-atlas.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:14] "GET /assets/v4/story-walk-v4.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:15] "GET /assets/v3/skill-icons.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:15] code 404, message File not found
+127.0.0.1 - - [07/Oct/2026 23:52:15] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /play.css HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /asset-map.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /game-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /presentation-metrics-v281.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter5-world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-test-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /scene-geometry-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-test-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-staging67-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-art-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-ui-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-world-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /presentation-v22.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-stats-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /save-protection-v23.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-illustrations-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /social-staging-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-illustrations-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-staging-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /identity-visuals-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /world-art-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-activities-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-expeditions-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-bonds-ui-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /combat-input-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter5-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /mercenary-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /progression-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /mercenary-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /progression-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /systems-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /memory-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /telegraphs-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /systems-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /growth-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /medical-staging-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /art-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /enchantments-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /combat-visuals-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter4-ui-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-visuals-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /effects-quality-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-skills-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /narrative-staging-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /attunement-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /mechanisms-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /save-transfer-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /visuals-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-flow-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /equipment-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /presentation-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /audio-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /skills-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /core-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /navigation-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-moments-world-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-test-seeds-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-nodes-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-state-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /presentation-physics-v281.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /staging-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter-staging-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /cinematics-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter67-text-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /character-art-meta-v27.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /cloak-pair-meta-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /movement-v23.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter34-world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hero-actions-meta-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /world-art-meta-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-combat-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-moments-art-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /movement-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /social-companion-meta-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /social-art-meta-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-story-text-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /character-art-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /identity-meta-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /equipment-art-v281.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /combat-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /activity-gear-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-activities-v15.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /expedition-world-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-bonds-story-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /exploration-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-combat-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter5-economy-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /mercenary-quality-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /progression-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /enemy-ai-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /memory-combat-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /orientation-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /memory-story-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /rank-scaling-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-route-gear-v15.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /medical-cart-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hester-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /medical-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /court-actor-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /deep-art-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter4-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-props-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /npc-actions-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hell-art-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter-dialogues-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /lifecycle-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-save-migration-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-state-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /world-entry-v22.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-moments-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-runtime-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-story-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /discovery-runtime-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter5-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-runtime-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /systems-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saint-bonds-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /pacing-runtime-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /save-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /actor-art-v281.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-world-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-save-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /art-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /monster-walk-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /art-quality-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter-world-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /sister-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /lotti-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /idle-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /new-art-meta-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /asset-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /quality-world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter-world-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /density-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /audio-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /progression-skills-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chengli-text-v27.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /balance-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-staging67-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /v26-story8-staging.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /v26-story8-chains.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-runtime-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-chains67-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /v26-story8-text.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /v26-story67-text.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-staging-runtime-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter8-text-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-staging8-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /growth-runtime-v17.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /combat-overhaul-v28.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-runtime-v16.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /saga-runtime-v25.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /quest-service-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /display-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /secrets-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-polish-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-quality-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /new-story-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-revisions-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /scene-arrival-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /story-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /hero-calm-meta-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-staging-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-story-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter3-sidequests-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter2-court-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /reviewed-dialogue-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-migrations-v26.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-moments-text-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /staging-extension-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-moments-staging-v24.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-text-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-staging-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /discovery-text-v19.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /quest-dialogue-v16.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /chapter5-story-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /pacing-data-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-story-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /city-world-v18.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /romance-props-meta-v20.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-migrations-v16.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /dialogue-text-v16.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /narrative-v14.js HTTP/1.1" 304 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v281/chengli-actions.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v281/women-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v25/chengli-teacup-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v281/chengli-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v27/elyria-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v27/chengli-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v27/chengli-portrait-quiet.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v281/elyria-life.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v25/cloak-pair-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v25/hero-actions-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/city-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/city-service-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/party-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/saint-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/hero-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v18/party-portraits-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v14/service-portraits-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v14/ground-tiles-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:22] "GET /assets/v14/portraits-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v14/portraits-extra-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v14/city-props-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v20/social-actions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v20/social-companions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v24/noen-walk-v24.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v20/social-benches-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v20/romance-props-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v19/city-architecture-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v19/city-furnishings-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v13/blood-demon-atlas-v13.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v12/combat-effects-atlas-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v12/medical-cart-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v11/hester-actions-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v11/medical-court-props-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v11/court-actors-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v281/deep-bosses.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v11/deep-npc-portraits-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v11/deep-props-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v10/hell-props-supplement-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v10/npc-actions-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v10/hell-environment-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v10/hell-enemies-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v10/hell-npc-portraits-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v9/skill-vfx-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v9/environment-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:23] "GET /assets/v8/monsters-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v8/guards-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v8/chapter-portraits-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v8/chapter-world-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v8/chapter-props-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v7/lotti-portrait-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v7/lotti-world-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v7/worldprops-atlas-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v6/vilerena-world-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v6/hero-idle-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v6/vilerena-portrait-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/hero-back-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/npc-directions-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/monsters-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/sister-walk-dark-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/npc-portraits-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/exploration-props-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v5/discovery-icons-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/main-portraits.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/hero-bodies.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/actors-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/equipment-layers.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/terrain-tiles.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/world-props.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/equipment-icons.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/details-atlas.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:24] "GET /assets/v4/story-walk-v4.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:25] code 404, message File not found
+127.0.0.1 - - [07/Oct/2026 23:52:25] "GET /favicon.ico HTTP/1.1" 404 -
+{"case": "http-site", "url": "http-site", "checks": ["all_assets_loaded", "three_class_choices", "start_new_journey", "intro_to_live_game", "keyboard_movement", "browser_save", "inventory_ui", "continue_saved_journey", "attack_kills_enemy", "combat_rewards", "export_save_text", "chapter8_checkpoint", "no_chapter8_large_cg"], "first_load_seconds": 3.05, "uncaught_errors": [], "network_requests": 526, "chapter8_cg_requests": []}
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /index.html HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /play.css HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /asset-map.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /game-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /presentation-metrics-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter5-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-test-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-test-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /scene-geometry-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-art-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-staging67-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-ui-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-world-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-stats-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /save-protection-v23.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /presentation-v22.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /social-staging-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-illustrations-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-illustrations-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-staging-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /identity-visuals-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /world-art-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-bonds-ui-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-expeditions-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-activities-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter5-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /combat-input-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /mercenary-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /progression-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /mercenary-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /progression-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /systems-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /telegraphs-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /memory-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /systems-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /growth-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /medical-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /combat-visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /art-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /enchantments-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter4-ui-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /effects-quality-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /narrative-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /attunement-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /mechanisms-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-flow-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /visuals-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /save-transfer-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /equipment-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /audio-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /presentation-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /navigation-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /core-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-test-seeds-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-moments-world-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-nodes-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-state-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /character-art-meta-v27.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /movement-v23.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /cloak-pair-meta-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hero-actions-meta-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /movement-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /presentation-physics-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /social-companion-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /social-art-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-moments-art-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /cinematics-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter67-text-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-story-text-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /world-art-meta-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /character-art-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /equipment-art-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /identity-meta-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-bonds-story-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter34-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-combat-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /combat-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /activity-gear-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-activities-v15.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /expedition-world-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-combat-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /exploration-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter5-economy-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /mercenary-quality-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-route-gear-v15.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /rank-scaling-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /memory-combat-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /orientation-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /enemy-ai-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /progression-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hester-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /memory-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /medical-cart-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /medical-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /deep-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /court-actor-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-props-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter4-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /npc-actions-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hell-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /lifecycle-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter-dialogues-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /actor-art-v281.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-world-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /art-quality-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /monster-walk-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter-world-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /lotti-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /idle-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /sister-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /new-art-meta-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /asset-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-save-migration-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-state-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-moments-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /world-entry-v22.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-runtime-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /discovery-runtime-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-runtime-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-story-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter5-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /systems-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saint-bonds-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /pacing-runtime-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /save-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /quality-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-save-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter-world-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /density-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /audio-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /progression-skills-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chengli-text-v27.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /balance-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-staging67-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /v26-story8-staging.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-runtime-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /v26-story67-text.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-chains67-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /v26-story8-chains.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /v26-story8-text.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-staging-runtime-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-staging8-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /saga-runtime-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /growth-runtime-v17.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter8-text-v25.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-runtime-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /combat-overhaul-v28.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /quest-service-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /secrets-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /display-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-quality-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-polish-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /new-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-revisions-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /story-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /scene-arrival-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-staging-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /hero-calm-meta-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter3-sidequests-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter2-court-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /reviewed-dialogue-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /staging-extension-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-migrations-v26.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-props-meta-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-moments-staging-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-moments-text-v24.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-text-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /romance-staging-v20.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /discovery-text-v19.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-world-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /city-story-v18.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /quest-dialogue-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /pacing-data-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /chapter5-story-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-text-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /dialogue-migrations-v16.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /narrative-v14.js HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v281/chengli-actions.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v25/chengli-teacup-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v281/women-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v281/chengli-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/keyart.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v27/elyria-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v27/chengli-portrait.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v27/chengli-portrait-quiet.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v281/elyria-life.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v25/cloak-pair-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v25/hero-actions-v25.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/city-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/city-service-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/party-identities-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/saint-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/hero-life-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v18/party-portraits-v18.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v14/service-portraits-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v14/ground-tiles-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v14/portraits-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v14/portraits-extra-v14.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v14/city-props-v14-key.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:35] "GET /assets/v20/social-actions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v20/social-companions-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v24/noen-walk-v24.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v20/social-benches-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v20/romance-props-v20.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v19/city-architecture-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v19/city-furnishings-v19.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v13/blood-demon-atlas-v13.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v12/combat-effects-atlas-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v12/medical-cart-v12.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v11/hester-actions-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v11/medical-court-props-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v11/court-actors-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v281/deep-bosses.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v11/deep-npc-portraits-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v11/deep-props-atlas-v11.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v10/hell-props-supplement-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v10/npc-actions-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v10/hell-environment-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v10/hell-enemies-atlas-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v10/hell-npc-portraits-v10.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v9/skill-vfx-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v9/environment-atlas-v9.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v8/monsters-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v8/guards-walk-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v8/chapter-portraits-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v8/chapter-world-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:36] "GET /assets/v8/chapter-props-v8.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v7/lotti-portrait-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v7/lotti-world-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v7/worldprops-atlas-v7.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v6/vilerena-world-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v6/hero-idle-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v6/vilerena-portrait-v6.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/hero-back-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/npc-directions-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/monsters-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/sister-walk-dark-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/npc-portraits-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/exploration-props-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v5/discovery-icons-v5.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/main-portraits.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/hero-bodies.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/actors-world.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/equipment-layers.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/terrain-tiles.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/world-props.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/equipment-icons.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/details-atlas.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:37] "GET /assets/v4/story-walk-v4.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:38] "GET /assets/v3/skill-icons.webp HTTP/1.1" 200 -
+127.0.0.1 - - [07/Oct/2026 23:52:38] code 404, message File not found
+127.0.0.1 - - [07/Oct/2026 23:52:38] "GET /favicon.ico HTTP/1.1" 404 -
+{
+  "version": "28.1",
+  "passed": true,
+  "results": [
+    {
+      "case": "offline-file",
+      "url": "offline-file",
+      "checks": [
+        "all_assets_loaded",
+        "three_class_choices",
+        "start_new_journey",
+        "intro_to_live_game",
+        "keyboard_movement",
+        "browser_save",
+        "inventory_ui",
+        "continue_saved_journey",
+        "attack_kills_enemy",
+        "combat_rewards",
+        "export_save_text",
+        "chapter8_checkpoint",
+        "no_chapter8_large_cg"
+      ],
+      "first_load_seconds": 3.99,
+      "uncaught_errors": [],
+      "network_requests": 0,
+      "chapter8_cg_requests": []
+    },
+    {
+      "case": "http-site",
+      "url": "http-site",
+      "checks": [
+        "all_assets_loaded",
+        "three_class_choices",
+        "start_new_journey",
+        "intro_to_live_game",
+        "keyboard_movement",
+        "browser_save",
+        "inventory_ui",
+        "continue_saved_journey",
+        "attack_kills_enemy",
+        "combat_rewards",
+        "export_save_text",
+        "chapter8_checkpoint",
+        "no_chapter8_large_cg"
+      ],
+      "first_load_seconds": 3.05,
+      "uncaught_errors": [],
+      "network_requests": 526,
+      "chapter8_cg_requests": []
+    },
+    {
+      "case": "mobile-landscape",
+      "touch_controls_visible": true,
+      "viewport": [
+        844,
+        390
+      ]
+    }
+  ],
+  "scope": "Packaged file/HTTP entry, start, movement, combat, inventory, save/export and chapter test. Not an eight-chapter playthrough."
+}
+PASS tier: release

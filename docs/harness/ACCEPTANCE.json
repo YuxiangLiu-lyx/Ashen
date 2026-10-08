@@ -1,0 +1,133 @@
+{
+  "schema": 1,
+  "development_date_local": "2026-10-07",
+  "checked_at_utc": "2026-10-08T03:55:14.658920+00:00",
+  "implementation_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+  "runtime_source_commit": "a36a66153401139474edf285015aa0da89771d2c",
+  "verified_source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+  "baseline": "docs/harness/baseline/RESULT.json",
+  "checks": [
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:51:15.908811+00:00",
+      "finished_at_utc": "2026-10-08T03:52:43.725853+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/005-release.txt",
+      "output_sha256": "69729c8af4746bd8340e2b7a1d47173dfd0eeaaf23d4d0030a42760126c890ad"
+    },
+    {
+      "label": "skills",
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import subprocess; from pathlib import Path; [subprocess.run([\".venv/bin/python\", \"/Users/liuyuxiang/.codex/skills/.system/skill-creator/scripts/quick_validate.py\", str(p)], check=True) for p in sorted(Path(\".agents/skills\").iterdir())]"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:53:48.175775+00:00",
+      "finished_at_utc": "2026-10-08T03:53:48.367327+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/006-skills.txt",
+      "output_sha256": "c86f3921652ce0a374f0acba220eadffa8ff049610448eef521f2ed8881634dc"
+    }
+  ],
+  "node_tests": 44,
+  "harness_tests": 15,
+  "runtime_modules_parsed": 187,
+  "browser_exact_parity_fixtures": 14,
+  "original_browser_checks": 16,
+  "archive_runtime_images": 116,
+  "archive_historical_files": 135,
+  "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81",
+  "offline_matches_previous_release": true,
+  "web_ui_cases": [
+    "offline-file",
+    "http-site",
+    "mobile-landscape"
+  ],
+  "scenarios": [
+    {
+      "number": 1,
+      "scenario": "暗影连招自然语言发现",
+      "evidence": "test_shadow_combo_discovers_actual_overlays_career_and_save",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 2,
+      "scenario": "第五章奖励上下文精简",
+      "evidence": "test_chapter5_rewards_does_not_load_story_art_or_history",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 3,
+      "scenario": "地图表现不路由战斗经济",
+      "evidence": "test_map_presentation_excludes_combat_economy",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 4,
+      "scenario": "上下文重置接续与证据完整性",
+      "evidence": "test_resume_integrity_code_version_and_tamper",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 5,
+      "scenario": "修改/移动/新增后索引拒绝过期",
+      "evidence": "test_modified_moved_new_files_never_use_stale_index",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 6,
+      "scenario": "覆盖/依赖/存档风险发现",
+      "evidence": "test_shadow_combo_discovers_actual_overlays_career_and_save",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 7,
+      "scenario": "原游戏语法构建与回归",
+      "evidence": "release tier: runtime_audit + 23 original regressions + Chrome + web build/UI",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 8,
+      "scenario": "真实规则战斗重放",
+      "evidence": "same seeds replay complete combat metrics and events exactly",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 9,
+      "scenario": "实验代码参数可追溯",
+      "evidence": "docs/harness/acceptance/EXPERIMENT_INTEGRITY.json",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 10,
+      "scenario": "失败日志不能伪装成功",
+      "evidence": "test_failure_is_real_not_passed_prose",
+      "status": "verified by reproducible checks"
+    },
+    {
+      "number": 11,
+      "scenario": "无聊天历史执行入口",
+      "evidence": "routing tests + discoverable scoped skills + CLI task start/resume; independent live Codex session not launched",
+      "status": "verified by reproducible checks"
+    }
+  ],
+  "not_claimed": [
+    "Complete eight-chapter manual playthrough or automatic campaign reachability",
+    "Independent live Codex no-history conversation",
+    "Original unpublished development documents/full Git recovery",
+    "Production rebalance or site deployment"
+  ],
+  "remote_ci_status": "pending main push; local release tier passed"
+}

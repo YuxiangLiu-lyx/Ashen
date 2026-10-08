@@ -14,7 +14,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-08T03:36:02.251802+00:00",
-  "updated_at_utc": "2026-10-08T03:50:04.149277+00:00",
+  "updated_at_utc": "2026-10-08T03:53:48.373379+00:00",
   "decisions": [
     "不修改dist游戏规则；Lab直接复用完整RPG与后续覆盖层",
     "索引用内容哈希失效，语义仅少量人工维护；旧入口原文归档",
@@ -103,6 +103,39 @@
       "sources_changed_during_check": true,
       "output": "docs/harness/evidence/harness-lab-20261007/004-release.txt",
       "output_sha256": "682892ce319d60ce3d03bdaaf4a2f3ee59480355562de6d31dfbee1a83811f86"
+    },
+    {
+      "label": "release",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:51:15.908811+00:00",
+      "finished_at_utc": "2026-10-08T03:52:43.725853+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/005-release.txt",
+      "output_sha256": "69729c8af4746bd8340e2b7a1d47173dfd0eeaaf23d4d0030a42760126c890ad"
+    },
+    {
+      "label": "skills",
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import subprocess; from pathlib import Path; [subprocess.run([\".venv/bin/python\", \"/Users/liuyuxiang/.codex/skills/.system/skill-creator/scripts/quick_validate.py\", str(p)], check=True) for p in sorted(Path(\".agents/skills\").iterdir())]"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T03:53:48.175775+00:00",
+      "finished_at_utc": "2026-10-08T03:53:48.367327+00:00",
+      "head_commit": "5e793cb68fc5551e52543d52f4f50298840155fc",
+      "source_fingerprint": "d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-lab-20261007/006-skills.txt",
+      "output_sha256": "c86f3921652ce0a374f0acba220eadffa8ff049610448eef521f2ed8881634dc"
     }
   ],
   "request_file": "source/tasks/requests/harness-lab-20261007.txt",
@@ -117,3 +150,45 @@
     "固定源码提交的最终回归、状态同步与远端保存"
   ]
 }
+## refactor/agent-harness-balance-lab
+ M docs/balance-lab/experiments/bleed-effects/REPORT.md
+ M docs/balance-lab/experiments/bleed-effects/result.json
+ M docs/balance-lab/experiments/candidates/REPORT.md
+ M docs/balance-lab/experiments/candidates/result.json
+ M docs/balance-lab/experiments/class-matrix/REPORT.md
+ M docs/balance-lab/experiments/class-matrix/result.json
+ M docs/balance-lab/experiments/economy-partial/REPORT.md
+ M docs/balance-lab/experiments/economy-partial/result.json
+ M docs/balance-lab/experiments/shadow-captain/REPORT.md
+ M docs/balance-lab/experiments/shadow-captain/result.json
+ M docs/harness/CHAPTER5_ROUTE.json
+ M docs/harness/MAP_ROUTE.json
+ M docs/harness/SHADOW_ROUTE.json
+ M source/harness/index.json
+ M source/tasks/active/harness-lab-20261007.json
+?? dist/assets/keyart.png
+?? dist/assets/v10/
+?? dist/assets/v11/
+?? dist/assets/v12/
+?? dist/assets/v13/
+?? dist/assets/v14/
+?? dist/assets/v18/
+?? dist/assets/v19/
+?? dist/assets/v20/
+?? dist/assets/v23-reconstruction/
+?? dist/assets/v24/
+?? dist/assets/v25/
+?? dist/assets/v26/
+?? dist/assets/v27/
+?? dist/assets/v3/
+?? dist/assets/v4/
+?? dist/assets/v5/
+?? dist/assets/v6/
+?? dist/assets/v7/
+?? dist/assets/v8/
+?? dist/assets/v9/
+?? docs/harness/acceptance/
+?? docs/harness/evidence/harness-lab-20261007/005-release.txt
+?? docs/harness/evidence/harness-lab-20261007/006-skills.txt
+Evidence integrity: ok
+Current fingerprint: d0d2fb23fb9c6d6bbd8afb3996a14c25ae76b5ed8b0fde18fafd47ac7af20451
