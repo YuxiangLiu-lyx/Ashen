@@ -1,0 +1,190 @@
+{
+  "schema": 1,
+  "id": "ch1-immersion-20261008",
+  "goal": "第一章场景美术重构、即时交互和战斗动作表现优化",
+  "acceptance": [
+    "第一章主线及磨坊支线场景使用一致的新环境资产，真实浏览器前后对照",
+    "交互即时执行且无计时转圈，任务奖励与旧档一次性语义保持",
+    "怪物无悬浮几何装饰，攻前蓄势、命中反馈、步态可见，战斗数值保持",
+    "fast、专项与integration通过，已知基线问题独立记录，GitHub main远端核验"
+  ],
+  "baseline_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+  "modules": [
+    "art",
+    "combat",
+    "lab"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-08T15:22:30.931795+00:00",
+  "updated_at_utc": "2026-10-09T06:18:31.860445+00:00",
+  "decisions": [
+    "首章11图统一新环境图集与材质，保留地图、出口、碰撞和任务数值；当前用户授权取消V29等待",
+    "基线34/35通过；ch5Arcade walkableCells=598而旧记录590，独立诊断不改基线掩盖",
+    "接续已存在的V30未提交草稿；保存dirty基线并先交付REVIEW_AND_PLAN；补齐异风格摊位、库房及机关资产，按真实浏览器画面改进",
+    "从干净e77f6d7采集真实进入后导航和12组战斗事件；V18退休桌的冷/热启动差异已独立解释，未改历史审计文件"
+  ],
+  "completed": [
+    "已完成11图环境覆盖、5张新增图集、即时交互、身体动作与守卫16帧；已保留原图与失败基线",
+    "最终fast/presentation/integration与离线file/HTTP/手机横屏UI通过；63Node+15Harness，11图、12组基线与14组Chrome事件一致性；真实主线首领尝试死亡和磨坊往返/读档均已留证"
+  ],
+  "remaining": [
+    "审查提交并核验GitHub main远端SHA"
+  ],
+  "blockers": [],
+  "next": "提交实现和文档，推送main，再记录远端回执归档任务",
+  "required_checks": [
+    "fast",
+    "presentation",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-08T15:23:10.515413+00:00",
+      "finished_at_utc": "2026-10-08T15:23:14.094172+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "152f07f576ffba5033e68c0257930cd0750684145e1897569b8b36a442cb8f09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/001-baseline.txt",
+      "output_sha256": "b4cbc74e4931da1baab88949a2c8d919b75a71e2a341fddf25803222726bed82"
+    },
+    {
+      "label": "chapter-gallery",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T05:02:30.846673+00:00",
+      "finished_at_utc": "2026-10-09T05:02:43.304005+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "6f3071a615a25d472f2b984860e9768927027a122955e2c07d642114e9e61fb4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/002-chapter-gallery.txt",
+      "output_sha256": "cb651d1b6051a524f5e8eeee71df5f41fa9125d3fef5b4acf123479022206e47"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T05:07:57.032749+00:00",
+      "finished_at_utc": "2026-10-09T05:08:06.076237+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "354bae973d196376e311ee2ff33e05f18379654115c5e27a5201c869c3406340",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/003-fast.txt",
+      "output_sha256": "4f3dc75d90ae20e737704f01c7fad3ee2838b0cf3e5f247f32a29531026cdb58"
+    },
+    {
+      "label": "main-play",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-play-v30.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-09T05:09:33.701600+00:00",
+      "finished_at_utc": "2026-10-09T05:11:29.108057+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "9934cfcc5da4acc9a3d1021e272f5682aff7d163fbe3fa95f7d249daf08533de",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/004-main-play.txt",
+      "output_sha256": "79e2d25a5b0731afb2f43e6901248f63b4631fa4fe14472603b88b0870d6144e"
+    },
+    {
+      "label": "main-play",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-play-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:01:00.063773+00:00",
+      "finished_at_utc": "2026-10-09T06:03:50.329500+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "e5334bcf963e77b4deecd68049161c404a28a2596287318afbf427f332c14d09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/005-main-play.txt",
+      "output_sha256": "5f8b87cf6a491745a0c79cfc90699fd388e57e26d582ffc737942c38ceee1c0a"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:04:47.867927+00:00",
+      "finished_at_utc": "2026-10-09T06:04:55.950238+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "e5334bcf963e77b4deecd68049161c404a28a2596287318afbf427f332c14d09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/006-fast.txt",
+      "output_sha256": "246bff6ffd7db8fff37997deb14f1505da13b4742555582aa4c6786c53df9069"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:08:32.416856+00:00",
+      "finished_at_utc": "2026-10-09T06:08:40.500556+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/007-fast.txt",
+      "output_sha256": "cb318f00bd677fb87babc6cd933a58fc632a105710b0c2a7b702caa549a953b8"
+    },
+    {
+      "label": "presentation",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/world-v29.test.mjs",
+        "tests/chapter-one-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:12:15.161090+00:00",
+      "finished_at_utc": "2026-10-09T06:12:16.131095+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/008-presentation.txt",
+      "output_sha256": "137280c179b13b32724158e1268f531d372d3dea68c43e4fa7e4eb961c266317"
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:13:15.683107+00:00",
+      "finished_at_utc": "2026-10-09T06:15:11.824540+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-immersion-20261008/009-integration.txt",
+      "output_sha256": "0a14bbc5a7fb8241778025e2eb9a9f81b777ac116cb2d8ea2bcf802ad0c56f8b"
+    }
+  ]
+}

@@ -4,7 +4,7 @@ No runtime libraries/CDNs. Original code/art remains untouched in dist/archives.
 Run after restore_archives.py; Pillow is the only build-time dependency.
 """
 from __future__ import annotations
-import argparse, base64, concurrent.futures, hashlib, io, json, re, shutil
+import argparse, base64, concurrent.futures, hashlib, io, json, re, shutil, subprocess
 from pathlib import Path
 from PIL import Image
 
@@ -58,7 +58,10 @@ def build(output: Path, workers: int = 4) -> dict:
     site = output / 'site'; site.mkdir(exist_ok=True)
     cache = output / 'asset-cache'; cache.mkdir(exist_ok=True)
     modules = source_modules(dist)
-    template = (ROOT / 'web/launcher.html').read_text(encoding='utf-8')
+    version = str(json.loads((ROOT/'source/CURRENT_STATE.json').read_text())['product_version'])
+    source_commit = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    source_dirty = bool(subprocess.check_output(['git','status','--porcelain','--','dist','web','tools/build_web_play.py','source/CURRENT_STATE.json'],cwd=ROOT,text=True).strip())
+    template = (ROOT / 'web/launcher.html').read_text(encoding='utf-8').replace('V28.1','V'+version).replace("version:'28.1'",'version:'+json.dumps(version))
     styles = re.findall(r'href="([^"]+\.css)"', (dist/'index.html').read_text())
     css = '\n'.join((dist/name).read_text(encoding='utf-8') for name in styles)
     # C8 CGs deliberately disabled in V28.1 stay only in the preserved originals.
@@ -82,7 +85,10 @@ def build(output: Path, workers: int = 4) -> dict:
     online_payload='<script src="asset-map.js"></script><script type="module">import("./game-v14.js").catch(error=>window.__ASHEN_WEB__.fail(error));</script>'
     (site/'index.html').write_text(template.replace('<!--GAME_STYLES-->','<link rel="stylesheet" href="play.css">').replace('<!--GAME_PAYLOAD-->',online_payload),encoding='utf-8')
     (site/'.nojekyll').write_text('')
-    (site/'BUILD.json').write_text(json.dumps({'game_version':'28.1','format':'web-play','source_commit':'74365109dd289c1f6ce09890e69a7873868c902e','modules':len(modules),'images':len(assets)},indent=2)+'\n')
+    runtime_inputs = {p.relative_to(dist).as_posix():SHA(p.read_bytes()) for p in sorted(dist.glob('*')) if p.suffix in {'.js','.css','.html'}}
+    runtime_inputs.update({a['original']:a['original_sha256'] for a in manifest})
+    source_identity = {'source_commit':source_commit,'source_dirty':source_dirty,'runtime_input_sha256':SHA(json.dumps(runtime_inputs,sort_keys=True).encode())}
+    (site/'BUILD.json').write_text(json.dumps({'game_version':version,'format':'web-play',**source_identity,'modules':len(modules),'images':len(assets)},indent=2)+'\n')
     # Import maps allow genuine ES modules (including circular/live bindings) from
     # Blob URLs, without fetch(), eval(), a local server, or an external bundler.
     for name,code in list(modules.items()):
@@ -99,9 +105,11 @@ def build(output: Path, workers: int = 4) -> dict:
  await import('@ashen/game-v14.js');
 }catch(error){window.__ASHEN_WEB__.fail(error);}})();
 </script>'''.replace('PACKED_DATA',data_json)
+    # Keep the legacy artifact path for existing CI/download consumers. Metadata
+    # and the displayed version describe the actual runtime being packaged.
     offline=output/'Ashen-V28.1-Play.html'
     offline.write_text(template.replace('<!--GAME_STYLES-->','').replace('<!--GAME_PAYLOAD-->',bootstrap),encoding='utf-8')
-    report={'version':'28.1','source_commit':'74365109dd289c1f6ce09890e69a7873868c902e','module_count':len(modules),'image_count':len(assets),'original_images_bytes':sum(x['original_bytes'] for x in manifest),'web_images_bytes':sum(x['web_bytes'] for x in manifest),'offline_html_bytes':offline.stat().st_size,'offline_sha256':SHA(offline.read_bytes()),'original_dist_modified':False,'assets':manifest}
+    report={'version':version,**source_identity,'offline_filename':offline.name,'module_count':len(modules),'image_count':len(assets),'original_images_bytes':sum(x['original_bytes'] for x in manifest),'web_images_bytes':sum(x['web_bytes'] for x in manifest),'offline_html_bytes':offline.stat().st_size,'offline_sha256':SHA(offline.read_bytes()),'original_dist_modified':False,'assets':manifest}
     (output/'WEB_BUILD_MANIFEST.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     print(json.dumps({k:v for k,v in report.items() if k!='assets'},ensure_ascii=False,indent=2),flush=True)
     return report

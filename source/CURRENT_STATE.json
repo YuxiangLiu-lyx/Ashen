@@ -1,26 +1,26 @@
 {
   "project": "Ashen / 烬誓：圣女与影刃",
-  "product_version": "29",
+  "product_version": "30",
   "platform_version": 29,
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
-  "branch": "main",
-  "snapshot_type": "v29_authored_exploration_demo_on_v28_1",
+  "branch": "feature/ch1-immersion-v30",
+  "snapshot_type": "v30_chapter_one_presentation_on_v29",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 191,
+  "runtime_modules": 193,
   "runtime_stylesheets": 7,
-  "runtime_images": 121,
-  "runtime_resource_bytes": 268457745,
+  "runtime_images": 126,
+  "runtime_resource_bytes": 279031527,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "BACKUP_STATUS.md; docs/v29/RELEASE.md. Four-map demonstration only; remaining 114 maps structurally audited, not redesigned. Not a complete eight-chapter manual playthrough.",
-  "checked_at_utc": "2026-10-08T05:50:13.268583+00:00",
+  "known_limits": "BACKUP_STATUS.md; docs/v30/RELEASE.md. First-chapter 11-map presentation pass; existing map topology, hero and animal atlases retained. No complete campaign clear or site publication.",
+  "checked_at_utc": "2026-10-09T06:18:31.484858+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -30,9 +30,9 @@
     "rare_drop_chance": 0.01,
     "base": "V27 recovered runtime"
   },
-  "presentation_version": "28.1",
+  "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "V29 continuous browser journey under verification; historic V28.1 receipts retained separately",
+  "browser_qa_status": "V30 fast/presentation/integration and file/HTTP/mobile packaged UI passed; continuous main route to captain attempted (loss), mill quest/save roundtrip passed",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -149,6 +149,52 @@
       "Existing atlas tree silhouettes still repeat; no new sprite set",
       "No complete campaign playthrough",
       "4 pre-existing non-demo interaction-anchor diagnostics require browser review"
+    ]
+  },
+  "v30": {
+    "status": "verified_pending_git_sync",
+    "task_id": "ch1-immersion-20261008",
+    "base_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+    "maps": [
+      "hall",
+      "warehouse",
+      "road",
+      "town",
+      "chapel",
+      "alley",
+      "canal",
+      "grove",
+      "millpath",
+      "echo",
+      "workshop"
+    ],
+    "new_atlases": 5,
+    "source_images_preserved": true,
+    "map_geometry_changed": false,
+    "combat_numbers_changed": false,
+    "save_schema": 15,
+    "site_deployed": false,
+    "evidence": "docs/v30/",
+    "limitations": [
+      "Hero and animal source frames retained with transient body motion; guards receive a new 16-frame sheet",
+      "Map topology and most existing object positions preserved; not 11 new map layouts",
+      "No complete eight-chapter playthrough",
+      "V29 task and original release receipt remain unfinished historical work"
+    ],
+    "guard_animation_frames": 16,
+    "checked_at_utc": "2026-10-09T06:18:31.484858+00:00",
+    "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+    "node_tests_passed": 63,
+    "harness_tests_passed": 15,
+    "browser_checks_passed": 16,
+    "browser_exact_parity_fixtures": 14,
+    "baseline_combat_parity_fixtures": 12,
+    "continuous_main_play": "new game through rats, wolves, chapel and canal captain attempt; captain loss",
+    "mill_quest_roundtrip": true,
+    "packaged_ui_cases": [
+      "offline file",
+      "HTTP",
+      "mobile landscape"
     ]
   }
 }

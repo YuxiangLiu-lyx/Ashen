@@ -11,22 +11,26 @@ const game=(map='echo',x=300,y=810)=>{const g=new RPG('shadow',null,()=>.44);g.c
 const finish=g=>{g.finishScene();g.events=[];};
 const clear=g=>{for(const e of [...g.enemies])if(!e.dead)g.damage(e,10000);g.events=[];};
 const at=(g,id)=>{const t=g.targets().find(p=>p.id===id);assert.ok(t,id);g.relocate(t.x,t.y);return t;};
-const operate=(g,id)=>{const t=at(g,id);assert.equal(g.interact(t),true);for(let n=0;n<30&&worldOperationV29(g);n++)g.update(.035,{});};
+const operate=(g,id,expected=true)=>{const t=at(g,id);assert.equal(g.interact(t),expected);assert.equal(worldOperationV29(g),null);};
 
 test('all four demo maps connect every visible exit, NPC and actionable object',()=>{
  for(const id of DEMO_MAPS_V29){const report=inspectWorldMap(game(),id,20);assert.deepEqual(report.unreachable,[],JSON.stringify(report));assert.ok(report.connectedRatio>.93,JSON.stringify(report));}
 });
-test('operation faces the object, delays the effect, and movement cancels it',()=>{
- const g=game();const t=at(g,'echo-valve');g.interact(t);assert.ok(worldOperationV29(g));assert.ok(!g.flags.echoValve);assert.equal(g.canSave(),false);g.update(.1,{x:1});assert.equal(worldOperationV29(g),null);assert.ok(!g.flags.echoValve);
- operate(g,'echo-valve');assert.equal(g.flags.echoValve,true);const hp=g.enemies.find(e=>e.id==='echo-warden').hp;g.pending=null;g.active=true;operate(g,'echo-valve');assert.equal(g.enemies.find(e=>e.id==='echo-warden').hp,hp);
+test('interaction commits immediately, faces the object and leaves movement/save policy unlocked',()=>{
+ const g=game();const t=at(g,'echo-valve'),x=g.p.x,y=g.p.y;assert.equal(g.interact(t),true);
+ assert.equal(worldOperationV29(g),null);assert.equal(g.flags.echoValve,true);assert.equal(g.p.angle,Math.atan2(g.props.find(p=>p.id===t.id).y-y,g.props.find(p=>p.id===t.id).x-x));
+ const hp=g.enemies.find(e=>e.id==='echo-warden').hp;g.pending=null;g.active=true;g.interact(t);assert.equal(g.enemies.find(e=>e.id==='echo-warden').hp,hp);
 });
-test('actual damage and skills cancel an operation, and a wall rejects remote use',()=>{
- const g=game();let t=at(g,'echo-valve');g.interact(t);g.p.invuln=0;g.hurt(2);assert.equal(worldOperationV29(g),null);g.active=true;t=at(g,'echo-valve');g.interact(t);g.skill('sprint');assert.equal(worldOperationV29(g),null);
- g.relocate(620,420);assert.equal(g.interact({...t,x:790,y:420}),false);assert.ok(!g.flags.echoValve);
+test('distance and a real occluding wall reject immediate interaction',()=>{
+ const g=game();const t=g.targets().find(p=>p.id==='echo-valve');g.relocate(300,810);assert.equal(g.interact(t),false);assert.ok(!g.flags.echoValve);
+ // Find a nearby blocked sightline using the real map collision, not forged target coordinates.
+ const p=g.props.find(p=>p.id===t.id);let blocked=null;
+ for(let dx=-100;dx<=100&&!blocked;dx+=10)for(let dy=-100;dy<=100;dy+=10){const at={x:t.x+dx,y:t.y+dy};if(Math.hypot(dx,dy)<112&&!g.blocked(at.x,at.y,false)&&!g.clearLine(at,t,false)){blocked=at;break;}}
+ assert.ok(blocked,'fixture must contain an occluding wall near valve');g.p.x=blocked.x;g.p.y=blocked.y;assert.equal(g.interact({...t,x:g.p.x,y:g.p.y}),false);assert.ok(!g.flags.echoValve);
 });
 test('warden death opens a physical claim, and surviving enemies prevent extraction',()=>{
- const g=game();const w=g.enemies.find(e=>e.id==='echo-warden');g.damage(w,10000);assert.equal(g.flags.echoWardenDefeated,true);assert.ok(!g.flags.echoCoreFound);assert.equal(g.p.items.echoCore||0,0);assert.equal(worldProgressV29(g),'clear-workspace');operate(g,'v29-echo-core');assert.ok(!g.flags.echoCoreFound);
- clear(g);assert.equal(worldProgressV29(g),'extract');assert.equal(g.takeEchoReward('gear'),false);operate(g,'v29-echo-core');assert.equal(g.pending.id,'v29EchoNeedNotes');assert.ok(!g.flags.echoCoreFound);
+ const g=game();const w=g.enemies.find(e=>e.id==='echo-warden');g.damage(w,10000);assert.equal(g.flags.echoWardenDefeated,true);assert.ok(!g.flags.echoCoreFound);assert.equal(g.p.items.echoCore||0,0);assert.equal(worldProgressV29(g),'clear-workspace');operate(g,'v29-echo-core',false);assert.ok(!g.flags.echoCoreFound);
+ clear(g);assert.equal(worldProgressV29(g),'extract');assert.equal(g.takeEchoReward('gear'),false);operate(g,'v29-echo-core',false);assert.equal(g.pending.id,'v29EchoNeedNotes');assert.ok(!g.flags.echoCoreFound);
  finish(g);operate(g,'echo-notes');assert.equal(g.pending.id,'v29EchoNotes');finish(g);operate(g,'v29-echo-core');assert.equal(g.p.items.echoCore,1);assert.equal(g.quests.echo,'active');assert.equal(g.pending.id,'v29EchoCoreTaken');finish(g);
  assert.equal(worldPropVisibleV29(g,{id:'v29-echo-core'}),false);assert.equal(g.useProp('v29-echo-core'),false);assert.equal(g.p.items.echoCore,1);
 });
@@ -63,6 +67,6 @@ test('opt-in guestroom rest keeps its old result and ends at the original positi
  const g=game('guestroom',800,600),rest=g.props.find(p=>p.action==='guestRest');g.p.hp=30;const t=at(g,rest.id),p={x:g.p.x,y:g.p.y};g.interact(t);assert.equal(g.p.hp,30);for(let i=0;i<22;i++)g.update(.035,{});assert.equal(g.pending.id,'guestRest');finish(g);assert.equal(g.p.hp,stats(g.p).hp);assert.deepEqual({x:g.p.x,y:g.p.y},p);
 });
 test('other 114 maps retain baseline navigation and interaction diagnostics',()=>{
- const baseline=JSON.parse(fs.readFileSync(new URL('../docs/v29/MAP_AUDIT_BEFORE.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
+ const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-live-navigation.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
  for(const m of baseline)if(!DEMO_MAPS_V29.includes(m.id)){const report=inspectWorldMap(g,m.id);assert.deepEqual(report.unreachable,m.unreachable,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
 });

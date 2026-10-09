@@ -1,0 +1,4236 @@
+{
+  "baseline_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+  "scope": "12 isolated seeded real-runtime encounter fixtures, full damage/resource/cooldown event parity; not campaign play",
+  "runs": [
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "rat",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "shadow",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "rat",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 0.275,
+        "ttk": 0.275,
+        "metrics": {
+          "damage": 104,
+          "damageReceived": 0,
+          "dps": 378.181818,
+          "peakOneSecondDamage": 104,
+          "remainingHP": 231,
+          "remainingMP": 76.154787,
+          "mpSpent": 12,
+          "shieldAbsorbed": 0,
+          "maxBleed": 3,
+          "uses": {
+            "q": 1,
+            "attack": 1
+          },
+          "damageByKind": {
+            "skill": 76,
+            "hit": 28
+          },
+          "damageBySource": {
+            "q": 76,
+            "attack": 28
+          },
+          "enemyInitialHP": 104,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "rat",
+            "maxHP": 104,
+            "tier": 1,
+            "player": {
+              "hp": 231,
+              "mp": 88,
+              "atk": 42.5,
+              "crit": 0.08249999999999999,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.4,
+              "haste": 0.1499999999999999,
+              "manaRegen": 0.61,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 84,
+              "damage": 8,
+              "speed": 165,
+              "aggro": 250,
+              "reach": 53,
+              "wind": 0.38,
+              "cooldown": 1.35,
+              "leash": 530
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 76,
+            "hp": 28
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 76,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 28,
+            "hp": -15
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 76.154787,
+            "cooldown": 0.4
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "wolf",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "shadow",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "wolf",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 0.525,
+        "ttk": 0.525,
+        "metrics": {
+          "damage": 224,
+          "damageReceived": 0,
+          "dps": 426.666667,
+          "peakOneSecondDamage": 224,
+          "remainingHP": 231,
+          "remainingMP": 59.281362,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 3,
+          "uses": {
+            "q": 1,
+            "attack": 1,
+            "e": 1
+          },
+          "damageByKind": {
+            "skill": 181,
+            "hit": 43
+          },
+          "damageBySource": {
+            "q": 76,
+            "attack": 43,
+            "e": 105
+          },
+          "enemyInitialHP": 224,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "wolf",
+            "maxHP": 224,
+            "tier": 1,
+            "player": {
+              "hp": 231,
+              "mp": 88,
+              "atk": 42.5,
+              "crit": 0.08249999999999999,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.4,
+              "haste": 0.1499999999999999,
+              "manaRegen": 0.61,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 180,
+              "damage": 14,
+              "speed": 184,
+              "aggro": 280,
+              "reach": 62,
+              "wind": 0.46,
+              "cooldown": 1.45,
+              "leash": 590,
+              "lungeRange": 220,
+              "lungeWind": 0.66,
+              "lungeCooldown": 6.5
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 76,
+            "hp": 148
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 76,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 43,
+            "hp": 105
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 76.154787,
+            "cooldown": 0.4
+          },
+          {
+            "time": 0.5,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 105,
+            "hp": -34
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 59.279075,
+            "cooldown": 7
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "guard",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "shadow",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "guard",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 1.2,
+        "ttk": 1.2,
+        "metrics": {
+          "damage": 310,
+          "damageReceived": 18,
+          "dps": 258.333333,
+          "peakOneSecondDamage": 301,
+          "remainingHP": 213,
+          "remainingMP": 70.68015,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 3,
+          "uses": {
+            "q": 1,
+            "attack": 3,
+            "e": 1
+          },
+          "damageByKind": {
+            "skill": 215,
+            "hit": 93,
+            "dot": 2
+          },
+          "damageBySource": {
+            "q": 76,
+            "attack": 93,
+            "e": 139,
+            "dot": 2
+          },
+          "enemyInitialHP": 310,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 1
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "guard",
+            "maxHP": 310,
+            "tier": 1,
+            "player": {
+              "hp": 231,
+              "mp": 88,
+              "atk": 42.5,
+              "crit": 0.08249999999999999,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.4,
+              "haste": 0.1499999999999999,
+              "manaRegen": 0.61,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 240,
+              "damage": 17,
+              "speed": 170,
+              "aggro": 265,
+              "reach": 66,
+              "wind": 0.55,
+              "cooldown": 1.55,
+              "leash": 610,
+              "rangedReach": 290,
+              "rangedWind": 0.82,
+              "rangedCooldown": 7
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 76,
+            "hp": 234
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 76,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 43,
+            "hp": 191
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 76.154787,
+            "cooldown": 0.4
+          },
+          {
+            "time": 0.5,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 139,
+            "hp": 52
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 59.279075,
+            "cooldown": 7
+          },
+          {
+            "time": 0.775,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 43,
+            "hp": 9
+          },
+          {
+            "time": 0.775,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 59.433862,
+            "cooldown": 0.4
+          },
+          {
+            "time": 1.05,
+            "type": "hurt",
+            "amount": 18,
+            "absorbed": 0,
+            "hp": 213
+          },
+          {
+            "time": 1.1,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 2,
+            "hp": 7
+          },
+          {
+            "time": 1.2,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 7,
+            "hp": -36
+          },
+          {
+            "time": 1.2,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 70.68015,
+            "cooldown": 0.4
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "shadow",
+        "enemy": "captain",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "shadow",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "captain",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "loss",
+        "elapsed": 14.775,
+        "ttk": null,
+        "metrics": {
+          "damage": 1045,
+          "damageReceived": 231,
+          "dps": 70.72758,
+          "peakOneSecondDamage": 165,
+          "remainingHP": 0,
+          "remainingMP": 70.507212,
+          "mpSpent": 70,
+          "shieldAbsorbed": 0,
+          "maxBleed": 4,
+          "uses": {
+            "q": 3,
+            "attack": 34,
+            "e": 2
+          },
+          "damageByKind": {
+            "skill": 296,
+            "hit": 692,
+            "dot": 57
+          },
+          "damageBySource": {
+            "q": 183,
+            "attack": 692,
+            "e": 113,
+            "dot": 57
+          },
+          "enemyInitialHP": 2735,
+          "enemyRemainingHP": 1690,
+          "enemyAttacks": 9
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "captain",
+            "maxHP": 2735,
+            "tier": 1,
+            "player": {
+              "hp": 231,
+              "mp": 88,
+              "atk": 42.5,
+              "crit": 0.08249999999999999,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.4,
+              "haste": 0.1499999999999999,
+              "manaRegen": 0.61,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 1850,
+              "damage": 22,
+              "speed": 180,
+              "aggro": 410,
+              "reach": 85,
+              "wind": 0.65,
+              "cooldown": 1.45,
+              "leash": null
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 61,
+            "hp": 2674
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 76,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2654
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 76.154787,
+            "cooldown": 0.4
+          },
+          {
+            "time": 0.5,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 64,
+            "hp": 2590
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 59.279075,
+            "cooldown": 7
+          },
+          {
+            "time": 0.775,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2570
+          },
+          {
+            "time": 0.775,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 59.433862,
+            "cooldown": 0.4
+          },
+          {
+            "time": 1.05,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 204
+          },
+          {
+            "time": 1.1,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 1,
+            "hp": 2569
+          },
+          {
+            "time": 1.2,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2549
+          },
+          {
+            "time": 1.2,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 70.68015,
+            "cooldown": 0.4
+          },
+          {
+            "time": 1.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2529
+          },
+          {
+            "time": 1.625,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 70.926437,
+            "cooldown": 0.4
+          },
+          {
+            "time": 2.05,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2509
+          },
+          {
+            "time": 2.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 71.172725,
+            "cooldown": 0.4
+          },
+          {
+            "time": 2.175,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2504
+          },
+          {
+            "time": 2.475,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2484
+          },
+          {
+            "time": 2.475,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 71.419012,
+            "cooldown": 0.4
+          },
+          {
+            "time": 2.65,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 177
+          },
+          {
+            "time": 2.9,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2464
+          },
+          {
+            "time": 2.9,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 71.6653,
+            "cooldown": 0.4
+          },
+          {
+            "time": 3.225,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2459
+          },
+          {
+            "time": 3.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 29,
+            "hp": 2430
+          },
+          {
+            "time": 3.325,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 71.911587,
+            "cooldown": 0.4
+          },
+          {
+            "time": 3.75,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 29,
+            "hp": 2401
+          },
+          {
+            "time": 3.75,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.157875,
+            "cooldown": 0.4
+          },
+          {
+            "time": 4.175,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2381
+          },
+          {
+            "time": 4.175,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.404162,
+            "cooldown": 0.4
+          },
+          {
+            "time": 4.25,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 150
+          },
+          {
+            "time": 4.3,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2376
+          },
+          {
+            "time": 4.6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2356
+          },
+          {
+            "time": 4.6,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 83.65045,
+            "cooldown": 0.4
+          },
+          {
+            "time": 5.025,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2336
+          },
+          {
+            "time": 5.025,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 83.896737,
+            "cooldown": 0.4
+          },
+          {
+            "time": 5.3,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 61,
+            "hp": 2275
+          },
+          {
+            "time": 5.3,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 72.051525,
+            "cooldown": 5
+          },
+          {
+            "time": 5.375,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2270
+          },
+          {
+            "time": 5.575,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2250
+          },
+          {
+            "time": 5.575,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.206312,
+            "cooldown": 0.4
+          },
+          {
+            "time": 6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 13,
+            "hp": 2237
+          },
+          {
+            "time": 6,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.4526,
+            "cooldown": 0.4
+          },
+          {
+            "time": 6.4,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 123
+          },
+          {
+            "time": 6.425,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2217
+          },
+          {
+            "time": 6.425,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.698887,
+            "cooldown": 0.4
+          },
+          {
+            "time": 6.425,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2212
+          },
+          {
+            "time": 6.85,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2192
+          },
+          {
+            "time": 6.85,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 72.945175,
+            "cooldown": 0.4
+          },
+          {
+            "time": 7.275,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2172
+          },
+          {
+            "time": 7.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 73.191462,
+            "cooldown": 0.4
+          },
+          {
+            "time": 7.5,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2167
+          },
+          {
+            "time": 7.7,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2147
+          },
+          {
+            "time": 7.7,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 73.43775,
+            "cooldown": 0.4
+          },
+          {
+            "time": 7.9,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 96
+          },
+          {
+            "time": 7.925,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 49,
+            "hp": 2098
+          },
+          {
+            "time": 7.925,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 56.562037,
+            "cooldown": 7
+          },
+          {
+            "time": 8.2,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2078
+          },
+          {
+            "time": 8.2,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 56.716825,
+            "cooldown": 0.4
+          },
+          {
+            "time": 8.575,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 1,
+            "hp": 2077
+          },
+          {
+            "time": 8.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 29,
+            "hp": 2048
+          },
+          {
+            "time": 8.625,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 67.963112,
+            "cooldown": 0.4
+          },
+          {
+            "time": 9.05,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2028
+          },
+          {
+            "time": 9.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 68.2094,
+            "cooldown": 0.4
+          },
+          {
+            "time": 9.475,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 2008
+          },
+          {
+            "time": 9.475,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 68.455687,
+            "cooldown": 0.4
+          },
+          {
+            "time": 9.525,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 69
+          },
+          {
+            "time": 9.65,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 2003
+          },
+          {
+            "time": 9.9,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1983
+          },
+          {
+            "time": 9.9,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 68.701975,
+            "cooldown": 0.4
+          },
+          {
+            "time": 10.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1963
+          },
+          {
+            "time": 10.325,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 68.948262,
+            "cooldown": 0.4
+          },
+          {
+            "time": 10.6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 61,
+            "hp": 1902
+          },
+          {
+            "time": 10.6,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 57.10305,
+            "cooldown": 5
+          },
+          {
+            "time": 10.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 1897
+          },
+          {
+            "time": 10.875,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1877
+          },
+          {
+            "time": 10.875,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 57.257837,
+            "cooldown": 0.4
+          },
+          {
+            "time": 11.125,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 42
+          },
+          {
+            "time": 11.3,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1857
+          },
+          {
+            "time": 11.3,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 57.504125,
+            "cooldown": 0.4
+          },
+          {
+            "time": 11.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1837
+          },
+          {
+            "time": 11.725,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 57.750412,
+            "cooldown": 0.4
+          },
+          {
+            "time": 11.8,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 1832
+          },
+          {
+            "time": 12.15,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1812
+          },
+          {
+            "time": 12.15,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 68.9967,
+            "cooldown": 0.4
+          },
+          {
+            "time": 12.575,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 13,
+            "hp": 1799
+          },
+          {
+            "time": 12.575,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 69.242987,
+            "cooldown": 0.4
+          },
+          {
+            "time": 12.85,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 1794
+          },
+          {
+            "time": 13,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 19,
+            "hp": 1775
+          },
+          {
+            "time": 13,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 69.489275,
+            "cooldown": 0.4
+          },
+          {
+            "time": 13.275,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 15
+          },
+          {
+            "time": 13.425,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1755
+          },
+          {
+            "time": 13.425,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 69.735562,
+            "cooldown": 0.4
+          },
+          {
+            "time": 13.85,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1735
+          },
+          {
+            "time": 13.85,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 69.98185,
+            "cooldown": 0.4
+          },
+          {
+            "time": 13.925,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 5,
+            "hp": 1730
+          },
+          {
+            "time": 14.275,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1710
+          },
+          {
+            "time": 14.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 70.228137,
+            "cooldown": 0.4
+          },
+          {
+            "time": 14.7,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 20,
+            "hp": 1690
+          },
+          {
+            "time": 14.7,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 70.474425,
+            "cooldown": 0.4
+          },
+          {
+            "time": 14.775,
+            "type": "hurt",
+            "amount": 15,
+            "absorbed": 0,
+            "hp": 0
+          },
+          {
+            "time": 14.775,
+            "type": "runtime",
+            "event": "death"
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "rat",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "oath",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "rat",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 0.025,
+        "ttk": 0.025,
+        "metrics": {
+          "damage": 104,
+          "damageReceived": 0,
+          "dps": 4160,
+          "peakOneSecondDamage": 104,
+          "remainingHP": 341,
+          "remainingMP": 61.002288,
+          "mpSpent": 12,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1
+          },
+          "damageByKind": {
+            "skill": 104
+          },
+          "damageBySource": {
+            "q": 104
+          },
+          "enemyInitialHP": 104,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "rat",
+            "maxHP": 104,
+            "tier": 1,
+            "player": {
+              "hp": 331,
+              "mp": 73,
+              "atk": 52.4,
+              "crit": 0.0625,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.68,
+              "haste": 0,
+              "manaRegen": 0.61,
+              "reduction": 0.1,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 84,
+              "damage": 8,
+              "speed": 165,
+              "aggro": 250,
+              "reach": 53,
+              "wind": 0.38,
+              "cooldown": 1.35,
+              "leash": 530
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 104,
+            "hp": -6
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 61,
+            "cooldown": 5
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "wolf",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "oath",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "wolf",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 1,
+        "ttk": 1,
+        "metrics": {
+          "damage": 224,
+          "damageReceived": 0,
+          "dps": 224,
+          "peakOneSecondDamage": 189,
+          "remainingHP": 331,
+          "remainingMP": 44.584075,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1,
+            "attack": 2,
+            "e": 1
+          },
+          "damageByKind": {
+            "skill": 110,
+            "hit": 114
+          },
+          "damageBySource": {
+            "q": 110,
+            "attack": 114
+          },
+          "enemyInitialHP": 224,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "wolf",
+            "maxHP": 224,
+            "tier": 1,
+            "player": {
+              "hp": 331,
+              "mp": 73,
+              "atk": 52.4,
+              "crit": 0.0625,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.68,
+              "haste": 0,
+              "manaRegen": 0.61,
+              "reduction": 0.1,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 180,
+              "damage": 14,
+              "speed": 184,
+              "aggro": 280,
+              "reach": 62,
+              "wind": 0.46,
+              "cooldown": 1.45,
+              "leash": 590,
+              "lungeRange": 220,
+              "lungeWind": 0.66,
+              "lungeCooldown": 6.5
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 110,
+            "hp": 114
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 61,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 79,
+            "hp": 35
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 61.154788,
+            "cooldown": 0.68
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 44.279075,
+            "cooldown": 7
+          },
+          {
+            "time": 1,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 35,
+            "hp": -17
+          },
+          {
+            "time": 1,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 44.584075,
+            "cooldown": 0.68
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "guard",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "oath",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "guard",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 2.45,
+        "ttk": 2.45,
+        "metrics": {
+          "damage": 310,
+          "damageReceived": 0,
+          "dps": 126.530612,
+          "peakOneSecondDamage": 189,
+          "remainingHP": 331,
+          "remainingMP": 55.44265,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1,
+            "attack": 4,
+            "e": 1
+          },
+          "damageByKind": {
+            "skill": 110,
+            "hit": 200
+          },
+          "damageBySource": {
+            "q": 110,
+            "attack": 200
+          },
+          "enemyInitialHP": 310,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 1
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "guard",
+            "maxHP": 310,
+            "tier": 1,
+            "player": {
+              "hp": 331,
+              "mp": 73,
+              "atk": 52.4,
+              "crit": 0.0625,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.68,
+              "haste": 0,
+              "manaRegen": 0.61,
+              "reduction": 0.1,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 240,
+              "damage": 17,
+              "speed": 170,
+              "aggro": 265,
+              "reach": 66,
+              "wind": 0.55,
+              "cooldown": 1.55,
+              "leash": 610,
+              "rangedReach": 290,
+              "rangedWind": 0.82,
+              "rangedCooldown": 7
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 110,
+            "hp": 200
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 61,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 79,
+            "hp": 121
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 61.154788,
+            "cooldown": 0.68
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 44.279075,
+            "cooldown": 7
+          },
+          {
+            "time": 1,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 52,
+            "hp": 69
+          },
+          {
+            "time": 1,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 44.584075,
+            "cooldown": 0.68
+          },
+          {
+            "time": 1.725,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 52,
+            "hp": 17
+          },
+          {
+            "time": 1.725,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 55.013363,
+            "cooldown": 0.68
+          },
+          {
+            "time": 2.45,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 17,
+            "hp": -88
+          },
+          {
+            "time": 2.45,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 55.44265,
+            "cooldown": 0.68
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "oath",
+        "enemy": "captain",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "oath",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "captain",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "timeout",
+        "elapsed": 30,
+        "ttk": null,
+        "metrics": {
+          "damage": 1581,
+          "damageReceived": 349.2,
+          "dps": 52.7,
+          "peakOneSecondDamage": 128,
+          "remainingHP": 11.8,
+          "remainingMP": 8.690763,
+          "mpSpent": 82,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 4,
+            "attack": 43,
+            "e": 2,
+            "resonance": 1
+          },
+          "damageByKind": {
+            "skill": 266,
+            "hit": 1315
+          },
+          "damageBySource": {
+            "q": 266,
+            "attack": 1315
+          },
+          "enemyInitialHP": 2735,
+          "enemyRemainingHP": 1154,
+          "enemyAttacks": 16
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "captain",
+            "maxHP": 2735,
+            "tier": 1,
+            "player": {
+              "hp": 331,
+              "mp": 73,
+              "atk": 52.4,
+              "crit": 0.0625,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.68,
+              "haste": 0,
+              "manaRegen": 0.61,
+              "reduction": 0.1,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 1850,
+              "damage": 22,
+              "speed": 180,
+              "aggro": 410,
+              "reach": 85,
+              "wind": 0.65,
+              "cooldown": 1.45,
+              "leash": null
+            }
+          },
+          {
+            "time": 0,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 88,
+            "hp": 2647
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 61,
+            "cooldown": 5
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 36,
+            "hp": 2611
+          },
+          {
+            "time": 0.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 61.154788,
+            "cooldown": 0.68
+          },
+          {
+            "time": 0.5,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 44.279075,
+            "cooldown": 7
+          },
+          {
+            "time": 1,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2587
+          },
+          {
+            "time": 1,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 44.584075,
+            "cooldown": 0.68
+          },
+          {
+            "time": 1.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 48,
+            "hp": 2539
+          },
+          {
+            "time": 1.725,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 45.013363,
+            "cooldown": 0.68
+          },
+          {
+            "time": 2.45,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2515
+          },
+          {
+            "time": 2.45,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 45.44265,
+            "cooldown": 0.68
+          },
+          {
+            "time": 3.025,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 306.7
+          },
+          {
+            "time": 3.175,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2491
+          },
+          {
+            "time": 3.175,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 45.871938,
+            "cooldown": 0.68
+          },
+          {
+            "time": 3.9,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2467
+          },
+          {
+            "time": 3.9,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 46.301225,
+            "cooldown": 0.68
+          },
+          {
+            "time": 4.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 16,
+            "hp": 2451
+          },
+          {
+            "time": 4.625,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 46.730513,
+            "cooldown": 0.68
+          },
+          {
+            "time": 5.125,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 282.4
+          },
+          {
+            "time": 5.175,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 76,
+            "hp": 2375
+          },
+          {
+            "time": 5.175,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 35.05305,
+            "cooldown": 5
+          },
+          {
+            "time": 5.45,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 36,
+            "hp": 2339
+          },
+          {
+            "time": 5.45,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 35.207838,
+            "cooldown": 0.68
+          },
+          {
+            "time": 6.175,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2315
+          },
+          {
+            "time": 6.175,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 35.637125,
+            "cooldown": 0.68
+          },
+          {
+            "time": 6.75,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 268.1
+          },
+          {
+            "time": 6.9,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2291
+          },
+          {
+            "time": 6.9,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 36.066413,
+            "cooldown": 0.68
+          },
+          {
+            "time": 7.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2267
+          },
+          {
+            "time": 7.625,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 36.4957,
+            "cooldown": 0.68
+          },
+          {
+            "time": 7.85,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 19.619988,
+            "cooldown": 7
+          },
+          {
+            "time": 8.35,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 48,
+            "hp": 2219
+          },
+          {
+            "time": 8.35,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 19.924988,
+            "cooldown": 0.68
+          },
+          {
+            "time": 9.075,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2195
+          },
+          {
+            "time": 9.075,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 20.354275,
+            "cooldown": 0.68
+          },
+          {
+            "time": 9.8,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2171
+          },
+          {
+            "time": 9.8,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 20.783563,
+            "cooldown": 0.68
+          },
+          {
+            "time": 9.875,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 243.8
+          },
+          {
+            "time": 10.35,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 51,
+            "hp": 2120
+          },
+          {
+            "time": 10.35,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 9.1061,
+            "cooldown": 5
+          },
+          {
+            "time": 10.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2096
+          },
+          {
+            "time": 10.625,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 9.260888,
+            "cooldown": 0.68
+          },
+          {
+            "time": 11.35,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2072
+          },
+          {
+            "time": 11.35,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 9.690175,
+            "cooldown": 0.68
+          },
+          {
+            "time": 12.075,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 16,
+            "hp": 2056
+          },
+          {
+            "time": 12.075,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 10.119463,
+            "cooldown": 0.68
+          },
+          {
+            "time": 12.15,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 229.5
+          },
+          {
+            "time": 12.8,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2032
+          },
+          {
+            "time": 12.8,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 10.54875,
+            "cooldown": 0.68
+          },
+          {
+            "time": 13.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 2008
+          },
+          {
+            "time": 13.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 10.978038,
+            "cooldown": 0.68
+          },
+          {
+            "time": 13.6,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 205.2
+          },
+          {
+            "time": 14.25,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1984
+          },
+          {
+            "time": 14.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 11.407325,
+            "cooldown": 0.68
+          },
+          {
+            "time": 14.975,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1960
+          },
+          {
+            "time": 14.975,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 11.836613,
+            "cooldown": 0.68
+          },
+          {
+            "time": 15.175,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 180.9
+          },
+          {
+            "time": 15.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "q",
+            "amount": 51,
+            "hp": 1909
+          },
+          {
+            "time": 15.525,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 0.15915,
+            "cooldown": 5
+          },
+          {
+            "time": 15.8,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1885
+          },
+          {
+            "time": 15.8,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 0.313938,
+            "cooldown": 0.68
+          },
+          {
+            "time": 16.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1861
+          },
+          {
+            "time": 16.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 0.743225,
+            "cooldown": 0.68
+          },
+          {
+            "time": 16.9,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 166.6
+          },
+          {
+            "time": 17.25,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1837
+          },
+          {
+            "time": 17.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 1.172513,
+            "cooldown": 0.68
+          },
+          {
+            "time": 17.975,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1813
+          },
+          {
+            "time": 17.975,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 1.6018,
+            "cooldown": 0.68
+          },
+          {
+            "time": 18.7,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1789
+          },
+          {
+            "time": 18.7,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 2.031088,
+            "cooldown": 0.68
+          },
+          {
+            "time": 19.375,
+            "type": "hurt",
+            "amount": 34.2,
+            "absorbed": 0,
+            "hp": 132.4
+          },
+          {
+            "time": 19.425,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 59,
+            "hp": 1730
+          },
+          {
+            "time": 19.425,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 2.460375,
+            "cooldown": 0.68
+          },
+          {
+            "time": 20.15,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 59,
+            "hp": 1671
+          },
+          {
+            "time": 20.15,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 2.889663,
+            "cooldown": 0.68
+          },
+          {
+            "time": 20.875,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 59,
+            "hp": 1612
+          },
+          {
+            "time": 20.875,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 3.31895,
+            "cooldown": 0.68
+          },
+          {
+            "time": 21.25,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 108.1
+          },
+          {
+            "time": 21.6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 36,
+            "hp": 1576
+          },
+          {
+            "time": 21.6,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 3.748238,
+            "cooldown": 0.68
+          },
+          {
+            "time": 21.6,
+            "type": "use",
+            "key": "resonance",
+            "mpSpent": 0,
+            "mp": 3.748238,
+            "cooldown": 0
+          },
+          {
+            "time": 22.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1542
+          },
+          {
+            "time": 22.325,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 4.177525,
+            "cooldown": 0.578
+          },
+          {
+            "time": 22.8,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 83.8
+          },
+          {
+            "time": 22.925,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1508
+          },
+          {
+            "time": 22.925,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 4.530563,
+            "cooldown": 0.578
+          },
+          {
+            "time": 23.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1474
+          },
+          {
+            "time": 23.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 4.8836,
+            "cooldown": 0.578
+          },
+          {
+            "time": 24.125,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1440
+          },
+          {
+            "time": 24.125,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 5.236638,
+            "cooldown": 0.578
+          },
+          {
+            "time": 24.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1406
+          },
+          {
+            "time": 24.725,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 5.589675,
+            "cooldown": 0.578
+          },
+          {
+            "time": 25.225,
+            "type": "hurt",
+            "amount": 23.4,
+            "absorbed": 0,
+            "hp": 60.4
+          },
+          {
+            "time": 25.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1372
+          },
+          {
+            "time": 25.325,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 5.942713,
+            "cooldown": 0.578
+          },
+          {
+            "time": 25.925,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1338
+          },
+          {
+            "time": 25.925,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 6.29575,
+            "cooldown": 0.578
+          },
+          {
+            "time": 26.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1304
+          },
+          {
+            "time": 26.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 6.648788,
+            "cooldown": 0.578
+          },
+          {
+            "time": 26.75,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 36.1
+          },
+          {
+            "time": 27.125,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1270
+          },
+          {
+            "time": 27.125,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 7.001825,
+            "cooldown": 0.578
+          },
+          {
+            "time": 27.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1236
+          },
+          {
+            "time": 27.725,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 7.354863,
+            "cooldown": 0.578
+          },
+          {
+            "time": 28.3,
+            "type": "hurt",
+            "amount": 24.3,
+            "absorbed": 0,
+            "hp": 11.8
+          },
+          {
+            "time": 28.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 34,
+            "hp": 1202
+          },
+          {
+            "time": 28.325,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 7.7079,
+            "cooldown": 0.578
+          },
+          {
+            "time": 28.925,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1178
+          },
+          {
+            "time": 28.925,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 8.060938,
+            "cooldown": 0.68
+          },
+          {
+            "time": 29.65,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "attack",
+            "amount": 24,
+            "hp": 1154
+          },
+          {
+            "time": 29.65,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 8.490225,
+            "cooldown": 0.68
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "enemy": "rat",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "ember",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "rat",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 0.5,
+        "ttk": 0.5,
+        "metrics": {
+          "damage": 104,
+          "damageReceived": 0,
+          "dps": 208,
+          "peakOneSecondDamage": 104,
+          "remainingHP": 226,
+          "remainingMP": 125.32025,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1,
+            "attack": 1,
+            "e": 1
+          },
+          "damageByKind": {
+            "dot": 25,
+            "hit": 51,
+            "skill": 28
+          },
+          "damageBySource": {
+            "dot": 25,
+            "unattributed-projectile": 51,
+            "e": 28
+          },
+          "enemyInitialHP": 104,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "rat",
+            "maxHP": 104,
+            "tier": 1,
+            "player": {
+              "hp": 226,
+              "mp": 154,
+              "atk": 50.6,
+              "crit": 0.065,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.72,
+              "haste": 0,
+              "manaRegen": 0.7,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 84,
+              "damage": 8,
+              "speed": 165,
+              "aggro": 250,
+              "reach": 53,
+              "wind": 0.38,
+              "cooldown": 1.35,
+              "leash": 530
+            }
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 142,
+            "cooldown": 5
+          },
+          {
+            "time": 0.025,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 25,
+            "hp": 79
+          },
+          {
+            "time": 0.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 142.175,
+            "cooldown": 0.72
+          },
+          {
+            "time": 0.3,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 51,
+            "hp": 28
+          },
+          {
+            "time": 0.475,
+            "type": "damage",
+            "target": "lab-rat",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 28,
+            "hp": -123
+          },
+          {
+            "time": 0.475,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 125.317625,
+            "cooldown": 7
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "enemy": "wolf",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "ember",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "wolf",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 0.5,
+        "ttk": 0.5,
+        "metrics": {
+          "damage": 224,
+          "damageReceived": 0,
+          "dps": 448,
+          "peakOneSecondDamage": 224,
+          "remainingHP": 226,
+          "remainingMP": 125.32025,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1,
+            "attack": 1,
+            "e": 1
+          },
+          "damageByKind": {
+            "dot": 25,
+            "hit": 51,
+            "skill": 148
+          },
+          "damageBySource": {
+            "dot": 25,
+            "unattributed-projectile": 51,
+            "e": 148
+          },
+          "enemyInitialHP": 224,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "wolf",
+            "maxHP": 224,
+            "tier": 1,
+            "player": {
+              "hp": 226,
+              "mp": 154,
+              "atk": 50.6,
+              "crit": 0.065,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.72,
+              "haste": 0,
+              "manaRegen": 0.7,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 180,
+              "damage": 14,
+              "speed": 184,
+              "aggro": 280,
+              "reach": 62,
+              "wind": 0.46,
+              "cooldown": 1.45,
+              "leash": 590,
+              "lungeRange": 220,
+              "lungeWind": 0.66,
+              "lungeCooldown": 6.5
+            }
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 142,
+            "cooldown": 5
+          },
+          {
+            "time": 0.025,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 25,
+            "hp": 199
+          },
+          {
+            "time": 0.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 142.175,
+            "cooldown": 0.72
+          },
+          {
+            "time": 0.275,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 51,
+            "hp": 148
+          },
+          {
+            "time": 0.475,
+            "type": "damage",
+            "target": "lab-wolf",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 148,
+            "hp": -3
+          },
+          {
+            "time": 0.475,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 125.317625,
+            "cooldown": 7
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "enemy": "guard",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "ember",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "guard",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "win",
+        "elapsed": 1.1,
+        "ttk": 1.1,
+        "metrics": {
+          "damage": 310,
+          "damageReceived": 0,
+          "dps": 281.818182,
+          "peakOneSecondDamage": 285,
+          "remainingHP": 226,
+          "remainingMP": 125.725375,
+          "mpSpent": 29,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 1,
+            "attack": 2,
+            "e": 1
+          },
+          "damageByKind": {
+            "dot": 25,
+            "hit": 100,
+            "skill": 185
+          },
+          "damageBySource": {
+            "dot": 25,
+            "unattributed-projectile": 134,
+            "e": 151
+          },
+          "enemyInitialHP": 310,
+          "enemyRemainingHP": 0,
+          "enemyAttacks": 0
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "guard",
+            "maxHP": 310,
+            "tier": 1,
+            "player": {
+              "hp": 226,
+              "mp": 154,
+              "atk": 50.6,
+              "crit": 0.065,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.72,
+              "haste": 0,
+              "manaRegen": 0.7,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 240,
+              "damage": 17,
+              "speed": 170,
+              "aggro": 265,
+              "reach": 66,
+              "wind": 0.55,
+              "cooldown": 1.55,
+              "leash": 610,
+              "rangedReach": 290,
+              "rangedWind": 0.82,
+              "rangedCooldown": 7
+            }
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 142,
+            "cooldown": 5
+          },
+          {
+            "time": 0.025,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 25,
+            "hp": 285
+          },
+          {
+            "time": 0.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 142.175,
+            "cooldown": 0.72
+          },
+          {
+            "time": 0.3,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 51,
+            "hp": 234
+          },
+          {
+            "time": 0.475,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 151,
+            "hp": 83
+          },
+          {
+            "time": 0.475,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 125.317625,
+            "cooldown": 7
+          },
+          {
+            "time": 0.575,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "skill",
+            "origin": "unattributed-projectile",
+            "amount": 34,
+            "hp": 49
+          },
+          {
+            "time": 1.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 125.690375,
+            "cooldown": 0.72
+          },
+          {
+            "time": 1.1,
+            "type": "damage",
+            "target": "lab-guard",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 49,
+            "hp": -2
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    },
+    {
+      "config": {
+        "cls": "ember",
+        "enemy": "captain",
+        "level": 3,
+        "map": "warehouse",
+        "x": 760,
+        "y": 730,
+        "gearRarity": "common",
+        "seed": 42,
+        "duration": 30
+      },
+      "result": {
+        "config": {
+          "cls": "ember",
+          "level": 3,
+          "map": "warehouse",
+          "enemy": "captain",
+          "seed": 42,
+          "duration": 30,
+          "dt": 0.025,
+          "strategy": "combo",
+          "gearRarity": "common",
+          "skills": {
+            "q": 1,
+            "e": 1
+          },
+          "attrs": {
+            "str": 0,
+            "dex": 0,
+            "vit": 0,
+            "wis": 0
+          },
+          "potions": false,
+          "x": 760,
+          "y": 730
+        },
+        "outcome": "loss",
+        "elapsed": 14.7,
+        "ttk": null,
+        "metrics": {
+          "damage": 779,
+          "damageReceived": 226,
+          "dps": 52.993197,
+          "peakOneSecondDamage": 135,
+          "remainingHP": 0,
+          "remainingMP": 96.947875,
+          "mpSpent": 67,
+          "shieldAbsorbed": 0,
+          "maxBleed": 0,
+          "uses": {
+            "q": 3,
+            "attack": 19,
+            "e": 2
+          },
+          "damageByKind": {
+            "dot": 176,
+            "hit": 445,
+            "skill": 158
+          },
+          "damageBySource": {
+            "dot": 176,
+            "unattributed-projectile": 479,
+            "e": 124
+          },
+          "enemyInitialHP": 2735,
+          "enemyRemainingHP": 1956,
+          "enemyAttacks": 9
+        },
+        "events": [
+          {
+            "time": 0,
+            "type": "start",
+            "enemy": "captain",
+            "maxHP": 2735,
+            "tier": 1,
+            "player": {
+              "hp": 226,
+              "mp": 154,
+              "atk": 50.6,
+              "crit": 0.065,
+              "critMultiplier": 1.5,
+              "speed": 205,
+              "attackRate": 0.72,
+              "haste": 0,
+              "manaRegen": 0.7,
+              "reduction": 0,
+              "healing": 1,
+              "affixes": [],
+              "independentGearHaste": 0
+            },
+            "profile": {
+              "hp": 1850,
+              "damage": 22,
+              "speed": 180,
+              "aggro": 410,
+              "reach": 85,
+              "wind": 0.65,
+              "cooldown": 1.45,
+              "leash": null
+            }
+          },
+          {
+            "time": 0,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 142,
+            "cooldown": 5
+          },
+          {
+            "time": 0.025,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2719
+          },
+          {
+            "time": 0.25,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 142.175,
+            "cooldown": 0.72
+          },
+          {
+            "time": 0.325,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2696
+          },
+          {
+            "time": 0.475,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 69,
+            "hp": 2627
+          },
+          {
+            "time": 0.475,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 17,
+            "mp": 125.317625,
+            "cooldown": 7
+          },
+          {
+            "time": 0.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "unattributed-projectile",
+            "amount": 16,
+            "hp": 2611
+          },
+          {
+            "time": 1.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 125.690375,
+            "cooldown": 0.72
+          },
+          {
+            "time": 1.125,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2588
+          },
+          {
+            "time": 1.35,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 199
+          },
+          {
+            "time": 1.8,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 126.2005,
+            "cooldown": 0.72
+          },
+          {
+            "time": 1.875,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2565
+          },
+          {
+            "time": 2.55,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 126.710625,
+            "cooldown": 0.72
+          },
+          {
+            "time": 2.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2542
+          },
+          {
+            "time": 2.9,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 172
+          },
+          {
+            "time": 3.3,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 127.22075,
+            "cooldown": 0.72
+          },
+          {
+            "time": 3.375,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2519
+          },
+          {
+            "time": 4.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 127.730875,
+            "cooldown": 0.72
+          },
+          {
+            "time": 4.125,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2496
+          },
+          {
+            "time": 4.45,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 145
+          },
+          {
+            "time": 4.8,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 128.241,
+            "cooldown": 0.72
+          },
+          {
+            "time": 4.875,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 35,
+            "hp": 2461
+          },
+          {
+            "time": 5.2,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 116.506125,
+            "cooldown": 5
+          },
+          {
+            "time": 5.225,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2445
+          },
+          {
+            "time": 5.55,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 116.751125,
+            "cooldown": 0.72
+          },
+          {
+            "time": 5.625,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 35,
+            "hp": 2410
+          },
+          {
+            "time": 5.95,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2394
+          },
+          {
+            "time": 6.3,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 117.26125,
+            "cooldown": 0.72
+          },
+          {
+            "time": 6.375,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 15,
+            "hp": 2379
+          },
+          {
+            "time": 6.55,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 118
+          },
+          {
+            "time": 6.675,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2363
+          },
+          {
+            "time": 7.05,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 117.771375,
+            "cooldown": 0.72
+          },
+          {
+            "time": 7.125,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2340
+          },
+          {
+            "time": 7.4,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2324
+          },
+          {
+            "time": 7.725,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "e",
+            "amount": 55,
+            "hp": 2269
+          },
+          {
+            "time": 7.725,
+            "type": "use",
+            "key": "e",
+            "mpSpent": 14,
+            "mp": 104.229,
+            "cooldown": 7
+          },
+          {
+            "time": 7.875,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "skill",
+            "origin": "unattributed-projectile",
+            "amount": 18,
+            "hp": 2251
+          },
+          {
+            "time": 8.025,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 104.40925,
+            "cooldown": 0.72
+          },
+          {
+            "time": 8.025,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 91
+          },
+          {
+            "time": 8.1,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2228
+          },
+          {
+            "time": 8.775,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 104.919375,
+            "cooldown": 0.72
+          },
+          {
+            "time": 8.85,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2205
+          },
+          {
+            "time": 9.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 105.4295,
+            "cooldown": 0.72
+          },
+          {
+            "time": 9.575,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 64
+          },
+          {
+            "time": 9.6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2182
+          },
+          {
+            "time": 10.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 105.939625,
+            "cooldown": 0.72
+          },
+          {
+            "time": 10.35,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2159
+          },
+          {
+            "time": 10.5,
+            "type": "use",
+            "key": "q",
+            "mpSpent": 12,
+            "mp": 94.08225,
+            "cooldown": 5
+          },
+          {
+            "time": 10.525,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2143
+          },
+          {
+            "time": 11.025,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 94.44975,
+            "cooldown": 0.72
+          },
+          {
+            "time": 11.1,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2120
+          },
+          {
+            "time": 11.15,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 37
+          },
+          {
+            "time": 11.25,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2104
+          },
+          {
+            "time": 11.775,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 94.959875,
+            "cooldown": 0.72
+          },
+          {
+            "time": 11.85,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2081
+          },
+          {
+            "time": 11.975,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2065
+          },
+          {
+            "time": 12.525,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 95.47,
+            "cooldown": 0.72
+          },
+          {
+            "time": 12.6,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 15,
+            "hp": 2050
+          },
+          {
+            "time": 12.7,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 2034
+          },
+          {
+            "time": 13.25,
+            "type": "hurt",
+            "amount": 27,
+            "absorbed": 0,
+            "hp": 10
+          },
+          {
+            "time": 13.275,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 95.980125,
+            "cooldown": 0.72
+          },
+          {
+            "time": 13.35,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 2011
+          },
+          {
+            "time": 13.425,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 1995
+          },
+          {
+            "time": 14.025,
+            "type": "use",
+            "key": "attack",
+            "mpSpent": 0,
+            "mp": 96.49025,
+            "cooldown": 0.72
+          },
+          {
+            "time": 14.1,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "hit",
+            "origin": "unattributed-projectile",
+            "amount": 23,
+            "hp": 1972
+          },
+          {
+            "time": 14.15,
+            "type": "damage",
+            "target": "lab-captain",
+            "kind": "dot",
+            "origin": "dot",
+            "amount": 16,
+            "hp": 1956
+          },
+          {
+            "time": 14.7,
+            "type": "hurt",
+            "amount": 10,
+            "absorbed": 0,
+            "hp": 0
+          },
+          {
+            "time": 14.7,
+            "type": "runtime",
+            "event": "death"
+          }
+        ],
+        "limits": [
+          "Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated",
+          "Strategies are scripted input policies, not measured human skill or full-chapter completion rates",
+          "Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time",
+          "Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths",
+          "Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws",
+          "Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved"
+        ]
+      }
+    }
+  ]
+}

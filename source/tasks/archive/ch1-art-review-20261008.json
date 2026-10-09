@@ -1,0 +1,231 @@
+{
+  "schema": 1,
+  "id": "ch1-art-review-20261008",
+  "goal": "试玩第一章并追踪美术、交互、战斗表现根因，交付可执行改造prompt；不改运行代码",
+  "acceptance": [
+    "留存真实浏览器试玩路径与截图；区分连续试玩和隔离场景；每项诊断关联实际代码；交付明确资产、实现、兼容和视觉验收标准"
+  ],
+  "baseline_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+  "modules": [
+    "art",
+    "combat"
+  ],
+  "status": "complete",
+  "created_at_utc": "2026-10-08T14:55:57.088979+00:00",
+  "updated_at_utc": "2026-10-09T06:18:31.623077+00:00",
+  "decisions": [
+    "只新增诊断与prompt，不实施游戏改造；不接管既有V29未完成任务",
+    "当前Git树与origin/main一致；README指向的docs/v29/RELEASE.md缺失，V29任务仍active，CURRENT_STATE浏览器状态待核验，不能把示范区当最终发行验收",
+    "已复现V29 Node专项既有失败：ch5Arcade可行走网格598与基线590不同；11/12通过，不修改测试或地图来掩盖。V29隔离Lv3浏览器任务往返与读档已通过，与从新档首章主线试玩分开报告"
+  ],
+  "completed": [
+    "完成harness索引语义/技能/兼容约束审查；保存实际基线；已从真实UI开新档进入会馆与库房",
+    "会馆→库房六鼠/墙板→委托→旧王道狼群与邮袋→白榆城门卫→礼拜厅刺杀演出→水渠，真实鼠标/快捷键输入，未免伤或直接伤害",
+    "诊断报告、实现方向、连续新档输入记录、11图对照与明确限制已保存docs/v30；首领尝试死亡如实记录，改造另由immersion任务承接"
+  ],
+  "remaining": [],
+  "blockers": [],
+  "next": "No required task work remains",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T15:02:17.268862+00:00",
+      "finished_at_utc": "2026-10-08T15:02:26.090779+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "152f07f576ffba5033e68c0257930cd0750684145e1897569b8b36a442cb8f09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/001-fast.txt",
+      "output_sha256": "6c9e1ebcdccd6b4e5480d1f8c34161a745ddf88b769039c6af0402a8bb6d5a56"
+    },
+    {
+      "label": "world-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-08T15:02:26.143493+00:00",
+      "finished_at_utc": "2026-10-08T15:02:26.981522+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "152f07f576ffba5033e68c0257930cd0750684145e1897569b8b36a442cb8f09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/002-world-node.txt",
+      "output_sha256": "138773d75e2b0e23d487beeb0d8877afd60ceb62693ff011cca8deee685a431b"
+    },
+    {
+      "label": "v29-browser",
+      "command": [
+        "node",
+        "tests/browser-world-v29.mjs",
+        "--output",
+        "qa-export/ch1-playtest-20261008/v29-replay"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-08T15:03:12.899814+00:00",
+      "finished_at_utc": "2026-10-08T15:04:32.149144+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "152f07f576ffba5033e68c0257930cd0750684145e1897569b8b36a442cb8f09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/003-v29-browser.txt",
+      "output_sha256": "3aab26d2263d2c9ea2a76325c0dd508c801b46b97ae3d4ce439e108283921291"
+    },
+    {
+      "label": "verification",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T05:09:34.190329+00:00",
+      "finished_at_utc": "2026-10-09T05:09:35.231457+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "9934cfcc5da4acc9a3d1021e272f5682aff7d163fbe3fa95f7d249daf08533de",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/004-verification.txt",
+      "output_sha256": "8664a03959ce855516f5c4109f42f0e3f09758c3b3cbca2502681bbbbb0c689f"
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T05:11:26.024958+00:00",
+      "finished_at_utc": "2026-10-09T05:13:33.874084+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "b3ee49d5bdb0e3ff51e92a30405fb338611f14771d1fc213feff6af66bf06f12",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/005-integration.txt",
+      "output_sha256": "6e4c461cece539e9e121875ced42ae18c2173a4579ee89053e6e739b7d40e070"
+    },
+    {
+      "label": "verification",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:01:01.420884+00:00",
+      "finished_at_utc": "2026-10-09T06:01:02.436471+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "e5334bcf963e77b4deecd68049161c404a28a2596287318afbf427f332c14d09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/006-verification.txt",
+      "output_sha256": "91ed584dc602a06b2b5861c16af7c765a3d62d28c46153693053cec8cb140b77"
+    },
+    {
+      "label": "offline-build",
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/v30-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:01:34.689129+00:00",
+      "finished_at_utc": "2026-10-09T06:02:01.123087+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "e5334bcf963e77b4deecd68049161c404a28a2596287318afbf427f332c14d09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/007-offline-build.txt",
+      "output_sha256": "1d5688a64628795b2d8571be9b431009e2eff5863af57c8cfc8513fcd58dd150"
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "qa-export/qa-venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/v30-build",
+        "--out",
+        "qa-export/v30-packaged-ui"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-09T06:03:02.834606+00:00",
+      "finished_at_utc": "2026-10-09T06:03:09.711922+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "e5334bcf963e77b4deecd68049161c404a28a2596287318afbf427f332c14d09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/008-packaged-ui.txt",
+      "output_sha256": "0fd1cef5193d4dcc616ea5eb01aab95e63b2766ccf3bfaf3c789d6e198d101c7"
+    },
+    {
+      "label": "offline-build",
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/v30-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:08:33.567859+00:00",
+      "finished_at_utc": "2026-10-09T06:08:35.387714+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/009-offline-build.txt",
+      "output_sha256": "e82769ccf06343f7dc48f8b7583eaac3da1c6a5c61e4b491000c48d83830aab4"
+    },
+    {
+      "label": "verification",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:12:15.161115+00:00",
+      "finished_at_utc": "2026-10-09T06:12:16.130328+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/010-verification.txt",
+      "output_sha256": "9896c2b2b18b52cca148d658978310e82aa12251edbf19dc962e7545e107c97f"
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "qa-export/qa-venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/v30-build",
+        "--out",
+        "qa-export/v30-packaged-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T06:13:15.683107+00:00",
+      "finished_at_utc": "2026-10-09T06:14:18.074688+00:00",
+      "head_commit": "e77f6d71413d8f6cd6c2e34bcfa7c305df89826d",
+      "source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-art-review-20261008/011-packaged-ui.txt",
+      "output_sha256": "c7e8341fba15d278eb0f518355aab06aa96c3c8b8d9d23902e19969ddd5a53d4"
+    }
+  ],
+  "summary": "真实试玩、代码根因、修改方向与最终验收口径已交付；实现由ch1-immersion-20261008承接，未接管V29历史任务",
+  "completed_at_utc": "2026-10-09T06:18:31.746387+00:00",
+  "verified_source_fingerprint": "735160873e82acc71a83e6037e14919a7a3db4147d2ea60bfb73c3eae10cf058"
+}

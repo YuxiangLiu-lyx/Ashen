@@ -1,0 +1,43 @@
+✔ all four demo maps connect every visible exit, NPC and actionable object (58.157625ms)
+✔ operation faces the object, delays the effect, and movement cancels it (6.972166ms)
+✔ actual damage and skills cancel an operation, and a wall rejects remote use (1.397208ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (4.805708ms)
+✔ accepted and discovery-first routes both return once, retain rewards and persistent state (10.940583ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (1.621875ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (4.356917ms)
+✔ new state round trips and rejects malformed records; old state remains optional (1.47125ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.227708ms)
+✔ legacy player in a new footprint is repaired only during restore (1.499292ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (2.697916ms)
+✖ other 114 maps retain baseline navigation and interaction diagnostics (592.435292ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 796.120167
+
+✖ failing tests:
+
+test at tests/world-v29.test.mjs:65:1
+✖ other 114 maps retain baseline navigation and interaction diagnostics (592.435292ms)
+  AssertionError [ERR_ASSERTION]: ch5Arcade
+  
+  598 !== 590
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/world-v29.test.mjs:67:160)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 598,
+    expected: 590,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

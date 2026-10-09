@@ -1,0 +1,338 @@
+{
+  "at": "2026-10-09T06:03:50.053Z",
+  "scope": "Continuous new-game mouse/keyboard route through commission, rats, road, town, chapel and captain attempt. Boss outcome recorded; no claim of full campaign completion.",
+  "steps": [
+    {
+      "name": "01-hall",
+      "state": {
+        "mode": "play",
+        "map": "hall",
+        "p": {
+          "x": 685,
+          "y": 535,
+          "hp": 170,
+          "mp": 84,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {},
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "02-warehouse",
+      "state": {
+        "mode": "play",
+        "map": "warehouse",
+        "p": {
+          "x": 230,
+          "y": 540,
+          "hp": 170,
+          "mp": 84,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {
+          "rats": "active"
+        },
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "03-rat-combat",
+      "outcome": "clear",
+      "state": {
+        "mode": "play",
+        "map": "warehouse",
+        "p": {
+          "x": 824.6941594624251,
+          "y": 757.4206901592753,
+          "hp": 122,
+          "mp": 33.75780920000006,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {
+          "rats": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "04-road",
+      "state": {
+        "mode": "play",
+        "map": "road",
+        "p": {
+          "x": 230,
+          "y": 550,
+          "hp": 183,
+          "mp": 86,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          }
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "05-wolves",
+      "outcome": "clear",
+      "state": {
+        "mode": "play",
+        "map": "road",
+        "p": {
+          "x": 1142.819855588737,
+          "y": 660.7809787914258,
+          "hp": 105,
+          "mp": 56.147128150000256,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active",
+          "letter": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          }
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "06-town",
+      "state": {
+        "mode": "play",
+        "map": "town",
+        "p": {
+          "x": 750.5847698838858,
+          "y": 407.57526753710124,
+          "hp": 105,
+          "mp": 59.80694514999999,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active",
+          "letter": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "07-chapel",
+      "state": {
+        "mode": "play",
+        "map": "chapel",
+        "p": {
+          "x": 1389.9999999999964,
+          "y": 639.999999999999,
+          "hp": 216,
+          "mp": 88,
+          "level": 3
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "done",
+          "letter": "active",
+          "escape": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true,
+          "assassination": true
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "08-alley",
+      "state": {
+        "mode": "play",
+        "map": "alley",
+        "p": {
+          "x": 850,
+          "y": 290,
+          "hp": 216,
+          "mp": 88,
+          "level": 3
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "done",
+          "letter": "active",
+          "escape": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true,
+          "assassination": true
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "08-canal",
+      "state": {
+        "mode": "play",
+        "map": "canal",
+        "p": {
+          "x": 940,
+          "y": 560,
+          "hp": 216,
+          "mp": 88,
+          "level": 3
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "done",
+          "letter": "active",
+          "escape": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true,
+          "assassination": true,
+          "captainStarted": true
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "09-captain",
+      "outcome": "loss",
+      "state": {
+        "mode": "death",
+        "map": "canal",
+        "p": {
+          "x": 1040.9507474522923,
+          "y": 513.4073473297115,
+          "hp": 0,
+          "mp": 52.294084349997235,
+          "level": 3
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "done",
+          "letter": "active",
+          "escape": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true,
+          "assassination": true,
+          "captainStarted": true
+        },
+        "transition": null
+      }
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,66 @@
+✔ native species is independent of V28 player-level skin fields (0.500083ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.233125ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.135125ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.798125ms)
+✔ footprint validation and segment clipping handle boundaries (0.33ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.181208ms)
+✔ arch posts block sides without sealing the central doorway (0.087167ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (1.614917ms)
+✔ walk phase advances with travelled distance, not wall time (0.192459ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.255917ms)
+✔ resting/carry transfers never receive fake walking limbs (0.076333ms)
+✔ all 24 rare gear IDs have appearance signatures (0.068625ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.29825ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.271583ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.247292ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.460542ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (17.209625ms)
+✔ all nine later-chapter/class checkpoints construct and restore (301.271291ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (187.379458ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (2875.887375ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.603792ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.21ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.246125ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (65.152125ms)
+✔ operation faces the object, delays the effect, and movement cancels it (6.576375ms)
+✔ actual damage and skills cancel an operation, and a wall rejects remote use (1.120875ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (4.481917ms)
+✔ accepted and discovery-first routes both return once, retain rewards and persistent state (11.813083ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (1.546667ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (4.572333ms)
+✔ new state round trips and rejects malformed records; old state remains optional (1.802291ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.218125ms)
+✔ legacy player in a new footprint is repaired only during restore (1.773209ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (1.383625ms)
+✖ other 114 maps retain baseline navigation and interaction diagnostics (605.503125ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 34
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3530.646042
+
+✖ failing tests:
+
+test at tests/world-v29.test.mjs:65:1
+✖ other 114 maps retain baseline navigation and interaction diagnostics (605.503125ms)
+  AssertionError [ERR_ASSERTION]: ch5Arcade
+  
+  598 !== 590
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/world-v29.test.mjs:67:160)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 598,
+    expected: 590,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

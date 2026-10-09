@@ -1,14 +1,15 @@
 import {DEMO_MAPS_V29} from './world-design-v29.js';
 import {WORLD_DIALOGUES_V29} from './world-dialogues-v29.js';
 const demo=new Set(DEMO_MAPS_V29), distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
-const operations=new WeakMap(), feedback=new WeakMap();
+const feedback=new WeakMap();
 const fresh=()=>({schema:1,seen:[]});
 export function validateWorldSaveV29(save){
  const value=save.flags?.worldV29;if(value===undefined)return;
  if(!value||Array.isArray(value)||value.schema!==1||Object.keys(value).some(k=>!['schema','seen'].includes(k))||!Array.isArray(value.seen)||value.seen.length>64||new Set(value.seen).size!==value.seen.length||value.seen.some(k=>typeof k!=='string'||!/^[-a-z0-9]{1,64}$/.test(k)))throw Error('磨坊探索记录不完整。原存档应保留后再重试。');
 }
 const state=g=>g.flags.worldV29||(g.flags.worldV29=fresh());
-export const worldOperationV29=g=>operations.get(g)||null;
+// Retained for existing callers; interactions no longer create a timed operation.
+export const worldOperationV29=()=>null;
 export const worldFeedbackV29=g=>feedback.get(g)||[];
 export function worldPropVisibleV29(g,p){
  if(p.id==='v29-echo-core')return !!g.flags.echoWardenDefeated&&!g.flags.echoCoreFound;
@@ -25,7 +26,7 @@ export function worldProgressV29(g){
 
 export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
  const P=RPG.prototype;if(P.__worldV29)return;Object.defineProperty(P,'__worldV29',{value:true});Object.assign(DIALOGUES,WORLD_DIALOGUES_V29);
- const oldEnsure=P.ensureMap,oldEnter=P.enter,oldRestore=P.restore,oldTargets=P.targets,oldUse=P.useProp,oldInteract=P.interact,oldUpdate=P.update,oldChoose=P.chooseExtra,oldApply=P.applyExtra,oldMechanism=P.mechanismProp,oldGoal=P.questGoal,oldSave=P.canSave,oldReason=P.saveBlockReason,oldHurt=P.hurt,oldReward=P.takeEchoReward;
+ const oldEnsure=P.ensureMap,oldEnter=P.enter,oldRestore=P.restore,oldTargets=P.targets,oldUse=P.useProp,oldInteract=P.interact,oldUpdate=P.update,oldChoose=P.chooseExtra,oldApply=P.applyExtra,oldMechanism=P.mechanismProp,oldGoal=P.questGoal,oldReward=P.takeEchoReward;
  function migrate(g,id){
   if(!demo.has(id)||!g.states[id])return;
   const st=g.states[id],m=MAPS[id];state(g);
@@ -40,8 +41,8 @@ export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
   if(id==='echo'&&g.flags.echoWardenDefeated){const w=st.enemies.find(e=>e.id==='echo-warden');if(w){w.dead=true;w.hp=0;w.aiState='DEAD';}}
  }
  P.ensureMap=function(id){const result=oldEnsure.call(this,id);migrate(this,id);return result;};
- P.enter=function(...args){operations.delete(this);feedback.delete(this);const result=oldEnter.apply(this,args);migrate(this,this.map);return result;};
- P.restore=function(saved){validateWorldSaveV29(saved);operations.delete(this);feedback.delete(this);const result=oldRestore.call(this,saved);for(const id of DEMO_MAPS_V29)migrate(this,id);return result;};
+ P.enter=function(...args){feedback.delete(this);const result=oldEnter.apply(this,args);migrate(this,this.map);return result;};
+ P.restore=function(saved){validateWorldSaveV29(saved);feedback.delete(this);const result=oldRestore.call(this,saved);for(const id of DEMO_MAPS_V29)migrate(this,id);return result;};
  P.targets=function(){return oldTargets.call(this).filter(p=>worldPropVisibleV29(this,p));};
  P.worldCueV29=function(key,text){
   if(state(this).seen.includes(key))return false;state(this).seen.push(key);feedback.set(this,[...(feedback.get(this)||[]),{text,life:3.5,max:3.5}]);this.say(text);this.saveEvent();return true;
@@ -52,30 +53,19 @@ export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
   this.worldCueV29('warden-cleared','灰脊狼退倒在旧皮带旁。后槽露出来了，先把附近清稳。');
   return true;
  };
- P.canSave=function(){return !operations.has(this)&&oldSave.call(this);};
- P.saveBlockReason=function(){return operations.has(this)?'先放稳手里的东西，再保存。':oldReason.call(this);};
  P.interact=function(target=null){
   const t=target||this.nearby(),prop=t?.kind==='prop'&&this.props.find(p=>p.id===t.id);
   if(!prop?.worldInteractionV29)return oldInteract.call(this,target);
-  if(!this.active||this.pending||operations.has(this)||prop.broken||(prop.used&&!this.questPropNeeded?.(prop.id))||!worldPropVisibleV29(this,prop))return false;
+  if(!this.active||this.pending||prop.broken||(prop.used&&!this.questPropNeeded?.(prop.id))||!worldPropVisibleV29(this,prop))return false;
   const at={x:prop.interactX??prop.x,y:prop.interactY??prop.y};
   if(distance(this.p,at)>112||!this.clearLine(this.p,at,false)){this.say('绕到物件前面，站稳后再动手。');return false;}
   this.moveTo=null;this.p.moving=false;this.p.attackAnim=0;this.p.angle=Math.atan2(prop.y-this.p.y,prop.x-this.p.x);
-  operations.set(this,{id:prop.id,map:this.map,x:this.p.x,y:this.p.y,elapsed:0,duration:prop.worldInteractionV29.duration});
-  return true;
+  // Immediate commit; existing environmental feedback never locks movement or saving.
+  const result=this.useProp(prop.id);return result===false?false:true;
  };
- P.hurt=function(...args){const hp=this.p.hp,result=oldHurt.apply(this,args);if(this.p.hp<hp)operations.delete(this);return result;};
- const oldSkill=P.skill;P.skill=function(...args){operations.delete(this);return oldSkill.apply(this,args);};
  P.update=function(dt,input={}){
-  const op=operations.get(this);
-  if(op&&(!this.active||this.pending||this.p.hp<=0||op.map!==this.map||input.x||input.y||input.attack||distance(this.p,op)>10))operations.delete(this);
-  const running=operations.get(this);
-  const result=oldUpdate.call(this,dt,running?{}:input);
+  const result=oldUpdate.call(this,dt,input);
   const cues=feedback.get(this);if(cues)feedback.set(this,cues.map(c=>({...c,life:c.life-dt})).filter(c=>c.life>0));
-  if(running&&operations.get(this)===running&&this.active&&!this.pending){
-   running.elapsed+=dt;
-   if(running.elapsed>=running.duration){operations.delete(this);this.useProp(running.id);}
-  }
   if(!demo.has(this.map)||!this.active||this.pending)return result;
   if(this.map==='millpath'&&this.p.y>360&&this.p.y<520&&this.p.x>650&&this.p.x<930)this.worldCueV29('mill-warning','前院没有人声，水槽下却挂着刚扯断的皮带。');
   if(this.map==='echo'&&this.p.x>470&&this.p.x<650&&this.p.y<650)this.worldCueV29('pipe-warning','石台上的检修簿还干着。铜管从它旁边通向东岸。');

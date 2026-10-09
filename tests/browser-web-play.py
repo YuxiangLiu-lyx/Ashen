@@ -37,7 +37,7 @@ def run_case(browser,url,label,out,offline=False,remote=False):
         raise
     checks=['all_assets_loaded'];first_load=round(time.monotonic()-start,2)
     page.screenshot(path=str(out/(label+'-title.png')))
-    assert '0.28.1' in page.locator('#ui').inner_text()
+    assert '0.'+expected_version in page.locator('#ui').inner_text()
     page.locator('[data-act="select"]').click()
     assert page.locator('[data-class]').count()==3
     page.locator('[data-class="shadow"]').click();page.locator('[data-act="begin"]').click();advance_intro(page)
@@ -86,7 +86,8 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     context.close();return result
 
 if __name__=='__main__':
-    a=argparse.ArgumentParser();a.add_argument('--build',type=Path,default=ROOT/'web-build');a.add_argument('--remote');a.add_argument('--out',type=Path,default=ROOT/'qa-export/web-play');args=a.parse_args()
+    a=argparse.ArgumentParser();a.add_argument('--build',type=Path,default=ROOT/'web-build');a.add_argument('--remote');a.add_argument('--out',type=Path,default=ROOT/'qa-export/web-play');a.add_argument('--expected-version');args=a.parse_args()
+    expected_version=args.expected_version or str(json.loads((ROOT/'source/CURRENT_STATE.json').read_text())['product_version'])
     args.out.mkdir(parents=True,exist_ok=True)
     executable=os.environ.get('CHROME_BIN') or next((shutil.which(s) for s in ['google-chrome','chromium','google-chrome-stable'] if shutil.which(s)),None)
     if not executable:raise RuntimeError('Chrome or Chromium is required')
@@ -106,7 +107,7 @@ if __name__=='__main__':
                 assert page.locator('#joystick').is_visible();assert page.locator('.attack').is_visible()
                 page.screenshot(path=str(args.out/'mobile-landscape.png'));results.append({'case':'mobile-landscape','touch_controls_visible':True,'viewport':[844,390]});context.close()
             browser.close()
-        report={'version':'28.1','passed':True,'results':results,'scope':'Packaged file/HTTP entry, start, movement, combat, inventory, save/export and chapter test. Not an eight-chapter playthrough.'}
+        report={'version':expected_version,'passed':True,'results':results,'scope':'Packaged file/HTTP entry, start, movement, combat, inventory, save/export and chapter test. Not an eight-chapter playthrough.'}
         (args.out/'WEB_QA.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
         print(json.dumps(report,ensure_ascii=False,indent=2))
     except Exception as e:

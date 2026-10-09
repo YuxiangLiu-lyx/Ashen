@@ -1,6 +1,6 @@
 import {WORLD_REGIONS_V29} from './world-design-v29.js';
 import {WATERS,BRIDGES,BOUNDARIES} from './world-v14.js';
-import {worldOperationV29,worldFeedbackV29} from './world-runtime-v29.js';
+import {worldFeedbackV29} from './world-runtime-v29.js';
 
 const route=(c,points)=>{c.beginPath();c.moveTo(...points[0]);for(let i=1;i<points.length-1;i++){const a=points[i],b=points[i+1];c.quadraticCurveTo(...a,(a[0]+b[0])/2,(a[1]+b[1])/2);}c.lineTo(...points.at(-1));};
 const slab=(c,x,y,w,h,color)=>{c.fillStyle=color;c.fillRect(x,y,w,h);};
@@ -66,24 +66,17 @@ export function drawWorldSceneryV29(c,g,o){
  if(g.map!=='echo'||o.id!=='echo-machine-base')return;
  c.save();
  // A separate back-slot stays empty after extraction, including on a later visit.
- slab(c,1129,365,48,27,'#1a2522');c.strokeStyle='#9a875d';c.lineWidth=3;c.strokeRect(1129,365,48,27);
+ if(g.flags.echoCoreFound){c.fillStyle='#141e1c';c.beginPath();c.ellipse(1163,316,9,6,0,0,7);c.fill();c.strokeStyle='#766647';c.lineWidth=2;c.stroke();}
  if(g.flags.echoValve){c.fillStyle='#93b6a8';c.beginPath();c.arc(1239,281,5,0,7);c.fill();}
  c.restore();
 }
 export function drawWorldPropV29(c,g,p){
  if(g.map==='echo'&&p.action==='echoValve'){
-  c.save();c.translate(p.x,p.y-84);c.rotate(g.flags.echoValve?.7:-.45);c.strokeStyle='#302e28';c.lineWidth=8;c.beginPath();c.moveTo(-15,0);c.lineTo(15,0);c.stroke();c.strokeStyle=g.flags.echoValve?'#a4bbb0':'#b6a06e';c.lineWidth=4;c.stroke();c.restore();
+  c.save();c.translate(p.x,p.y-50);c.rotate(g.flags.echoValve?.7:-.45);c.strokeStyle='#302e28';c.lineWidth=8;c.beginPath();c.moveTo(-15,0);c.lineTo(15,0);c.stroke();c.strokeStyle=g.flags.echoValve?'#a4bbb0':'#b6a06e';c.lineWidth=4;c.stroke();c.restore();
  }
  if(p.id==='v29-repair-core'){
   c.save();c.strokeStyle=g.refineryUnlocked()?'#b1c6a1':'#b99b66';c.lineWidth=3;c.beginPath();c.moveTo(p.x-17,p.y-15);c.lineTo(p.x+17,p.y-10);c.stroke();c.restore();
  }
-}
-export function drawWorldActionV29(c,g){
- const op=worldOperationV29(g);if(!op)return;
- const p=g.p,t=g.props.find(p=>p.id===op.id);if(!t)return;
- c.save();c.strokeStyle='#d8c894';c.lineWidth=2;c.beginPath();c.arc(p.x,p.y+2,22,-Math.PI/2,-Math.PI/2+Math.PI*2*Math.min(1,op.elapsed/op.duration));c.stroke();
- // A small reach gesture keeps feedback at the actor, with no camera jump.
- const a=p.angle,sway=Math.sin(op.elapsed*15)*2;c.strokeStyle='#c4ac89';c.lineWidth=4;c.beginPath();c.moveTo(p.x+Math.cos(a)*9,p.y-36);c.lineTo(p.x+Math.cos(a)*21,p.y-35+Math.sin(a)*9+sway);c.stroke();c.restore();
 }
 export function drawWorldEffectsV29(c,g){
  if(g.map!=='echo')return;

@@ -1,3 +1,4 @@
+import {installChapterOneMotionV30} from './chapter-one-motion-v30.js';
 import {installWorldExplorationV29} from './world-runtime-v29.js';
 import {installPresentationPhysicsV281} from './presentation-physics-v281.js';
 import {CH5_VISUAL_FAMILIES as PRESENTATION_ALIASES_V281} from './chapter5-world-v14.js';
@@ -274,3 +275,5 @@ installCombatOverhaulV28(RPG,{loot,SKILLS,ITEMS});
 installPresentationPhysicsV281(RPG,{MAPS,SCENERY,aliases:PRESENTATION_ALIASES_V281,furniture:mapFurnitureV26,invalidateGeometry:invalidateSceneGeometryV281});
 
 installWorldExplorationV29(RPG,{MAPS,DIALOGUES});
+
+installChapterOneMotionV30(RPG);
