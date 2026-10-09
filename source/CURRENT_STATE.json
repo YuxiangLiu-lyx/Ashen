@@ -5,22 +5,22 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter_one_presentation_on_v29",
+  "snapshot_type": "v30_chapter_one_two_three_presentation_on_v29",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 193,
+  "runtime_modules": 195,
   "runtime_stylesheets": 7,
   "runtime_images": 126,
-  "runtime_resource_bytes": 279031527,
+  "runtime_resource_bytes": 279045158,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "BACKUP_STATUS.md; docs/v30/RELEASE.md. First-chapter 11-map presentation pass; existing map topology, hero and animal atlases retained. No complete campaign clear or site publication.",
-  "checked_at_utc": "2026-10-09T06:24:46.101777+00:00",
+  "known_limits": "BACKUP_STATUS.md; docs/v30/RELEASE.md; docs/chapter23/ACCEPTANCE.md. First-chapter 11-map and chapter-two/three 23-map presentation; original topology, enemy packs and combat formulas retained. No complete campaign clear or site publication.",
+  "checked_at_utc": "2026-10-09T07:47:09.882258+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "V30 fast/presentation/integration and file/HTTP/mobile packaged UI passed; continuous main route to captain attempted (loss), mill quest/save roundtrip passed",
+  "browser_qa_status": "V30 chapter23: fast and integration passed (69 Node, 15 Harness, 16 browser presentation, 14 exact browser/Lab parity); 23-map gallery and water mouse interaction/save roundtrip; offline/HTTP/mobile packaged UI passed",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -200,5 +200,37 @@
     "remote_verified_commit": "ed4a60f6618e283d937b52fbccb6f7dc04794b19",
     "remote_verified_at_utc": "2026-10-09T06:24:46.101777+00:00",
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/v30/GIT_SAVE.json source/CURRENT_STATE.json"
+  },
+  "chapter23": {
+    "status": "local acceptance complete; awaiting GitHub synchronization",
+    "task_id": "ch23-world-20261009",
+    "base_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+    "maps": 23,
+    "geometry_changed": false,
+    "combat_numbers_changed": false,
+    "original_assets_modified": false,
+    "save_schema": 15,
+    "evidence": "docs/chapter23/",
+    "site_deployed": false,
+    "checked_at_utc": "2026-10-09T07:47:09.882258+00:00",
+    "node_tests_passed": 69,
+    "harness_tests_passed": 15,
+    "browser_checks_passed": 16,
+    "browser_exact_parity_fixtures": 14,
+    "baseline_combat_parity_fixtures": 24,
+    "water_interaction_and_save_roundtrip": true,
+    "new_raster_assets": 0,
+    "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+    "packaged_ui": [
+      "offline file",
+      "HTTP",
+      "mobile landscape"
+    ],
+    "limitations": [
+      "Original rock/tree silhouettes and source enemy frames reused",
+      "No continuous chapter-two/three campaign clear",
+      "No site deployment",
+      "V29 original task remains unfinished independently"
+    ]
   }
 }

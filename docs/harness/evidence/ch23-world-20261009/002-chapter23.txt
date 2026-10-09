@@ -1,0 +1,92 @@
+✖ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (22.926667ms)
+✔ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (426.2255ms)
+✖ water interaction migration repairs visited old maps without moving actors or resetting claims (5.036792ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (1.680833ms)
+✖ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (1.265459ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.204792ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 3
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 574.47025
+
+✖ failing tests:
+
+test at tests/chapter23-v30.test.mjs:11:1
+✖ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (22.926667ms)
+  AssertionError [ERR_ASSERTION]: post
+  + actual - expected
+  
+    [
+      {
+        direction: '北',
+  +     gate: undefined,
+        label: '旅店后屋',
+        to: 'inn',
+        tx: 800,
+        ty: 875,
+        x: 800,
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:16:66)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 800, y: 395, to: 'inn', tx: 800, ty: 875, label: '旅店后屋', gate: undefined, direction: '北' }, { x: 1430, y: 650, to: 'bridge', tx: 230, ty: 600, label: '灰桥关道', gate: 'ch2-road' } ],
+    expected: [ { x: 800, y: 395, to: 'inn', tx: 800, ty: 875, label: '旅店后屋', direction: '北' }, { x: 1430, y: 650, to: 'bridge', tx: 230, ty: 600, label: '灰桥关道', gate: 'ch2-road' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter23-v30.test.mjs:23:1
+✖ water interaction migration repairs visited old maps without moving actors or resetting claims (5.036792ms)
+  AssertionError [ERR_ASSERTION]: restore must not mutate the source game
+  
+  495 !== 525
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:29:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 495,
+    expected: 525,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter23-v30.test.mjs:38:1
+✖ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (1.265459ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   dx: -3.4617051419245044,
+  +   dy: -1.0020725410834097,
+  +   life: 0.16
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:41:42)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { life: 0.16, dx: -3.4617051419245044, dy: -1.0020725410834097 },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

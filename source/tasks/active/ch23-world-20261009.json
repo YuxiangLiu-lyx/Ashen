@@ -1,0 +1,224 @@
+{
+  "schema": 1,
+  "id": "ch23-world-20261009",
+  "goal": "延续V29探索与V30表现优化第二、三章地图和敌人",
+  "acceptance": [
+    "第二三章地图与敌人有可审查的表现改善；所有原出口、任务、战斗数值与旧档兼容；真实渲染截图、专项与集成检查通过"
+  ],
+  "baseline_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+  "modules": [
+    "maps",
+    "art",
+    "lab"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-09T07:29:46.851179+00:00",
+  "updated_at_utc": "2026-10-09T07:48:06.646504+00:00",
+  "decisions": [
+    "实际基线为main 9eb851c / V30；沿用V29探索和V30第一章表现，覆盖第二章9图与第三章14图；不覆盖hellMemoryVillage回忆演出",
+    "先审计真实导航与出生点；表现复用原图和V30图集；战斗数值、奖励、剧情、任务和存档schema保持",
+    "基线有1个水壶交互点故障，精确修复坐标；原118图导航基线保留，只去除该诊断预期",
+    "初次存档测试误用snapshot活引用，改为实际JSON/parseSave往返；失败日志保留。画廊发现Boss倒地双重旋转，已统一只施加一次",
+    "staged审查仅原始Node失败日志有空白行尾；保留原始日志及哈希，不改证据字节。源代码diff whitespace检查通过，原始资产/档案无改动"
+  ],
+  "completed": [
+    "实现23图地表/灯光与敌人动作推广；灰桥水壶修复；初次专项和浏览器鼠标交互通过",
+    "最终fast、chapter23专项、integration、118图诊断、离线构建与file/HTTP/手机横屏UI全部通过；23图与8类敌人画廊已审；验收回执已保存"
+  ],
+  "remaining": [
+    "提交并推送GitHub main，核验远端后归档任务"
+  ],
+  "blockers": [],
+  "next": "审查staged差异，提交并同步main",
+  "required_checks": [
+    "fast",
+    "chapter23",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "before-capture",
+      "command": [
+        "node",
+        "tests/browser-chapter23.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:30:56.272988+00:00",
+      "finished_at_utc": "2026-10-09T07:31:10.231804+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "33fdefc04b11dc2b50e99db6df4249a2f067e8bc7c6eba499103dfd28737e727",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/001-before-capture.txt",
+      "output_sha256": "a01640f50d961f4771a6b657d1aba5dd8f479c746eb739e71dc8947dd583b3a1"
+    },
+    {
+      "label": "chapter23",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter23-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-09T07:36:17.129513+00:00",
+      "finished_at_utc": "2026-10-09T07:36:17.745189+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "76f40a1fabd26a412cf484506603a5f7119eb1de3da4b18193262f0288a10775",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/002-chapter23.txt",
+      "output_sha256": "b556ae976b8c1017845bb72a1d28790a7585096c9d781b31b02830bc56b49dc3"
+    },
+    {
+      "label": "after-capture",
+      "command": [
+        "node",
+        "tests/browser-chapter23.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:36:17.858322+00:00",
+      "finished_at_utc": "2026-10-09T07:36:31.839494+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "76f40a1fabd26a412cf484506603a5f7119eb1de3da4b18193262f0288a10775",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/ch23-world-20261009/003-after-capture.txt",
+      "output_sha256": "a01640f50d961f4771a6b657d1aba5dd8f479c746eb739e71dc8947dd583b3a1"
+    },
+    {
+      "label": "chapter23",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter23-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:37:37.537559+00:00",
+      "finished_at_utc": "2026-10-09T07:37:38.334022+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "f6ccf9dd95c0dfef1db4164a6b8454b52c8ef5bf7fbeadb1791e7e8532595c2a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/004-chapter23.txt",
+      "output_sha256": "9d153cea36f7801c3b7a36c2875ba6d274c3126c9be57a64f7f5a6ab28cef1d7"
+    },
+    {
+      "label": "browser-chapter23",
+      "command": [
+        "env",
+        "ASHEN_CAPTURE_OUTPUT=qa-export/chapter23/final",
+        "node",
+        "tests/browser-chapter23.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:39:16.073893+00:00",
+      "finished_at_utc": "2026-10-09T07:39:32.315063+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "fbc986b80fa57246b226ab8779c6566d388353071b992b97acc6f7c1780a7c7f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/005-browser-chapter23.txt",
+      "output_sha256": "a01640f50d961f4771a6b657d1aba5dd8f479c746eb739e71dc8947dd583b3a1"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:40:47.380983+00:00",
+      "finished_at_utc": "2026-10-09T07:40:55.816325+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/006-fast.txt",
+      "output_sha256": "aa1cb3210ff4d1ae9f0f525c6538a91a37bd222b99cfca59f03d315f20c63a83"
+    },
+    {
+      "label": "chapter23",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter23-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:40:55.869973+00:00",
+      "finished_at_utc": "2026-10-09T07:40:56.633176+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/007-chapter23.txt",
+      "output_sha256": "fb4ec722fdae46911abb38b047341cf341a966d443dd0aa762f63119a2b78867"
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:40:56.688650+00:00",
+      "finished_at_utc": "2026-10-09T07:43:07.617343+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/008-integration.txt",
+      "output_sha256": "56ef04c67484da1470bce7db32b2fe22be943a22e7df56cd821c0f12f823470a"
+    },
+    {
+      "label": "world-audit",
+      "command": [
+        "node",
+        "tools/world_audit.mjs",
+        "--output",
+        "docs/chapter23/qa/MAP_AUDIT.json"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:43:52.666504+00:00",
+      "finished_at_utc": "2026-10-09T07:43:53.436903+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/009-world-audit.txt",
+      "output_sha256": "11e2415bf0802cbbee002a39e5be43cef282f214dca5198ea690de9790164600"
+    },
+    {
+      "label": "build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/chapter23-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:43:53.493571+00:00",
+      "finished_at_utc": "2026-10-09T07:44:22.975189+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/010-build.txt",
+      "output_sha256": "b81cfd0cad6c74e272fc4c5acf6fa50c6f5119c1352fe54071586347d8948832"
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/chapter23-build",
+        "--out",
+        "qa-export/chapter23-packaged-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:44:23.040442+00:00",
+      "finished_at_utc": "2026-10-09T07:45:46.257471+00:00",
+      "head_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch23-world-20261009/011-packaged-ui.txt",
+      "output_sha256": "5fc61663072d0d66d31f4a5703dd5cce393f8d960fa3f5ef20abd9c9102ab79d"
+    }
+  ]
+}

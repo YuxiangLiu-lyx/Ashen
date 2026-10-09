@@ -1,3 +1,5 @@
+import {chapter23GroundV30,drawChapter23SceneryV30} from './chapter23-art-v30.js';
+import {chapterTwoV30} from './chapter23-design-v30.js';
 import {chapterGroundV30,drawChapterSceneryV30,chapterOneV30,chapterSceneryArtV30,installChapterFramesV30,drawChapterGuardV30} from './chapter-one-art-v30.js';
 import {applyMotionV30} from './chapter-one-motion-v30.js';
 import {worldGroundV29} from './world-art-v29.js';
@@ -45,7 +47,7 @@ export class ArtBank{
  cropped(name,index){const key=name+':'+index;if(this.urls[key])return this.urls[key];const f=this.frame(name,index);if(!f)return '';const c=document.createElement('canvas');c.width=f.w;c.height=f.h;c.getContext('2d').drawImage(this.images[name],f.x,f.y,f.w,f.h,0,0,f.w,f.h);return this.urls[key]=c.toDataURL();}
  portrait(name){const saga=sagaSpeakerPortraitV25(this,name);if(saga)return saga;const identity=identityPortraitV18(this,name);if(identity)return identity;name=name.replace(/^(管家|书记官|信使|药师|门卫|主祭)/,'');const p=SPEAKERS[name];return p?this.cropped(...p):null;}
  draw(c,name,index,x,y,w,h,anchor=.5){if(drawRomanceFrameV20(c,this,name,index,x,y,w))return;if(drawCityArtFrameV19(c,this,name,index,x,y,w))return;const f=this.frame(name,index);if(!f)return;if(name==='cityWorld'){const k=w/f.w,a=f.meta.anchorInSourceRect;c.drawImage(this.images[name],f.x,f.y,f.w,f.h,Math.round(x-a[0]*k),Math.round(y-a[1]*k),f.w*k,f.h*k);return;}if(['medicalProps','deepProps'].includes(name)){drawV11Frame(c,this,name,index,x,y,w/f.w);return;}c.drawImage(this.images[name],f.x,f.y,f.w,f.h,Math.round(x-w*anchor),Math.round(y-h),w,h);}
- ground(id){if(!this.grounds[id]){const hell=chapterGroundV30(this,id)||worldGroundV29(this,id)||hellGround(this,id);if(hell){this.grounds[id]=hell;while(Object.keys(this.grounds).length>3)delete this.grounds[Object.keys(this.grounds)[0]];return hell;}}if(this.grounds[id]){const hit=this.grounds[id];delete this.grounds[id];this.grounds[id]=hit;return hit;}const c=document.createElement('canvas');c.width=1600;c.height=1080;const cx=c.getContext('2d');cx.imageSmoothingEnabled=false;for(let y=0;y<1080;y+=64)for(let x=0;x<1600;x+=64){const f=this.frame('terrain',groundCell(id,x,y));cx.drawImage(this.images.terrain,f.cell.x,f.cell.y,f.cell.w,f.cell.h,x,y,64,64);}for(const [x,y,w,h] of WATERS[id]||[]){const f=this.frame('details',12),banked=['bridge','spillway'].includes(id);cx.save();if(banked)cx.filter='saturate(.35) brightness(.67)';cx.drawImage(this.images.details,f.x,f.y,f.w,f.h,x,y,w,h);cx.restore();if(banked){for(const edge of [x,x+w]){cx.fillStyle='#343c30aa';cx.fillRect(edge-11,y,22,h);for(let yy=y+18,i=0;yy<y+h;yy+=22,i++){const wide=28+(i%3)*5;this.draw(cx,'details',3,edge+(i%2?2:-2),yy,wide,25+(i%2)*3);}}}}for(const [x,y,w,h] of BOUNDARIES[id]||[]){cx.save();cx.beginPath();cx.rect(x,y,w,h);cx.clip();cx.fillStyle=['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id)?'#282c2e':'#243128';if(['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id))cx.fillRect(x,y,w,h);const indoor=['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id);if(indoor)for(let yy=y+80;yy<y+h+80;yy+=65)for(let xx=x+35;xx<x+w+80;xx+=indoor?115:110)this.draw(cx,'world',indoor?5:4,xx,yy,indoor?125:155,indoor?80:180);cx.restore();}if(id==='exile'){const fade=cx.createLinearGradient(750,0,1480,0);fade.addColorStop(0,'#24363800');fade.addColorStop(1,'#30474b99');cx.fillStyle=fade;cx.fillRect(750,150,850,810);}const b=BRIDGES[id];if(b)this.draw(cx,'details',8,b.x+b.w/2,b.y+b.h,b.w,b.h);this.grounds[id]=c;while(Object.keys(this.grounds).length>3)delete this.grounds[Object.keys(this.grounds)[0]];return c;}
+ ground(id){if(!this.grounds[id]){const hell=chapter23GroundV30(this,id)||chapterGroundV30(this,id)||worldGroundV29(this,id)||hellGround(this,id);if(hell){this.grounds[id]=hell;while(Object.keys(this.grounds).length>3)delete this.grounds[Object.keys(this.grounds)[0]];return hell;}}if(this.grounds[id]){const hit=this.grounds[id];delete this.grounds[id];this.grounds[id]=hit;return hit;}const c=document.createElement('canvas');c.width=1600;c.height=1080;const cx=c.getContext('2d');cx.imageSmoothingEnabled=false;for(let y=0;y<1080;y+=64)for(let x=0;x<1600;x+=64){const f=this.frame('terrain',groundCell(id,x,y));cx.drawImage(this.images.terrain,f.cell.x,f.cell.y,f.cell.w,f.cell.h,x,y,64,64);}for(const [x,y,w,h] of WATERS[id]||[]){const f=this.frame('details',12),banked=['bridge','spillway'].includes(id);cx.save();if(banked)cx.filter='saturate(.35) brightness(.67)';cx.drawImage(this.images.details,f.x,f.y,f.w,f.h,x,y,w,h);cx.restore();if(banked){for(const edge of [x,x+w]){cx.fillStyle='#343c30aa';cx.fillRect(edge-11,y,22,h);for(let yy=y+18,i=0;yy<y+h;yy+=22,i++){const wide=28+(i%3)*5;this.draw(cx,'details',3,edge+(i%2?2:-2),yy,wide,25+(i%2)*3);}}}}for(const [x,y,w,h] of BOUNDARIES[id]||[]){cx.save();cx.beginPath();cx.rect(x,y,w,h);cx.clip();cx.fillStyle=['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id)?'#282c2e':'#243128';if(['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id))cx.fillRect(x,y,w,h);const indoor=['hall','warehouse','chapel','canal','guestroom','workshop','echo','inn','spillway','chamber','bridgecellar','wellcrypt'].includes(id);if(indoor)for(let yy=y+80;yy<y+h+80;yy+=65)for(let xx=x+35;xx<x+w+80;xx+=indoor?115:110)this.draw(cx,'world',indoor?5:4,xx,yy,indoor?125:155,indoor?80:180);cx.restore();}if(id==='exile'){const fade=cx.createLinearGradient(750,0,1480,0);fade.addColorStop(0,'#24363800');fade.addColorStop(1,'#30474b99');cx.fillStyle=fade;cx.fillRect(750,150,850,810);}const b=BRIDGES[id];if(b)this.draw(cx,'details',8,b.x+b.w/2,b.y+b.h,b.w,b.h);this.grounds[id]=c;while(Object.keys(this.grounds).length>3)delete this.grounds[Object.keys(this.grounds)[0]];return c;}
 }
 // Gradient geometry/color is immutable and transformed when painted.
 // Reuse native vector paint so fractional coordinates and DPR are preserved.
@@ -59,10 +61,10 @@ function shadowGradientV13(c,w,alpha){
 export function footShadow(c,x,y,w=22,alpha=.3){c.save();c.translate(x,y);c.scale(1,.32);const gr=shadowGradientV13(c,w,alpha);c.fillStyle=gr;c.beginPath();c.arc(0,0,w,0,7);c.fill();c.restore();}
 export function drawScenery(c,bank,o,player=null,map=null){
  if(o.sheet==='details'&&o.asset===15)return;
- const replacement=chapterOneV30(map)?chapterSceneryArtV30(o):null;
+ const replacement=(chapterOneV30(map)||chapterTwoV30(map))?chapterSceneryArtV30(o):null;
  c.save();c.globalAlpha*=sceneryAlphaV26(bank,replacement?{...o,sheet:replacement.sheet,asset:replacement.index}:o,player);
  try{
-  if(drawChapterSceneryV30(c,bank,o,map))return;
+  if(drawChapter23SceneryV30(c,bank,o,map)||drawChapterSceneryV30(c,bank,o,map))return;
   if(drawRomancePropV20(c,bank,o))return;
   if(drawSocialFurnitureV20(c,bank,o,player))return;
   if(drawNativeCitySceneryV19(c,bank,o))return;
@@ -112,7 +114,7 @@ export function drawMonster(c,bank,a,time=0,options={}){
   a={...a,type:native,size:style.height};
   c.save();
   try{
-    if(options.natural)applyMotionV30(c,a,time,{reaction:options.reaction});
+    if(options.natural){applyMotionV30(c,a,time,{reaction:options.reaction});a={...a,fall:0};}
     if(options.natural&&drawChapterGuardV30(c,bank,a,style.height))return;
     if(!options.natural)drawMonsterOrnamentV281(c,source,style,time,true);
     c.save();
@@ -120,7 +122,7 @@ export function drawMonster(c,bank,a,time=0,options={}){
       const originalHeight={rat:39,wolf:62,bat:52,guard:80,captain:94,hellHound:62,hellSoul:88,hellGuard:95,hellJailer:142,deepHound:62,deepSoul:88,deepGuard:95,deepElite:95,ironScuttler:110,furnaceSentinel:132,odric:122,martha:114,severin:134,bloodDemon:180}[native]||base;
       const scale=style.height/originalHeight;
       c.translate(source.x,source.y);c.scale(scale,scale);c.translate(-source.x,-source.y);
-      if(!drawHellMonster(c,bank,a,time)){
+      if(!drawHellMonster(c,bank,a,time,options)){
         const {cfg,index}=monsterPoseV8(a,time),f=bank.frame(cfg.sheet,index);
         if(f?.meta){
           const m=f.meta,k=cfg.size/m.bodyHeight,lift=native==='bat'?25+Math.sin(time*2.4+(a.flapOffset||0))*.6:0;

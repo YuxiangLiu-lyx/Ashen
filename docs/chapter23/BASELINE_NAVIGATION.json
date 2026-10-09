@@ -1,0 +1,1528 @@
+{
+  "commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
+  "maps": [
+    {
+      "id": "post",
+      "name": "灰石驿站",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 530,
+      "connectedCells": 530,
+      "connectedRatio": 1,
+      "scenery": 43,
+      "targets": 4,
+      "enemies": 0,
+      "activityCoverage": 0.166,
+      "maxDistanceToActivity": 650,
+      "estimatedQuietSeconds": 3.61,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 800,
+          "y": 395,
+          "to": "inn",
+          "tx": 800,
+          "ty": 875,
+          "label": "旅店后屋",
+          "direction": "北"
+        },
+        {
+          "x": 1430,
+          "y": 650,
+          "to": "bridge",
+          "tx": 230,
+          "ty": 600,
+          "label": "灰桥关道",
+          "gate": "ch2-road"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "inn",
+      "name": "灰石旅店后屋",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 548,
+      "connectedCells": 548,
+      "connectedRatio": 1,
+      "scenery": 7,
+      "targets": 5,
+      "enemies": 0,
+      "activityCoverage": 0.248,
+      "maxDistanceToActivity": 530.1,
+      "estimatedQuietSeconds": 2.94,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 800,
+          "y": 940,
+          "to": "post",
+          "tx": 800,
+          "ty": 445,
+          "label": "驿站街道"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "bridge",
+      "name": "灰桥关道",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 448,
+      "connectedCells": 448,
+      "connectedRatio": 1,
+      "scenery": 55,
+      "targets": 7,
+      "enemies": 7,
+      "activityCoverage": 0.56,
+      "maxDistanceToActivity": 534.4,
+      "estimatedQuietSeconds": 2.97,
+      "unreachable": [
+        {
+          "id": "v9-bridge-water",
+          "kind": "prop",
+          "x": 1040,
+          "y": 525
+        }
+      ],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 600,
+          "to": "post",
+          "tx": 1340,
+          "ty": 650,
+          "label": "灰石驿站"
+        },
+        {
+          "x": 1430,
+          "y": 650,
+          "to": "manor",
+          "tx": 260,
+          "ty": 720,
+          "label": "运柴小门",
+          "gate": "ch2-manor"
+        },
+        {
+          "x": 980,
+          "y": 905,
+          "to": "bridgecellar",
+          "tx": 800,
+          "ty": 840,
+          "label": "石墙下的窄口",
+          "hidden": "v9CellarOpen",
+          "mapMarker": false,
+          "manualOnly": true
+        }
+      ],
+      "spawns": [
+        [
+          "rat",
+          390,
+          735,
+          "ch2-bridge-rat1"
+        ],
+        [
+          "rat",
+          530,
+          810,
+          "ch2-bridge-rat2"
+        ],
+        [
+          "bat",
+          470,
+          675,
+          "ch2-v9-bridge-bat-west"
+        ],
+        [
+          "wolf",
+          1020,
+          705,
+          "ch2-bridge-wolf1"
+        ],
+        [
+          "wolf",
+          1290,
+          875,
+          "ch2-bridge-wolf2"
+        ],
+        [
+          "bat",
+          1150,
+          680,
+          "ch2-bridge-bat"
+        ],
+        [
+          "rat",
+          980,
+          845,
+          "ch2-v9-bridge-rat-east"
+        ]
+      ]
+    },
+    {
+      "id": "manor",
+      "name": "枯井庄园外庭",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 517,
+      "connectedCells": 517,
+      "connectedRatio": 1,
+      "scenery": 48,
+      "targets": 5,
+      "enemies": 0,
+      "activityCoverage": 0.203,
+      "maxDistanceToActivity": 739.5,
+      "estimatedQuietSeconds": 4.11,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 720,
+          "to": "bridge",
+          "tx": 1340,
+          "ty": 650,
+          "label": "运柴小门",
+          "gate": "ch2-return"
+        },
+        {
+          "x": 280,
+          "y": 935,
+          "to": "spillway",
+          "tx": 260,
+          "ty": 700,
+          "label": "西墙泄水口",
+          "gate": "ch2-spill"
+        },
+        {
+          "x": 865,
+          "y": 505,
+          "to": "wellcrypt",
+          "tx": 800,
+          "ty": 830,
+          "label": "井壁踏孔",
+          "hidden": "v9WellOpen",
+          "mapMarker": false,
+          "manualOnly": true,
+          "isBossArena": true,
+          "bossId": "secret-warden",
+          "disableSaveDuringScene": true,
+          "requiresReturnWarning": true,
+          "transitionType": "boss"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "spillway",
+      "name": "庄园泄水沟",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 520,
+      "connectedCells": 520,
+      "connectedRatio": 1,
+      "scenery": 9,
+      "targets": 6,
+      "enemies": 7,
+      "activityCoverage": 0.612,
+      "maxDistanceToActivity": 412.5,
+      "estimatedQuietSeconds": 2.29,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 700,
+          "to": "manor",
+          "tx": 280,
+          "ty": 845,
+          "label": "庄园泄水口",
+          "gate": "ch2-sealed"
+        },
+        {
+          "x": 1430,
+          "y": 620,
+          "to": "exile",
+          "tx": 260,
+          "ty": 700,
+          "label": "荒地旧路",
+          "gate": "ch2-exile"
+        }
+      ],
+      "spawns": [
+        [
+          "guard",
+          470,
+          480,
+          "ch2-spill-guard1"
+        ],
+        [
+          "bat",
+          570,
+          715,
+          "ch2-spill-bat1"
+        ],
+        [
+          "rat",
+          380,
+          815,
+          "ch2-v9-spill-rat-west"
+        ],
+        [
+          "guard",
+          975,
+          555,
+          "ch2-spill-guard2"
+        ],
+        [
+          "guard",
+          1235,
+          710,
+          "ch2-v9-spill-guard-east"
+        ],
+        [
+          "bat",
+          1170,
+          420,
+          "ch2-spill-bat2"
+        ],
+        [
+          "rat",
+          1080,
+          735,
+          "ch2-spill-rat"
+        ]
+      ]
+    },
+    {
+      "id": "exile",
+      "name": "流放界口",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 616,
+      "connectedCells": 616,
+      "connectedRatio": 1,
+      "scenery": 43,
+      "targets": 2,
+      "enemies": 0,
+      "activityCoverage": 0.157,
+      "maxDistanceToActivity": 758,
+      "estimatedQuietSeconds": 4.21,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [],
+      "spawns": []
+    },
+    {
+      "id": "chamber",
+      "name": "庄园内室",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 586,
+      "connectedCells": 586,
+      "connectedRatio": 1,
+      "scenery": 6,
+      "targets": 0,
+      "enemies": 0,
+      "activityCoverage": 0,
+      "maxDistanceToActivity": 1600,
+      "estimatedQuietSeconds": 8.89,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [],
+      "spawns": []
+    },
+    {
+      "id": "bridgecellar",
+      "name": "桥下旧收费室",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 352,
+      "connectedCells": 352,
+      "connectedRatio": 1,
+      "scenery": 6,
+      "targets": 3,
+      "enemies": 0,
+      "activityCoverage": 0.27,
+      "maxDistanceToActivity": 488.3,
+      "estimatedQuietSeconds": 2.71,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 800,
+          "y": 880,
+          "to": "bridge",
+          "tx": 930,
+          "ty": 845,
+          "label": "爬回南沟",
+          "manualOnly": true
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "wellcrypt",
+      "name": "守井石室",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 361,
+      "connectedCells": 361,
+      "connectedRatio": 1,
+      "scenery": 7,
+      "targets": 3,
+      "enemies": 1,
+      "activityCoverage": 0.44,
+      "maxDistanceToActivity": 465.5,
+      "estimatedQuietSeconds": 2.59,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 800,
+          "y": 880,
+          "to": "manor",
+          "tx": 855,
+          "ty": 545,
+          "label": "井壁踏孔",
+          "gate": "v9-warden-exit",
+          "manualOnly": true
+        }
+      ],
+      "spawns": [
+        [
+          "wolf",
+          800,
+          455,
+          "secret-warden"
+        ]
+      ]
+    },
+    {
+      "id": "hellGate",
+      "name": "灰烬渡口",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 607,
+      "connectedCells": 607,
+      "connectedRatio": 1,
+      "scenery": 12,
+      "targets": 4,
+      "enemies": 8,
+      "activityCoverage": 0.402,
+      "maxDistanceToActivity": 666,
+      "estimatedQuietSeconds": 3.7,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 1430,
+          "y": 380,
+          "to": "hellApproach",
+          "tx": 280,
+          "ty": 760,
+          "label": "焚骨坡道",
+          "direction": "东北"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          600,
+          790,
+          "ch3-gate-1"
+        ],
+        [
+          "hellHound",
+          705,
+          760,
+          "ch3-gate-2"
+        ],
+        [
+          "hellSoul",
+          620,
+          680,
+          "ch3-gate-3"
+        ],
+        [
+          "hellSoul",
+          930,
+          550,
+          "ch3-gate-4"
+        ],
+        [
+          "hellSoul",
+          1030,
+          570,
+          "ch3-gate-5"
+        ],
+        [
+          "hellGuard",
+          1000,
+          475,
+          "ch3-gate-6"
+        ],
+        [
+          "hellHound",
+          1230,
+          735,
+          "ch3-gate-7"
+        ],
+        [
+          "hellSoul",
+          1270,
+          650,
+          "ch3-gate-8"
+        ]
+      ]
+    },
+    {
+      "id": "hellWall",
+      "name": "哭墙荒径",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 602,
+      "connectedCells": 602,
+      "connectedRatio": 1,
+      "scenery": 12,
+      "targets": 4,
+      "enemies": 10,
+      "activityCoverage": 0.485,
+      "maxDistanceToActivity": 462.4,
+      "estimatedQuietSeconds": 2.57,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 740,
+          "to": "hellSluice",
+          "tx": 1320,
+          "ty": 340,
+          "label": "烬潮闸道",
+          "direction": "西南",
+          "gate": "v11-sluice-cleared"
+        },
+        {
+          "x": 1430,
+          "y": 365,
+          "to": "hellCamp",
+          "tx": 280,
+          "ty": 590,
+          "label": "余烬营地",
+          "direction": "东北"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          490,
+          770,
+          "ch3-wall-1"
+        ],
+        [
+          "hellSoul",
+          540,
+          720,
+          "ch3-wall-2"
+        ],
+        [
+          "hellSoul",
+          620,
+          820,
+          "ch3-wall-3"
+        ],
+        [
+          "hellSoul",
+          610,
+          350,
+          "ch3-wall-4"
+        ],
+        [
+          "hellSoul",
+          730,
+          290,
+          "ch3-wall-5"
+        ],
+        [
+          "hellGuard",
+          820,
+          350,
+          "ch3-wall-6"
+        ],
+        [
+          "hellSoul",
+          1110,
+          650,
+          "ch3-wall-7"
+        ],
+        [
+          "hellSoul",
+          1225,
+          635,
+          "ch3-wall-8"
+        ],
+        [
+          "hellHound",
+          1160,
+          540,
+          "ch3-wall-9"
+        ],
+        [
+          "hellGuard",
+          1280,
+          575,
+          "ch3-wall-10"
+        ]
+      ]
+    },
+    {
+      "id": "hellCamp",
+      "name": "余烬营地",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 584,
+      "connectedCells": 584,
+      "connectedRatio": 1,
+      "scenery": 12,
+      "targets": 10,
+      "enemies": 0,
+      "activityCoverage": 0.346,
+      "maxDistanceToActivity": 634.1,
+      "estimatedQuietSeconds": 3.52,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 590,
+          "to": "hellWall",
+          "tx": 1320,
+          "ty": 365,
+          "label": "哭墙荒径",
+          "direction": "西"
+        },
+        {
+          "x": 650,
+          "y": 180,
+          "to": "hellGrotto",
+          "tx": 510,
+          "ty": 830,
+          "label": "盐骨苔窟",
+          "direction": "北"
+        },
+        {
+          "x": 1430,
+          "y": 780,
+          "to": "hellWorkshop",
+          "tx": 280,
+          "ty": 760,
+          "label": "沉钟工坊",
+          "direction": "东南"
+        },
+        {
+          "x": 810,
+          "y": 940,
+          "to": "hellFerry",
+          "tx": 810,
+          "ty": 290,
+          "label": "黑潮渡岸",
+          "direction": "南"
+        },
+        {
+          "x": 1430,
+          "y": 350,
+          "to": "hellPass",
+          "tx": 280,
+          "ty": 740,
+          "label": "焚风回廊",
+          "direction": "东北",
+          "gate": "ch3-after-heal"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "hellGrotto",
+      "name": "盐骨苔窟",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 605,
+      "connectedCells": 605,
+      "connectedRatio": 1,
+      "scenery": 13,
+      "targets": 5,
+      "enemies": 9,
+      "activityCoverage": 0.501,
+      "maxDistanceToActivity": 513.1,
+      "estimatedQuietSeconds": 2.85,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 510,
+          "y": 940,
+          "to": "hellCamp",
+          "tx": 650,
+          "ty": 285,
+          "label": "余烬营地",
+          "direction": "西南"
+        },
+        {
+          "x": 1430,
+          "y": 400,
+          "to": "hellMine",
+          "tx": 280,
+          "ty": 400,
+          "label": "无灯矿道",
+          "direction": "东"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          460,
+          610,
+          "ch3-grotto-1"
+        ],
+        [
+          "hellSoul",
+          540,
+          650,
+          "ch3-grotto-2"
+        ],
+        [
+          "hellHound",
+          400,
+          670,
+          "ch3-grotto-3"
+        ],
+        [
+          "hellSoul",
+          990,
+          700,
+          "ch3-grotto-4"
+        ],
+        [
+          "hellSoul",
+          1080,
+          630,
+          "ch3-grotto-5"
+        ],
+        [
+          "hellGuard",
+          1170,
+          690,
+          "ch3-grotto-6"
+        ],
+        [
+          "hellSoul",
+          950,
+          300,
+          "ch3-grotto-7"
+        ],
+        [
+          "hellHound",
+          1060,
+          290,
+          "ch3-grotto-8"
+        ],
+        [
+          "hellGuard",
+          1120,
+          420,
+          "ch3-grotto-9"
+        ]
+      ]
+    },
+    {
+      "id": "hellWorkshop",
+      "name": "沉钟工坊",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 599,
+      "connectedCells": 599,
+      "connectedRatio": 1,
+      "scenery": 10,
+      "targets": 6,
+      "enemies": 0,
+      "activityCoverage": 0.219,
+      "maxDistanceToActivity": 554.7,
+      "estimatedQuietSeconds": 3.08,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 760,
+          "to": "hellCamp",
+          "tx": 1320,
+          "ty": 780,
+          "label": "余烬营地",
+          "direction": "西南"
+        },
+        {
+          "x": 1100,
+          "y": 180,
+          "to": "hellMine",
+          "tx": 1100,
+          "ty": 830,
+          "label": "无灯矿道",
+          "direction": "北"
+        },
+        {
+          "x": 570,
+          "y": 940,
+          "to": "hellFerry",
+          "tx": 1320,
+          "ty": 400,
+          "label": "黑潮渡岸",
+          "direction": "南"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "hellMine",
+      "name": "无灯矿道",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 594,
+      "connectedCells": 594,
+      "connectedRatio": 1,
+      "scenery": 12,
+      "targets": 6,
+      "enemies": 10,
+      "activityCoverage": 0.603,
+      "maxDistanceToActivity": 428,
+      "estimatedQuietSeconds": 2.38,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 400,
+          "to": "hellGrotto",
+          "tx": 1320,
+          "ty": 400,
+          "label": "盐骨苔窟",
+          "direction": "西"
+        },
+        {
+          "x": 1100,
+          "y": 940,
+          "to": "hellWorkshop",
+          "tx": 1100,
+          "ty": 290,
+          "label": "沉钟工坊",
+          "direction": "东南"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          430,
+          500,
+          "ch3-mine-1"
+        ],
+        [
+          "hellGuard",
+          510,
+          450,
+          "ch3-mine-2"
+        ],
+        [
+          "hellHound",
+          440,
+          600,
+          "ch3-mine-3"
+        ],
+        [
+          "hellSoul",
+          690,
+          280,
+          "ch3-mine-4"
+        ],
+        [
+          "hellSoul",
+          800,
+          260,
+          "ch3-mine-5"
+        ],
+        [
+          "hellGuard",
+          860,
+          330,
+          "ch3-mine-6"
+        ],
+        [
+          "hellSoul",
+          1110,
+          590,
+          "ch3-mine-7"
+        ],
+        [
+          "hellGuard",
+          1210,
+          610,
+          "ch3-mine-8"
+        ],
+        [
+          "hellHound",
+          610,
+          820,
+          "ch3-mine-9"
+        ],
+        [
+          "hellSoul",
+          710,
+          810,
+          "ch3-mine-10"
+        ]
+      ]
+    },
+    {
+      "id": "hellFerry",
+      "name": "黑潮渡岸",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 605,
+      "connectedCells": 605,
+      "connectedRatio": 1,
+      "scenery": 11,
+      "targets": 8,
+      "enemies": 8,
+      "activityCoverage": 0.651,
+      "maxDistanceToActivity": 356.1,
+      "estimatedQuietSeconds": 1.98,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 810,
+          "y": 180,
+          "to": "hellCamp",
+          "tx": 810,
+          "ty": 830,
+          "label": "余烬营地",
+          "direction": "北"
+        },
+        {
+          "x": 1430,
+          "y": 400,
+          "to": "hellWorkshop",
+          "tx": 570,
+          "ty": 830,
+          "label": "沉钟工坊",
+          "direction": "东"
+        },
+        {
+          "x": 170,
+          "y": 720,
+          "to": "hellTomb",
+          "tx": 1320,
+          "ty": 720,
+          "label": "守灯墓室",
+          "direction": "西南",
+          "gate": "ch3-tomb",
+          "hidden": "ch3TombOpen"
+        }
+      ],
+      "spawns": [
+        [
+          "hellSoul",
+          760,
+          640,
+          "ch3-ferry-1"
+        ],
+        [
+          "hellHound",
+          820,
+          700,
+          "ch3-ferry-2"
+        ],
+        [
+          "hellSoul",
+          900,
+          660,
+          "ch3-ferry-3"
+        ],
+        [
+          "hellHound",
+          1110,
+          760,
+          "ch3-ferry-4"
+        ],
+        [
+          "hellSoul",
+          1210,
+          720,
+          "ch3-ferry-5"
+        ],
+        [
+          "hellGuard",
+          1180,
+          840,
+          "ch3-ferry-6"
+        ],
+        [
+          "hellSoul",
+          1110,
+          310,
+          "ch3-ferry-7"
+        ],
+        [
+          "hellGuard",
+          1180,
+          240,
+          "ch3-ferry-8"
+        ]
+      ]
+    },
+    {
+      "id": "hellPass",
+      "name": "焚风回廊",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 599,
+      "connectedCells": 599,
+      "connectedRatio": 1,
+      "scenery": 13,
+      "targets": 5,
+      "enemies": 12,
+      "activityCoverage": 0.544,
+      "maxDistanceToActivity": 467,
+      "estimatedQuietSeconds": 2.59,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 740,
+          "to": "hellCamp",
+          "tx": 1320,
+          "ty": 350,
+          "label": "余烬营地",
+          "direction": "西南",
+          "gate": "ch3-after-heal"
+        },
+        {
+          "x": 1430,
+          "y": 430,
+          "to": "hellArena",
+          "tx": 280,
+          "ty": 760,
+          "label": "锁链祭场",
+          "direction": "东"
+        },
+        {
+          "x": 1030,
+          "y": 180,
+          "to": "hellRift",
+          "tx": 460,
+          "ty": 830,
+          "label": "回声裂隙",
+          "direction": "北"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          480,
+          790,
+          "ch3-pass-1"
+        ],
+        [
+          "hellHound",
+          570,
+          825,
+          "ch3-pass-2"
+        ],
+        [
+          "hellSoul",
+          570,
+          720,
+          "ch3-pass-3"
+        ],
+        [
+          "hellSoul",
+          470,
+          390,
+          "ch3-pass-4"
+        ],
+        [
+          "hellSoul",
+          580,
+          330,
+          "ch3-pass-5"
+        ],
+        [
+          "hellGuard",
+          660,
+          400,
+          "ch3-pass-6"
+        ],
+        [
+          "hellHound",
+          870,
+          700,
+          "ch3-pass-7"
+        ],
+        [
+          "hellSoul",
+          960,
+          780,
+          "ch3-pass-8"
+        ],
+        [
+          "hellGuard",
+          1040,
+          700,
+          "ch3-pass-9"
+        ],
+        [
+          "hellSoul",
+          1270,
+          615,
+          "ch3-pass-10"
+        ],
+        [
+          "hellGuard",
+          1150,
+          655,
+          "ch3-pass-11"
+        ],
+        [
+          "hellGuard",
+          1180,
+          715,
+          "ch3-pass-12"
+        ]
+      ]
+    },
+    {
+      "id": "hellArena",
+      "name": "锁链祭场",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 601,
+      "connectedCells": 601,
+      "connectedRatio": 1,
+      "scenery": 11,
+      "targets": 3,
+      "enemies": 3,
+      "activityCoverage": 0.321,
+      "maxDistanceToActivity": 539.1,
+      "estimatedQuietSeconds": 2.99,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 760,
+          "to": "hellPass",
+          "tx": 1320,
+          "ty": 430,
+          "label": "焚风回廊",
+          "direction": "西南"
+        }
+      ],
+      "spawns": [
+        [
+          "hellGuard",
+          530,
+          590,
+          "ch3-arena-1"
+        ],
+        [
+          "hellGuard",
+          1100,
+          590,
+          "ch3-arena-2"
+        ],
+        [
+          "hellGuard",
+          1130,
+          810,
+          "ch3-arena-3"
+        ]
+      ]
+    },
+    {
+      "id": "hellTomb",
+      "name": "守灯墓室",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 593,
+      "connectedCells": 593,
+      "connectedRatio": 1,
+      "scenery": 11,
+      "targets": 4,
+      "enemies": 8,
+      "activityCoverage": 0.445,
+      "maxDistanceToActivity": 478,
+      "estimatedQuietSeconds": 2.66,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 1430,
+          "y": 720,
+          "to": "hellFerry",
+          "tx": 280,
+          "ty": 720,
+          "label": "黑潮渡岸",
+          "direction": "东南"
+        }
+      ],
+      "spawns": [
+        [
+          "hellSoul",
+          1110,
+          670,
+          "ch3-tomb-1"
+        ],
+        [
+          "hellGuard",
+          1130,
+          560,
+          "ch3-tomb-2"
+        ],
+        [
+          "hellSoul",
+          1040,
+          640,
+          "ch3-tomb-3"
+        ],
+        [
+          "hellHound",
+          760,
+          810,
+          "ch3-tomb-4"
+        ],
+        [
+          "hellSoul",
+          860,
+          820,
+          "ch3-tomb-5"
+        ],
+        [
+          "hellGuard",
+          920,
+          760,
+          "ch3-tomb-6"
+        ],
+        [
+          "hellSoul",
+          390,
+          460,
+          "ch3-tomb-7"
+        ],
+        [
+          "hellGuard",
+          420,
+          560,
+          "ch3-tomb-8"
+        ]
+      ]
+    },
+    {
+      "id": "hellRift",
+      "name": "回声裂隙",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 603,
+      "connectedCells": 603,
+      "connectedRatio": 1,
+      "scenery": 12,
+      "targets": 4,
+      "enemies": 0,
+      "activityCoverage": 0.26,
+      "maxDistanceToActivity": 729.6,
+      "estimatedQuietSeconds": 4.05,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 460,
+          "y": 940,
+          "to": "hellPass",
+          "tx": 1030,
+          "ty": 290,
+          "label": "焚风回廊",
+          "direction": "西南"
+        }
+      ],
+      "spawns": []
+    },
+    {
+      "id": "hellApproach",
+      "name": "焚骨坡道",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 613,
+      "connectedCells": 613,
+      "connectedRatio": 1,
+      "scenery": 13,
+      "targets": 4,
+      "enemies": 8,
+      "activityCoverage": 0.512,
+      "maxDistanceToActivity": 577.4,
+      "estimatedQuietSeconds": 3.21,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 760,
+          "to": "hellGate",
+          "tx": 1320,
+          "ty": 380,
+          "label": "灰烬渡口",
+          "direction": "西南"
+        },
+        {
+          "x": 1430,
+          "y": 350,
+          "to": "hellQuarry",
+          "tx": 280,
+          "ty": 760,
+          "label": "断镐采场",
+          "direction": "东北"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          555,
+          765,
+          "v11-approach-1"
+        ],
+        [
+          "hellHound",
+          630,
+          805,
+          "v11-approach-2"
+        ],
+        [
+          "hellSoul",
+          605,
+          695,
+          "v11-approach-3"
+        ],
+        [
+          "hellSoul",
+          590,
+          320,
+          "v11-approach-4"
+        ],
+        [
+          "hellSoul",
+          665,
+          270,
+          "v11-approach-5"
+        ],
+        [
+          "hellGuard",
+          710,
+          365,
+          "v11-approach-6"
+        ],
+        [
+          "hellHound",
+          1140,
+          685,
+          "v11-approach-7"
+        ],
+        [
+          "hellGuard",
+          1210,
+          755,
+          "v11-approach-8"
+        ]
+      ]
+    },
+    {
+      "id": "hellQuarry",
+      "name": "断镐采场",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 608,
+      "connectedCells": 608,
+      "connectedRatio": 1,
+      "scenery": 13,
+      "targets": 4,
+      "enemies": 8,
+      "activityCoverage": 0.535,
+      "maxDistanceToActivity": 430.1,
+      "estimatedQuietSeconds": 2.39,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 760,
+          "to": "hellApproach",
+          "tx": 1320,
+          "ty": 350,
+          "label": "焚骨坡道",
+          "direction": "西南"
+        },
+        {
+          "x": 1430,
+          "y": 350,
+          "to": "hellSluice",
+          "tx": 280,
+          "ty": 760,
+          "label": "烬潮闸道",
+          "direction": "东北",
+          "gate": "v11-quarry-cleared"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          510,
+          720,
+          "v11-quarry-1"
+        ],
+        [
+          "hellHound",
+          600,
+          765,
+          "v11-quarry-2"
+        ],
+        [
+          "hellGuard",
+          615,
+          655,
+          "v11-quarry-3"
+        ],
+        [
+          "hellSoul",
+          520,
+          295,
+          "v11-quarry-4"
+        ],
+        [
+          "hellHound",
+          600,
+          265,
+          "v11-quarry-5"
+        ],
+        [
+          "hellGuard",
+          655,
+          335,
+          "v11-quarry-6"
+        ],
+        [
+          "hellGuard",
+          1120,
+          790,
+          "v11-quarry-7"
+        ],
+        [
+          "hellSoul",
+          1210,
+          770,
+          "v11-quarry-8"
+        ]
+      ]
+    },
+    {
+      "id": "hellSluice",
+      "name": "烬潮闸道",
+      "kind": "existing",
+      "gridStep": 40,
+      "walkableCells": 612,
+      "connectedCells": 612,
+      "connectedRatio": 1,
+      "scenery": 14,
+      "targets": 4,
+      "enemies": 8,
+      "activityCoverage": 0.528,
+      "maxDistanceToActivity": 411.9,
+      "estimatedQuietSeconds": 2.29,
+      "unreachable": [],
+      "blockedEnemies": [],
+      "doors": [
+        {
+          "x": 170,
+          "y": 760,
+          "to": "hellQuarry",
+          "tx": 1320,
+          "ty": 350,
+          "label": "断镐采场",
+          "direction": "西南"
+        },
+        {
+          "x": 1430,
+          "y": 340,
+          "to": "hellWall",
+          "tx": 280,
+          "ty": 740,
+          "label": "哭墙荒径",
+          "direction": "东北",
+          "gate": "v11-sluice-cleared"
+        }
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          545,
+          775,
+          "v11-sluice-1"
+        ],
+        [
+          "hellSoul",
+          615,
+          820,
+          "v11-sluice-2"
+        ],
+        [
+          "hellHound",
+          640,
+          725,
+          "v11-sluice-3"
+        ],
+        [
+          "hellSoul",
+          470,
+          325,
+          "v11-sluice-4"
+        ],
+        [
+          "hellSoul",
+          545,
+          275,
+          "v11-sluice-5"
+        ],
+        [
+          "hellGuard",
+          590,
+          370,
+          "v11-sluice-6"
+        ],
+        [
+          "hellGuard",
+          1100,
+          800,
+          "v11-sluice-7"
+        ],
+        [
+          "hellSoul",
+          1200,
+          785,
+          "v11-sluice-8"
+        ]
+      ]
+    }
+  ]
+}

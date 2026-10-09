@@ -1,9 +1,11 @@
+import {chapterTwoV30,chapter23V30} from './chapter23-design-v30.js';
 // First-chapter presentation only. No map geometry, item IDs or rules are mutated.
 import {WORLD_REGIONS_V29} from './world-design-v29.js';
 import {BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
 export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','millpath','echo','workshop']);
 const maps=new Set(CHAPTER_ONE_MAPS_V30),wood=new Set(['hall','warehouse','workshop']),outdoor=new Set(['road','town','alley','grove','millpath']);
 export const chapterOneV30=id=>maps.has(id);
+export const immersiveWorldV30=id=>chapterOneV30(id)||chapter23V30(id);
 export const CHAPTER_ONE_LOADS_V30=[['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false]];
 const architecture={0:0,1:1,4:2,5:4,7:3},furniture={9:0,10:1,11:2,14:3,12:4};
 // Generated sheets are not a regular grid. These reviewed source partitions exclude
@@ -58,6 +60,8 @@ export function chapterSceneryArtV30(o){
  if(o.id==='pulpit')return {sheet:'chapterSettlement',index:3};
  if(o.sheet==='world'&&[2,3,8,13].includes(o.asset))return {sheet:'chapterSettlement',index:{2:0,3:1,8:2,13:7}[o.asset]};
  if(o.sheet==='details'&&o.asset===3)return {sheet:'chapterSettlement',index:8};
+ if(o.sheet==='qualityWorld'&&o.asset===3)return {sheet:'chapterSettlement',index:9};
+ if(o.sheet==='qualityWorld'&&o.asset===6)return {sheet:'chapterSettlement',index:2};
  if(o.id==='v29-road-cart'||o.sheet==='chapterProps'&&o.asset===7)return {sheet:'chapterSettlement',index:9};
  if(o.id==='echo-machine-base'||o.id==='reset-base')return {sheet:'chapterSettlement',index:10};
  if(['echo-entrance','echo-arch','shop-exit-frame'].includes(o.id))return {sheet:'chapterArchitecture',index:3};
@@ -146,10 +150,11 @@ export function chapterGroundV30(bank,id){
  return canvas;
 }
 export function drawChapterSceneryV30(c,bank,o,id){
- if(!chapterOneV30(id))return false;const art=chapterSceneryArtV30(o);if(!art)return false;
+ if(!chapterOneV30(id)&&!chapterTwoV30(id))return false;const art=chapterSceneryArtV30(o);if(!art)return false;
  c.save();
  // Contact shadow belongs to the object and shares its occlusion opacity.
  if(!o.flat){const w=Math.min(o.w*.43,150),h=Math.min(18,o.h*.08),shade=c.createRadialGradient(o.x,o.y-2,1,o.x,o.y-2,w);shade.addColorStop(0,'#0e111354');shade.addColorStop(1,'#0e111300');c.save();c.translate(o.x,o.y-2);c.scale(1,h/w);c.translate(-o.x,-o.y+2);c.fillStyle=shade;c.fillRect(o.x-w,o.y-2-w,w*2,w*2);c.restore();}
+ if(o.cold)c.filter='saturate(.25) brightness(.8)';
  if(art.sheet==='chapterArchitecture'&&art.index===2){
   // Tiny crown motion around the trunk; the foot pivot and hitbox stay still.
   const t=performance.now()/1000,angle=Math.sin(t*.7+o.x)*.003;c.translate(o.x,o.y);c.rotate(angle);if(Math.floor(o.x+o.y)%3===0)c.scale(-1,1);c.translate(-o.x,-o.y);

@@ -1,3 +1,4 @@
+import {BRIDGE_WATER_ANCHOR_V30} from './chapter23-design-v30.js';
 // Chapter-two additions only. Call before world collision assembly; no core import.
 const clone = value => JSON.parse(JSON.stringify(value));
 const art = (id, asset, x, y, w, h, box = null, sheet = 'world') => ({id, asset, x, y, w, h, box, sheet});
@@ -134,7 +135,7 @@ export const SECRET_PROP_PATCHES = {
   bridge:[
     interact('v9-cart-rope','cart-rope','坏车上松脱的绳头',1240,780,{interactX:1290,interactY:800,art:{sheet:'details',index:7,w:45,h:30}}),
     interact('v9-cellar-wall','cellar-wall','石墙下露出的铁环',940,920,{interactX:930,interactY:845,art:{sheet:'details',index:2,w:52,h:50}}),
-    interact('v9-bridge-water','bridge-water','搁在货物旁的水壶',1010,460,{interactX:1040,interactY:525,secret:false,art:{sheet:'world',index:13,w:37,h:40}}),
+    interact('v9-bridge-water','bridge-water','搁在货物旁的水壶',1010,460,{...BRIDGE_WATER_ANCHOR_V30,secret:false,art:{sheet:'world',index:13,w:37,h:40}}),
   ],
   manor:[
     interact('v9-well-rim','well-rim','井沿的三道浅槽',970,450,{interactX:970,interactY:525,art:null}),

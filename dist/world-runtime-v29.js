@@ -1,3 +1,4 @@
+import {repairChapter23AnchorsV30} from './chapter23-design-v30.js';
 import {DEMO_MAPS_V29} from './world-design-v29.js';
 import {WORLD_DIALOGUES_V29} from './world-dialogues-v29.js';
 const demo=new Set(DEMO_MAPS_V29), distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
@@ -28,6 +29,7 @@ export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
  const P=RPG.prototype;if(P.__worldV29)return;Object.defineProperty(P,'__worldV29',{value:true});Object.assign(DIALOGUES,WORLD_DIALOGUES_V29);
  const oldEnsure=P.ensureMap,oldEnter=P.enter,oldRestore=P.restore,oldTargets=P.targets,oldUse=P.useProp,oldInteract=P.interact,oldUpdate=P.update,oldChoose=P.chooseExtra,oldApply=P.applyExtra,oldMechanism=P.mechanismProp,oldGoal=P.questGoal,oldReward=P.takeEchoReward;
  function migrate(g,id){
+  if(id==='bridge')repairChapter23AnchorsV30(g);
   if(!demo.has(id)||!g.states[id])return;
   const st=g.states[id],m=MAPS[id];state(g);
   if(st.layoutV29!==1){
@@ -42,7 +44,7 @@ export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
  }
  P.ensureMap=function(id){const result=oldEnsure.call(this,id);migrate(this,id);return result;};
  P.enter=function(...args){feedback.delete(this);const result=oldEnter.apply(this,args);migrate(this,this.map);return result;};
- P.restore=function(saved){validateWorldSaveV29(saved);feedback.delete(this);const result=oldRestore.call(this,saved);for(const id of DEMO_MAPS_V29)migrate(this,id);return result;};
+ P.restore=function(saved){validateWorldSaveV29(saved);feedback.delete(this);const result=oldRestore.call(this,saved);for(const id of DEMO_MAPS_V29)migrate(this,id);repairChapter23AnchorsV30(this);return result;};
  P.targets=function(){return oldTargets.call(this).filter(p=>worldPropVisibleV29(this,p));};
  P.worldCueV29=function(key,text){
   if(state(this).seen.includes(key))return false;state(this).seen.push(key);feedback.set(this,[...(feedback.get(this)||[]),{text,life:3.5,max:3.5}]);this.say(text);this.saveEvent();return true;
