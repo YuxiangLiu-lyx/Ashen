@@ -43,3 +43,5 @@ CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' .venv/
 ```
 
 打包依赖沿用`requirements-qa.lock.txt`。离线文件名为兼容旧下载沿用`Ashen-V28.1-Play.html`，实际内容版本以构建清单和标题的30为准。构建清单如实记录基线HEAD及dirty=true，并通过运行输入哈希关联本轮改动，不冒充已经发布的网站版本。
+
+Git保存：实现提交[`95ddeb3`](https://github.com/YuxiangLiu-lyx/Ashen/commit/95ddeb39be5ada127a8994a0f15034ffe7660bdc)已推送GitHub main，并以ls-remote核验一致。[同步回执](GIT_SAVE.json)。后续回执/任务归档提交不改变已验收的源码指纹。未发布网站。
