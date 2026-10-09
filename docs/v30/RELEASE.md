@@ -44,3 +44,5 @@ python3 tests/browser-web-play.py --build qa-export/v30-build --out qa-export/v3
 构建/UI依赖来自`requirements-qa.lock.txt`，浏览器使用Chrome（macOS可设置CHROME_BIN）。对照图直接打开`visual-review.html`；游戏用`python3 tools/serve.py`启动。构建清单中dirty=true如实记录验收时的未提交工作树；后续Git保存回执通过源码指纹关联这次检查，不冒充已发布网站。
 
 验收口径补充：`qa/BROWSER_QA.json`的version=28.1是沿用的表现回归套件标签；本轮实际执行时间、源码指纹及产品版本以本文件、任务日志和CURRENT_STATE为准。打包产物版本与UI已实际核对为30。
+
+Git保存：实现提交[`ed4a60f`](https://github.com/YuxiangLiu-lyx/Ashen/commit/ed4a60f6618e283d937b52fbccb6f7dc04794b19)已推送main，ls-remote核验一致；[同步回执](GIT_SAVE.json)。随后仅补充验收元数据与任务归档，测试源码指纹保持不变。
