@@ -13,13 +13,14 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T06:52:59.484547+00:00",
-  "updated_at_utc": "2026-10-10T07:39:06.021522+00:00",
+  "updated_at_utc": "2026-10-10T08:03:39.673779+00:00",
   "decisions": [
     "开工已从0988489同步至5e289bc；发现远端0.3局部增强稿与用户本次完整重构prompt冲突，已请求范围澄清；先完整审读两章和审计稳定运行，不恢复旧试点",
     "用户回答按仓库0.3稿，只做局部增强；保留原18行、任务、地图几何与章界；交手仅演出，不新增圣女实战；不恢复旧试点",
     "CG遵循原礼拜厅空间，原角色母版；原任务对白保留，原文件字节不覆盖；生成资产尚待视觉与游戏内验收",
     "用户确认重点为追兵外观、动作与整体质感；serve入口正确，前轮停于资产草稿未接入；本轮补齐0.3演出与首章护卫/追缉官独立表现，保持战斗和地图几何",
-    "2026-10-10接续：完成0.3未完工作与V29历史验收收尾；新增用户要求覆盖战斗普通兵/精锐/军官，按人物原画独立造型，统一成人身高，不恢复冻结大重构。"
+    "2026-10-10接续：完成0.3未完工作与V29历史验收收尾；新增用户要求覆盖战斗普通兵/精锐/军官，按人物原画独立造型，统一成人身高，不恢复冻结大重构。",
+    "2026-10-10断流恢复：HEAD 5a156c6领先origin/main三次保存；保留三张已生成追兵图集与REQUESTS修改。发现演出模块引用三张缺失资源，先修复不一致，再按角色/剧情/浏览器/交付小阶段验收。已有审计与基线不重做，旧冻结任务不恢复。"
   ],
   "completed": [
     "两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY"
@@ -28,7 +29,7 @@
     "局部交互表现；H1/H2一次短场；原创刺杀救治交手封术演出；新旧档与三维/浏览器/integration/打包；GitHub保存"
   ],
   "blockers": [],
-  "next": "保存未提交现场；补全原创资源与渲染、剧情兼容，真实浏览器与三维验收",
+  "next": "保存当前资产检查点，完成资源与角色渲染后验证剧情兼容",
   "required_checks": [
     "fast",
     "integration",
@@ -112,6 +113,14 @@
       "head_commit": "785b384a1bc2bab9ef11cd1843467a40eb7ac372",
       "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
       "worktree": "M dist/game-v14.js\n M dist/index.html\n M dist/visuals-v14.js\n M source/harness/index.json\n?? dist/chapter-one-cinematic-v31.css\n?? dist/chapter-one-cinematic-v31.js\n?? dist/chapter-one-pursuit-v31.js\n?? docs/ch1-pilot-r2/art/REQUESTS.json"
+    },
+    {
+      "name": "recovery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T08:03:39.648656+00:00",
+      "head_commit": "5a156c6161e86e0d36b72512bfddcd493ca80cc9",
+      "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
+      "worktree": "M docs/ch1-pilot-r2/art/REQUESTS.json\n M source/harness/index.json\n?? dist/assets/c1-incremental/pursuit-elite.png\n?? dist/assets/c1-incremental/pursuit-guard.png\n?? dist/assets/c1-incremental/pursuit-officer.png"
     }
   ]
 }
