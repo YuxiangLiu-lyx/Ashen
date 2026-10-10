@@ -1,0 +1,50 @@
+✔ runtime independently enumerates all 35 maps including optional rooms and staged chamber (12.236584ms)
+✔ all 118 maps preserve baseline navigation, enemy counts and unreachable targets (790.226209ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (8.284541ms)
+✖ notice migrates visited old saves without moving actors or resetting claims (6.122417ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.226ms)
+✖ every native enemy and story boss keeps reactions transient through save/restore (1.768042ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (4.364958ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 5
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 931.183583
+
+✖ failing tests:
+
+test at tests/chapter123-v30.test.mjs:47:1
+✖ notice migrates visited old saves without moving actors or resetting claims (6.122417ms)
+  AssertionError [ERR_ASSERTION]: input file retained
+  
+  990 !== 1290
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:57:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 990,
+    expected: 1290,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter123-v30.test.mjs:69:1
+✖ every native enemy and story boss keeps reactions transient through save/restore (1.768042ms)
+  Error: 场景动作数据不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:56:427)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:73:89)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

@@ -1,0 +1,35 @@
+✔ runtime independently enumerates all 35 maps including optional rooms and staged chamber (12.410917ms)
+✔ all 118 maps preserve baseline navigation, enemy counts and unreachable targets (795.157958ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (8.269042ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (5.5585ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.220666ms)
+✖ every native enemy and story boss keeps reactions transient through save/restore (6.020042ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (4.168084ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 936.741083
+
+✖ failing tests:
+
+test at tests/chapter123-v30.test.mjs:69:1
+✖ every native enemy and story boss keeps reactions transient through save/restore (6.020042ms)
+  AssertionError [ERR_ASSERTION]: captain
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:72:84)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

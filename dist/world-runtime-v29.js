@@ -1,4 +1,4 @@
-import {repairChapter23AnchorsV30} from './chapter23-design-v30.js';
+import {repairChapter23AnchorsV30,TOWN_NOTICE_ANCHOR_V30} from './chapter23-design-v30.js';
 import {DEMO_MAPS_V29} from './world-design-v29.js';
 import {WORLD_DIALOGUES_V29} from './world-dialogues-v29.js';
 const demo=new Set(DEMO_MAPS_V29), distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
@@ -28,8 +28,9 @@ export function worldProgressV29(g){
 export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
  const P=RPG.prototype;if(P.__worldV29)return;Object.defineProperty(P,'__worldV29',{value:true});Object.assign(DIALOGUES,WORLD_DIALOGUES_V29);
  const oldEnsure=P.ensureMap,oldEnter=P.enter,oldRestore=P.restore,oldTargets=P.targets,oldUse=P.useProp,oldInteract=P.interact,oldUpdate=P.update,oldChoose=P.chooseExtra,oldApply=P.applyExtra,oldMechanism=P.mechanismProp,oldGoal=P.questGoal,oldReward=P.takeEchoReward;
+ Object.assign(MAPS.town.props.find(p=>p.id==='townbook'),TOWN_NOTICE_ANCHOR_V30);
  function migrate(g,id){
-  if(id==='bridge')repairChapter23AnchorsV30(g);
+  if(id==='bridge'||id==='town')repairChapter23AnchorsV30(g);
   if(!demo.has(id)||!g.states[id])return;
   const st=g.states[id],m=MAPS[id];state(g);
   if(st.layoutV29!==1){

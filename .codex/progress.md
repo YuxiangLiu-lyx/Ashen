@@ -17,8 +17,8 @@
 ## 阶段
 
 1. **已完成：现场与 harness 恢复机制。** 已保存真实基线；新增阶段检查点、进度自动落盘、限时子进程与中断记录、恢复入口；18项Harness回归通过。
-2. **进行中：前三章缺口审计与修复。** 从运行注册和调用确认 35 图范围；检查已有图集映射、敌人动作、交互语义/碰撞/遮挡/点击，修复真实遗漏，保存审计与代码。
-3. **待做：浏览器与集成验收。** 正式渲染器 35 图画廊、交互及旧档专项，fast/core/integration 和离线打包 UI；保留失败及重跑记录。
+2. **已完成：前三章缺口审计与修复。** 35图639景物119物件覆盖；公告栏从屋后迁到街旁，含旧档迁移；补齐剧情地图表现和图集语义；7项新增Node回归通过，118图导航不变。
+3. **进行中：浏览器与集成验收。** 正式渲染器 35 图画廊、交互及旧档专项，fast/core/integration 和离线打包 UI；保留失败及重跑记录。
 4. **待做：交付保存。** 更新 CURRENT_STATE、文档、任务与本文件，审查 diff/untracked/ignore/staged，提交并推送 main，核验远端 SHA。
 
 ## 重要决定
@@ -54,13 +54,13 @@ python3 tools/harness/task.py resume --id ch123-coverage-20261009
 <!-- task:ch123-coverage-20261009 -->
 ## 任务 ch123-coverage-20261009
 - 状态：in_progress
-- 更新：2026-10-10T01:20:18.159044+00:00
-- 下一步：定位townbook点击响应与实际可见性
+- 更新：2026-10-10T01:25:32.894244+00:00
+- 下一步：执行最终分级检查并整理验收
 - 任务记录：source/tasks/active/ch123-coverage-20261009.json
-- 已完成：保留并接续上轮图集、统一映射和35图基线
-- 待完成：定位交互点击失败并复核映射、敌人及图集；专项浏览器、integration与打包UI验证；验收文档和GitHub保存
-- 决定：以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。
+- 已完成：保留并接续上轮图集、统一映射和35图基线；完成35图639景物119交互/可破坏物覆盖；公告栏移出屋顶遮挡并兼容旧档；原118图导航与战斗基线保持；7项新增Node回归通过；浏览器35图、6次鼠标交互、77敌人姿态、遮挡和2段剧情画面初验通过
+- 待完成：最终fast/core/integration及打包UI；保存画廊、验收和GitHub main
+- 决定：以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。；医疗床/推车保留患者承托rig；原敌人帧复用，图集和怪物数值不混改
 - 阻塞：无
-- 阶段 coverage：in_progress；HEAD 0ef38f7436d3906acebfaee7c54c1d839620dc70
-- 最近检查：first-render，退出码 1；docs/harness/evidence/ch123-coverage-20261009/004-first-render.txt
+- 阶段 coverage：complete；HEAD 993d7c73f969e1bac97d780c925725b756619d97
+- 最近检查：coverage-node，退出码 0；docs/harness/evidence/ch123-coverage-20261009/009-coverage-node.txt
 <!-- /task:ch123-coverage-20261009 -->

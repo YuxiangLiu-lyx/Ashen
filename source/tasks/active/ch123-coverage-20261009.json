@@ -13,20 +13,22 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-09T07:58:51.160667+00:00",
-  "updated_at_utc": "2026-10-10T01:20:18.159044+00:00",
+  "updated_at_utc": "2026-10-10T01:25:32.894244+00:00",
   "decisions": [
-    "以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。"
+    "以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。",
+    "医疗床/推车保留患者承托rig；原敌人帧复用，图集和怪物数值不混改"
   ],
   "completed": [
-    "保留并接续上轮图集、统一映射和35图基线"
+    "保留并接续上轮图集、统一映射和35图基线",
+    "完成35图639景物119交互/可破坏物覆盖；公告栏移出屋顶遮挡并兼容旧档；原118图导航与战斗基线保持",
+    "7项新增Node回归通过；浏览器35图、6次鼠标交互、77敌人姿态、遮挡和2段剧情画面初验通过"
   ],
   "remaining": [
-    "定位交互点击失败并复核映射、敌人及图集",
-    "专项浏览器、integration与打包UI验证",
-    "验收文档和GitHub保存"
+    "最终fast/core/integration及打包UI",
+    "保存画廊、验收和GitHub main"
   ],
   "blockers": [],
-  "next": "定位townbook点击响应与实际可见性",
+  "next": "执行最终分级检查并整理验收",
   "required_checks": [
     "fast",
     "core",
@@ -95,16 +97,99 @@
       "sources_changed_during_check": false,
       "output": "docs/harness/evidence/ch123-coverage-20261009/004-first-render.txt",
       "output_sha256": "93fd4fa380dae39c4ca2f747e1d8bcff1e7dda537ec6ab25c30871778a154c5d"
+    },
+    {
+      "label": "click-diagnosis",
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:20:40.343732+00:00",
+      "finished_at_utc": "2026-10-10T01:21:01.310828+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "eb2068f81f0437b3554dcdbee36de2912f4abb7662cfb520760e3c6f73e54745",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/005-click-diagnosis.txt",
+      "output_sha256": "4197005af9bff93c755ec010814c14c3e7511014245d152455229c9c2a5e0375",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "coverage-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter123-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T01:23:07.308189+00:00",
+      "finished_at_utc": "2026-10-10T01:23:08.332645+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "49b69184445e75edd52f19b2fa8ba85296cd459b8d37ed78c23cbe916a8035ce",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/006-coverage-node.txt",
+      "output_sha256": "cfed851e463e92f6ef3fc6f6f6048eee156dfcd37bb35e6089e507be2b305574",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "coverage-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter123-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T01:23:58.495804+00:00",
+      "finished_at_utc": "2026-10-10T01:23:59.513242+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "24459337fcdd4667ee693a9cd2f0d0bd7a0ba5501cf44c4c4964d72b04d86330",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/007-coverage-node.txt",
+      "output_sha256": "e14bc0c67bfbde150405861e60af09c4b9f435b599fa56cf901179cc22ca38ab",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "chapter123-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:24:07.471913+00:00",
+      "finished_at_utc": "2026-10-10T01:24:29.193566+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "0849f5d2034232a76592d4f56285dd6b02de22b0a4be2184a6a8b1526c8b67e1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/008-chapter123-browser.txt",
+      "output_sha256": "4197005af9bff93c755ec010814c14c3e7511014245d152455229c9c2a5e0375",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "coverage-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter123-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:24:35.532904+00:00",
+      "finished_at_utc": "2026-10-10T01:24:36.555839+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "7a1fb3f13eb13898efd8dcfee9cdcee13e280eefc2ffdc721fb898f6aeb061c9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/009-coverage-node.txt",
+      "output_sha256": "a7213bf2456673055c5284de58e07a7d53dac8df531702e756cdf3eb8b3a34eb",
+      "timeout_seconds": 120.0
     }
   ],
   "stages": [
     {
       "name": "coverage",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T01:20:18.138661+00:00",
-      "head_commit": "0ef38f7436d3906acebfaee7c54c1d839620dc70",
-      "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
-      "worktree": "M dist/chapter-one-art-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter23-design-v30.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n?? dist/assets/v30/hell-materials.png\n?? dist/assets/v30/hell-scenery.png\n?? dist/assets/v30/objects.png\n?? dist/assets/v30/utilities.png\n?? dist/chapter123-presentation-v30.js\n?? docs/chapter123/\n?? docs/harness/evidence/ch123-coverage-20261009/\n?? source/tasks/active/ch123-coverage-20261009.json\n?? tests/browser-chapter123.mjs"
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T01:25:32.874741+00:00",
+      "head_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "worktree": "M .codex/progress.md\n M dist/chapter23-design-v30.js\n M dist/game-v14.js\n M dist/world-runtime-v29.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/ch123-coverage-20261009.json\n M tests/browser-chapter123.mjs\n M tools/harness/check.py\n?? docs/chapter123/ASSET_MANIFEST.json\n?? docs/harness/evidence/ch123-coverage-20261009/005-click-diagnosis.txt\n?? docs/harness/evidence/ch123-coverage-20261009/006-coverage-node.txt\n?? docs/harness/evidence/ch123-coverage-20261009/007-coverage-node.txt\n?? docs/harness/evidence/ch123-coverage-20261009/008-chapter123-browser.txt\n?? docs/harness/evidence/ch123-coverage-20261009/009-coverage-node.txt\n?? tests/chapter123-v30.test.mjs"
     }
   ]
 }

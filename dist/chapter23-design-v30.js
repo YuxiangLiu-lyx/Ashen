@@ -41,11 +41,16 @@ export const CHAPTER_THREE_PALETTES_V30={
  hellRift:{base:'#494752',lane:'#9993a6',light:'#c9b9de'}
 };
 export const BRIDGE_WATER_ANCHOR_V30=Object.freeze({interactX:1040,interactY:495});
+// The old notice sat behind the south shop roof. Put the board beside the street,
+// outside the existing building footprint; this does not create/remove solids.
+export const TOWN_NOTICE_ANCHOR_V30=Object.freeze({x:990,y:840});
 export function repairChapter23AnchorsV30(g){
  // Coordinate-only migration, including already visited maps in an old save.
  // Claims, used/broken flags, and the player's location are never reset.
  const p=g.states?.bridge?.props.find(p=>p.id==='v9-bridge-water');
  if(p)Object.assign(p,BRIDGE_WATER_ANCHOR_V30);
+ const notice=g.states?.town?.props?.find(p=>p.id==='townbook');
+ if(notice)Object.assign(notice,TOWN_NOTICE_ANCHOR_V30);
 }
 
 // Existing painted contact/attack frames, with a recovery phase instead of holding

@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
-  "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
+  "basis_commit": "993d7c73f969e1bac97d780c925725b756619d97",
+  "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "05cc73d7a978e403a9d85423d8ac74cbbdc02b657bf740391795bc1069d74acb",
@@ -603,8 +603,8 @@
       ]
     },
     "dist/chapter23-design-v30.js": {
-      "sha256": "1d3584107727272652e27d96862405960c30c6b08374926dc47746e75f99b351",
-      "bytes": 4066,
+      "sha256": "7fae612898b579a8bc245b1c2993f564da3816a21ae7692b76cf1525b43d412c",
+      "bytes": 4417,
       "imports": [],
       "symbols": [
         "BRIDGE_WATER_ANCHOR_V30",
@@ -615,6 +615,7 @@
         "CHAPTER_THREE_PALETTES_V30",
         "CHAPTER_TWO_MAPS_V30",
         "CHAPTER_TWO_PATHS_V30",
+        "TOWN_NOTICE_ANCHOR_V30",
         "chapter123V30",
         "chapter23V30",
         "chapterOneV30",
@@ -622,6 +623,7 @@
         "chapterTwoV30",
         "first",
         "hellMonsterFrameV30",
+        "notice",
         "p",
         "repairChapter23AnchorsV30",
         "route",
@@ -2427,8 +2429,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "433a2f58ec3b463ce07dfb3af7294b01052b22495266b4952a8367031173c857",
-      "bytes": 106649,
+      "sha256": "5bec694f1a4e2b3268e1e94b72b6c69d6e3621ed958cf365533721e87052ce75",
+      "bytes": 106668,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -5979,8 +5981,8 @@
       ]
     },
     "dist/world-runtime-v29.js": {
-      "sha256": "c3e014a8127ecd665d416a42879fa950aec649f50d6894a57a400bea038ba30d",
-      "bytes": 9811,
+      "sha256": "58442187c5592fa85ab19092b3ea34b619eb3806de0219efc794bef71a94c1ff",
+      "bytes": 9930,
       "imports": [
         "dist/chapter23-design-v30.js",
         "dist/world-design-v29.js",
@@ -6352,28 +6354,29 @@
       ]
     },
     "tests/browser-chapter123.mjs": {
-      "sha256": "8800425bc274c731af4d371c4d8a075f4cab2960e86003e4f2279daf8f6acbb6",
-      "bytes": 5799,
+      "sha256": "ac20cd3b6ac4496c2115422b625c65e9e4bd8fc394b45b6ed5363350f9f7f2f9",
+      "bytes": 8710,
       "imports": [
         "dist/core-v14.js",
         "tools/browser_session.mjs"
       ],
       "symbols": [
         "at",
-        "atlases",
         "b",
-        "clicks",
         "coverage",
+        "enemies",
         "hook",
         "map",
         "maps",
         "out",
         "p",
+        "persist",
         "r",
         "row",
         "s",
         "shot",
-        "state"
+        "state",
+        "target"
       ],
       "modules": [
         "build"
@@ -6512,6 +6515,48 @@
         "old",
         "snap",
         "t"
+      ],
+      "modules": []
+    },
+    "tests/chapter123-v30.test.mjs": {
+      "sha256": "415490724979227cfda3781a0c488b8417635b821b91134d4fbe2fc5d8a1daaa",
+      "bytes": 5783,
+      "imports": [
+        "dist/chapter-one-motion-v30.js",
+        "dist/chapter123-presentation-v30.js",
+        "dist/chapter23-design-v30.js",
+        "dist/core-v14.js",
+        "dist/save-transfer-v14.js",
+        "dist/world-v14.js",
+        "tools/world_audit.mjs"
+      ],
+      "symbols": [
+        "a",
+        "actual",
+        "after",
+        "before",
+        "board",
+        "bytes",
+        "crack",
+        "e",
+        "g",
+        "game",
+        "h",
+        "host",
+        "id",
+        "key",
+        "legacy",
+        "manifest",
+        "map",
+        "maps",
+        "o",
+        "offMap",
+        "old",
+        "p",
+        "read",
+        "row",
+        "saved",
+        "type"
       ],
       "modules": []
     },
@@ -6950,8 +6995,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "db49ef6a4e121106033a897c4cf39d4d641d12e357fc025194ac58864d32ec4e",
-      "bytes": 5802,
+      "sha256": "1f17284fc18dfe989dea074b4f470c5682d3d265cacd71c2fc2900bbd0343d83",
+      "bytes": 5877,
       "imports": [],
       "symbols": [],
       "modules": [
