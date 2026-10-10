@@ -1,8 +1,12 @@
 # Ashen 增量执行进度
 
-最后更新：2026-10-10。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，再 `task.py resume --id ch12-epic-20261009`。从首个未完成阶段继续，保留其他任务与历史证据。
+最后更新：2026-10-10。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，再 `task.py resume --id ch1-pilot-20261010`。从首个未完成阶段继续，保留其他任务与历史证据。
 
 ## 当前目标
+
+本轮 `ch1-pilot-20261010`：采用新章稿，只开发第一章；第二章保持策划。远端规划已合并；既有空间与两章旧版精修保存在1f1a928，不代表新稿已经实现。
+
+## 历史目标（保留现场）
 
 当前主任务：用户明确授权第一、二章整体重构与封面圣女替换一并推进，接续下述35图空间工作。审计和分阶段计划见docs/ch12-epic/REVIEW_AND_PLAN.md，所有旧原件保留。
 
@@ -137,3 +141,19 @@
 - 阻塞：无
 - 阶段 preserve-sync：in_progress；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
 <!-- /task:ch1-pilot-20261010 -->
+
+<!-- task:narrative-harness-20261010 -->
+## 任务 narrative-harness-20261010
+- 状态：complete
+- 更新：2026-10-10T05:11:30.729639+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/narrative-harness-20261010.json
+- 已完成：长期愿景按三层记录；分卷分章登记与流程齐全；前两章逐场稿与第一章prompt已保存；最终fast通过24项；索引281文件无问题；剧情审稿问题已校准；dist与tools未改；策划/harness内容已保存GitHub main并ls-remote核验b6a35a5；元数据回执将随最终保存
+- 待完成：无
+- 决定：本轮只改harness与设计文档；开发prompt先记录两章后仅实现第一章；长期愿景可选而非默认必读
+- 阻塞：无
+- 阶段 planning：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
+- 阶段 verification：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
+- 阶段 delivery：complete；HEAD b6a35a5d306f4e162f12f2f091163cd3fadbe77b
+- 最近检查：verification，退出码 0；docs/harness/evidence/narrative-harness-20261010/003-verification.txt
+<!-- /task:narrative-harness-20261010 -->

@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "id": "narrative-harness-20261010",
+  "goal": "harness记录长期世界观与前两章剧情，提供第一章地图与演出开发prompt",
+  "acceptance": [
+    "长期愿景可选检索；章节开发有记录与冻结流程；前两章完整剧情已落盘；第一章prompt可执行；harness路由及索引通过；不改dist运行、不发布网站"
+  ],
+  "baseline_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+  "modules": [
+    "maps",
+    "story"
+  ],
+  "status": "complete",
+  "created_at_utc": "2026-10-10T04:49:59.283060+00:00",
+  "updated_at_utc": "2026-10-10T05:11:30.729639+00:00",
+  "decisions": [
+    "本轮只改harness与设计文档；开发prompt先记录两章后仅实现第一章；长期愿景可选而非默认必读"
+  ],
+  "completed": [
+    "长期愿景按三层记录；分卷分章登记与流程齐全；前两章逐场稿与第一章prompt已保存",
+    "最终fast通过24项；索引281文件无问题；剧情审稿问题已校准；dist与tools未改",
+    "策划/harness内容已保存GitHub main并ls-remote核验b6a35a5；元数据回执将随最终保存"
+  ],
+  "remaining": [],
+  "blockers": [],
+  "next": "No required task work remains",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/harness",
+        "-v"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:50:09.444866+00:00",
+      "finished_at_utc": "2026-10-10T04:50:25.515192+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261010/001-baseline.txt",
+      "output_sha256": "aa24ebb83170927feef3a280046841c6560cd1e5af9caffd030641a3f8007184",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T05:04:05.247022+00:00",
+      "finished_at_utc": "2026-10-10T05:04:22.178670+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "e1f53482fb9af913536a38d476e3e1a8f3a81e23e4d1a7ca7c3de91d1fd7e4a9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261010/002-verification.txt",
+      "output_sha256": "8038ee3f4bc5338da0d5d71e10d56ae62e03da2483adf5efa31a03f56f0477ba",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T05:05:53.261790+00:00",
+      "finished_at_utc": "2026-10-10T05:06:11.491341+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261010/003-verification.txt",
+      "output_sha256": "2ab6b00a390199a4a84fd30c511cae3579f8cae53cc6cb4e15976c4f1c562b49",
+      "timeout_seconds": 90.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "planning",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:04:04.910595+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "e1f53482fb9af913536a38d476e3e1a8f3a81e23e4d1a7ca7c3de91d1fd7e4a9",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n?? docs/harness/CHAPTER_01.md\n?? docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n?? docs/harness/CHAPTER_02.md\n?? docs/harness/NARRATIVE_ARCHITECTURE.md\n?? docs/harness/NARRATIVE_WORKFLOW.md\n?? docs/harness/WORLD_VISION.md\n?? docs/harness/evidence/narrative-harness-20261010/\n?? source/tasks/active/narrative-harness-20261010.json\n?? tests/harness/test_narrative_routing.py"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:07:38.559973+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n?? docs/harness/CHAPTER_01.md\n?? docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n?? docs/harness/CHAPTER_02.md\n?? docs/harness/NARRATIVE_ARCHITECTURE.md\n?? docs/harness/NARRATIVE_WORKFLOW.md\n?? docs/harness/WORLD_VISION.md\n?? docs/harness/acceptance/NARRATIVE_REBUILD.json\n?? docs/harness/evidence/narrative-harness-20261010/\n?? source/tasks/active/narrative-harness-20261010.json\n?? source/tasks/requests/narrative-harness-20261010.txt\n?? tests/harness/test_narrative_routing.py"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:11:30.706161+00:00",
+      "head_commit": "b6a35a5d306f4e162f12f2f091163cd3fadbe77b",
+      "source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9",
+      "worktree": "M docs/harness/acceptance/NARRATIVE_REBUILD.json\n M source/CURRENT_STATE.json\n?? docs/harness/acceptance/NARRATIVE_GIT_SAVE.json\n?? docs/harness/evidence/narrative-harness-20261010/HARNESS_REVIEW.md\n?? docs/harness/evidence/narrative-harness-20261010/NARRATIVE_REVIEW.md"
+    }
+  ],
+  "summary": "长期愿景可选参考、章节记录流程、前两章完整稿和第一章prompt已接入并验证；运行未改；内容已保存GitHub main",
+  "completed_at_utc": "2026-10-10T05:11:30.802586+00:00",
+  "verified_source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9"
+}
