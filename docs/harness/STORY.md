@@ -11,3 +11,5 @@
 用户已指定大重构方向；长期世界观是 [WORLD_VISION](WORLD_VISION.md) 的可选参考，区分确定方向、建议与待完善事项。它不是所有剧情任务的必读全文。 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md) 保存分卷分章架构和固定登记；每章开发前遵循 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md)，读取对应完整稿并记录采用版本。
 
 第一、二章的新方案分别为 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，第一章开发入口为 [prompt](CHAPTER_01_DEVELOPMENT_PROMPT.md)。本轮这些资料尚未改变运行游戏。开发第一章时，以用户新方向与采用的本章稿为变更依据，允许替换该范围内的旧剧情；未开发部分继续按当前代码描述事实。不得为维护旧文本而否决已授权的新方向，也不得把第一章授权扩大成重写全游戏。
+
+2026-10-10回滚记录：用户已明确恢复重构前V30（1cefe80），空间/对白/首章试点均暂停。以上章稿和开发方向保留为历史策划，不自动重新授权实施；现场6b388c7。

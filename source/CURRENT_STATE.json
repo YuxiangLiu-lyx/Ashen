@@ -5,22 +5,22 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter12_narrative_and_chapter123_spatial",
+  "snapshot_type": "v30_chapter123_complete_presentation_on_v29",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 203,
-  "runtime_stylesheets": 8,
-  "runtime_images": 137,
-  "runtime_resource_bytes": 300035883,
+  "runtime_modules": 196,
+  "runtime_stylesheets": 7,
+  "runtime_images": 130,
+  "runtime_resource_bytes": 288459562,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "BACKUP_STATUS.md; docs/ch12-epic/ACCEPTANCE.md; docs/chapter123-spatial/ACCEPTANCE.md. 35 maps receive spatial redesign; 83 other maps retain geometry. Scripted progression and isolated combat are not a continuous campaign clear. No website publication.",
-  "checked_at_utc": "2026-10-10T01:31:03.542570+00:00",
+  "known_limits": "Exact restoration of 1cefe80; inherited limitations in docs/chapter123/ACCEPTANCE.md. No private saves tested or touched, no reverse migration guarantee for experimental c1 saves, no full eight-chapter clear, no website publication. Reconstruction preserved in 6b388c7.",
+  "checked_at_utc": "2026-10-10T05:58:36.932943+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Chapter123 fast/integration passed: 76 Node, 18 Harness, 16 general browser checks, 14 exact browser/Lab parity, 35-map renderer, 6 pointer cases, 77 enemy poses, 2 staged scenes; offline/HTTP/mobile packaged UI passed.",
+  "browser_qa_status": "Rollback fast/integration passed: 27 Harness, 76 Node, 16 general browser checks, 14 exact browser/Lab parity, 35 maps, 6 pointer cases, 77 enemy poses and 2 staged scenes; package verification pending.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -293,34 +293,10 @@
     "remote_verified_at_utc": "2026-10-10T01:32:15.832639+00:00",
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
-  "spatial_v30": {
-    "status": "in_progress",
-    "task_id": "ch123-spatial-20261009",
-    "baseline_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
-    "evidence": "docs/chapter123-spatial",
-    "map_geometry_changed": true,
-    "save_schema": 15,
-    "combat_numbers_changed": false,
-    "bridge_safe_corridor_leash": true,
-    "website_deployed": false
-  },
-  "chapter12_epic": {
-    "status": "implementation complete; final verification in progress",
-    "task_id": "ch12-epic-20261009",
-    "portrait_task_id": "saint-cover-20261009",
-    "evidence": "docs/ch12-epic",
-    "edited_scenes": 14,
-    "new_raster_assets": 4,
-    "save_schema": 15,
-    "combat_numbers_changed": false,
-    "reward_values_changed": false,
-    "duplicate_ch2_completion_fixed": true,
-    "website_deployed": false
-  },
   "narrative_rebuild": {
     "version": "0.1",
     "task_id": "narrative-harness-20261010",
-    "status": "complete; narrative plans and harness saved to GitHub main; gameplay implementation not_started",
+    "status": "planning retained; gameplay reconstruction rolled back at user request",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -328,9 +304,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "0.1",
-      "script_status": "SCRIPT_READY",
-      "implementation": "not_started",
+      "script_revision": "0.2",
+      "script_status": "DEV_FROZEN",
+      "implementation": "paused; unfinished implementation preserved in 6b388c7, removed from runtime",
       "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
     },
     "chapter02": {
@@ -354,5 +330,14 @@
     "remote_verified_commit": "b6a35a5d306f4e162f12f2f091163cd3fadbe77b",
     "remote_verified_at_utc": "2026-10-10T05:11:30.663502+00:00",
     "git_receipt": "docs/harness/acceptance/NARRATIVE_GIT_SAVE.json"
+  },
+  "rollback": {
+    "task_id": "rollback-v30-20261010",
+    "status": "runtime restored; byte parity, fast and integration passed; packaged UI and delivery pending",
+    "target_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+    "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+    "preserved_branch": "backup/reconstruction-before-rollback-20261010",
+    "evidence": "docs/rollback-v30",
+    "site_deployed": false
   }
 }

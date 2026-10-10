@@ -1,5 +1,4 @@
 import {CHENGLI_REWRITE_V27} from './chengli-text-v27.js';
-import {CHAPTER12_REWRITE_V30} from './chapter12-text-v30.js';
 import {DIALOGUE_MIGRATIONS_V26} from './dialogue-migrations-v26.js';
 const record=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
 const validRows=rows=>Array.isArray(rows)&&rows.length>0&&rows.length<=200&&rows.every(row=>Array.isArray(row)&&row.length===2&&row.every(v=>typeof v==='string'&&v.length<=2000));
@@ -60,20 +59,4 @@ const currentMigrationsV27=DIALOGUE_MIGRATIONS_V26.map(entry=>{
  if(!equalRows(entry.after,next.before))throw new Error('对白迁移基线不一致：'+entry.id);
  return {...entry,after:next.after};
 });
-const latestV30=new Map(CHAPTER12_REWRITE_V30.map(entry=>[entry.id,entry]));
-const currentMigrationsV30=[...currentMigrationsV27,...CHENGLI_REWRITE_V27].map(entry=>{
- const next=latestV30.get(entry.id);if(!next)return entry;
- if(!equalRows(entry.after,next.before))throw Error('V30对白迁移基线不一致：'+entry.id);
- return {...entry,after:next.after};
-});
-const earlyVariantsV30=[];
-let currentMigratorV30=createDialogueSaveMigratorV26([...currentMigrationsV30,...CHAPTER12_REWRITE_V30]);
-// V16 knows the exact pre-overlay tables. Register those at installation so old
-// schema saves remain recognizable by the outer guard before V16.restore runs.
-export function registerEarlyDialogueV30(id,before){
- const next=latestV30.get(id);if(!next||equalRows(before,next.before)||equalRows(before,next.after))return;
- if(before.length!==next.after.length||before.some((r,i)=>r[0]!==next.after[i][0]))return;
- earlyVariantsV30.push({id,before,after:next.after});
- currentMigratorV30=createDialogueSaveMigratorV26([...currentMigrationsV30,...CHAPTER12_REWRITE_V30,...earlyVariantsV30]);
-}
-export function migrateDialogueSaveV26(save){return currentMigratorV30(save);}
+export const migrateDialogueSaveV26=createDialogueSaveMigratorV26([...currentMigrationsV27,...CHENGLI_REWRITE_V27]);

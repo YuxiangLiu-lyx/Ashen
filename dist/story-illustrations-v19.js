@@ -1,5 +1,4 @@
 import {chapterEightSceneV281,chapterEightArtV281} from './presentation-metrics-v281.js';
-import {CHAPTER12_ILLUSTRATIONS_V30} from './chapter12-director-v30.js';
 import {SAGA_ILLUSTRATIONS_V25} from './saga-art-v25.js';
 import {CHARACTER_ART_V24} from './character-art-v24.js';
 import {CITY_MOMENTS_ILLUSTRATIONS_V24} from './city-moments-art-v24.js';
@@ -7,7 +6,6 @@ import {STORY_ILLUSTRATIONS_V22,illustrationCueV22} from './presentation-v22.js'
 import {ROMANCE_ILLUSTRATIONS_V20} from './romance-illustrations-v20.js';
 // Optional scene illustrations load when their scene starts, never on the title screen.
 export const STORY_ILLUSTRATIONS_V19=Object.freeze({
- ...CHAPTER12_ILLUSTRATIONS_V30,
  ...ROMANCE_ILLUSTRATIONS_V20,
  tavern:{src:'assets/v19/tavern-v19.png',alt:'烛光映着酒馆的木桌，诺恩把铜杯递给艾莉娅。'},
  riverside:{src:'assets/v19/riverside-v19.png',alt:'两人在暗河边俯身放下水灯，远处石桥映着蓝金色夜光。'},

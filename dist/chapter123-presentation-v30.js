@@ -43,14 +43,12 @@ const sceneryBySheet={
 };
 export function chapter123SceneryArtV30(o,map){
  if(!chapter123V30(map))return null;
- if(o.sheet==='spatialBridgeFront')return art('spatialBridgeFront',0);
- if(o.id.startsWith('stock-'))return art('narrativeStores',{'stock-a-left':0,'stock-a-right':1,'stock-b':2,'stock-c':3}[o.id]??0);
+ if(o.id.startsWith('stock-'))return settlement(4);
  return sceneryById[o.id]||sceneryBySheet[o.sheet]?.[o.asset]||null;
 }
 // The same fitted rectangle is used for drawing AND alpha-based occlusion.
 export function chapter123SceneryV30(bank,o,map){
  const a=chapter123SceneryArtV30(o,map);if(!a)return null;
- if(o.sheet==='spatialBridgeFront')return {...o};
  const f=bank.frame(a.sheet,a.index),ratio=f?f.h/f.w:o.h/o.w;
  const lamp=a.sheet==='chapterFurnishings'&&a.index===3||a.sheet==='chapterHell'&&a.index===11;
  const h=lamp?o.h:Math.min(o.h*1.08,Math.max(o.h*.7,o.w*ratio));

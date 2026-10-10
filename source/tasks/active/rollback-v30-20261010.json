@@ -13,31 +13,156 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T05:57:32.330449+00:00",
-  "updated_at_utc": "2026-10-10T05:57:32.393287+00:00",
+  "updated_at_utc": "2026-10-10T06:04:54.584437+00:00",
   "decisions": [
     "用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站"
   ],
-  "completed": [],
+  "completed": [
+    "全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录",
+    "dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停",
+    "334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过"
+  ],
   "remaining": [
-    "重构现场完整保存在Git；运行文件恢复指定版本；新游戏和旧档回归通过；GitHub main保存并核验"
+    "三维恢复审查；离线包与UI；GitHub保存"
   ],
   "blockers": [],
-  "next": "提交所有既有改动保存现场，再回滚运行代码并验证",
+  "next": "构建回滚版并验证离线/HTTP/移动端",
   "required_checks": [
     "fast",
     "integration",
     "rollback-parity",
     "packaged-ui"
   ],
-  "checks": [],
+  "checks": [
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T05:59:50.609504+00:00",
+      "finished_at_utc": "2026-10-10T06:00:02.856563+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "85f731170b46ccf3835bc88ce2a05c7b133f42b627164483a3c10268e436e794",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/001-fast.txt",
+      "output_sha256": "786789de980b98e2de068e8d1451a13e8fb9047770a81017b6ac1f763e68f474",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "rollback-parity",
+      "command": [
+        "python3",
+        "tools/verify_v30_rollback.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:00:30.239971+00:00",
+      "finished_at_utc": "2026-10-10T06:00:46.984189+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/002-rollback-parity.txt",
+      "output_sha256": "9d203630ccaf149712b1c49d539d00bb2ef37ee3f42ef3dec2ae1bf08cfc0da0",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:00:47.051522+00:00",
+      "finished_at_utc": "2026-10-10T06:03:23.262268+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/003-integration.txt",
+      "output_sha256": "d66116bc4f860c1fce9895d11be8e987b883e80c0a66f021a53f20329f00f6af",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "map-collision",
+      "command": [
+        "node",
+        "tools/rollback_map_audit.mjs",
+        "--output",
+        "docs/rollback-v30/collision"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:03:37.975740+00:00",
+      "finished_at_utc": "2026-10-10T06:03:38.598093+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/004-map-collision.txt",
+      "output_sha256": "4095cfe1fdee6efb4131e57ac1d9b7921adcc60cb03b9e253c506699cfad90ad",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:03:38.661459+00:00",
+      "finished_at_utc": "2026-10-10T06:03:51.142471+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/005-fast.txt",
+      "output_sha256": "e7431150ff1cab9058126907d4c0ae13ba449211533555bc2eae812e45f4503c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "character-reference",
+      "command": [
+        "node",
+        "docs/rollback-v30/character-review.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:04:17.173456+00:00",
+      "finished_at_utc": "2026-10-10T06:04:20.856820+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/006-character-reference.txt",
+      "output_sha256": "a157f70b130e0a12e822608958207aea1d99bc84dfc714bfe718034c61f6335c",
+      "timeout_seconds": 180.0
+    }
+  ],
   "stages": [
     {
       "name": "preserve",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T05:57:32.369693+00:00",
-      "head_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:58:36.715495+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
       "source_fingerprint": "af2bde39d3fdbce6ef782ba330485f1524c1c33b3ee3e9fa7f8086c3690f42f5",
-      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/story-flow-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/harness/index.json\n M source/tasks/active/ch1-pilot-20261010.json\n?? dist/ch1-layout-v31.js\n?? dist/ch1-runtime-v31.js\n?? dist/ch1-script-v31.js\n?? docs/ch1-pilot/\n?? docs/harness/evidence/ch1-pilot-20261010/\n?? source/tasks/active/rollback-v30-20261010.json\n?? tools/build_ch1_script.py"
+      "worktree": ""
+    },
+    {
+      "name": "restore",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:59:50.522833+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "85f731170b46ccf3835bc88ce2a05c7b133f42b627164483a3c10268e436e794",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/v30-narrative/chapel-morning.png\n D dist/assets/v30-narrative/elyria-gentle.png\n D dist/assets/v30-narrative/elyria-resolute.png\n D dist/assets/v30-narrative/warehouse-stores.png\n D dist/assets/v30-spatial/bridge.png\n D dist/assets/v30-spatial/elite.png\n D dist/assets/v30-spatial/officer.png\n M dist/audio-v17.js\n D dist/ch1-layout-v31.js\n D dist/ch1-runtime-v31.js\n D dist/ch1-script-v31.js\n M dist/chapter-one-art-v30.js\n D dist/chapter12-art-v30.js\n D dist/chapter12-director-v30.css\n D dist/chapter12-director-v30.js\n D dist/chapter12-text-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n D dist/role-art-v30.js\n M dist/saga-art-v25.js\n D dist/spatial-design-v30.js\n D dist/spatial-ground-v30.js\n D dist/spatial-world-v30.js\n M dist/story-flow-v14.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-20261010.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/rollback-v30-20261010.json\n M source/tasks/active/saint-cover-20261009.json\n D tests/browser-ch12-epic.mjs\n M tests/browser-chapter123.mjs\n D tests/browser-spatial-v30.mjs\n M tests/chapter-one-v30.test.mjs\n D tests/chapter12-epic-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n D tests/spatial-legacy-control.mjs\n D tests/spatial-scenarios.mjs\n D tests/spatial-v30.test.mjs\n M tests/world-v29.test.mjs\n M tools/browser_session.mjs\n D tools/build_ch1_script.py\n M tools/harness/check.py\n D tools/spatial_audit.mjs\n?? docs/rollback-v30/RECOMMENDATIONS.json\n?? history/reconstruction-20261010/\n?? tools/rollback_map_audit.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T06:04:54.556846+00:00",
+      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/v30-narrative/chapel-morning.png\n D dist/assets/v30-narrative/elyria-gentle.png\n D dist/assets/v30-narrative/elyria-resolute.png\n D dist/assets/v30-narrative/warehouse-stores.png\n D dist/assets/v30-spatial/bridge.png\n D dist/assets/v30-spatial/elite.png\n D dist/assets/v30-spatial/officer.png\n M dist/audio-v17.js\n D dist/ch1-layout-v31.js\n D dist/ch1-runtime-v31.js\n D dist/ch1-script-v31.js\n M dist/chapter-one-art-v30.js\n D dist/chapter12-art-v30.js\n D dist/chapter12-director-v30.css\n D dist/chapter12-director-v30.js\n D dist/chapter12-text-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n D dist/role-art-v30.js\n M dist/saga-art-v25.js\n D dist/spatial-design-v30.js\n D dist/spatial-ground-v30.js\n D dist/spatial-world-v30.js\n M dist/story-flow-v14.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-20261010.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/rollback-v30-20261010.json\n M source/tasks/active/saint-cover-20261009.json\n D tests/browser-ch12-epic.mjs\n M tests/browser-chapter123.mjs\n D tests/browser-spatial-v30.mjs\n M tests/chapter-one-v30.test.mjs\n D tests/chapter12-epic-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n D tests/spatial-legacy-control.mjs\n D tests/spatial-scenarios.mjs\n D tests/spatial-v30.test.mjs\n M tests/world-v29.test.mjs\n M tools/browser_session.mjs\n D tools/build_ch1_script.py\n M tools/harness/check.py\n D tools/spatial_audit.mjs\n?? docs/harness/evidence/rollback-v30-20261010/\n?? docs/rollback-v30/ACCEPTANCE.md\n?? docs/rollback-v30/PARITY.json\n?? docs/rollback-v30/RECOMMENDATIONS.json\n?? docs/rollback-v30/browser/\n?? docs/rollback-v30/character-review.mjs\n?? docs/rollback-v30/collision/\n?? history/reconstruction-20261010/\n?? tools/rollback_map_audit.mjs\n?? tools/verify_v30_rollback.py"
     }
   ]
 }

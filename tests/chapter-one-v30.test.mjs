@@ -24,8 +24,7 @@ test('first chapter uses physical creature types and distinguishes windup, strik
  const a={x:800,y:600,type:'wolf',angle:0};const idle=motionPoseV30(a,0),wind=motionPoseV30({...a,wind:.1,windMax:.4}),strike=motionPoseV30({...a,attackAnim:.16}),fall=motionPoseV30({...a,fall:1});
  assert.ok(wind.dx<idle.dx);assert.ok(strike.dx>idle.dx);assert.ok(fall.sy<idle.sy);
  assert.ok(motionPoseV30(a,0,{reaction:{life:.16,dx:4,dy:2}}).dx>0);
- assert.equal(chapterOneV30('ch5Arcade'),false);
- for(const [index,id]of ['stock-a-left','stock-a-right','stock-b','stock-c'].entries()){const art=chapterSceneryArtV30({id,sheet:'world',asset:11});assert.equal(art.sheet,'narrativeStores');assert.equal(art.index,index);}
+ assert.equal(chapterOneV30('ch5Arcade'),false);assert.equal(chapterSceneryArtV30({id:'stock-a',sheet:'world',asset:11}).index,4);
 });
 test('ordinary cut metadata takes the restrained trail; magical skills keep their own art',()=>{
  let strokes=0;const c=new Proxy({stroke(){strokes++;}},{get:(t,k)=>t[k]||(()=>{})});

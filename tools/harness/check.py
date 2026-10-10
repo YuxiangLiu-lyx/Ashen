@@ -93,10 +93,10 @@ def main():
     if args.tier in ['core', 'integration', 'release']:
         assets()
         commands += [[sys.executable, 'tools/harness/runtime_audit.py'],
-                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs', 'tests/world-v29.test.mjs', 'tests/chapter-one-v30.test.mjs', 'tests/chapter23-v30.test.mjs', 'tests/chapter123-v30.test.mjs', 'tests/spatial-v30.test.mjs', 'tests/chapter12-epic-v30.test.mjs']]
+                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs', 'tests/world-v29.test.mjs', 'tests/chapter-one-v30.test.mjs', 'tests/chapter23-v30.test.mjs', 'tests/chapter123-v30.test.mjs']]
     if args.tier in ['integration', 'release']:
         commands += [['node', 'tests/browser-presentation-v281.mjs'], ['node', 'tests/browser-balance-lab.mjs'],
-                     ['node', 'tests/browser-world-v29.mjs'], ['node', 'tests/browser-chapter-one-v30.mjs'], ['node', 'tests/browser-chapter23.mjs'], ['node', 'tests/browser-chapter123.mjs'], ['node', 'tests/browser-spatial-v30.mjs'], ['node', 'tests/browser-ch12-epic.mjs']]
+                     ['node', 'tests/browser-world-v29.mjs'], ['node', 'tests/browser-chapter-one-v30.mjs'], ['node', 'tests/browser-chapter23.mjs'], ['node', 'tests/browser-chapter123.mjs']]
     if args.tier == 'release':
         commands += [[sys.executable, 'tools/restore_archives.py', '--all', '--verify-only'],
                      [sys.executable, 'tools/build_web_play.py', '--output', 'qa-export/release-build'],

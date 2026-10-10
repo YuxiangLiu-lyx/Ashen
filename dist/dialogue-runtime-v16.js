@@ -1,5 +1,4 @@
 import {DIALOGUE_TEXT_V16} from './dialogue-text-v16.js';
-import {registerEarlyDialogueV30} from './dialogue-save-migration-v26.js';
 import {DIALOGUE_MIGRATIONS_V16} from './dialogue-migrations-v16.js';
 import {CH3_SIDE} from './chapter3-sidequests-v14.js';
 
@@ -11,7 +10,6 @@ const signature=(id,lines)=>JSON.stringify([id,lines]);
 export function installDialogueTextV16(RPG,dialogues){
  const migrations=new Map();
  const remember=(id,before,after)=>{
-  registerEarlyDialogueV30(id,before);
   if(JSON.stringify(before)!==JSON.stringify(after))migrations.set(signature(id,before),clone(after));
  };
  for(const [id,texts] of Object.entries(DIALOGUE_TEXT_V16)){
