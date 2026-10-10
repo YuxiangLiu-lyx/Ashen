@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
-  "source_fingerprint": "3901e0da50d71be6fefaedd2d0cf1b978c14dd9024da8b2001f13d4a897ee76e",
+  "basis_commit": "785b384a1bc2bab9ef11cd1843467a40eb7ac372",
+  "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -402,6 +402,44 @@
         "art"
       ]
     },
+    "dist/chapter-one-cinematic-v31.css": {
+      "sha256": "1428071a07fe396d25382e0879a93254b670f8ec6662391189018d6d53b274c9",
+      "bytes": 1792,
+      "imports": [],
+      "symbols": [],
+      "modules": []
+    },
+    "dist/chapter-one-cinematic-v31.js": {
+      "sha256": "0dcc39266c0094c036f78d9cb8f3a93773d28ec6c4fde0924aa8bf09e2f33dc4",
+      "bytes": 7344,
+      "imports": [
+        "dist/cinematics-v14.js",
+        "dist/staging-v14.js",
+        "dist/story-flow-v14.js"
+      ],
+      "symbols": [
+        "C1_CINEMATIC_LOADS",
+        "C1_HIDDEN",
+        "ChapterOneStoryFlow",
+        "actionFor",
+        "bottom",
+        "c1Shot",
+        "changed",
+        "drawC1Cinematic",
+        "esc",
+        "f",
+        "g",
+        "n",
+        "plate",
+        "prepareStage",
+        "r",
+        "shots",
+        "stage",
+        "tail",
+        "tailFor"
+      ],
+      "modules": []
+    },
     "dist/chapter-one-motion-v30.js": {
       "sha256": "11a1466560803c1377242bca59e2930865fe5ab38ca82e57c9bbf905c7ec1bcc",
       "bytes": 3377,
@@ -431,6 +469,27 @@
       ],
       "modules": [
         "combat"
+      ]
+    },
+    "dist/chapter-one-pursuit-v31.js": {
+      "sha256": "04aaa1a229ee3df590747561ddd99096a30872f54d6bc14b084e03e6e16e133d",
+      "bytes": 1796,
+      "imports": [],
+      "symbols": [
+        "C1_PURSUIT_LOADS",
+        "back",
+        "drawPursuit",
+        "f",
+        "image",
+        "installPursuitFrames",
+        "k",
+        "left",
+        "pursuitFrame",
+        "reference",
+        "sheet"
+      ],
+      "modules": [
+        "ui"
       ]
     },
     "dist/chapter-runtime-v14.js": {
@@ -2429,14 +2488,16 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "5bec694f1a4e2b3268e1e94b72b6c69d6e3621ed958cf365533721e87052ce75",
-      "bytes": 106668,
+      "sha256": "aa3f8298f195841fb140fb8a3e4715651d9b6b79d1f168576b5928258a3a0aba",
+      "bytes": 108129,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
         "dist/audio-v17.js",
         "dist/chapter-one-art-v30.js",
+        "dist/chapter-one-cinematic-v31.js",
         "dist/chapter-one-motion-v30.js",
+        "dist/chapter-one-pursuit-v31.js",
         "dist/chapter-runtime-v14.js",
         "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
@@ -2482,7 +2543,6 @@
         "dist/scene-geometry-v26.js",
         "dist/skills-v14.js",
         "dist/social-staging-v20.js",
-        "dist/story-flow-v14.js",
         "dist/story-illustrations-v19.js",
         "dist/story-test-v25.js",
         "dist/story-test-v26.js",
@@ -2997,8 +3057,8 @@
       ]
     },
     "dist/index.html": {
-      "sha256": "2bc267eadd6a07aa52a2b999c6c99172d07ebfd07719d8a83f3f764080ac0bdc",
-      "bytes": 899,
+      "sha256": "65bce872466d154fe79384a69d022e577ff657e97ad160e8ced9ac67eb6c15b3",
+      "bytes": 960,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -5693,8 +5753,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "a3b7748e6f80ffc3a2c54df4f02dac10d123cc604d2665ce695a0550d53f37f0",
-      "bytes": 21819,
+      "sha256": "a1449dc925e1a52df936517eefeb6537fe069c159294e595d0b54c7954f3f5b3",
+      "bytes": 22044,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -5703,6 +5763,7 @@
         "dist/asset-data-v14.js",
         "dist/chapter-one-art-v30.js",
         "dist/chapter-one-motion-v30.js",
+        "dist/chapter-one-pursuit-v31.js",
         "dist/chapter-world-meta-v14.js",
         "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
@@ -7356,7 +7417,9 @@
     }
   ],
   "missing_imports": [],
-  "unmapped_runtime": [],
+  "unmapped_runtime": [
+    "dist/chapter-one-cinematic-v31.js"
+  ],
   "limits": [
     "Literal imports only; computed imports and prototype wrappers need code inspection",
     "basis_commit identifies generation; content hashes decide freshness"
