@@ -4,6 +4,12 @@
 
 原站源码服务持续返回 HTTP 500 / 超时，因此这是**已发布运行源码恢复快照**，不冒充原始开发仓库的完整 Git 历史。具体范围见 [BACKUP_STATUS.md](BACKUP_STATUS.md)。
 
+## V30 前三章完整覆盖与中断恢复
+
+接续补齐前三章35图，包含会馆客房、庄园内室和两处秘密房；639处景物及119个交互/可破坏物件统一映射，水壶、秤、木楔、机芯和工具按实际用途呈现，公告栏移出屋顶遮挡并兼容旧档。原地图碰撞、敌群、战斗数值和历史原图保留。
+
+[35图滑动对照](docs/chapter123/visual-review.html) · [验收与限制](docs/chapter123/ACCEPTANCE.md)。Harness新增阶段检查点、`.codex/progress.md`自动落盘、命令超时及恢复入口；新会话先读AGENTS、进度和git diff。GitHub保存与网站发布分开。
+
 ## V30 第二、三章接续
 
 第二章9图和第三章14图继续统一地表、路线引导、物件与灯光表现；第二章守卫使用既有16帧图集，地狱敌人增加身体动作、收势与瞬态受击/倒地。灰桥水壶交互点移出墙体碰撞，并兼容已访问地图的旧档。保留原图、地图几何、敌群、战斗数值、任务与奖励。
@@ -64,7 +70,7 @@ python3 tools/restore_archives.py --all --verify-only
 
 | 路径 | 内容 |
 | --- | --- |
-| `dist/` | 当前 195 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
+| `dist/` | 当前 196 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
 | `archives/runtime-assets.*` | 116 张当前运行图片的原始字节；恢复到 `dist/assets/` |
 | `archives/library-originals.*` | 135 个历史原件，包括源码包、文案、部门交付、原图和旧资源；恢复到 `history/originals/` |
 | `history/library-documents/` | 45 份历史文档的可直接阅读副本 |

@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter_one_two_three_presentation_on_v29",
+  "snapshot_type": "v30_chapter123_complete_presentation_on_v29",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "BACKUP_STATUS.md; docs/v30/RELEASE.md; docs/chapter23/ACCEPTANCE.md. First-chapter 11-map and chapter-two/three 23-map presentation; original topology, enemy packs and combat formulas retained. No complete campaign clear or site publication.",
-  "checked_at_utc": "2026-10-09T07:47:09.882258+00:00",
+  "known_limits": "BACKUP_STATUS.md; docs/chapter123/ACCEPTANCE.md. 35 chapter-one/two/three maps, 639 scenery and 119 props reviewed. Original topology and combat rules retained; town notice coordinate migration. No continuous campaign clear or website publication.",
+  "checked_at_utc": "2026-10-10T01:31:03.542570+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "V30 chapter23: fast and integration passed (69 Node, 15 Harness, 16 browser presentation, 14 exact browser/Lab parity); 23-map gallery and water mouse interaction/save roundtrip; offline/HTTP/mobile packaged UI passed",
+  "browser_qa_status": "Chapter123 fast/integration passed: 76 Node, 18 Harness, 16 general browser checks, 14 exact browser/Lab parity, 35-map renderer, 6 pointer cases, 77 enemy poses, 2 staged scenes; offline/HTTP/mobile packaged UI passed.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "95ddeb39be5ada127a8994a0f15034ffe7660bdc",
+  "runtime_source_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -83,7 +83,25 @@
     "browser_exact_parity_fixtures": 14,
     "documentation_commit_resolution": "git log -1 --format=%H -- source/CURRENT_STATE.json docs/harness/ACCEPTANCE.json",
     "remote_ci_status": "passed on 1013ae77a70f957542cc9b2930ffebf3b9475a9c; receipt docs/harness/acceptance/CI.json; source fingerprint unchanged",
-    "remote_ci_checked_commit": "1013ae77a70f957542cc9b2930ffebf3b9475a9c"
+    "remote_ci_checked_commit": "1013ae77a70f957542cc9b2930ffebf3b9475a9c",
+    "incremental_execution": {
+      "task_id": "harness-resume-20261009",
+      "progress_file": ".codex/progress.md",
+      "checkpoint_command": "python3 tools/harness/task.py checkpoint",
+      "restart_reads": [
+        "AGENTS.md",
+        ".codex/progress.md",
+        "git diff"
+      ],
+      "timeout_exit": 124,
+      "interrupted_exit": 130,
+      "unknown_results_block_completion": true,
+      "stages_required_complete": true,
+      "tests_passed": 18,
+      "implementation_commit": "0ef38f7",
+      "status": "local acceptance complete; remote save pending",
+      "evidence": "docs/chapter123/QA.json"
+    }
   },
   "balance_lab": {
     "version": 1,
@@ -238,7 +256,7 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter23/GIT_SAVE.json source/CURRENT_STATE.json"
   },
   "chapter123": {
-    "status": "implementation complete; final integration pending",
+    "status": "local acceptance complete; remote save pending",
     "task_id": "ch123-coverage-20261009",
     "maps": 35,
     "evidence": "docs/chapter123/",
@@ -249,6 +267,26 @@
     "geometry_changed": false,
     "combat_numbers_changed": false,
     "save_schema": 15,
-    "notice_relocated": true
+    "notice_relocated": true,
+    "implementation_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+    "node_tests_passed": 76,
+    "harness_tests_passed": 18,
+    "browser_map_count": 35,
+    "browser_mouse_cases": 6,
+    "enemy_pose_samples": 77,
+    "staged_scenes": 2,
+    "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+    "limitations": [
+      "No continuous chapter 1–3 campaign clear",
+      "No new enemy sprite sheets; native frames and existing V30 guard frames retained",
+      "Original medical cot/cart rig retained for patient support",
+      "No website deployment"
+    ],
+    "checked_at_utc": "2026-10-10T01:31:03.542570+00:00",
+    "packaged_ui": [
+      "offline-file",
+      "http-site",
+      "mobile-landscape"
+    ]
   }
 }

@@ -1,0 +1,242 @@
+{
+  "status": "all required local checks passed",
+  "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+  "implementation_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+  "task_ids": [
+    "ch123-coverage-20261009",
+    "harness-resume-20261009"
+  ],
+  "harness_tests": 18,
+  "node_tests": 76,
+  "runtime_modules_parsed": 196,
+  "original_assets_verified": 116,
+  "navigation_maps_unchanged": 118,
+  "baseline_combat_parity_fixtures": 36,
+  "browser_general_checks": 16,
+  "browser_exact_event_parity_fixtures": 14,
+  "browser_review": {
+    "maps": 35,
+    "scenery": 639,
+    "props": 119,
+    "pointer_cases": 6,
+    "enemy_pose_samples": 77,
+    "staged_scenes": [
+      {
+        "scene": "ch2TargetBefore",
+        "map": "chamber",
+        "gameMap": "manor",
+        "mode": "dialogue"
+      },
+      {
+        "scene": "ch3Treatment",
+        "map": "hellCamp",
+        "gameMap": "hellCamp",
+        "mode": "dialogue"
+      }
+    ],
+    "occlusion": {
+      "behind": 0.3,
+      "front": 1,
+      "fitted": {
+        "id": "south-shop",
+        "asset": 0,
+        "x": 1210,
+        "y": 950,
+        "w": 350,
+        "h": 345.6,
+        "box": [
+          1050,
+          895,
+          320,
+          55
+        ],
+        "sheet": "chapterArchitecture"
+      }
+    },
+    "uncaught_errors": []
+  },
+  "medical_cot_cart_preserved": true,
+  "combat_rules_changed": false,
+  "site_deployed": false,
+  "checks": [
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:25:33.052232+00:00",
+      "finished_at_utc": "2026-10-10T01:25:43.680415+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/010-fast.txt",
+      "output_sha256": "7aa1b51ef764b7e5732a1b60e63554ff7c0e1ffc0388a3f7a574f6301cca5480",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "core",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:25:54.686245+00:00",
+      "finished_at_utc": "2026-10-10T01:28:31.033415+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/011-core.txt",
+      "output_sha256": "1f4dc76cdb525ee44b7ebaba718e99302918dd6fbe521c1aadfc20a8682014b2",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "chapter123-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:28:48.757713+00:00",
+      "finished_at_utc": "2026-10-10T01:29:10.476969+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/012-chapter123-browser.txt",
+      "output_sha256": "4197005af9bff93c755ec010814c14c3e7511014245d152455229c9c2a5e0375",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/chapter123-build",
+        "--out",
+        "qa-export/chapter123-packaged-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:29:25.204159+00:00",
+      "finished_at_utc": "2026-10-10T01:30:32.090356+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/013-packaged-ui.txt",
+      "output_sha256": "1386e8c2c6a331fee16072dd50c2f70e952594ca4534f0b13c6d2574a4e697fc",
+      "timeout_seconds": 300.0
+    }
+  ],
+  "not_claimed": [
+    "complete campaign clear",
+    "every interaction quest played end-to-end",
+    "new full enemy animation atlases",
+    "website deployment",
+    "original missing development source recovery"
+  ],
+  "checked_at_utc": "2026-10-10T01:31:03.542570+00:00",
+  "packaged_ui": {
+    "version": "30",
+    "passed": true,
+    "results": [
+      {
+        "case": "offline-file",
+        "url": "offline-file",
+        "checks": [
+          "all_assets_loaded",
+          "three_class_choices",
+          "start_new_journey",
+          "intro_to_live_game",
+          "keyboard_movement",
+          "browser_save",
+          "inventory_ui",
+          "continue_saved_journey",
+          "attack_kills_enemy",
+          "combat_rewards",
+          "export_save_text",
+          "chapter8_checkpoint",
+          "no_chapter8_large_cg"
+        ],
+        "first_load_seconds": 4.41,
+        "uncaught_errors": [],
+        "network_requests": 0,
+        "chapter8_cg_requests": []
+      },
+      {
+        "case": "http-site",
+        "url": "http-site",
+        "checks": [
+          "all_assets_loaded",
+          "three_class_choices",
+          "start_new_journey",
+          "intro_to_live_game",
+          "keyboard_movement",
+          "browser_save",
+          "inventory_ui",
+          "continue_saved_journey",
+          "attack_kills_enemy",
+          "combat_rewards",
+          "export_save_text",
+          "chapter8_checkpoint",
+          "no_chapter8_large_cg"
+        ],
+        "first_load_seconds": 3.64,
+        "uncaught_errors": [],
+        "network_requests": 562,
+        "chapter8_cg_requests": []
+      },
+      {
+        "case": "mobile-landscape",
+        "touch_controls_visible": true,
+        "viewport": [
+          844,
+          390
+        ]
+      }
+    ],
+    "scope": "Packaged file/HTTP entry, start, movement, combat, inventory, save/export and chapter test. Not an eight-chapter playthrough."
+  },
+  "harness_checks": [
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:27:24.115255+00:00",
+      "finished_at_utc": "2026-10-10T01:27:36.043955+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/003-fast.txt",
+      "output_sha256": "4007372e3de1ab7fb7b3a22790dc3299b103fb70c44a987af485218654e11dbd",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/chapter123-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:28:49.899719+00:00",
+      "finished_at_utc": "2026-10-10T01:29:14.267799+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/004-package-build.txt",
+      "output_sha256": "39210a05db2aef51f6daac7214a1fbf3ae36f07a8223b6b193c671221cded75d",
+      "timeout_seconds": 180.0
+    }
+  ]
+}

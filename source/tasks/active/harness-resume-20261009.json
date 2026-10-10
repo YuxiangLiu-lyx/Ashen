@@ -11,18 +11,19 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T01:17:25.333683+00:00",
-  "updated_at_utc": "2026-10-10T01:20:17.981073+00:00",
+  "updated_at_utc": "2026-10-10T01:31:03.715994+00:00",
   "decisions": [
     "保留手写计划与其他任务区块；未知结果保持未通过；不自动提交或部署"
   ],
   "completed": [
-    "进度自动落盘、阶段检查点、限时命令与恢复入口已实现；18项Harness回归通过"
+    "进度自动落盘、阶段检查点、限时命令与恢复入口已实现；18项Harness回归通过",
+    "最终代码上的18项Harness回归通过；两任务进度区块保留并可恢复"
   ],
   "remaining": [
-    "最终代码上的fast复核及GitHub保存"
+    "GitHub main同步并归档"
   ],
   "blockers": [],
-  "next": "审计前三章表现与交互",
+  "next": "合并交付记录、推送并核验",
   "required_checks": [
     "fast"
   ],
@@ -61,6 +62,42 @@
       "output": "docs/harness/evidence/harness-resume-20261009/002-fast.txt",
       "output_sha256": "1630483d37f202dbd319c8ed07a919080329aa76dbcd37424b3612a7a10391e0",
       "timeout_seconds": 120.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:27:24.115255+00:00",
+      "finished_at_utc": "2026-10-10T01:27:36.043955+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/003-fast.txt",
+      "output_sha256": "4007372e3de1ab7fb7b3a22790dc3299b103fb70c44a987af485218654e11dbd",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/chapter123-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:28:49.899719+00:00",
+      "finished_at_utc": "2026-10-10T01:29:14.267799+00:00",
+      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/004-package-build.txt",
+      "output_sha256": "39210a05db2aef51f6daac7214a1fbf3ae36f07a8223b6b193c671221cded75d",
+      "timeout_seconds": 180.0
     }
   ],
   "stages": [
