@@ -12,6 +12,8 @@ python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --stat
 
 直接给 Codex 一句需求，仓库 AGENTS 和六项 Skills 会引导执行。通用 Prompt见根 NEXT_SESSION_PROMPT.md，不需要粘贴大型项目历史。
 
+章节与剧情开发增加一个前置阶段：按 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md) 读取本章稿并记录采用版本，再实现。分卷分章登记在 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md)；[WORLD_VISION](WORLD_VISION.md) 是按需参考，未完善处不会自动阻塞本章。第一章与第二章需分别查询并读取，router 的一次混合任务最多选择三个模块，未命中的模块不会进入 deferred。低预算得到的摘录也不能代替整份章节稿。
+
 ```bash
 python3 tools/harness/index.py --check
 python3 tools/harness/baseline.py --output qa-export/baseline-task-001

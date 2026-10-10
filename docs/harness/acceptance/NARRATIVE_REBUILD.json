@@ -1,0 +1,231 @@
+{
+  "task_id": "narrative-harness-20261010",
+  "baseline_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+  "checked_at_utc": "2026-10-10T05:07:37.589839+00:00",
+  "scope": "Narrative documents and harness discovery; no gameplay implementation",
+  "source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9",
+  "scripts": [
+    {
+      "id": "V01C01",
+      "script": "docs/harness/CHAPTER_01.md",
+      "script_revision": "0.1",
+      "script_status": "SCRIPT_READY",
+      "implementation": "not_started",
+      "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
+    },
+    {
+      "id": "V01C02",
+      "script": "docs/harness/CHAPTER_02.md",
+      "script_revision": "0.1",
+      "script_status": "SCRIPT_READY",
+      "implementation": "not_started; planning only in this phase"
+    }
+  ],
+  "route_probes": [
+    {
+      "task": "第一章剧情",
+      "status": "ok",
+      "modules": [
+        "chapter01_plan",
+        "story"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md",
+        "docs/harness/CHAPTER_01.md",
+        "dist/world-dialogues-v29.js",
+        "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md",
+        "dist/chengli-text-v27.js",
+        "dist/data-v14.js",
+        "dist/dialogue-runtime-v16.js",
+        "dist/saga-runtime-v26.js",
+        "dist/story-flow-v14.js",
+        "dist/dialogue-save-migration-v26.js"
+      ]
+    },
+    {
+      "task": "第二章剧情",
+      "status": "budget_limited",
+      "modules": [
+        "chapter02_plan",
+        "maps",
+        "story"
+      ],
+      "deferred": [
+        "dist/world-v14.js",
+        "dist/scene-geometry-v26.js",
+        "dist/story-flow-v14.js",
+        "dist/presentation-physics-v281.js",
+        "dist/dialogue-save-migration-v26.js",
+        "dist/navigation-v14.js",
+        "dist/world-entry-v22.js"
+      ],
+      "contexts": [
+        "docs/harness/EXPLORATION.md",
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md",
+        "docs/harness/WORLD.md",
+        "docs/v28.1/RELEASE.md",
+        "dist/chapter123-presentation-v30.js",
+        "docs/harness/CHAPTER_02.md",
+        "dist/chapter23-design-v30.js",
+        "dist/world-dialogues-v29.js",
+        "dist/chengli-text-v27.js",
+        "dist/world-design-v29.js",
+        "dist/data-v14.js",
+        "dist/world-runtime-v29.js",
+        "dist/dialogue-runtime-v16.js",
+        "dist/world-art-v29.js",
+        "dist/saga-runtime-v26.js"
+      ]
+    },
+    {
+      "task": "分卷分章整体架构",
+      "status": "ok",
+      "modules": [
+        "narrative_architecture"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/NARRATIVE_ARCHITECTURE.md"
+      ]
+    },
+    {
+      "task": "长期世界观",
+      "status": "ok",
+      "modules": [
+        "world_vision"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/WORLD_VISION.md"
+      ]
+    },
+    {
+      "task": "修改剧情对白",
+      "status": "ok",
+      "modules": [
+        "story"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md",
+        "dist/world-dialogues-v29.js",
+        "dist/chengli-text-v27.js",
+        "dist/data-v14.js",
+        "dist/dialogue-runtime-v16.js",
+        "dist/saga-runtime-v26.js",
+        "dist/story-flow-v14.js",
+        "dist/dialogue-save-migration-v26.js"
+      ]
+    },
+    {
+      "task": "修改地图表现",
+      "status": "budget_limited",
+      "modules": [
+        "maps",
+        "art"
+      ],
+      "deferred": [
+        "dist/presentation-metrics-v281.js",
+        "dist/world-entry-v22.js",
+        "dist/visuals-v14.js",
+        "dist/art-v14.js"
+      ],
+      "contexts": [
+        "docs/harness/EXPLORATION.md",
+        "docs/harness/WORLD.md",
+        "docs/v28.1/RELEASE.md",
+        "dist/chapter123-presentation-v30.js",
+        "dist/chapter23-design-v30.js",
+        "dist/world-design-v29.js",
+        "dist/world-runtime-v29.js",
+        "dist/world-art-v29.js",
+        "dist/chapter23-art-v30.js",
+        "dist/world-v14.js",
+        "dist/chapter-one-art-v30.js",
+        "dist/scene-geometry-v26.js",
+        "dist/actor-art-v281.js",
+        "dist/presentation-physics-v281.js",
+        "dist/equipment-art-v281.js",
+        "dist/navigation-v14.js"
+      ]
+    },
+    {
+      "task": "修改暗影流血连招",
+      "status": "ok",
+      "modules": [
+        "combat"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/COMBAT.md",
+        "docs/v28/COMBAT_OVERHAUL.md",
+        "dist/core-v14.js",
+        "dist/balance-v14.js",
+        "dist/skills-v14.js",
+        "dist/enemy-ai-v14.js",
+        "dist/combat-overhaul-v28.js",
+        "dist/combat-input-v17.js",
+        "dist/chapter3-skills-v14.js",
+        "dist/progression-data-v14.js",
+        "dist/progression-runtime-v14.js",
+        "dist/chapter-one-motion-v30.js",
+        "dist/enchantments-v14.js",
+        "dist/equipment-v14.js",
+        "dist/growth-v14.js",
+        "dist/save-protection-v23.js"
+      ]
+    },
+    {
+      "task": "优化圣女封术印演出",
+      "status": "ok",
+      "modules": [
+        "story",
+        "lab"
+      ],
+      "deferred": [],
+      "contexts": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md",
+        "docs/balance-lab/README.md",
+        "docs/harness/COMBAT.md",
+        "dist/world-dialogues-v29.js",
+        "dist/chengli-text-v27.js",
+        "dist/data-v14.js",
+        "dist/dialogue-runtime-v16.js",
+        "dist/saga-runtime-v26.js",
+        "dist/story-flow-v14.js",
+        "tools/balance_lab/simulator.mjs",
+        "tools/balance_lab/run.mjs",
+        "tools/balance_lab/economy.mjs",
+        "tools/balance_lab/effects.mjs",
+        "dist/dialogue-save-migration-v26.js"
+      ]
+    }
+  ],
+  "fast": {
+    "exit_code": 0,
+    "tests": 24,
+    "log": "docs/harness/evidence/narrative-harness-20261010/003-verification.txt",
+    "log_sha256": "2ab6b00a390199a4a84fd30c511cae3579f8cae53cc6cb4e15976c4f1c562b49"
+  },
+  "runtime_changed_paths": [],
+  "site_deployed": false,
+  "independent_review_fixes": [
+    "Removed contradictory chapter-two ending time instruction",
+    "Recorded cloak acquisition and costume continuity in chapter one",
+    "Unified release condition as door opened, not assassination complete",
+    "Chapter one ends before receiving chapter-two task letter",
+    "Recorded saint request letter and later delivery restriction"
+  ],
+  "limits": [
+    "No runtime scene or map changes in this task; no new gameplay tests or artwork generation claimed",
+    "Chapter recording/freezing is a development workflow rule, not an automatic machine gate",
+    "Broad mixed queries select at most three modules; each chapter must be queried and fully read separately",
+    "check.py recommends integration conservatively for unindexed state/evidence; documents-only scope verified by empty runtime/tools diff, so fast and routing/ref tests are the relevant checks"
+  ]
+}

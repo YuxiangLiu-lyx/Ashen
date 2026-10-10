@@ -1,6 +1,6 @@
 # Ashen Agent 入口
 
-本仓库为《烬誓：圣女与影刃》V29世界探索示范版（基于V28.1恢复运行快照），运行代码在dist。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
+本仓库当前为《烬誓：圣女与影刃》V30表现版（继承V29探索与V28.1恢复快照），运行代码在dist。新的叙事重构尚未实装，状态见source/CURRENT_STATE.json。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
 
 增量执行：每次开工或中断恢复，首先读本文件、`.codex/progress.md`、`git diff`，并检查未跟踪文件；从首个未完成阶段继续。修改代码前先检查仓库并建立/更新进度文件，将任务拆成可独立完成的阶段。每阶段保存代码，使用 `task.py checkpoint` 更新已完成/待完成/重要决定/下一步，合适时提交检查点。任务和证据必须落盘，不仅留在会话。长检查通过 `task.py run --timeout <秒数>` 限时并记录日志；超时或断线后结果未知不能当作成功。
 
@@ -13,3 +13,5 @@
 7. 收尾更新CURRENT_STATE、progress、任务和docs验收；审查diff/未跟踪/ignore/staged，提交真实内容并推送授权的GitHub main，无需重复确认。禁止force push、reset --hard或clean。推送后ls-remote核对HEAD或fetch确认祖先才说已上传；失败保留本地SHA/文件并记未完成远端同步。详细资产、归档、版本与Git规则见[Git保存细则](docs/harness/GIT_SAVE.md)。GitHub保存不等于网站发布。
 
 短命令及任务接续：[WORKFLOW](docs/harness/WORKFLOW.md)。source/tasks/active只放未完成任务，历史已完成任务按需读取。
+
+章节/剧情开发先按 [章节记录流程](docs/harness/NARRATIVE_WORKFLOW.md) 找到并记录本章稿，再实施。长期世界观与尚未完善的设想见 [可选参考](docs/harness/WORLD_VISION.md)，不要求普通任务阅读全文；分卷分章及当前稿件登记见 [叙事架构](docs/harness/NARRATIVE_ARCHITECTURE.md)。当前重构试点：前两章先记录，第一章先开发，第二章暂只策划。

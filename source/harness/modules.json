@@ -225,7 +225,12 @@
         "澄璃",
         "艾莉娅",
         "叙事",
-        "章节"
+        "章节",
+        "圣女",
+        "薇蕾娜",
+        "封术印",
+        "演出",
+        "剧情开发"
       ],
       "entries": [
         "dist/world-dialogues-v29.js",
@@ -255,7 +260,8 @@
         "dist/romance-runtime*"
       ],
       "rules": [
-        "docs/harness/STORY.md"
+        "docs/harness/STORY.md",
+        "docs/harness/NARRATIVE_WORKFLOW.md"
       ],
       "safety": [
         "dist/dialogue-save-migration-v26.js"
@@ -589,6 +595,99 @@
         "node --test tests/balance-lab.test.mjs",
         "node tests/browser-balance-lab.mjs"
       ]
+    },
+    {
+      "patterns": [],
+      "safety": [],
+      "tests": [
+        "python3 tools/harness/check.py --tier fast"
+      ],
+      "id": "chapter01_plan",
+      "keywords": [
+        "第一章",
+        "第一章节",
+        "V01C01",
+        "第1章",
+        "第1章节",
+        "chapter1",
+        "chapter 1"
+      ],
+      "entries": [
+        "docs/harness/CHAPTER_01.md",
+        "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
+      ],
+      "rules": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md"
+      ],
+      "risk": "第一章新策划尚未实装；读本章全文并记录采用稿版后，只开发授权试点。"
+    },
+    {
+      "patterns": [],
+      "safety": [],
+      "tests": [
+        "python3 tools/harness/check.py --tier fast"
+      ],
+      "id": "chapter02_plan",
+      "keywords": [
+        "第二章",
+        "第二章节",
+        "V01C02",
+        "第2章",
+        "第2章节",
+        "chapter2",
+        "chapter 2"
+      ],
+      "entries": [
+        "docs/harness/CHAPTER_02.md"
+      ],
+      "rules": [
+        "docs/harness/NARRATIVE_WORKFLOW.md",
+        "docs/harness/STORY.md"
+      ],
+      "risk": "第二章当前只记录剧情，不能将第一章开发任务扩大到第二章代码。"
+    },
+    {
+      "patterns": [],
+      "safety": [],
+      "tests": [
+        "python3 tools/harness/check.py --tier fast"
+      ],
+      "id": "narrative_architecture",
+      "keywords": [
+        "分卷",
+        "分章",
+        "章节规划",
+        "章节立项",
+        "叙事架构",
+        "章节登记"
+      ],
+      "entries": [
+        "docs/harness/NARRATIVE_ARCHITECTURE.md"
+      ],
+      "rules": [
+        "docs/harness/NARRATIVE_WORKFLOW.md"
+      ],
+      "risk": "文学卷章ID与运行phase分开；SCRIPT_READY不等于用户逐句批准或已实现。"
+    },
+    {
+      "patterns": [],
+      "safety": [],
+      "tests": [
+        "python3 tools/harness/check.py --tier fast"
+      ],
+      "id": "world_vision",
+      "keywords": [
+        "世界观",
+        "长期设定",
+        "长期构想",
+        "阵营规划"
+      ],
+      "entries": [
+        "docs/harness/WORLD_VISION.md"
+      ],
+      "rules": [],
+      "risk": "可选长期参考：用户确定方向、可改建议、待完善事项分别记录；未指定阅读时不随普通剧情任务强加载。"
     }
   ]
 }

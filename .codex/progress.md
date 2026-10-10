@@ -1,8 +1,12 @@
 # Ashen 增量执行进度
 
-最后更新：2026-10-09。会话中断后先读 `AGENTS.md`、本文件、`git diff`（含未跟踪文件清单），若有未完成任务再 resume，从首个未完成阶段继续。不要重新覆盖已有工作。
+最后更新：2026-10-10。会话中断后先读 `AGENTS.md`、本文件、`git diff`（含未跟踪文件清单），若有未完成任务再 resume，从首个未完成阶段继续。不要重新覆盖已有工作。
 
-## 目标与验收
+## 当前目标与范围
+
+本轮 `narrative-harness-20261010`：记录大重构的长期世界观可选参考、分卷分章架构、前两章完整策划与第一章开发 prompt，并接入 harness。本轮修改开发资料与路由，不改游戏运行代码；第一章内容由开发者按 prompt 实现，第二章先只记录剧情。章节稿未完善的远期设定不阻塞首章局部实现，冻结记录不代表用户逐句审批。详见 docs/harness/NARRATIVE_WORKFLOW.md 与下方本任务区块。
+
+## 上轮目标与验收（历史）
 
 完善 harness 的落盘、分阶段和中断恢复；接续前三章地图、敌人与交互物表现优化。运行代码以 `dist/` 为准，保留地图导航、存档、剧情、奖励和战斗数值。通过 fast、相关 Node/浏览器检查及 integration，保存到授权 GitHub main；本轮不发布网站。
 
@@ -66,3 +70,19 @@ python3 tools/harness/task.py list
 - 阶段 delivery：complete；HEAD 9a455efb34de36614d5fa7930f807227b1849eda
 - 最近检查：packaged-ui，退出码 0；docs/harness/evidence/ch123-coverage-20261009/013-packaged-ui.txt
 <!-- /task:ch123-coverage-20261009 -->
+
+<!-- task:narrative-harness-20261010 -->
+## 任务 narrative-harness-20261010
+- 状态：in_progress
+- 更新：2026-10-10T05:07:38.663232+00:00
+- 下一步：提交并正常推送main，核验远端SHA
+- 任务记录：source/tasks/active/narrative-harness-20261010.json
+- 已完成：长期愿景按三层记录；分卷分章登记与流程齐全；前两章逐场稿与第一章prompt已保存；最终fast通过24项；索引281文件无问题；剧情审稿问题已校准；dist与tools未改
+- 待完成：GitHub保存与远端核验
+- 决定：本轮只改harness与设计文档；开发prompt先记录两章后仅实现第一章；长期愿景可选而非默认必读
+- 阻塞：无
+- 阶段 planning：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
+- 阶段 verification：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
+- 阶段 delivery：in_progress；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
+- 最近检查：verification，退出码 0；docs/harness/evidence/narrative-harness-20261010/003-verification.txt
+<!-- /task:narrative-harness-20261010 -->
