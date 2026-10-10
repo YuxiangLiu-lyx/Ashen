@@ -16,6 +16,10 @@ def read_json(path, root=ROOT):
 
 
 def write_json(path, value):
+    write_text(path, json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+
+
+def write_text(path, value):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = None
@@ -23,7 +27,7 @@ def write_json(path, value):
         with tempfile.NamedTemporaryFile(mode='w', encoding='utf-8', dir=path.parent,
                                          suffix='.harness-tmp', delete=False) as handle:
             temporary = Path(handle.name)
-            handle.write(json.dumps(value, ensure_ascii=False, indent=2) + '\n')
+            handle.write(value)
             handle.flush()
             os.fsync(handle.fileno())
         os.replace(temporary, path)

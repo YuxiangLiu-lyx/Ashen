@@ -2,6 +2,8 @@
 
 本仓库为《烬誓：圣女与影刃》V29世界探索示范版（基于V28.1恢复运行快照），运行代码在dist。旧文件名不能判版本。原始开发历史与最新未发布source仍缺失；保留原图、剧情、角色、地图、存档和历史原件。
 
+增量执行：每次开工或中断恢复，首先读本文件、`.codex/progress.md`、`git diff`，并检查未跟踪文件；从首个未完成阶段继续。修改代码前先检查仓库并建立/更新进度文件，将任务拆成可独立完成的阶段。每阶段保存代码，使用 `task.py checkpoint` 更新已完成/待完成/重要决定/下一步，合适时提交检查点。任务和证据必须落盘，不仅留在会话。长检查通过 `task.py run --timeout <秒数>` 限时并记录日志；超时或断线后结果未知不能当作成功。
+
 1. 开工先检查 `git status --short --branch`、remote、HEAD并fetch GitHub Ashen/main；保留现场，干净可快进时merge --ff-only。大型修改用分支/worktree。读README、BACKUP_STATUS、source/README、source/CURRENT_STATE.json及source/GLOBAL_PROMPT；恢复范围不能仅凭聊天记忆判断。
 2. 当前用户授权决定目标；当前代码＋可重复测试描述实际行为；CURRENT_STATE及发布回执描述版本/发行；按需规则在docs/harness。历史档案仅追溯，FUTURE_ONLY不自动实装。冲突/缺失须明确报告并搜索调用者，不能猜测或把设计稿当运行事实。
 3. 无论需求长短，先运行 `python3 tools/harness/context.py --task "用户需求"`。索引过期先运行index.py再复核modules.json中的语义映射。看返回原因、入口、风险、测试和deferred，预算不足用--expand/--max-files/--budget；不要默认读全剧情/美术/历史。用rg检查实际代码和覆盖关系。

@@ -13,7 +13,7 @@ sys.path.insert(0, str(ROOT / 'tools/harness'))
 from common import INDEX, inventory, fingerprint, write_json
 from index import generate, stale, javascript_code, IMPORT
 from context import route
-from task import execute, can_finish, validate, path_for, task_lock
+from task import execute, can_finish, validate, path_for, task_lock, sync_progress
 from check import recommend
 
 
@@ -167,6 +167,46 @@ class IsolatedStateTests(unittest.TestCase):
         execute(self.record, [sys.executable, '-c', "print('recheck')"], 'core', self.root)
         self.assertEqual(orphan.read_text(), 'partial historical output')
         self.assertTrue(self.record['checks'][-1]['output'].endswith('003-core.txt'))
+
+    def test_timeout_preserves_partial_log_and_requires_successful_rerun(self):
+        code = execute(self.record, [sys.executable, '-u', '-c',
+                       "import time; print('partial output'); time.sleep(30)"],
+                       'core', self.root, timeout=.2)
+        self.assertEqual(code, 124)
+        check = self.record['checks'][-1]
+        self.assertEqual(check['termination'], 'timeout')
+        self.assertIn('partial output', (self.root / check['output']).read_text())
+        self.assertTrue(can_finish(self.record, self.root))
+        execute(self.record, [sys.executable, '-c', 'print("rerun")'], 'core', self.root)
+        self.assertFalse(can_finish(self.record, self.root))
+
+    def test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan(self):
+        progress = self.root / '.codex/progress.md'
+        progress.parent.mkdir()
+        progress.write_text('# Manual plan\nDo not overwrite existing art.\n')
+        self.record.update(next='Review clicks', completed=['Baseline saved'], remaining=['Browser QA'],
+                           decisions=['Keep combat numbers'], status='in_progress')
+        sync_progress(self.record, self.root)
+        other = dict(self.record, id='other', next='Other task')
+        sync_progress(other, self.root)
+        saved = self.root / 'source/tasks/active/fixture.json'
+        write_json(saved, self.record)
+        restored = json.loads(saved.read_text())
+        restored['next'] = 'Save reviewed changes'
+        sync_progress(restored, self.root)
+        content = progress.read_text()
+        self.assertIn('Do not overwrite existing art.', content)
+        self.assertIn('Other task', content)
+        self.assertIn('Save reviewed changes', content)
+        self.assertNotIn('Review clicks', content)
+        self.assertEqual(content.count('<!-- task:fixture -->'), 1)
+
+    def test_unfinished_stage_prevents_completion(self):
+        execute(self.record, [sys.executable, '-c', 'print("ok")'], 'core', self.root)
+        self.record['stages'] = [{'name': 'review', 'status': 'in_progress'}]
+        self.assertIn('All recorded stages must be complete', can_finish(self.record, self.root))
+        self.record['stages'][0]['status'] = 'complete'
+        self.assertFalse(can_finish(self.record, self.root))
 
 
 if __name__ == '__main__':

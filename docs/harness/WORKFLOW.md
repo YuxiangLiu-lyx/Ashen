@@ -1,5 +1,15 @@
 # 最短开发流程
 
+开工或中断恢复先读 `AGENTS.md`、`.codex/progress.md`、`git diff` 并检查未跟踪文件。先保存现场和分阶段计划，再修改代码。`start/update/checkpoint/run/finish` 自动原子更新进度文件中本任务的区块，保留手写计划及其他任务区块。记录阶段并不代替测试或 Git 提交；每阶段保存文件和重要决定，逻辑完整时独立提交。
+
+```bash
+python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --state in_progress --next "修复后执行专项"
+python3 tools/harness/task.py run --id <ID> --label core --timeout 600 -- python3 tools/harness/check.py --tier core
+python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --state complete --done "实现和专项已保存" --remaining "集成与GitHub保存" --decision "保留原存档结构" --next "集成验收"
+```
+
+检查启动前落盘未知状态并显示日志路径；超时终止该命令的进程组，保留日志并记录退出码124，键盘中断为130。强制断线/进程被杀时保留未知状态，恢复后检查进程与日志并重跑，禁止用旧通过记录替代。本机制降低长会话故障造成的工作丢失，不控制外部连接服务，也不自动部署/提交。完成任务要求全部已记录阶段完成。
+
 直接给 Codex 一句需求，仓库 AGENTS 和六项 Skills 会引导执行。通用 Prompt见根 NEXT_SESSION_PROMPT.md，不需要粘贴大型项目历史。
 
 ```bash

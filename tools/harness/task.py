@@ -5,10 +5,12 @@ from contextlib import contextmanager
 import fcntl
 from datetime import datetime, timezone
 import json
+import os
 import re
+import signal
 import subprocess
 from pathlib import Path
-from common import ROOT, read_json, write_json, git, inventory, fingerprint, digest
+from common import ROOT, read_json, write_json, write_text, git, inventory, fingerprint, digest
 from context import route
 
 
@@ -52,7 +54,54 @@ def validate(record, root=ROOT):
     return errors
 
 
-def execute(record, command, label, root=ROOT):
+def sync_progress(record, root=ROOT):
+    """Replace only this task's generated block; preserve the human recovery plan."""
+    with task_lock('progress-file', root):
+        path = root / '.codex/progress.md'
+        content = path.read_text() if path.exists() else '# Ashen 增量执行进度\n\n恢复先读 AGENTS.md、本文件和 git diff。\n'
+        begin, end = '<!-- task:' + record['id'] + ' -->', '<!-- /task:' + record['id'] + ' -->'
+        lines = [begin, '## 任务 ' + record['id'],
+                 '- 状态：' + record.get('status', 'in_progress'),
+                 '- 更新：' + record.get('updated_at_utc', now()),
+                 '- 下一步：' + record.get('next', 'Inspect task record'),
+                 '- 任务记录：source/tasks/' + ('archive/' if record.get('status') == 'complete' else 'active/') + record['id'] + '.json']
+        for name, title in [('completed', '已完成'), ('remaining', '待完成'), ('decisions', '决定'), ('blockers', '阻塞')]:
+            lines.append('- ' + title + '：' + ('；'.join(record.get(name, [])) or '无'))
+        for stage in record.get('stages', []):
+            lines.append('- 阶段 ' + stage['name'] + '：' + stage['status'] + '；HEAD ' + stage['head_commit'])
+        if record.get('running_check'):
+            lines.append('- 检查结果尚未知，不能视为通过：' + record['running_check']['label'])
+        elif record.get('checks'):
+            check = record['checks'][-1]
+            lines.append('- 最近检查：' + check['label'] + '，退出码 ' + str(check['exit_code']) + '；' + check['output'])
+        block = '\n'.join(lines + [end])
+        if begin in content and end in content:
+            start = content.index(begin)
+            stop = content.index(end, start) + len(end)
+            content = content[:start] + block + content[stop:]
+        else:
+            content = content.rstrip() + '\n\n' + block + '\n'
+        write_text(path, content)
+
+
+def stop_process(process):
+    """A timed-out test may have children; terminate its whole process group."""
+    try:
+        os.killpg(process.pid, signal.SIGTERM)
+    except ProcessLookupError:
+        return
+    try:
+        process.wait(timeout=3)
+    except subprocess.TimeoutExpired:
+        pass
+    try:
+        os.killpg(process.pid, signal.SIGKILL)
+    except ProcessLookupError:
+        pass
+    process.wait()
+
+
+def execute(record, command, label, root=ROOT, timeout=None):
     if not command:
         raise ValueError('Expected executable command after --')
     before = inventory(root)
@@ -64,11 +113,20 @@ def execute(record, command, label, root=ROOT):
         number += 1
         output = folder / f"{number:03}-{label}.txt"
     began = now()
+    print('Running ' + label + '; log: ' + output.relative_to(root).as_posix(), flush=True)
+    termination = None
     # No shell interpolation; exit status always comes from the real subprocess.
     with output.open('x', encoding='utf-8') as log:
         try:
-            result = subprocess.run(command, cwd=root, stdout=log, stderr=subprocess.STDOUT)
-            code = result.returncode
+            process = subprocess.Popen(command, cwd=root, stdout=log, stderr=subprocess.STDOUT,
+                                       start_new_session=True)
+            try:
+                code = process.wait(timeout=timeout)
+            except (subprocess.TimeoutExpired, KeyboardInterrupt) as exc:
+                termination = 'timeout' if isinstance(exc, subprocess.TimeoutExpired) else 'interrupted'
+                stop_process(process)
+                code = 124 if termination == 'timeout' else 130
+                log.write('\nHarness: ' + termination + '; verification did not complete.\n')
         except OSError as exc:
             log.write(str(exc) + '\n')
             code = 127
@@ -78,6 +136,10 @@ def execute(record, command, label, root=ROOT):
              'head_commit': git('rev-parse', 'HEAD', root=root),
              'source_fingerprint': fingerprint(before), 'sources_changed_during_check': before != after,
              'output': output.relative_to(root).as_posix(), 'output_sha256': digest(output)}
+    if timeout is not None:
+        check['timeout_seconds'] = timeout
+    if termination:
+        check['termination'] = termination
     record['checks'].append(check)
     record['updated_at_utc'] = now()
     return code
@@ -97,6 +159,8 @@ def can_finish(record, root=ROOT):
             errors.append('Check predates current code: ' + label)
     if record['remaining'] or record['blockers']:
         errors.append('Remaining work or blockers must be explicitly resolved')
+    if any(s['status'] != 'complete' for s in record.get('stages', [])):
+        errors.append('All recorded stages must be complete')
     return errors
 
 
@@ -108,17 +172,21 @@ def main():
     start.add_argument('--goal', required=True)
     start.add_argument('--accept', action='append', required=True)
     start.add_argument('--require', action='append', default=[])
-    for name in ['resume', 'update', 'run', 'finish']:
+    for name in ['resume', 'update', 'checkpoint', 'run', 'finish']:
         p = sub.add_parser(name)
         p.add_argument('--id', required=True)
-        if name == 'update':
+        if name in ['update', 'checkpoint']:
             p.add_argument('--decision', action='append', default=[])
             p.add_argument('--done', action='append', default=[])
             p.add_argument('--remaining', action='append')
             p.add_argument('--blocker', action='append')
             p.add_argument('--next')
+        if name == 'checkpoint':
+            p.add_argument('--stage', required=True)
+            p.add_argument('--state', choices=['in_progress', 'complete'], required=True)
         if name == 'run':
             p.add_argument('--label', default='verification')
+            p.add_argument('--timeout', type=float, help='Optional seconds; timeout records exit 124')
             p.add_argument('command', nargs=argparse.REMAINDER)
         if name == 'finish':
             p.add_argument('--summary', required=True)
@@ -157,13 +225,17 @@ def dispatch(args, parser):
             parser.error('No active task with this ID; check tasks/archive')
         record = json.loads(path.read_text())
     if args.action == 'resume':
+        progress = ROOT / '.codex/progress.md'
+        if progress.exists():
+            print(progress.read_text())
+        print('Resume: read AGENTS.md, .codex/progress.md and git diff before continuing.')
         print(json.dumps(record, ensure_ascii=False, indent=2))
         print(git('status', '--short', '--branch'))
         errors = validate(record)
         print('Evidence integrity: ' + ('; '.join(errors) if errors else 'ok'))
         print('Current fingerprint: ' + fingerprint(inventory()))
         return 1 if errors else 0
-    if args.action == 'update':
+    if args.action in ['update', 'checkpoint']:
         record['decisions'].extend(args.decision)
         record['completed'].extend(args.done)
         if args.remaining is not None:
@@ -172,14 +244,25 @@ def dispatch(args, parser):
             record['blockers'] = [x for x in args.blocker if x]
         if args.next:
             record['next'] = args.next
+    if args.action == 'checkpoint':
+        stages = record.setdefault('stages', [])
+        stage = next((s for s in stages if s['name'] == args.stage), None)
+        if stage is None:
+            stage = {'name': args.stage}
+            stages.append(stage)
+        stage.update(status=args.state, updated_at_utc=now(), head_commit=git('rev-parse', 'HEAD'),
+                     source_fingerprint=fingerprint(inventory()), worktree=git('status', '--short'))
     code = 0
     if args.action == 'run':
         if not re.fullmatch(r'[a-z0-9-]+', args.label):
             parser.error('Unsafe check label')
         command = args.command[1:] if args.command[:1] == ['--'] else args.command
-        record['running_check'] = {'label': args.label, 'command': command, 'started_at_utc': now()}
+        if not command or (args.timeout is not None and args.timeout <= 0):
+            parser.error('Expected a command and a positive timeout')
+        record['running_check'] = {'label': args.label, 'command': command, 'started_at_utc': now(), 'timeout_seconds': args.timeout}
         write_json(path, record)
-        code = execute(record, command, args.label)
+        sync_progress(record)
+        code = execute(record, command, args.label, timeout=args.timeout)
         del record['running_check']
         print(json.dumps(record['checks'][-1], ensure_ascii=False, indent=2))
     if args.action == 'finish':
@@ -192,10 +275,12 @@ def dispatch(args, parser):
         archive = ROOT / 'source/tasks/archive' / path.name
         write_json(archive, record)
         path.unlink()
+        sync_progress(record)
         print(str(archive.relative_to(ROOT)))
         return 0
     record['updated_at_utc'] = now()
     write_json(path, record)
+    sync_progress(record)
     print(f"{args.id}: {record['status']}")
     return code
 

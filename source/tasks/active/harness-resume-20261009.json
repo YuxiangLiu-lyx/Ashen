@@ -1,0 +1,76 @@
+{
+  "schema": 1,
+  "id": "harness-resume-20261009",
+  "goal": "分阶段执行和持久进度，连接或长会话中断后可靠恢复",
+  "acceptance": [
+    "AGENTS 与接续入口要求先读进度及差异；阶段进度可持久化；检查中断和超时不误报成功；恢复回归通过"
+  ],
+  "baseline_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+  "modules": [
+    "build"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T01:17:25.333683+00:00",
+  "updated_at_utc": "2026-10-10T01:20:17.981073+00:00",
+  "decisions": [
+    "保留手写计划与其他任务区块；未知结果保持未通过；不自动提交或部署"
+  ],
+  "completed": [
+    "进度自动落盘、阶段检查点、限时命令与恢复入口已实现；18项Harness回归通过"
+  ],
+  "remaining": [
+    "最终代码上的fast复核及GitHub保存"
+  ],
+  "blockers": [],
+  "next": "审计前三章表现与交互",
+  "required_checks": [
+    "fast"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "qa-export/harness-resume/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:17:25.425445+00:00",
+      "finished_at_utc": "2026-10-10T01:17:45.213810+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "c6381c1a6b1f90d1d16ded19d5e2f24bcc141fd68af6c4c2e86d5bdcc5a13244",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/001-baseline.txt",
+      "output_sha256": "a3592cd1dc58f3e798b1b24519e2af799e1f11498fb4b80cfe05d7e3d65f5cde"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:19:41.145215+00:00",
+      "finished_at_utc": "2026-10-10T01:19:51.883585+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/harness-resume-20261009/002-fast.txt",
+      "output_sha256": "1630483d37f202dbd319c8ed07a919080329aa76dbcd37424b3612a7a10391e0",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "recovery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T01:20:17.959252+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
+      "worktree": "M AGENTS.md\n M NEXT_SESSION_PROMPT.md\n M dist/chapter-one-art-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter23-design-v30.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/harness/WORKFLOW.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/harness/test_harness.py\n M tools/harness/common.py\n M tools/harness/task.py\n?? .codex/\n?? dist/assets/v30/hell-materials.png\n?? dist/assets/v30/hell-scenery.png\n?? dist/assets/v30/objects.png\n?? dist/assets/v30/utilities.png\n?? dist/chapter123-presentation-v30.js\n?? docs/chapter123/\n?? docs/harness/evidence/ch123-coverage-20261009/\n?? docs/harness/evidence/harness-resume-20261009/\n?? source/tasks/active/ch123-coverage-20261009.json\n?? source/tasks/active/harness-resume-20261009.json\n?? tests/browser-chapter123.mjs"
+    }
+  ]
+}
