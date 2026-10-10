@@ -350,12 +350,15 @@
         "dist/presentation-v22*",
         "dist/saga-staging*",
         "dist/chapter23-design*",
-        "dist/chapter123-*"
+        "dist/chapter123-*",
+        "dist/spatial-*",
+        "dist/role-*"
       ],
       "rules": [
         "docs/harness/WORLD.md",
         "docs/v28.1/RELEASE.md",
-        "docs/harness/EXPLORATION.md"
+        "docs/harness/EXPLORATION.md",
+        "docs/harness/MAP_QUALITY.md"
       ],
       "safety": [],
       "risk": "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。",
@@ -367,7 +370,8 @@
         "node tools/world_audit.mjs",
         "node --test tests/chapter23-v30.test.mjs",
         "node --test tests/chapter123-v30.test.mjs",
-        "node tests/browser-chapter123.mjs"
+        "node tests/browser-chapter123.mjs",
+        "python3 tools/harness/map_quality.py"
       ]
     },
     {
@@ -402,11 +406,14 @@
         "dist/presentation-metrics*",
         "dist/presentation-v17*",
         "dist/chapter-one-art*",
-        "dist/chapter123-*"
+        "dist/chapter123-*",
+        "dist/spatial-*",
+        "dist/role-*"
       ],
       "rules": [
         "docs/harness/WORLD.md",
-        "docs/v28.1/RELEASE.md"
+        "docs/v28.1/RELEASE.md",
+        "docs/harness/MAP_QUALITY.md"
       ],
       "safety": [],
       "risk": "保留原图和校验来源；第八章禁用大图但保留小立绘；物种与 AI 不变。",
@@ -418,7 +425,8 @@
         "node --test tests/chapter23-v30.test.mjs",
         "node tests/browser-chapter23.mjs",
         "node --test tests/chapter123-v30.test.mjs",
-        "node tests/browser-chapter123.mjs"
+        "node tests/browser-chapter123.mjs",
+        "python3 tools/harness/map_quality.py"
       ]
     },
     {

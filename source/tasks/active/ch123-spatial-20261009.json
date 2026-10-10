@@ -1,0 +1,92 @@
+{
+  "schema": 1,
+  "id": "ch123-spatial-20261009",
+  "goal": "前三章系统性空间与角色重构；灰桥示范；长期可玩性、场景可信度、角色一致性三维独立验收",
+  "acceptance": [
+    "35图结构审计及差异化修复；灰桥连接与任务可达；野外交战走位/追击/技能实测；士兵精锐军官独立资源与原画审查；NPC岗位行为；旧档与剧情兼容；三维门禁及集成/画廊证据；GitHub main保存"
+  ],
+  "baseline_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+  "modules": [
+    "build"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T01:55:38.087039+00:00",
+  "updated_at_utc": "2026-10-10T02:06:42.812579+00:00",
+  "decisions": [
+    "灰桥主路安全通行，保留原有南沟危险支路与任务；所有旧图/原画保留"
+  ],
+  "completed": [
+    "真实基线通过；35图完整数据、最终覆盖、碰撞来源、灰桥原图和人物原画已审计并落盘",
+    "三维独立报告/源码与资源证据哈希/改动覆盖门禁已实现；21项Harness回归通过"
+  ],
+  "remaining": [
+    "35图结构审计及差异化修复；灰桥连接与任务可达；野外交战走位/追击/技能实测；士兵精锐军官独立资源与原画审查；NPC岗位行为；旧档与剧情兼容；三维门禁及集成/画廊证据；GitHub main保存"
+  ],
+  "blockers": [],
+  "next": "落实灰桥及35图空间配置和真实碰撞诊断",
+  "required_checks": [
+    "fast",
+    "integration",
+    "spatial-browser",
+    "map-quality"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "qa-export/spatial-baseline-20261009"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T01:59:11.734104+00:00",
+      "finished_at_utc": "2026-10-10T01:59:28.118717+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/001-baseline.txt",
+      "output_sha256": "8ee40e0effe1fdc54052e59c4cf7c1e5af7a54ad4c18cc725d5402f467d61a8d",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "quality-harness",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/harness",
+        "-v"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:03:27.638878+00:00",
+      "finished_at_utc": "2026-10-10T02:03:38.750730+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "ff2ecf91f02db0ae6b56ba1db8b2e485f9005c9b28082cc99dca28cac33dc9a1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/002-quality-harness.txt",
+      "output_sha256": "2cdaf3e65556d7b0f02d6a8a72b62f7ca8255d5595dd63313a614806a6d397f7",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T02:01:58.780031+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
+      "worktree": "M .codex/progress.md\n?? dist/assets/v30-spatial/\n?? docs/chapter123-spatial/\n?? docs/harness/evidence/ch123-spatial-20261009/\n?? source/tasks/active/ch123-spatial-20261009.json"
+    },
+    {
+      "name": "quality-harness",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T02:06:42.741155+00:00",
+      "head_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "source_fingerprint": "40f5f7be61fe6fcce4b09d02b545137385ba501cc5fa83273bcec23b0c251115",
+      "worktree": "M .agents/skills/ashen-art-maps/SKILL.md\n M .codex/progress.md\n M AGENTS.md\n M source/harness/index.json\n M source/harness/modules.json\n M tools/harness/check.py\n M tools/harness/task.py\n?? dist/assets/v30-spatial/\n?? dist/spatial-design-v30.js\n?? docs/chapter123-spatial/\n?? docs/harness/MAP_QUALITY.md\n?? docs/harness/evidence/ch123-spatial-20261009/\n?? source/tasks/active/ch123-spatial-20261009.json\n?? tests/harness/test_map_quality.py\n?? tools/harness/map_quality.py"
+    }
+  ]
+}

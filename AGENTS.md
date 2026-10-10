@@ -13,3 +13,5 @@
 7. 收尾更新CURRENT_STATE、progress、任务和docs验收；审查diff/未跟踪/ignore/staged，提交真实内容并推送授权的GitHub main，无需重复确认。禁止force push、reset --hard或clean。推送后ls-remote核对HEAD或fetch确认祖先才说已上传；失败保留本地SHA/文件并记未完成远端同步。详细资产、归档、版本与Git规则见[Git保存细则](docs/harness/GIT_SAVE.md)。GitHub保存不等于网站发布。
 
 短命令及任务接续：[WORKFLOW](docs/harness/WORKFLOW.md)。source/tasks/active只放未完成任务，历史已完成任务按需读取。
+
+每次修改地图必须分别验收可玩性、场景可信度、角色一致性；一项通过不能替代另一项。执行[三维地图验收](docs/harness/MAP_QUALITY.md)，保存实际游戏截图、碰撞/可达图、实战和原画对照证据。未验证/资源未完成必须显式记录；task.py finish 自动阻止缺失、过期或失败的三维证据。

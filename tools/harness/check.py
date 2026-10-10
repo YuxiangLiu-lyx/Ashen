@@ -63,6 +63,9 @@ def recommend(paths):
                 queue.append(caller)
     tests = {t for m in config['modules'] if m['id'] in impacted for t in m['tests']}
     tests.add('python3 tools/harness/check.py --tier fast')
+    from map_quality import relevant
+    if relevant(paths):
+        tests.add('python3 tools/harness/map_quality.py')
     unknown = [p for p in paths if p not in index['nodes']]
     if unknown:
         tests.add('python3 tools/harness/check.py --tier integration')
