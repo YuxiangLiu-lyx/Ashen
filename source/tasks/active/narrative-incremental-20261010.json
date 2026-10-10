@@ -1,0 +1,169 @@
+{
+  "schema": 1,
+  "id": "narrative-incremental-20261010",
+  "goal": "用户回滚大改后，收缩为前两章剧情记录与第一章局部增强开发prompt；保留任务对白和地图拓扑，本轮不改运行代码",
+  "acceptance": [
+    "前两章0.2稿与世界观衔接清楚；所有harness当前入口撤销全面重构要求；第一章仅地图交互表现、隐藏对白及刺杀封术印剧情演出；fast和路由检查通过；GitHub正常保存核验"
+  ],
+  "baseline_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "maps"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T06:08:01.551446+00:00",
+  "updated_at_utc": "2026-10-10T06:27:03.535592+00:00",
+  "decisions": [
+    "交手仅剧情演出，保留任务奖励、原18行刺杀对白与原章界；只读状态回放不代表完整游玩",
+    "独立审查修正取消接应/从未派出及未存在的亲口承诺；旧0.1要求由0.2替代",
+    "变更仅资料、路由和状态证据；不将当前章2固定场景回放当新游戏通关",
+    "新局部稿升0.3以区别已回滚冻结0.2；原有0.2测试属于合并前，不作为最终验收",
+    "新的27项验收替代合并前24项为本轮最终结果；旧PARITY回执字节保持，新对照证据另存"
+  ],
+  "completed": [
+    "所有当前harness入口已撤销全面重构授权；新版prompt已收缩；第二章0.2记录与现有17幕状态回放已落盘",
+    "前两章0.2完整主线引用与增量稿、12镜头刺杀演出、2段章1短幕后与章2未来2窗口已审稿；范围入口已统一",
+    "fast24项通过；索引281文件无问题；6路由探针与链接版本检查通过；dist/tools/tests差异为空",
+    "已正常合并最新回滚0988489；运行保持1cefe80，保留6b388c7现场、暂停任务和三维验收规则",
+    "合并后fast27项通过；286文件索引无问题；334运行文件与回滚目标1cefe80完全一致，26撤回原件已核验保留"
+  ],
+  "remaining": [
+    "GitHub保存核验"
+  ],
+  "blockers": [],
+  "next": "正常保存局部策划0.3到GitHub main",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:08:01.866306+00:00",
+      "finished_at_utc": "2026-10-10T06:08:20.257497+00:00",
+      "head_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+      "source_fingerprint": "3420fece3d9af55d877c4900ad55e95572bcae9827f84609f529ac8c983a26a9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/001-baseline.txt",
+      "output_sha256": "d365a8362a295f36a53fa6d71811676695ac29c3c28eedc7d06a07d9c0148f54",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "current-story-replay",
+      "command": [
+        "node",
+        "docs/harness/evidence/narrative-incremental-20261010/ch2-current-replay.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:15:05.954316+00:00",
+      "finished_at_utc": "2026-10-10T06:15:06.235336+00:00",
+      "head_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+      "source_fingerprint": "963159173622fc64f412e4f842547e338052758451086aec120c6859d0bb569b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/002-current-story-replay.txt",
+      "output_sha256": "c9c916850ad39395471e9774fcc2bbe083522f7d9ec7ef67e9978283cc2bce41",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:19:36.106813+00:00",
+      "finished_at_utc": "2026-10-10T06:19:53.089366+00:00",
+      "head_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+      "source_fingerprint": "185ce9765f8d4343859b5840acac3253929051e974dbaf7d34c569ee3335fe09",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/003-verification.txt",
+      "output_sha256": "8731ce1f0d49d74296cdd5fa23a95bd1c1316d65b5014a732a27c917c53716c9",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "rollback-baseline",
+      "command": [
+        "python3",
+        "tools/verify_v30_rollback.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T06:24:55.069564+00:00",
+      "finished_at_utc": "2026-10-10T06:24:56.704212+00:00",
+      "head_commit": "71521251c27bacc1f0cceb09ca41ae9a6fce3e7d",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/004-rollback-baseline.txt",
+      "output_sha256": "11ddb98577323966174ca1b5d2cc04fbe21f61a83e407d3159fdeb2809bb5e98",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "rollback-baseline",
+      "command": [
+        "python3",
+        "tools/verify_v30_rollback.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:25:42.806697+00:00",
+      "finished_at_utc": "2026-10-10T06:25:44.714222+00:00",
+      "head_commit": "71521251c27bacc1f0cceb09ca41ae9a6fce3e7d",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/005-rollback-baseline.txt",
+      "output_sha256": "9d203630ccaf149712b1c49d539d00bb2ef37ee3f42ef3dec2ae1bf08cfc0da0",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:25:57.761499+00:00",
+      "finished_at_utc": "2026-10-10T06:26:16.101381+00:00",
+      "head_commit": "71521251c27bacc1f0cceb09ca41ae9a6fce3e7d",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-incremental-20261010/006-verification.txt",
+      "output_sha256": "3dffe925dc3c60a47d0664e1e8c6070926305e48a111dfa72a2bce5667e1fb36",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "planning",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T06:18:53.564717+00:00",
+      "head_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+      "source_fingerprint": "185ce9765f8d4343859b5840acac3253929051e974dbaf7d34c569ee3335fe09",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M docs/harness/WORLD_VISION.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n?? docs/harness/evidence/narrative-incremental-20261010/\n?? source/tasks/active/narrative-incremental-20261010.json"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T06:27:03.505556+00:00",
+      "head_commit": "71521251c27bacc1f0cceb09ca41ae9a6fce3e7d",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "worktree": "M .codex/progress.md\n M docs/harness/acceptance/NARRATIVE_INCREMENTAL.json\n M docs/harness/evidence/narrative-incremental-20261010/route-probes.json\n M source/CURRENT_STATE.json\n M source/tasks/active/narrative-incremental-20261010.json\n?? docs/harness/evidence/narrative-incremental-20261010/004-rollback-baseline.txt\n?? docs/harness/evidence/narrative-incremental-20261010/005-rollback-baseline.txt\n?? docs/harness/evidence/narrative-incremental-20261010/006-verification.txt\n?? docs/harness/evidence/narrative-incremental-20261010/rollback-parity.json"
+    },
+    {
+      "name": "sync",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T06:24:54.985939+00:00",
+      "head_commit": "71521251c27bacc1f0cceb09ca41ae9a6fce3e7d",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "worktree": ""
+    }
+  ]
+}

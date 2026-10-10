@@ -1,0 +1,60 @@
+{
+  "task_id": "narrative-incremental-20261010",
+  "base_commit": "60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f",
+  "revision": "0.3",
+  "scope": "planning and harness only; first chapter incremental developer handoff",
+  "runtime_changed": false,
+  "graphics_generated": false,
+  "site_deployed": false,
+  "superseded": "0.1 broad requirements and frozen pilot0.2",
+  "documents": [
+    "CHAPTER_01.md",
+    "CHAPTER_02.md",
+    "CHAPTER_01_DEVELOPMENT_PROMPT.md",
+    "NARRATIVE_ARCHITECTURE.md",
+    "NARRATIVE_WORKFLOW.md",
+    "WORLD_VISION.md"
+  ],
+  "review": "docs/harness/evidence/narrative-incremental-20261010/SCOPE_REVIEW.md",
+  "route_probes": "docs/harness/evidence/narrative-incremental-20261010/route-probes.json",
+  "current_chapter02_replay": {
+    "scenes": 17,
+    "classes": [
+      "shadow",
+      "oath",
+      "ember"
+    ],
+    "result": "PASS",
+    "evidence": "docs/harness/evidence/narrative-incremental-20261010/ch2-current-replay.json",
+    "limits": "fixed chapter-start fixture and actual damage quick-clear; not continuous human gameplay, balance or browser acceptance"
+  },
+  "verification": {
+    "status": "PASS",
+    "tier": "fast",
+    "tests_passed": 27,
+    "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+    "log": "docs/harness/evidence/narrative-incremental-20261010/006-verification.txt",
+    "log_sha256": "3dffe925dc3c60a47d0664e1e8c6070926305e48a111dfa72a2bce5667e1fb36",
+    "checked_at_utc": "2026-10-10T06:26:16.101381+00:00",
+    "index_files": 286,
+    "core_installers": 30,
+    "index_problems": [],
+    "runtime_tools_tests_diff_against_latest_rollback": []
+  },
+  "check_selection": "check.py conservatively recommends integration for unindexed state/task/evidence metadata; no runtime/assets/tools/tests changed, so fast, route/link/version checks and current-story inspection apply; developer prompt requires actual runtime/UI acceptance when implementing",
+  "limits": [
+    "New scenes and art not implemented or tested in this documentation task",
+    "Future chapter02 additions remain plans",
+    "Pilot0.2 and rollback history retained; incremental0.3 does not resume withdrawn work"
+  ],
+  "merged_rollback_commit": "09884897f1a9f0ddeecd94beb1e9e3ef0e5c3d4f",
+  "runtime_parity": {
+    "status": "PASS",
+    "runtime_files": 334,
+    "preserved_originals": 26,
+    "target_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+    "evidence": "docs/harness/evidence/narrative-incremental-20261010/rollback-parity.json",
+    "log": "docs/harness/evidence/narrative-incremental-20261010/005-rollback-baseline.txt",
+    "first_attempt_limit": "sparse checkout omitted historical reconstruction files; materialized existing history and reran successfully; failed log preserved"
+  }
+}

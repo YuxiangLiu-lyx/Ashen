@@ -294,9 +294,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "0.1",
-    "task_id": "narrative-harness-20261010",
-    "status": "planning retained; gameplay reconstruction rolled back at user request",
+    "version": "0.3",
+    "task_id": "narrative-incremental-20261010",
+    "status": "complete local incremental0.3 planning on verified rollback baseline; GitHub save pending; incremental implementation not_started",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -304,15 +304,15 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "0.2",
-      "script_status": "DEV_FROZEN",
-      "implementation": "paused; unfinished implementation preserved in 6b388c7, removed from runtime",
+      "script_revision": "0.3",
+      "script_status": "SCRIPT_READY",
+      "implementation": "not_started; incremental additions only",
       "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
     },
     "chapter02": {
       "id": "V01C02",
       "script": "docs/harness/CHAPTER_02.md",
-      "script_revision": "0.1",
+      "script_revision": "0.3",
       "script_status": "SCRIPT_READY",
       "implementation": "not_started; planning only in this phase"
     },
@@ -321,15 +321,66 @@
     "site_deployed": false,
     "limits": [
       "Long-term background, prophecy and final plans remain provisional",
-      "Chapter freeze is a documented development rule, not an automatic code gate",
-      "New chapter scripts are design records, not tested runtime behavior"
+      "Existing runtime and planned additions are distinguished in chapter records",
+      "Saint confrontation is cinematic only, no new playable combat",
+      "Documentation task changes no game runtime, graphics or site deployment"
     ],
-    "checked_at_utc": "2026-10-10T05:07:37.589839+00:00",
-    "harness_tests_passed": 24,
-    "evidence": "docs/harness/acceptance/NARRATIVE_REBUILD.json",
-    "remote_verified_commit": "b6a35a5d306f4e162f12f2f091163cd3fadbe77b",
-    "remote_verified_at_utc": "2026-10-10T05:11:30.663502+00:00",
-    "git_receipt": "docs/harness/acceptance/NARRATIVE_GIT_SAVE.json"
+    "evidence": "docs/harness/acceptance/NARRATIVE_INCREMENTAL.json",
+    "previous_plan": {
+      "version": "0.1",
+      "task_id": "narrative-harness-20261010",
+      "status": "planning retained; gameplay reconstruction rolled back at user request",
+      "world_vision": "docs/harness/WORLD_VISION.md",
+      "world_vision_loading": "optional; explicit world-building query only",
+      "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+      "chapter_workflow": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "chapter01": {
+        "id": "V01C01",
+        "script": "docs/harness/CHAPTER_01.md",
+        "script_revision": "0.2",
+        "script_status": "DEV_FROZEN",
+        "implementation": "paused; unfinished implementation preserved in 6b388c7, removed from runtime",
+        "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
+      },
+      "chapter02": {
+        "id": "V01C02",
+        "script": "docs/harness/CHAPTER_02.md",
+        "script_revision": "0.1",
+        "script_status": "SCRIPT_READY",
+        "implementation": "not_started; planning only in this phase"
+      },
+      "runtime_changed": false,
+      "product_version_changed": false,
+      "site_deployed": false,
+      "limits": [
+        "Long-term background, prophecy and final plans remain provisional",
+        "Chapter freeze is a documented development rule, not an automatic code gate",
+        "New chapter scripts are design records, not tested runtime behavior"
+      ],
+      "checked_at_utc": "2026-10-10T05:07:37.589839+00:00",
+      "harness_tests_passed": 24,
+      "evidence": "docs/harness/acceptance/NARRATIVE_REBUILD.json",
+      "remote_verified_commit": "b6a35a5d306f4e162f12f2f091163cd3fadbe77b",
+      "remote_verified_at_utc": "2026-10-10T05:11:30.663502+00:00",
+      "git_receipt": "docs/harness/acceptance/NARRATIVE_GIT_SAVE.json",
+      "adoption": "0.1 and frozen pilot0.2 withdrawn; preserve rollback records; use independent incremental0.3"
+    },
+    "implementation_scope": "chapter01 presentation and interaction polish, short hidden scenes, assassination-to-seal cinematic only; chapter02 planning only",
+    "preserve": [
+      "existing quests and non-target dialogue",
+      "map topology and main collisions",
+      "chapter boundaries and completion effects",
+      "combat balance, classes, equipment and rewards"
+    ],
+    "rollback_report": {
+      "source": "user report plus fetched rollback history",
+      "verified_remote_commit": "09884897f1a9f0ddeecd94beb1e9e3ef0e5c3d4f",
+      "runtime_target_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+      "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+      "limit": "This documentation task performs no runtime rollback and does not resume withdrawn reconstruction"
+    },
+    "checked_at_utc": "2026-10-10T06:26:16.101381+00:00",
+    "harness_tests_passed": 27
   },
   "rollback": {
     "task_id": "rollback-v30-20261010",

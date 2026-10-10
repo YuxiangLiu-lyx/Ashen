@@ -1,0 +1,166 @@
+[
+  {
+    "task": "第一章剧情",
+    "status": "ok",
+    "modules": [
+      "story",
+      "chapter01_plan"
+    ],
+    "contexts": [
+      "docs/harness/NARRATIVE_WORKFLOW.md",
+      "docs/harness/STORY.md",
+      "dist/world-dialogues-v29.js",
+      "dist/chengli-text-v27.js",
+      "dist/data-v14.js",
+      "docs/harness/CHAPTER_01.md",
+      "dist/dialogue-runtime-v16.js",
+      "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md",
+      "dist/saga-runtime-v26.js",
+      "dist/story-flow-v14.js",
+      "dist/dialogue-save-migration-v26.js"
+    ],
+    "deferred": [],
+    "risks": [
+      "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+      "用户回滚大改后采用0.3局部增强：保留任务对白与拓扑，只优化表现、隐藏短场和刺杀封印演出；不新增圣女实战。"
+    ]
+  },
+  {
+    "task": "第二章剧情",
+    "status": "budget_limited",
+    "modules": [
+      "story",
+      "chapter02_plan",
+      "maps"
+    ],
+    "contexts": [
+      "docs/harness/NARRATIVE_WORKFLOW.md",
+      "docs/harness/STORY.md",
+      "docs/harness/EXPLORATION.md",
+      "docs/harness/MAP_QUALITY.md",
+      "docs/harness/WORLD.md",
+      "docs/v28.1/RELEASE.md",
+      "dist/world-dialogues-v29.js",
+      "dist/chengli-text-v27.js",
+      "dist/data-v14.js",
+      "dist/presentation-physics-v281.js",
+      "docs/harness/CHAPTER_02.md",
+      "dist/chapter123-presentation-v30.js",
+      "dist/dialogue-runtime-v16.js",
+      "dist/chapter23-design-v30.js",
+      "dist/saga-runtime-v26.js",
+      "dist/story-flow-v14.js"
+    ],
+    "deferred": [
+      "dist/world-design-v29.js",
+      "dist/world-runtime-v29.js",
+      "dist/world-art-v29.js",
+      "dist/world-v14.js",
+      "dist/scene-geometry-v26.js",
+      "dist/dialogue-save-migration-v26.js",
+      "dist/navigation-v14.js",
+      "dist/world-entry-v22.js"
+    ],
+    "risks": [
+      "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+      "第二章0.3是保留主线的剧情记录与未来幕后补充，本轮不改第二章代码或知识状态。",
+      "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。"
+    ]
+  },
+  {
+    "task": "分卷分章整体架构",
+    "status": "ok",
+    "modules": [
+      "narrative_architecture"
+    ],
+    "contexts": [
+      "docs/harness/NARRATIVE_WORKFLOW.md",
+      "docs/harness/NARRATIVE_ARCHITECTURE.md"
+    ],
+    "deferred": [],
+    "risks": [
+      "文学卷章ID与运行phase分开；SCRIPT_READY不等于用户逐句批准或已实现。"
+    ]
+  },
+  {
+    "task": "长期世界观",
+    "status": "ok",
+    "modules": [
+      "world_vision"
+    ],
+    "contexts": [
+      "docs/harness/WORLD_VISION.md"
+    ],
+    "deferred": [],
+    "risks": [
+      "可选长期参考：用户确定方向、可改建议、待完善事项分别记录；未指定阅读时不随普通剧情任务强加载。"
+    ]
+  },
+  {
+    "task": "优化圣女封术印演出",
+    "status": "ok",
+    "modules": [
+      "story",
+      "lab"
+    ],
+    "contexts": [
+      "docs/harness/NARRATIVE_WORKFLOW.md",
+      "docs/harness/STORY.md",
+      "docs/balance-lab/README.md",
+      "docs/harness/COMBAT.md",
+      "dist/world-dialogues-v29.js",
+      "dist/chengli-text-v27.js",
+      "dist/data-v14.js",
+      "dist/dialogue-runtime-v16.js",
+      "dist/saga-runtime-v26.js",
+      "dist/story-flow-v14.js",
+      "tools/balance_lab/simulator.mjs",
+      "tools/balance_lab/run.mjs",
+      "tools/balance_lab/economy.mjs",
+      "tools/balance_lab/effects.mjs",
+      "dist/dialogue-save-migration-v26.js"
+    ],
+    "deferred": [],
+    "risks": [
+      "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+      "候选只输出配置；固定种子和代码内容哈希；场景假设不能冒充完整通关数据。"
+    ]
+  },
+  {
+    "task": "修改地图表现",
+    "status": "budget_limited",
+    "modules": [
+      "maps",
+      "art"
+    ],
+    "contexts": [
+      "docs/harness/EXPLORATION.md",
+      "docs/harness/MAP_QUALITY.md",
+      "docs/harness/WORLD.md",
+      "docs/v28.1/RELEASE.md",
+      "dist/presentation-physics-v281.js",
+      "dist/chapter123-presentation-v30.js",
+      "dist/chapter23-design-v30.js",
+      "dist/world-design-v29.js",
+      "dist/world-runtime-v29.js",
+      "dist/chapter23-art-v30.js",
+      "dist/world-art-v29.js",
+      "dist/chapter-one-art-v30.js",
+      "dist/world-v14.js",
+      "dist/actor-art-v281.js",
+      "dist/scene-geometry-v26.js",
+      "dist/equipment-art-v281.js"
+    ],
+    "deferred": [
+      "dist/navigation-v14.js",
+      "dist/presentation-metrics-v281.js",
+      "dist/world-entry-v22.js",
+      "dist/visuals-v14.js",
+      "dist/art-v14.js"
+    ],
+    "risks": [
+      "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。",
+      "保留原图和校验来源；第八章禁用大图但保留小立绘；物种与 AI 不变。"
+    ]
+  }
+]
