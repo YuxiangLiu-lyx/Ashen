@@ -1,0 +1,123 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
++ actual - expected
+... Skipped lines
+
+  {
+    limits: 'Isolated real-runtime fixtures at level9 with original combat rules; scripted input at60Hz, not an end-to-end human campaign playthrough. Basic locked attacks retain their existing rules; dodge scenario tests an actual telegraphed elite area attack.',
+    scenarios: [
+      {
+        basicHit: 69,
+...
+        name: 'multi-enemy-movement',
++       travelled: 1220.6321369266275
+-       travelled: 1220.6321369266288
+      },
+      {
+        damageTaken: 0,
+        name: 'bridge-safe-main-route',
+        travelled: 1260.7500000000011
+
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-spatial-v30.mjs:36:207 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    scenarios: [
+      {
+        name: 'melee-and-skill',
+        damage: 197,
+        basicHit: 69,
+        mpSpent: 11.834283333333389
+      },
+      {
+        name: 'ranged-and-area-skill',
+        damage: 121,
+        range: 280,
+        mpSpent: 11.016000000000076
+      },
+      { name: 'solid-blocks-projectile', damage: 0 },
+      {
+        name: 'pursuit-around-cart',
+        travelled: 97.52414680621396,
+        remainingDistance: 49.29647053897159
+      },
+      {
+        name: 'area-dodge',
+        radius: 136,
+        distance: 332.5958333333309,
+        damageTaken: 0
+      },
+      {
+        name: 'multi-enemy-movement',
+        enemies: 4,
+        engaged: 3,
+        travelled: 1220.6321369266275,
+        damageTaken: 64
+      },
+      {
+        name: 'bridge-safe-main-route',
+        travelled: 1260.7500000000011,
+        damageTaken: 0
+      },
+      {
+        name: 'ditch-disengagement',
+        state: 'IDLE',
+        distanceFromHome: 73.84418132904509
+      }
+    ],
+    limits: 'Isolated real-runtime fixtures at level9 with original combat rules; scripted input at60Hz, not an end-to-end human campaign playthrough. Basic locked attacks retain their existing rules; dodge scenario tests an actual telegraphed elite area attack.'
+  },
+  expected: {
+    scenarios: [
+      {
+        name: 'melee-and-skill',
+        damage: 197,
+        basicHit: 69,
+        mpSpent: 11.834283333333389
+      },
+      {
+        name: 'ranged-and-area-skill',
+        damage: 121,
+        range: 280,
+        mpSpent: 11.016000000000076
+      },
+      { name: 'solid-blocks-projectile', damage: 0 },
+      {
+        name: 'pursuit-around-cart',
+        travelled: 97.52414680621396,
+        remainingDistance: 49.29647053897159
+      },
+      {
+        name: 'area-dodge',
+        radius: 136,
+        distance: 332.5958333333309,
+        damageTaken: 0
+      },
+      {
+        name: 'multi-enemy-movement',
+        enemies: 4,
+        engaged: 3,
+        travelled: 1220.6321369266288,
+        damageTaken: 64
+      },
+      {
+        name: 'bridge-safe-main-route',
+        travelled: 1260.7500000000011,
+        damageTaken: 0
+      },
+      {
+        name: 'ditch-disengagement',
+        state: 'IDLE',
+        distanceFromHome: 73.84418132904509
+      }
+    ],
+    limits: 'Isolated real-runtime fixtures at level9 with original combat rules; scripted input at60Hz, not an end-to-end human campaign playthrough. Basic locked attacks retain their existing rules; dodge scenario tests an actual telegraphed elite area attack.'
+  },
+  operator: 'deepStrictEqual',
+  diff: 'simple'
+}
+
+Node.js v25.2.1

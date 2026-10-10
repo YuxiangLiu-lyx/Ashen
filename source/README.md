@@ -1,6 +1,6 @@
 # 当前接续入口
 
-当前产品 V30（第一章沉浸表现改造，继承V29探索与V28.1修复），运行代码在 ../dist/；CURRENT_STATE.json 记录产品/平台/发布状态，BACKUP_STATUS.md记录恢复边界。先按根AGENTS执行，不按v14文件名回退版本。
+当前产品 V30（前三章空间与角色重构，继承V29探索与V28.1修复），运行代码在 ../dist/；CURRENT_STATE.json 记录产品/平台/发布状态，BACKUP_STATUS.md记录恢复边界。先按根AGENTS执行，不按v14文件名回退版本。
 
 - 用户任务 → ../tools/harness/context.py → harness/modules.json语义与index.json自动依赖/内容哈希。
 - 未完成任务 → tasks/active；先task.py list/resume，再对照Git现场；完成任务归档到tasks/archive。
@@ -14,3 +14,5 @@ V29当前四图范围、设计决定与实际验收见 ../docs/v29/RELEASE.md；
 V30开篇11图表现范围、即时交互、资产说明与本轮实测见../docs/v30/RELEASE.md；地图拓扑及战斗数值保持。V29原任务仍独立保留，不能把本轮验收写回成历史发行成功。
 
 第二、三章23图V30接续见../docs/chapter23/ACCEPTANCE.md：地图地表与敌人表现推广，灰桥水壶交互坐标修复；原碰撞、出口、敌群和数值保留。
+
+最新空间重构覆盖前三章35图，明确授权调整布局/碰撞/岗位，旧“几何保持”段落是历史范围。当前事实及证据见../docs/chapter123-spatial/ACCEPTANCE.md；三维独立门禁见../docs/harness/MAP_QUALITY.md。战斗数值、原图、剧情、存档schema15保留，安全主路归沟规则显式限于灰桥两组。

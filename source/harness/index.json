@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
-  "source_fingerprint": "ff2ecf91f02db0ae6b56ba1db8b2e485f9005c9b28082cc99dca28cac33dc9a1",
+  "basis_commit": "45515000b181003f008e0004e930984ca4a71512",
+  "source_fingerprint": "5c198520907823eac1afab71b00522fe9698a598fd21cd39118099ebd1a806a6",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -96,8 +96,8 @@
       ]
     },
     "AGENTS.md": {
-      "sha256": "245375180a8e8f5129be52dcf287661c70e5c6b8629bdf0cf86c2a08ef8d2018",
-      "bytes": 3829,
+      "sha256": "92a751ab6edc3e66b659662e3f94a2e68d4724c2b2c924820e41ccfdf73e3074",
+      "bytes": 3872,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -344,11 +344,14 @@
       ]
     },
     "dist/chapter-one-art-v30.js": {
-      "sha256": "37e9af96dc730bd30323d41e9ad056e281a108ac993e4292665b583806befa10",
-      "bytes": 12601,
+      "sha256": "4cf4c16f31a02ee31f0a82b9a25c955daa8159e22c52b6fb389e9ac4aa812ed7",
+      "bytes": 13792,
       "imports": [
         "dist/chapter123-presentation-v30.js",
         "dist/chapter23-design-v30.js",
+        "dist/role-art-v30.js",
+        "dist/spatial-design-v30.js",
+        "dist/spatial-ground-v30.js",
         "dist/world-design-v29.js",
         "dist/world-v14.js"
       ],
@@ -356,7 +359,6 @@
         "CHAPTER_ONE_LOADS_V30",
         "CHAPTER_SOURCE_REGIONS_V30",
         "a",
-        "b",
         "back",
         "c",
         "canvas",
@@ -371,7 +373,6 @@
         "f",
         "fitted",
         "frame",
-        "frames",
         "gr",
         "image",
         "immersiveWorldV30",
@@ -384,14 +385,17 @@
         "mask",
         "material",
         "offset",
+        "opaque",
         "p",
         "paths",
         "r",
         "rand",
         "rect",
         "reference",
+        "role",
         "routes",
         "row",
+        "source",
         "t",
         "w",
         "wood",
@@ -507,8 +511,8 @@
       ]
     },
     "dist/chapter123-presentation-v30.js": {
-      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
-      "bytes": 6728,
+      "sha256": "b2436c9836eb9a2acbb7ad4dcb3ce93b2eea090e434bef1fdbd111febd0afd0a",
+      "bytes": 6849,
       "imports": [
         "dist/chapter23-design-v30.js"
       ],
@@ -551,25 +555,25 @@
       ]
     },
     "dist/chapter23-art-v30.js": {
-      "sha256": "2acc0eebc2165f3f40b851dc898e1d7d69867aec8915b7fd3825098200692113",
-      "bytes": 7366,
+      "sha256": "1ea21f39575c5af4e8d42b9f63ca95dfe382116afdd6a23be97ea8a0f02340ca",
+      "bytes": 6976,
       "imports": [
         "dist/chapter123-presentation-v30.js",
         "dist/chapter23-design-v30.js",
         "dist/chapter3-world-v14.js",
         "dist/chapter34-world-v14.js",
+        "dist/spatial-design-v30.js",
+        "dist/spatial-ground-v30.js",
         "dist/world-v14.js"
       ],
       "symbols": [
         "a",
-        "b",
         "c",
         "canvas",
         "chapter23GroundV30",
         "chapter23PropArtV30",
         "color",
         "drawChapter23AtmosphereV30",
-        "edge",
         "f",
         "floorDetail",
         "g",
@@ -592,9 +596,7 @@
         "tile",
         "trace",
         "v",
-        "water",
         "x",
-        "xx",
         "y",
         "yy"
       ],
@@ -1721,8 +1723,8 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "45bfea163a1ed5bea5a0cba45f473077662ec17fc9f2efa0936f759112271971",
-      "bytes": 77468,
+      "sha256": "76b6de5d790973ed6e12fe66429338251cf72f7cc9d1dabae1d28e2dabd16ca1",
+      "bytes": 77800,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -1794,6 +1796,7 @@
         "dist/secrets-v14.js",
         "dist/skills-v14.js",
         "dist/social-staging-v20.js",
+        "dist/spatial-world-v30.js",
         "dist/staging-v14.js",
         "dist/story-data-v14.js",
         "dist/story-test-v25.js",
@@ -2429,8 +2432,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "5bec694f1a4e2b3268e1e94b72b6c69d6e3621ed958cf365533721e87052ce75",
-      "bytes": 106668,
+      "sha256": "b0ec7f8b9cf8af03777e20e64199af9b031f957d2674e33b5713910a3aceff4e",
+      "bytes": 106972,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2469,6 +2472,7 @@
         "dist/presentation-v22.js",
         "dist/progression-data-v14.js",
         "dist/progression-ui-v14.js",
+        "dist/role-art-v30.js",
         "dist/romance-illustrations-v20.js",
         "dist/saga-art-v25.js",
         "dist/saga-staging67-v25.js",
@@ -2482,6 +2486,7 @@
         "dist/scene-geometry-v26.js",
         "dist/skills-v14.js",
         "dist/social-staging-v20.js",
+        "dist/spatial-world-v30.js",
         "dist/story-flow-v14.js",
         "dist/story-illustrations-v19.js",
         "dist/story-test-v25.js",
@@ -4073,6 +4078,20 @@
         "story"
       ]
     },
+    "dist/role-art-v30.js": {
+      "sha256": "2754b68fc17fbd4c82455fec669b408520c393aa8a9befeec935dcfa85eb03f4",
+      "bytes": 865,
+      "imports": [],
+      "symbols": [
+        "ROLE_ART_V30",
+        "militaryRoleV30",
+        "roleAtlasV30"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
     "dist/romance-illustrations-v20.js": {
       "sha256": "9c3da64835c9d9f2d601bdaa88d7fd341924c343eaac48718aa88a32cb6fe5b8",
       "bytes": 4642,
@@ -5329,6 +5348,103 @@
         "maps"
       ]
     },
+    "dist/spatial-design-v30.js": {
+      "sha256": "74a8ed57928e5c669a41d026c0c9a62670860f89b9f7dae2da575c21d94ceeb2",
+      "bytes": 9371,
+      "imports": [],
+      "symbols": [
+        "NPC_DUTIES_V30",
+        "SPATIAL_INTERIORS_V30",
+        "SPATIAL_MOVES_V30",
+        "SPATIAL_PLANS_V30",
+        "SPATIAL_TERRAIN_V30",
+        "lane",
+        "plan",
+        "terrain"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
+    "dist/spatial-ground-v30.js": {
+      "sha256": "160d1e7aa45aa5fca54811a0021544417b61eb4139d5412f73fd2fd12c005a27",
+      "bytes": 3702,
+      "imports": [
+        "dist/spatial-design-v30.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "a",
+        "b",
+        "drawSpatialTerrainV30",
+        "drawSpatialWaterV30",
+        "length",
+        "r",
+        "region",
+        "shade",
+        "t",
+        "top",
+        "traceTerrainV30",
+        "water",
+        "wet",
+        "x"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
+    "dist/spatial-world-v30.js": {
+      "sha256": "53d9d6c2d794135a8640fa476130d8d9d55e8e4a0a9e202a4859b75e500fc692",
+      "bytes": 8832,
+      "imports": [
+        "dist/enemy-ai-v14.js",
+        "dist/scene-geometry-v26.js",
+        "dist/spatial-design-v30.js"
+      ],
+      "symbols": [
+        "P",
+        "a",
+        "actors",
+        "ambientActorsV30",
+        "blocked",
+        "config",
+        "configureSpatialWorldV30",
+        "d",
+        "direction",
+        "duties",
+        "dx",
+        "e",
+        "edges",
+        "group",
+        "groves",
+        "id",
+        "ids",
+        "inherited",
+        "installSpatialLifeV30",
+        "living",
+        "m",
+        "migrate",
+        "move",
+        "next",
+        "npcs",
+        "o",
+        "pose",
+        "remove",
+        "result",
+        "same",
+        "south",
+        "spawn",
+        "st",
+        "terrainBlockedV30",
+        "tree"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
     "dist/staging-extension-v14.js": {
       "sha256": "e0d7b0affaae9ef30c64eda755e66aa3f4895d5d6f3d2655009b296402f66fbc",
       "bytes": 6634,
@@ -5693,8 +5809,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "a3b7748e6f80ffc3a2c54df4f02dac10d123cc604d2665ce695a0550d53f37f0",
-      "bytes": 21819,
+      "sha256": "2c51cc650e60b63ab8ff4e668abc5de5a29128883ee6e1c1b85789e4edc735ac",
+      "bytes": 21830,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -6090,8 +6206,8 @@
       "modules": []
     },
     "docs/harness/EXPLORATION.md": {
-      "sha256": "449bddbe3c8155f3aecac6e89c23c0251123417288f5af1b8e9ca9448c819de3",
-      "bytes": 2961,
+      "sha256": "20cd7a09d89b22b400b1e54de541d621159dae85377dd77ee2af4f39e81f0095",
+      "bytes": 3216,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6139,8 +6255,8 @@
       "modules": []
     },
     "docs/harness/WORLD.md": {
-      "sha256": "0ad6fcd287a7b9257403dde332f78d4e8375ee5072321f79e8b2361e933d8b97",
-      "bytes": 975,
+      "sha256": "91b7d1379144e60d44451039d7f3a3fda2e70759d4658a4f413936050f04fcbb",
+      "bytes": 1490,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6195,15 +6311,15 @@
       "modules": []
     },
     "source/README.md": {
-      "sha256": "9f43a9d0eccbc18a32c436c6182028660ed0507d657368391ec45e6ebd22b40d",
-      "bytes": 1569,
+      "sha256": "5140ef791e45913d21df6440d36ad1dfff6f09dec5c5ded814df9e0e2f45e5f6",
+      "bytes": 1929,
       "imports": [],
       "symbols": [],
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "9783f6f370cd148bf4e16407cee6f5a0b686844738d04d0ef6d9d8d4d239420d",
-      "bytes": 16050,
+      "sha256": "50451247c787f31dbc3b1447ab38845385bcf9d09780dc0db3efb80b01e1c84d",
+      "bytes": 16610,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6361,8 +6477,8 @@
       ]
     },
     "tests/browser-chapter123.mjs": {
-      "sha256": "ac20cd3b6ac4496c2115422b625c65e9e4bd8fc394b45b6ed5363350f9f7f2f9",
-      "bytes": 8710,
+      "sha256": "3e5525ae6246827e315a03b1f671d41723c0cda817ea3e6867a08f20251bac3c",
+      "bytes": 8782,
       "imports": [
         "dist/core-v14.js",
         "tools/browser_session.mjs"
@@ -6451,6 +6567,36 @@
         "build"
       ]
     },
+    "tests/browser-spatial-v30.mjs": {
+      "sha256": "a014b7980198c7d8fb6f9f11f22cf9dbdc0ca508b92d4e5b2c3997e5c3cb8788",
+      "bytes": 7379,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/spatial-design-v30.js",
+        "tests/spatial-scenarios.mjs",
+        "tools/browser_session.mjs",
+        "tools/spatial_audit.mjs"
+      ],
+      "symbols": [
+        "audit",
+        "b",
+        "c",
+        "collision",
+        "combat",
+        "f",
+        "hook",
+        "out",
+        "persist",
+        "r",
+        "report",
+        "roles",
+        "routes",
+        "shot"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tests/browser-web-play.py": {
       "sha256": "a27b10a919bfbbf70447e7052d012f18fc0f986e368ad19e03ddc42577f14ee9",
       "bytes": 8845,
@@ -6526,8 +6672,8 @@
       "modules": []
     },
     "tests/chapter123-v30.test.mjs": {
-      "sha256": "415490724979227cfda3781a0c488b8417635b821b91134d4fbe2fc5d8a1daaa",
-      "bytes": 5783,
+      "sha256": "0059a08eaea7988f9242b1528e0a6689415a86b27522f62a3b32299087675ad8",
+      "bytes": 6132,
       "imports": [
         "dist/chapter-one-motion-v30.js",
         "dist/chapter123-presentation-v30.js",
@@ -6568,13 +6714,14 @@
       "modules": []
     },
     "tests/chapter23-v30.test.mjs": {
-      "sha256": "f918eb82b476096225b147a16ea5fd356f3679ec81a9ce2d8fab762036b8a0d5",
-      "bytes": 4771,
+      "sha256": "986fd72f49428a936b7e72e3733ce0d3f14610f9cb35b2efea0a402dce07c228",
+      "bytes": 4902,
       "imports": [
         "dist/chapter-one-motion-v30.js",
         "dist/chapter23-design-v30.js",
         "dist/core-v14.js",
         "dist/save-transfer-v14.js",
+        "tests/spatial-legacy-control.mjs",
         "tools/balance_lab/simulator.mjs",
         "tools/world_audit.mjs"
       ],
@@ -6714,9 +6861,76 @@
       ],
       "modules": []
     },
+    "tests/spatial-legacy-control.mjs": {
+      "sha256": "3013c2f70d9de1ad7fae8b029715cf5d7771b2f3de9bea3b4410bf9f597bfddd",
+      "bytes": 956,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/scene-geometry-v26.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "baseline",
+        "legacySpatialControl",
+        "registries"
+      ],
+      "modules": []
+    },
+    "tests/spatial-scenarios.mjs": {
+      "sha256": "9f49e998450efdfd47dc97faab68ec2bc85616a34055d2c6e92382a4aed2498d",
+      "bytes": 5066,
+      "imports": [],
+      "symbols": [
+        "d",
+        "e",
+        "g",
+        "goal",
+        "hit",
+        "hp",
+        "make",
+        "mp",
+        "one",
+        "results",
+        "runSpatialScenarios",
+        "tick",
+        "x"
+      ],
+      "modules": []
+    },
+    "tests/spatial-v30.test.mjs": {
+      "sha256": "6eba136efbb4759cb34a1a631338620a33b9894880943a282dd006b18f3db26a",
+      "bytes": 4547,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/role-art-v30.js",
+        "dist/save-transfer-v14.js",
+        "dist/spatial-design-v30.js",
+        "dist/spatial-world-v30.js",
+        "dist/world-v14.js",
+        "tools/spatial_audit.mjs"
+      ],
+      "symbols": [
+        "a",
+        "at",
+        "b",
+        "before",
+        "changed",
+        "g",
+        "game",
+        "h",
+        "id",
+        "ids",
+        "initial",
+        "roles",
+        "row",
+        "saved",
+        "stopped"
+      ],
+      "modules": []
+    },
     "tests/world-v29.test.mjs": {
-      "sha256": "2f2c723a7645788d3ce090083fb94ffdc0936aab378512cfbe4fb4e09240fbfe",
-      "bytes": 8909,
+      "sha256": "16e083d4f31aef497c46b3ba7c489fc9069f139b8a9f6ad2c153c5b2d9c6fccb",
+      "bytes": 8953,
       "imports": [
         "dist/core-v14.js",
         "dist/data-v14.js",
@@ -7013,8 +7227,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "392f085f0f2e6ec3f2d131de961b7cb2e6499b46f5ca803a4461951afd7f0138",
-      "bytes": 5996,
+      "sha256": "a00d78f2381aa991606452abc16860b0bb2e979d0c93b49323b1f7dbae042d13",
+      "bytes": 6069,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7093,6 +7307,40 @@
         "build"
       ]
     },
+    "tools/spatial_audit.mjs": {
+      "sha256": "d1f213918b53f354fed41b28d7de1dbebeace517a8269063e4cf2b081e16afbe",
+      "bytes": 4687,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/spatial-design-v30.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "approach",
+        "arenas",
+        "at",
+        "auditSVG",
+        "candidates",
+        "clear",
+        "clearance",
+        "colors",
+        "d",
+        "entry",
+        "id",
+        "j",
+        "neighbors",
+        "p",
+        "paths",
+        "point",
+        "reachable",
+        "row",
+        "spatialAudit",
+        "t",
+        "targets",
+        "width"
+      ],
+      "modules": []
+    },
     "tools/web_play_ci.py": {
       "sha256": "7d10ac5874efdab4f6a6cc97215bcfe382ee2d1a928bd0580e14d9e2d77ae833",
       "bytes": 9067,
@@ -7130,123 +7378,127 @@
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 221
+      "line": 223
     },
     {
       "name": "installChapter4",
-      "line": 222
-    },
-    {
-      "name": "installPacing",
       "line": 224
     },
     {
+      "name": "installPacing",
+      "line": 226
+    },
+    {
       "name": "installQuestService",
-      "line": 225
+      "line": 227
     },
     {
       "name": "installSystemsV13",
-      "line": 230
-    },
-    {
-      "name": "installProgressionV14",
       "line": 232
     },
     {
-      "name": "installChapter5",
-      "line": 233
-    },
-    {
-      "name": "installMercenariesV14",
+      "name": "installProgressionV14",
       "line": 234
     },
     {
-      "name": "installMemoryV13",
+      "name": "installChapter5",
       "line": 235
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMercenariesV14",
       "line": 236
     },
     {
-      "name": "installDialogueTextV16",
+      "name": "installMemoryV13",
+      "line": 237
+    },
+    {
+      "name": "installHellActivitiesV15",
       "line": 238
     },
     {
-      "name": "installGrowthV17",
-      "line": 239
-    },
-    {
-      "name": "installHellActivitiesV17",
+      "name": "installDialogueTextV16",
       "line": 240
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installGrowthV17",
       "line": 241
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installHellActivitiesV17",
       "line": 242
     },
     {
-      "name": "installCityV18",
+      "name": "installSaintBondsV17",
       "line": 243
     },
     {
-      "name": "installDiscoveryV19",
+      "name": "installHellExpeditionsV18",
+      "line": 244
+    },
+    {
+      "name": "installCityV18",
       "line": 245
     },
     {
-      "name": "installSaintStoryV18",
-      "line": 246
+      "name": "installDiscoveryV19",
+      "line": 247
     },
     {
-      "name": "installRomanceV20",
+      "name": "installSaintStoryV18",
       "line": 248
     },
     {
+      "name": "installRomanceV20",
+      "line": 250
+    },
+    {
       "name": "installCombatInputV17",
-      "line": 251
-    },
-    {
-      "name": "installPartyRewardHooksV18",
-      "line": 252
-    },
-    {
-      "name": "installArrivalV22",
       "line": 253
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installPartyRewardHooksV18",
       "line": 254
     },
     {
+      "name": "installArrivalV22",
+      "line": 255
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 256
+    },
+    {
       "name": "installSagaV25",
-      "line": 259
+      "line": 261
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 263
+      "line": 265
     },
     {
       "name": "installSagaV26",
-      "line": 266
+      "line": 268
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 273
-    },
-    {
-      "name": "installPresentationPhysicsV281",
       "line": 275
     },
     {
-      "name": "installWorldExplorationV29",
+      "name": "installPresentationPhysicsV281",
       "line": 277
     },
     {
-      "name": "installChapterOneMotionV30",
+      "name": "installWorldExplorationV29",
       "line": 279
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 281
+    },
+    {
+      "name": "installSpatialLifeV30",
+      "line": 285
     }
   ],
   "missing_imports": [],

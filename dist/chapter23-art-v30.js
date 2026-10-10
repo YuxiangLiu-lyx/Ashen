@@ -1,3 +1,5 @@
+import {SPATIAL_PLANS_V30} from './spatial-design-v30.js';
+import {drawSpatialTerrainV30,drawSpatialWaterV30} from './spatial-ground-v30.js';
 import {chapter123PropArtV30} from './chapter123-presentation-v30.js';
 // Cached ground and small local lighting; all collision and encounter data stay native.
 import {CH3_GROUND_STYLE} from './chapter3-world-v14.js';
@@ -17,20 +19,11 @@ function surface(c,bank,sheet,index,size){c.fillStyle=texture(c,bank,sheet,index
 function glow(c,x,y,r,color,alpha=.16){const gr=c.createRadialGradient(x,y,2,x,y,r);gr.addColorStop(0,color);gr.addColorStop(1,color+'00');c.save();c.globalAlpha*=alpha;c.fillStyle=gr;c.fillRect(x-r,y-r,r*2,r*2);c.restore();}
 function lanes(c,bank,paths,{hell=false,palette=null}={}){
  const layer=canvas(),l=layer.getContext('2d');
- surface(l,bank,hell?'chapterHellMaterials':'chapterMaterials',hell?1:0,hell?330:255);
+ surface(l,bank,hell?'chapterHellMaterials':'chapterMaterials',hell?1:0,hell?260:155);
  if(hell){l.fillStyle=palette.lane;l.globalAlpha=.48;l.fillRect(0,0,1600,1080);l.globalAlpha=.22;l.fillStyle=texture(l,bank,'chapterHellMaterials',1,320);l.fillRect(0,0,1600,1080);l.globalAlpha=1;}
  const mask=canvas(),m=mask.getContext('2d');m.lineCap='round';m.lineJoin='round';m.strokeStyle='#fff';
  for(const p of paths){trace(m,p.points);m.save();m.filter='blur(15px)';m.lineWidth=p.width+18;m.stroke();m.restore();m.lineWidth=Math.max(30,p.width-34);m.stroke();}
  l.globalCompositeOperation='destination-in';l.drawImage(mask,0,0);c.drawImage(layer,0,0);
-}
-function water(c,bank,id){
- for(const [x,y,w,h]of WATERS[id]||[]){
-  c.fillStyle='#232f30';c.fillRect(x-9,y-5,w+18,h+10);
-  const g=c.createLinearGradient(x,y,x+w,y);g.addColorStop(0,'#344b49');g.addColorStop(.5,'#253b40');g.addColorStop(1,'#425958');c.fillStyle=g;c.fillRect(x,y,w,h);
-  for(const edge of [x,x+w])for(let yy=y+19,i=0;yy<y+h;yy+=34,i++){c.save();c.filter='saturate(.4) brightness(.72)';bank.draw(c,'chapterSettlement',8,edge+(i%2?3:-2),yy,33+(i%3)*5,27);c.restore();}
-  c.strokeStyle='#91a29b55';c.lineWidth=2;for(const xx of [x+5,x+w-5]){c.beginPath();c.moveTo(xx,y);c.lineTo(xx,y+h);c.stroke();}
- }
- const b=BRIDGES[id];if(b)bank.draw(c,'chapterArchitecture',7,b.x+b.w/2,b.y+b.h,b.w,b.h);
 }
 function floorDetail(c,id){
  if(['inn','chamber'].includes(id)){
@@ -62,16 +55,16 @@ export function chapter23GroundV30(bank,id){
   c.fillStyle=palette.base;c.globalAlpha=.22;c.fillRect(0,0,1600,1080);c.globalAlpha=1;
   // Quiet broad patches sit below paths, so routes remain legible at intersections.
   for(const p of style.patches||[])glow(c,p.x,p.y,Math.max(p.w,p.h)*.55,palette.light,.1);
-  lanes(c,bank,style.paths,{hell,palette});
+  lanes(c,bank,SPATIAL_PLANS_V30[id]?.paths?.length?SPATIAL_PLANS_V30[id].paths:style.paths,{hell,palette});
  }else{
   surface(c,bank,'chapterMaterials',interior?['inn','chamber'].includes(id)?2:3:1,interior?270:450);
-  c.fillStyle=id==='exile'?'#54636230':'#534e4324';c.fillRect(0,0,1600,1080);
-  lanes(c,bank,CHAPTER_TWO_PATHS_V30[id]||[]);
+  c.fillStyle=id==='exile'?'#54636230':'#55594766';c.fillRect(0,0,1600,1080);
+  lanes(c,bank,SPATIAL_PLANS_V30[id]?.paths?.length?SPATIAL_PLANS_V30[id].paths:CHAPTER_TWO_PATHS_V30[id]||[]);
  }
  // Grounded scenery shadows use existing feet, never a second collision outline.
  for(const o of SCENERY[id]||[]){if(o.flat)continue;c.save();c.translate(o.x+o.w*.10,o.y+3);c.scale(1,.22);glow(c,0,0,Math.min(150,o.w*.60),'#12191c',.34);c.restore();}
  for(const [x,y,w,h]of BOUNDARIES[id]||[]){c.fillStyle=interior?'#192026c4':'#17232049';c.fillRect(x,y,w,h);if(interior){c.fillStyle='#92917a60';c.fillRect(x,y+h-7,w,3);}}
- water(c,bank,id);floorDetail(c,id);
+ drawSpatialTerrainV30(c,bank,id);drawSpatialWaterV30(c,bank,id);floorDetail(c,id);
  if(id==='exile'){const g=c.createLinearGradient(770,0,1500,0);g.addColorStop(0,'#81999b00');g.addColorStop(1,'#81999b60');c.fillStyle=g;c.fillRect(770,150,830,810);}
  return out;
 }

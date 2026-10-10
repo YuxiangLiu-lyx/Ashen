@@ -7,20 +7,21 @@ import {simulate} from '../tools/balance_lab/simulator.mjs';
 import {inspectWorldMap} from '../tools/world_audit.mjs';
 import {CHAPTER23_MAPS_V30,chapter23V30,hellMonsterFrameV30} from '../dist/chapter23-design-v30.js';
 import {reactionV30,defeatsV30,motionPoseV30} from '../dist/chapter-one-motion-v30.js';
+import {legacySpatialControl} from './spatial-legacy-control.mjs';
 const read=name=>JSON.parse(fs.readFileSync(new URL('../docs/chapter23/'+name,import.meta.url)));
 const game=()=>new RPG('shadow',null,()=>.44);
 const savedGame=g=>parseSave(JSON.stringify(g.snapshot()));
-test('23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable',()=>{
+test('23 maps retain enemy identities and gates after authorized spatial changes; interaction anchors are reachable',()=>{
  const before=read('BASELINE_NAVIGATION.json');assert.equal(CHAPTER23_MAPS_V30.length,23);
  for(const row of before.maps){const g=game();g.enter(row.id,...(MAPS[row.id].entry||[800,800]));const after=inspectWorldMap(g,row.id);
-  assert.equal(after.walkableCells,row.walkableCells,row.id);assert.equal(after.connectedCells,row.connectedCells,row.id);
+  assert.equal(after.connectedCells,after.walkableCells,row.id+' continuous reachability');
   assert.equal(after.enemies,row.enemies,row.id);assert.deepEqual(after.unreachable,[],row.id);
-  assert.deepEqual(MAPS[row.id].spawns,row.spawns,row.id);assert.deepEqual(JSON.parse(JSON.stringify(MAPS[row.id].doors)),row.doors,row.id);
+  assert.deepEqual(MAPS[row.id].spawns.map(s=>[s[0],s[3]]),row.spawns.map(s=>[s[0],s[3]]),row.id);assert.deepEqual(JSON.parse(JSON.stringify(MAPS[row.id].doors)),row.doors,row.id);
  }
  assert.equal(chapter23V30('hellMemoryVillage'),false);assert.equal(chapter23V30('deepGate'),false);
 });
-test('24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams',()=>{
- for(const {config,result}of read('BASELINE_COMBAT.json').runs)assert.deepEqual(simulate(config),result,config.cls+'/'+config.enemy);
+test('24 unchanged legacy-layout controls preserve full combat, reward, cooldown and RNG event streams',()=>{
+ for(const {config,result}of read('BASELINE_COMBAT.json').runs)assert.deepEqual(legacySpatialControl(config.map,()=>simulate(config)),result,config.cls+'/'+config.enemy);
 });
 test('water interaction migration repairs visited old maps without moving actors or resetting claims',()=>{
  const g=game();g.enter('bridge',1040,495);const p=g.props.find(p=>p.id==='v9-bridge-water');p.interactY=525;

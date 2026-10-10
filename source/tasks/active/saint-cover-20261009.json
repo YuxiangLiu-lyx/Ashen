@@ -1,0 +1,60 @@
+{
+  "schema": 1,
+  "id": "saint-cover-20261009",
+  "goal": "圣女艾莉娅对话立绘以封面温柔形象替换",
+  "acceptance": [
+    "封面身份一致、透明背景、常规对话加载新图、便装场景不变、桌面手机实际截图与原画对比、GitHub保存"
+  ],
+  "baseline_commit": "45515000b181003f008e0004e930984ca4a71512",
+  "modules": [
+    "story",
+    "art"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T03:41:40.825079+00:00",
+  "updated_at_utc": "2026-10-10T03:41:58.234011+00:00",
+  "decisions": [
+    "独立worktree保存，不混入主工作区未完成地图改动；先完成明确的圣女替换需求"
+  ],
+  "completed": [],
+  "remaining": [
+    "基线、封面衍生立绘、接入、浏览器验收和GitHub保存"
+  ],
+  "blockers": [],
+  "next": "保存基线并生成透明半身立绘",
+  "required_checks": [
+    "fast",
+    "portrait-browser",
+    "presentation"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "docs/saint-cover/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T03:41:41.144874+00:00",
+      "finished_at_utc": "2026-10-10T03:41:58.221078+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "ff2ecf91f02db0ae6b56ba1db8b2e485f9005c9b28082cc99dca28cac33dc9a1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/001-baseline.txt",
+      "output_sha256": "4abdd304e82ca7f04fc0fd725fce6428b455f5b3351da34362a4f7f120c86aa1",
+      "timeout_seconds": 300.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T03:41:40.877327+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "ff2ecf91f02db0ae6b56ba1db8b2e485f9005c9b28082cc99dca28cac33dc9a1",
+      "worktree": "M .codex/progress.md\n M source/harness/index.json\n?? source/tasks/active/saint-cover-20261009.json"
+    }
+  ]
+}

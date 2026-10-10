@@ -1,7 +1,7 @@
 import test from 'node:test';
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
-import {RPG,stats} from '../dist/core-v14.js';
+import {RPG,stats,MAPS} from '../dist/core-v14.js';
 import {DIALOGUES} from '../dist/data-v14.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
 import {DEMO_MAPS_V29} from '../dist/world-design-v29.js';
@@ -66,8 +66,8 @@ test('legacy player in a new footprint is repaired only during restore',()=>{
 test('opt-in guestroom rest keeps its old result and ends at the original position',()=>{
  const g=game('guestroom',800,600),rest=g.props.find(p=>p.action==='guestRest');g.p.hp=30;const t=at(g,rest.id),p={x:g.p.x,y:g.p.y};g.interact(t);assert.equal(g.p.hp,30);for(let i=0;i<22;i++)g.update(.035,{});assert.equal(g.pending.id,'guestRest');finish(g);assert.equal(g.p.hp,stats(g.p).hp);assert.deepEqual({x:g.p.x,y:g.p.y},p);
 });
-test('other 114 maps retain baseline navigation and interaction diagnostics',()=>{
+test('83 maps outside the authorized chapter 1–3 refactor retain navigation and interaction diagnostics',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-live-navigation.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
- for(const m of baseline)if(!DEMO_MAPS_V29.includes(m.id)){const report=inspectWorldMap(g,m.id);// Chapter 2 repair moves the water interaction off the wall; the historical baseline stays intact.
+ for(const m of baseline)if((MAPS[m.id].chapterRegion??MAPS[m.id].chapter??1)>3){const report=inspectWorldMap(g,m.id);// Historical baseline stays intact; 35 changed maps have separate spatial invariants.
  const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
 });

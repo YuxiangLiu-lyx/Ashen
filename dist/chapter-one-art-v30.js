@@ -1,3 +1,6 @@
+import {SPATIAL_PLANS_V30} from './spatial-design-v30.js';
+import {roleAtlasV30} from './role-art-v30.js';
+import {drawSpatialTerrainV30,drawSpatialWaterV30} from './spatial-ground-v30.js';
 import {CHAPTER_ONE_MAPS_V30,chapterOneV30,chapter123V30} from './chapter23-design-v30.js';
 import {chapter123SceneryArtV30,chapter123SceneryV30,chapter123PropArtV30} from './chapter123-presentation-v30.js';
 export {CHAPTER_ONE_MAPS_V30,chapterOneV30} from './chapter23-design-v30.js';
@@ -6,10 +9,12 @@ import {WORLD_REGIONS_V29} from './world-design-v29.js';
 import {BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
 const wood=new Set(['hall','warehouse','workshop','guestroom']),outdoor=new Set(['road','town','alley','grove','millpath']);
 export const immersiveWorldV30=chapter123V30;
-export const CHAPTER_ONE_LOADS_V30=[['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false],['chapterUtilities','assets/v30/utilities.png',4,5,false],['chapterObjects','assets/v30/objects.png',4,3,false],['chapterHell','assets/v30/hell-scenery.png',4,4,false],['chapterHellMaterials','assets/v30/hell-materials.png',2,2,false]];
+export const CHAPTER_ONE_LOADS_V30=[['spatialOfficer','assets/v30-spatial/officer.png',4,4,false],['spatialElite','assets/v30-spatial/elite.png',4,4,false],['spatialBridge','assets/v30-spatial/bridge.png',1,1,false],['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false],['chapterUtilities','assets/v30/utilities.png',4,5,false],['chapterObjects','assets/v30/objects.png',4,3,false],['chapterHell','assets/v30/hell-scenery.png',4,4,false],['chapterHellMaterials','assets/v30/hell-materials.png',2,2,false]];
 // Generated sheets are not a regular grid. These reviewed source partitions exclude
 // neighbouring sprites; alpha bounds are measured inside each partition at load time.
 export const CHAPTER_SOURCE_REGIONS_V30={
+ spatialOfficer:{width:1230,height:1278,cells:{14:[615,940,1000,1278],15:[975,940,1230,1278]},exclude:{14:[[975,1065,25,213]],15:[[975,940,25,125]]},rows:[{y:0,end:321,x:[0,310,615,930,1230]},{y:321,end:644,x:[0,310,615,1000,1230]},{y:644,end:940,x:[0,310,615,930,1230]},{y:940,end:1278,x:[0,310,615,1000,1230]}]},
+ spatialElite:{width:1254,height:1254,rows:[{y:0,end:315,x:[0,315,627,944,1254]},{y:315,end:628,x:[0,315,627,991,1254]},{y:628,end:926,x:[0,315,627,944,1254]},{y:926,end:1254,x:[0,315,627,991,1254]}]},
  chapterUtilities:{width:1122,height:1402,rows:[
   {y:0,end:280,x:[0,280,562,844,1122]},
   {y:280,end:560,x:[0,280,562,844,1122]},
@@ -40,15 +45,18 @@ export const CHAPTER_SOURCE_REGIONS_V30={
   {y:938,end:1254,x:[0,340,628,996,1254]}]}
 };
 export function installChapterFramesV30(bank,name,data){
+ if(name==='spatialBridge'){const f=bank.frames[name][0];bank.images.spatialBridgeFront=bank.images[name];bank.frames.spatialBridgeFront=[{...f,y:f.y+f.h*.65,h:f.h*.35}];}
  const layout=CHAPTER_SOURCE_REGIONS_V30[name];if(!layout)return;
  const image=bank.images[name],sx=image.width/layout.width,sy=image.height/layout.height,frames=[];
  for(const row of layout.rows)for(let i=0;i<4;i++){
-  const x=Math.round(row.x[i]*sx),y=Math.round(row.y*sy),ex=Math.round(row.x[i+1]*sx),ey=Math.round(row.end*sy);
+  const source=layout.cells?.[frames.length]||[row.x[i],row.y,row.x[i+1],row.end];
+  const [x,y,ex,ey]=source.map((n,i)=>Math.round(n*(i%2?sy:sx))),exclude=(layout.exclude?.[frames.length]||[]).map(r=>r.map((n,i)=>n*(i%2?sy:sx)));
+  const opaque=(xx,yy)=>!exclude.some(([a,b,w,h])=>xx>=a&&xx<a+w&&yy>=b&&yy<b+h)&&data.data[(yy*image.width+xx)*4+3]>120;
   let x0=ex,y0=ey,x1=x,y1=y;
-  for(let yy=y;yy<ey;yy++)for(let xx=x;xx<ex;xx++)if(data.data[(yy*image.width+xx)*4+3]>120){x0=Math.min(xx,x0);y0=Math.min(yy,y0);x1=Math.max(xx,x1);y1=Math.max(yy,y1);}
-  const frame={x:x0,y:y0,w:x1-x0+1,h:y1-y0+1,cell:{x,y,w:ex-x,h:ey-y}};
-  if(name==='chapterGuards'){
-   let sum=0,n=0;for(let yy=Math.max(y0,y1-Math.round(frame.h*.07));yy<=y1;yy++)for(let xx=x0;xx<=x1;xx++)if(data.data[(yy*image.width+xx)*4+3]>120){sum+=xx;n++;}
+  for(let yy=y;yy<ey;yy++)for(let xx=x;xx<ex;xx++)if(opaque(xx,yy)){x0=Math.min(xx,x0);y0=Math.min(yy,y0);x1=Math.max(xx,x1);y1=Math.max(yy,y1);}
+  const frame={x:x0,y:y0,w:x1-x0+1,h:y1-y0+1,cell:{x,y,w:ex-x,h:ey-y},exclude};
+  if(['chapterGuards','spatialOfficer','spatialElite'].includes(name)){
+   let sum=0,n=0;for(let yy=Math.max(y0,y1-Math.round(frame.h*.07));yy<=y1;yy++)for(let xx=x0;xx<=x1;xx++)if(opaque(xx,yy)){sum+=xx;n++;}
    frame.foot={x:n?sum/n:(x0+x1)/2,y:y1};
   }frames.push(frame);
  }
@@ -65,18 +73,19 @@ export function chapterGuardFrameV30(a){
 }
 export function drawChapterGuardV30(c,bank,a,height){
  if(!['guard','captain'].includes(a.type)||!bank.images.chapterGuards)return false;
- const frames=bank.frames.chapterGuards,f=frames[chapterGuardFrameV30(a)];if(!f?.foot)return false;
- const reference=Math.max(...frames.slice(0,4).map(f=>f.h)),k=height/reference;
+ const role=roleAtlasV30(a),frames=bank.frames[role.sheet],f=frames?.[chapterGuardFrameV30(a)];if(!f?.foot)return false;
+ const reference=Math.max(...frames.slice(0,4).map(f=>f.h)),k=role.height/reference;
  c.save();c.translate(a.x,a.y);if(Math.cos(a.angle||0)<0)c.scale(-1,1);
- if(a.type==='captain')c.filter='sepia(.16)';c.imageSmoothingEnabled=true;
- c.drawImage(bank.images.chapterGuards,f.x,f.y,f.w,f.h,(f.x-f.foot.x)*k,(f.y-f.foot.y)*k,f.w*k,f.h*k);
+ if(f.exclude?.length){c.beginPath();c.rect((f.x-f.foot.x)*k,(f.y-f.foot.y)*k,f.w*k,f.h*k);for(const [x,y,w,h]of f.exclude)c.rect((x-f.foot.x)*k,(y-f.foot.y)*k,w*k,h*k);c.clip('evenodd');}
+ c.imageSmoothingEnabled=true;
+ c.drawImage(bank.images[role.sheet],f.x,f.y,f.w,f.h,(f.x-f.foot.x)*k,(f.y-f.foot.y)*k,f.w*k,f.h*k);
  c.restore();return true;
 }
 export const chapterSceneryArtV30=o=>chapter123SceneryArtV30(o,'hall');
 export function chapterPropArtV30(p,g,legacy){return chapterOneV30(g.map)?chapter123PropArtV30(p,g.map,legacy,g):legacy;}
 const line=(c,points)=>{c.beginPath();c.moveTo(...points[0]);for(let i=1;i<points.length-1;i++){const a=points[i],b=points[i+1];c.quadraticCurveTo(...a,(a[0]+b[0])/2,(a[1]+b[1])/2);}c.lineTo(...points.at(-1));};
-function material(c,bank,index,rect=[0,0,1600,1080],size=index===0?205:index===1?480:index===2?270:175){
- const f=bank.frame('chapterMaterials',index),im=bank.images.chapterMaterials;if(!f||!im)return;
+function material(c,bank,index,rect=[0,0,1600,1080],size=index===0?140:index===1?480:index===2?270:175,sheet='chapterMaterials'){
+ const f=bank.frame(sheet,index),im=bank.images[sheet];if(!f||!im)return;
  c.save();c.beginPath();c.rect(...rect);c.clip();c.imageSmoothingEnabled=true;
  for(let y=Math.floor(rect[1]/size)*size;y<rect[1]+rect[3];y+=size)for(let x=Math.floor(rect[0]/size)*size;x<rect[0]+rect[2];x+=size)c.drawImage(im,f.cell.x,f.cell.y,f.cell.w,f.cell.h,x,y,size,size);
  c.restore();
@@ -88,9 +97,9 @@ export function chapterGroundV30(bank,id){
  material(c,bank,outside?1:wood.has(id)?2:3);
  // Lower contrast on the ground so faces, silhouettes and readable paths lead the eye.
  c.fillStyle=outside?'#48504424':'#55504318';c.fillRect(0,0,1600,1080);
- const routes=WORLD_REGIONS_V29[id]?.paths||paths[id]||[];
+ const routes=SPATIAL_PLANS_V30[id]?.paths?.length?SPATIAL_PLANS_V30[id].paths:WORLD_REGIONS_V29[id]?.paths||paths[id]||[];
  if(outside&&routes.length){
-  const lane=document.createElement('canvas');lane.width=1600;lane.height=1080;const p=lane.getContext('2d');material(p,bank,0);
+  const lane=document.createElement('canvas');lane.width=1600;lane.height=1080;const p=lane.getContext('2d');if(['grove','millpath'].includes(id))material(p,bank,2,[0,0,1600,1080],240,'chapterHellMaterials');else material(p,bank,0);
   const mask=document.createElement('canvas');mask.width=1600;mask.height=1080;const m=mask.getContext('2d');m.lineCap='round';m.lineJoin='round';m.strokeStyle='#fff';
   for(const r of routes){m.save();m.filter='blur(13px)';line(m,r.points);m.lineWidth=r.width+14;m.stroke();m.restore();line(m,r.points);m.lineWidth=Math.max(20,r.width-28);m.stroke();}
   p.globalCompositeOperation='destination-in';p.drawImage(mask,0,0);c.drawImage(lane,0,0);
@@ -114,12 +123,7 @@ export function chapterGroundV30(bank,id){
  if(id==='echo'){
   c.strokeStyle='#302d25';c.lineWidth=12;line(c,[[450,350],[580,350],[580,565],[850,565],[850,393],[1175,393]]);c.stroke();c.strokeStyle='#9e8051';c.lineWidth=5;c.stroke();
  }
- for(const [x,y,w,h]of WATERS[id]||[]){
-  c.fillStyle='#171f22';c.fillRect(x-9,y-8,w+18,h+16);c.fillStyle='#354d50';c.fillRect(x,y,w,h);
-  const gr=c.createLinearGradient(x,y,x+w,y+h);gr.addColorStop(0,'#8aaba82c');gr.addColorStop(1,'#101c2366');c.fillStyle=gr;c.fillRect(x,y,w,h);
-  for(let yy=y+14;yy<y+h;yy+=31){c.strokeStyle='#b8cbc51c';c.lineWidth=1;c.beginPath();c.moveTo(x+8,yy);c.lineTo(x+w-10,yy+4);c.stroke();}
- }
- const b=BRIDGES[id];if(b)bank.draw(c,'chapterArchitecture',7,b.x+b.w/2,b.y+b.h,b.w,b.h);
+ drawSpatialTerrainV30(c,bank,id);drawSpatialWaterV30(c,bank,id);
  for(const rect of BOUNDARIES[id]||[]){
   if(outside){c.fillStyle='#101c1745';c.fillRect(...rect);continue;}
   material(c,bank,3,rect,240);c.fillStyle='#171e27b3';c.fillRect(...rect);

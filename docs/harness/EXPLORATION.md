@@ -13,3 +13,5 @@ flags.worldV29仅有schema:1和seen线索ID列表，状态读自原flag/quest。
 V30表现范围与资产/动作验收见docs/v30/RELEASE.md。导航历史MAP_AUDIT_BEFORE保留；测试另用v29-live-navigation.json，来自相同V29基线经真实enter后采样，包含V18已退休筹牌桌的移除。
 
 V30第二、三章接续：chapter23-design/art-v30显式覆盖9+14图，复用原图；不改变地图几何与敌群。灰桥v9-bridge-water交互锚点由(1040,525)修到(1040,495)，ensureMap/restore对已访问旧图同步该坐标，保留领取、死亡与used。历史导航基线仍保留，测试只精确消除该条已修复诊断；其余网格/诊断逐项核对。chapter23专项/真实浏览器画廊纳入core/integration。详情docs/chapter23/ACCEPTANCE.md。
+
+最新前三章空间重构由spatial-world-v30在全部旧配置之后显式装配：上述V29/V30几何保持仅指历史轮次。本轮35图布局/碰撞授权变化，见WORLD.md与MAP_QUALITY.md；场景可信度和角色一致性须单独复核。

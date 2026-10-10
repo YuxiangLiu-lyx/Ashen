@@ -11,7 +11,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T01:55:38.087039+00:00",
-  "updated_at_utc": "2026-10-10T02:06:42.812579+00:00",
+  "updated_at_utc": "2026-10-10T02:40:23.322834+00:00",
   "decisions": [
     "灰桥主路安全通行，保留原有南沟危险支路与任务；所有旧图/原画保留"
   ],
@@ -69,6 +69,190 @@
       "output": "docs/harness/evidence/ch123-spatial-20261009/002-quality-harness.txt",
       "output_sha256": "2cdaf3e65556d7b0f02d6a8a72b62f7ca8255d5595dd63313a614806a6d397f7",
       "timeout_seconds": 60.0
+    },
+    {
+      "label": "spatial-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/balance-lab.test.mjs",
+        "tests/world-v29.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/spatial-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T02:22:50.488911+00:00",
+      "finished_at_utc": "2026-10-10T02:22:52.269252+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "a16778f2cd92ecd0baa285953128d22687ecbeeccc096d422b8be9481d65132d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/003-spatial-node.txt",
+      "output_sha256": "e1eb925e17b4e584890a35c352284f971c02426419ad0a1e5fd22b9b8b67b3f6",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "spatial-browser",
+      "command": [
+        "node",
+        "tests/browser-spatial-v30.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T02:22:59.980920+00:00",
+      "finished_at_utc": "2026-10-10T02:23:19.576846+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "a16778f2cd92ecd0baa285953128d22687ecbeeccc096d422b8be9481d65132d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/004-spatial-browser.txt",
+      "output_sha256": "5b14174c59562c15b4eb3e68f243565534846b180441898d497db7b64066007d",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "spatial-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/balance-lab.test.mjs",
+        "tests/world-v29.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/spatial-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:23:46.553767+00:00",
+      "finished_at_utc": "2026-10-10T02:23:48.363930+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "d05f850d8a471b0a678e2ab572fdac1d8c38834196984fa7de8ec0565f9a3896",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/005-spatial-node.txt",
+      "output_sha256": "5dfd7847d8965a3f04f4484e7e2340930587346637f6ab974efcef78ee6bbb23",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "spatial-browser",
+      "command": [
+        "node",
+        "tests/browser-spatial-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:25:16.423354+00:00",
+      "finished_at_utc": "2026-10-10T02:25:36.144013+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "d05f850d8a471b0a678e2ab572fdac1d8c38834196984fa7de8ec0565f9a3896",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/006-spatial-browser.txt",
+      "output_sha256": "701e5b16f0ba0e122264b16f602914308704cc840ccc3e2d1864f1251c1aa6d3",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T02:28:09.879130+00:00",
+      "finished_at_utc": "2026-10-10T02:28:21.753525+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "758fe8aaadee1057edff1194f95554d18b468532df5b55e84db847ed8c31f2f2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/007-fast.txt",
+      "output_sha256": "077b424c59c4f6522e069a9beb33dc6dcefda58a765449124b7fb63cde28f0aa",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T02:28:23.450154+00:00",
+      "finished_at_utc": "2026-10-10T02:28:35.490576+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "758fe8aaadee1057edff1194f95554d18b468532df5b55e84db847ed8c31f2f2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/008-integration.txt",
+      "output_sha256": "cd102d680ad5d6d1845e6d9c7e25bd70f76b64f8b147da0d4e03e95b45a87311",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:28:50.599955+00:00",
+      "finished_at_utc": "2026-10-10T02:29:02.619074+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "0aa3c9fa0c001e39c2187401f401ff81ea835b5ffe8d657ca31878b56d88ba35",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/009-fast.txt",
+      "output_sha256": "40c33f086823289d1fc011d6aadb5282021e074aec66e4cee0e318dd5f299920",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T02:29:22.316748+00:00",
+      "finished_at_utc": "2026-10-10T02:31:45.797492+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "0aa3c9fa0c001e39c2187401f401ff81ea835b5ffe8d657ca31878b56d88ba35",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/010-integration.txt",
+      "output_sha256": "8fef00796d2ccd5f72065089e4335b588033fa07cf333ae3bc1b45473c6406f7",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "spatial-browser",
+      "command": [
+        "node",
+        "tests/browser-spatial-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:35:28.444724+00:00",
+      "finished_at_utc": "2026-10-10T02:35:46.225084+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "5880d1669360988b520bbd72af5479e4c798b08fd434b9c9ebd7e320d3c2a2a8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/011-spatial-browser.txt",
+      "output_sha256": "51c3fde7018e9441ac4a5d45e43e076401cc61d0a4784120fb18b0f72bbaaa4f",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T02:37:30.679289+00:00",
+      "finished_at_utc": "2026-10-10T02:40:23.317416+00:00",
+      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "source_fingerprint": "5c198520907823eac1afab71b00522fe9698a598fd21cd39118099ebd1a806a6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/012-integration.txt",
+      "output_sha256": "dd923b0282340a96e66460a28c7d9194f0c9e5f384faf0d21e8d2fa396854d09",
+      "timeout_seconds": 600.0
     }
   ],
   "stages": [

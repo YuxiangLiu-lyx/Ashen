@@ -25,21 +25,23 @@ test('runtime independently enumerates all 35 maps including optional rooms and 
  assert.ok(!maps.includes('hellMemoryVillage'),'chapter 4 memory remains separate');
 });
 
-test('all 118 maps preserve baseline navigation, enemy counts and unreachable targets',()=>{
+test('83 unmodified maps preserve baseline navigation; 35 authorized maps retain identities and connected objectives',()=>{
  const g=game(),baseline=read('BASELINE_NAVIGATION.json');assert.equal(baseline.length,118);
  for(const row of baseline){g.enter(row.id);const after=inspectWorldMap(g,row.id);
-  for(const key of ['walkableCells','connectedCells','enemies','targets','unreachable'])assert.deepEqual(after[key],row[key],row.id+'/'+key);
+  for(const key of maps.includes(row.id)?['enemies','targets']:['walkableCells','connectedCells','enemies','targets','unreachable'])assert.deepEqual(after[key],row[key],row.id+'/'+key);
+  if(maps.includes(row.id)){assert.deepEqual(after.unreachable,[],row.id);assert.equal(after.connectedCells,after.walkableCells,row.id);}
  }
 });
 
-test('original chapter geometry, exits, encounters and object identities remain intact',()=>{
+test('authorized layout changes preserve exits, encounter species/IDs and all quest object identities',()=>{
  for(const before of read('BASELINE_CONTENT.json')){
-  const map=MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify(map[key]||[])),before[key],before.id+'/'+key);
-  assert.deepEqual(SCENERY[before.id],before.scenery,before.id+'/scenery');
+  const map=MAPS[before.id];assert.deepEqual(JSON.parse(JSON.stringify(map.doors)),before.doors,before.id+'/doors');
+  assert.deepEqual(map.spawns.map(s=>[s[0],s[3]]),before.spawns.map(s=>[s[0],s[3]]),before.id+'/enemy identity');
   const g=game();g.chapter=map.chapterRegion||2;g.enter(before.id,800,540);
   for(const p of before.props){const actual=g.props.find(a=>a.id===p.id);assert.ok(actual);
-   for(const key of ['action','type','label','interactX','interactY','depthY'])assert.equal(actual[key],p[key],before.id+'/'+p.id+'/'+key);
-   if(p.id!=='townbook')assert.deepEqual([actual.x,actual.y],[p.x,p.y],before.id+'/'+p.id);
+   for(const key of ['action','type','label','depthY'])assert.equal(actual[key],p[key],before.id+'/'+p.id+'/'+key);
+   if(!['townbook','v9-bridge-water'].includes(p.id))assert.deepEqual([actual.x,actual.y],[p.x,p.y],before.id+'/'+p.id);
+   if(p.id!=='well')for(const key of ['interactX','interactY'])assert.equal(actual[key],p[key],before.id+'/'+p.id+'/'+key);
   }
  }
 });

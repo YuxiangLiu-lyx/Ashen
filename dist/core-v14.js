@@ -1,4 +1,6 @@
 import {installChapterOneMotionV30} from './chapter-one-motion-v30.js';
+import {configureSpatialWorldV30,installSpatialLifeV30} from './spatial-world-v30.js';
+import {BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
 import {installWorldExplorationV29} from './world-runtime-v29.js';
 import {installPresentationPhysicsV281} from './presentation-physics-v281.js';
 import {CH5_VISUAL_FAMILIES as PRESENTATION_ALIASES_V281} from './chapter5-world-v14.js';
@@ -277,3 +279,7 @@ installPresentationPhysicsV281(RPG,{MAPS,SCENERY,aliases:PRESENTATION_ALIASES_V2
 installWorldExplorationV29(RPG,{MAPS,DIALOGUES});
 
 installChapterOneMotionV30(RPG);
+
+// All historical map/staging registrars have run. This is the final layout owner.
+configureSpatialWorldV30({MAPS,SCENERY,BOUNDARIES,WATERS,BRIDGES});
+installSpatialLifeV30(RPG,{MAPS});
