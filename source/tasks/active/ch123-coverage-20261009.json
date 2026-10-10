@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "id": "ch123-coverage-20261009",
+  "goal": "逐张补齐前三章地图与交互物美术，修复遗漏及用途违和，完整画廊验收",
+  "acceptance": [
+    "从运行地图和剧情调用独立推导前三章全部35张地图；每张正式渲染地面、景物、交互物均有明确新表现；物件用途外观匹配，站位/遮挡/点击/旧档兼容；保留118图导航及战斗基线，通过fast/core和专项浏览器并保存GitHub main"
+  ],
+  "baseline_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+  "modules": [
+    "art",
+    "build",
+    "maps"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-09T07:58:51.160667+00:00",
+  "updated_at_utc": "2026-10-10T01:20:18.159044+00:00",
+  "decisions": [
+    "以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。"
+  ],
+  "completed": [
+    "保留并接续上轮图集、统一映射和35图基线"
+  ],
+  "remaining": [
+    "定位交互点击失败并复核映射、敌人及图集",
+    "专项浏览器、integration与打包UI验证",
+    "验收文档和GitHub保存"
+  ],
+  "blockers": [],
+  "next": "定位townbook点击响应与实际可见性",
+  "required_checks": [
+    "fast",
+    "core",
+    "chapter123-browser",
+    "packaged-ui"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "qa-export/chapter123/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T07:58:58.184919+00:00",
+      "finished_at_utc": "2026-10-09T07:59:14.698572+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/001-baseline.txt",
+      "output_sha256": "513acf06315fd7aa5a14935ad0eb3ced1ee759bc664e930b1de8983c1d647960"
+    },
+    {
+      "label": "baseline-maps",
+      "command": [
+        "node",
+        "qa-export/chapter123/capture-before.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-09T08:01:51.898496+00:00",
+      "finished_at_utc": "2026-10-09T08:01:53.728042+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/002-baseline-maps.txt",
+      "output_sha256": "776fe0788d78277d5b969e9a030f60a4fc6b6c327a9f3f4c46fbebe0613fbaa9"
+    },
+    {
+      "label": "baseline-maps",
+      "command": [
+        "node",
+        "qa-export/chapter123/capture-before.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-09T08:02:39.792075+00:00",
+      "finished_at_utc": "2026-10-09T08:02:50.158347+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/003-baseline-maps.txt",
+      "output_sha256": "63d05d3f4dbbf1ba44a47c54e58c01fff4b5e97734ef0441f8076929f9029d2b"
+    },
+    {
+      "label": "first-render",
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-09T08:08:27.698435+00:00",
+      "finished_at_utc": "2026-10-09T08:08:44.390604+00:00",
+      "head_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+      "source_fingerprint": "c6381c1a6b1f90d1d16ded19d5e2f24bcc141fd68af6c4c2e86d5bdcc5a13244",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-coverage-20261009/004-first-render.txt",
+      "output_sha256": "93fd4fa380dae39c4ca2f747e1d8bcff1e7dda537ec6ab25c30871778a154c5d"
+    }
+  ],
+  "stages": [
+    {
+      "name": "coverage",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T01:20:18.138661+00:00",
+      "head_commit": "0ef38f7436d3906acebfaee7c54c1d839620dc70",
+      "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
+      "worktree": "M dist/chapter-one-art-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter23-design-v30.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n?? dist/assets/v30/hell-materials.png\n?? dist/assets/v30/hell-scenery.png\n?? dist/assets/v30/objects.png\n?? dist/assets/v30/utilities.png\n?? dist/chapter123-presentation-v30.js\n?? docs/chapter123/\n?? docs/harness/evidence/ch123-coverage-20261009/\n?? source/tasks/active/ch123-coverage-20261009.json\n?? tests/browser-chapter123.mjs"
+    }
+  ]
+}

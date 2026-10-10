@@ -1,3 +1,4 @@
+import {chapter123PropArtV30} from './chapter123-presentation-v30.js';
 // Cached ground and small local lighting; all collision and encounter data stay native.
 import {CH3_GROUND_STYLE} from './chapter3-world-v14.js';
 import {V11_GROUND_STYLE} from './chapter34-world-v14.js';
@@ -5,7 +6,6 @@ import {SCENERY,BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
 import {chapterTwoV30,chapterThreeV30,chapter23V30,CHAPTER_TWO_PATHS_V30,CHAPTER_THREE_PALETTES_V30} from './chapter23-design-v30.js';
 const canvas=()=>{const c=document.createElement('canvas');c.width=1600;c.height=1080;return c;};
 const trace=(c,points)=>{c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));};
-const hash=s=>[...s].reduce((v,c)=>(Math.imul(v,31)+c.charCodeAt(0))>>>0,17);
 // Mirroring avoids a hard seam at each repetition. It uses the original source rect.
 function texture(c,bank,sheet,index,size=300){
  const f=bank.frame(sheet,index),im=bank.images[sheet];if(!f||!im)return null;
@@ -17,8 +17,8 @@ function surface(c,bank,sheet,index,size){c.fillStyle=texture(c,bank,sheet,index
 function glow(c,x,y,r,color,alpha=.16){const gr=c.createRadialGradient(x,y,2,x,y,r);gr.addColorStop(0,color);gr.addColorStop(1,color+'00');c.save();c.globalAlpha*=alpha;c.fillStyle=gr;c.fillRect(x-r,y-r,r*2,r*2);c.restore();}
 function lanes(c,bank,paths,{hell=false,palette=null}={}){
  const layer=canvas(),l=layer.getContext('2d');
- surface(l,bank,hell?'hellWorld':'chapterMaterials',hell?1:0,hell?330:255);
- if(hell){l.fillStyle=palette.lane;l.globalAlpha=.48;l.fillRect(0,0,1600,1080);l.globalAlpha=.22;l.fillStyle=texture(l,bank,'hellWorld',1,320);l.fillRect(0,0,1600,1080);l.globalAlpha=1;}
+ surface(l,bank,hell?'chapterHellMaterials':'chapterMaterials',hell?1:0,hell?330:255);
+ if(hell){l.fillStyle=palette.lane;l.globalAlpha=.48;l.fillRect(0,0,1600,1080);l.globalAlpha=.22;l.fillStyle=texture(l,bank,'chapterHellMaterials',1,320);l.fillRect(0,0,1600,1080);l.globalAlpha=1;}
  const mask=canvas(),m=mask.getContext('2d');m.lineCap='round';m.lineJoin='round';m.strokeStyle='#fff';
  for(const p of paths){trace(m,p.points);m.save();m.filter='blur(15px)';m.lineWidth=p.width+18;m.stroke();m.restore();m.lineWidth=Math.max(30,p.width-34);m.stroke();}
  l.globalCompositeOperation='destination-in';l.drawImage(mask,0,0);c.drawImage(layer,0,0);
@@ -58,7 +58,7 @@ export function chapter23GroundV30(bank,id){
  const interior=['inn','chamber','bridgecellar','wellcrypt'].includes(id);
  if(hell){
   const style=CH3_GROUND_STYLE[id]||V11_GROUND_STYLE[id];
-  c.fillStyle=palette.base;c.fillRect(0,0,1600,1080);c.save();c.filter='contrast(.6) saturate(.45)';c.globalAlpha=.55;surface(c,bank,'hellWorld',style.base,380);c.restore();
+  c.fillStyle=palette.base;c.fillRect(0,0,1600,1080);c.save();c.filter='contrast(.6) saturate(.45)';c.globalAlpha=.55;surface(c,bank,'chapterHellMaterials',style.base,380);c.restore();
   c.fillStyle=palette.base;c.globalAlpha=.22;c.fillRect(0,0,1600,1080);c.globalAlpha=1;
   // Quiet broad patches sit below paths, so routes remain legible at intersections.
   for(const p of style.patches||[])glow(c,p.x,p.y,Math.max(p.w,p.h)*.55,palette.light,.1);
@@ -75,25 +75,7 @@ export function chapter23GroundV30(bank,id){
  if(id==='exile'){const g=c.createLinearGradient(770,0,1500,0);g.addColorStop(0,'#81999b00');g.addColorStop(1,'#81999b60');c.fillStyle=g;c.fillRect(770,150,830,810);}
  return out;
 }
-export function drawChapter23SceneryV30(c,bank,o,id){
- if(!chapterThreeV30(id)||o.sheet!=='hellWorld')return false;
- c.save();c.imageSmoothingEnabled=true;
- // Vary only rock/tree facing. Their feet and authored occlusion stay in place.
- if([4,5].includes(o.asset)&&hash(o.id)%2){c.translate(o.x*2,0);c.scale(-1,1);}
- if(o.asset===4)c.filter='saturate(.5) brightness(.93)';
- if(o.asset===6){c.globalAlpha*=.42;c.filter='saturate(.35)';}
- bank.draw(c,o.sheet,o.asset,o.x,o.y,o.w,o.h);c.restore();return true;
-}
-export function chapter23PropArtV30(p,g,legacy){
- if(!chapterTwoV30(g.map))return legacy;
- if(p.id==='v9-bridge-water'||p.type==='pot')return {sheet:'chapterSettlement',index:7,w:p.id==='v9-bridge-water'?37:30,h:p.id==='v9-bridge-water'?40:34};
- if(p.action==='ch2-sign')return {sheet:'chapterFurnishings',index:10,w:56,h:76};
- if(p.action==='ch2-paper')return {sheet:'chapterFurnishings',index:9,w:36,h:24};
- if(p.action==='ch2-cache'||p.action==='ch2-tools')return {sheet:'chapterFurnishings',index:7,w:46,h:38};
- if(!p.action&&!p.training&&p.type==='crate')return {sheet:'chapterFurnishings',index:4,w:44,h:45};
- if(!p.action&&p.type==='barrel')return {sheet:'chapterFurnishings',index:6,w:38,h:46};
- return legacy;
-}
+export function chapter23PropArtV30(p,g,legacy){return chapter23V30(g.map)?chapter123PropArtV30(p,g.map,legacy,g):legacy;}
 export function drawChapter23AtmosphereV30(c,bank,g,front=false,id=g.map){
  if(!chapter23V30(id))return;
  c.save();

@@ -50,3 +50,17 @@ python3 tools/harness/task.py resume --id ch123-coverage-20261009
 - 阶段 recovery：complete；HEAD 0d4183fe55a9baf28562dd1c78196cc9deac0004
 - 最近检查：fast，退出码 0；docs/harness/evidence/harness-resume-20261009/002-fast.txt
 <!-- /task:harness-resume-20261009 -->
+
+<!-- task:ch123-coverage-20261009 -->
+## 任务 ch123-coverage-20261009
+- 状态：in_progress
+- 更新：2026-10-10T01:20:18.159044+00:00
+- 下一步：定位townbook点击响应与实际可见性
+- 任务记录：source/tasks/active/ch123-coverage-20261009.json
+- 已完成：保留并接续上轮图集、统一映射和35图基线
+- 待完成：定位交互点击失败并复核映射、敌人及图集；专项浏览器、integration与打包UI验证；验收文档和GitHub保存
+- 决定：以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。
+- 阻塞：无
+- 阶段 coverage：in_progress；HEAD 0ef38f7436d3906acebfaee7c54c1d839620dc70
+- 最近检查：first-render，退出码 1；docs/harness/evidence/ch123-coverage-20261009/004-first-render.txt
+<!-- /task:ch123-coverage-20261009 -->

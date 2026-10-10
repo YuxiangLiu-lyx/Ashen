@@ -1,4 +1,7 @@
-// Explicit opt-in. Memory scenes and later chapters retain their own presentation.
+// Complete first-three-chapter inventory, including optional rooms and cutaways.
+// QA independently derives this set from the registered maps and staging, so a
+// missing entry cannot silently remove a map from both implementation and tests.
+export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','guestroom','millpath','echo','workshop']);
 export const CHAPTER_TWO_MAPS_V30=Object.freeze(['post','inn','bridge','manor','spillway','exile','chamber','bridgecellar','wellcrypt']);
 export const CHAPTER_THREE_MAPS_V30=Object.freeze(['hellGate','hellApproach','hellQuarry','hellSluice','hellWall','hellCamp','hellGrotto','hellWorkshop','hellMine','hellFerry','hellPass','hellArena','hellTomb','hellRift']);
 export const CHAPTER23_MAPS_V30=Object.freeze([...CHAPTER_TWO_MAPS_V30,...CHAPTER_THREE_MAPS_V30]);
@@ -6,6 +9,10 @@ const second=new Set(CHAPTER_TWO_MAPS_V30),third=new Set(CHAPTER_THREE_MAPS_V30)
 export const chapterTwoV30=id=>second.has(id);
 export const chapterThreeV30=id=>third.has(id);
 export const chapter23V30=id=>second.has(id)||third.has(id);
+const first=new Set(CHAPTER_ONE_MAPS_V30);
+export const chapterOneV30=id=>first.has(id);
+export const CHAPTER123_MAPS_V30=Object.freeze([...CHAPTER_ONE_MAPS_V30,...CHAPTER23_MAPS_V30]);
+export const chapter123V30=id=>first.has(id)||second.has(id)||third.has(id);
 const route=(width,points)=>({width,points});
 // Worn ground follows the existing gates and crossing apertures. These are paint,
 // never navigation authority, new barriers, spawn positions or progression gates.

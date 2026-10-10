@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "9eb851c9265eb80b8a770ae0ccb7e438d07d6b5e",
-  "source_fingerprint": "5745f39a845d75b20f98f6a55db55f769550d5833d12296effecdbaa4ec4fb84",
+  "basis_commit": "0d4183fe55a9baf28562dd1c78196cc9deac0004",
+  "source_fingerprint": "fa2bcd0331aec5998bd5f1babc7e7055e78510ff2fed6b0314f2afb437fc070c",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "05cc73d7a978e403a9d85423d8ac74cbbdc02b657bf740391795bc1069d74acb",
@@ -96,15 +96,15 @@
       ]
     },
     "AGENTS.md": {
-      "sha256": "9aa2af0567eab90ce30119f1a5c5509a8c6a4ed65b97b9d7f966b6176d6262df",
-      "bytes": 2886,
+      "sha256": "206d79a6b82a84d51872ffe6c9e43f73b946a6070ab8a72319142e26b65d26b7",
+      "bytes": 3458,
       "imports": [],
       "symbols": [],
       "modules": []
     },
     "NEXT_SESSION_PROMPT.md": {
-      "sha256": "d98662f74c473c9d2df955e98d798f232f24ebc14afbde095dc85da45633e11f",
-      "bytes": 388,
+      "sha256": "76427722a9dcf1227157bb8b9b71c67b3ee2623a20100f95527dd387c3542848",
+      "bytes": 610,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -344,27 +344,24 @@
       ]
     },
     "dist/chapter-one-art-v30.js": {
-      "sha256": "afa2fa3ab6af2170b66e290348cecf0ec9485b8a58be3f042e9a0bf8ee7e3ce1",
-      "bytes": 14540,
+      "sha256": "37e9af96dc730bd30323d41e9ad056e281a108ac993e4292665b583806befa10",
+      "bytes": 12601,
       "imports": [
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-design-v30.js",
         "dist/world-design-v29.js",
         "dist/world-v14.js"
       ],
       "symbols": [
         "CHAPTER_ONE_LOADS_V30",
-        "CHAPTER_ONE_MAPS_V30",
         "CHAPTER_SOURCE_REGIONS_V30",
         "a",
-        "architecture",
-        "art",
         "b",
         "back",
         "c",
         "canvas",
         "chapterGroundV30",
         "chapterGuardFrameV30",
-        "chapterOneV30",
         "chapterPropArtV30",
         "chapterSceneryArtV30",
         "drawChapterAtmosphereV30",
@@ -372,10 +369,10 @@
         "drawChapterSceneryV30",
         "drawChapterStrikeV30",
         "f",
+        "fitted",
         "frame",
         "frames",
         "gr",
-        "height",
         "image",
         "immersiveWorldV30",
         "installChapterFramesV30",
@@ -384,7 +381,6 @@
         "layout",
         "line",
         "m",
-        "maps",
         "mask",
         "material",
         "offset",
@@ -396,9 +392,9 @@
         "reference",
         "routes",
         "row",
-        "sizes",
         "t",
         "w",
+        "wood",
         "x",
         "yy"
       ],
@@ -510,6 +506,39 @@
         "maps"
       ]
     },
+    "dist/chapter123-presentation-v30.js": {
+      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
+      "bytes": 6728,
+      "imports": [
+        "dist/chapter23-design-v30.js"
+      ],
+      "symbols": [
+        "CHAPTER123_HOSTS_V30",
+        "a",
+        "architecture",
+        "art",
+        "chapter123PropArtV30",
+        "chapter123SceneryArtV30",
+        "chapter123SceneryV30",
+        "chapter123StageArtV30",
+        "f",
+        "furniture",
+        "h",
+        "hell",
+        "lamp",
+        "object",
+        "propsByAction",
+        "propsById",
+        "sceneryById",
+        "sceneryBySheet",
+        "settlement",
+        "utility"
+      ],
+      "modules": [
+        "maps",
+        "art"
+      ]
+    },
     "dist/chapter2-court-data-v14.js": {
       "sha256": "40cfe0a1ac7a893860b436dd5148812dba1f078680cc4c5f3784e5d9a354506e",
       "bytes": 9530,
@@ -522,9 +551,10 @@
       ]
     },
     "dist/chapter23-art-v30.js": {
-      "sha256": "ded75ac6dd635db273cfdea222f99839750fb5ac4d23719d4c15493d6cd575c1",
-      "bytes": 8448,
+      "sha256": "2acc0eebc2165f3f40b851dc898e1d7d69867aec8915b7fd3825098200692113",
+      "bytes": 7366,
       "imports": [
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-design-v30.js",
         "dist/chapter3-world-v14.js",
         "dist/chapter34-world-v14.js",
@@ -539,14 +569,12 @@
         "chapter23PropArtV30",
         "color",
         "drawChapter23AtmosphereV30",
-        "drawChapter23SceneryV30",
         "edge",
         "f",
         "floorDetail",
         "g",
         "glow",
         "gr",
-        "hash",
         "interior",
         "lanes",
         "layer",
@@ -575,19 +603,24 @@
       ]
     },
     "dist/chapter23-design-v30.js": {
-      "sha256": "82ec3c2fed2660c14db4b2316f51161d8c2ca75e2449b6489c42016b1295e251",
-      "bytes": 3484,
+      "sha256": "1d3584107727272652e27d96862405960c30c6b08374926dc47746e75f99b351",
+      "bytes": 4066,
       "imports": [],
       "symbols": [
         "BRIDGE_WATER_ANCHOR_V30",
+        "CHAPTER123_MAPS_V30",
         "CHAPTER23_MAPS_V30",
+        "CHAPTER_ONE_MAPS_V30",
         "CHAPTER_THREE_MAPS_V30",
         "CHAPTER_THREE_PALETTES_V30",
         "CHAPTER_TWO_MAPS_V30",
         "CHAPTER_TWO_PATHS_V30",
+        "chapter123V30",
         "chapter23V30",
+        "chapterOneV30",
         "chapterThreeV30",
         "chapterTwoV30",
+        "first",
         "hellMonsterFrameV30",
         "p",
         "repairChapter23AnchorsV30",
@@ -2394,8 +2427,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "a3ab5725388eaa6873c8cac609425bd39ce254b957ced21ea27a9b9547ca7d6a",
-      "bytes": 106418,
+      "sha256": "433a2f58ec3b463ce07dfb3af7294b01052b22495266b4952a8367031173c857",
+      "bytes": 106649,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2403,6 +2436,7 @@
         "dist/chapter-one-art-v30.js",
         "dist/chapter-one-motion-v30.js",
         "dist/chapter-runtime-v14.js",
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
         "dist/chapter3-skills-v14.js",
         "dist/chapter3-ui-v14.js",
@@ -5657,8 +5691,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "7c24600dac867cd898b3120fa18665af5365c0c1730a4ec2c3262897f6abef02",
-      "bytes": 21994,
+      "sha256": "a3b7748e6f80ffc3a2c54df4f02dac10d123cc604d2665ce695a0550d53f37f0",
+      "bytes": 21819,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -5668,8 +5702,8 @@
         "dist/chapter-one-art-v30.js",
         "dist/chapter-one-motion-v30.js",
         "dist/chapter-world-meta-v14.js",
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
-        "dist/chapter23-design-v30.js",
         "dist/chapter5-world-v14.js",
         "dist/equipment-art-v281.js",
         "dist/equipment-v14.js",
@@ -6089,8 +6123,8 @@
       "modules": []
     },
     "docs/harness/WORKFLOW.md": {
-      "sha256": "e21e19db07f9dd5c4a7985920d60199d20abb06786f4b85a78af8d5933ad7e26",
-      "bytes": 3747,
+      "sha256": "deae66d3b09344000ba51030ec4e2978e8837c55bfbecab2768f1779f1a94d96",
+      "bytes": 5064,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6159,8 +6193,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "5155adfc91e8fbc7a36d5b8c133af794bd8246023ad91a69b0d4dd93204cbadc",
-      "bytes": 15334,
+      "sha256": "6e8613999ac243e3d32a2c095e1ad39ae70bf141a2d597ec97d0104c08061dbc",
+      "bytes": 15778,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6312,6 +6346,34 @@
         "png",
         "results",
         "root"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
+    "tests/browser-chapter123.mjs": {
+      "sha256": "8800425bc274c731af4d371c4d8a075f4cab2960e86003e4f2279daf8f6acbb6",
+      "bytes": 5799,
+      "imports": [
+        "dist/core-v14.js",
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "at",
+        "atlases",
+        "b",
+        "clicks",
+        "coverage",
+        "hook",
+        "map",
+        "maps",
+        "out",
+        "p",
+        "r",
+        "row",
+        "s",
+        "shot",
+        "state"
       ],
       "modules": [
         "build"
@@ -6507,8 +6569,8 @@
       "modules": []
     },
     "tests/harness/test_harness.py": {
-      "sha256": "b41b32216f25ebe87b40e28885c520ac721b70e891ff5f871bcbc97f4dfe2630",
-      "bytes": 9162,
+      "sha256": "73e8e37b8771769e5c13f4f59ff17d81940f82ebddb496517212df6c71c5c87b",
+      "bytes": 11485,
       "imports": [],
       "symbols": [
         "IsolatedStateTests",
@@ -6897,8 +6959,8 @@
       ]
     },
     "tools/harness/common.py": {
-      "sha256": "cc7841fb6de28b6243dcac6b50e24e3643f7c292482a669b041dbd5688aeb279",
-      "bytes": 2502,
+      "sha256": "8740c0a9caef13a6ed83c026d652773106a3a1a929e5b6534bc96d77401c0fe8",
+      "bytes": 2561,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6933,8 +6995,8 @@
       ]
     },
     "tools/harness/task.py": {
-      "sha256": "0beb5095caebca0f5bbb1d5aaacbfdec73884333982801ad60ee858c1331ffa1",
-      "bytes": 8794,
+      "sha256": "826bf4eee4365472d265e5e51ba357b7dead34f94f59c8a3958ad306db05a817",
+      "bytes": 13383,
       "imports": [],
       "symbols": [],
       "modules": [

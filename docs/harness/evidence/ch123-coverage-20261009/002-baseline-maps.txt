@@ -1,0 +1,11 @@
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39
+    const evaluate=async expression=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);return r.result?.value;};
+                                                                                                                                                           ^
+
+Error: ReferenceError: __CHECK is not defined
+    at <anonymous>:1:1
+    at evaluate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39:156)
+    at async Object.wait (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43:98)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/qa-export/chapter123/capture-before.mjs:5:66
+
+Node.js v25.2.1

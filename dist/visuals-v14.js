@@ -1,6 +1,6 @@
-import {chapter23GroundV30,drawChapter23SceneryV30} from './chapter23-art-v30.js';
-import {chapterTwoV30} from './chapter23-design-v30.js';
-import {chapterGroundV30,drawChapterSceneryV30,chapterOneV30,chapterSceneryArtV30,installChapterFramesV30,drawChapterGuardV30} from './chapter-one-art-v30.js';
+import {chapter123SceneryV30} from './chapter123-presentation-v30.js';
+import {chapter23GroundV30} from './chapter23-art-v30.js';
+import {chapterGroundV30,drawChapterSceneryV30,installChapterFramesV30,drawChapterGuardV30} from './chapter-one-art-v30.js';
 import {applyMotionV30} from './chapter-one-motion-v30.js';
 import {worldGroundV29} from './world-art-v29.js';
 import {actorHeightV281,CREATURE_HEIGHT,walkPhaseV281} from './presentation-metrics-v281.js';
@@ -61,10 +61,10 @@ function shadowGradientV13(c,w,alpha){
 export function footShadow(c,x,y,w=22,alpha=.3){c.save();c.translate(x,y);c.scale(1,.32);const gr=shadowGradientV13(c,w,alpha);c.fillStyle=gr;c.beginPath();c.arc(0,0,w,0,7);c.fill();c.restore();}
 export function drawScenery(c,bank,o,player=null,map=null){
  if(o.sheet==='details'&&o.asset===15)return;
- const replacement=(chapterOneV30(map)||chapterTwoV30(map))?chapterSceneryArtV30(o):null;
- c.save();c.globalAlpha*=sceneryAlphaV26(bank,replacement?{...o,sheet:replacement.sheet,asset:replacement.index}:o,player);
+ const replacement=chapter123SceneryV30(bank,o,map);
+ c.save();c.globalAlpha*=sceneryAlphaV26(bank,replacement||o,player);
  try{
-  if(drawChapter23SceneryV30(c,bank,o,map)||drawChapterSceneryV30(c,bank,o,map))return;
+  if(drawChapterSceneryV30(c,bank,o,map))return;
   if(drawRomancePropV20(c,bank,o))return;
   if(drawSocialFurnitureV20(c,bank,o,player))return;
   if(drawNativeCitySceneryV19(c,bank,o))return;

@@ -322,6 +322,7 @@
         "第三章"
       ],
       "entries": [
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-design-v30.js",
         "dist/world-design-v29.js",
         "dist/world-runtime-v29.js",
@@ -348,7 +349,8 @@
         "dist/cinematics*",
         "dist/presentation-v22*",
         "dist/saga-staging*",
-        "dist/chapter23-design*"
+        "dist/chapter23-design*",
+        "dist/chapter123-*"
       ],
       "rules": [
         "docs/harness/WORLD.md",
@@ -363,7 +365,9 @@
         "node --test tests/world-v29.test.mjs",
         "node tests/browser-world-v29.mjs",
         "node tools/world_audit.mjs",
-        "node --test tests/chapter23-v30.test.mjs"
+        "node --test tests/chapter23-v30.test.mjs",
+        "node --test tests/chapter123-v30.test.mjs",
+        "node tests/browser-chapter123.mjs"
       ]
     },
     {
@@ -380,6 +384,7 @@
         "资源"
       ],
       "entries": [
+        "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
         "dist/chapter-one-art-v30.js",
         "dist/actor-art-v281.js",
@@ -396,7 +401,8 @@
         "dist/asset-data*",
         "dist/presentation-metrics*",
         "dist/presentation-v17*",
-        "dist/chapter-one-art*"
+        "dist/chapter-one-art*",
+        "dist/chapter123-*"
       ],
       "rules": [
         "docs/harness/WORLD.md",
@@ -410,7 +416,9 @@
         "node --test tests/chapter-one-v30.test.mjs",
         "node tests/browser-chapter-one-v30.mjs",
         "node --test tests/chapter23-v30.test.mjs",
-        "node tests/browser-chapter23.mjs"
+        "node tests/browser-chapter23.mjs",
+        "node --test tests/chapter123-v30.test.mjs",
+        "node tests/browser-chapter123.mjs"
       ]
     },
     {
@@ -521,7 +529,12 @@
         "接续",
         "Agent",
         "任务状态",
-        "CI"
+        "CI",
+        "进度",
+        "中断",
+        "阶段",
+        "长会话",
+        "长链接"
       ],
       "entries": [
         "tools/harness/context.py",

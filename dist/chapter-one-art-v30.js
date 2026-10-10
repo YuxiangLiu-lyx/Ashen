@@ -1,16 +1,30 @@
-import {chapterTwoV30,chapter23V30} from './chapter23-design-v30.js';
+import {CHAPTER_ONE_MAPS_V30,chapterOneV30,chapter123V30} from './chapter23-design-v30.js';
+import {chapter123SceneryArtV30,chapter123SceneryV30,chapter123PropArtV30} from './chapter123-presentation-v30.js';
+export {CHAPTER_ONE_MAPS_V30,chapterOneV30} from './chapter23-design-v30.js';
 // First-chapter presentation only. No map geometry, item IDs or rules are mutated.
 import {WORLD_REGIONS_V29} from './world-design-v29.js';
 import {BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
-export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','millpath','echo','workshop']);
-const maps=new Set(CHAPTER_ONE_MAPS_V30),wood=new Set(['hall','warehouse','workshop']),outdoor=new Set(['road','town','alley','grove','millpath']);
-export const chapterOneV30=id=>maps.has(id);
-export const immersiveWorldV30=id=>chapterOneV30(id)||chapter23V30(id);
-export const CHAPTER_ONE_LOADS_V30=[['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false]];
-const architecture={0:0,1:1,4:2,5:4,7:3},furniture={9:0,10:1,11:2,14:3,12:4};
+const wood=new Set(['hall','warehouse','workshop','guestroom']),outdoor=new Set(['road','town','alley','grove','millpath']);
+export const immersiveWorldV30=chapter123V30;
+export const CHAPTER_ONE_LOADS_V30=[['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false],['chapterUtilities','assets/v30/utilities.png',4,5,false],['chapterObjects','assets/v30/objects.png',4,3,false],['chapterHell','assets/v30/hell-scenery.png',4,4,false],['chapterHellMaterials','assets/v30/hell-materials.png',2,2,false]];
 // Generated sheets are not a regular grid. These reviewed source partitions exclude
 // neighbouring sprites; alpha bounds are measured inside each partition at load time.
 export const CHAPTER_SOURCE_REGIONS_V30={
+ chapterUtilities:{width:1122,height:1402,rows:[
+  {y:0,end:280,x:[0,280,562,844,1122]},
+  {y:280,end:560,x:[0,280,562,844,1122]},
+  {y:560,end:824,x:[0,290,562,844,1122]},
+  {y:824,end:1086,x:[0,280,562,844,1122]},
+  {y:1086,end:1402,x:[0,280,562,844,1122]}]},
+ chapterObjects:{width:1448,height:1086,rows:[
+  {y:0,end:357,x:[0,360,738,1098,1448]},
+  {y:357,end:700,x:[0,360,738,1098,1448]},
+  {y:700,end:1086,x:[0,292,750,1098,1448]}]},
+ chapterHell:{width:1254,height:1254,rows:[
+  {y:0,end:313,x:[0,313,627,940,1254]},
+  {y:313,end:627,x:[0,313,627,940,1254]},
+  {y:627,end:940,x:[0,313,627,940,1254]},
+  {y:940,end:1254,x:[0,313,627,940,1254]}]},
  chapterFurnishings:{width:1448,height:1086,rows:[
   {y:0,end:366,x:[0,415,807,1220,1448]},
   {y:366,end:727,x:[0,390,795,1135,1448]},
@@ -37,7 +51,10 @@ export function installChapterFramesV30(bank,name,data){
    let sum=0,n=0;for(let yy=Math.max(y0,y1-Math.round(frame.h*.07));yy<=y1;yy++)for(let xx=x0;xx<=x1;xx++)if(data.data[(yy*image.width+xx)*4+3]>120){sum+=xx;n++;}
    frame.foot={x:n?sum/n:(x0+x1)/2,y:y1};
   }frames.push(frame);
- }bank.frames[name]=frames;
+ }
+ // Separate the portable lantern from its post for the workshop handover.
+ if(name==='chapterHell')frames.push({x:1044*sx,y:684*sy,w:66*sx,h:111*sy,cell:{x:1044*sx,y:684*sy,w:66*sx,h:111*sy}});
+ bank.frames[name]=frames;
 }
 
 export function chapterGuardFrameV30(a){
@@ -55,47 +72,8 @@ export function drawChapterGuardV30(c,bank,a,height){
  c.drawImage(bank.images.chapterGuards,f.x,f.y,f.w,f.h,(f.x-f.foot.x)*k,(f.y-f.foot.y)*k,f.w*k,f.h*k);
  c.restore();return true;
 }
-export function chapterSceneryArtV30(o){
- if(o.id.startsWith('stock-'))return {sheet:'chapterSettlement',index:4};
- if(o.id==='pulpit')return {sheet:'chapterSettlement',index:3};
- if(o.sheet==='world'&&[2,3,8,13].includes(o.asset))return {sheet:'chapterSettlement',index:{2:0,3:1,8:2,13:7}[o.asset]};
- if(o.sheet==='details'&&o.asset===3)return {sheet:'chapterSettlement',index:8};
- if(o.sheet==='qualityWorld'&&o.asset===3)return {sheet:'chapterSettlement',index:9};
- if(o.sheet==='qualityWorld'&&o.asset===6)return {sheet:'chapterSettlement',index:2};
- if(o.id==='v29-road-cart'||o.sheet==='chapterProps'&&o.asset===7)return {sheet:'chapterSettlement',index:9};
- if(o.id==='echo-machine-base'||o.id==='reset-base')return {sheet:'chapterSettlement',index:10};
- if(['echo-entrance','echo-arch','shop-exit-frame'].includes(o.id))return {sheet:'chapterArchitecture',index:3};
- if(o.id==='repair-north-shelf')return {sheet:'chapterFurnishings',index:2};
- if(o.id==='repair-main-table')return {sheet:'chapterFurnishings',index:0};
- if(o.id==='mill-building')return {sheet:'chapterArchitecture',index:5};
- if(o.sheet==='world'){
-  if(architecture[o.asset]!==undefined)return {sheet:'chapterArchitecture',index:architecture[o.asset]};
-  if(furniture[o.asset]!==undefined)return {sheet:'chapterFurnishings',index:furniture[o.asset]};
- }
- if(o.id==='mill-house')return {sheet:'chapterArchitecture',index:5};
- if(o.sheet==='qualityWorld'&&o.asset===7)return {sheet:'chapterArchitecture',index:6};
- if(o.sheet==='details'&&o.asset===9||o.sheet==='chapterProps'&&o.asset===6)return {sheet:'chapterFurnishings',index:5};
- if(o.sheet==='details'&&o.asset===8)return {sheet:'chapterArchitecture',index:7};
- return null;
-}
-export function chapterPropArtV30(p,g,legacy){
- if(!chapterOneV30(g.map))return legacy;
- if(p.id==='crack')return {sheet:'chapterSettlement',index:5,w:58,h:86};
- if(p.id==='oil')return {sheet:'chapterSettlement',index:6,w:39,h:44};
- if(p.type==='pot')return {sheet:'chapterSettlement',index:7,w:30,h:34};
- let index;
- if(['v29-echo-core','v29-repair-core'].includes(p.id))return {sheet:'chapterFurnishings',index:11,w:31,h:29};
- if(p.id==='letter')index=7;
- else if(p.type==='herb')index=8;
- else if(['echoNotes','pointBook','frostBook'].includes(p.action)||p.type==='book'&&!p.art)index=9;
- else if(['notice','v29RoadSign','workshopSign'].includes(p.action))index=10;
- else if(p.action==='echoValve')index=11;
- else if(!p.action&&p.type==='crate'&&!p.training)index=4;
- else if(!p.action&&p.type==='barrel')index=6;
- if(index===undefined)return legacy;
- const sizes={4:[44,45],6:[38,46],7:[46,38],8:[32,29],9:[36,24],10:[56,76],11:[64,74]};
- return {sheet:'chapterFurnishings',index,w:sizes[index][0],h:sizes[index][1]};
-}
+export const chapterSceneryArtV30=o=>chapter123SceneryArtV30(o,'hall');
+export function chapterPropArtV30(p,g,legacy){return chapterOneV30(g.map)?chapter123PropArtV30(p,g.map,legacy,g):legacy;}
 const line=(c,points)=>{c.beginPath();c.moveTo(...points[0]);for(let i=1;i<points.length-1;i++){const a=points[i],b=points[i+1];c.quadraticCurveTo(...a,(a[0]+b[0])/2,(a[1]+b[1])/2);}c.lineTo(...points.at(-1));};
 function material(c,bank,index,rect=[0,0,1600,1080],size=index===0?205:index===1?480:index===2?270:175){
  const f=bank.frame('chapterMaterials',index),im=bank.images.chapterMaterials;if(!f||!im)return;
@@ -150,19 +128,12 @@ export function chapterGroundV30(bank,id){
  return canvas;
 }
 export function drawChapterSceneryV30(c,bank,o,id){
- if(!chapterOneV30(id)&&!chapterTwoV30(id))return false;const art=chapterSceneryArtV30(o);if(!art)return false;
- c.save();
- // Contact shadow belongs to the object and shares its occlusion opacity.
+ const fitted=chapter123SceneryV30(bank,o,id);if(!fitted)return false;
+ c.save();c.imageSmoothingEnabled=true;
  if(!o.flat){const w=Math.min(o.w*.43,150),h=Math.min(18,o.h*.08),shade=c.createRadialGradient(o.x,o.y-2,1,o.x,o.y-2,w);shade.addColorStop(0,'#0e111354');shade.addColorStop(1,'#0e111300');c.save();c.translate(o.x,o.y-2);c.scale(1,h/w);c.translate(-o.x,-o.y+2);c.fillStyle=shade;c.fillRect(o.x-w,o.y-2-w,w*2,w*2);c.restore();}
  if(o.cold)c.filter='saturate(.25) brightness(.8)';
- if(art.sheet==='chapterArchitecture'&&art.index===2){
-  // Tiny crown motion around the trunk; the foot pivot and hitbox stay still.
-  const t=performance.now()/1000,angle=Math.sin(t*.7+o.x)*.003;c.translate(o.x,o.y);c.rotate(angle);if(Math.floor(o.x+o.y)%3===0)c.scale(-1,1);c.translate(-o.x,-o.y);
- }
- // Preserve the authored feet footprint and depth, while fitting the new image's proportions.
- const f=bank.frame(art.sheet,art.index),ratio=f?f.h/f.w:o.h/o.w;
- const height=art.sheet==='chapterFurnishings'&&art.index===3?o.h:Math.min(o.h*1.08,Math.max(o.h*.7,o.w*ratio));
- bank.draw(c,art.sheet,art.index,o.x,o.y,o.w,height);c.restore();return true;
+ if(fitted.sheet==='chapterArchitecture'&&fitted.asset===2){const t=performance.now()/1000,angle=Math.sin(t*.7+o.x)*.003;c.translate(o.x,o.y);c.rotate(angle);if(Math.floor(o.x+o.y)%3===0)c.scale(-1,1);c.translate(-o.x,-o.y);}
+ bank.draw(c,fitted.sheet,fitted.asset,fitted.x,fitted.y,fitted.w,fitted.h);c.restore();return true;
 }
 
 // Ordinary hits have a brief directional blade glint, separate from magical skill effects.
@@ -174,14 +145,14 @@ export function drawChapterStrikeV30(c,f){
  c.lineCap='round';c.strokeStyle=f.type==='enemyCut'?'#ccb2a2':'#e5ded0';c.lineWidth=2.2;
  c.beginPath();c.arc(9,0,r,-.9+t*.7,.55+t*.7);c.stroke();c.restore();return true;
 }
-const lamps={hall:[[240,420],[1210,390]],warehouse:[[390,265]],town:[[700,190],[940,215]],chapel:[[590,170],[1140,260]],alley:[[1180,380]],canal:[[510,295]],workshop:[[620,330],[1060,390]],echo:[[450,330]]};
+const lamps={guestroom:[[770,315]],hall:[[240,420],[1210,390]],warehouse:[[390,265]],town:[[700,190],[940,215]],chapel:[[590,170],[1140,260]],alley:[[1180,380]],canal:[[510,295]],workshop:[[620,330],[1060,390]],echo:[[450,330]]};
 export function drawChapterAtmosphereV30(c,bank,g,foreground=false,id=g.map){
  if(!chapterOneV30(id))return;
  c.save();
  if(!foreground){
   // Pools illuminate the floor beneath bodies; shadowed walls retain their volume.
   for(const [x,y]of lamps[id]||[]){const gr=c.createRadialGradient(x,y,4,x,y,145);gr.addColorStop(0,'#edb45c29');gr.addColorStop(1,'#e8bb6500');c.fillStyle=gr;c.fillRect(x-145,y-145,290,290);}
-  if(['hall','chapel','workshop'].includes(id)){
+  if(['hall','chapel','workshop','guestroom'].includes(id)){
    c.save();c.globalCompositeOperation='screen';const gr=c.createLinearGradient(290,180,700,720);gr.addColorStop(0,'#d6c9a620');gr.addColorStop(1,'#d6c9a600');c.fillStyle=gr;c.beginPath();c.moveTo(290,180);c.lineTo(355,180);c.lineTo(880,800);c.lineTo(600,800);c.closePath();c.fill();c.restore();
   }
  }else{
