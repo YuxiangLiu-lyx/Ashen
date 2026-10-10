@@ -165,15 +165,16 @@
 <!-- task:rollback-v30-20261010 -->
 ## 任务 rollback-v30-20261010
 - 状态：in_progress
-- 更新：2026-10-10T06:04:54.584437+00:00
-- 下一步：构建回滚版并验证离线/HTTP/移动端
+- 更新：2026-10-10T06:08:58.717651+00:00
+- 下一步：提交并推送main
 - 任务记录：source/tasks/active/rollback-v30-20261010.json
-- 已完成：全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录；dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停；334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过
-- 待完成：三维恢复审查；离线包与UI；GitHub保存
-- 决定：用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站
+- 已完成：全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录；dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停；334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过；离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁
+- 待完成：提交推送GitHub main并核验
+- 决定：用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站；用户指定1cefe80原样回滚优先：三维通过范围为恢复一致性；旧军官共用图集、原画披风差异、旧树阵水面和town/well采样局限显式保留，不声称重构质量达标，不改门禁或旧测试
 - 阻塞：无
 - 阶段 preserve：complete；HEAD 6b388c7bf07b531bdf39b924ef8e6ab2b8851357
 - 阶段 restore：complete；HEAD 6b388c7bf07b531bdf39b924ef8e6ab2b8851357
-- 阶段 verification：in_progress；HEAD 6b388c7bf07b531bdf39b924ef8e6ab2b8851357
-- 最近检查：character-reference，退出码 0；docs/harness/evidence/rollback-v30-20261010/006-character-reference.txt
+- 阶段 verification：complete；HEAD 4571029438993d346c101dfc5d12c3a23b60fbd6
+- 阶段 delivery：in_progress；HEAD 4571029438993d346c101dfc5d12c3a23b60fbd6
+- 最近检查：map-restoration-review，退出码 0；docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt
 <!-- /task:rollback-v30-20261010 -->

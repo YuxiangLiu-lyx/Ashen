@@ -20,7 +20,7 @@
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
   "known_limits": "Exact restoration of 1cefe80; inherited limitations in docs/chapter123/ACCEPTANCE.md. No private saves tested or touched, no reverse migration guarantee for experimental c1 saves, no full eight-chapter clear, no website publication. Reconstruction preserved in 6b388c7.",
-  "checked_at_utc": "2026-10-10T05:58:36.932943+00:00",
+  "checked_at_utc": "2026-10-10T06:08:27.647909+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Rollback fast/integration passed: 27 Harness, 76 Node, 16 general browser checks, 14 exact browser/Lab parity, 35 maps, 6 pointer cases, 77 enemy poses and 2 staged scenes; package verification pending.",
+  "browser_qa_status": "Rollback fast/integration and offline/HTTP/mobile packaged UI passed; 27 Harness, 76 Node, 35-map render and original118-map regression.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -333,11 +333,13 @@
   },
   "rollback": {
     "task_id": "rollback-v30-20261010",
-    "status": "runtime restored; byte parity, fast and integration passed; packaged UI and delivery pending",
+    "status": "restored; local verification passed; GitHub sync pending",
     "target_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
     "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
     "preserved_branch": "backup/reconstruction-before-rollback-20261010",
     "evidence": "docs/rollback-v30",
-    "site_deployed": false
+    "site_deployed": false,
+    "restoration_review": "docs/rollback-v30/MAP_RESTORE_REVIEW.json",
+    "restoration_scope": "Exact selected snapshot; inherited map/character quality limitations retained, withdrawn redesign goals not accepted."
   }
 }

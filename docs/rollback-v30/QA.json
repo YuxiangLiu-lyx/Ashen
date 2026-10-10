@@ -1,40 +1,9 @@
 {
-  "schema": 1,
-  "id": "rollback-v30-20261010",
-  "goal": "游戏内容回滚重构优化到已验收V30（1cefe80），保存重构现场与剧情地图验收",
-  "acceptance": [
-    "重构现场完整保存在Git；运行文件恢复指定版本；新游戏和旧档回归通过；GitHub main保存并核验"
-  ],
-  "baseline_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
-  "modules": [
-    "build",
-    "lab",
-    "maps"
-  ],
-  "status": "in_progress",
-  "created_at_utc": "2026-10-10T05:57:32.330449+00:00",
-  "updated_at_utc": "2026-10-10T06:08:58.717651+00:00",
-  "decisions": [
-    "用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站",
-    "用户指定1cefe80原样回滚优先：三维通过范围为恢复一致性；旧军官共用图集、原画披风差异、旧树阵水面和town/well采样局限显式保留，不声称重构质量达标，不改门禁或旧测试"
-  ],
-  "completed": [
-    "全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录",
-    "dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停",
-    "334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过",
-    "离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁"
-  ],
-  "remaining": [
-    "提交推送GitHub main并核验"
-  ],
-  "blockers": [],
-  "next": "提交并推送main",
-  "required_checks": [
-    "fast",
-    "integration",
-    "rollback-parity",
-    "packaged-ui"
-  ],
+  "task_id": "rollback-v30-20261010",
+  "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+  "target_commit": "1cefe80c8f187fceda48dd5322f90affda4e13c0",
+  "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
+  "runtime_restore_commit": "4571029438993d346c101dfc5d12c3a23b60fbd6",
   "checks": [
     {
       "label": "fast",
@@ -199,38 +168,8 @@
       "timeout_seconds": 180.0
     }
   ],
-  "stages": [
-    {
-      "name": "preserve",
-      "status": "complete",
-      "updated_at_utc": "2026-10-10T05:58:36.715495+00:00",
-      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
-      "source_fingerprint": "af2bde39d3fdbce6ef782ba330485f1524c1c33b3ee3e9fa7f8086c3690f42f5",
-      "worktree": ""
-    },
-    {
-      "name": "restore",
-      "status": "complete",
-      "updated_at_utc": "2026-10-10T05:59:50.522833+00:00",
-      "head_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
-      "source_fingerprint": "85f731170b46ccf3835bc88ce2a05c7b133f42b627164483a3c10268e436e794",
-      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/v30-narrative/chapel-morning.png\n D dist/assets/v30-narrative/elyria-gentle.png\n D dist/assets/v30-narrative/elyria-resolute.png\n D dist/assets/v30-narrative/warehouse-stores.png\n D dist/assets/v30-spatial/bridge.png\n D dist/assets/v30-spatial/elite.png\n D dist/assets/v30-spatial/officer.png\n M dist/audio-v17.js\n D dist/ch1-layout-v31.js\n D dist/ch1-runtime-v31.js\n D dist/ch1-script-v31.js\n M dist/chapter-one-art-v30.js\n D dist/chapter12-art-v30.js\n D dist/chapter12-director-v30.css\n D dist/chapter12-director-v30.js\n D dist/chapter12-text-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n D dist/role-art-v30.js\n M dist/saga-art-v25.js\n D dist/spatial-design-v30.js\n D dist/spatial-ground-v30.js\n D dist/spatial-world-v30.js\n M dist/story-flow-v14.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-20261010.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/rollback-v30-20261010.json\n M source/tasks/active/saint-cover-20261009.json\n D tests/browser-ch12-epic.mjs\n M tests/browser-chapter123.mjs\n D tests/browser-spatial-v30.mjs\n M tests/chapter-one-v30.test.mjs\n D tests/chapter12-epic-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n D tests/spatial-legacy-control.mjs\n D tests/spatial-scenarios.mjs\n D tests/spatial-v30.test.mjs\n M tests/world-v29.test.mjs\n M tools/browser_session.mjs\n D tools/build_ch1_script.py\n M tools/harness/check.py\n D tools/spatial_audit.mjs\n?? docs/rollback-v30/RECOMMENDATIONS.json\n?? history/reconstruction-20261010/\n?? tools/rollback_map_audit.mjs"
-    },
-    {
-      "name": "verification",
-      "status": "complete",
-      "updated_at_utc": "2026-10-10T06:08:58.617451+00:00",
-      "head_commit": "4571029438993d346c101dfc5d12c3a23b60fbd6",
-      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
-      "worktree": "M .codex/progress.md\n M docs/rollback-v30/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/rollback-v30-20261010.json\n?? docs/harness/evidence/rollback-v30-20261010/007-package-build.txt\n?? docs/harness/evidence/rollback-v30-20261010/008-packaged-ui.txt\n?? docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt\n?? docs/map-quality/\n?? docs/rollback-v30/MAP_RESTORE_REVIEW.json\n?? docs/rollback-v30/packaged/"
-    },
-    {
-      "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T06:08:58.693156+00:00",
-      "head_commit": "4571029438993d346c101dfc5d12c3a23b60fbd6",
-      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
-      "worktree": "M .codex/progress.md\n M docs/rollback-v30/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/rollback-v30-20261010.json\n?? docs/harness/evidence/rollback-v30-20261010/007-package-build.txt\n?? docs/harness/evidence/rollback-v30-20261010/008-packaged-ui.txt\n?? docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt\n?? docs/map-quality/\n?? docs/rollback-v30/MAP_RESTORE_REVIEW.json\n?? docs/rollback-v30/packaged/"
-    }
-  ]
+  "map_review": "MAP_RESTORE_REVIEW.json",
+  "packaged_ui": "packaged/WEB_QA.json",
+  "website_deployed": false,
+  "limits": "Exact selected snapshot restored. Inherited map and character shortcomings retained and disclosed. No personal saves or full campaign clear."
 }
