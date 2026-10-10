@@ -181,16 +181,17 @@
 
 <!-- task:narrative-incremental-20261010 -->
 ## 任务 narrative-incremental-20261010
-- 状态：in_progress
-- 更新：2026-10-10T06:27:03.535592+00:00
-- 下一步：正常保存局部策划0.3到GitHub main
-- 任务记录：source/tasks/active/narrative-incremental-20261010.json
-- 已完成：所有当前harness入口已撤销全面重构授权；新版prompt已收缩；第二章0.2记录与现有17幕状态回放已落盘；前两章0.2完整主线引用与增量稿、12镜头刺杀演出、2段章1短幕后与章2未来2窗口已审稿；范围入口已统一；fast24项通过；索引281文件无问题；6路由探针与链接版本检查通过；dist/tools/tests差异为空；已正常合并最新回滚0988489；运行保持1cefe80，保留6b388c7现场、暂停任务和三维验收规则；合并后fast27项通过；286文件索引无问题；334运行文件与回滚目标1cefe80完全一致，26撤回原件已核验保留
-- 待完成：GitHub保存核验
+- 状态：complete
+- 更新：2026-10-10T06:29:48.605589+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/narrative-incremental-20261010.json
+- 已完成：所有当前harness入口已撤销全面重构授权；新版prompt已收缩；第二章0.2记录与现有17幕状态回放已落盘；前两章0.2完整主线引用与增量稿、12镜头刺杀演出、2段章1短幕后与章2未来2窗口已审稿；范围入口已统一；fast24项通过；索引281文件无问题；6路由探针与链接版本检查通过；dist/tools/tests差异为空；已正常合并最新回滚0988489；运行保持1cefe80，保留6b388c7现场、暂停任务和三维验收规则；合并后fast27项通过；286文件索引无问题；334运行文件与回滚目标1cefe80完全一致，26撤回原件已核验保留；0.3局部策划与harness已保存GitHub main，fetch与ls-remote核验eb332bc；保留最新回滚与暂停历史，运行未改
+- 待完成：无
 - 决定：交手仅剧情演出，保留任务奖励、原18行刺杀对白与原章界；只读状态回放不代表完整游玩；独立审查修正取消接应/从未派出及未存在的亲口承诺；旧0.1要求由0.2替代；变更仅资料、路由和状态证据；不将当前章2固定场景回放当新游戏通关；新局部稿升0.3以区别已回滚冻结0.2；原有0.2测试属于合并前，不作为最终验收；新的27项验收替代合并前24项为本轮最终结果；旧PARITY回执字节保持，新对照证据另存
 - 阻塞：无
 - 阶段 planning：complete；HEAD 60d8a2eb1bee55f069ca6190d278e7bb6f5abf2f
 - 阶段 verification：complete；HEAD 71521251c27bacc1f0cceb09ca41ae9a6fce3e7d
 - 阶段 sync：complete；HEAD 71521251c27bacc1f0cceb09ca41ae9a6fce3e7d
+- 阶段 delivery：complete；HEAD eb332bc4ec887722238f97da8d94f9a0695d9ff7
 - 最近检查：verification，退出码 0；docs/harness/evidence/narrative-incremental-20261010/006-verification.txt
 <!-- /task:narrative-incremental-20261010 -->
