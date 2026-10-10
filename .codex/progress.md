@@ -1,10 +1,10 @@
 # Ashen 增量执行进度
 
-最后更新：2026-10-10。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，再 `task.py resume --id rollback-v30-20261010`。从首个未完成阶段继续，保留其他任务与历史证据。
+最后更新：2026-10-10。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，先 `task.py list`。回滚任务已完成；重构任务按用户要求暂停，不得自动接续。保留其他任务与历史证据。
 
 ## 当前目标
 
-2026-10-10 用户最新授权：回滚到已验收 V30（1cefe80），停止继续重构。当前任务 rollback-v30-20261010；以下开发计划保留为历史，不能自动恢复执行。阶段：保存现场 → 恢复指定版本 → 集成/地图/打包验收 → GitHub main 保存。
+2026-10-10 已完成：回滚到已验收 V30（1cefe80）；334运行文件一致、fast/integration/离线与HTTP移动端通过；GitHub main已核验e3c4e36。回滚任务 rollback-v30-20261010；重构现场6b388c7保留，相关任务暂停。以下开发计划保留为历史，不能自动恢复执行。
 
 已暂停的历史任务 `ch1-pilot-20261010`：采用新章稿，只开发第一章；第二章保持策划。远端规划已合并；既有空间与两章旧版精修保存在1f1a928，不代表新稿已经实现。
 
@@ -164,17 +164,17 @@
 
 <!-- task:rollback-v30-20261010 -->
 ## 任务 rollback-v30-20261010
-- 状态：in_progress
-- 更新：2026-10-10T06:08:58.717651+00:00
-- 下一步：提交并推送main
-- 任务记录：source/tasks/active/rollback-v30-20261010.json
-- 已完成：全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录；dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停；334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过；离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁
-- 待完成：提交推送GitHub main并核验
+- 状态：complete
+- 更新：2026-10-10T06:11:16.588573+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/rollback-v30-20261010.json
+- 已完成：全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录；dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停；334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过；离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁；GitHub main已推送并ls-remote核验e3c4e36，包含重构备份6b388c7与完整回滚内容；未发布网站
+- 待完成：无
 - 决定：用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站；用户指定1cefe80原样回滚优先：三维通过范围为恢复一致性；旧军官共用图集、原画披风差异、旧树阵水面和town/well采样局限显式保留，不声称重构质量达标，不改门禁或旧测试
 - 阻塞：无
 - 阶段 preserve：complete；HEAD 6b388c7bf07b531bdf39b924ef8e6ab2b8851357
 - 阶段 restore：complete；HEAD 6b388c7bf07b531bdf39b924ef8e6ab2b8851357
 - 阶段 verification：complete；HEAD 4571029438993d346c101dfc5d12c3a23b60fbd6
-- 阶段 delivery：in_progress；HEAD 4571029438993d346c101dfc5d12c3a23b60fbd6
-- 最近检查：map-restoration-review，退出码 0；docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt
+- 阶段 delivery：complete；HEAD e3c4e360725e9d1611bd9aa3a9785b086356eda6
+- 最近检查：github-verify，退出码 0；docs/harness/evidence/rollback-v30-20261010/011-github-verify.txt
 <!-- /task:rollback-v30-20261010 -->

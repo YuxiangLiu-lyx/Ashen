@@ -11,9 +11,9 @@
     "lab",
     "maps"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-10T05:57:32.330449+00:00",
-  "updated_at_utc": "2026-10-10T06:08:58.717651+00:00",
+  "updated_at_utc": "2026-10-10T06:11:16.588573+00:00",
   "decisions": [
     "用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站",
     "用户指定1cefe80原样回滚优先：三维通过范围为恢复一致性；旧军官共用图集、原画披风差异、旧树阵水面和town/well采样局限显式保留，不声称重构质量达标，不改门禁或旧测试"
@@ -22,13 +22,12 @@
     "全部未提交与未跟踪重构现场保存为6b388c7；安全分支backup/reconstruction-before-rollback-20261010；基线索引三个未映射试点模块已记录",
     "dist逐文件恢复1cefe80；恢复对应历史测试断言；新版Harness与章稿保留；重构新文件移至历史目录，四个任务暂停",
     "334文件完全匹配目标；26个归档原件哈希匹配；27项Harness、76项Node、16项通用浏览器、14组战斗一致性、35图/6交互/77姿态/2演出及磨坊实战往返通过",
-    "离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁"
+    "离线file、HTTP与移动端UI全部通过；35图碰撞/截图、角色原画与77姿态已复核；三维回滚一致性记录通过哈希门禁",
+    "GitHub main已推送并ls-remote核验e3c4e36，包含重构备份6b388c7与完整回滚内容；未发布网站"
   ],
-  "remaining": [
-    "提交推送GitHub main并核验"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交并推送main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration",
@@ -197,6 +196,41 @@
       "output": "docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt",
       "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
       "timeout_seconds": 180.0
+    },
+    {
+      "label": "github-push",
+      "command": [
+        "git",
+        "push",
+        "origin",
+        "main"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:09:06.188023+00:00",
+      "finished_at_utc": "2026-10-10T06:10:18.763679+00:00",
+      "head_commit": "e3c4e360725e9d1611bd9aa3a9785b086356eda6",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/010-github-push.txt",
+      "output_sha256": "05fa3bc127177e4b1aad67072e3a490d775586d2a0b279ad2292116ec0a9ae50",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "github-verify",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; local=subprocess.check_output([\"git\",\"rev-parse\",\"HEAD\"],text=True).strip(); remote=subprocess.check_output([\"git\",\"ls-remote\",\"origin\",\"refs/heads/main\"],text=True).split()[0]; assert local==remote,(local,remote); print(\"Verified GitHub main: \"+remote)"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:11:16.143215+00:00",
+      "finished_at_utc": "2026-10-10T06:11:16.499487+00:00",
+      "head_commit": "e3c4e360725e9d1611bd9aa3a9785b086356eda6",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/011-github-verify.txt",
+      "output_sha256": "e1bdaf304e4de543bee6b8085d7d39ec114f5e4d1186d0786da058f84040208e",
+      "timeout_seconds": 60.0
     }
   ],
   "stages": [
@@ -226,11 +260,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T06:08:58.693156+00:00",
-      "head_commit": "4571029438993d346c101dfc5d12c3a23b60fbd6",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T06:11:16.557720+00:00",
+      "head_commit": "e3c4e360725e9d1611bd9aa3a9785b086356eda6",
       "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
-      "worktree": "M .codex/progress.md\n M docs/rollback-v30/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/rollback-v30-20261010.json\n?? docs/harness/evidence/rollback-v30-20261010/007-package-build.txt\n?? docs/harness/evidence/rollback-v30-20261010/008-packaged-ui.txt\n?? docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt\n?? docs/map-quality/\n?? docs/rollback-v30/MAP_RESTORE_REVIEW.json\n?? docs/rollback-v30/packaged/"
+      "worktree": "M .codex/progress.md\n M source/tasks/active/rollback-v30-20261010.json\n?? docs/harness/evidence/rollback-v30-20261010/010-github-push.txt\n?? docs/harness/evidence/rollback-v30-20261010/011-github-verify.txt"
     }
-  ]
+  ],
+  "summary": "按用户选择原样恢复重构前V30；完整保留重构原件与个人存档，旧版局限明确；回归、浏览器和打包通过，GitHub main已核验",
+  "completed_at_utc": "2026-10-10T06:11:16.947162+00:00",
+  "verified_source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545"
 }

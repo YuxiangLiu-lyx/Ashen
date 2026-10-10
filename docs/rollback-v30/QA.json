@@ -166,10 +166,46 @@
       "output": "docs/harness/evidence/rollback-v30-20261010/009-map-restoration-review.txt",
       "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
       "timeout_seconds": 180.0
+    },
+    {
+      "label": "github-push",
+      "command": [
+        "git",
+        "push",
+        "origin",
+        "main"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:09:06.188023+00:00",
+      "finished_at_utc": "2026-10-10T06:10:18.763679+00:00",
+      "head_commit": "e3c4e360725e9d1611bd9aa3a9785b086356eda6",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/010-github-push.txt",
+      "output_sha256": "05fa3bc127177e4b1aad67072e3a490d775586d2a0b279ad2292116ec0a9ae50",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "github-verify",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; local=subprocess.check_output([\"git\",\"rev-parse\",\"HEAD\"],text=True).strip(); remote=subprocess.check_output([\"git\",\"ls-remote\",\"origin\",\"refs/heads/main\"],text=True).split()[0]; assert local==remote,(local,remote); print(\"Verified GitHub main: \"+remote)"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:11:16.143215+00:00",
+      "finished_at_utc": "2026-10-10T06:11:16.499487+00:00",
+      "head_commit": "e3c4e360725e9d1611bd9aa3a9785b086356eda6",
+      "source_fingerprint": "e5ed55042372a6b762e5ba6cf3fb73dae1aa9ac0c5a8f6a997ed2c20bf887545",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rollback-v30-20261010/011-github-verify.txt",
+      "output_sha256": "e1bdaf304e4de543bee6b8085d7d39ec114f5e4d1186d0786da058f84040208e",
+      "timeout_seconds": 60.0
     }
   ],
   "map_review": "MAP_RESTORE_REVIEW.json",
   "packaged_ui": "packaged/WEB_QA.json",
   "website_deployed": false,
-  "limits": "Exact selected snapshot restored. Inherited map and character shortcomings retained and disclosed. No personal saves or full campaign clear."
+  "limits": "Exact selected snapshot restored. Inherited map and character shortcomings retained and disclosed. No personal saves or full campaign clear.",
+  "github_receipt": "GIT_SAVE.json"
 }
