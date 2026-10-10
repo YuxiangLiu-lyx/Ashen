@@ -1,0 +1,98 @@
+{
+  "schema": 1,
+  "id": "ch1-pilot-r2-20261010",
+  "goal": "按用户本轮第一章prompt开发可玩试点；先核对两章记录与范围差异、冻结采用稿；剧情地图演出与存档验收；第二章只策划",
+  "acceptance": [
+    "采用稿与主支线、知识边界完整；第一章实现符合最终采用范围；第二章代码保持；真实基线、地图三维、剧情存档、连续游玩和打包验收留证；GitHub保存核验"
+  ],
+  "baseline_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
+  "modules": [
+    "story",
+    "maps",
+    "chapter01_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T06:52:59.484547+00:00",
+  "updated_at_utc": "2026-10-10T07:01:37.211925+00:00",
+  "decisions": [
+    "开工已从0988489同步至5e289bc；发现远端0.3局部增强稿与用户本次完整重构prompt冲突，已请求范围澄清；先完整审读两章和审计稳定运行，不恢复旧试点",
+    "用户回答按仓库0.3稿，只做局部增强；保留原18行、任务、地图几何与章界；交手仅演出，不新增圣女实战；不恢复旧试点"
+  ],
+  "completed": [
+    "两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY"
+  ],
+  "remaining": [
+    "局部交互表现；H1/H2一次短场；原创刺杀救治交手封术演出；新旧档与三维/浏览器/integration/打包；GitHub保存"
+  ],
+  "blockers": [],
+  "next": "保存基线检查点，制作同一礼拜厅的原创分层资产并最小接入原StoryFlow",
+  "required_checks": [
+    "fast",
+    "integration",
+    "chapter01",
+    "chapter01-browser",
+    "packaged-ui"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "docs/ch1-pilot-r2/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:52:59.623775+00:00",
+      "finished_at_utc": "2026-10-10T06:53:16.568155+00:00",
+      "head_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/001-baseline.txt",
+      "output_sha256": "5a1abc4cdaf351cfa6fbc925ebf51c787f507967e7795a00e775f9d3a5e6964d",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "audit",
+      "command": [
+        "node",
+        "docs/ch1-pilot-r2/audit.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T06:58:34.694821+00:00",
+      "finished_at_utc": "2026-10-10T06:58:35.043147+00:00",
+      "head_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/002-audit.txt",
+      "output_sha256": "020e8d34aca7256f7146cb1da5b9ae246ef3e467cc3e8c729d239f82bb0b458e",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "audit",
+      "command": [
+        "node",
+        "docs/ch1-pilot-r2/audit.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T07:00:05.035400+00:00",
+      "finished_at_utc": "2026-10-10T07:00:05.391560+00:00",
+      "head_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
+      "source_fingerprint": "bd1555519244e5d4eb7865cb9a1f09db0aac1024d4cae624f7c5d3d27fd9bb9f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/003-audit.txt",
+      "output_sha256": "020e8d34aca7256f7146cb1da5b9ae246ef3e467cc3e8c729d239f82bb0b458e",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit-and-freeze",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T07:01:37.158262+00:00",
+      "head_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
+      "source_fingerprint": "3901e0da50d71be6fefaedd2d0cf1b978c14dd9024da8b2001f13d4a897ee76e",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/ch1-pilot-r2/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/\n?? source/tasks/active/ch1-pilot-r2-20261010.json"
+    }
+  ]
+}

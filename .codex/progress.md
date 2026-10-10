@@ -195,3 +195,17 @@
 - 阶段 delivery：complete；HEAD eb332bc4ec887722238f97da8d94f9a0695d9ff7
 - 最近检查：verification，退出码 0；docs/harness/evidence/narrative-incremental-20261010/006-verification.txt
 <!-- /task:narrative-incremental-20261010 -->
+
+<!-- task:ch1-pilot-r2-20261010 -->
+## 任务 ch1-pilot-r2-20261010
+- 状态：in_progress
+- 更新：2026-10-10T07:01:37.211925+00:00
+- 下一步：保存基线检查点，制作同一礼拜厅的原创分层资产并最小接入原StoryFlow
+- 任务记录：source/tasks/active/ch1-pilot-r2-20261010.json
+- 已完成：两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY
+- 待完成：局部交互表现；H1/H2一次短场；原创刺杀救治交手封术演出；新旧档与三维/浏览器/integration/打包；GitHub保存
+- 决定：开工已从0988489同步至5e289bc；发现远端0.3局部增强稿与用户本次完整重构prompt冲突，已请求范围澄清；先完整审读两章和审计稳定运行，不恢复旧试点；用户回答按仓库0.3稿，只做局部增强；保留原18行、任务、地图几何与章界；交手仅演出，不新增圣女实战；不恢复旧试点
+- 阻塞：无
+- 阶段 audit-and-freeze：complete；HEAD 5e289bc90d3e79a5e7d44236bb229a43b05cce87
+- 最近检查：audit，退出码 0；docs/harness/evidence/ch1-pilot-r2-20261010/003-audit.txt
+<!-- /task:ch1-pilot-r2-20261010 -->
