@@ -53,6 +53,20 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.keyboard.press('Escape');page.wait_for_timeout(100)
     page.screenshot(path=str(out/(label+'-game.png')))
     checks += ['inventory_ui']
+    # Real title replay must return without modifying the existing main journey.
+    page.keyboard.press('Escape');page.locator('[data-act="title"]').click()
+    main_before=page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")
+    page.locator('[data-act="c1-replay"]').click()
+    page.locator('.c1-dialogue').wait_for(timeout=15000)
+    page.wait_for_timeout(700)
+    page.screenshot(path=str(out/(label+'-chapter1-replay.png')))
+    for _ in range(3):
+        if page.locator('[data-act="continue"]').count():break
+        page.locator('[data-act="c1-skip"]').click();page.wait_for_timeout(300)
+    page.locator('[data-act="continue"]').wait_for(timeout=15000)
+    assert page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")==main_before
+    page.locator('[data-act="continue"]').click()
+    checks += ['chapter1_cinematic_replay','skip_replay','replay_preserves_main_save']
     module='@ashen/core-v14.js' if offline else './core-v14.js'
     fixture="""async (module)=>{const {RPG,stats}=await import(module);const g=new RPG('shadow',null,()=>.4);g.ensureMap('warehouse');g.map='warehouse';const e=g.enemies[0];for(const other of g.enemies)if(other!==e){other.dead=true;other.hp=0;}const p=g.safePoint(e.x-40,e.y+22);g.relocate(p.x,p.y);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.pending=null;g.events=[];g.active=true;return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};}"""
     test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]

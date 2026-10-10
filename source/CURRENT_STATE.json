@@ -5,22 +5,22 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter123_complete_presentation_on_v29",
+  "snapshot_type": "v30_chapter01_incremental_03_on_user_rollback",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
   "runtime_modules": 199,
   "runtime_stylesheets": 8,
-  "runtime_images": 130,
-  "runtime_resource_bytes": 288459562,
+  "runtime_images": 137,
+  "runtime_resource_bytes": 300846026,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Exact restoration of 1cefe80; inherited limitations in docs/chapter123/ACCEPTANCE.md. No private saves tested or touched, no reverse migration guarantee for experimental c1 saves, no full eight-chapter clear, no website publication. Reconstruction preserved in 6b388c7.",
-  "checked_at_utc": "2026-10-10T06:08:27.647909+00:00",
+  "known_limits": "Chapter-one0.3 local additions on user-selected1cefe80; retained legacy scenery/river/tree constraints. No private saves or complete eight-chapter clear; experimental reconstruction save reverse migration not guaranteed. No website publication. Withdrawn reconstruction preserved in6b388c7. Final QA in docs/ch1-pilot-r2.",
+  "checked_at_utc": "2026-10-10T10:31:27.291209+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Rollback fast/integration and offline/HTTP/mobile packaged UI passed; 27 Harness, 76 Node, 35-map render and original118-map regression.",
+  "browser_qa_status": "Passed:27 Harness;76 integration Node;15 chapter-one Node including8 new;14 exact full-event fixtures;35-map renderer;18-map221-route review;continuous title-to-canal captain attempt;offline/HTTP/mobile packaged UI including replay save protection.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+  "runtime_source_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -138,7 +138,7 @@
     }
   },
   "v29": {
-    "status": "in_progress",
+    "status": "historical closeout local acceptance complete; GitHub delivery pending",
     "task_id": "v29-exploration-20261008",
     "base_commit": "fb20a3dcb6e3ebc89ec6c03ab903dc5697c1dde9",
     "maps_rebuilt": [
@@ -162,13 +162,18 @@
     "reward_values_changed": false,
     "original_assets_modified": false,
     "site_deployed": false,
-    "evidence": "docs/v29/",
-    "runtime_commit": "pending implementation commit",
+    "evidence": "docs/v29/RELEASE.md",
+    "runtime_commit": "7a04b3f",
     "limitations": [
-      "Existing atlas tree silhouettes still repeat; no new sprite set",
-      "No complete campaign playthrough",
-      "4 pre-existing non-demo interaction-anchor diagnostics require browser review"
-    ]
+      "Repeated original scenery and rectangular channels retained; six decorative isolated sampled cells at millpath do not block targets",
+      "No complete campaign playthrough; world journey uses one level-3 starter fixture",
+      "Historical town well and bridge water diagnostics fixed; chapter5 tavern table and arcade machine diagnostics await separate review"
+    ],
+    "checked_at_utc": "2026-10-10T10:31:27.291209+00:00",
+    "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+    "world_tests_passed": 12,
+    "release_passed": true,
+    "git_receipt": "docs/ch1-pilot-r2/GIT_SAVE.json"
   },
   "v30": {
     "status": "complete; local acceptance and GitHub main verified",
@@ -296,7 +301,7 @@
   "narrative_rebuild": {
     "version": "0.3",
     "task_id": "narrative-incremental-20261010",
-    "status": "complete; incremental0.3 narrative documents and harness saved to GitHub main; game additions not_started",
+    "status": "0.3 documents complete; chapter-one local additions implemented; chapter-two planning only",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -305,8 +310,8 @@
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "0.3",
-      "script_status": "DEV_FROZEN",
-      "implementation": "in_progress; adopted 0.3 incremental additions only; ch1-pilot-r2-20261010",
+      "script_status": "IMPLEMENTED",
+      "implementation": "implemented; local additions in ch1-pilot-r2-20261010; acceptance docs/ch1-pilot-r2/ACCEPTANCE.md",
       "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
     },
     "chapter02": {
@@ -316,14 +321,14 @@
       "script_status": "SCRIPT_READY",
       "implementation": "not_started; planning only in this phase"
     },
-    "runtime_changed": false,
+    "runtime_changed": true,
     "product_version_changed": false,
     "site_deployed": false,
     "limits": [
       "Long-term background, prophecy and final plans remain provisional",
       "Existing runtime and planned additions are distinguished in chapter records",
       "Saint confrontation is cinematic only, no new playable combat",
-      "Documentation task changes no game runtime, graphics or site deployment"
+      "Original documentation task changed no runtime; later chapter-one implementation is recorded separately in chapter01_incremental."
     ],
     "evidence": "docs/harness/acceptance/NARRATIVE_INCREMENTAL.json",
     "previous_plan": {
@@ -401,13 +406,33 @@
   },
   "chapter01_incremental": {
     "task_id": "ch1-pilot-r2-20261010",
-    "status": "in_progress; interrupted code and art preserved; missing cinematic assets supplied, role and save integration under verification",
+    "status": "local acceptance complete; GitHub delivery pending",
     "script_revision": "0.3",
-    "script_status": "DEV_FROZEN",
+    "script_status": "IMPLEMENTED",
     "base_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
     "scope": "local map/interaction presentation, two short hidden scenes, assassination cinematic; original tasks/dialogue/topology/balance/chapter boundary preserved",
     "chapter02": "SCRIPT_READY; planning only",
     "evidence": "docs/ch1-pilot-r2/",
-    "site_deployed": false
+    "site_deployed": false,
+    "implementation_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+    "runtime_modules": [
+      "chapter-one-cinematic-v31.js",
+      "chapter-one-pursuit-v31.js",
+      "chapter-one-interaction-v31.js"
+    ],
+    "new_assets": 7,
+    "save_schema": 15,
+    "map_data_changed": false,
+    "interaction_target_correction": "town well: target y700→735, original visual/blocks and saved prop unchanged",
+    "continuous_play": "Title to canal captain attempt; rats/wolves clear, captain loss; both hidden scenes viewed; not chapter clear",
+    "checked_at_utc": "2026-10-10T10:31:27.291209+00:00",
+    "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+    "packaged_ui": [
+      "offline-file",
+      "http-site",
+      "mobile-landscape"
+    ],
+    "git_receipt": "docs/ch1-pilot-r2/GIT_SAVE.json",
+    "offline_build_manifest": "docs/ch1-pilot-r2/packaged/WEB_BUILD_MANIFEST.json"
   }
 }

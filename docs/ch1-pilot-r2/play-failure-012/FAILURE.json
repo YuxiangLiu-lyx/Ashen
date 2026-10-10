@@ -1,0 +1,238 @@
+{
+  "steps": [
+    {
+      "name": "01-hall",
+      "state": {
+        "mode": "play",
+        "map": "hall",
+        "p": {
+          "x": 685,
+          "y": 535,
+          "hp": 170,
+          "mp": 84,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {},
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "02-warehouse",
+      "state": {
+        "mode": "play",
+        "map": "warehouse",
+        "p": {
+          "x": 230,
+          "y": 540,
+          "hp": 170,
+          "mp": 84,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {
+          "rats": "active"
+        },
+        "flags": {
+          "rats": 0,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "03-rat-combat",
+      "outcome": "clear",
+      "state": {
+        "mode": "play",
+        "map": "warehouse",
+        "p": {
+          "x": 817.5488542400925,
+          "y": 697.5053731483664,
+          "hp": 130,
+          "mp": 33.47632470000007,
+          "level": 1
+        },
+        "pending": null,
+        "quests": {
+          "rats": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ]
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "04-road",
+      "state": {
+        "mode": "play",
+        "map": "road",
+        "p": {
+          "x": 230,
+          "y": 550,
+          "hp": 183,
+          "mp": 86,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "c1Viewed": {
+            "c1HiddenPairArrangement": true
+          },
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          }
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "05-wolves",
+      "outcome": "clear",
+      "state": {
+        "mode": "play",
+        "map": "road",
+        "p": {
+          "x": 1131.151523020371,
+          "y": 749.8653324609562,
+          "hp": 105,
+          "mp": 66.22554975000048,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active",
+          "letter": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "c1Viewed": {
+            "c1HiddenPairArrangement": true
+          },
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          }
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "06-town",
+      "state": {
+        "mode": "play",
+        "map": "town",
+        "p": {
+          "x": 747.901905143985,
+          "y": 401.94475911656355,
+          "hp": 105,
+          "mp": 70.75961875000097,
+          "level": 2
+        },
+        "pending": null,
+        "quests": {
+          "rats": "done",
+          "contract": "active",
+          "letter": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "c1Viewed": {
+            "c1HiddenPairArrangement": true
+          },
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true
+        },
+        "transition": null
+      }
+    },
+    {
+      "name": "failure",
+      "error": "Dialogue stalled",
+      "state": {
+        "mode": "dialogue",
+        "map": "chapel",
+        "p": {
+          "x": 780,
+          "y": 900,
+          "hp": 105,
+          "mp": 71.19674475000097,
+          "level": 2
+        },
+        "pending": {
+          "id": "assassination",
+          "then": "assassinate",
+          "line": 14,
+          "phase": "action",
+          "closing": false
+        },
+        "quests": {
+          "rats": "done",
+          "contract": "active",
+          "letter": "active"
+        },
+        "flags": {
+          "rats": 6,
+          "chapterCardsV17": [
+            1
+          ],
+          "crack": true,
+          "c1Viewed": {
+            "c1HiddenPairArrangement": true
+          },
+          "pass": true,
+          "worldV29": {
+            "schema": 1,
+            "seen": []
+          },
+          "cityIntro": true,
+          "gateTalk": true,
+          "gateXP": true,
+          "assassination": true
+        },
+        "transition": null
+      }
+    }
+  ],
+  "errors": [],
+  "error": "Error: Dialogue stalled\n    at dialogue (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-play-v30.mjs:20:9)\n    at async walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-play-v30.mjs:26:98)\n    at async target (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-play-v30.mjs:38:2)\n    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-play-v30.mjs:63:2"
+}

@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T06:52:59.484547+00:00",
-  "updated_at_utc": "2026-10-10T10:10:11.733285+00:00",
+  "updated_at_utc": "2026-10-10T10:31:56.887771+00:00",
   "decisions": [
     "开工已从0988489同步至5e289bc；发现远端0.3局部增强稿与用户本次完整重构prompt冲突，已请求范围澄清；先完整审读两章和审计稳定运行，不恢复旧试点",
     "用户回答按仓库0.3稿，只做局部增强；保留原18行、任务、地图几何与章界；交手仅演出，不新增圣女实战；不恢复旧试点",
@@ -22,20 +22,28 @@
     "2026-10-10接续：完成0.3未完工作与V29历史验收收尾；新增用户要求覆盖战斗普通兵/精锐/军官，按人物原画独立造型，统一成人身高，不恢复冻结大重构。",
     "2026-10-10断流恢复：HEAD 5a156c6领先origin/main三次保存；保留三张已生成追兵图集与REQUESTS修改。发现演出模块引用三张缺失资源，先修复不一致，再按角色/剧情/浏览器/交付小阶段验收。已有审计与基线不重做，旧冻结任务不恢复。",
     "浏览器首轮发现两项需修：相邻列攻击剑尖污染，以及回看fixture章卡遮挡输入；失败日志保留。town/well原锚点20px采样无可达点，原几何未改，单独核验。",
-    "井沿实测目标在碰撞内，按0.3允许范围将交互点从900,700移至900,735，绘制和存档原件不变；118图几何及任务对白仍哈希一致，针对井沿加强新旧档可达断言。"
+    "井沿实测目标在碰撞内，按0.3允许范围将交互点从900,700移至900,735，绘制和存档原件不变；118图几何及任务对白仍哈希一致，针对井沿加强新旧档可达断言。",
+    "连续试玩012在刺杀第14行动段触发旧140次循环时限；无运行异常。保留失败截图/状态，仅改90秒显式时限，断言不减少。打包测试新增实际标题回看、两段跳过与主档逐字不变验证。",
+    "标题回看结束按钮会一次跳过整个回看，打包断言据实际行为命名skip_replay。",
+    "014-fast发现新章节记录链接的QA回执尚未创建；已建立如实标注pending的QA回执，015通过；未弱化链接测试。",
+    "最终release含完整integration和packaged-ui执行。用持久verify_release.py核对同指纹成功日志、命令、原资源哈希、构建runtime哈希和UI报告再复用，避免同一最终版本重复浏览器测试。"
   ],
   "completed": [
     "两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY",
     "原任务对白/118图/任务定义哈希、三职业逐句及跳过结果、228处旧pending恢复、12幕后游标续播、回看零奖励等7项逻辑专项通过",
     "原Git工作区和任务证据已恢复；三张追兵原图检查点c502534；三张缺失剧情图已补入本地；不重做已完成审计和基线",
     "三种追兵原画独立16帧已接入，成人身高统一；缺失动作A/B与三处感应图补齐，局部连通像素分帧清除邻帧剑尖；保留所有原图与生成记录",
-    "缺图/分帧/回看章卡已修；H1/H2和12镜头接入，井沿点击修复；18图221条实际移动路径无未验证，48帧、16演出画面、3尺寸低动效和继续按钮通过；integration通过27 Harness、76 Node、16通用浏览器、14一致性和35图回归"
+    "缺图/分帧/回看章卡已修；H1/H2和12镜头接入，井沿点击修复；18图221条实际移动路径无未验证，48帧、16演出画面、3尺寸低动效和继续按钮通过；integration通过27 Harness、76 Node、16通用浏览器、14一致性和35图回归",
+    "连续新游戏013通过：标题到鼠患/委托H1/道路/圣女切镜/刺杀H2/小巷/水渠；追缉官战斗尝试为loss，不冒称通关。",
+    "最终指纹9b273efd上fast(27 Harness)、chapter01(15项含新8)、chapter01-browser(18图221路径48帧16场3视口)通过。",
+    "18图实际场景/碰撞图与48帧原画分别人工复核；三维门禁018通过；井沿修复、磨坊6格装饰孤岛和灰桥旧布局局限写明。",
+    "最终指纹9b273efd全部必需检查完成：fast27、chapter01 15、18图221路径/48帧/16镜头/3视口、连续新游戏、release全量原件/构建/集成/打包UI；同指纹成功日志与构建资源哈希复用校验020/021通过。"
   ],
   "remaining": [
-    "连续新游戏、三维审查与release/打包；V29回执；最终状态和GitHub保存"
+    "提交验收与状态并推送GitHub main，核验远端后归档任务"
   ],
   "blockers": [],
-  "next": "保存实现检查点，连续新游戏与打包",
+  "next": "提交并正常推送main，ls-remote核对，然后归档交付记录",
   "required_checks": [
     "fast",
     "integration",
@@ -227,6 +235,195 @@
       "output": "docs/harness/evidence/ch1-pilot-r2-20261010/011-integration.txt",
       "output_sha256": "1364a89de1c980b8f44ddff2f196be4df0af4cd486edace4c15e6d54e8baa707",
       "timeout_seconds": 900.0
+    },
+    {
+      "label": "continuous-play",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-play-v30.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T10:10:53.097402+00:00",
+      "finished_at_utc": "2026-10-10T10:13:04.648004+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/012-continuous-play.txt",
+      "output_sha256": "b5e1cf0128f33ebdfc3fef3d192e1e84d45d8ff3d865bb052b635c3ed38b6c20",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "continuous-play",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-play-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:16:50.116367+00:00",
+      "finished_at_utc": "2026-10-10T10:19:59.915533+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "da6aebcd1d9b008d6e2ede0b8897548ad8dcf720175c354f0c4e64973807041d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/013-continuous-play.txt",
+      "output_sha256": "5f8b87cf6a491745a0c79cfc90699fd388e57e26d582ffc737942c38ceee1c0a",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T10:21:35.162077+00:00",
+      "finished_at_utc": "2026-10-10T10:21:46.907242+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/014-fast.txt",
+      "output_sha256": "60146a9f5196175171de8c43f7c0db363f2b90436b3b5227818a38530b694c93",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:22:29.923341+00:00",
+      "finished_at_utc": "2026-10-10T10:22:41.608795+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/015-fast.txt",
+      "output_sha256": "a2ff6c07004d214349ff70a57eb3525abb4912a823c367e709a9f4b85f9ab842",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "chapter01",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:22:41.666252+00:00",
+      "finished_at_utc": "2026-10-10T10:22:42.235884+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/016-chapter01.txt",
+      "output_sha256": "7d430ae088afbf9625d0413372fa8731d45686cb9f2f778bfcee1e3724fe9d2a",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "chapter01-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:22:42.294277+00:00",
+      "finished_at_utc": "2026-10-10T10:22:58.675544+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/017-chapter01-browser.txt",
+      "output_sha256": "90a718318a3e23c3f01c671add3a702ec740cd4c4a073f058280185bf29a857b",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "5e289bc"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:24:46.767206+00:00",
+      "finished_at_utc": "2026-10-10T10:24:46.905884+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/018-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-pilot-r2/verify_release.py",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T10:30:04.809996+00:00",
+      "finished_at_utc": "2026-10-10T10:30:04.906567+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/019-integration.txt",
+      "output_sha256": "89d64f317538b4c6f1884f373761fe42fe12f3595c71159b77db2f5b8e738c10",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-pilot-r2/verify_release.py",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:30:44.418863+00:00",
+      "finished_at_utc": "2026-10-10T10:30:44.800555+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/020-integration.txt",
+      "output_sha256": "90ef8f5dbbefe3a81a39bf8474c3163811e2054e7f34ae4d6d774ea876048c78",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "python3",
+        "docs/ch1-pilot-r2/verify_release.py",
+        "packaged-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:30:44.858095+00:00",
+      "finished_at_utc": "2026-10-10T10:30:45.197781+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/021-packaged-ui.txt",
+      "output_sha256": "ea0565a9136a6b543295f7ddd1c3e7d05c745b5c2eea055f96f93f9634bb9ab9",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "5e289bc"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T10:31:27.393684+00:00",
+      "finished_at_utc": "2026-10-10T10:31:27.547091+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/022-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
     }
   ],
   "stages": [
@@ -261,6 +458,22 @@
       "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
       "source_fingerprint": "17bf36015d031726f38b425afa78d30c8f0e941fb01e26ea5b7711ce4601954e",
       "worktree": "M .codex/progress.md\n M dist/chapter-one-cinematic-v31.js\n M dist/chapter-one-pursuit-v31.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/ch1-pilot-r2/art/GENERATION.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n?? dist/assets/c1-incremental/chapel-action-a.png\n?? dist/assets/c1-incremental/chapel-action-b.png\n?? dist/assets/c1-incremental/seal-echo.png\n?? dist/chapter-one-interaction-v31.js\n?? docs/ch1-pilot-r2/art/RESUMED_REQUESTS.json\n?? docs/ch1-pilot-r2/art/chapel-action-a-draft.png\n?? docs/ch1-pilot-r2/browser/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt\n?? tests/browser-chapter-one-incremental.mjs\n?? tests/chapter-one-incremental.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T10:31:56.862030+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-pilot-r2/art/GENERATION.json\n M docs/ch1-pilot-r2/browser/alley-collision.webp\n M docs/ch1-pilot-r2/browser/alley.webp\n M docs/ch1-pilot-r2/browser/bridge-collision.webp\n M docs/ch1-pilot-r2/browser/bridge.webp\n M docs/ch1-pilot-r2/browser/canal-collision.webp\n M docs/ch1-pilot-r2/browser/chapel-collision.webp\n M docs/ch1-pilot-r2/browser/clicked-hallbook.webp\n M docs/ch1-pilot-r2/browser/clicked-townbook.webp\n M docs/ch1-pilot-r2/browser/clicked-well.webp\n M docs/ch1-pilot-r2/browser/echo-collision.webp\n M docs/ch1-pilot-r2/browser/echo.webp\n M docs/ch1-pilot-r2/browser/exile-collision.webp\n M docs/ch1-pilot-r2/browser/exile.webp\n M docs/ch1-pilot-r2/browser/grove-collision.webp\n M docs/ch1-pilot-r2/browser/grove.webp\n M docs/ch1-pilot-r2/browser/guards.webp\n M docs/ch1-pilot-r2/browser/guestroom-collision.webp\n M docs/ch1-pilot-r2/browser/heal.webp\n M docs/ch1-pilot-r2/browser/hotspot-hallbook.webp\n M docs/ch1-pilot-r2/browser/hotspot-townbook.webp\n M docs/ch1-pilot-r2/browser/hotspot-well.webp\n M docs/ch1-pilot-r2/browser/inn-collision.webp\n M docs/ch1-pilot-r2/browser/inn.webp\n M docs/ch1-pilot-r2/browser/manor-collision.webp\n M docs/ch1-pilot-r2/browser/manor.webp\n M docs/ch1-pilot-r2/browser/millpath-collision.webp\n M docs/ch1-pilot-r2/browser/millpath.webp\n M docs/ch1-pilot-r2/browser/outro.webp\n M docs/ch1-pilot-r2/browser/post-collision.webp\n M docs/ch1-pilot-r2/browser/post.webp\n M docs/ch1-pilot-r2/browser/resist.webp\n M docs/ch1-pilot-r2/browser/road-collision.webp\n M docs/ch1-pilot-r2/browser/road.webp\n M docs/ch1-pilot-r2/browser/seal.webp\n M docs/ch1-pilot-r2/browser/shield.webp\n M docs/ch1-pilot-r2/browser/spillway-collision.webp\n M docs/ch1-pilot-r2/browser/stab.webp\n M docs/ch1-pilot-r2/browser/town-collision.webp\n M docs/ch1-pilot-r2/browser/town.webp\n M docs/ch1-pilot-r2/browser/warehouse-collision.webp\n M docs/ch1-pilot-r2/browser/warehouse.webp\n M docs/ch1-pilot-r2/browser/workshop.webp\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n M source/tasks/active/v29-exploration-20261008.json\n M tests/browser-chapter-one-play-v30.mjs\n M tests/browser-web-play.py\n?? docs/ch1-pilot-r2/ACCEPTANCE.md\n?? docs/ch1-pilot-r2/GIT_SAVE.json\n?? docs/ch1-pilot-r2/MAP_QUALITY.json\n?? docs/ch1-pilot-r2/QA.json\n?? docs/ch1-pilot-r2/RECOMMENDATIONS.json\n?? docs/ch1-pilot-r2/integration/\n?? docs/ch1-pilot-r2/packaged/\n?? docs/ch1-pilot-r2/play-failure-012/\n?? docs/ch1-pilot-r2/play/\n?? docs/ch1-pilot-r2/verify_release.py\n?? docs/ch1-pilot-r2/visual-review.html\n?? docs/harness/evidence/ch1-pilot-r2-20261010/012-continuous-play.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/013-continuous-play.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/014-fast.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/015-fast.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/016-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/017-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/018-map-quality.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/019-integration.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/020-integration.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/021-packaged-ui.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/022-map-quality.txt\n?? docs/harness/evidence/v29-exploration-20261008/\n?? docs/map-quality/rollback-20261010.json\n?? docs/v29/RELEASE.md\n?? docs/v29/final/\n?? docs/v29/visual-review.html"
+    },
+    {
+      "name": "review",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T10:27:19.218852+00:00",
+      "head_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-pilot-r2/art/GENERATION.json\n M docs/ch1-pilot-r2/browser/alley-collision.webp\n M docs/ch1-pilot-r2/browser/alley.webp\n M docs/ch1-pilot-r2/browser/bridge-collision.webp\n M docs/ch1-pilot-r2/browser/bridge.webp\n M docs/ch1-pilot-r2/browser/canal-collision.webp\n M docs/ch1-pilot-r2/browser/chapel-collision.webp\n M docs/ch1-pilot-r2/browser/clicked-hallbook.webp\n M docs/ch1-pilot-r2/browser/clicked-townbook.webp\n M docs/ch1-pilot-r2/browser/clicked-well.webp\n M docs/ch1-pilot-r2/browser/echo-collision.webp\n M docs/ch1-pilot-r2/browser/echo.webp\n M docs/ch1-pilot-r2/browser/exile-collision.webp\n M docs/ch1-pilot-r2/browser/exile.webp\n M docs/ch1-pilot-r2/browser/grove-collision.webp\n M docs/ch1-pilot-r2/browser/grove.webp\n M docs/ch1-pilot-r2/browser/guards.webp\n M docs/ch1-pilot-r2/browser/guestroom-collision.webp\n M docs/ch1-pilot-r2/browser/heal.webp\n M docs/ch1-pilot-r2/browser/hotspot-hallbook.webp\n M docs/ch1-pilot-r2/browser/hotspot-townbook.webp\n M docs/ch1-pilot-r2/browser/hotspot-well.webp\n M docs/ch1-pilot-r2/browser/inn-collision.webp\n M docs/ch1-pilot-r2/browser/inn.webp\n M docs/ch1-pilot-r2/browser/manor-collision.webp\n M docs/ch1-pilot-r2/browser/manor.webp\n M docs/ch1-pilot-r2/browser/millpath-collision.webp\n M docs/ch1-pilot-r2/browser/millpath.webp\n M docs/ch1-pilot-r2/browser/outro.webp\n M docs/ch1-pilot-r2/browser/post-collision.webp\n M docs/ch1-pilot-r2/browser/post.webp\n M docs/ch1-pilot-r2/browser/resist.webp\n M docs/ch1-pilot-r2/browser/road-collision.webp\n M docs/ch1-pilot-r2/browser/road.webp\n M docs/ch1-pilot-r2/browser/seal.webp\n M docs/ch1-pilot-r2/browser/shield.webp\n M docs/ch1-pilot-r2/browser/spillway-collision.webp\n M docs/ch1-pilot-r2/browser/stab.webp\n M docs/ch1-pilot-r2/browser/town-collision.webp\n M docs/ch1-pilot-r2/browser/town.webp\n M docs/ch1-pilot-r2/browser/warehouse-collision.webp\n M docs/ch1-pilot-r2/browser/warehouse.webp\n M docs/ch1-pilot-r2/browser/workshop.webp\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n M source/tasks/active/v29-exploration-20261008.json\n M tests/browser-chapter-one-play-v30.mjs\n M tests/browser-web-play.py\n?? docs/ch1-pilot-r2/ACCEPTANCE.md\n?? docs/ch1-pilot-r2/MAP_QUALITY.json\n?? docs/ch1-pilot-r2/QA.json\n?? docs/ch1-pilot-r2/RECOMMENDATIONS.json\n?? docs/ch1-pilot-r2/play-failure-012/\n?? docs/ch1-pilot-r2/play/\n?? docs/ch1-pilot-r2/verify_release.py\n?? docs/ch1-pilot-r2/visual-review.html\n?? docs/harness/evidence/ch1-pilot-r2-20261010/012-continuous-play.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/013-continuous-play.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/014-fast.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/015-fast.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/016-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/017-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/018-map-quality.txt\n?? docs/harness/evidence/v29-exploration-20261008/\n?? docs/map-quality/rollback-20261010.json\n?? docs/v29/RELEASE.md\n?? docs/v29/final/\n?? docs/v29/visual-review.html"
     }
   ]
 }

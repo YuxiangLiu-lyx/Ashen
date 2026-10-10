@@ -11,13 +11,16 @@ async function button(selector){
  assert.ok(p,'Missing '+selector);await b.click(p.x,p.y);await delay(180);
 }
 async function dialogue(){
- for(let i=0;i<140;i++){
+ // The adopted assassination includes an eight-second confrontation before sealing.
+ // Bound elapsed time rather than a click count that expires during valid action beats.
+ const deadline=Date.now()+90000;
+ while(Date.now()<deadline){
   const s=await state();if(s.mode==='play'&&!s.pending)return;
   if(s.mode==='transition'){await button('[data-act=transition-confirm]');continue;}
   if(await b.evaluate('!!document.querySelector("[data-act=next]")'))await button('[data-act=next]');
   else if(await b.evaluate('!!document.querySelector(".chapter-card button")'))await button('.chapter-card button');
   else await delay(180);
- }throw Error('Dialogue stalled');
+ }throw Error('Dialogue stalled: '+JSON.stringify(await state()));
 }
 async function world(x,y){const p=await b.evaluate(`__PLAY.point(${x},${y})`);await b.click(p.x,p.y);}
 async function walk(x,y){
