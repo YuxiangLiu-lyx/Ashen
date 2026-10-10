@@ -11,9 +11,9 @@
     "build",
     "maps"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-09T07:58:51.160667+00:00",
-  "updated_at_utc": "2026-10-10T01:31:03.677194+00:00",
+  "updated_at_utc": "2026-10-10T01:32:15.905766+00:00",
   "decisions": [
     "以运行注册元数据独立推导35图，包含guestroom、chamber和2秘密房；hellMemoryVillage经剧情调用确认属第四章，不按前缀猜测。统一地面/景物/交互映射，用新图集补齐实际物件，保留碰撞坐标与剧情规则。",
     "医疗床/推车保留患者承托rig；原敌人帧复用，图集和怪物数值不混改"
@@ -22,13 +22,12 @@
     "保留并接续上轮图集、统一映射和35图基线",
     "完成35图639景物119交互/可破坏物覆盖；公告栏移出屋顶遮挡并兼容旧档；原118图导航与战斗基线保持",
     "7项新增Node回归通过；浏览器35图、6次鼠标交互、77敌人姿态、遮挡和2段剧情画面初验通过",
-    "最终fast/integration、35图专项、离线/HTTP/移动端UI全部通过；画廊及QA已落盘"
+    "最终fast/integration、35图专项、离线/HTTP/移动端UI全部通过；画廊及QA已落盘",
+    "实现与验收已推送GitHub main，ls-remote核验9a455ef；无站点发布"
   ],
-  "remaining": [
-    "提交并推送GitHub main，核验远端后归档任务"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交并推送main后记录远端SHA",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "core",
@@ -273,11 +272,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T01:31:03.655633+00:00",
-      "head_commit": "2d991b3503268241f3931ccde53d0f4c3092a1d7",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T01:32:15.880725+00:00",
+      "head_commit": "9a455efb34de36614d5fa7930f807227b1849eda",
       "source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch123-coverage-20261009.json\n M source/tasks/active/harness-resume-20261009.json\n?? docs/chapter123/ACCEPTANCE.md\n?? docs/chapter123/QA.json\n?? docs/chapter123/after/\n?? docs/chapter123/qa/\n?? docs/chapter123/visual-review.html\n?? docs/harness/evidence/ch123-coverage-20261009/010-fast.txt\n?? docs/harness/evidence/ch123-coverage-20261009/011-core.txt\n?? docs/harness/evidence/ch123-coverage-20261009/012-chapter123-browser.txt\n?? docs/harness/evidence/ch123-coverage-20261009/013-packaged-ui.txt\n?? docs/harness/evidence/harness-resume-20261009/003-fast.txt\n?? docs/harness/evidence/harness-resume-20261009/004-package-build.txt"
+      "worktree": "M .codex/progress.md\n M docs/chapter123/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/chapter123/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "35图639景物119物件表现覆盖、公告栏旧档修复和完整本轮QA通过；GitHub main已核验，未发布网站",
+  "completed_at_utc": "2026-10-10T01:32:15.997232+00:00",
+  "verified_source_fingerprint": "b2d28bd902053f5de7fc8006088c695f91e0f142f6994385f06b072d5a47d75a"
 }

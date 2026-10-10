@@ -38,3 +38,5 @@ CHROME_BIN='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' .venv/
 原图、历史分卷、剧情、任务ID、奖励、AI与战斗数值保留。118图原通行网格、连通范围、敌群数量和原不可达诊断逐项保持；所有前三章blocks、doors、spawns保持。图库是固定镜位隔离场景，鼠标交互是6个独立用例，敌人图是实际enemy工厂生成的姿态样本；不等于逐个交互的完整任务通关，也不是新增11套独立动画。
 
 地形和原有树木/建筑仍会复用；没有全八章人工通关，没有发布网站，也没有替历史V29未完成任务写成功回执。
+
+GitHub保存：实现 `2d991b3` 与验收 `9a455ef` 已推送main并通过ls-remote核验；[同步回执](GIT_SAVE.json)。后续任务归档/回执提交不改变已验收源码指纹。
