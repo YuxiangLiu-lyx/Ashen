@@ -5,6 +5,8 @@ import {CLOAK_PAIR_META_V25} from './cloak-pair-meta-v25.js';
 import {HERO_ACTIONS_META_V25} from './hero-actions-meta-v25.js';
 
 export const SAGA_IMAGE_LOADS_V25=[
+ ['elyriaGentleV30','assets/v30-narrative/elyria-gentle.png',1,1,true],
+ ['elyriaResoluteV30','assets/v30-narrative/elyria-resolute.png',1,1,true],
  ['sagaTeaV25','assets/v25/chengli-teacup-v25.png',1,1,false],
  ['sagaChengliActionsV25','assets/v281/chengli-actions.png',1,1,true],
  ['sagaWomenV25','assets/v281/women-world.png',1,1,true],
@@ -34,6 +36,7 @@ const aliases={
  '传令兵':['npcPortraits5',6],'妇人':['npcPortraits5',4],'跑腿少年':['npcPortraits5',2]
 };
 export function sagaSpeakerPortraitV25(bank,name){
+ if(name==='艾莉娅')return bank.cropped('elyriaGentleV30',0)||null;
  if(name==='澄璃')return bank.cropped('sagaChengliPortraitV27',0)||null;
  const pair=aliases[name];return pair?bank.cropped(...pair):null;
 }
@@ -45,6 +48,7 @@ export function sagaDisguiseVisibleV25(g,cine=null){
 }
 export function sagaPortraitV25(bank,name,g,cine=null){
  if(name==='艾莉娅'&&sagaDisguiseVisibleV25(g,cine))return bank.cropped('sagaElyriaPortraitV27',0)||null;
+ if(name==='艾莉娅'&&(cine?.id==='assassination'||(g?.chapter>=3&&g.chapter<12)))return bank.cropped('elyriaResoluteV30',0)||bank.portrait(name);
  if(name==='澄璃'){
   const quiet=cine?!!cine.get?.('chengli')?.v25Spirit||['v25C8TrialRescue','v25C8Bind','v25C8After'].includes(cine.id):!!g?.sagaV25?.spirit?.unlocked;
   return bank.cropped(quiet?'sagaChengliQuietPortraitV27':'sagaChengliPortraitV27',0)||null;

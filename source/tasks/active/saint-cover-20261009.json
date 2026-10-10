@@ -12,16 +12,18 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T03:41:40.825079+00:00",
-  "updated_at_utc": "2026-10-10T03:41:58.234011+00:00",
+  "updated_at_utc": "2026-10-10T04:23:39.133347+00:00",
   "decisions": [
     "独立worktree保存，不混入主工作区未完成地图改动；先完成明确的圣女替换需求"
   ],
-  "completed": [],
+  "completed": [
+    "封面身份与当前立绘已审计；真实基线、4张正式资源和生成记录保存"
+  ],
   "remaining": [
     "基线、封面衍生立绘、接入、浏览器验收和GitHub保存"
   ],
   "blockers": [],
-  "next": "保存基线并生成透明半身立绘",
+  "next": "最终专项证据与GitHub保存",
   "required_checks": [
     "fast",
     "portrait-browser",
@@ -45,16 +47,150 @@
       "output": "docs/harness/evidence/saint-cover-20261009/001-baseline.txt",
       "output_sha256": "4abdd304e82ca7f04fc0fd725fce6428b455f5b3351da34362a4f7f120c86aa1",
       "timeout_seconds": 300.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/ch12-web"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:11:54.049643+00:00",
+      "finished_at_utc": "2026-10-10T04:12:19.418241+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/002-package-build.txt",
+      "output_sha256": "44f273bc6ede777b7899f5c1de1e54cc4d9e29156d800cd77871967442fe0f03",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/ch12-web",
+        "--out",
+        "qa-export/ch12-packaged-ui"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:12:35.248709+00:00",
+      "finished_at_utc": "2026-10-10T04:12:35.392539+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/003-packaged-ui.txt",
+      "output_sha256": "3f8d80a4dac0ba829f25e7342446fa545931e46a8596008fe86c4634051c81a9",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/ch12-web",
+        "--out",
+        "qa-export/ch12-packaged-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:13:02.307274+00:00",
+      "finished_at_utc": "2026-10-10T04:14:42.628053+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/004-packaged-ui.txt",
+      "output_sha256": "a2a16b9d9e491fe6771c48a512dcb84d356287c9549fa022762076fb683586ee",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "double-click",
+      "command": [
+        "node",
+        "qa-export/ch12-double-click.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:16:48.379277+00:00",
+      "finished_at_utc": "2026-10-10T04:16:52.840138+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "f2a55a00c1ef7971dcb66d831d05255c9f0c383f2944903d9ec7e5ab6309f6a4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/005-double-click.txt",
+      "output_sha256": "87c670b789d3978fb46e4b6fcedf50b3d9884bc0b77856e5c11c2437556d12c9",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "presentation",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:17:29.665704+00:00",
+      "finished_at_utc": "2026-10-10T04:17:30.455288+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "f2a55a00c1ef7971dcb66d831d05255c9f0c383f2944903d9ec7e5ab6309f6a4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/006-presentation.txt",
+      "output_sha256": "c459bb5ac9df1b8d694a808014e2f48c11d558d276e435f459f391edd4f835c0",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/ch12-web-final"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:19:36.257184+00:00",
+      "finished_at_utc": "2026-10-10T04:20:28.752698+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/007-package-build.txt",
+      "output_sha256": "5601bfb5d29eac118a7e96526f1000351b8d8f666c2df99867779965d7822758",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/ch12-web-final",
+        "--out",
+        "qa-export/ch12-packaged-final"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:21:35.816540+00:00",
+      "finished_at_utc": "2026-10-10T04:23:39.127019+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/saint-cover-20261009/008-packaged-ui.txt",
+      "output_sha256": "9ab1306763cdd1f4e584be7f5c880586c9555c77b490e125c0a73f071307a043",
+      "timeout_seconds": 480.0
     }
   ],
   "stages": [
     {
       "name": "audit",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T03:41:40.877327+00:00",
-      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
-      "source_fingerprint": "ff2ecf91f02db0ae6b56ba1db8b2e485f9005c9b28082cc99dca28cac33dc9a1",
-      "worktree": "M .codex/progress.md\n M source/harness/index.json\n?? source/tasks/active/saint-cover-20261009.json"
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T04:17:57.948165+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "f2a55a00c1ef7971dcb66d831d05255c9f0c383f2944903d9ec7e5ab6309f6a4",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/audio-v17.js\n M dist/chapter-one-art-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n M dist/saga-art-v25.js\n M dist/spatial-design-v30.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/saint-cover-20261009.json\n M tests/browser-chapter123.mjs\n M tests/chapter-one-v30.test.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/v30-narrative/\n?? dist/chapter12-art-v30.js\n?? dist/chapter12-director-v30.css\n?? dist/chapter12-director-v30.js\n?? dist/chapter12-text-v30.js\n?? docs/ch12-epic/\n?? docs/chapter123-spatial/VISUAL_NOTES.json\n?? docs/chapter123-spatial/visual-review.html\n?? docs/harness/evidence/ch12-epic-20261009/\n?? docs/harness/evidence/ch123-spatial-20261009/013-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/014-integration.txt\n?? docs/harness/evidence/saint-cover-20261009/002-package-build.txt\n?? docs/harness/evidence/saint-cover-20261009/003-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/004-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/005-double-click.txt\n?? docs/harness/evidence/saint-cover-20261009/006-presentation.txt\n?? tests/browser-ch12-epic.mjs\n?? tests/chapter12-epic-v30.test.mjs"
     }
   ]
 }

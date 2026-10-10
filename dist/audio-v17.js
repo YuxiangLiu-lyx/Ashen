@@ -18,8 +18,9 @@ export const MUSIC_THEMES_V17={
 
 const CITY=new Set(['ch5CityGate','ch5GrandSquare','ch5Forge','ch5Market','ch5Reservoir']);
 const HEARTH=new Set(['hall','guestroom','workshop','post','inn','hellCamp','hellWorkshop','deepCamp']);
-export function sceneMusicV17(g,{maps={},mode='play',scene=null}={}){
+export function sceneMusicV17(g,{maps={},mode='play',scene=null,line=0}={}){
  if(!g)return 'hearth';
+ if(mode==='dialogue'&&(scene==='saintBrief'||scene==='assassination'&&line<4))return 'sanctuary';
  if(mode==='play'&&!g.sagaInvisibleV25?.()&&g.enemies?.some(e=>!e.dead&&Math.hypot(e.x-g.p.x,e.y-g.p.y)<350))return 'battle';
  if(g.memoryV13?.active||maps[g.map]?.privateMemory||/Memory|V13Private|V13Blood|V13Leon/.test(scene||''))return 'memory';
  if(g.map==='ch5LanternQuay')return 'river';

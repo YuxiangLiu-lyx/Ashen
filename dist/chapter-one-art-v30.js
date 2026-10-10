@@ -1,4 +1,5 @@
 import {SPATIAL_PLANS_V30} from './spatial-design-v30.js';
+import {drawInteriorReliefV30} from './chapter12-art-v30.js';
 import {roleAtlasV30} from './role-art-v30.js';
 import {drawSpatialTerrainV30,drawSpatialWaterV30} from './spatial-ground-v30.js';
 import {CHAPTER_ONE_MAPS_V30,chapterOneV30,chapter123V30} from './chapter23-design-v30.js';
@@ -9,10 +10,11 @@ import {WORLD_REGIONS_V29} from './world-design-v29.js';
 import {BOUNDARIES,WATERS,BRIDGES} from './world-v14.js';
 const wood=new Set(['hall','warehouse','workshop','guestroom']),outdoor=new Set(['road','town','alley','grove','millpath']);
 export const immersiveWorldV30=chapter123V30;
-export const CHAPTER_ONE_LOADS_V30=[['spatialOfficer','assets/v30-spatial/officer.png',4,4,false],['spatialElite','assets/v30-spatial/elite.png',4,4,false],['spatialBridge','assets/v30-spatial/bridge.png',1,1,false],['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false],['chapterUtilities','assets/v30/utilities.png',4,5,false],['chapterObjects','assets/v30/objects.png',4,3,false],['chapterHell','assets/v30/hell-scenery.png',4,4,false],['chapterHellMaterials','assets/v30/hell-materials.png',2,2,false]];
+export const CHAPTER_ONE_LOADS_V30=[['narrativeStores','assets/v30-narrative/warehouse-stores.png',2,2,true],['spatialOfficer','assets/v30-spatial/officer.png',4,4,false],['spatialElite','assets/v30-spatial/elite.png',4,4,false],['spatialBridge','assets/v30-spatial/bridge.png',1,1,false],['chapterArchitecture','assets/v30/architecture.png',4,2,false],['chapterFurnishings','assets/v30/furnishings.png',4,3,false],['chapterMaterials','assets/v30/materials.png',2,2,false],['chapterSettlement','assets/v30/settlement.png',4,3,false],['chapterGuards','assets/v30/guards.png',4,4,false],['chapterUtilities','assets/v30/utilities.png',4,5,false],['chapterObjects','assets/v30/objects.png',4,3,false],['chapterHell','assets/v30/hell-scenery.png',4,4,false],['chapterHellMaterials','assets/v30/hell-materials.png',2,2,false]];
 // Generated sheets are not a regular grid. These reviewed source partitions exclude
 // neighbouring sprites; alpha bounds are measured inside each partition at load time.
 export const CHAPTER_SOURCE_REGIONS_V30={
+ narrativeStores:{width:1536,height:1024,rows:[{y:0,end:465,x:[0,768,1536]},{y:465,end:1024,x:[0,768,1536]}]},
  spatialOfficer:{width:1230,height:1278,cells:{14:[615,940,1000,1278],15:[975,940,1230,1278]},exclude:{14:[[975,1065,25,213]],15:[[975,940,25,125]]},rows:[{y:0,end:321,x:[0,310,615,930,1230]},{y:321,end:644,x:[0,310,615,1000,1230]},{y:644,end:940,x:[0,310,615,930,1230]},{y:940,end:1278,x:[0,310,615,1000,1230]}]},
  spatialElite:{width:1254,height:1254,rows:[{y:0,end:315,x:[0,315,627,944,1254]},{y:315,end:628,x:[0,315,627,991,1254]},{y:628,end:926,x:[0,315,627,944,1254]},{y:926,end:1254,x:[0,315,627,991,1254]}]},
  chapterUtilities:{width:1122,height:1402,rows:[
@@ -48,7 +50,7 @@ export function installChapterFramesV30(bank,name,data){
  if(name==='spatialBridge'){const f=bank.frames[name][0];bank.images.spatialBridgeFront=bank.images[name];bank.frames.spatialBridgeFront=[{...f,y:f.y+f.h*.65,h:f.h*.35}];}
  const layout=CHAPTER_SOURCE_REGIONS_V30[name];if(!layout)return;
  const image=bank.images[name],sx=image.width/layout.width,sy=image.height/layout.height,frames=[];
- for(const row of layout.rows)for(let i=0;i<4;i++){
+  for(const row of layout.rows)for(let i=0;i<row.x.length-1;i++){
   const source=layout.cells?.[frames.length]||[row.x[i],row.y,row.x[i+1],row.end];
   const [x,y,ex,ey]=source.map((n,i)=>Math.round(n*(i%2?sy:sx))),exclude=(layout.exclude?.[frames.length]||[]).map(r=>r.map((n,i)=>n*(i%2?sy:sx)));
   const opaque=(xx,yy)=>!exclude.some(([a,b,w,h])=>xx>=a&&xx<a+w&&yy>=b&&yy<b+h)&&data.data[(yy*image.width+xx)*4+3]>120;
@@ -129,6 +131,7 @@ export function chapterGroundV30(bank,id){
   material(c,bank,3,rect,240);c.fillStyle='#171e27b3';c.fillRect(...rect);
   const [x,y,w,h]=rect;c.fillStyle='#a59d7c80';c.fillRect(x,y+h-7,w,4);c.fillStyle='#080c10a0';c.fillRect(x,y+h-3,w,6);
  }
+ drawInteriorReliefV30(c,id,BOUNDARIES[id]||[]);
  return canvas;
 }
 export function drawChapterSceneryV30(c,bank,o,id){

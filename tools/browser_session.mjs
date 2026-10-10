@@ -28,7 +28,15 @@ export async function browserSession(root, hook, {width=1440,height=980}={}) {
   if(!executable){server.close();throw Error('Chrome is required');}
   const chrome=spawn(executable,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--remote-debugging-port=0','--user-data-dir='+profile,`--window-size=${width},${height}`,'about:blank'],{stdio:['ignore','ignore','ignore']});
   let ws,seq=0;const pending=new Map();
-  async function close(){ws?.close();chrome.kill('SIGTERM');server.close();await delay(100);fs.rmSync(profile,{recursive:true,force:true});}
+  async function close(){
+    ws?.close();server.close();
+    const stopped=new Promise(resolve=>{if(chrome.exitCode!==null||chrome.signalCode!==null)resolve();else chrome.once('exit',resolve);});
+    chrome.kill('SIGTERM');
+    let guard;await Promise.race([stopped,new Promise(resolve=>{guard=setTimeout(()=>{chrome.kill('SIGKILL');resolve();},5000);})]);clearTimeout(guard);
+    // Chrome child processes can finish writing profile metadata after the main
+    // process exits. Retry removal of this isolated QA profile, never user data.
+    fs.rmSync(profile,{recursive:true,force:true,maxRetries:10,retryDelay:200});
+  }
   try {
     let port;for(let i=0;i<120;i++){const file=path.join(profile,'DevToolsActivePort');if(fs.existsSync(file)){port=fs.readFileSync(file,'utf8').split('\n')[0];break;}await delay(250);}
     if(!port)throw Error('Chrome did not start');

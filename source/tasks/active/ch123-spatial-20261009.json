@@ -11,7 +11,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T01:55:38.087039+00:00",
-  "updated_at_utc": "2026-10-10T02:40:23.322834+00:00",
+  "updated_at_utc": "2026-10-10T04:23:00.811632+00:00",
   "decisions": [
     "灰桥主路安全通行，保留原有南沟危险支路与任务；所有旧图/原画保留"
   ],
@@ -253,6 +253,108 @@
       "output": "docs/harness/evidence/ch123-spatial-20261009/012-integration.txt",
       "output_sha256": "dd923b0282340a96e66460a28c7d9194f0c9e5f384faf0d21e8d2fa396854d09",
       "timeout_seconds": 600.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/task.py",
+        "run",
+        "--id",
+        "ch12-epic-20261009",
+        "--label",
+        "integration",
+        "--timeout",
+        "600",
+        "--",
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:12:08.520854+00:00",
+      "finished_at_utc": "2026-10-10T04:14:42.685480+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/013-integration.txt",
+      "output_sha256": "fdad2980456768f653cfbcca7b2ba0d7e4d409133530d8bd92302481222eaf9c",
+      "timeout_seconds": 660.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/task.py",
+        "run",
+        "--id",
+        "ch12-epic-20261009",
+        "--label",
+        "integration",
+        "--timeout",
+        "600",
+        "--",
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:14:58.939622+00:00",
+      "finished_at_utc": "2026-10-10T04:18:33.623557+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "f2a55a00c1ef7971dcb66d831d05255c9f0c383f2944903d9ec7e5ab6309f6a4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/014-integration.txt",
+      "output_sha256": "4cc80b47766d5c133f153340c4a5218dc424efd79a5cca32215e67169a767306",
+      "timeout_seconds": 660.0
+    },
+    {
+      "label": "spatial-browser",
+      "command": [
+        "env",
+        "ASHEN_SPATIAL_OUTPUT=docs/chapter123-spatial/after",
+        "node",
+        "tests/browser-spatial-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:19:09.607128+00:00",
+      "finished_at_utc": "2026-10-10T04:19:27.022335+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/015-spatial-browser.txt",
+      "output_sha256": "701e5b16f0ba0e122264b16f602914308704cc840ccc3e2d1864f1251c1aa6d3",
+      "timeout_seconds": 150.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/task.py",
+        "run",
+        "--id",
+        "ch12-epic-20261009",
+        "--label",
+        "integration",
+        "--timeout",
+        "600",
+        "--",
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:19:50.353873+00:00",
+      "finished_at_utc": "2026-10-10T04:23:00.806171+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch123-spatial-20261009/016-integration.txt",
+      "output_sha256": "6103f88a27ac04dd78fbbb05f75d625a906238a8d0a3632affca877b54c2b46b",
+      "timeout_seconds": 660.0
     }
   ],
   "stages": [

@@ -1,3 +1,4 @@
+import {drawInteriorReliefV30} from './chapter12-art-v30.js';
 import {SPATIAL_PLANS_V30} from './spatial-design-v30.js';
 import {drawSpatialTerrainV30,drawSpatialWaterV30} from './spatial-ground-v30.js';
 import {chapter123PropArtV30} from './chapter123-presentation-v30.js';
@@ -64,8 +65,8 @@ export function chapter23GroundV30(bank,id){
  // Grounded scenery shadows use existing feet, never a second collision outline.
  for(const o of SCENERY[id]||[]){if(o.flat)continue;c.save();c.translate(o.x+o.w*.10,o.y+3);c.scale(1,.22);glow(c,0,0,Math.min(150,o.w*.60),'#12191c',.34);c.restore();}
  for(const [x,y,w,h]of BOUNDARIES[id]||[]){c.fillStyle=interior?'#192026c4':'#17232049';c.fillRect(x,y,w,h);if(interior){c.fillStyle='#92917a60';c.fillRect(x,y+h-7,w,3);}}
- drawSpatialTerrainV30(c,bank,id);drawSpatialWaterV30(c,bank,id);floorDetail(c,id);
- if(id==='exile'){const g=c.createLinearGradient(770,0,1500,0);g.addColorStop(0,'#81999b00');g.addColorStop(1,'#81999b60');c.fillStyle=g;c.fillRect(770,150,830,810);}
+ drawSpatialTerrainV30(c,bank,id);drawSpatialWaterV30(c,bank,id);floorDetail(c,id);drawInteriorReliefV30(c,id,BOUNDARIES[id]||[]);
+ if(id==='exile'){const g=c.createLinearGradient(770,0,1500,0);g.addColorStop(0,'#81999b00');g.addColorStop(1,'#81999b60');c.fillStyle=g;c.fillRect(770,0,830,1080);for(const [x,y,r]of [[1490,230,330],[1460,800,420],[1140,565,280]])glow(c,x,y,r,'#bccac5',.12);}
  return out;
 }
 export function chapter23PropArtV30(p,g,legacy){return chapter23V30(g.map)?chapter123PropArtV30(p,g.map,legacy,g):legacy;}

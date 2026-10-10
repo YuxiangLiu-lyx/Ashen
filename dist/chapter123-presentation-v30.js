@@ -44,7 +44,7 @@ const sceneryBySheet={
 export function chapter123SceneryArtV30(o,map){
  if(!chapter123V30(map))return null;
  if(o.sheet==='spatialBridgeFront')return art('spatialBridgeFront',0);
- if(o.id.startsWith('stock-'))return settlement(4);
+ if(o.id.startsWith('stock-'))return art('narrativeStores',{'stock-a-left':0,'stock-a-right':1,'stock-b':2,'stock-c':3}[o.id]??0);
  return sceneryById[o.id]||sceneryBySheet[o.sheet]?.[o.asset]||null;
 }
 // The same fitted rectangle is used for drawing AND alpha-based occlusion.

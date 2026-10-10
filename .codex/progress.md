@@ -1,8 +1,10 @@
 # Ashen 增量执行进度
 
-最后更新：2026-10-09。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，再 `task.py resume --id ch123-spatial-20261009`。从首个未完成阶段继续，保留其他任务与历史证据。
+最后更新：2026-10-10。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，再 `task.py resume --id ch12-epic-20261009`。从首个未完成阶段继续，保留其他任务与历史证据。
 
 ## 当前目标
+
+当前主任务：用户明确授权第一、二章整体重构与封面圣女替换一并推进，接续下述35图空间工作。审计和分阶段计划见docs/ch12-epic/REVIEW_AND_PLAN.md，所有旧原件保留。
 
 用户授权前三章35图的结构性重构：先灰桥关道，建立有地理和社会用途的空间；改善连续移动与真实战斗；独立的士兵/精锐/军官视觉、原画一致性及岗位行为。建立每次地图变更必须分别检查可玩性、场景可信度、角色一致性的长期机制。保存剧情、任务、存档和数值规则。GitHub main已授权保存；不发布网站。
 
@@ -76,7 +78,7 @@
 <!-- task:ch123-spatial-20261009 -->
 ## 任务 ch123-spatial-20261009
 - 状态：in_progress
-- 更新：2026-10-10T02:40:23.322834+00:00
+- 更新：2026-10-10T04:23:00.811632+00:00
 - 下一步：落实灰桥及35图空间配置和真实碰撞诊断
 - 任务记录：source/tasks/active/ch123-spatial-20261009.json
 - 已完成：真实基线通过；35图完整数据、最终覆盖、碰撞来源、灰桥原图和人物原画已审计并落盘；三维独立报告/源码与资源证据哈希/改动覆盖门禁已实现；21项Harness回归通过
@@ -85,23 +87,53 @@
 - 阻塞：无
 - 阶段 audit：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
 - 阶段 quality-harness：complete；HEAD 1cefe80c8f187fceda48dd5322f90affda4e13c0
-- 最近检查：integration，退出码 0；docs/harness/evidence/ch123-spatial-20261009/012-integration.txt
+- 最近检查：integration，退出码 0；docs/harness/evidence/ch123-spatial-20261009/016-integration.txt
 <!-- /task:ch123-spatial-20261009 -->
 
 
 ## 2026-10-09 新授权：第一、二章整体重构与封面圣女立绘
 
-用户已确认两项一并推进。当前分支保留并接续空间重构，独立worktree仅保存了画像基线，后续统一在主工作区集成。阶段：正史/运行审计→第一章→第二章→演出/人物资产→地图三维与任务/存档/跳过验收→GitHub保存。当前先读实际覆盖和历史约束。
+用户已确认两项一并推进。当前分支保留并接续空间重构，独立worktree仅保存了画像基线，后续统一在主工作区集成。阶段：正史/运行审计→第一章→第二章→演出/人物资产→地图三维与任务/存档/跳过验收→GitHub保存。当前两章14场61行对白精修、关键镜头、4张正式资源、存档迁移、跳过与奖励重试修复已实现。第一二章任务链及89项Node回归通过；最后集成与三维视觉复核进行中。
 
 <!-- task:ch12-epic-20261009 -->
 ## 任务 ch12-epic-20261009
 - 状态：in_progress
-- 更新：2026-10-10T03:44:19.011733+00:00
-- 下一步：审查当前两章对白/事件/覆写与后续约束，写出有证据的方案
+- 更新：2026-10-10T04:23:00.753104+00:00
+- 下一步：最终验收与保存
 - 任务记录：source/tasks/active/ch12-epic-20261009.json
-- 已完成：无
-- 待完成：保留运行正史与后续关系边界；两章独立故事与承接；关键事件可推进跳过恢复；旧档兼容；地图三维验收；角色和真实截图对照；fast integration及GitHub保存
-- 决定：无
+- 已完成：最终两章对白和staging快照、历史冲突、因果台账和分阶段方案落盘；14场对白精修、关键镜头、圣女双表情正式资源、旧档文本迁移与一次性结算修复；两章任务链专项通过；35图421条路径、8实战、48人物帧通过，重点修正仓储用途、干岸树位与旧雾叠层
+- 待完成：最终全套验收和GitHub保存
+- 决定：保持实际正史、演员及动作行号；补抓重复ch2_end奖励的真实缺陷
 - 阻塞：无
-- 阶段 audit：in_progress；HEAD 45515000b181003f008e0004e930984ca4a71512
+- 阶段 audit：complete；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+- 阶段 narrative：complete；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+- 阶段 spaces：complete；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+- 最近检查：integration，退出码 0；docs/harness/evidence/ch12-epic-20261009/017-integration.txt
 <!-- /task:ch12-epic-20261009 -->
+
+<!-- task:saint-cover-20261009 -->
+## 任务 saint-cover-20261009
+- 状态：in_progress
+- 更新：2026-10-10T04:23:39.133347+00:00
+- 下一步：最终专项证据与GitHub保存
+- 任务记录：source/tasks/active/saint-cover-20261009.json
+- 已完成：封面身份与当前立绘已审计；真实基线、4张正式资源和生成记录保存
+- 待完成：基线、封面衍生立绘、接入、浏览器验收和GitHub保存
+- 决定：独立worktree保存，不混入主工作区未完成地图改动；先完成明确的圣女替换需求
+- 阻塞：无
+- 阶段 audit：complete；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+- 最近检查：packaged-ui，退出码 0；docs/harness/evidence/saint-cover-20261009/008-packaged-ui.txt
+<!-- /task:saint-cover-20261009 -->
+
+<!-- task:ch1-pilot-20261010 -->
+## 任务 ch1-pilot-20261010
+- 状态：in_progress
+- 更新：2026-10-10T05:24:06.132710+00:00
+- 下一步：保存现场后合并origin/main
+- 任务记录：source/tasks/active/ch1-pilot-20261010.json
+- 已完成：无
+- 待完成：合并远端章稿；审计冻结；地图与剧情；战斗与迁移；原创资产；集成验收与保存
+- 决定：保存开工已有未提交改动为独立现场检查点；第二章既有实现保留，本次新章稿不实装第二章
+- 阻塞：无
+- 阶段 preserve-sync：in_progress；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+<!-- /task:ch1-pilot-20261010 -->

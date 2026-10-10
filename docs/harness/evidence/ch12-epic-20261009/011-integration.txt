@@ -1,0 +1,162 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+
+----------------------------------------------------------------------
+Ran 21 tests in 11.683s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 203 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/spatial-v30.test.mjs tests/chapter12-epic-v30.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (304.951625ms)
+✔ all base classes run real ordinary, elite and boss encounters (372.030458ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (49.846208ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (0.744667ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (2.005666ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (60.847875ms)
+✔ real AI damage, resources and distinct policies affect outcomes (230.4915ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.269167ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.465541ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.160375ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.107417ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.070542ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.086709ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (4.432417ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (0.345333ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.394084ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (1.037875ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (1.551709ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (2.246667ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (521.446125ms)
+✔ distribution separates censored fights and reports confidence interval (38.634625ms)
+✔ 12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event (227.231792ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (6.639166ms)
+✖ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.548583ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.12275ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (2.47625ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (1.134542ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.1475ms)
+✔ authored edits keep identities, line counts, speakers, choreography and all later scenes (1.017833ms)
+✔ every changed legacy pending row migrates without altering cursor, phase, callback or input (10.336291ms)
+✔ real save import resumes the same dialogue row with the current text and camera (51.093916ms)
+✔ forward reading and skipping preserve physical end positions and callbacks (126.560042ms)
+✔ chapter-one task chain reaches departure with the seal and coercion unresolved (28.948958ms)
+✔ chapter-two relay, refusal, alarm and escape keep knowledge and one-time rewards (27.843833ms)
+✔ pump side quest still supports found-first route and mutually exclusive one-time rewards (1.946917ms)
+✔ cover identity uses a resolute expression under coercion and keeps late disguise (0.540583ms)
+✔ runtime independently enumerates all 35 maps including optional rooms and staged chamber (24.391125ms)
+✔ 83 unmodified maps preserve baseline navigation; 35 authorized maps retain identities and connected objectives (957.9435ms)
+✔ authorized layout changes preserve exits, encounter species/IDs and all quest object identities (9.241708ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (7.158375ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.305167ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (15.591625ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (5.4365ms)
+✔ 23 maps retain enemy identities and gates after authorized spatial changes; interaction anchors are reachable (207.0295ms)
+✔ 24 unchanged legacy-layout controls preserve full combat, reward, cooldown and RNG event streams (380.489041ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (8.798792ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (1.573542ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (6.111958ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.209333ms)
+✔ native species is independent of V28 player-level skin fields (0.61875ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.265875ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.138042ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.077833ms)
+✔ footprint validation and segment clipping handle boundaries (0.121458ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.33575ms)
+✔ arch posts block sides without sealing the central doorway (0.664709ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (6.506625ms)
+✔ walk phase advances with travelled distance, not wall time (0.6595ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.456333ms)
+✔ resting/carry transfers never receive fake walking limbs (0.099542ms)
+✔ all 24 rare gear IDs have appearance signatures (0.082625ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.325042ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.35875ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.281584ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.565167ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (23.29025ms)
+✔ all nine later-chapter/class checkpoints construct and restore (355.7985ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (210.133166ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (11.516667ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.343583ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.133667ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.156541ms)
+✔ 35 independent runtime maps have connected targets, explicit purposes and unobstructed ordinary/elite/boss arenas (614.770708ms)
+✔ river polygon is solid for movement and line of sight, while the bridge passes horizontally (1.292458ms)
+✔ all role stops are physically clear; duty movement pauses near player and never mutates shared NPC templates (91.370709ms)
+✔ visited legacy saves migrate bridge positions once, preserve claims and deaths, and accept roundtrip (7.300125ms)
+✔ soldier elite and officer have different body assets, near-equal stature and explicit original portrait correspondence (0.120083ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (114.077792ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (3.58275ms)
+✔ distance and a real occluding wall reject immediate interaction (0.676875ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (8.365375ms)
+✔ accepted and discovery-first routes both return once, retain rewards and persistent state (9.8375ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (0.892209ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (16.957333ms)
+✔ new state round trips and rejects malformed records; old state remains optional (4.770167ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.507834ms)
+✔ legacy player in a new footprint is repaired only during restore (2.506ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (1.14575ms)
+✔ 83 maps outside the authorized chapter 1–3 refactor retain navigation and interaction diagnostics (643.022ms)
+ℹ tests 89
+ℹ suites 0
+ℹ pass 88
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1733.099041
+
+✖ failing tests:
+
+test at tests/chapter-one-v30.test.mjs:23:1
+✖ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.548583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 4
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-v30.test.mjs:27:56)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+FAILED with exit 1

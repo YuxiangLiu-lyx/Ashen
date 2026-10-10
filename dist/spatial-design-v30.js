@@ -60,6 +60,7 @@ export const SPATIAL_TERRAIN_V30={
 export const SPATIAL_MOVES_V30={
  warehouse:[['stock-c',1250,585],['v8-stock-sacks',405,700]],
  road:[['v29-road-cart',1330,770]],
+ millpath:[['v29-mill-canopy-7',1160,270]],
  grove:[['v8-grove-stone',360,825]],
  manor:[['manor-barricade',1295,880]],
  spillway:[['spill-log',335,870],['v9-spill-turn-east',1290,375]],

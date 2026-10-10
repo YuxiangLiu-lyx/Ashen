@@ -1,0 +1,30 @@
+{
+  "method": "OpenAI built-in imagegen; final generated PNG bytes copied intact into runtime; original key art preserved",
+  "initial_portrait_prompt": "Use case: identity-preserve. Asset type: production transparent dialogue portrait for the medieval fantasy RPG Ashen. Input reference: the attached Ashen cover, specifically the silver-blonde saint woman on the RIGHT; the man and city are NOT part of the output. Create a standalone waist-up portrait of that exact woman. Preserve her recognizable soft oval face, delicate nose, gentle blue eyes, long flowing pale silver-blonde hair with side braids, fine star-like gold circlet, ivory white cloak with fine gold embroidery, dark navy high-neck dress, and sapphire brooch. Face and upper body turned slightly toward viewer's RIGHT (the dialogue text), eye-level view, relaxed shoulders, warm attentive eyes, relaxed brows, a very subtle kind closed-mouth smile. She is compassionate, calm and thoughtful, not haughty, seductive or stern. Match the cover's refined painterly realism and medieval fantasy materials, with gentle diffuse warm light making the face clearly readable at small UI scale. Composition: one woman only, centered, head including the entire circlet and both shoulders fully within frame with small clear margins; portrait 2:3 aspect, cropped naturally around waist, no cut-off hair at top/sides. Fully transparent RGBA background with clean antialiased hair and fabric edges, no cast background shadow, no magenta or checkerboard painted into image. No scenery, man, text, border, new symbols, modern items, or extra ornaments. This should feel like a closer view of the cover woman, not a redesign.",
+  "reference": "dist/assets/keyart.png (saint at right)",
+  "compositing": "Runtime magenta key plus edge despill, not baked image editing. Scene backdrop is opaque. Sprite sheet uses explicit cell divisions.",
+  "assets": [
+    {
+      "path": "dist/assets/v30-narrative/elyria-gentle.png",
+      "generated_file": "exec-81eee5a9-4133-4347-8fdd-f5ee1962d717.png",
+      "production_brief": "Cover woman's same identity, soft blue eyes, silver-blonde braids, gold star circlet, white gold cloak/navy dress/sapphire; waist-up three-quarter pose facing text, gentle attentive expression. Final edit replaces entire background with uniform pure magenta for runtime keying."
+    },
+    {
+      "path": "dist/assets/v30-narrative/elyria-resolute.png",
+      "generated_file": "exec-cb85508b-74c3-4b73-9770-ad889f4410e4.png",
+      "production_brief": "Same woman, clothing, pose, light and composition as gentle portrait; restrained serious expression for coercion and refusal, no smile or hostility. Final edit replaces entire background with uniform pure magenta."
+    },
+    {
+      "path": "dist/assets/v30-narrative/chapel-morning.png",
+      "generated_file": "exec-edd34fd3-0636-4320-a510-87e17de00537.png",
+      "production_brief": "Empty medieval White Elm chapel matching current staging: west morning light, aisle/red runner to altar, document table at right and east side door; muted painterly realism, readable foreground for composited people, no letters or invented magic."
+    },
+    {
+      "path": "dist/assets/v30-narrative/warehouse-stores.png",
+      "generated_file": "exec-d41ab619-0bd5-4769-bcc8-0949ea1ac703.png",
+      "production_brief": "Four separate overhead RPG assets in 2x2 sheet: grain-sack rack, twin wine barrels with rack, packing crates/rope, stacked trunks. Consistent warm upper-left lighting, practical medieval storage and broad clear gutters. Final edit replaces entire background with pure magenta."
+    }
+  ],
+  "generated_directory": "/Users/liuyuxiang/.codex/generated_images/01a123e4-b5c5-7851-912b-4583882b517d",
+  "note": "initial_portrait_prompt is verbatim; production_brief fields summarize generation/edit instructions; local generated file paths are provenance, runtime does not depend on them."
+}

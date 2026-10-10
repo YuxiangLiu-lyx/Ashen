@@ -1,0 +1,30 @@
+✔ authored edits keep identities, line counts, speakers, choreography and all later scenes (0.872416ms)
+✔ every changed legacy pending row migrates without altering cursor, phase, callback or input (6.414458ms)
+✔ real save import resumes the same dialogue row with the current text and camera (39.836458ms)
+✔ forward reading and skipping preserve physical end positions and callbacks (78.919041ms)
+✖ chapter-two relay, refusal, alarm and escape keep knowledge and one-time rewards (2.712959ms)
+✔ pump side quest still supports found-first route and mutually exclusive one-time rewards (1.412959ms)
+✔ cover identity uses a resolute expression under coercion and keeps late disguise (0.113584ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 244.152333
+
+✖ failing tests:
+
+test at tests/chapter12-epic-v30.test.mjs:44:1
+✖ chapter-two relay, refusal, alarm and escape keep knowledge and one-time rewards (2.712959ms)
+  TypeError: Cannot read properties of undefined (reading 'gate')
+      at P.canDoor (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/saga-runtime-v25.js:89:29)
+      at P.canDoor (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/saga-runtime-v26.js:41:82)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter12-epic-v30.test.mjs:46:211)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

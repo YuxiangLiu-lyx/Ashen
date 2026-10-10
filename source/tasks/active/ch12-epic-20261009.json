@@ -12,14 +12,20 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T03:44:18.949745+00:00",
-  "updated_at_utc": "2026-10-10T03:44:19.011733+00:00",
-  "decisions": [],
-  "completed": [],
+  "updated_at_utc": "2026-10-10T04:23:00.753104+00:00",
+  "decisions": [
+    "保持实际正史、演员及动作行号；补抓重复ch2_end奖励的真实缺陷"
+  ],
+  "completed": [
+    "最终两章对白和staging快照、历史冲突、因果台账和分阶段方案落盘",
+    "14场对白精修、关键镜头、圣女双表情正式资源、旧档文本迁移与一次性结算修复；两章任务链专项通过",
+    "35图421条路径、8实战、48人物帧通过，重点修正仓储用途、干岸树位与旧雾叠层"
+  ],
   "remaining": [
-    "保留运行正史与后续关系边界；两章独立故事与承接；关键事件可推进跳过恢复；旧档兼容；地图三维验收；角色和真实截图对照；fast integration及GitHub保存"
+    "最终全套验收和GitHub保存"
   ],
   "blockers": [],
-  "next": "审查当前两章对白/事件/覆写与后续约束，写出有证据的方案",
+  "next": "最终验收与保存",
   "required_checks": [
     "fast",
     "integration",
@@ -27,15 +33,333 @@
     "narrative-node",
     "spatial-browser"
   ],
-  "checks": [],
+  "checks": [
+    {
+      "label": "narrative-baseline",
+      "command": [
+        "node",
+        "tests/browser-ch12-epic.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T03:53:56.925078+00:00",
+      "finished_at_utc": "2026-10-10T03:53:57.661420+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "59d4e868d557c81ac74da008dc132cbed74768d44bc1e19fab9975e4fc777549",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/001-narrative-baseline.txt",
+      "output_sha256": "0a7a9dc9eaa30c9e4436b20c16647eee4a72dd253fdd4749ef145e853c5db20b",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-baseline",
+      "command": [
+        "node",
+        "tests/browser-ch12-epic.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T03:54:04.322133+00:00",
+      "finished_at_utc": "2026-10-10T03:54:13.375707+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "5dad7680e9614b5047d1b4742162a41e057fac5d2d4400dd4480aaf311f10c2b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/002-narrative-baseline.txt",
+      "output_sha256": "da004757850123e4bcb88b7062088d3ffcfac5d016e30566ba71a11be9f17907",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-browser",
+      "command": [
+        "node",
+        "tests/browser-ch12-epic.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T03:56:16.151714+00:00",
+      "finished_at_utc": "2026-10-10T03:56:27.654165+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "a1e155a164d5c59deb9d84fad3baa609ba2170376db3337a4b2dc06a7f61b05a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/003-narrative-browser.txt",
+      "output_sha256": "03865d7db8aa07d5019fa591b68d3d27d6977bb4966f2ebf9b478b627b7f2185",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-browser",
+      "command": [
+        "node",
+        "tests/browser-ch12-epic.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T03:59:33.153459+00:00",
+      "finished_at_utc": "2026-10-10T03:59:44.822421+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "2fbf025a4080ff8fc332abb86b24e5466f49ba17342e5515fecb7a9b350b82a3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/004-narrative-browser.txt",
+      "output_sha256": "72140216a97355c4c640635d14fa8d06d182cda0b52d0f796322e97619193b58",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:00:58.689580+00:00",
+      "finished_at_utc": "2026-10-10T04:00:58.989414+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "cbe5a64a2aaa9260ccd58aa8c00bd38137fcdc23f3d3091caf67368272a9293c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/005-narrative-node.txt",
+      "output_sha256": "57d38e3a628611c6bd15e6889cd63dd16c78ae2c644e26471d6f768dfc4246c1",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "narrative-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:01:29.534210+00:00",
+      "finished_at_utc": "2026-10-10T04:01:29.833437+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "1cf4b90e50028f0f3c5028b7336cbcaeb5d6df52390f698565feed08ba885340",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/006-narrative-node.txt",
+      "output_sha256": "cf6e35dcb122b35e043224d03e688c4e089ce6a6ad1d04feff4cada5300585cc",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "narrative-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:05:07.774144+00:00",
+      "finished_at_utc": "2026-10-10T04:05:08.129587+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "77d945638f74dbdc1418d5202bdd02a3c0eb3074a0fd20cd50df2258bec71b63",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/007-narrative-node.txt",
+      "output_sha256": "8e335527a16c55a45d0b6e6a9a479c4c80386b61c4cd36bc6423ab572319cfc3",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:06:08.465127+00:00",
+      "finished_at_utc": "2026-10-10T04:06:08.829067+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "613607eb8d106e73a4515256723c671a0a94cc8f3cd77239fdcc51553ed33182",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/008-narrative-node.txt",
+      "output_sha256": "7909c2687fced2938706289a4b2f1a5156ecfaf1c0b9909d1628a785ba75e6ae",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "narrative-node",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter12-epic-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:06:28.964887+00:00",
+      "finished_at_utc": "2026-10-10T04:06:29.315537+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "aff1aec536c9fa543a7d5c1b21a491dc8b2d3ab04f5e982423bf7f1e1fad4d28",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/009-narrative-node.txt",
+      "output_sha256": "fc9c0885c703c68cd0874cb9f51a3cf1c3a2de495bfb7ebe31c4935c58452f13",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:06:29.515138+00:00",
+      "finished_at_utc": "2026-10-10T04:06:41.963368+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "aff1aec536c9fa543a7d5c1b21a491dc8b2d3ab04f5e982423bf7f1e1fad4d28",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/010-fast.txt",
+      "output_sha256": "bd213344e6e1e9cca58d2877f50b1950562b579d58f8bc5ba2f094fcad645464",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:06:47.897355+00:00",
+      "finished_at_utc": "2026-10-10T04:07:02.917097+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "aff1aec536c9fa543a7d5c1b21a491dc8b2d3ab04f5e982423bf7f1e1fad4d28",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/011-integration.txt",
+      "output_sha256": "faf17cfba2421c0959f4e8c4b996c171965e0d2b661fedd878992f0379da785a",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:07:45.625277+00:00",
+      "finished_at_utc": "2026-10-10T04:10:49.108170+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "622836524f1a93dc87139f85b066c9d89f3fcdcafcfe5cdc927c36b4996137ee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/012-integration.txt",
+      "output_sha256": "71b47b06d4933f1636189c93162975b4056e9a40813600c8c2ae46383318e338",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "narrative-browser",
+      "command": [
+        "node",
+        "tests/browser-ch12-epic.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:11:33.251833+00:00",
+      "finished_at_utc": "2026-10-10T04:11:44.754926+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/013-narrative-browser.txt",
+      "output_sha256": "72140216a97355c4c640635d14fa8d06d182cda0b52d0f796322e97619193b58",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T04:12:08.579012+00:00",
+      "finished_at_utc": "2026-10-10T04:14:42.628064+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "8ce115028c56ed7b709d7156dfa97a31b46e055466e50c1bc1cfbe63948fe833",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/ch12-epic-20261009/014-integration.txt",
+      "output_sha256": "9419d2643564d70d1ef8291ca49cc474287e4f59302f710d44d324f1538fd2a0",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:14:58.985717+00:00",
+      "finished_at_utc": "2026-10-10T04:18:33.564818+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "f2a55a00c1ef7971dcb66d831d05255c9f0c383f2944903d9ec7e5ab6309f6a4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/015-integration.txt",
+      "output_sha256": "a1d4ef0fea1fc9e5939eb8ba8a29e39488381c4092271203cd2af6ec389b0fd4",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "spatial-browser",
+      "command": [
+        "python3",
+        "tools/harness/task.py",
+        "run",
+        "--id",
+        "ch123-spatial-20261009",
+        "--label",
+        "spatial-browser",
+        "--timeout",
+        "150",
+        "--",
+        "env",
+        "ASHEN_SPATIAL_OUTPUT=docs/chapter123-spatial/after",
+        "node",
+        "tests/browser-spatial-v30.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:19:09.557115+00:00",
+      "finished_at_utc": "2026-10-10T04:19:27.101151+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/016-spatial-browser.txt",
+      "output_sha256": "84dd84c714d8c6fe644dec27be8701444d3e95e20f0d2e374def71d275a0c833",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T04:19:50.403315+00:00",
+      "finished_at_utc": "2026-10-10T04:23:00.747536+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-epic-20261009/017-integration.txt",
+      "output_sha256": "c62960f79bc68d09ce152fcb1ac71f67264cb7887a674bcf675129d939df1416",
+      "timeout_seconds": 600.0
+    }
+  ],
   "stages": [
     {
       "name": "audit",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T03:44:18.989076+00:00",
-      "head_commit": "45515000b181003f008e0004e930984ca4a71512",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T03:49:57.153228+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
       "source_fingerprint": "5c198520907823eac1afab71b00522fe9698a598fd21cd39118099ebd1a806a6",
-      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-art-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/harness/EXPLORATION.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch123-spatial-20261009.json\n M tests/browser-chapter123.mjs\n M tests/chapter123-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/world-v29.test.mjs\n M tools/harness/check.py\n?? dist/assets/v30-spatial/\n?? dist/role-art-v30.js\n?? dist/spatial-design-v30.js\n?? dist/spatial-ground-v30.js\n?? dist/spatial-world-v30.js\n?? docs/chapter123-spatial/ASSET_MANIFEST.json\n?? docs/chapter123-spatial/CHARACTER_SPEC.md\n?? docs/chapter123-spatial/GENERATION.json\n?? docs/chapter123-spatial/before-collision/\n?? docs/harness/evidence/ch123-spatial-20261009/003-spatial-node.txt\n?? docs/harness/evidence/ch123-spatial-20261009/004-spatial-browser.txt\n?? docs/harness/evidence/ch123-spatial-20261009/005-spatial-node.txt\n?? docs/harness/evidence/ch123-spatial-20261009/006-spatial-browser.txt\n?? docs/harness/evidence/ch123-spatial-20261009/007-fast.txt\n?? docs/harness/evidence/ch123-spatial-20261009/008-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/009-fast.txt\n?? docs/harness/evidence/ch123-spatial-20261009/010-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/011-spatial-browser.txt\n?? docs/harness/evidence/ch123-spatial-20261009/012-integration.txt\n?? docs/harness/evidence/saint-cover-20261009/\n?? docs/saint-cover/\n?? source/tasks/active/ch12-epic-20261009.json\n?? source/tasks/active/saint-cover-20261009.json\n?? tests/browser-spatial-v30.mjs\n?? tests/spatial-legacy-control.mjs\n?? tests/spatial-scenarios.mjs\n?? tests/spatial-v30.test.mjs\n?? tools/spatial_audit.mjs"
+      "worktree": "?? docs/ch12-epic/"
+    },
+    {
+      "name": "narrative",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T04:06:29.433956+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "aff1aec536c9fa543a7d5c1b21a491dc8b2d3ab04f5e982423bf7f1e1fad4d28",
+      "worktree": "M .codex/progress.md\n M dist/audio-v17.js\n M dist/chapter-one-art-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n M dist/saga-art-v25.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch12-epic-20261009.json\n M tests/browser-chapter123.mjs\n M tools/harness/check.py\n?? dist/assets/v30-narrative/\n?? dist/chapter12-art-v30.js\n?? dist/chapter12-director-v30.css\n?? dist/chapter12-director-v30.js\n?? dist/chapter12-text-v30.js\n?? docs/ch12-epic/\n?? docs/harness/evidence/ch12-epic-20261009/\n?? tests/browser-ch12-epic.mjs\n?? tests/chapter12-epic-v30.test.mjs"
+    },
+    {
+      "name": "spaces",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T04:19:50.263061+00:00",
+      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
+      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/audio-v17.js\n M dist/chapter-one-art-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n M dist/saga-art-v25.js\n M dist/spatial-design-v30.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/saint-cover-20261009.json\n M tests/browser-chapter123.mjs\n M tests/chapter-one-v30.test.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/v30-narrative/\n?? dist/chapter12-art-v30.js\n?? dist/chapter12-director-v30.css\n?? dist/chapter12-director-v30.js\n?? dist/chapter12-text-v30.js\n?? docs/ch12-epic/\n?? docs/chapter123-spatial/VISUAL_NOTES.json\n?? docs/chapter123-spatial/after/\n?? docs/chapter123-spatial/visual-review.html\n?? docs/harness/evidence/ch12-epic-20261009/\n?? docs/harness/evidence/ch123-spatial-20261009/013-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/014-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/015-spatial-browser.txt\n?? docs/harness/evidence/saint-cover-20261009/002-package-build.txt\n?? docs/harness/evidence/saint-cover-20261009/003-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/004-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/005-double-click.txt\n?? docs/harness/evidence/saint-cover-20261009/006-presentation.txt\n?? docs/harness/evidence/saint-cover-20261009/007-package-build.txt\n?? tests/browser-ch12-epic.mjs\n?? tests/chapter12-epic-v30.test.mjs"
     }
   ]
 }

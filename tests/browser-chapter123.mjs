@@ -33,7 +33,7 @@ try{
  for(const map of maps){
   await b.evaluate(`__CHECK.fixture(${JSON.stringify(map)})`);
   const row=await b.evaluate('__CHECK.audit()');
-  for(const s of row.scenery){assert.ok(s.fitted,map+'/'+s.id);assert.ok(s.calls.length,map+'/'+s.id+' was not drawn');assert.ok(s.calls.every(c=>c.sheet.startsWith('chapter')||(s.id==='spatial-bridge-front'&&c.sheet==='spatialBridgeFront')),map+'/'+s.id+' unreviewed scenery');}
+  for(const s of row.scenery){assert.ok(s.fitted,map+'/'+s.id);assert.ok(s.calls.length,map+'/'+s.id+' was not drawn');assert.ok(s.calls.every(c=>c.sheet.startsWith('chapter')||(map==='warehouse'&&s.id.startsWith('stock-')&&c.sheet==='narrativeStores')||(s.id==='spatial-bridge-front'&&c.sheet==='spatialBridgeFront')),map+'/'+s.id+' unreviewed scenery');}
   for(const p of row.props){assert.ok(p.art||p.host,map+'/'+p.id+' missing artwork/host');assert.ok(p.calls.every(c=>c.sheet.startsWith('chapter')),map+'/'+p.id+' old prop');if(p.host)assert.ok(row.scenery.some(s=>s.id===p.host),map+'/'+p.id+' host missing');else assert.ok(p.calls.length,map+'/'+p.id+' not drawn');}
   coverage.push(row);await shot(map);persist('running');
  }
