@@ -116,7 +116,7 @@ export function drawMonster(c,bank,a,time=0,options={}){
   c.save();
   try{
     if(options.natural){applyMotionV30(c,a,time,{reaction:options.reaction});a={...a,fall:0};}
-    if(options.chapterOne&&drawPursuit(c,bank,a,style.height))return;
+    if(['guard','captain'].includes(source.type)&&drawPursuit(c,bank,a))return;
     if(options.natural&&drawChapterGuardV30(c,bank,a,style.height))return;
     if(!options.natural)drawMonsterOrnamentV281(c,source,style,time,true);
     c.save();

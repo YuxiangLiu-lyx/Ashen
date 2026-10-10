@@ -13,23 +13,29 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T06:52:59.484547+00:00",
-  "updated_at_utc": "2026-10-10T08:03:39.673779+00:00",
+  "updated_at_utc": "2026-10-10T10:10:11.733285+00:00",
   "decisions": [
     "开工已从0988489同步至5e289bc；发现远端0.3局部增强稿与用户本次完整重构prompt冲突，已请求范围澄清；先完整审读两章和审计稳定运行，不恢复旧试点",
     "用户回答按仓库0.3稿，只做局部增强；保留原18行、任务、地图几何与章界；交手仅演出，不新增圣女实战；不恢复旧试点",
     "CG遵循原礼拜厅空间，原角色母版；原任务对白保留，原文件字节不覆盖；生成资产尚待视觉与游戏内验收",
     "用户确认重点为追兵外观、动作与整体质感；serve入口正确，前轮停于资产草稿未接入；本轮补齐0.3演出与首章护卫/追缉官独立表现，保持战斗和地图几何",
     "2026-10-10接续：完成0.3未完工作与V29历史验收收尾；新增用户要求覆盖战斗普通兵/精锐/军官，按人物原画独立造型，统一成人身高，不恢复冻结大重构。",
-    "2026-10-10断流恢复：HEAD 5a156c6领先origin/main三次保存；保留三张已生成追兵图集与REQUESTS修改。发现演出模块引用三张缺失资源，先修复不一致，再按角色/剧情/浏览器/交付小阶段验收。已有审计与基线不重做，旧冻结任务不恢复。"
+    "2026-10-10断流恢复：HEAD 5a156c6领先origin/main三次保存；保留三张已生成追兵图集与REQUESTS修改。发现演出模块引用三张缺失资源，先修复不一致，再按角色/剧情/浏览器/交付小阶段验收。已有审计与基线不重做，旧冻结任务不恢复。",
+    "浏览器首轮发现两项需修：相邻列攻击剑尖污染，以及回看fixture章卡遮挡输入；失败日志保留。town/well原锚点20px采样无可达点，原几何未改，单独核验。",
+    "井沿实测目标在碰撞内，按0.3允许范围将交互点从900,700移至900,735，绘制和存档原件不变；118图几何及任务对白仍哈希一致，针对井沿加强新旧档可达断言。"
   ],
   "completed": [
-    "两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY"
+    "两章全文与主支线、最终对白、真实12图、原提交和知识边界已审计；334文件基线与浏览器检查通过；用户已明确选0.3局部方案，第一章DEV_FROZEN，第二章SCRIPT_READY",
+    "原任务对白/118图/任务定义哈希、三职业逐句及跳过结果、228处旧pending恢复、12幕后游标续播、回看零奖励等7项逻辑专项通过",
+    "原Git工作区和任务证据已恢复；三张追兵原图检查点c502534；三张缺失剧情图已补入本地；不重做已完成审计和基线",
+    "三种追兵原画独立16帧已接入，成人身高统一；缺失动作A/B与三处感应图补齐，局部连通像素分帧清除邻帧剑尖；保留所有原图与生成记录",
+    "缺图/分帧/回看章卡已修；H1/H2和12镜头接入，井沿点击修复；18图221条实际移动路径无未验证，48帧、16演出画面、3尺寸低动效和继续按钮通过；integration通过27 Harness、76 Node、16通用浏览器、14一致性和35图回归"
   ],
   "remaining": [
-    "局部交互表现；H1/H2一次短场；原创刺杀救治交手封术演出；新旧档与三维/浏览器/integration/打包；GitHub保存"
+    "连续新游戏、三维审查与release/打包；V29回执；最终状态和GitHub保存"
   ],
   "blockers": [],
-  "next": "保存当前资产检查点，完成资源与角色渲染后验证剧情兼容",
+  "next": "保存实现检查点，连续新游戏与打包",
   "required_checks": [
     "fast",
     "integration",
@@ -87,6 +93,140 @@
       "output": "docs/harness/evidence/ch1-pilot-r2-20261010/003-audit.txt",
       "output_sha256": "020e8d34aca7256f7146cb1da5b9ae246ef3e467cc3e8c729d239f82bb0b458e",
       "timeout_seconds": 120.0
+    },
+    {
+      "label": "chapter01",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T08:40:05.478587+00:00",
+      "finished_at_utc": "2026-10-10T08:40:05.748171+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "b71f434325eeee2f01f091ad8a38e3688783d2d010b80af493c44ec0d975494b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt",
+      "output_sha256": "c4ab1d1a35d178d7c3a4974497c9978be1aaf651854ac3d68b4f2dae4c7014f0",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter01",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T08:41:26.312011+00:00",
+      "finished_at_utc": "2026-10-10T08:41:26.863638+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "16fee195c33dcab384a554b17e40b906b8a20a10611ae8b5c93957f86d1d4c54",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt",
+      "output_sha256": "7c351f6ae3663a0b2cbd21f636cc7f1ce26ccfa536d757f6231f2376c9682c6e",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter01-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T08:46:03.733335+00:00",
+      "finished_at_utc": "2026-10-10T08:46:08.107854+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "cede6e820b7c49b88da86d360a672b792071e677cd6607c70c7254222688a17b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt",
+      "output_sha256": "94b49afa419b83dbeb1115e7d0d207ec09c690cde4375195fad2b220e6016e2e",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "chapter01-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-10T08:50:11.635252+00:00",
+      "finished_at_utc": "2026-10-10T08:51:04.501944+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "b87c12a13558a1ed3532ec0734bce254aa4f1e9d56efa9c1d8b4431a46c15e4e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt",
+      "output_sha256": "f439e5bd9473c770ef4afe1580848e59b599769c73db4da9a5657752dc1dacc8",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "chapter01-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T09:30:21.543872+00:00",
+      "finished_at_utc": "2026-10-10T09:30:35.609658+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "17bf36015d031726f38b425afa78d30c8f0e941fb01e26ea5b7711ce4601954e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt",
+      "output_sha256": "a70e72b9e796b0b142aaff2a26e572a9bede54178cc31d1fb60d3529d6533354",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "chapter01",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter123-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T09:35:36.606934+00:00",
+      "finished_at_utc": "2026-10-10T09:35:37.689103+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "d6900bb521db80cee8bbd22c133f3b6d0a80838e1e3c67f6b1dfbc3f3dc6cbcb",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/009-chapter01.txt",
+      "output_sha256": "3d0799405eca397408ed0427dd7cb0e1c67e75c39f6ddfca01a9b5b7ce5950fb",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter01-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T09:49:48.067374+00:00",
+      "finished_at_utc": "2026-10-10T09:50:04.410560+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/010-chapter01-browser.txt",
+      "output_sha256": "90a718318a3e23c3f01c671add3a702ec740cd4c4a073f058280185bf29a857b",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T09:50:50.761755+00:00",
+      "finished_at_utc": "2026-10-10T09:54:06.760106+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-r2-20261010/011-integration.txt",
+      "output_sha256": "1364a89de1c980b8f44ddff2f196be4df0af4cd486edace4c15e6d54e8baa707",
+      "timeout_seconds": 900.0
     }
   ],
   "stages": [
@@ -100,27 +240,27 @@
     },
     {
       "name": "original-art",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T07:02:54.063604+00:00",
-      "head_commit": "f5f55be4eb5e5ca0b8f1bcde18c48c7ecd5525c2",
-      "source_fingerprint": "3901e0da50d71be6fefaedd2d0cf1b978c14dd9024da8b2001f13d4a897ee76e",
-      "worktree": "?? dist/assets/c1-incremental/\n?? docs/ch1-pilot-r2/art/"
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T09:49:47.988538+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-cinematic-v31.js\n M dist/chapter-one-pursuit-v31.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/ch1-pilot-r2/art/GENERATION.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n M source/tasks/active/v29-exploration-20261008.json\n M tests/chapter123-v30.test.mjs\n M tests/world-v29.test.mjs\n?? dist/assets/c1-incremental/chapel-action-a.png\n?? dist/assets/c1-incremental/chapel-action-b.png\n?? dist/assets/c1-incremental/seal-echo.png\n?? dist/chapter-one-interaction-v31.js\n?? docs/ch1-pilot-r2/art/RESUMED_REQUESTS.json\n?? docs/ch1-pilot-r2/art/chapel-action-a-draft.png\n?? docs/ch1-pilot-r2/browser/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/009-chapter01.txt\n?? tests/browser-chapter-one-incremental.mjs\n?? tests/chapter-one-incremental.test.mjs"
     },
     {
       "name": "implementation",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T07:39:05.996957+00:00",
-      "head_commit": "785b384a1bc2bab9ef11cd1843467a40eb7ac372",
-      "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
-      "worktree": "M dist/game-v14.js\n M dist/index.html\n M dist/visuals-v14.js\n M source/harness/index.json\n?? dist/chapter-one-cinematic-v31.css\n?? dist/chapter-one-cinematic-v31.js\n?? dist/chapter-one-pursuit-v31.js\n?? docs/ch1-pilot-r2/art/REQUESTS.json"
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T10:10:11.643785+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-cinematic-v31.js\n M dist/chapter-one-pursuit-v31.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/ch1-pilot-r2/art/GENERATION.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n M source/tasks/active/v29-exploration-20261008.json\n M tests/chapter123-v30.test.mjs\n M tests/world-v29.test.mjs\n?? dist/assets/c1-incremental/chapel-action-a.png\n?? dist/assets/c1-incremental/chapel-action-b.png\n?? dist/assets/c1-incremental/seal-echo.png\n?? dist/chapter-one-interaction-v31.js\n?? docs/ch1-pilot-r2/art/RESUMED_REQUESTS.json\n?? docs/ch1-pilot-r2/art/chapel-action-a-draft.png\n?? docs/ch1-pilot-r2/browser/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/009-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/010-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/011-integration.txt\n?? tests/browser-chapter-one-incremental.mjs\n?? tests/chapter-one-incremental.test.mjs"
     },
     {
       "name": "recovery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-10T08:03:39.648656+00:00",
-      "head_commit": "5a156c6161e86e0d36b72512bfddcd493ca80cc9",
-      "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
-      "worktree": "M docs/ch1-pilot-r2/art/REQUESTS.json\n M source/harness/index.json\n?? dist/assets/c1-incremental/pursuit-elite.png\n?? dist/assets/c1-incremental/pursuit-guard.png\n?? dist/assets/c1-incremental/pursuit-officer.png"
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T09:31:11.158005+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "17bf36015d031726f38b425afa78d30c8f0e941fb01e26ea5b7711ce4601954e",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-cinematic-v31.js\n M dist/chapter-one-pursuit-v31.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/ch1-pilot-r2/art/GENERATION.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n?? dist/assets/c1-incremental/chapel-action-a.png\n?? dist/assets/c1-incremental/chapel-action-b.png\n?? dist/assets/c1-incremental/seal-echo.png\n?? dist/chapter-one-interaction-v31.js\n?? docs/ch1-pilot-r2/art/RESUMED_REQUESTS.json\n?? docs/ch1-pilot-r2/art/chapel-action-a-draft.png\n?? docs/ch1-pilot-r2/browser/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt\n?? tests/browser-chapter-one-incremental.mjs\n?? tests/chapter-one-incremental.test.mjs"
     }
   ]
 }

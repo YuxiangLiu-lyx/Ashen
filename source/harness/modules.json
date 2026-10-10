@@ -242,7 +242,8 @@
         "dist/data-v14.js",
         "dist/dialogue-runtime-v16.js",
         "dist/saga-runtime-v26.js",
-        "dist/story-flow-v14.js"
+        "dist/story-flow-v14.js",
+        "dist/chapter-one-cinematic-v31.js"
       ],
       "patterns": [
         "dist/*text*",
@@ -261,7 +262,8 @@
         "dist/mechanisms*",
         "dist/city-runtime*",
         "dist/city-moments-v24*",
-        "dist/romance-runtime*"
+        "dist/romance-runtime*",
+        "dist/chapter-one-cinematic*"
       ],
       "rules": [
         "docs/harness/STORY.md",
@@ -274,7 +276,8 @@
       "tests": [
         "node --test tests/presentation-v281.test.mjs",
         "node tests/browser-presentation-v281.mjs",
-        "node --test tests/world-v29.test.mjs"
+        "node --test tests/world-v29.test.mjs",
+        "node --test tests/chapter-one-incremental.test.mjs"
       ]
     },
     {
@@ -413,7 +416,8 @@
         "dist/equipment-art-v281.js",
         "dist/presentation-metrics-v281.js",
         "dist/visuals-v14.js",
-        "dist/art-v14.js"
+        "dist/art-v14.js",
+        "dist/chapter-one-pursuit-v31.js"
       ],
       "patterns": [
         "dist/*art*",
@@ -426,7 +430,10 @@
         "dist/chapter-one-art*",
         "dist/chapter123-*",
         "dist/spatial-*",
-        "dist/role-*"
+        "dist/role-*",
+        "dist/chapter-one-pursuit*",
+        "dist/chapter-one-cinematic*",
+        "dist/chapter-one-interaction*"
       ],
       "rules": [
         "docs/harness/WORLD.md",
@@ -444,7 +451,8 @@
         "node tests/browser-chapter23.mjs",
         "node --test tests/chapter123-v30.test.mjs",
         "node tests/browser-chapter123.mjs",
-        "python3 tools/harness/map_quality.py"
+        "python3 tools/harness/map_quality.py",
+        "node tests/browser-chapter-one-incremental.mjs"
       ]
     },
     {

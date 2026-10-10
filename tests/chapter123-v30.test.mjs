@@ -25,10 +25,13 @@ test('runtime independently enumerates all 35 maps including optional rooms and 
  assert.ok(!maps.includes('hellMemoryVillage'),'chapter 4 memory remains separate');
 });
 
-test('all 118 maps preserve baseline navigation, enemy counts and unreachable targets',()=>{
+test('all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable',()=>{
  const g=game(),baseline=read('BASELINE_NAVIGATION.json');assert.equal(baseline.length,118);
  for(const row of baseline){g.enter(row.id);const after=inspectWorldMap(g,row.id);
-  for(const key of ['walkableCells','connectedCells','enemies','targets','unreachable'])assert.deepEqual(after[key],row[key],row.id+'/'+key);
+  for(const key of ['walkableCells','connectedCells','enemies','targets','unreachable']){
+   const expected=key==='unreachable'&&row.id==='town'?row[key].filter(t=>t.id!=='well'):row[key];
+   assert.deepEqual(after[key],expected,row.id+'/'+key);
+  }
  }
 });
 

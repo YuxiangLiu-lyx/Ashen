@@ -1,0 +1,174 @@
+✔ all original map geometry, scenery, quest definitions and final dialogue are unchanged (3.427417ms)
+✔ normal and skip paths commit precisely the original rewards, actors and knowledge for three classes (34.294708ms)
+✖ every original pending line resumes in both action and dialogue phases without duplicating completion (5.053083ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (20.460875ms)
+✔ past-event saves do not replay tails; replay cannot write rewards or viewed state (3.884708ms)
+✔ confrontation precedes seal and every referenced original asset exists (0.544292ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.217417ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 177.59925
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:36:1
+✖ every original pending line resumes in both action and dialogue phases without duplicating completion (5.053083ms)
+  AssertionError [ERR_ASSERTION]: shadow/contract/0/action
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      chapter: 2,
+      enemies: [],
+      knowledge: {
+        hero: [],
+  ...
+        },
+  +     ch5Drink: null,
+        cls: 'shadow',
+        combo: 0,
+        comboLife: 0,
+        dash: 0,
+        dx: 1,
+  ...
+        hp: 170,
+  +     invuln: 1,
+  -     invuln: 0.7,
+        items: {
+          hp: 3,
+          mp: 3
+        },
+        knownBooks: [],
+  ...
+        resonance: 0,
+  +     saintBondV17: {
+  +       completed: [],
+  +       schema: 1
+  +     },
+        shield: 0,
+        shieldTime: 0,
+  +     skillOrigins: {
+  +       e: 'innate',
+  +       q: 'innate'
+  +     },
+  +     skillSpent: {
+  +       ashBurst: 0,
+  +       ashWard: 0,
+  +       assassinFan: 0,
+  +       assassinFinish: 0,
+  +       assassinMark: 0,
+  +       assassinSever: 0,
+  +       assassinVeil: 0,
+  +       battleTempo: 0,
+  +       bladeRain: 0,
+  +       bloodBinding: 0,
+  +       bloodCarve: 0,
+  +       bloodFan: 0,
+  +       bloodHarvest: 0,
+  +       bloodPact: 0,
+  +       bloodRenew: 0,
+  +       boneBreak: 0,
+  +       breakerBrand: 0,
+  +       breakerEdge: 0,
+  +       breakerSeal: 0,
+  +       breakerSurge: 0,
+  +       breakerWard: 0,
+  +       chainFetters: 0,
+  +       cleave: 0,
+  +       counterBrand: 0,
+  +       crash: 0,
+  +       e: 0,
+  +       echoExchange: 0,
+  +       edge: 0,
+  +       emberLance: 0,
+  +       ferrymanCut: 0,
+  +       fieldMend: 0,
+  +       firebolt: 0,
+  +       focusBreath: 0,
+  +       frost: 0,
+  +       frostBreath: 0,
+  +       frostMantle: 0,
+  +       frostNeedle: 0,
+  +       frostPrison: 0,
+  +       frostShatter: 0,
+  +       graveBell: 0,
+  +       guardAegis: 0,
+  +       guardBash: 0,
+  +       guardMend: 0,
+  +       guardReprisal: 0,
+  +       guardVerdict: 0,
+  +       heart: 0,
+  +       iceShard: 0,
+  +       nightBreaker: 0,
+  +       nightFrenzy: 0,
+  +       nightMomentum: 0,
+  +       nightPursuit: 0,
+  +       nightThirst: 0,
+  +       pyroBrand: 0,
+  +       pyroCrown: 0,
+  +       pyroFeed: 0,
+  +       pyroLance: 0,
+  +       pyroMeteor: 0,
+  +       q: 0,
+  +       rageAwaken: 0,
+  +       rageExecute: 0,
+  +       rageReturn: 0,
+  +       rageSunder: 0,
+  +       rageWhirl: 0,
+  +       riftCollapse: 0,
+  +       riftFocus: 0,
+  +       riftGravity: 0,
+  +       riftLance: 0,
+  +       riftWard: 0,
+  +       saintAegis: 0,
+  +       saintChime: 0,
+  +       saintMend: 0,
+  +       saintNova: 0,
+  +       saintRay: 0,
+  +       soulBind: 0,
+  +       sprint: 0,
+  +       stoneSkin: 0,
+  +       tether: 0,
+  +       trialResolve: 0,
+  +       wispLantern: 0
+  +     },
+  -     skillOrigins: {},
+  -     skillSpent: {},
+        skills: {
+          e: 1,
+          q: 1
+        },
+        sp: 0,
+  ...
+      saint: {
+  +     angle: 0,
+  +     entry: null,
+  -     entry: {
+  -       x: 735,
+  -       y: 890
+  -     },
+        moving: false,
+        visible: false,
+        x: 735,
+        y: 890
+      }
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:42:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { chapter: 2, quests: { contract: 'active' }, p: { cls: 'shadow', x: 1080, y: 660, level: 1, xp: 15, gold: 30, hp: 170, mp: 84, emotion: 0, attrs: [Object], ap: 0, sp: 0, skills: [Object], activeSkills: [Array], knownBooks: [], items: [Object], bag: [], gear: [Object], bar: [Array], page: 0, angle: 0, moving: false, anim: 0, attackAnim: 0, invuln: 1, dash: 0, dx: 1, dy: 0, guard: 0, empower: 0, shield: 0, shieldTime: 0, resonance: 0, sprint: 0, combo: 0, comboLife: 0, cd: [Object], skillSpent: [Object], saintBondV17: [Object], skillOrigins: [Object], v13InnateRefunded: {}, ch5Drink: null }, knowledge: { hero: [], saint: [], player: [] }, saint: { x: 735, y: 890, visible: false, moving: false, entry: null, angle: 0 }, enemies: [], relations: { saint: [Object] } },
+    expected: { chapter: 2, quests: { contract: 'active' }, p: { cls: 'shadow', x: 1080, y: 660, level: 1, xp: 15, gold: 30, hp: 170, mp: 84, emotion: 0, attrs: [Object], ap: 0, sp: 0, skills: [Object], activeSkills: [Array], skillSpent: {}, knownBooks: [], items: [Object], bag: [], gear: [Object], bar: [Array], page: 0, angle: 0, moving: false, anim: 0, attackAnim: 0, invuln: 0.7, dash: 0, dx: 1, dy: 0, guard: 0, empower: 0, shield: 0, shieldTime: 0, resonance: 0, sprint: 0, combo: 0, comboLife: 0, cd: [Object], skillOrigins: {}, v13InnateRefunded: {} }, knowledge: { hero: [], saint: [], player: [] }, saint: { x: 735, y: 890, visible: false, moving: false, entry: [Object] }, enemies: [], relations: { saint: [Object] } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

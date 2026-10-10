@@ -45,7 +45,7 @@ export class ChapterOneStoryFlow extends StoryFlow {
   }
  }
  openTail(line=0){
-  this.c1Tail={id:this.c1TailID,line:Math.max(0,Math.min(5,Number(line)||0))};
+  this.c1Tail={id:this.c1TailID,line:Math.max(0,Math.min(5,Math.floor(Number(line)||0)))};
   this.phase='dialogue';this.closing=true;
   if(this.c1Tail.id==='c1HiddenPairArrangement'){
    this.cine=new Cinematic(this.g,'aside');this.cine.fastForward();
@@ -84,7 +84,9 @@ export class ChapterOneStoryFlow extends StoryFlow {
  }
  update(dt){
   if(this.c1Tail){this.cine?.update(dt);return [];}
-  return super.update(dt);
+  const shot=c1Shot(this)?.index,cues=super.update(dt);
+  if(c1Shot(this)?.index!==shot)this.revision++;
+  return cues;
  }
  skip(){
   if(!this.c1Enabled||this.finished)return false;
@@ -103,11 +105,11 @@ export const C1_CINEMATIC_LOADS=[
  ['c1Chapel','assets/c1-incremental/chapel.png',1,1,false],
  ['c1ActionA','assets/c1-incremental/chapel-action-a.png',2,2,false],
  ['c1ActionB','assets/c1-incremental/chapel-action-b.png',2,2,false],
- ['c1Echo','assets/c1-incremental/seal-echo.png',3,1,false]
+ ['c1Echo','assets/c1-incremental/seal-echo.png',1,3,false]
 ];
 const shots=[
  ['c1ActionA',0,'午钟之前'],['c1ActionA',0,'桌角的通行纸'],
- ['c1ActionA',1,'短刃'],['c1ActionA',1,'倒下的主祭'],
+ ['c1ActionA',1,'短刃'],['c1ActionA',2,'倒下的主祭'],
  ['c1ActionA',2,'先救人'],['c1ActionA',3,'争回一步'],
  ['c1ActionB',0,'近身'],['c1ActionB',1,'封术'],
  ['c1ActionB',2,'光熄灭之后'],['c1ActionB',2,'侧门'],
@@ -123,19 +125,29 @@ function plate(ctx,bank,sheet,index,w,h,zoom=1){
  const f=bank.frame(sheet,index),im=bank.images[sheet];if(!f||!im)return false;
  // Crop only the known sheet cell, with a tiny inset excluding grid boundaries.
  const r=f.cell,k=Math.min(w/(r.w-4),h/(r.h-4))*zoom;
- ctx.drawImage(im,r.x+2,r.y+2,r.w-4,r.h-4,(w-(r.w-4)*k)/2,(h-(r.h-4)*k)/2,(r.w-4)*k,(r.h-4)*k);return true;
+ const rect={x:(w-(r.w-4)*k)/2,y:(h-(r.h-4)*k)/2,w:(r.w-4)*k,h:(r.h-4)*k};
+ ctx.drawImage(im,r.x+2,r.y+2,r.w-4,r.h-4,rect.x,rect.y,rect.w,rect.h);return rect;
 }
 export function drawC1Cinematic(ctx,bank,flow,w,h,reduced=false){
  const tail=flow?.c1Tail,shot=c1Shot(flow);
  if(!shot&&tail?.id!=='c1HiddenSealEcho')return false;
+ if(!bank.frame(tail?'c1Echo':shot.sheet,tail?Math.floor(tail.line/2):shot.frame))return false;
  ctx.save();ctx.fillStyle='#0c1014';ctx.fillRect(0,0,w,h);
  // Reserve a separate subtitle strip: faces and the seal are never covered.
  const bottom=h<520?112:w<=600?200:164,top=50,area=Math.max(100,h-bottom-top);
  ctx.translate(0,top);
  if(tail)plate(ctx,bank,'c1Echo',Math.floor(tail.line/2),w,area);
  else{
-  plate(ctx,bank,shot.sheet,shot.frame,w,area,reduced?1:1+Math.min(shot.time,6)*.002);
-  if(!reduced&&shot.index===7&&shot.time<9){ctx.globalAlpha=.04;ctx.fillStyle='#e4dbba';ctx.fillRect(0,0,w,area);}
+  const r=plate(ctx,bank,shot.sheet,shot.frame,w,area,reduced?1:1+Math.min(shot.time,6)*.002);
+  // Separate foreground light: healing breath, a resisting ward, then the
+  // filaments collapse at the wrist. The completed seal stays still.
+  if(r&&!reduced&&shot.index>=4&&shot.index<=7){
+   const [px,py]=shot.index===4?[.54,.66]:shot.index===5?[.52,.51]:shot.index===6?[.48,.4]:[.57,.48];
+   const fade=shot.index===7?Math.max(0,1-(shot.time-8)/1.5):.55+.15*Math.sin(shot.time*3);
+   ctx.save();ctx.globalCompositeOperation='screen';ctx.globalAlpha=.2*fade;
+   const x=r.x+r.w*px,y=r.y+r.h*py,radius=r.h*.14,glow=ctx.createRadialGradient(x,y,0,x,y,radius);
+   glow.addColorStop(0,'#fff1ba');glow.addColorStop(1,'#fff1ba00');ctx.fillStyle=glow;ctx.fillRect(x-radius,y-radius,radius*2,radius*2);ctx.restore();
+  }
  }
  ctx.restore();return true;
 }

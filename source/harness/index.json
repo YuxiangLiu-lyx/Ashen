@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "5a156c6161e86e0d36b72512bfddcd493ca80cc9",
-  "source_fingerprint": "24a812384131018989c94fa0ecc421671c09c5f631f80668a82f371eb6ad9625",
+  "basis_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+  "source_fingerprint": "a342c7338360153e6a4cc5156e6da3693f7cd76d01695627dafcf8d11e25ac2f",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -407,11 +407,14 @@
       "bytes": 1792,
       "imports": [],
       "symbols": [],
-      "modules": []
+      "modules": [
+        "story",
+        "art"
+      ]
     },
     "dist/chapter-one-cinematic-v31.js": {
-      "sha256": "0dcc39266c0094c036f78d9cb8f3a93773d28ec6c4fde0924aa8bf09e2f33dc4",
-      "bytes": 7344,
+      "sha256": "25e2e67687b40f2f4a3b3f21b06879f706cafc014fb0a878006596ea856e6fe1",
+      "bytes": 8208,
       "imports": [
         "dist/cinematics-v14.js",
         "dist/staging-v14.js",
@@ -428,17 +431,41 @@
         "drawC1Cinematic",
         "esc",
         "f",
+        "fade",
         "g",
         "n",
         "plate",
         "prepareStage",
         "r",
+        "rect",
+        "shot",
         "shots",
         "stage",
         "tail",
-        "tailFor"
+        "tailFor",
+        "x"
       ],
-      "modules": []
+      "modules": [
+        "story",
+        "art"
+      ]
+    },
+    "dist/chapter-one-interaction-v31.js": {
+      "sha256": "2e132eb2e557ad2f963fa5a798e554e45ac977703c3ec48baa0a7040096850cd",
+      "bytes": 1057,
+      "imports": [],
+      "symbols": [
+        "drawChapterOneInteraction",
+        "installChapterOneInteraction",
+        "objects",
+        "ready",
+        "target",
+        "targets",
+        "x"
+      ],
+      "modules": [
+        "art"
+      ]
     },
     "dist/chapter-one-motion-v30.js": {
       "sha256": "11a1466560803c1377242bca59e2930865fe5ab38ca82e57c9bbf905c7ec1bcc",
@@ -472,23 +499,35 @@
       ]
     },
     "dist/chapter-one-pursuit-v31.js": {
-      "sha256": "04aaa1a229ee3df590747561ddd99096a30872f54d6bc14b084e03e6e16e133d",
-      "bytes": 1796,
+      "sha256": "90398da54882bca09d4de727a394c9d5c2ffa7f4fe7eeb1d6866e99864f6b348",
+      "bytes": 5096,
       "imports": [],
       "symbols": [
         "C1_PURSUIT_LOADS",
+        "actors",
+        "at",
         "back",
+        "c",
         "drawPursuit",
         "f",
         "image",
         "installPursuitFrames",
         "k",
+        "label",
         "left",
+        "p",
         "pursuitFrame",
+        "pursuitSheet",
         "reference",
-        "sheet"
+        "row",
+        "score",
+        "sheet",
+        "width",
+        "x",
+        "xx"
       ],
       "modules": [
+        "art",
         "ui"
       ]
     },
@@ -1780,12 +1819,13 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "45bfea163a1ed5bea5a0cba45f473077662ec17fc9f2efa0936f759112271971",
-      "bytes": 77468,
+      "sha256": "59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d",
+      "bytes": 77582,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
         "dist/balance-v14.js",
+        "dist/chapter-one-interaction-v31.js",
         "dist/chapter-one-motion-v30.js",
         "dist/chapter-runtime-v14.js",
         "dist/chapter-staging-v14.js",
@@ -2488,14 +2528,15 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "aa3f8298f195841fb140fb8a3e4715651d9b6b79d1f168576b5928258a3a0aba",
-      "bytes": 108129,
+      "sha256": "8cf9f67d4cb9467f15d7ad8fb6c1841af73a55e161fbe436f3a1eda8538e8102",
+      "bytes": 108281,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
         "dist/audio-v17.js",
         "dist/chapter-one-art-v30.js",
         "dist/chapter-one-cinematic-v31.js",
+        "dist/chapter-one-interaction-v31.js",
         "dist/chapter-one-motion-v30.js",
         "dist/chapter-one-pursuit-v31.js",
         "dist/chapter-runtime-v14.js",
@@ -5753,8 +5794,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "a1449dc925e1a52df936517eefeb6537fe069c159294e595d0b54c7954f3f5b3",
-      "bytes": 22044,
+      "sha256": "b013264542ddec284389e00611f97d523280b9fb265447e1857915742a4fd946",
+      "bytes": 22054,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -6315,8 +6356,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "6b99850d82890318fdc9767adf9a4661f28b54c57d3cde0d8a360d2fee23462b",
-      "bytes": 18950,
+      "sha256": "4296ad145f55d004e92a873d1e6702f0988b77f8480da51fd151ea7d16b6e262",
+      "bytes": 19314,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6414,6 +6455,36 @@
       "modules": [
         "build",
         "lab"
+      ]
+    },
+    "tests/browser-chapter-one-incremental.mjs": {
+      "sha256": "aa4a76c5b4e9d775abcaa08b11dcc780be2e8baeba781924d8e0137bc7028370",
+      "bytes": 10442,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "b",
+        "controls",
+        "dialog",
+        "f",
+        "hook",
+        "id",
+        "next",
+        "out",
+        "p",
+        "persist",
+        "r",
+        "report",
+        "roles",
+        "rt",
+        "s",
+        "save",
+        "screen",
+        "shot"
+      ],
+      "modules": [
+        "build"
       ]
     },
     "tests/browser-chapter-one-play-v30.mjs": {
@@ -6612,6 +6683,48 @@
         "build"
       ]
     },
+    "tests/chapter-one-incremental.test.mjs": {
+      "sha256": "123f211b669bd679156eddb806978d2bf2841acbdba3c5bf424ebc9d5ab72b49",
+      "bytes": 7070,
+      "imports": [
+        "dist/chapter-one-cinematic-v31.js",
+        "dist/chapter-one-pursuit-v31.js",
+        "dist/core-v14.js",
+        "dist/data-v14.js",
+        "dist/story-flow-v14.js",
+        "dist/world-v14.js"
+      ],
+      "symbols": [
+        "a",
+        "bank",
+        "baseline",
+        "before",
+        "calls",
+        "cls",
+        "committed",
+        "control",
+        "copy",
+        "cues",
+        "f",
+        "finish",
+        "g",
+        "game",
+        "hash",
+        "id",
+        "m",
+        "offMap",
+        "old",
+        "outcome",
+        "past",
+        "phase",
+        "r",
+        "restored",
+        "saved",
+        "skip",
+        "t"
+      ],
+      "modules": []
+    },
     "tests/chapter-one-v30.test.mjs": {
       "sha256": "05f276eb902e95885098bc67e1419637a2581aff0313900b57a48869447892a7",
       "bytes": 4340,
@@ -6639,8 +6752,8 @@
       "modules": []
     },
     "tests/chapter123-v30.test.mjs": {
-      "sha256": "415490724979227cfda3781a0c488b8417635b821b91134d4fbe2fc5d8a1daaa",
-      "bytes": 5783,
+      "sha256": "275548189deab03f4eb4cede111c8cceff7e7cf8c1d6bab6922c3bf281f8391d",
+      "bytes": 5920,
       "imports": [
         "dist/chapter-one-motion-v30.js",
         "dist/chapter123-presentation-v30.js",
@@ -6659,6 +6772,7 @@
         "bytes",
         "crack",
         "e",
+        "expected",
         "g",
         "game",
         "h",
@@ -6839,8 +6953,8 @@
       "modules": []
     },
     "tests/world-v29.test.mjs": {
-      "sha256": "2f2c723a7645788d3ce090083fb94ffdc0936aab378512cfbe4fb4e09240fbfe",
-      "bytes": 8909,
+      "sha256": "b3cc311fcd037dc8165cbbbdaf461888b082b4f5365eda9e354bad68178166b2",
+      "bytes": 8962,
       "imports": [
         "dist/core-v14.js",
         "dist/data-v14.js",
@@ -7297,129 +7411,131 @@
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 221
-    },
-    {
-      "name": "installChapter4",
       "line": 222
     },
     {
-      "name": "installPacing",
-      "line": 224
+      "name": "installChapter4",
+      "line": 223
     },
     {
-      "name": "installQuestService",
+      "name": "installPacing",
       "line": 225
     },
     {
+      "name": "installQuestService",
+      "line": 226
+    },
+    {
       "name": "installSystemsV13",
-      "line": 230
+      "line": 231
     },
     {
       "name": "installProgressionV14",
-      "line": 232
-    },
-    {
-      "name": "installChapter5",
       "line": 233
     },
     {
-      "name": "installMercenariesV14",
+      "name": "installChapter5",
       "line": 234
     },
     {
-      "name": "installMemoryV13",
+      "name": "installMercenariesV14",
       "line": 235
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMemoryV13",
       "line": 236
     },
     {
-      "name": "installDialogueTextV16",
-      "line": 238
+      "name": "installHellActivitiesV15",
+      "line": 237
     },
     {
-      "name": "installGrowthV17",
+      "name": "installDialogueTextV16",
       "line": 239
     },
     {
-      "name": "installHellActivitiesV17",
+      "name": "installGrowthV17",
       "line": 240
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installHellActivitiesV17",
       "line": 241
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installSaintBondsV17",
       "line": 242
     },
     {
-      "name": "installCityV18",
+      "name": "installHellExpeditionsV18",
       "line": 243
     },
     {
-      "name": "installDiscoveryV19",
-      "line": 245
+      "name": "installCityV18",
+      "line": 244
     },
     {
-      "name": "installSaintStoryV18",
+      "name": "installDiscoveryV19",
       "line": 246
     },
     {
+      "name": "installSaintStoryV18",
+      "line": 247
+    },
+    {
       "name": "installRomanceV20",
-      "line": 248
+      "line": 249
     },
     {
       "name": "installCombatInputV17",
-      "line": 251
-    },
-    {
-      "name": "installPartyRewardHooksV18",
       "line": 252
     },
     {
-      "name": "installArrivalV22",
+      "name": "installPartyRewardHooksV18",
       "line": 253
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installArrivalV22",
       "line": 254
     },
     {
+      "name": "installCityMomentsV24",
+      "line": 255
+    },
+    {
       "name": "installSagaV25",
-      "line": 259
+      "line": 260
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 263
+      "line": 264
     },
     {
       "name": "installSagaV26",
-      "line": 266
+      "line": 267
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 273
+      "line": 274
     },
     {
       "name": "installPresentationPhysicsV281",
-      "line": 275
+      "line": 276
     },
     {
       "name": "installWorldExplorationV29",
-      "line": 277
+      "line": 278
     },
     {
       "name": "installChapterOneMotionV30",
-      "line": 279
+      "line": 280
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 281
     }
   ],
   "missing_imports": [],
-  "unmapped_runtime": [
-    "dist/chapter-one-cinematic-v31.js"
-  ],
+  "unmapped_runtime": [],
   "limits": [
     "Literal imports only; computed imports and prototype wrappers need code inspection",
     "basis_commit identifies generation; content hashes decide freshness"

@@ -1,3 +1,4 @@
+import {installChapterOneInteraction} from './chapter-one-interaction-v31.js';
 import {installChapterOneMotionV30} from './chapter-one-motion-v30.js';
 import {installWorldExplorationV29} from './world-runtime-v29.js';
 import {installPresentationPhysicsV281} from './presentation-physics-v281.js';
@@ -277,3 +278,4 @@ installPresentationPhysicsV281(RPG,{MAPS,SCENERY,aliases:PRESENTATION_ALIASES_V2
 installWorldExplorationV29(RPG,{MAPS,DIALOGUES});
 
 installChapterOneMotionV30(RPG);
+installChapterOneInteraction(RPG);

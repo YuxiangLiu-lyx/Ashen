@@ -69,5 +69,5 @@ test('opt-in guestroom rest keeps its old result and ends at the original positi
 test('other 114 maps retain baseline navigation and interaction diagnostics',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-live-navigation.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
  for(const m of baseline)if(!DEMO_MAPS_V29.includes(m.id)){const report=inspectWorldMap(g,m.id);// Chapter 2 repair moves the water interaction off the wall; the historical baseline stays intact.
- const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
+ const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.id==='town'?m.unreachable.filter(t=>t.id!=='well'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
 });

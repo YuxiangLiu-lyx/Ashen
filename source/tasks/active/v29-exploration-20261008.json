@@ -13,9 +13,10 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-08T05:18:20.910983+00:00",
-  "updated_at_utc": "2026-10-08T05:40:34.917283+00:00",
+  "updated_at_utc": "2026-10-10T09:31:11.249596+00:00",
   "decisions": [
-    "以四张正式渲染器基线和23项回归为起点；手工布局与短交互接入原系统，新对白ID保留旧档游标，flags.worldV29仅存线索发现"
+    "以四张正式渲染器基线和23项回归为起点；手工布局与短交互接入原系统，新对白ID保留旧档游标，flags.worldV29仅存线索发现",
+    "按ch1-pilot-r2最新用户授权收尾历史验收；四图实现及后续V30修改已被批准回滚基线保留，不重新实施。补失链RELEASE回执、当前四图交互/实战往返与release检查，保留旧失败和历史限制。"
   ],
   "completed": [
     "四图第一轮布局、物件缩放与管路反馈实现；9项领域测试通过，水槽交互点碰撞已修复"
@@ -26,10 +27,20 @@
     "其余地图系统审计与推广优先级，真实记录未完成范围并保存GitHub"
   ],
   "blockers": [],
-  "next": "真实浏览器连续导航/战斗/交互与全地图诊断审查，修复后完整release验收",
+  "next": "复用本次最终release与世界专项产物并补验收回执",
   "required_checks": [
     "release",
     "world"
   ],
-  "checks": []
+  "checks": [],
+  "stages": [
+    {
+      "name": "historical-closeout",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T09:31:11.225958+00:00",
+      "head_commit": "c502534fbdcc452bb83a48bdb7bf33132b5b1b37",
+      "source_fingerprint": "17bf36015d031726f38b425afa78d30c8f0e941fb01e26ea5b7711ce4601954e",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-cinematic-v31.js\n M dist/chapter-one-pursuit-v31.js\n M dist/game-v14.js\n M dist/visuals-v14.js\n M docs/ch1-pilot-r2/art/GENERATION.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch1-pilot-r2-20261010.json\n?? dist/assets/c1-incremental/chapel-action-a.png\n?? dist/assets/c1-incremental/chapel-action-b.png\n?? dist/assets/c1-incremental/seal-echo.png\n?? dist/chapter-one-interaction-v31.js\n?? docs/ch1-pilot-r2/art/RESUMED_REQUESTS.json\n?? docs/ch1-pilot-r2/art/chapel-action-a-draft.png\n?? docs/ch1-pilot-r2/browser/\n?? docs/harness/evidence/ch1-pilot-r2-20261010/004-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/005-chapter01.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/006-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/007-chapter01-browser.txt\n?? docs/harness/evidence/ch1-pilot-r2-20261010/008-chapter01-browser.txt\n?? tests/browser-chapter-one-incremental.mjs\n?? tests/chapter-one-incremental.test.mjs"
+    }
+  ]
 }
