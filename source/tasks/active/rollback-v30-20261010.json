@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "id": "rollback-v30-20261010",
+  "goal": "游戏内容回滚重构优化到已验收V30（1cefe80），保存重构现场与剧情地图验收",
+  "acceptance": [
+    "重构现场完整保存在Git；运行文件恢复指定版本；新游戏和旧档回归通过；GitHub main保存并核验"
+  ],
+  "baseline_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+  "modules": [
+    "build",
+    "lab",
+    "maps"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-10T05:57:32.330449+00:00",
+  "updated_at_utc": "2026-10-10T05:57:32.393287+00:00",
+  "decisions": [
+    "用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站"
+  ],
+  "completed": [],
+  "remaining": [
+    "重构现场完整保存在Git；运行文件恢复指定版本；新游戏和旧档回归通过；GitHub main保存并核验"
+  ],
+  "blockers": [],
+  "next": "提交所有既有改动保存现场，再回滚运行代码并验证",
+  "required_checks": [
+    "fast",
+    "integration",
+    "rollback-parity",
+    "packaged-ui"
+  ],
+  "checks": [],
+  "stages": [
+    {
+      "name": "preserve",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-10T05:57:32.369693+00:00",
+      "head_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+      "source_fingerprint": "af2bde39d3fdbce6ef782ba330485f1524c1c33b3ee3e9fa7f8086c3690f42f5",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/story-flow-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/harness/index.json\n M source/tasks/active/ch1-pilot-20261010.json\n?? dist/ch1-layout-v31.js\n?? dist/ch1-runtime-v31.js\n?? dist/ch1-script-v31.js\n?? docs/ch1-pilot/\n?? docs/harness/evidence/ch1-pilot-20261010/\n?? source/tasks/active/rollback-v30-20261010.json\n?? tools/build_ch1_script.py"
+    }
+  ]
+}

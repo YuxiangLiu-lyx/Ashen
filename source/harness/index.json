@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "1f1a928026997041a3b886341b830eab6eb23810",
-  "source_fingerprint": "9e5161eada89475dad94889374726972841538775fc42a139ad9b31697bf69d3",
+  "basis_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+  "source_fingerprint": "af2bde39d3fdbce6ef782ba330485f1524c1c33b3ee3e9fa7f8086c3690f42f5",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -331,6 +331,79 @@
       "modules": [
         "combat"
       ]
+    },
+    "dist/ch1-layout-v31.js": {
+      "sha256": "fbdbb967e5d7ef7e01cfc0a4c53460390f78cb4d011f1520ed970ecdb0e6290c",
+      "bytes": 5442,
+      "imports": [],
+      "symbols": [
+        "C1_CHAPEL",
+        "C1_MAPS",
+        "additions",
+        "configureC1Layout",
+        "edge",
+        "id",
+        "m",
+        "map",
+        "newMap",
+        "prop",
+        "scenery"
+      ],
+      "modules": []
+    },
+    "dist/ch1-runtime-v31.js": {
+      "sha256": "9da76083773a9aa773c3ccf74ca8de0fd9b50c18ad59bf6eb967227f291c75ab",
+      "bytes": 24908,
+      "imports": [
+        "dist/ch1-layout-v31.js",
+        "dist/ch1-script-v31.js"
+      ],
+      "symbols": [
+        "P",
+        "a",
+        "before",
+        "c1Active",
+        "c1Fighting",
+        "c1State",
+        "commit",
+        "copy",
+        "cycle",
+        "dir",
+        "door",
+        "e",
+        "f",
+        "fact",
+        "fighting",
+        "fresh",
+        "id",
+        "ids",
+        "installC1Runtime",
+        "key",
+        "legacy",
+        "line",
+        "list",
+        "migrateC1Save",
+        "migrated",
+        "out",
+        "p",
+        "result",
+        "row",
+        "s",
+        "sceneMap",
+        "w",
+        "wards",
+        "who"
+      ],
+      "modules": []
+    },
+    "dist/ch1-script-v31.js": {
+      "sha256": "84ce235807bf36541396b68737ab752cfacf56448704fd5204efad79be3d146e",
+      "bytes": 13777,
+      "imports": [],
+      "symbols": [
+        "C1_DIALOGUES"
+      ],
+      "modules": []
     },
     "dist/chapter-dialogues-v14.js": {
       "sha256": "4870684d26b13b5aa3183760b89152238cb0e6f5735c17c6e99f9e4b33295559",
@@ -1782,12 +1855,14 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "f4c1f3c7081bc1616c7a1a5666cdaf3752adb160dd491c8343907a6eba20f8c0",
-      "bytes": 77901,
+      "sha256": "3a370d17f6ca4e4d2c0098abfabe0e1927193b83e876a3d650aa52fc1e344d2b",
+      "bytes": 78206,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
         "dist/balance-v14.js",
+        "dist/ch1-layout-v31.js",
+        "dist/ch1-runtime-v31.js",
         "dist/chapter-one-motion-v30.js",
         "dist/chapter-runtime-v14.js",
         "dist/chapter-staging-v14.js",
@@ -5568,8 +5643,8 @@
       ]
     },
     "dist/story-flow-v14.js": {
-      "sha256": "786b9ea74e758588a11f278cd6f5c7a506908cb5759b8f889feb7900352dacd4",
-      "bytes": 1650,
+      "sha256": "4901eb576dede94805cc4d8286994f8b3e7c4c256789de4577d15dc230914d9b",
+      "bytes": 1686,
       "imports": [
         "dist/cinematics-v14.js",
         "dist/orientation-v14.js"
@@ -6261,8 +6336,8 @@
       "modules": []
     },
     "docs/harness/CHAPTER_01.md": {
-      "sha256": "c5c2b9e1b4766ae9c9025aa17461eb26f5fb8294cc1993c1b52004e0565f6dc7",
-      "bytes": 44367,
+      "sha256": "f3610ab181a7414b3869c578bd3cb08d92b886931431326fd3894b43067e9dee",
+      "bytes": 44787,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6279,8 +6354,8 @@
       ]
     },
     "docs/harness/CHAPTER_02.md": {
-      "sha256": "31118a9102af86cc3b46515c795e5c4630b7c41ce68b9d6a9b5cdf6632310260",
-      "bytes": 37135,
+      "sha256": "37fff505bce7056a85ca1105d054ed243f2a362f32e31d8ddb75e9f184c3c1bd",
+      "bytes": 37246,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6323,8 +6398,8 @@
       "modules": []
     },
     "docs/harness/NARRATIVE_ARCHITECTURE.md": {
-      "sha256": "e7362cbacbf11c7860c357f8d4ed16121ab3fab8ee63b3a7cb0a085232c97c55",
-      "bytes": 3640,
+      "sha256": "4cc59e45c7cf1e064e1ebd3e0c4fd3a4cf9f6448d0f69aba7e93952ee2001452",
+      "bytes": 3638,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7388,6 +7463,17 @@
       ],
       "modules": []
     },
+    "tools/build_ch1_script.py": {
+      "sha256": "3c2d0d733fb5103b82299b9cc8f7d383d589503c3891a4c28a3773a5a5b92dc3",
+      "bytes": 4886,
+      "imports": [],
+      "symbols": [
+        "C1_DIALOGUES"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tools/build_presentation_assets.py": {
       "sha256": "dd2870f2fdc78c8cedd6b6f7944c4eb15914ad015f85472aaa9cdeaefe9f9f96",
       "bytes": 2544,
@@ -7577,131 +7663,139 @@
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 224
+      "line": 226
     },
     {
       "name": "installChapter4",
-      "line": 225
-    },
-    {
-      "name": "installPacing",
       "line": 227
     },
     {
+      "name": "installPacing",
+      "line": 229
+    },
+    {
       "name": "installQuestService",
-      "line": 228
+      "line": 230
     },
     {
       "name": "installSystemsV13",
-      "line": 233
-    },
-    {
-      "name": "installProgressionV14",
       "line": 235
     },
     {
-      "name": "installChapter5",
-      "line": 236
-    },
-    {
-      "name": "installMercenariesV14",
+      "name": "installProgressionV14",
       "line": 237
     },
     {
-      "name": "installMemoryV13",
+      "name": "installChapter5",
       "line": 238
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMercenariesV14",
       "line": 239
     },
     {
-      "name": "installDialogueTextV16",
+      "name": "installMemoryV13",
+      "line": 240
+    },
+    {
+      "name": "installHellActivitiesV15",
       "line": 241
     },
     {
-      "name": "installGrowthV17",
-      "line": 242
-    },
-    {
-      "name": "installHellActivitiesV17",
+      "name": "installDialogueTextV16",
       "line": 243
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installGrowthV17",
       "line": 244
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installHellActivitiesV17",
       "line": 245
     },
     {
-      "name": "installCityV18",
+      "name": "installSaintBondsV17",
       "line": 246
     },
     {
-      "name": "installDiscoveryV19",
+      "name": "installHellExpeditionsV18",
+      "line": 247
+    },
+    {
+      "name": "installCityV18",
       "line": 248
     },
     {
-      "name": "installSaintStoryV18",
-      "line": 249
+      "name": "installDiscoveryV19",
+      "line": 250
     },
     {
-      "name": "installRomanceV20",
+      "name": "installSaintStoryV18",
       "line": 251
     },
     {
+      "name": "installRomanceV20",
+      "line": 253
+    },
+    {
       "name": "installCombatInputV17",
-      "line": 254
-    },
-    {
-      "name": "installPartyRewardHooksV18",
-      "line": 255
-    },
-    {
-      "name": "installArrivalV22",
       "line": 256
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installPartyRewardHooksV18",
       "line": 257
     },
     {
+      "name": "installArrivalV22",
+      "line": 258
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 259
+    },
+    {
       "name": "installSagaV25",
-      "line": 262
+      "line": 264
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 266
+      "line": 268
     },
     {
       "name": "installSagaV26",
-      "line": 269
+      "line": 271
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 276
-    },
-    {
-      "name": "installPresentationPhysicsV281",
       "line": 278
     },
     {
-      "name": "installWorldExplorationV29",
+      "name": "installPresentationPhysicsV281",
       "line": 280
     },
     {
-      "name": "installChapterOneMotionV30",
+      "name": "installWorldExplorationV29",
       "line": 282
     },
     {
+      "name": "installChapterOneMotionV30",
+      "line": 284
+    },
+    {
       "name": "installSpatialLifeV30",
-      "line": 286
+      "line": 288
+    },
+    {
+      "name": "installC1Runtime",
+      "line": 292
     }
   ],
   "missing_imports": [],
-  "unmapped_runtime": [],
+  "unmapped_runtime": [
+    "dist/ch1-layout-v31.js",
+    "dist/ch1-runtime-v31.js",
+    "dist/ch1-script-v31.js"
+  ],
   "limits": [
     "Literal imports only; computed imports and prototype wrappers need code inspection",
     "basis_commit identifies generation; content hashes decide freshness"

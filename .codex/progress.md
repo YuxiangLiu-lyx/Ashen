@@ -4,6 +4,8 @@
 
 ## 当前目标
 
+2026-10-10 用户最新授权：回滚到已验收 V30（1cefe80），停止继续重构。当前任务 rollback-v30-20261010；以下开发计划保留为历史，不能自动恢复执行。阶段：保存现场 → 恢复指定版本 → 集成/地图/打包验收 → GitHub main 保存。
+
 本轮 `ch1-pilot-20261010`：采用新章稿，只开发第一章；第二章保持策划。远端规划已合并；既有空间与两章旧版精修保存在1f1a928，不代表新稿已经实现。
 
 ## 历史目标（保留现场）
@@ -132,14 +134,16 @@
 <!-- task:ch1-pilot-20261010 -->
 ## 任务 ch1-pilot-20261010
 - 状态：in_progress
-- 更新：2026-10-10T05:24:06.132710+00:00
-- 下一步：保存现场后合并origin/main
+- 更新：2026-10-10T05:27:18.831016+00:00
+- 下一步：地图、对白、非致死战斗与存档
 - 任务记录：source/tasks/active/ch1-pilot-20261010.json
-- 已完成：无
+- 已完成：现场1f1a928已保存；合并60d8a2e；全文审读两章；第一章0.2冻结，第二章只策划
 - 待完成：合并远端章稿；审计冻结；地图与剧情；战斗与迁移；原创资产；集成验收与保存
 - 决定：保存开工已有未提交改动为独立现场检查点；第二章既有实现保留，本次新章稿不实装第二章
 - 阻塞：无
-- 阶段 preserve-sync：in_progress；HEAD db78728e39f2dae3c7f17abefc3f7cc2a6f98f56
+- 阶段 preserve-sync：complete；HEAD a8f3fc2956594e5162fae21996a11f057d924ea5
+- 阶段 implementation：in_progress；HEAD a8f3fc2956594e5162fae21996a11f057d924ea5
+- 最近检查：baseline，退出码 0；docs/harness/evidence/ch1-pilot-20261010/001-baseline.txt
 <!-- /task:ch1-pilot-20261010 -->
 
 <!-- task:narrative-harness-20261010 -->
@@ -157,3 +161,16 @@
 - 阶段 delivery：complete；HEAD b6a35a5d306f4e162f12f2f091163cd3fadbe77b
 - 最近检查：verification，退出码 0；docs/harness/evidence/narrative-harness-20261010/003-verification.txt
 <!-- /task:narrative-harness-20261010 -->
+
+<!-- task:rollback-v30-20261010 -->
+## 任务 rollback-v30-20261010
+- 状态：in_progress
+- 更新：2026-10-10T05:57:32.393287+00:00
+- 下一步：提交所有既有改动保存现场，再回滚运行代码并验证
+- 任务记录：source/tasks/active/rollback-v30-20261010.json
+- 已完成：无
+- 待完成：重构现场完整保存在Git；运行文件恢复指定版本；新游戏和旧档回归通过；GitHub main保存并核验
+- 决定：用户已明确选择恢复重构前已验收V30（1cefe80）；暂停空间、两章对白、圣女与首章试点继续开发；不发布网站
+- 阻塞：无
+- 阶段 preserve：in_progress；HEAD a8f3fc2956594e5162fae21996a11f057d924ea5
+<!-- /task:rollback-v30-20261010 -->

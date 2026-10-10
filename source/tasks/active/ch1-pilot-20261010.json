@@ -11,29 +11,58 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-10T05:24:05.310809+00:00",
-  "updated_at_utc": "2026-10-10T05:24:06.132710+00:00",
+  "updated_at_utc": "2026-10-10T05:27:18.831016+00:00",
   "decisions": [
     "保存开工已有未提交改动为独立现场检查点；第二章既有实现保留，本次新章稿不实装第二章"
   ],
-  "completed": [],
+  "completed": [
+    "现场1f1a928已保存；合并60d8a2e；全文审读两章；第一章0.2冻结，第二章只策划"
+  ],
   "remaining": [
     "合并远端章稿；审计冻结；地图与剧情；战斗与迁移；原创资产；集成验收与保存"
   ],
   "blockers": [],
-  "next": "保存现场后合并origin/main",
+  "next": "地图、对白、非致死战斗与存档",
   "required_checks": [
     "fast",
     "integration"
   ],
-  "checks": [],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "docs/ch1-pilot/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-10T05:25:04.970976+00:00",
+      "finished_at_utc": "2026-10-10T05:26:20.731452+00:00",
+      "head_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+      "source_fingerprint": "9e5161eada89475dad94889374726972841538775fc42a139ad9b31697bf69d3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-pilot-20261010/001-baseline.txt",
+      "output_sha256": "ddd49fce00473dd5684ff67c8e013cf07abebe7e58f333323fcd2fcb2bb45754",
+      "timeout_seconds": 600.0
+    }
+  ],
   "stages": [
     {
       "name": "preserve-sync",
+      "status": "complete",
+      "updated_at_utc": "2026-10-10T05:27:18.640982+00:00",
+      "head_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+      "source_fingerprint": "bb46f37456e11936ec000f3aabc4c913a1ff80ef0d90571e77f60a41d19d310e",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/tasks/active/ch1-pilot-20261010.json\n?? docs/ch1-pilot/\n?? docs/harness/evidence/ch1-pilot-20261010/"
+    },
+    {
+      "name": "implementation",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-10T05:24:06.108912+00:00",
-      "head_commit": "db78728e39f2dae3c7f17abefc3f7cc2a6f98f56",
-      "source_fingerprint": "eb85bfe65a773823fc1437c1d3ca4218aa586ca0ba68cf7da02c5f7e0a5352bf",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/audio-v17.js\n M dist/chapter-one-art-v30.js\n M dist/chapter123-presentation-v30.js\n M dist/chapter23-art-v30.js\n M dist/chapter3-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-runtime-v16.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/index.html\n M dist/saga-art-v25.js\n M dist/spatial-design-v30.js\n M dist/story-illustrations-v19.js\n M dist/visuals-v14.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/ch12-epic-20261009.json\n M source/tasks/active/ch123-spatial-20261009.json\n M source/tasks/active/saint-cover-20261009.json\n M tests/browser-chapter123.mjs\n M tests/chapter-one-v30.test.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/v30-narrative/\n?? dist/chapter12-art-v30.js\n?? dist/chapter12-director-v30.css\n?? dist/chapter12-director-v30.js\n?? dist/chapter12-text-v30.js\n?? docs/ch12-epic/\n?? docs/chapter123-spatial/ACCEPTANCE.md\n?? docs/chapter123-spatial/VISUAL_NOTES.json\n?? docs/chapter123-spatial/after/\n?? docs/chapter123-spatial/visual-review.html\n?? docs/harness/evidence/ch12-epic-20261009/\n?? docs/harness/evidence/ch123-spatial-20261009/013-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/014-integration.txt\n?? docs/harness/evidence/ch123-spatial-20261009/015-spatial-browser.txt\n?? docs/harness/evidence/ch123-spatial-20261009/016-integration.txt\n?? docs/harness/evidence/saint-cover-20261009/002-package-build.txt\n?? docs/harness/evidence/saint-cover-20261009/003-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/004-packaged-ui.txt\n?? docs/harness/evidence/saint-cover-20261009/005-double-click.txt\n?? docs/harness/evidence/saint-cover-20261009/006-presentation.txt\n?? docs/harness/evidence/saint-cover-20261009/007-package-build.txt\n?? docs/harness/evidence/saint-cover-20261009/008-packaged-ui.txt\n?? source/tasks/active/ch1-pilot-20261010.json\n?? tests/browser-ch12-epic.mjs\n?? tests/chapter12-epic-v30.test.mjs"
+      "updated_at_utc": "2026-10-10T05:27:18.806077+00:00",
+      "head_commit": "a8f3fc2956594e5162fae21996a11f057d924ea5",
+      "source_fingerprint": "bb46f37456e11936ec000f3aabc4c913a1ff80ef0d90571e77f60a41d19d310e",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/tasks/active/ch1-pilot-20261010.json\n?? docs/ch1-pilot/\n?? docs/harness/evidence/ch1-pilot-20261010/"
     }
   ]
 }
