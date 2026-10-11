@@ -58,11 +58,25 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.locator('[data-act="continue"]').click()
     checks += ['no_removed_cinematic_entry']
     module='@ashen/core-v14.js' if offline else './core-v14.js'
+    known_tail="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=1;g.enter('hall',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('contract','contractAccept');Object.assign(g.pending,{line:19,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenPairArrangement',line:0,revision:2}});return JSON.stringify(g.snapshot());}"""
+    raw_known=page.evaluate(known_tail,module)
+    page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
+    page.locator('#saveTransfer').fill(raw_known);page.locator('[data-act="confirm-import"]').click()
+    page.wait_for_function("document.querySelector('img.portrait-art')?.naturalWidth>0")
+    assert page.locator('.speaker').inner_text()=='鲁恩' and page.locator('.backstage-shadow').count()==0
+    first_portrait=page.locator('img.portrait-art').get_attribute('src')
+    page.screenshot(path=str(out/(label+'-known-backstage.png')))
+    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
+    assert page.locator('.speaker').inner_text()=='薇蕾娜'
+    assert page.locator('img.portrait-art').get_attribute('src')!=first_portrait
+    advance_intro(page)
+    checks += ['known_backstage_original_portraits','known_portrait_changes_with_speaker']
     legacy="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=2;g.enter('chapel',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('assassination','assassinate');Object.assign(g.pending,{line:17,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenSealEcho',line:3}});return JSON.stringify(g.snapshot());}"""
     raw=page.evaluate(legacy,module)
     page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
     page.locator('#saveTransfer').fill(raw);page.locator('[data-act="confirm-import"]').click()
     page.locator('.backstage-shadow').wait_for(timeout=15000)
+    assert page.locator('.backstage-shadow path').first.evaluate('(el)=>getComputedStyle(el).fill')=='rgb(6, 8, 12)'
     assert page.locator('.dialogue-card .line').inner_text()=='是结果变了。旧案先留着，再算一次。'
     assert page.locator('.speaker,.scene-label,.c1-cinema-ui').count()==0
     page.screenshot(path=str(out/(label+'-anonymous-dialogue.png')))

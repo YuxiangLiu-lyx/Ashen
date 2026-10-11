@@ -1,0 +1,288 @@
+{
+  "schema": 1,
+  "id": "ch12-portrait-bugs-20261011",
+  "goal": "检查前两章bug；已知人物恢复原立绘，未知人物清晰黑影，避免白色人影；更新常用离线包",
+  "acceptance": [
+    "前两章实际对白画廊：已知人物匹配原图，未知人物黑色且无身份泄露；推进/跳过/旧档无回归",
+    "fast、相关章节逻辑/浏览器与离线HTTP手机验收通过；保存GitHub main"
+  ],
+  "baseline_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+  "modules": [
+    "art",
+    "build"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-11T09:47:42.206355+00:00",
+  "updated_at_utc": "2026-10-11T09:59:20.086804+00:00",
+  "decisions": [
+    "只修前两章实际缺陷与人物对白表现；已知后台人物恢复原图；不开发第二章策划新增内容，不恢复暂停重构，不改章稿/任务/数值",
+    "第二章结算重复可额外取得100经验/35金币；只在阶段11且未进入第三章时允许发放与交接，复用已有进度标志兼容旧档",
+    "006仅旧0.4 core哈希与上一轮授权测试秒杀一行冲突；改为精确识别这一行并校验剩余核心完整旧哈希，保留旧基线及所有原世界/资源断言"
+  ],
+  "completed": [
+    "26个前两章主要场景逐行检查及基线截图保存：普通已知人物映射正确；幕后H1错误遮为黑影，currentColor覆盖成白会改变人影；第二章重复结算经验金币已复现并红测",
+    "已知幕后人物原图分支恢复；匿名兜帽披风明确深色填充；章界结算加既有stage/ch3Started保护；新2组回归与26场263行实际UI初测通过",
+    "最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过"
+  ],
+  "remaining": [
+    "默认离线包更新与验收、GitHub main同步及任务归档"
+  ],
+  "blockers": [],
+  "next": "保留旧默认包，构建新包并执行离线HTTP手机验收",
+  "required_checks": [
+    "fast",
+    "chapter-regression",
+    "portrait-browser",
+    "integration",
+    "packaged-ui"
+  ],
+  "checks": [
+    {
+      "label": "portrait-baseline",
+      "command": [
+        "env",
+        "ASHEN_PORTRAIT_OUTPUT=docs/ch12-portrait-bugs/baseline/browser",
+        "node",
+        "tests/browser-ch12-portraits.mjs",
+        "--baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:50:00.616730+00:00",
+      "finished_at_utc": "2026-10-11T09:50:17.028135+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "02fa3a786e69fcd988e3b8183dea9b27f13fcf23339b980fe3a207b1edc83c31",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/001-portrait-baseline.txt",
+      "output_sha256": "3d343b5d4d4d071de95800778ed221b2b9ec5a1e43f833241aae1d45ba3797b9",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "completion-baseline",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:50:42.796367+00:00",
+      "finished_at_utc": "2026-10-11T09:50:43.041977+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "5227f96b6359252fb69d65bc4955938e7ea095794cb892b3351f365bfbc6fe16",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/002-completion-baseline.txt",
+      "output_sha256": "cb05fe27e0a6dcbef9d191364f7da191f83502823708c9f5fd8f2ab616db3946",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "completion-fix",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:51:24.796618+00:00",
+      "finished_at_utc": "2026-10-11T09:51:25.045950+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "a8b314daed24ee14a85928a94856ee0a71b734e2f3d7b9f041750179ffe98d44",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/003-completion-fix.txt",
+      "output_sha256": "c060b41aede90890a8a6cdecda3987a2bf484a370ffc34924dca82feebd07808",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "portrait-browser",
+      "command": [
+        "node",
+        "tests/browser-ch12-portraits.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:51:37.926808+00:00",
+      "finished_at_utc": "2026-10-11T09:51:53.765027+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "a8b314daed24ee14a85928a94856ee0a71b734e2f3d7b9f041750179ffe98d44",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/004-portrait-browser.txt",
+      "output_sha256": "190d56d32370d37d1f3a1c9a793ffdc2642f181532515e3ebecc92ae370d4db7",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:52:51.441379+00:00",
+      "finished_at_utc": "2026-10-11T09:53:04.845297+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "f8f465cf41357301b976190354dedf18330a670974a873d62ded7989d121826d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/005-fast.txt",
+      "output_sha256": "305143d3c3f5e98a46840c55839518dff4014cb6dc05556d0c0ac88d1157f955",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "chapter-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:53:04.939314+00:00",
+      "finished_at_utc": "2026-10-11T09:53:18.015178+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "f8f465cf41357301b976190354dedf18330a670974a873d62ded7989d121826d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/006-chapter-regression.txt",
+      "output_sha256": "c88fdc3f1affaff8ea7539471118db4e6b77a8cf6f254616440a10714c514a19",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:54:13.435726+00:00",
+      "finished_at_utc": "2026-10-11T09:54:26.736948+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/007-fast.txt",
+      "output_sha256": "2c08ea495fc109db696ea8ede68408cb1fb9d8fd2423c0b8a09dd7fdb1de334b",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "chapter-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:54:26.806259+00:00",
+      "finished_at_utc": "2026-10-11T09:54:40.002057+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/008-chapter-regression.txt",
+      "output_sha256": "315401d52af7f279febb40a653278ca0dfe323d63cb7e6a710b011d6e8c02cb1",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "portrait-browser",
+      "command": [
+        "node",
+        "tests/browser-ch12-portraits.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:54:40.066462+00:00",
+      "finished_at_utc": "2026-10-11T09:54:56.580313+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/009-portrait-browser.txt",
+      "output_sha256": "190d56d32370d37d1f3a1c9a793ffdc2642f181532515e3ebecc92ae370d4db7",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "scene-browser",
+      "command": [
+        "env",
+        "ASHEN_C1_OUTPUT=docs/ch12-portrait-bugs/scenes",
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:54:56.660389+00:00",
+      "finished_at_utc": "2026-10-11T09:55:40.777512+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/010-scene-browser.txt",
+      "output_sha256": "142ea35c941aedc9694845bc8d4477141a20b400c291fedaf46945e50c92b1f3",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:55:40.843084+00:00",
+      "finished_at_utc": "2026-10-11T09:58:19.556647+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/011-integration.txt",
+      "output_sha256": "5ccd6a0733f61cfb22e591559b5a4e3ae457c3d3f4335ee5370e4e56e22206b3",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "cd630f46be5f3aafdbce99147c10c5da327d6928"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:59:19.853541+00:00",
+      "finished_at_utc": "2026-10-11T09:59:19.941523+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/012-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:51:24.563062+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "5227f96b6359252fb69d65bc4955938e7ea095794cb892b3351f365bfbc6fe16",
+      "worktree": "M .codex/progress.md\n?? docs/ch12-portrait-bugs/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/\n?? source/tasks/active/ch12-portrait-bugs-20261011.json\n?? tests/browser-ch12-portraits.mjs\n?? tests/ch12-bugs.test.mjs"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:52:51.261035+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "f8f465cf41357301b976190354dedf18330a670974a873d62ded7989d121826d",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter3-runtime-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-web-play.py\n?? docs/ch12-portrait-bugs/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/\n?? source/tasks/active/ch12-portrait-bugs-20261011.json\n?? tests/browser-ch12-portraits.mjs\n?? tests/ch12-bugs.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:59:19.988324+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter3-runtime-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n?? docs/ch12-portrait-bugs/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/\n?? source/tasks/active/ch12-portrait-bugs-20261011.json\n?? tests/browser-ch12-portraits.mjs\n?? tests/ch12-bugs.test.mjs"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-11T09:59:20.059749+00:00",
+      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter3-runtime-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n?? docs/ch12-portrait-bugs/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/\n?? source/tasks/active/ch12-portrait-bugs-20261011.json\n?? tests/browser-ch12-portraits.mjs\n?? tests/ch12-bugs.test.mjs"
+    }
+  ]
+}

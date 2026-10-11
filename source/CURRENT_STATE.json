@@ -544,5 +544,32 @@
     "remote_verified_at_utc": "2026-10-11T09:30:43.249379+00:00",
     "git_receipt": "docs/chapter-test/GIT_SAVE.json",
     "task_record": "source/tasks/archive/chapter-test-20261011.json"
+  },
+  "ch12_portrait_bugs": {
+    "task_id": "ch12-portrait-bugs-20261011",
+    "status": "all runtime verification passed; packaged entry and GitHub pending",
+    "baseline_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+    "scope": [
+      "known backstage characters retain original portraits",
+      "explicit dark anonymous hood/cloak silhouette",
+      "chapter-two completion pays once including retries/reloads"
+    ],
+    "dialogue_text_changed": false,
+    "map_geometry_changed": false,
+    "original_images_changed": false,
+    "save_schema": 15,
+    "site_deployed": false,
+    "acceptance": "docs/ch12-portrait-bugs/ACCEPTANCE.md",
+    "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+    "checks": {
+      "fast": "28 passed",
+      "chapter-regression": "18 passed",
+      "portrait-browser": "26 scenes, 263 lines, 15 original character images, 3 viewports passed",
+      "scene-browser": "18 maps, 221 paths, 48 frames, 2 full scenes passed",
+      "integration": "76 Node, 16 browser, 14 full-event parity and world/map regressions passed",
+      "map-quality": "passed; portrait repair with unchanged original worlds/assets"
+    },
+    "map_quality": "docs/ch12-portrait-bugs/MAP_QUALITY.json",
+    "checked_at_utc": "2026-10-11T09:59:20.114132+00:00"
   }
 }

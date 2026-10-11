@@ -62,8 +62,15 @@ export class ChapterOneStoryFlow extends StoryFlow {
  update(dt){return this.c1Tail?[]:super.update(dt);}
 }
 
-// A neutral, faceless vector silhouette fits the existing portrait area.
-// No external picture, identity label or new scene presentation is loaded.
+// Anonymous hood and cloak, using the original bust area. Explicit dark fills
+// stay black even if text color is inherited before the stylesheet is ready.
+// No face, insignia or identity is invented for these unnamed speakers.
 export function hiddenPortraitHTML(){
- return '<svg class="portrait-art backstage-shadow" viewBox="0 0 360 480" aria-hidden="true" focusable="false"><path fill="currentColor" d="M18 480 35 324Q43 270 112 250L141 226 141 200Q109 180 107 130Q98 74 128 45Q149 24 180 24Q211 24 232 45Q262 74 253 130Q251 180 219 200L219 226 248 250Q317 270 325 324L342 480Z"/></svg>';
+ return `<svg class="portrait-art backstage-shadow" viewBox="0 0 360 480" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
+ <path fill="#06080c" d="M14 480 23 367Q28 322 48 291L103 264 119 235 107 205 109 143Q109 107 128 78L164 42Q178 33 190 40L219 67Q245 99 250 139L255 198 242 233 251 259 308 282Q329 302 337 344L351 480Z"/>
+ <path fill="#11171e" d="M164 49Q128 99 124 146L120 204 142 230 128 178Q131 121 167 87L201 75 185 45 216 74Q244 114 244 163L250 197 222 239 205 225 227 185Q231 126 201 94L181 80Z"/>
+ <path fill="#030509" d="M169 93 186 83Q224 120 227 163L220 194 199 219 174 229 148 209 135 179 136 148Q143 116 169 93Z"/>
+ <path fill="#10151c" d="M111 247 166 270 226 238 243 264 208 305 174 289 140 308 103 270ZM50 300 125 282 144 313 112 354 132 480 110 421 92 349ZM252 277 307 299 283 342 291 433 278 480 266 357 235 315Z"/>
+ <path fill="none" stroke="#1b232c" stroke-width="2" stroke-linecap="round" d="M126 95Q110 139 115 191M232 113Q246 157 248 185M54 303 97 290M270 292 307 306M145 315 157 394 151 450M209 313 194 385 208 460"/>
+ </svg>`;
 }

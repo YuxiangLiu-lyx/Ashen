@@ -1,0 +1,49 @@
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (20.506834ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.249125ms)
+✖ original maps, scenery, quests, dialogues, staging and retained art are unchanged (8.165708ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (32.023583ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (345.258875ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (8.393625ms)
+✔ legacy six-line hidden saves migrate once and retain original completion outcomes (47.272042ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (2.808917ms)
+✔ anonymous backstage speakers have only three short lines and no identity labels (0.67825ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.042ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.255292ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (454.495542ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (5747.052542ms)
+✔ each later chapter start can skip to the final result without stuck quests (6641.485375ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (2.949708ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (3.047083ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (9.311583ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (1.976625ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12993.787167
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:19:1
+✖ original maps, scenery, quests, dialogues, staging and retained art are unchanged (8.165708ms)
+  AssertionError [ERR_ASSERTION]: dist/core-v14.js
+  + actual - expected
+  
+  + '87e264d67ea42dde82701253294797a2b1ca26f0d1bbdbaf494d606a22f241b4'
+  - '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:24:69)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '87e264d67ea42dde82701253294797a2b1ca26f0d1bbdbaf494d606a22f241b4',
+    expected: '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

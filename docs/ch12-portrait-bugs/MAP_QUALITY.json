@@ -1,0 +1,134 @@
+{
+  "task_id": "ch12-portrait-bugs-20261011",
+  "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+  "reviewed_paths": [
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/game-v14.js"
+  ],
+  "assets": [],
+  "scope": "Dialogue portrait-only art repair; no map topology, world renderer, collision, NPC body or original raster edits. Existing scene quality limitations remain; not acceptance of a new map design.",
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "18图221条正式moveActor路径无未验证项；本场景完整原动作/对白点击到原结果，旧尾段重载与三视口按钮通过。原地图/任务/碰撞注册哈希保持。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/QA.json",
+            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/hall-collision.webp",
+            "sha256": "ecadde7af82608417c097035c4898c9120d15d827fd4cafc417ca368db877a36"
+          },
+          {
+            "path": "docs/harness/evidence/ch12-portrait-bugs-20261011/008-chapter-regression.txt",
+            "sha256": "315401d52af7f279febb40a653278ca0dfe323d63cb7e6a710b011d6e8c02cb1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "本轮只修对话层人物，原会馆/礼拜厅布景、道路和NPC岗位保留。查看实际全图、原剧情画面及哈希相等证据；不扩大为场景重设计质量结论。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/hall.webp",
+            "sha256": "978b3b839638b0cea4021156725a169f1290a5e68d9b335a9606243dd54a5642"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/commission.webp",
+            "sha256": "565a6736300ee9e346bed0cff51914d072989c13f6b6e834f4b7ae89f8f257a9"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/SCOPE.json",
+            "sha256": "38135ffdb2f85af8dd8d0eab082d26e232c159d5ce556b754d88b4ca6b83b29c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "鲁恩、薇蕾娜恢复已有原立绘；衣着与原裁切逐字节匹配，同一普通对白位置，已查看两人实际画面。 26场263行显示、原图匹配、深色填充及48帧原追兵回归通过；原图库历史边缘色不在本次修改中。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/browser/RESULT.json",
+            "sha256": "98aaebc5b9f3264a18a478c97bc44bb3fac73e52900517176f17a1c96cc3a46f"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/commission.webp",
+            "sha256": "565a6736300ee9e346bed0cff51914d072989c13f6b6e834f4b7ae89f8f257a9"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/browser/backstage-known-1.png",
+            "sha256": "7172a3fbd37983e8b67c63eda29f51b6ab1ccb71efec25dcd3d530a80fa130ef"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/browser/anonymous-844.png",
+            "sha256": "33ebc556c81a32d929dcaf977e4e8213db14429e47c2837490783b132fc46acf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chapel",
+      "playability": {
+        "status": "pass",
+        "reason": "18图221条正式moveActor路径无未验证项；本场景完整原动作/对白点击到原结果，旧尾段重载与三视口按钮通过。原地图/任务/碰撞注册哈希保持。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/QA.json",
+            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/chapel-collision.webp",
+            "sha256": "2855f808954fdd7bec24b93e4dc4f394bfea3af81c366c55f125b93972ea5638"
+          },
+          {
+            "path": "docs/harness/evidence/ch12-portrait-bugs-20261011/008-chapter-regression.txt",
+            "sha256": "315401d52af7f279febb40a653278ca0dfe323d63cb7e6a710b011d6e8c02cb1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "本轮只修对话层人物，原会馆/礼拜厅布景、道路和NPC岗位保留。查看实际全图、原剧情画面及哈希相等证据；不扩大为场景重设计质量结论。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/chapel.webp",
+            "sha256": "18d4d9f4fc0143777b3e3733149037009874e29c8aec3018bdb6df760e34a553"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/echo-1.webp",
+            "sha256": "f23f413291fb9f3a3db5bc090d075c0cf653c49efa28147bd665f1245ac85082"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/SCOPE.json",
+            "sha256": "38135ffdb2f85af8dd8d0eab082d26e232c159d5ce556b754d88b4ca6b83b29c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "匿名角色用明确深色兜帽/肩颈/披风轮廓，保持无面容/姓名/身份，原圣女与主祭图像未变；已查看桌面及手机画面。 26场263行显示、原图匹配、深色填充及48帧原追兵回归通过；原图库历史边缘色不在本次修改中。",
+        "evidence": [
+          {
+            "path": "docs/ch12-portrait-bugs/browser/RESULT.json",
+            "sha256": "98aaebc5b9f3264a18a478c97bc44bb3fac73e52900517176f17a1c96cc3a46f"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/scenes/echo-1.webp",
+            "sha256": "f23f413291fb9f3a3db5bc090d075c0cf653c49efa28147bd665f1245ac85082"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/browser/backstage-known-1.png",
+            "sha256": "7172a3fbd37983e8b67c63eda29f51b6ab1ccb71efec25dcd3d530a80fa130ef"
+          },
+          {
+            "path": "docs/ch12-portrait-bugs/browser/anonymous-844.png",
+            "sha256": "33ebc556c81a32d929dcaf977e4e8213db14429e47c2837490783b132fc46acf"
+          }
+        ]
+      }
+    }
+  ]
+}
