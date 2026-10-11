@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-11T09:47:42.206355+00:00",
-  "updated_at_utc": "2026-10-11T09:59:20.086804+00:00",
+  "updated_at_utc": "2026-10-11T10:02:43.336813+00:00",
   "decisions": [
     "只修前两章实际缺陷与人物对白表现；已知后台人物恢复原图；不开发第二章策划新增内容，不恢复暂停重构，不改章稿/任务/数值",
     "第二章结算重复可额外取得100经验/35金币；只在阶段11且未进入第三章时允许发放与交接，复用已有进度标志兼容旧档",
@@ -22,13 +22,14 @@
   "completed": [
     "26个前两章主要场景逐行检查及基线截图保存：普通已知人物映射正确；幕后H1错误遮为黑影，currentColor覆盖成白会改变人影；第二章重复结算经验金币已复现并红测",
     "已知幕后人物原图分支恢复；匿名兜帽披风明确深色填充；章界结算加既有stage/ch3Started保护；新2组回归与26场263行实际UI初测通过",
-    "最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过"
+    "最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过",
+    "c6980d5实现检查点保存；013干净源码构建及014离线/HTTP/手机包全部通过，原图与打包图片128项哈希不变，常用包已更新且旧包保留"
   ],
   "remaining": [
-    "默认离线包更新与验收、GitHub main同步及任务归档"
+    "GitHub main推送核验、交付回执与归档"
   ],
   "blockers": [],
-  "next": "保留旧默认包，构建新包并执行离线HTTP手机验收",
+  "next": "保存最终打包QA，整合main并推送核验",
   "required_checks": [
     "fast",
     "chapter-regression",
@@ -249,6 +250,46 @@
       "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/012-map-quality.txt",
       "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
       "timeout_seconds": 60.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/release-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T10:00:18.262586+00:00",
+      "finished_at_utc": "2026-10-11T10:00:20.293125+00:00",
+      "head_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/013-package-build.txt",
+      "output_sha256": "789b438a2563218358044cbf1d96f5d72cd89eb182b1e92e999fe9c4580f4889",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/release-build",
+        "--out",
+        "docs/ch12-portrait-bugs/packaged"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T10:00:20.364012+00:00",
+      "finished_at_utc": "2026-10-11T10:01:52.545499+00:00",
+      "head_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
+      "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch12-portrait-bugs-20261011/014-packaged-ui.txt",
+      "output_sha256": "5a4d1a60fa076cd6afc3235bc5e71355e3ba13b572106d49294a3f49308f70fe",
+      "timeout_seconds": 600.0
     }
   ],
   "stages": [
@@ -279,10 +320,10 @@
     {
       "name": "delivery",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-11T09:59:20.059749+00:00",
-      "head_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
+      "updated_at_utc": "2026-10-11T10:02:43.303848+00:00",
+      "head_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
       "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter3-runtime-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n?? docs/ch12-portrait-bugs/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/\n?? source/tasks/active/ch12-portrait-bugs-20261011.json\n?? tests/browser-ch12-portraits.mjs\n?? tests/ch12-bugs.test.mjs"
+      "worktree": "M .codex/progress.md\n M docs/ch12-portrait-bugs/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch12-portrait-bugs-20261011.json\n?? docs/ch12-portrait-bugs/packaged/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/013-package-build.txt\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/014-packaged-ui.txt"
     }
   ]
 }

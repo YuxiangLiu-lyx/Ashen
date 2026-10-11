@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter01_dialogue_04_with_chapter_testing",
+  "snapshot_type": "v30_ch12_portrait_fixes_with_chapter_testing",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Chapter-one0.4 and original maps/art/story retained. Eight chapter test entries and main-step skips are available in isolated saves; scripted injuries/setbacks stay intact. Full skip chains verified for three classes, not a natural eight-chapter playthrough. Private saves untouched; no website publication. Current evidence: docs/chapter-test/ACCEPTANCE.md.",
-  "checked_at_utc": "2026-10-11T09:29:29.544782+00:00",
+  "known_limits": "Known backstage speakers use original portraits; anonymous figures use explicit dark SVG fills. Current default did not reproduce reported white silhouettes, but text-color override reproduced the old weakness and now stays dark. Chapter-two end rewards are idempotent. No dialogue, original image or map changes; no complete natural campaign playthrough or private save access; no website publication.",
+  "checked_at_utc": "2026-10-11T10:02:43.266114+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Chapter testing passed: 8 desktop entries, isolated saves/reload/import, immunity and one-hit combat, mobile buttons; packaged offline/HTTP/mobile passed. Original dialogue 0.4 and full integration regressions passed. See docs/chapter-test/ACCEPTANCE.md.",
+  "browser_qa_status": "Ch12 portrait/bug repair passed: 26 scenes/263 lines/15 original character images, 18 maps/221 routes/48 frames, 18 chapter regressions, full integration and offline/HTTP/mobile packaged UI. See docs/ch12-portrait-bugs/ACCEPTANCE.md.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
+  "runtime_source_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -547,7 +547,7 @@
   },
   "ch12_portrait_bugs": {
     "task_id": "ch12-portrait-bugs-20261011",
-    "status": "all runtime verification passed; packaged entry and GitHub pending",
+    "status": "all checks and packaged UI passed; GitHub save pending",
     "baseline_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
     "scope": [
       "known backstage characters retain original portraits",
@@ -567,9 +567,16 @@
       "portrait-browser": "26 scenes, 263 lines, 15 original character images, 3 viewports passed",
       "scene-browser": "18 maps, 221 paths, 48 frames, 2 full scenes passed",
       "integration": "76 Node, 16 browser, 14 full-event parity and world/map regressions passed",
-      "map-quality": "passed; portrait repair with unchanged original worlds/assets"
+      "map-quality": "passed; portrait repair with unchanged original worlds/assets",
+      "packaged-ui": "passed: offline-file, HTTP, mobile-landscape; known original images and explicit dark silhouette",
+      "package-build": "passed: clean source c6980d5, 200 modules, 128 images byte-identical to previous package"
     },
     "map_quality": "docs/ch12-portrait-bugs/MAP_QUALITY.json",
-    "checked_at_utc": "2026-10-11T09:59:20.114132+00:00"
+    "checked_at_utc": "2026-10-11T10:02:43.266114+00:00",
+    "implementation_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
+    "offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-portraits-20261011",
+    "offline_build_manifest": "docs/ch12-portrait-bugs/packaged/WEB_BUILD_MANIFEST.json",
+    "runtime_input_sha256": "b1ede42a9f7b6cffb94316ea5a6ce5535aaca7e0af2f3246fc786946f0a132a7"
   }
 }
