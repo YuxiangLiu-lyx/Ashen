@@ -1,6 +1,6 @@
 # 前两章人物表现与缺陷检查
 
-状态：最终运行验收与默认离线/HTTP/手机包通过；GitHub保存待核验。
+状态：最终运行验收与默认离线/HTTP/手机包通过；GitHub main已推送并核验。
 
 ## 已复现及修复
 
@@ -25,3 +25,5 @@
 013构建来自干净提交 `c6980d5b663e647a3bf16e0470805a4c963cc7a0`；200模块、128打包图片。原图片和打包图片哈希均与上一包相等。014离线file/HTTP/手机UI通过，新增实际导入H1并检查鲁恩→薇蕾娜原图切换，H2计算填充为黑色，旧尾段恢复、正常旅程、八章入口与免伤秒杀测试功能均保留。
 
 常用入口：`qa-export/release-build/Ashen-V28.1-Play.html`，兼容别名 `qa-export/dialogue-release-build`；旧默认保留至 `qa-export/release-build-before-portraits-20261011`，仅压缩缓存复用。新HTML SHA256：`9e1df4a3ff3ca73fa927043d33bfbc81e94d62cf2dbb81919dfdfb150792c5b9`；构建清单/浏览器报告在 `packaged/`。本地HTML不入Git，代码、原件归档、构建工具、截图与验收落盘保存。002/006失败原始输出的空格按证据哈希保留。
+
+GitHub保存：运行实现 `c6980d5`，完整包验收 `bdbb15a3a4d67aa6dbdc99ef7075ec05b41ca85f` 已正常推送main，ls-remote与本地HEAD相等。回执 `GIT_SAVE.json`，任务已归档；未发布网站。

@@ -11,9 +11,9 @@
     "art",
     "build"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-11T09:47:42.206355+00:00",
-  "updated_at_utc": "2026-10-11T10:02:43.336813+00:00",
+  "updated_at_utc": "2026-10-11T10:04:16.910202+00:00",
   "decisions": [
     "只修前两章实际缺陷与人物对白表现；已知后台人物恢复原图；不开发第二章策划新增内容，不恢复暂停重构，不改章稿/任务/数值",
     "第二章结算重复可额外取得100经验/35金币；只在阶段11且未进入第三章时允许发放与交接，复用已有进度标志兼容旧档",
@@ -23,13 +23,12 @@
     "26个前两章主要场景逐行检查及基线截图保存：普通已知人物映射正确；幕后H1错误遮为黑影，currentColor覆盖成白会改变人影；第二章重复结算经验金币已复现并红测",
     "已知幕后人物原图分支恢复；匿名兜帽披风明确深色填充；章界结算加既有stage/ch3Started保护；新2组回归与26场263行实际UI初测通过",
     "最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过",
-    "c6980d5实现检查点保存；013干净源码构建及014离线/HTTP/手机包全部通过，原图与打包图片128项哈希不变，常用包已更新且旧包保留"
+    "c6980d5实现检查点保存；013干净源码构建及014离线/HTTP/手机包全部通过，原图与打包图片128项哈希不变，常用包已更新且旧包保留",
+    "实现c6980d5与完整包验收bdbb15a已正常推送GitHub main，ls-remote与本地HEAD一致；状态/截图/角色映射/原图哈希/旧包/默认入口/回执均保存"
   ],
-  "remaining": [
-    "GitHub main推送核验、交付回执与归档"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "保存最终打包QA，整合main并推送核验",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "chapter-regression",
@@ -319,11 +318,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-11T10:02:43.303848+00:00",
-      "head_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T10:04:16.880712+00:00",
+      "head_commit": "bdbb15a3a4d67aa6dbdc99ef7075ec05b41ca85f",
       "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
-      "worktree": "M .codex/progress.md\n M docs/ch12-portrait-bugs/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch12-portrait-bugs-20261011.json\n?? docs/ch12-portrait-bugs/packaged/\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/013-package-build.txt\n?? docs/harness/evidence/ch12-portrait-bugs-20261011/014-packaged-ui.txt"
+      "worktree": "M .codex/progress.md\n M docs/ch12-portrait-bugs/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/ch12-portrait-bugs/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "前两章已知人物恢复原立绘，匿名人影明确黑色并有兜帽披风轮廓；第二章结算幂等修复。26场263行、18章节回归、18图221路径、fast/integration与离线HTTP手机包通过，bdbb15a已核验GitHub main。",
+  "completed_at_utc": "2026-10-11T10:04:16.998483+00:00",
+  "verified_source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9"
 }

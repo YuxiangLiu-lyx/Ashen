@@ -4,7 +4,7 @@
 
 ## 当前目标与范围
 
-2026-10-11前两章人物与缺陷修复 `ch12-portrait-bugs-20261011`：已知幕后人物恢复原立绘，匿名兜帽/披风黑影固定深色；第二章章界经验金币只结算一次。26场263行/15角色/三视口、18图221路径/48帧/完整对白、18章节回归、fast28、integration及离线HTTP手机包均通过。实现c6980d5，常用包已更新且旧包保留；GitHub保存待核验。验收docs/ch12-portrait-bugs/ACCEPTANCE.md；旧图/对白/地图与暂停重构保留。
+2026-10-11前两章人物与缺陷修复 `ch12-portrait-bugs-20261011`：已知幕后人物恢复原立绘，匿名兜帽/披风黑影固定深色；第二章章界经验金币只结算一次。26场263行/15角色/三视口、18图221路径/48帧/完整对白、18章节回归、fast28、integration及离线HTTP手机包均通过。实现c6980d5、完整验收bdbb15a已推送main并ls-remote核对；常用包已更新且旧包保留，任务归档。验收docs/ch12-portrait-bugs/ACCEPTANCE.md；旧图/对白/地图与暂停重构保留。
 
 2026-10-11章节测试 `chapter-test-20261011`：八章直接进入、各章独立保存、免伤/命中秒杀、跳过当前主线和对白已完成。最终fast28、integration76与浏览器/地图回归、新功能7组与八章UI、离线/HTTP/手机包全部通过；正常存档与原图/118图/99任务/518对白保持。实现95d1bde、完整验收ed193e1已推送main并ls-remote核对；常用离线包已更新且旧包保留。任务完成归档，原站未发布。验收见docs/chapter-test/ACCEPTANCE.md。
 
@@ -297,17 +297,17 @@
 
 <!-- task:ch12-portrait-bugs-20261011 -->
 ## 任务 ch12-portrait-bugs-20261011
-- 状态：in_progress
-- 更新：2026-10-11T10:02:43.336813+00:00
-- 下一步：保存最终打包QA，整合main并推送核验
-- 任务记录：source/tasks/active/ch12-portrait-bugs-20261011.json
-- 已完成：26个前两章主要场景逐行检查及基线截图保存：普通已知人物映射正确；幕后H1错误遮为黑影，currentColor覆盖成白会改变人影；第二章重复结算经验金币已复现并红测；已知幕后人物原图分支恢复；匿名兜帽披风明确深色填充；章界结算加既有stage/ch3Started保护；新2组回归与26场263行实际UI初测通过；最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过；c6980d5实现检查点保存；013干净源码构建及014离线/HTTP/手机包全部通过，原图与打包图片128项哈希不变，常用包已更新且旧包保留
-- 待完成：GitHub main推送核验、交付回执与归档
+- 状态：complete
+- 更新：2026-10-11T10:04:16.910202+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/ch12-portrait-bugs-20261011.json
+- 已完成：26个前两章主要场景逐行检查及基线截图保存：普通已知人物映射正确；幕后H1错误遮为黑影，currentColor覆盖成白会改变人影；第二章重复结算经验金币已复现并红测；已知幕后人物原图分支恢复；匿名兜帽披风明确深色填充；章界结算加既有stage/ch3Started保护；新2组回归与26场263行实际UI初测通过；最终007 fast28、008章节18项、009前两章26场263行15原角色及三视口、010十八图221路径48帧两完整场景、011 integration全部通过；012人物三维门禁通过；c6980d5实现检查点保存；013干净源码构建及014离线/HTTP/手机包全部通过，原图与打包图片128项哈希不变，常用包已更新且旧包保留；实现c6980d5与完整包验收bdbb15a已正常推送GitHub main，ls-remote与本地HEAD一致；状态/截图/角色映射/原图哈希/旧包/默认入口/回执均保存
+- 待完成：无
 - 决定：只修前两章实际缺陷与人物对白表现；已知后台人物恢复原图；不开发第二章策划新增内容，不恢复暂停重构，不改章稿/任务/数值；第二章结算重复可额外取得100经验/35金币；只在阶段11且未进入第三章时允许发放与交接，复用已有进度标志兼容旧档；006仅旧0.4 core哈希与上一轮授权测试秒杀一行冲突；改为精确识别这一行并校验剩余核心完整旧哈希，保留旧基线及所有原世界/资源断言
 - 阻塞：无
 - 阶段 audit：complete；HEAD cd630f46be5f3aafdbce99147c10c5da327d6928
 - 阶段 implementation：complete；HEAD cd630f46be5f3aafdbce99147c10c5da327d6928
 - 阶段 verification：complete；HEAD cd630f46be5f3aafdbce99147c10c5da327d6928
-- 阶段 delivery：in_progress；HEAD c6980d5b663e647a3bf16e0470805a4c963cc7a0
+- 阶段 delivery：complete；HEAD bdbb15a3a4d67aa6dbdc99ef7075ec05b41ca85f
 - 最近检查：packaged-ui，退出码 0；docs/harness/evidence/ch12-portrait-bugs-20261011/014-packaged-ui.txt
 <!-- /task:ch12-portrait-bugs-20261011 -->
