@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter01_dialogue_04_on_user_rollback",
+  "snapshot_type": "v30_chapter01_dialogue_04_with_chapter_testing",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Chapter-one0.4 retains character/map improvements, removes new full-screen cinematic design, uses original dialogue UI with anonymous shadows. No private saves or complete eight-chapter clear; no website publication. Prior evidence remains historical. Current verification: docs/ch1-dialogue-cleanup.",
-  "checked_at_utc": "2026-10-11T03:54:08.552359+00:00",
+  "known_limits": "Chapter-one0.4 and original maps/art/story retained. Eight chapter test entries and main-step skips are available in isolated saves; scripted injuries/setbacks stay intact. Full skip chains verified for three classes, not a natural eight-chapter playthrough. Private saves untouched; no website publication. Current evidence: docs/chapter-test/ACCEPTANCE.md.",
+  "checked_at_utc": "2026-10-11T09:29:29.544782+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "0.4 passed:28 Harness,9 dialogue/save checks,18-map221-route/48-frame/3-viewport browser review,76 integration regressions/14 full-event parity/35-map rendering,offline/HTTP/mobile packaged UI and legacy tail import/reload/safe-exit save. Integration/browser receipts reused only after exact input/hash validation for unrelated packaged-test timing fix.",
+  "browser_qa_status": "Chapter testing passed: 8 desktop entries, isolated saves/reload/import, immunity and one-hit combat, mobile buttons; packaged offline/HTTP/mobile passed. Original dialogue 0.4 and full integration regressions passed. See docs/chapter-test/ACCEPTANCE.md.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "232cd31eb99b2aa3e4f42731a06b12fb4ead6105",
+  "runtime_source_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -495,7 +495,7 @@
   },
   "chapter_test": {
     "task_id": "chapter-test-20261011",
-    "status": "runtime verified; packaged entry and GitHub save pending",
+    "status": "all verification passed; GitHub save pending",
     "chapters": [
       1,
       2,
@@ -521,11 +521,24 @@
       "integration": "passed: 76 Node, 16 browser, 14 event parity, world and map suites",
       "chapter-test": "passed: 7 groups, 24 seeds, three-class full skip chains",
       "chapter-test-browser": "passed: 8 chapter buttons, combat, reload, isolation, mobile",
-      "map-quality": "passed: unchanged world and exercised entry/UI/actors"
+      "map-quality": "passed: unchanged world and exercised entry/UI/actors",
+      "packaged-ui": "passed: offline-file, http-site, mobile-landscape",
+      "package-build": "passed: source95d1bde clean, 200 modules/128 packaged images"
     },
     "normal_save_schema": 15,
     "map_data_changed": false,
     "original_dialogue_changed": false,
-    "reward_values_changed": false
+    "reward_values_changed": false,
+    "implementation_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
+    "current_offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-tests-20261011",
+    "offline_build_manifest": "docs/chapter-test/packaged/WEB_BUILD_MANIFEST.json",
+    "runtime_input_sha256": "05889d1e02732c1e73749d68170d75b88706f840e362278efbb465a6c9ad4a7e",
+    "checked_at_utc": "2026-10-11T09:29:29.544782+00:00",
+    "packaged_ui": [
+      "offline-file",
+      "http-site",
+      "mobile-landscape"
+    ]
   }
 }

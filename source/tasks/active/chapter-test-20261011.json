@@ -12,7 +12,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-11T08:57:29.844378+00:00",
-  "updated_at_utc": "2026-10-11T09:24:45.654629+00:00",
+  "updated_at_utc": "2026-10-11T09:29:29.619134+00:00",
   "decisions": [
     "扩展已有V25/V26独立测试模式；只增加测试工具，不修改章稿、地图、正常剧情或平衡；阶段为审计基线、实现、验证交付",
     "任务跳过在独立RPG副本执行，失败保持原会话；V26采集/交付仅本次测试调用忽略距离视线，不改地图；剧情击退与救援保持；首项失败仅为测试忽略parseSave默认游标，已修断言",
@@ -22,13 +22,14 @@
     "原件归档、运行审计、基线Node和浏览器均通过；实现及验收计划已落盘",
     "八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验",
     "最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限",
-    "最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致"
+    "最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致",
+    "95d1bde实现检查点已保存；016干净源码构建200模块与128图片、017离线/HTTP/手机打包UI全部通过，常用路径已更新、旧包保留"
   ],
   "remaining": [
-    "更新默认离线包并验收；GitHub main保存与任务归档"
+    "GitHub main推送核验与任务归档"
   ],
   "blockers": [],
-  "next": "保留旧默认包并构建，执行离线/HTTP/手机包验收后推送main",
+  "next": "保存最终验收并快进main，推送核对远端HEAD",
   "required_checks": [
     "fast",
     "integration",
@@ -291,6 +292,46 @@
       "output": "docs/harness/evidence/chapter-test-20261011/015-map-quality.txt",
       "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
       "timeout_seconds": 60.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/release-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:25:40.456069+00:00",
+      "finished_at_utc": "2026-10-11T09:25:57.629817+00:00",
+      "head_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/016-package-build.txt",
+      "output_sha256": "d8e8ef54559309610f6f2bdc6dc9b31296607258416972df0aeca80623ad3f8a",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/release-build",
+        "--out",
+        "docs/chapter-test/packaged"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:26:31.537736+00:00",
+      "finished_at_utc": "2026-10-11T09:28:50.395066+00:00",
+      "head_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/017-packaged-ui.txt",
+      "output_sha256": "41c18cf81341f185b5c6eb429fed74195b81e372f04497b9a02256c65662d96d",
+      "timeout_seconds": 600.0
     }
   ],
   "stages": [
@@ -321,10 +362,10 @@
     {
       "name": "delivery",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-11T09:24:45.626724+00:00",
-      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "updated_at_utc": "2026-10-11T09:29:29.589768+00:00",
+      "head_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
       "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/story-test-v25.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-presentation-v281.mjs\n M tests/browser-web-play.py\n?? dist/story-test-v31.js\n?? docs/chapter-test/\n?? docs/harness/evidence/chapter-test-20261011/\n?? source/tasks/active/chapter-test-20261011.json\n?? tests/browser-chapter-test.mjs\n?? tests/chapter-test.test.mjs"
+      "worktree": "M .codex/progress.md\n M docs/chapter-test/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/chapter-test-20261011.json\n?? docs/chapter-test/packaged/\n?? docs/harness/evidence/chapter-test-20261011/016-package-build.txt\n?? docs/harness/evidence/chapter-test-20261011/017-packaged-ui.txt"
     }
   ]
 }

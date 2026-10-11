@@ -4,6 +4,8 @@
 
 ## 当前目标与范围
 
+2026-10-11章节测试 `chapter-test-20261011`：八章直接进入、各章独立保存、免伤/命中秒杀、跳过当前主线和对白已完成。最终fast28、integration76与浏览器/地图回归、新功能7组与八章UI、离线/HTTP/手机包全部通过；正常存档与原图/118图/99任务/518对白保持。实现95d1bde，常用离线包已更新且旧包保留；GitHub保存进行中。验收见docs/chapter-test/ACCEPTANCE.md。
+
 2026-10-11入口修复 `ch1-launch-recovery-20261011`：用户运行未见回改。发现默认qa-export/release-build仍为旧0.3，而已验收0.4在另一目录；已校验并提升至原默认路径，旧包另存且别名保持，未改运行代码/存档。fast28及默认入口离线/HTTP/移动端实测通过，旧档恢复与黑影对白已核验；bc2be23已推送main并核对，任务已归档。用户实际地址尚未提供，不声称已确认其具体入口。验收见docs/ch1-launch-recovery/ACCEPTANCE.md。
 
 当前任务 `ch1-dialogue-cleanup-20261010`已完成并归档：0.4实现与全部验收通过，fdffaca已推送GitHub main并ls-remote核对，任务记录位于archive；交付回执见docs/ch1-dialogue-cleanup/GIT_SAVE.json。保留0f3c9f9的人物/地图/交互优化，撤下新增全屏分镜和现行Harness设计；幕后改原对话框＋黑影，未知人无身份标签，每人一句。009集成、008浏览器通过；只改打包测试等待后013/014核验复用，最终011 fast28、012 dialogue9、015离线/HTTP/移动端、016三维通过。失败日志和范围限制落盘docs/ch1-dialogue-cleanup/ACCEPTANCE.md。原动作/对白/任务/奖励及保留文件哈希相等；旧H2六行游标兼容。下方0.3完成记录为修改前历史。
@@ -277,16 +279,16 @@
 <!-- task:chapter-test-20261011 -->
 ## 任务 chapter-test-20261011
 - 状态：in_progress
-- 更新：2026-10-11T09:24:45.654629+00:00
-- 下一步：保留旧默认包并构建，执行离线/HTTP/手机包验收后推送main
+- 更新：2026-10-11T09:29:29.619134+00:00
+- 下一步：保存最终验收并快进main，推送核对远端HEAD
 - 任务记录：source/tasks/active/chapter-test-20261011.json
-- 已完成：原件归档、运行审计、基线Node和浏览器均通过；实现及验收计划已落盘；八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验；最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限；最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致
-- 待完成：更新默认离线包并验收；GitHub main保存与任务归档
+- 已完成：原件归档、运行审计、基线Node和浏览器均通过；实现及验收计划已落盘；八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验；最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限；最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致；95d1bde实现检查点已保存；016干净源码构建200模块与128图片、017离线/HTTP/手机打包UI全部通过，常用路径已更新、旧包保留
+- 待完成：GitHub main推送核验与任务归档
 - 决定：扩展已有V25/V26独立测试模式；只增加测试工具，不修改章稿、地图、正常剧情或平衡；阶段为审计基线、实现、验证交付；任务跳过在独立RPG副本执行，失败保持原会话；V26采集/交付仅本次测试调用忽略距离视线，不改地图；剧情击退与救援保持；首项失败仅为测试忽略parseSave默认游标，已修断言；010集成76回归通过，浏览器旧QA hook引用game已撤下的V26绑定失败；改为hook明确动态导入原生成器，不改原测试内容或断言
 - 阻塞：无
 - 阶段 audit：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
 - 阶段 implementation：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
 - 阶段 verification：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
-- 阶段 delivery：in_progress；HEAD 68d508e41a878afbb278093275cba9518fd831e8
-- 最近检查：map-quality，退出码 0；docs/harness/evidence/chapter-test-20261011/015-map-quality.txt
+- 阶段 delivery：in_progress；HEAD 95d1bde576a313be189ed47dbe24c2cf44bb271c
+- 最近检查：packaged-ui，退出码 0；docs/harness/evidence/chapter-test-20261011/017-packaged-ui.txt
 <!-- /task:chapter-test-20261011 -->
