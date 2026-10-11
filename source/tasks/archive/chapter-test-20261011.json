@@ -10,9 +10,9 @@
     "economy",
     "save"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-11T08:57:29.844378+00:00",
-  "updated_at_utc": "2026-10-11T09:29:29.619134+00:00",
+  "updated_at_utc": "2026-10-11T09:30:43.319943+00:00",
   "decisions": [
     "扩展已有V25/V26独立测试模式；只增加测试工具，不修改章稿、地图、正常剧情或平衡；阶段为审计基线、实现、验证交付",
     "任务跳过在独立RPG副本执行，失败保持原会话；V26采集/交付仅本次测试调用忽略距离视线，不改地图；剧情击退与救援保持；首项失败仅为测试忽略parseSave默认游标，已修断言",
@@ -23,13 +23,12 @@
     "八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验",
     "最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限",
     "最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致",
-    "95d1bde实现检查点已保存；016干净源码构建200模块与128图片、017离线/HTTP/手机打包UI全部通过，常用路径已更新、旧包保留"
+    "95d1bde实现检查点已保存；016干净源码构建200模块与128图片、017离线/HTTP/手机打包UI全部通过，常用路径已更新、旧包保留",
+    "运行实现95d1bde和完整验收ed193e1已推送GitHub main，ls-remote与本地HEAD相等；默认离线包/历史保留/回执/状态完成，未发布网站"
   ],
-  "remaining": [
-    "GitHub main推送核验与任务归档"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "保存最终验收并快进main，推送核对远端HEAD",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration",
@@ -361,11 +360,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-11T09:29:29.589768+00:00",
-      "head_commit": "95d1bde576a313be189ed47dbe24c2cf44bb271c",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:30:43.290260+00:00",
+      "head_commit": "ed193e1bae88bb1e58a881e856437d2d06f5f0dd",
       "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
-      "worktree": "M .codex/progress.md\n M docs/chapter-test/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/chapter-test-20261011.json\n?? docs/chapter-test/packaged/\n?? docs/harness/evidence/chapter-test-20261011/016-package-build.txt\n?? docs/harness/evidence/chapter-test-20261011/017-packaged-ui.txt"
+      "worktree": "M .codex/progress.md\n M docs/chapter-test/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/chapter-test/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "八章独立测试、免伤秒杀及主线/对白跳过完成；最终fast/integration/逻辑/浏览器/三维/离线HTTP手机验收通过，ed193e1已核对GitHub main，常用本地包更新且旧包保留",
+  "completed_at_utc": "2026-10-11T09:30:43.420190+00:00",
+  "verified_source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237"
 }
