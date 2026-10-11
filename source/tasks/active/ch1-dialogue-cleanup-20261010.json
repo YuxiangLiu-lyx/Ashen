@@ -1,0 +1,341 @@
+{
+  "schema": 1,
+  "id": "ch1-dialogue-cleanup-20261010",
+  "goal": "保留人物与地图优化；撤下第一章新增分镜演出和对应Harness设计；新增幕后剧情使用原对话框、黑影和匿名简短台词",
+  "acceptance": [
+    "追兵资源/地图/交互与0f3c9f9保持，原对白/奖励/章节结果不变",
+    "无新增全屏分镜/专用演出UI/回看；幕后保留且黑影无身份标签，旧尾段存档可继续不重复提交",
+    "删除现行分镜Harness要求/入口，完成专项/集成/打包与证据，提交推送main核验"
+  ],
+  "baseline_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "lab"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-11T03:24:01.844785+00:00",
+  "updated_at_utc": "2026-10-11T03:53:25.093692+00:00",
+  "decisions": [
+    "0.4采用原对话UI；H1保留6句，H2匿名黑影3人各一句；旧H2六行游标按组映射，明确版本避免二次迁移。",
+    "010打包UI失败是早于既有封闭战斗结束读安全存档；只修测试等待，保留运行规则。013/014逐文件及日志哈希核验复用未变的008/009检查，015核验复用010已完成构建，避免重做。"
+  ],
+  "completed": [
+    "已检查干净main并fetch，保存0f3c9f9的地图/对白/任务/景物/原STAGING和保留资源哈希，计划落盘。",
+    "原对话与黑影接入、匿名三句和旧游标迁移完成；九项专项通过，10个保留文件及原地图/对白/任务/STAGING哈希相等。现行分镜Harness删除，历史原件保留。",
+    "最终fast28项、dialogue9项、浏览器两完整场景/18图221路径/48帧/三视口、integration76项与14事件/35图均通过。015打包离线/HTTP/移动端通过，旧尾段实际导入/刷新/出门安全保存无重复；三维门禁通过。"
+  ],
+  "remaining": [
+    "提交并正常推送GitHub main，ls-remote核对后归档任务和最终回执"
+  ],
+  "blockers": [],
+  "next": "核对diff/资源/ignore/staged，提交、推送main并验证远端",
+  "required_checks": [
+    "fast",
+    "dialogue",
+    "browser",
+    "integration",
+    "packaged-ui"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "node",
+        "docs/ch1-dialogue-cleanup/capture-baseline.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:25:44.776102+00:00",
+      "finished_at_utc": "2026-10-11T03:25:44.972302+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/001-baseline.txt",
+      "output_sha256": "a97fd6eb13f7b0e408b3d0b932b91657435715524c83219ee0d037c30bf5cb4a",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "dialogue",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T03:32:45.764976+00:00",
+      "finished_at_utc": "2026-10-11T03:32:46.385952+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "8b4d087a7ee8d2743167e876e0de83f30aa25f71a402fd3bb8619d8a391b81f5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/002-dialogue.txt",
+      "output_sha256": "77bfa7e0674aa3de11c0d7ecd59032ae464006ba21173b8d096a74c383a3d194",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "dialogue",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:33:23.077030+00:00",
+      "finished_at_utc": "2026-10-11T03:33:23.705300+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "f8f2e67d1a9c9e1e1c1c4ddde660a928ee9303d3283a6ecb17b2483081e5e36c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/003-dialogue.txt",
+      "output_sha256": "4e5d38cbf1db3538f6cbf2732af27caf06e5a37b737263a5e945871f5eeb3757",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:35:08.637747+00:00",
+      "finished_at_utc": "2026-10-11T03:36:18.584965+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "eb117cc39c208f8043b2013b5e4ddae32bd4abfd16646f69a976fb5e2547e781",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/004-browser.txt",
+      "output_sha256": "142ea35c941aedc9694845bc8d4477141a20b400c291fedaf46945e50c92b1f3",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T03:37:14.476003+00:00",
+      "finished_at_utc": "2026-10-11T03:37:33.377352+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "995d88ae4e8628e0df17a36fe03fede76f76a876d344303c45908cdbed403454",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/005-fast.txt",
+      "output_sha256": "798f97bb56b8cdfa24d77820ce880b723fed06d8f21012f51e403bf947cee3ef",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:37:43.124854+00:00",
+      "finished_at_utc": "2026-10-11T03:37:55.744011+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "1da2bfc7124054773540f135331aad0e6369dd5c3fef348c72a423eed3b38731",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/006-fast.txt",
+      "output_sha256": "4064cac779d5d1ee1a98c2e907c21a9d1ecf8602bade780d5916414e0aa32329",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "dialogue",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:38:26.305822+00:00",
+      "finished_at_utc": "2026-10-11T03:38:26.930786+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "1da2bfc7124054773540f135331aad0e6369dd5c3fef348c72a423eed3b38731",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/007-dialogue.txt",
+      "output_sha256": "27acc20b0074cf4f1a1d94016f0d8633206e97ae82ddc1bd478170027ead8aa8",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:38:26.992659+00:00",
+      "finished_at_utc": "2026-10-11T03:39:11.306509+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "1da2bfc7124054773540f135331aad0e6369dd5c3fef348c72a423eed3b38731",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/008-browser.txt",
+      "output_sha256": "142ea35c941aedc9694845bc8d4477141a20b400c291fedaf46945e50c92b1f3",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        ".venv/bin/python",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:39:19.566171+00:00",
+      "finished_at_utc": "2026-10-11T03:42:52.778662+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "1da2bfc7124054773540f135331aad0e6369dd5c3fef348c72a423eed3b38731",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/009-integration.txt",
+      "output_sha256": "d5959cd829cbd9eeed8e66fd0099249541b6ab2e00fdf7c52f7ff2485abe00df",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        ".venv/bin/python",
+        "docs/ch1-dialogue-cleanup/verify-packaged.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T03:44:10.339337+00:00",
+      "finished_at_utc": "2026-10-11T03:47:49.182308+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "1da2bfc7124054773540f135331aad0e6369dd5c3fef348c72a423eed3b38731",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/010-packaged-ui.txt",
+      "output_sha256": "c2602bc5c75f9f1915ca90b5fe01b1569790b3ae4212d94be97ca882febaba51",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:50:20.268867+00:00",
+      "finished_at_utc": "2026-10-11T03:50:33.465344+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/011-fast.txt",
+      "output_sha256": "7268504abd10952cfe263a944f6cc2a6c20fd2c9f7173558630cc66c6e1cbbcd",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "dialogue",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:51:47.431154+00:00",
+      "finished_at_utc": "2026-10-11T03:51:48.002447+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/012-dialogue.txt",
+      "output_sha256": "869f9f0c902455396b4cbc71860a9ee11cd23c28f0c07f6b3e58815fc8e6b364",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "browser",
+      "command": [
+        "python3",
+        "docs/ch1-dialogue-cleanup/verify-unchanged-check.py",
+        "browser"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:51:48.062037+00:00",
+      "finished_at_utc": "2026-10-11T03:51:48.111561+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/013-browser.txt",
+      "output_sha256": "6d3c72c044989cc3b9b073dd888521fa4ef770cf712782b01e709acbc2c6a143",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-dialogue-cleanup/verify-unchanged-check.py",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:51:48.168912+00:00",
+      "finished_at_utc": "2026-10-11T03:51:48.219793+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/014-integration.txt",
+      "output_sha256": "900d5ea663b5bf5f96cf20da27e288d778506ac80044d03605c7bc807cd0c493",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        ".venv/bin/python",
+        "docs/ch1-dialogue-cleanup/verify-packaged.py",
+        "--ui-only"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:51:48.277242+00:00",
+      "finished_at_utc": "2026-10-11T03:53:09.729429+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/015-packaged-ui.txt",
+      "output_sha256": "cfb81732557c4ee47906c5b1d95a96c1c287b526943330813c28ae3dce2bc335",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "0f3c9f9"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T03:53:24.888948+00:00",
+      "finished_at_utc": "2026-10-11T03:53:25.023741+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/016-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "baseline",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T03:25:45.028556+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "9b273efd966e2765c6a4bf2f796e04c065471e6a0b655b393d7d0d89adeb861c",
+      "worktree": "M .codex/progress.md\n?? docs/ch1-dialogue-cleanup/\n?? docs/harness/evidence/ch1-dialogue-cleanup-20261010/\n?? source/tasks/active/ch1-dialogue-cleanup-20261010.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T03:34:51.197413+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "eb117cc39c208f8043b2013b5e4ddae32bd4abfd16646f69a976fb5e2547e781",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/c1-incremental/chapel-action-a.png\n D dist/assets/c1-incremental/chapel-action-b.png\n D dist/assets/c1-incremental/chapel.png\n D dist/assets/c1-incremental/seal-echo.png\n D dist/chapter-one-cinematic-v31.css\n D dist/chapter-one-cinematic-v31.js\n M dist/game-v14.js\n M dist/index.html\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n D docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M docs/harness/WORLD_VISION.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/modules.json\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/harness/test_narrative_routing.py\n?? dist/chapter-one-dialogues-v31.js\n?? docs/ch1-dialogue-cleanup/\n?? docs/harness/evidence/ch1-dialogue-cleanup-20261010/\n?? history/c1-cinematic-20261010/\n?? source/tasks/active/ch1-dialogue-cleanup-20261010.json"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T03:53:25.068446+00:00",
+      "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/c1-incremental/chapel-action-a.png\n D dist/assets/c1-incremental/chapel-action-b.png\n D dist/assets/c1-incremental/chapel.png\n D dist/assets/c1-incremental/seal-echo.png\n D dist/chapter-one-cinematic-v31.css\n D dist/chapter-one-cinematic-v31.js\n M dist/game-v14.js\n M dist/index.html\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n D docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M docs/harness/WORLD_VISION.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-chapter-one-play-v30.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/harness/test_narrative_routing.py\n?? dist/chapter-one-dialogues-v31.js\n?? docs/ch1-dialogue-cleanup/\n?? docs/harness/evidence/ch1-dialogue-cleanup-20261010/\n?? docs/map-quality/ch1-pilot-r2-20261010.json\n?? history/c1-cinematic-20261010/\n?? source/tasks/active/ch1-dialogue-cleanup-20261010.json"
+    }
+  ]
+}

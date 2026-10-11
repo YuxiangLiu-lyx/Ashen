@@ -11,8 +11,7 @@ async function button(selector){
  assert.ok(p,'Missing '+selector);await b.click(p.x,p.y);await delay(180);
 }
 async function dialogue(){
- // The adopted assassination includes an eight-second confrontation before sealing.
- // Bound elapsed time rather than a click count that expires during valid action beats.
+ // Bound elapsed time so the original map staging can finish between dialogue clicks.
  const deadline=Date.now()+90000;
  while(Date.now()<deadline){
   const s=await state();if(s.mode==='play'&&!s.pending)return;

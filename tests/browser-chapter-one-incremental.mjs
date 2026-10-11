@@ -3,7 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {browserSession,delay} from '../tools/browser_session.mjs';
-const out=path.resolve(process.env.ASHEN_C1_OUTPUT||'docs/ch1-pilot-r2/browser');fs.mkdirSync(out,{recursive:true});
+const out=path.resolve(process.env.ASHEN_C1_OUTPUT||'docs/ch1-dialogue-cleanup/browser');fs.mkdirSync(out,{recursive:true});
 const hook=`
 import {pursuitSheet as reviewSheet} from './chapter-one-pursuit-v31.js';
 import {exactRouteV26 as reviewRoute} from './scene-geometry-v26.js';
@@ -28,15 +28,16 @@ window.__C1={ready:()=>assetsReady,
   [{type:'guard',label:'Soldier',portrait:6},{type:'guard',elite:true,label:'Elite',portrait:6},{type:'captain',label:'Officer',portrait:8}].forEach((v,row)=>{bank.draw(c,'npcPortraits5',v.portrait,70,row*310+220,120,180);c.fillStyle='#eee3c9';c.font='16px sans-serif';c.fillText(v.label,15,row*310+250);
    const sheet=reviewSheet(v);for(let i=0;i<16;i++){const phase=i%8,x=235+i%8*200,y=row*310+(i<8?135:285),a={...v,x,y,angle:i<8?0:-1.2,moving:phase<4,walkDistance:phase*38,wind:phase===4?.4:phase===5?.1:0,windMax:.45,attackAnim:phase===6?.3:phase===7?.08:0};c.strokeStyle='#a8b598';c.beginPath();c.moveTo(x-60,y);c.lineTo(x+70,y);c.stroke();drawMonster(c,bank,a,0,{natural:true,chapterOne:true});const f=bank.frames[sheet]?.[i];if(!f)throw Error('Missing '+sheet+i);frames.push({role:v.label,sheet,index:i,...f});}
   });return {frames,image:p.toDataURL('image/webp',.96).split(',')[1]};},
- scene:(id,line=0,time=null,tail=null)=>{flow=null;cine=null;flowPending=null;toastList=[];g=new RPG('shadow',null,()=>.44);g.chapter=id==='contract'?1:2;g.enter(id==='contract'?'hall':'chapel',800,850);g.events=[];g.beginScene(id,id==='contract'?'contractAccept':'assassinate');g.pending.line=line;g.events=[];chapterCards.attach(g,{restored:true});showScene();if(time!==null){flow.c1BeatAt=flow.mainCine.time;flow.update(time);}else{flow.cine?.fastForward();flow.update(0);}if(tail!==null){flow.openTail(tail);}renderScene();ui.style.visibility='visible';draw();return __C1.state();},
+ scene:(id,line=0,tail=null,live=false)=>{flow=null;cine=null;flowPending=null;toastList=[];g=new RPG('shadow',null,()=>.44);g.chapter=id==='contract'?1:2;g.enter(id==='contract'?'hall':'chapel',800,850);g.events=[];g.beginScene(id,id==='contract'?'contractAccept':'assassinate');g.pending.line=line;g.events=[];g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];chapterCards.attach(g,{restored:true});showScene();if(!live){flow.cine?.fastForward();flow.update(0);}if(tail!==null){flow.openTail(tail);}renderScene();ui.style.visibility='visible';draw();return __C1.state();},
  roundtrip:()=>{const before=__C1.state();start(JSON.parse(JSON.stringify(g.snapshot())));return {before,after:__C1.state()};},
- controls:()=>{const r=document.querySelector('.c1-dialogue')?.getBoundingClientRect(),line=document.querySelector('.c1-dialogue .line'),button=document.querySelector('[data-act=next]');return {w,h,dialogue:r?{x:r.x,y:r.y,width:r.width,height:r.height}:null,overflow:line?line.scrollHeight>line.clientHeight:false,next:!!button,loaded:C1_CINEMATIC_LOADS.concat(C1_PURSUIT_LOADS).every(([s])=>bank.images[s]&&bank.frames[s].length)};},
+ controls:()=>{const r=document.querySelector('.dialogue-card')?.getBoundingClientRect(),line=document.querySelector('.dialogue-card .line'),button=document.querySelector('[data-act=next]');return {w,h,dialogue:r?{x:r.x,y:r.y,width:r.width,height:r.height}:null,overflow:line?line.scrollHeight>line.clientHeight:false,next:!!button,loaded:C1_PURSUIT_LOADS.every(([s])=>bank.images[s]&&bank.frames[s].length)};},
  aim:(id)=>{const t=g.targets().find(t=>t.id===id);if(!t)throw Error('Missing '+id);g.relocate(t.x,t.y);g.enemies.forEach(e=>e.dead=true);g.active=true;cam={x:g.p.x,y:g.p.y};resize();ui.style.visibility='visible';notice.style.visibility='visible';draw();return {x:t.drawX??t.x,y:(t.drawY??t.y)-25};},
  point:(x,y)=>({x:w/2+(x-view.x)*scale,y:h/2+(y-view.y)*scale})
 };`;
 const b=await browserSession(process.cwd(),hook);const report={status:'running',maps:[],scenes:[],clicks:[],viewports:[],errors:[]};
 const persist=()=>fs.writeFileSync(path.join(out,'QA.json'),JSON.stringify(report,null,2)+'\n');
 const save=(name,data)=>fs.writeFileSync(path.join(out,name+'.webp'),Buffer.from(data,'base64'));
+async function clickNext(){const p=await b.evaluate("(()=>{const r=document.querySelector('[data-act=next]').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()");await b.click(p.x,p.y);}
 async function shot(name){const r=await b.call('Page.captureScreenshot',{format:'webp',quality:92});fs.writeFileSync(path.join(out,name+'.webp'),Buffer.from(r.data,'base64'));}
 try{
  await b.wait('window.__C1?.ready()',120000);
@@ -46,15 +47,34 @@ try{
  }
  const roles=await b.evaluate('__C1.roles()');save('role-comparison',roles.image);report.roles=roles.frames;assert.equal(roles.frames.length,48);
  for(const f of roles.frames)assert.ok(f.w>20&&f.h>150&&Number.isFinite(f.foot.x),f.sheet+f.index);
- for(const [name,id,line,time,tail]of [['commission','contract',19,null,0],['before','assassination',0],['approach','assassination',2],['stab','assassination',4],['fallen','assassination',6],['heal','assassination',9],['shield','assassination',10,.4],['resist','assassination',10,4.2],['seal','assassination',10,8.5],['defiance','assassination',12],['door','assassination',13],['guards','assassination',15],['outro','assassination',17],['echo-old','assassination',17,null,0],['echo-study','assassination',17,null,2],['echo-post','assassination',17,null,4]]){
-  report.scenes.push({name,state:await b.evaluate(`__C1.scene('${id}',${line},${time??null},${tail??null})`)});await shot(name);
+ for(const [name,id,line,tail]of [['commission','contract',19,0],['commission-answer','contract',19,5],['before','assassination',0],['stab','assassination',4],['heal','assassination',9],['seal','assassination',10],['door','assassination',13],['outro','assassination',17],['echo-1','assassination',17,0],['echo-2','assassination',17,1],['echo-3','assassination',17,2]]){
+  report.scenes.push({name,state:await b.evaluate(`__C1.scene('${id}',${line},${tail??null})`)});await shot(name);
  }
  for(const [width,height]of [[844,390],[390,844],[1440,980]]){
   await b.call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<900});
   await b.call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  await b.evaluate("__C1.scene('assassination',10,8.5)");await delay(150);const controls=await b.evaluate('__C1.controls()');assert.ok(controls.loaded);assert.ok(controls.dialogue.y>=0);assert.ok(controls.dialogue.y+controls.dialogue.height<=height+1);report.viewports.push(controls);await shot('viewport-'+width);await b.evaluate("__C1.scene('assassination',12)");await delay(250);const dialog=await b.evaluate('__C1.controls()');assert.ok(dialog.next);await shot('dialogue-'+width);const next=await b.evaluate("(()=>{const r=document.querySelector('[data-act=next]').getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()");await b.click(next.x,next.y);assert.equal((await b.evaluate('__C1.state()')).index,13);
+  await b.evaluate("__C1.scene('assassination',17,0)");await delay(250);
+  const controls=await b.evaluate('__C1.controls()');assert.ok(controls.loaded);assert.ok(controls.next);assert.equal(controls.overflow,false);
+  assert.ok(controls.dialogue.y>=0);assert.ok(controls.dialogue.y+controls.dialogue.height<=height+1);
+  assert.equal(await b.evaluate("document.querySelectorAll('.backstage-shadow').length"),1);
+  assert.equal(await b.evaluate("document.querySelectorAll('.speaker,.scene-label,.c1-cinema-ui').length"),0);
+  report.viewports.push(controls);await shot('shadow-'+width);
+  await clickNext();assert.equal((await b.evaluate('__C1.state()')).tail.line,1);
+  await b.evaluate("__C1.scene('assassination',12)");await delay(250);await shot('original-dialogue-'+width);await clickNext();assert.equal((await b.evaluate('__C1.state()')).index,13);
  }
- await b.evaluate("__C1.scene('assassination',17,null,3)");const rt=await b.evaluate('__C1.roundtrip()');assert.equal(rt.after.tail.line,3);report.roundtrip=rt;
+ await b.evaluate("__C1.scene('assassination',17,2)");const rt=await b.evaluate('__C1.roundtrip()');assert.equal(rt.after.tail.line,2);assert.equal(rt.after.tail.revision,2);report.roundtrip=rt;
+ await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:980,deviceScaleFactor:1,mobile:false});
+ report.fullScenes=[];
+ for(const id of ['contract','assassination']){
+  await b.evaluate(`__C1.scene('${id}',0,null,true)`);const seen=new Set(),end=Date.now()+90000;
+  while(Date.now()<end){const s=await b.evaluate('__C1.state()');if(!s.pending)break;
+   if(s.tail)seen.add(s.tail.line);if(s.phase==='dialogue')await clickNext();await delay(280);
+  }
+  const final=await b.evaluate('__C1.state()');assert.equal(final.pending,null,id+' completion');
+  assert.equal(final.chapter,id==='contract'?2:3);assert.equal(seen.size,id==='contract'?6:3);report.fullScenes.push({id,hiddenLines:[...seen],final});
+ }
+ assert.equal(await b.evaluate("document.querySelectorAll('[data-act=c1-replay],.c1-cinema-ui').length"),0);
+ assert.equal(b.requests.filter(p=>/chapter-one-cinematic|c1-incremental\/(chapel|seal-echo)/.test(p)).length,0);
  for(const [map,id,expected]of [['town','townbook','礼拜通知'],['hall','hallbook','获得 研习札记'],['town','well','井沿刻着']]){
   await b.evaluate(`__C1.fixture('${map}')`);const p=await b.evaluate(`__C1.aim('${id}')`);await delay(160);await shot('hotspot-'+id);const screen=await b.evaluate(`__C1.point(${p.x},${p.y})`);await b.click(screen.x,screen.y);await delay(200);const s=await b.evaluate('__C1.state()');report.clicks.push({map,id,expected,state:s});assert.ok(s.notices.some(t=>t.includes(expected)),'Click failed '+id);await shot('clicked-'+id);
  }

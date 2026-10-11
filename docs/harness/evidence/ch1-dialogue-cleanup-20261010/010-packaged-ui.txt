@@ -1,0 +1,41 @@
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tools/restore_archives.py --all --verify-only
+Verified: runtime-assets.manifest.json (116 files)
+Verified: library-originals.manifest.json (135 files)
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tools/build_web_play.py --output qa-export/dialogue-release-build
+Assets prepared: 20/128
+Assets prepared: 40/128
+Assets prepared: 60/128
+Assets prepared: 80/128
+Assets prepared: 100/128
+Assets prepared: 120/128
+{
+  "version": "30",
+  "source_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+  "source_dirty": true,
+  "runtime_input_sha256": "328a8ff630db3067123992716a147d0bb299f9e3631c43a89fd20614b4641d81",
+  "offline_filename": "Ashen-V28.1-Play.html",
+  "module_count": 199,
+  "image_count": 128,
+  "original_images_bytes": 286968635,
+  "web_images_bytes": 166632224,
+  "offline_html_bytes": 225888079,
+  "offline_sha256": "e166c65f47e3e953659479f4f8d3243effe31afc38f6408e27f14b7b0e4aa919",
+  "original_dist_modified": false
+}
+RUN: /Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python tests/browser-web-play.py --build qa-export/dialogue-release-build --out docs/ch1-dialogue-cleanup/packaged
+Traceback (most recent call last):
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-web-play.py", line 125, in <module>
+    results.append(run_case(browser,(args.build/'Ashen-V28.1-Play.html').resolve().as_uri(),'offline-file',args.out,offline=True))
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-web-play.py", line 76, in run_case
+    assert saved_tail['pending'] is None and saved_tail['chapter']==3
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/docs/ch1-dialogue-cleanup/verify-packaged.py", line 17, in <module>
+    subprocess.run(command, cwd=ROOT, env=env, check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/bin/python', 'tests/browser-web-play.py', '--build', 'qa-export/dialogue-release-build', '--out', 'docs/ch1-dialogue-cleanup/packaged']' returned non-zero exit status 1.

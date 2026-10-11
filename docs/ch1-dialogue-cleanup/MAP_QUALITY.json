@@ -1,0 +1,178 @@
+{
+  "scope": "0.4 removes chapter-one added cinematic presentation; only hall/chapel narrative rendering changed. Character/map/interaction improvements preserved byte-for-byte. 18-map221-route supplementary audit retained; no complete campaign or new map redesign claim.",
+  "checked_at_utc": "2026-10-11T03:40:23.774607+00:00",
+  "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+  "baseline": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+  "reviewed_paths": [
+    "dist/assets/c1-incremental/chapel-action-a.png",
+    "dist/assets/c1-incremental/chapel-action-b.png",
+    "dist/assets/c1-incremental/chapel.png",
+    "dist/assets/c1-incremental/seal-echo.png",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/game-v14.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/c1-incremental/pursuit-guard.png",
+      "sha256": "330316ae49fcccebff367ce5a7c9e0b431123273ba1763f6d68bbc89de4eb585"
+    },
+    {
+      "path": "dist/assets/c1-incremental/pursuit-elite.png",
+      "sha256": "adaedef8ea532ccf185c0d528e5ad031e11117daf0fea0a7812e300d4246b365"
+    },
+    {
+      "path": "dist/assets/c1-incremental/pursuit-officer.png",
+      "sha256": "23c883a0f17d96178d4631b26483e3dd0cffa486ead1b15130bf91e4edcbee71"
+    },
+    {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "sha256": "5756a0c4644cc45a1d5205d5e7d793bf05e8ee95d01ef4b9dfba253efbbb75d2"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "保留原几何/景物/任务全表哈希；hall入口至每个目标的真实moveActor路径通过。浏览器实际点击推进完整主场景及尾段，章界/任务正常提交；旧pending和尾段兼容由专项覆盖。战斗规则与资源未改，不以本次对话验收声称新增战斗平衡验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/hall-collision.webp",
+            "sha256": "c4663f5e009869c689862ba9c8f6b40d27f7cff82ffc3188ebf0a13ba7f5ed9e"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/QA.json",
+            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+          },
+          {
+            "path": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/007-dialogue.txt",
+            "sha256": "27acc20b0074cf4f1a1d94016f0d8633206e97ae82ddc1bd478170027ead8aa8"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/BASELINE.json",
+            "sha256": "14b83f12e653a1bb18f6849cb2934cf618d12ab24e6469e6135a4166386e8216"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "会馆仍为书架/案桌、书籍与委托NPC分区，中央通道留空。原人物、物件和脚锚保持；H1结束原委托后在不透底暗幕说六句，没有新增场所大图。 本轮通过指恢复原场景表现且保留此前有效优化；不宣称旧地图自然度问题全部解决。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/hall.webp",
+            "sha256": "100cd362aa2b2d6d1936f68dc4c5c2687268bc0186fc6a209e6e00d7719e3afc"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/commission.webp",
+            "sha256": "5dcf50a734f145cb4f4bed1bf0cb44429bc51f36293a06d8c3e6242b3b8752fa"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-844.webp",
+            "sha256": "cc47f6eb93c16c4600a2c230ff51b759a9c7b64078d4c52150afd2d9771c7a01"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "核对原角色及三类追兵48帧与原画对照；人物/图集10个保留文件哈希相等，成人高度和脚锚未改。新增幕后统一为有意匿名的矢量黑影，使用原portrait区域、对话卡及继续按钮；三个视口均无台词溢出，未知人无姓名或身份说明。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/role-comparison.webp",
+            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/commission.webp",
+            "sha256": "5dcf50a734f145cb4f4bed1bf0cb44429bc51f36293a06d8c3e6242b3b8752fa"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-1440.webp",
+            "sha256": "a2ec4d460b30a92f4b882f9b33d519b6a374bf49fe7f5d77290dedc0c455daf6"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-390.webp",
+            "sha256": "1a7e3b083f81a7f366e780194389c8c1e28aaed8caf660bc826dcec77a572ec7"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/original-dialogue-844.webp",
+            "sha256": "73ee5eb908a81524ffeebb9543c218dadd98bfa88038dc08b09f4e8966a33b44"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chapel",
+      "playability": {
+        "status": "pass",
+        "reason": "保留原几何/景物/任务全表哈希；chapel入口至每个目标的真实moveActor路径通过。浏览器实际点击推进完整主场景及尾段，章界/任务正常提交；旧pending和尾段兼容由专项覆盖。战斗规则与资源未改，不以本次对话验收声称新增战斗平衡验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/chapel-collision.webp",
+            "sha256": "dea10ecd1d5a5820a82a302318748331bcb4a74f9e61ad16fd26809ace575576"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/QA.json",
+            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+          },
+          {
+            "path": "docs/harness/evidence/ch1-dialogue-cleanup-20261010/007-dialogue.txt",
+            "sha256": "27acc20b0074cf4f1a1d94016f0d8633206e97ae82ddc1bd478170027ead8aa8"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/BASELINE.json",
+            "sha256": "14b83f12e653a1bb18f6849cb2934cf618d12ab24e6469e6135a4166386e8216"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "礼拜厅保留祭台、长椅、中路和右侧案桌。刺杀仍使用原地图内动作和原对白；之后H2只显示无五官黑影与三句暗语，不泄漏姓名/身份/场所，不让主角出现在幕后。 本轮通过指恢复原场景表现且保留此前有效优化；不宣称旧地图自然度问题全部解决。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/chapel.webp",
+            "sha256": "18d4d9f4fc0143777b3e3733149037009874e29c8aec3018bdb6df760e34a553"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/seal.webp",
+            "sha256": "272d100db86f1d29a92b4a421343b5e0e42ad3ffcc599eb07acd8feada2c8d4e"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-844.webp",
+            "sha256": "cc47f6eb93c16c4600a2c230ff51b759a9c7b64078d4c52150afd2d9771c7a01"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "核对原角色及三类追兵48帧与原画对照；人物/图集10个保留文件哈希相等，成人高度和脚锚未改。新增幕后统一为有意匿名的矢量黑影，使用原portrait区域、对话卡及继续按钮；三个视口均无台词溢出，未知人无姓名或身份说明。",
+        "evidence": [
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/role-comparison.webp",
+            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/commission.webp",
+            "sha256": "5dcf50a734f145cb4f4bed1bf0cb44429bc51f36293a06d8c3e6242b3b8752fa"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-1440.webp",
+            "sha256": "a2ec4d460b30a92f4b882f9b33d519b6a374bf49fe7f5d77290dedc0c455daf6"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/shadow-390.webp",
+            "sha256": "1a7e3b083f81a7f366e780194389c8c1e28aaed8caf660bc826dcec77a572ec7"
+          },
+          {
+            "path": "docs/ch1-dialogue-cleanup/browser/original-dialogue-844.webp",
+            "sha256": "73ee5eb908a81524ffeebb9543c218dadd98bfa88038dc08b09f4e8966a33b44"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Only hall/chapel presentation changes; other18-map observations are preservation checks. Millpath retains six isolated decorative20px cells; exile has no door route to enumerate. No new complete eight-chapter playthrough.",
+    "No private save inspected. Synthetic actual RPG snapshot/import/restore coverage includes old six-line backstage saves.",
+    "Four retired CG files and original cinematic JS/CSS/Harness prompt retained in history/c1-cinematic-20261010, absent from active runtime."
+  ],
+  "revalidated_after_qa_only_change": "013-browser and014-integration verify all old/current indexed inputs; only tests/browser-web-play.py safe-save timing changed. Runtime, browser review code, assets and screenshot hashes unchanged."
+}

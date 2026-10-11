@@ -56,8 +56,7 @@ class NarrativeRoutingTests(unittest.TestCase):
 
     def test_new_narrative_links_resolve_within_repository(self):
         names = ['NARRATIVE_WORKFLOW.md', 'NARRATIVE_ARCHITECTURE.md',
-                 'WORLD_VISION.md', 'CHAPTER_01.md', 'CHAPTER_02.md',
-                 'CHAPTER_01_DEVELOPMENT_PROMPT.md']
+                 'WORLD_VISION.md', 'CHAPTER_01.md', 'CHAPTER_02.md']
         for name in names:
             path = ROOT / 'docs/harness' / name
             for target in re.findall(r'\]\(([^)]+)\)', path.read_text(encoding='utf-8')):
@@ -66,6 +65,16 @@ class NarrativeRoutingTests(unittest.TestCase):
                 resolved = (path.parent / target.split('#')[0]).resolve()
                 self.assertTrue(resolved.is_relative_to(ROOT.resolve()), target)
                 self.assertTrue(resolved.is_file(), name + ': ' + target)
+
+    def test_withdrawn_cinematic_design_is_not_an_active_context(self):
+        removed = 'docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md'
+        self.assertFalse((ROOT / removed).exists())
+        files = self.paths(route('第一章剧情'))
+        self.assertNotIn(removed, files)
+        self.assertFalse(any(p.startswith('history/') for p in files))
+        config = (ROOT / 'source/harness/modules.json').read_text()
+        self.assertNotIn(removed, config)
+        self.assertIn('dist/chapter-one-dialogues-v31.js', config)
 
     def test_registry_and_state_reference_same_script_revisions(self):
         state = json.loads((ROOT / 'source/CURRENT_STATE.json').read_text())['narrative_rebuild']

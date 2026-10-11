@@ -53,21 +53,36 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.keyboard.press('Escape');page.wait_for_timeout(100)
     page.screenshot(path=str(out/(label+'-game.png')))
     checks += ['inventory_ui']
-    # Real title replay must return without modifying the existing main journey.
     page.keyboard.press('Escape');page.locator('[data-act="title"]').click()
-    main_before=page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")
-    page.locator('[data-act="c1-replay"]').click()
-    page.locator('.c1-dialogue').wait_for(timeout=15000)
-    page.wait_for_timeout(700)
-    page.screenshot(path=str(out/(label+'-chapter1-replay.png')))
-    for _ in range(3):
-        if page.locator('[data-act="continue"]').count():break
-        page.locator('[data-act="c1-skip"]').click();page.wait_for_timeout(300)
-    page.locator('[data-act="continue"]').wait_for(timeout=15000)
-    assert page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")==main_before
+    assert page.locator('[data-act="c1-replay"]').count()==0
     page.locator('[data-act="continue"]').click()
-    checks += ['chapter1_cinematic_replay','skip_replay','replay_preserves_main_save']
+    checks += ['no_removed_cinematic_entry']
     module='@ashen/core-v14.js' if offline else './core-v14.js'
+    legacy="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=2;g.enter('chapel',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('assassination','assassinate');Object.assign(g.pending,{line:17,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenSealEcho',line:3}});return JSON.stringify(g.snapshot());}"""
+    raw=page.evaluate(legacy,module)
+    page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
+    page.locator('#saveTransfer').fill(raw);page.locator('[data-act="confirm-import"]').click()
+    page.locator('.backstage-shadow').wait_for(timeout=15000)
+    assert page.locator('.dialogue-card .line').inner_text()=='是结果变了。旧案先留着，再算一次。'
+    assert page.locator('.speaker,.scene-label,.c1-cinema-ui').count()==0
+    page.screenshot(path=str(out/(label+'-anonymous-dialogue.png')))
+    page.reload(wait_until='domcontentloaded',timeout=180000);ready(page);page.locator('[data-act="continue"]').click()
+    assert page.locator('.dialogue-card .line').inner_text()=='是结果变了。旧案先留着，再算一次。'
+    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
+    assert page.locator('.dialogue-card .line').inner_text()=='这次只响了一声。先记下来，别把人都叫来。'
+    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
+    page.locator('.hud').wait_for(timeout=15000)
+    # The original chapel battle blocks saving until the actor exits through the side door.
+    # Finish at x1390 beside that door; use the real interaction key, then await the safe save.
+    page.keyboard.press('f')
+    page.wait_for_function("(()=>{const s=JSON.parse(localStorage.getItem('ashen-vow-rpg-v10'));return s?.map==='alley' && s.chapter===3 && s.pending===null;})()",timeout=15000)
+    saved_tail=page.evaluate("JSON.parse(localStorage.getItem('ashen-vow-rpg-v10'))")
+    assert saved_tail['pending'] is None and saved_tail['chapter']==3
+    assert saved_tail['flags']['c1Viewed']['c1HiddenSealEcho'] is True
+    page.reload(wait_until='domcontentloaded',timeout=180000);ready(page);page.locator('[data-act="continue"]').click()
+    assert page.locator('.backstage-shadow').count()==0
+    assert page.evaluate("JSON.parse(localStorage.getItem('ashen-vow-rpg-v10')).p.xp")==saved_tail['p']['xp']
+    checks += ['legacy_tail_import','anonymous_original_dialogue_ui','tail_reload_migrates_once','tail_completes_once']
     fixture="""async (module)=>{const {RPG,stats}=await import(module);const g=new RPG('shadow',null,()=>.4);g.ensureMap('warehouse');g.map='warehouse';const e=g.enemies[0];for(const other of g.enemies)if(other!==e){other.dead=true;other.hp=0;}const p=g.safePoint(e.x-40,e.y+22);g.relocate(p.x,p.y);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.pending=null;g.events=[];g.active=true;return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};}"""
     test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]
     # Import through the real UI; beforeunload autosave must remain enabled.
@@ -93,7 +108,7 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     checks += ['chapter8_checkpoint','no_chapter8_large_cg']
     page.screenshot(path=str(out/(label+'-chapter8.png')))
     assert not errors, errors
-    forbidden=[u for u in requests if '/assets/v26/c8-' in u];assert not forbidden,forbidden
+    forbidden=[u for u in requests if '/assets/v26/c8-' in u or 'chapter-one-cinematic-v31' in u or any('/assets/c1-incremental/'+name in u for name in ['chapel','seal-echo'])];assert not forbidden,forbidden
     if offline:assert not [u for u in requests if u.startswith(('https://','http://'))], 'Offline HTML must not need network'
     result={'case':label,'url':url if remote else label,'checks':checks,'first_load_seconds':first_load,'uncaught_errors':errors,'network_requests':len([u for u in requests if u.startswith(('http://','https://'))]),'chapter8_cg_requests':forbidden}
     print(json.dumps(result,ensure_ascii=False),flush=True)

@@ -5,22 +5,22 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_chapter01_incremental_03_on_user_rollback",
+  "snapshot_type": "v30_chapter01_dialogue_04_on_user_rollback",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
   "runtime_modules": 199,
-  "runtime_stylesheets": 8,
-  "runtime_images": 137,
-  "runtime_resource_bytes": 300846026,
+  "runtime_stylesheets": 7,
+  "runtime_images": 133,
+  "runtime_resource_bytes": 289747967,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Chapter-one0.3 local additions on user-selected1cefe80; retained legacy scenery/river/tree constraints. No private saves or complete eight-chapter clear; experimental reconstruction save reverse migration not guaranteed. No website publication. Withdrawn reconstruction preserved in6b388c7. Final QA in docs/ch1-pilot-r2.",
-  "checked_at_utc": "2026-10-10T10:31:27.291209+00:00",
+  "known_limits": "Chapter-one0.4 retains character/map improvements, removes new full-screen cinematic design, uses original dialogue UI with anonymous shadows. No private saves or complete eight-chapter clear; no website publication. Prior evidence remains historical. Current verification: docs/ch1-dialogue-cleanup.",
+  "checked_at_utc": "2026-10-11T03:54:08.552359+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Passed:27 Harness;76 integration Node;15 chapter-one Node including8 new;14 exact full-event fixtures;35-map renderer;18-map221-route review;continuous title-to-canal captain attempt;offline/HTTP/mobile packaged UI including replay save protection.",
+  "browser_qa_status": "0.4 passed:28 Harness,9 dialogue/save checks,18-map221-route/48-frame/3-viewport browser review,76 integration regressions/14 full-event parity/35-map rendering,offline/HTTP/mobile packaged UI and legacy tail import/reload/safe-exit save. Integration/browser receipts reused only after exact input/hash validation for unrelated packaged-test timing fix.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -301,9 +301,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "0.3",
+    "version": "0.4",
     "task_id": "narrative-incremental-20261010",
-    "status": "0.3 documents complete; chapter-one local additions implemented; chapter-two planning only",
+    "status": "0.4 chapter-one original-dialogue revision; chapter-two planning only",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,10 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "0.3",
+      "script_revision": "0.4",
       "script_status": "IMPLEMENTED",
-      "implementation": "implemented; local additions in ch1-pilot-r2-20261010; acceptance docs/ch1-pilot-r2/ACCEPTANCE.md",
-      "development_prompt": "docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md"
+      "implementation": "Original dialogue UI with silhouette backstage lines implemented; current verification docs/ch1-dialogue-cleanup/ACCEPTANCE.md, task ch1-dialogue-cleanup-20261010"
     },
     "chapter02": {
       "id": "V01C02",
@@ -330,7 +329,7 @@
       "Long-term background, prophecy and final plans remain provisional",
       "Existing runtime and planned additions are distinguished in chapter records",
       "Saint confrontation is cinematic only, no new playable combat",
-      "Original documentation task changed no runtime; later chapter-one implementation is recorded separately in chapter01_incremental."
+      "Original documentation task changed no runtime; current0.4 implementation is recorded in chapter01_dialogue_revision; chapter01_incremental remains historical0.3."
     ],
     "evidence": "docs/harness/acceptance/NARRATIVE_INCREMENTAL.json",
     "previous_plan": {
@@ -408,7 +407,7 @@
   },
   "chapter01_incremental": {
     "task_id": "ch1-pilot-r2-20261010",
-    "status": "complete; local acceptance and GitHub main verified",
+    "status": "historical0.3 completed; cinematic presentation superseded by chapter01_dialogue_revision; pursuit/map/interaction retained",
     "script_revision": "0.3",
     "script_status": "IMPLEMENTED",
     "base_commit": "5e289bc90d3e79a5e7d44236bb229a43b05cce87",
@@ -438,5 +437,33 @@
     "offline_build_manifest": "docs/ch1-pilot-r2/packaged/WEB_BUILD_MANIFEST.json",
     "remote_verified_commit": "49614e0d2678d413852b2a50449e9f315d6e7d5c",
     "remote_verified_at_utc": "2026-10-10T10:34:41.751714+00:00"
+  },
+  "chapter01_dialogue_revision": {
+    "task_id": "ch1-dialogue-cleanup-20261010",
+    "status": "implementation_and_verification_complete; GitHub sync pending",
+    "base_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
+    "script_revision": "0.4",
+    "preserve": "character sheets and scale, maps, interactions, original quests/dialogue/rewards",
+    "remove": "0.3 fullscreen cinematic and associated active Harness design",
+    "hidden_scenes": "original dialogue UI, black silhouettes, unnamed brief H2 lines",
+    "site_deployed": false,
+    "script_status": "IMPLEMENTED",
+    "checked_at_utc": "2026-10-11T03:54:08.552359+00:00",
+    "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+    "save_schema": 15,
+    "retained_files_byte_identical": 10,
+    "map_data_changed": false,
+    "original_dialogue_changed": false,
+    "reward_values_changed": false,
+    "evidence": "docs/ch1-dialogue-cleanup/ACCEPTANCE.md",
+    "map_quality": "docs/ch1-dialogue-cleanup/MAP_QUALITY.json",
+    "offline_build_manifest": "docs/ch1-dialogue-cleanup/packaged/WEB_BUILD_MANIFEST.json",
+    "packaged_ui": [
+      "offline-file",
+      "http-site",
+      "mobile-landscape"
+    ],
+    "runtime_module": "dist/chapter-one-dialogues-v31.js",
+    "archived_design": "history/c1-cinematic-20261010"
   }
 }
