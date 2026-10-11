@@ -4,7 +4,7 @@
 
 ## 当前目标与范围
 
-2026-10-11入口修复 `ch1-launch-recovery-20261011`：用户运行未见回改。发现默认qa-export/release-build仍为旧0.3，而已验收0.4在另一目录；已校验并提升至原默认路径，旧包另存且别名保持，未改运行代码/存档。fast28及默认入口离线/HTTP/移动端实测通过，旧档恢复与黑影对白已核验；待Git保存。用户实际地址尚未提供，不声称已确认其具体入口。验收见docs/ch1-launch-recovery/ACCEPTANCE.md。
+2026-10-11入口修复 `ch1-launch-recovery-20261011`：用户运行未见回改。发现默认qa-export/release-build仍为旧0.3，而已验收0.4在另一目录；已校验并提升至原默认路径，旧包另存且别名保持，未改运行代码/存档。fast28及默认入口离线/HTTP/移动端实测通过，旧档恢复与黑影对白已核验；bc2be23已推送main并核对，任务已归档。用户实际地址尚未提供，不声称已确认其具体入口。验收见docs/ch1-launch-recovery/ACCEPTANCE.md。
 
 当前任务 `ch1-dialogue-cleanup-20261010`已完成并归档：0.4实现与全部验收通过，fdffaca已推送GitHub main并ls-remote核对，任务记录位于archive；交付回执见docs/ch1-dialogue-cleanup/GIT_SAVE.json。保留0f3c9f9的人物/地图/交互优化，撤下新增全屏分镜和现行Harness设计；幕后改原对话框＋黑影，未知人无身份标签，每人一句。009集成、008浏览器通过；只改打包测试等待后013/014核验复用，最终011 fast28、012 dialogue9、015离线/HTTP/移动端、016三维通过。失败日志和范围限制落盘docs/ch1-dialogue-cleanup/ACCEPTANCE.md。原动作/对白/任务/奖励及保留文件哈希相等；旧H2六行游标兼容。下方0.3完成记录为修改前历史。
 
@@ -259,16 +259,17 @@
 
 <!-- task:ch1-launch-recovery-20261011 -->
 ## 任务 ch1-launch-recovery-20261011
-- 状态：in_progress
-- 更新：2026-10-11T04:16:28.095529+00:00
-- 下一步：审查并提交入口文档和真实验收证据，正常推送main
-- 任务记录：source/tasks/active/ch1-launch-recovery-20261011.json
-- 已完成：干净acda140已fetch/ff；默认release-build含旧c1-replay和cinematic模块，新包位于另一目录；基线与计划落盘。实际用户地址待提供。；旧默认包保留至release-build-before-dialogue-20261011，已验收0.4包经128资源/运行输入/HTML哈希核验后接入默认路径，原目录保留别名；入口文档与遗漏的WORKFLOW稿版指向已修正。；默认入口离线/HTTP/移动端实测通过；旧分镜入口消失，匿名黑影和旧尾段迁移/刷新/安全保存通过；fast28通过，截图与验收落盘。
-- 待完成：GitHub main保存并核对远端；完成本地入口修复记录
+- 状态：complete
+- 更新：2026-10-11T04:17:17.775440+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/ch1-launch-recovery-20261011.json
+- 已完成：干净acda140已fetch/ff；默认release-build含旧c1-replay和cinematic模块，新包位于另一目录；基线与计划落盘。实际用户地址待提供。；旧默认包保留至release-build-before-dialogue-20261011，已验收0.4包经128资源/运行输入/HTML哈希核验后接入默认路径，原目录保留别名；入口文档与遗漏的WORKFLOW稿版指向已修正。；默认入口离线/HTTP/移动端实测通过；旧分镜入口消失，匿名黑影和旧尾段迁移/刷新/安全保存通过；fast28通过，截图与验收落盘。；本地常用包入口修复与实际浏览器证据已保存；bc2be236e5a928c03432c55ebc41dcf181d5c2c1已推送GitHub main，ls-remote与本地HEAD相等。
+- 待完成：无
 - 决定：修复已证实的默认包陈旧；用户实际地址未提供，不声称已确认其具体入口。不改运行代码、不清理个人存档、不重复此前完整集成。
 - 阻塞：无
 - 阶段 audit：complete；HEAD acda1409636c40ee82cbf240b5002a1b865209f1
 - 阶段 entry-repair：complete；HEAD acda1409636c40ee82cbf240b5002a1b865209f1
 - 阶段 verification：complete；HEAD acda1409636c40ee82cbf240b5002a1b865209f1
+- 阶段 delivery：complete；HEAD bc2be236e5a928c03432c55ebc41dcf181d5c2c1
 - 最近检查：entry，退出码 0；docs/harness/evidence/ch1-launch-recovery-20261011/003-entry.txt
 <!-- /task:ch1-launch-recovery-20261011 -->

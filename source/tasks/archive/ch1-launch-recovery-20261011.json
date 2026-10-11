@@ -11,22 +11,21 @@
     "build",
     "save"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-11T04:10:53.253467+00:00",
-  "updated_at_utc": "2026-10-11T04:16:28.095529+00:00",
+  "updated_at_utc": "2026-10-11T04:17:17.775440+00:00",
   "decisions": [
     "修复已证实的默认包陈旧；用户实际地址未提供，不声称已确认其具体入口。不改运行代码、不清理个人存档、不重复此前完整集成。"
   ],
   "completed": [
     "干净acda140已fetch/ff；默认release-build含旧c1-replay和cinematic模块，新包位于另一目录；基线与计划落盘。实际用户地址待提供。",
     "旧默认包保留至release-build-before-dialogue-20261011，已验收0.4包经128资源/运行输入/HTML哈希核验后接入默认路径，原目录保留别名；入口文档与遗漏的WORKFLOW稿版指向已修正。",
-    "默认入口离线/HTTP/移动端实测通过；旧分镜入口消失，匿名黑影和旧尾段迁移/刷新/安全保存通过；fast28通过，截图与验收落盘。"
+    "默认入口离线/HTTP/移动端实测通过；旧分镜入口消失，匿名黑影和旧尾段迁移/刷新/安全保存通过；fast28通过，截图与验收落盘。",
+    "本地常用包入口修复与实际浏览器证据已保存；bc2be236e5a928c03432c55ebc41dcf181d5c2c1已推送GitHub main，ls-remote与本地HEAD相等。"
   ],
-  "remaining": [
-    "GitHub main保存并核对远端；完成本地入口修复记录"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "审查并提交入口文档和真实验收证据，正常推送main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "entry"
@@ -113,6 +112,17 @@
       "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
       "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
       "worktree": "M .codex/progress.md\n M README.md\n M docs/harness/WORKFLOW.md\n M docs/web-play/README.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/ch1-launch-recovery/\n?? docs/harness/evidence/ch1-launch-recovery-20261011/\n?? source/tasks/active/ch1-launch-recovery-20261011.json"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T04:17:17.750212+00:00",
+      "head_commit": "bc2be236e5a928c03432c55ebc41dcf181d5c2c1",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "worktree": ""
     }
-  ]
+  ],
+  "summary": "已证实的默认旧包入口已修复，fast及默认包离线/HTTP/移动端与旧档专项通过，GitHub main已核验；实际用户地址未提供，未声称确认其具体入口，未部署网站。",
+  "completed_at_utc": "2026-10-11T04:17:17.847762+00:00",
+  "verified_source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793"
 }
