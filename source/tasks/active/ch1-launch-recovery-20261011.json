@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "id": "ch1-launch-recovery-20261011",
+  "goal": "修复用户运行后仍见旧分镜的启动/构建入口；保留已验收0.4代码与个人存档",
+  "acceptance": [
+    "核对实际启动入口和提供版本，默认本地发布包与当前dist一致；旧构建保留，存档不清除",
+    "在修正后的真实入口核对旧分镜入口消失、黑影对白和旧档恢复，记录检查及Git保存"
+  ],
+  "baseline_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+  "modules": [
+    "build",
+    "save"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-11T04:10:53.253467+00:00",
+  "updated_at_utc": "2026-10-11T04:16:28.095529+00:00",
+  "decisions": [
+    "修复已证实的默认包陈旧；用户实际地址未提供，不声称已确认其具体入口。不改运行代码、不清理个人存档、不重复此前完整集成。"
+  ],
+  "completed": [
+    "干净acda140已fetch/ff；默认release-build含旧c1-replay和cinematic模块，新包位于另一目录；基线与计划落盘。实际用户地址待提供。",
+    "旧默认包保留至release-build-before-dialogue-20261011，已验收0.4包经128资源/运行输入/HTML哈希核验后接入默认路径，原目录保留别名；入口文档与遗漏的WORKFLOW稿版指向已修正。",
+    "默认入口离线/HTTP/移动端实测通过；旧分镜入口消失，匿名黑影和旧尾段迁移/刷新/安全保存通过；fast28通过，截图与验收落盘。"
+  ],
+  "remaining": [
+    "GitHub main保存并核对远端；完成本地入口修复记录"
+  ],
+  "blockers": [],
+  "next": "审查并提交入口文档和真实验收证据，正常推送main",
+  "required_checks": [
+    "fast",
+    "entry"
+  ],
+  "checks": [
+    {
+      "label": "entry-repair",
+      "command": [
+        "python3",
+        "docs/ch1-launch-recovery/repair-local-entry.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T04:11:40.594016+00:00",
+      "finished_at_utc": "2026-10-11T04:11:41.320055+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-launch-recovery-20261011/001-entry-repair.txt",
+      "output_sha256": "ce74bb761955ac1989766e1d0eb25f416cb37764fe981d00747607afa4e5679c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T04:12:41.816318+00:00",
+      "finished_at_utc": "2026-10-11T04:12:55.420993+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-launch-recovery-20261011/002-fast.txt",
+      "output_sha256": "d8e0814d63efa0b6e02a062c6787f2eaf4d4baf2d0fdd33b30445806f0facfdf",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "entry",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/release-build",
+        "--out",
+        "docs/ch1-launch-recovery/browser"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T04:13:24.866171+00:00",
+      "finished_at_utc": "2026-10-11T04:14:46.216847+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-launch-recovery-20261011/003-entry.txt",
+      "output_sha256": "3600008e439224d0e64073d401934f7e131b6c0a68a24b788ec64f4dc9115cda",
+      "timeout_seconds": 600.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T04:11:40.448236+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "worktree": "M .codex/progress.md\n?? docs/ch1-launch-recovery/\n?? source/tasks/active/ch1-launch-recovery-20261011.json"
+    },
+    {
+      "name": "entry-repair",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T04:12:41.728459+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "worktree": "M .codex/progress.md\n M README.md\n M docs/harness/WORKFLOW.md\n M docs/web-play/README.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/ch1-launch-recovery/\n?? docs/harness/evidence/ch1-launch-recovery-20261011/\n?? source/tasks/active/ch1-launch-recovery-20261011.json"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T04:16:28.067650+00:00",
+      "head_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "worktree": "M .codex/progress.md\n M README.md\n M docs/harness/WORKFLOW.md\n M docs/web-play/README.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/ch1-launch-recovery/\n?? docs/harness/evidence/ch1-launch-recovery-20261011/\n?? source/tasks/active/ch1-launch-recovery-20261011.json"
+    }
+  ]
+}

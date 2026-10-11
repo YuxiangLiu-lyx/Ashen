@@ -66,6 +66,10 @@
 
 ## 恢复并试玩
 
+当前开发内容请运行本仓库的 `dist/`。下方在线试玩链接固定在历史V28.1，不会随main更新。
+
+本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。2026-10-11已将此路径更新为第一章0.4；旧分镜包保存在 `qa-export/release-build-before-dialogue-20261011/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
+
 需要 Git 和 Python 3.9+；不需要安装第三方 Python 包。
 
 ```bash
@@ -74,7 +78,7 @@ cd Ashen
 python3 tools/serve.py
 ```
 
-打开 `http://127.0.0.1:5173`。首次运行会自动校验并还原 116 张原始图片，再启动本地服务器。不要直接双击 HTML；游戏使用 ES modules。
+打开终端输出的地址（默认 `http://127.0.0.1:5173`）。若5173已被其他项目占用，改用 `python3 tools/serve.py --port 5174` 并打开 `http://127.0.0.1:5174`；不要停止其他项目或误开它的页面。首次运行会自动校验并还原 116 张原始图片，再启动本地服务器。不要直接双击 `dist/index.html`；此入口使用 ES modules。
 
 只恢复文件、不启动：
 
@@ -100,7 +104,7 @@ python3 tools/restore_archives.py --all --verify-only
 
 | 路径 | 内容 |
 | --- | --- |
-| `dist/` | 当前 196 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
+| `dist/` | 当前 199 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
 | `archives/runtime-assets.*` | 116 张当前运行图片的原始字节；恢复到 `dist/assets/` |
 | `archives/library-originals.*` | 135 个历史原件，包括源码包、文案、部门交付、原图和旧资源；恢复到 `history/originals/` |
 | `history/library-documents/` | 45 份历史文档的可直接阅读副本 |
@@ -126,7 +130,10 @@ python3 tools/restore_archives.py --all --verify-only
 V28 不覆盖 V27 的剧情与地图结构，而是在最终运行时追加 `dist/combat-overhaul-v28.js`。详细变更、数值原则与 24/24/24 内容清单见 `docs/v28/COMBAT_OVERHAUL.md`。
 
 
-## 网页试玩入口
+## 历史网页试玩入口
+
+以下链接固定为旧版本，不包含当前第一章0.4修订。测试当前修改请用上方本地入口。
+
 [V28.1 在线试玩](https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html)（公共源码预览托管，原站未覆盖）。发布与浏览器验证状态见 `docs/web-play/WEB_RELEASE.json`。
 
 无需启动本地服务器的单文件离线版，可由 `tools/build_web_play.py` 构建，详见 `docs/web-play/README.md`。

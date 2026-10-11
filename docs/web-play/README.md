@@ -1,4 +1,12 @@
-# V28.1 网页试玩
+# 当前本地试玩与历史在线入口
+
+当前第一章0.4修订运行代码在 `dist/`。用 `python3 tools/serve.py` 启动；端口占用时指定 `--port 5174`，打开终端显示的地址。不要用固定历史链接核对当前代码。
+
+本工作区当前离线入口为 `qa-export/release-build/Ashen-V28.1-Play.html`（名称沿用旧版，内容为0.4）。2026-10-11修复了该路径仍指向旧分镜构建的问题；旧包移至 `qa-export/release-build-before-dialogue-20261011/`，原新版目录 `qa-export/dialogue-release-build`保留为别名。离线HTML需完整下载，用桌面Chrome打开；普通 `dist/index.html`仍需HTTP服务器。
+
+本地构建目录不跟随Git上传。其他机器可使用下方命令重新构建当前版本。保存并关闭旧页面后重新打开当前入口；不需要清除浏览器数据或删除存档。
+
+以下为固定提交的历史V28.1页面，不包含第一章0.4回改：
 
 网页预览：https://rawcdn.githack.com/YuxiangLiu-lyx/Ashen/8816dd2486ca0f029977f6ecb2ad800c733bc609/index.html
 
