@@ -9,7 +9,7 @@
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 199,
+  "runtime_modules": 200,
   "runtime_stylesheets": 7,
   "runtime_images": 133,
   "runtime_resource_bytes": 289747967,
@@ -492,5 +492,40 @@
     "remote_verified_at_utc": "2026-10-11T04:17:31.203377+00:00",
     "git_receipt": "docs/ch1-launch-recovery/GIT_SAVE.json",
     "task_record": "source/tasks/archive/ch1-launch-recovery-20261011.json"
+  },
+  "chapter_test": {
+    "task_id": "chapter-test-20261011",
+    "status": "runtime verified; packaged entry and GitHub save pending",
+    "chapters": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "features": [
+      "isolated per-chapter test saves",
+      "combat immunity",
+      "one-hit kills",
+      "skip current main step/dialogue"
+    ],
+    "site_deployed": false,
+    "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+    "acceptance": "docs/chapter-test/ACCEPTANCE.md",
+    "map_quality": "docs/chapter-test/MAP_QUALITY.json",
+    "checks": {
+      "fast": "passed: 28",
+      "integration": "passed: 76 Node, 16 browser, 14 event parity, world and map suites",
+      "chapter-test": "passed: 7 groups, 24 seeds, three-class full skip chains",
+      "chapter-test-browser": "passed: 8 chapter buttons, combat, reload, isolation, mobile",
+      "map-quality": "passed: unchanged world and exercised entry/UI/actors"
+    },
+    "normal_save_schema": 15,
+    "map_data_changed": false,
+    "original_dialogue_changed": false,
+    "reward_values_changed": false
   }
 }

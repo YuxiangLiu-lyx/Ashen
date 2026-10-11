@@ -1,5 +1,7 @@
 # 当前接续入口
 
+2026-10-11新增八章独立测试入口、主线步骤/对白跳过及免伤秒杀。各章测试存档独立，正式旅程不启用测试能力；详见../docs/chapter-test/ACCEPTANCE.md。原站未发布。
+
 当前产品 V30（在用户指定1cefe80底稿上完成第一章0.4对话修订，继承前三章表现覆盖、V29探索与V28.1修复），运行代码在 ../dist/；CURRENT_STATE.json 记录产品/平台/发布状态，BACKUP_STATUS.md记录恢复边界。先按根AGENTS执行，不按v14文件名回退版本。
 
 - 用户任务 → ../tools/harness/context.py → harness/modules.json语义与index.json自动依赖/内容哈希。

@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "acda1409636c40ee82cbf240b5002a1b865209f1",
-  "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+  "basis_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+  "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -1794,8 +1794,8 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d",
-      "bytes": 77582,
+      "sha256": "87e264d67ea42dde82701253294797a2b1ca26f0d1bbdbaf494d606a22f241b4",
+      "bytes": 77627,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2503,8 +2503,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "d784a5fefd18cefd5db3ec02e17dd9c3d6d781d99cee80f6a23ded45a8e2ee74",
-      "bytes": 107407,
+      "sha256": "227857d090d97c8d06e2d3ea37ea7756345068e979451bfec0e0ed34a0c67ec1",
+      "bytes": 108355,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2561,7 +2561,7 @@
         "dist/social-staging-v20.js",
         "dist/story-illustrations-v19.js",
         "dist/story-test-v25.js",
-        "dist/story-test-v26.js",
+        "dist/story-test-v31.js",
         "dist/systems-data-v14.js",
         "dist/systems-ui-v14.js",
         "dist/telegraphs-v14.js",
@@ -2579,6 +2579,7 @@
         "escape"
       ],
       "modules": [
+        "chapter_test",
         "core",
         "ui"
       ]
@@ -5504,14 +5505,16 @@
         "STORY_TEST_SEEDS_V26"
       ],
       "modules": [
+        "chapter_test",
         "story"
       ]
     },
     "dist/story-test-v25.js": {
-      "sha256": "a5d101fe1923c8e19b5dea0df4915f1968f19c8f38d2aab78761b87021ecc2e7",
-      "bytes": 1651,
+      "sha256": "5312d82801237fe8daf3f4308b2ca5b4b01788c672fcdf6a9254e47fcca4d535",
+      "bytes": 1748,
       "imports": [],
       "symbols": [
+        "STORY_TEST_CHAPTERS",
         "STORY_TEST_FORMAT_V25",
         "STORY_TEST_SAVE_V25",
         "data",
@@ -5525,6 +5528,7 @@
         "storyTestSaveTextV25"
       ],
       "modules": [
+        "chapter_test",
         "story"
       ]
     },
@@ -5553,12 +5557,71 @@
         "task"
       ],
       "modules": [
+        "chapter_test",
+        "story"
+      ]
+    },
+    "dist/story-test-v31.js": {
+      "sha256": "e908cf2af8985d9994e7b8ec51d2b565b863b588410455765a2f234fb1bb7320",
+      "bytes": 10496,
+      "imports": [
+        "dist/chapter-one-dialogues-v31.js",
+        "dist/data-v14.js",
+        "dist/pacing-data-v14.js",
+        "dist/saga-chains67-v26.js",
+        "dist/saga-nodes-v25.js",
+        "dist/story-test-v25.js",
+        "dist/story-test-v26.js",
+        "dist/v26-story8-chains.js"
+      ],
+      "symbols": [
+        "a",
+        "actor",
+        "after",
+        "approach",
+        "at",
+        "before",
+        "boss",
+        "chains",
+        "clear",
+        "createStoryChapterTestV31",
+        "door",
+        "e",
+        "earlyStep",
+        "entry",
+        "expansion",
+        "fifthStep",
+        "finishScenes",
+        "flow",
+        "fourthStep",
+        "g",
+        "go",
+        "goal",
+        "id",
+        "p",
+        "pacing",
+        "prop",
+        "q",
+        "r",
+        "s",
+        "sagaStep",
+        "skipStoryTestStepV31",
+        "stage",
+        "step",
+        "task",
+        "testInteract",
+        "thirdStep",
+        "tick",
+        "use"
+      ],
+      "modules": [
+        "chapter_test",
         "story"
       ]
     },
     "dist/style-v14.css": {
-      "sha256": "81b3d23a00cf168c7d5ca2d5690399cded64694cf717a11d3f1cb85e63b25bab",
-      "bytes": 50007,
+      "sha256": "d112362be709ef6272d40a64aab367e554640482604a8fce9a2be4cda84c2770",
+      "bytes": 50289,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6315,15 +6378,15 @@
       "modules": []
     },
     "source/README.md": {
-      "sha256": "d1dd552814c97017d77014fdea44bf1e6ce68fc6eebf4d1ecc7ff88e6de64352",
-      "bytes": 2529,
+      "sha256": "95f27ba4d0d1c5c8a24920572c8a252d6f3d1ce09bcda122ab9648391b2b5c7e",
+      "bytes": 2741,
       "imports": [],
       "symbols": [],
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "49bc4cd6c7c5a2376e92bbea2949fc2b6a80dcd7816af3afd20aea3557af7abb",
-      "bytes": 19286,
+      "sha256": "bdebca61afa1306080ded49519c7a56f22ef726d47e2617e0e7dbcd194a3b389",
+      "bytes": 20242,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6512,6 +6575,31 @@
         "build"
       ]
     },
+    "tests/browser-chapter-test.mjs": {
+      "sha256": "8caa9e95953cd58247a0435eb26d9a5a0a9a2d25fd67811c24420394685378cc",
+      "bytes": 5534,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "b",
+        "click",
+        "combat",
+        "entry",
+        "hook",
+        "main",
+        "mobileMain",
+        "out",
+        "r",
+        "root",
+        "shot",
+        "testText"
+      ],
+      "modules": [
+        "chapter_test",
+        "build"
+      ]
+    },
     "tests/browser-chapter123.mjs": {
       "sha256": "ac20cd3b6ac4496c2115422b625c65e9e4bd8fc394b45b6ed5363350f9f7f2f9",
       "bytes": 8710,
@@ -6568,8 +6656,8 @@
       ]
     },
     "tests/browser-presentation-v281.mjs": {
-      "sha256": "fb52e38e64f9851d451417795940d6295c407e60b5f24a5adcb8ec79355ffd44",
-      "bytes": 12245,
+      "sha256": "262c787168d915facaa3951c2404d316e6a965d30717754a86f1276bb3bd1af2",
+      "bytes": 12318,
       "imports": [],
       "symbols": [
         "call",
@@ -6604,8 +6692,8 @@
       ]
     },
     "tests/browser-web-play.py": {
-      "sha256": "1ca5f521662c6f270c1d2c49c6689c8d05428cfa07d84f49c42d066a847f0a94",
-      "bytes": 11684,
+      "sha256": "3e2dd114266db7cb0b6c10da17258b22510186dae4b4953af34d9df4f3db4a8c",
+      "bytes": 12775,
       "imports": [],
       "symbols": [
         "e",
@@ -6720,6 +6808,46 @@
         "t"
       ],
       "modules": []
+    },
+    "tests/chapter-test.test.mjs": {
+      "sha256": "27036ad2fee8698217ef75f716acbe6fdafea4851319dfe018d9679416b05c62",
+      "bytes": 6751,
+      "imports": [
+        "dist/core-v14.js",
+        "dist/presentation-v17.js",
+        "dist/save-transfer-v14.js",
+        "dist/story-test-v25.js",
+        "dist/story-test-v31.js"
+      ],
+      "symbols": [
+        "a",
+        "bad",
+        "before",
+        "chapter",
+        "classes",
+        "cls",
+        "copy",
+        "e",
+        "expected",
+        "flag",
+        "g",
+        "hp",
+        "kind",
+        "n",
+        "normal",
+        "old",
+        "raw",
+        "restore",
+        "restored",
+        "reward",
+        "skipped",
+        "text",
+        "type",
+        "visited"
+      ],
+      "modules": [
+        "chapter_test"
+      ]
     },
     "tests/chapter123-v30.test.mjs": {
       "sha256": "275548189deab03f4eb4cede111c8cceff7e7cf8c1d6bab6922c3bf281f8391d",

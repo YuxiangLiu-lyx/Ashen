@@ -273,3 +273,20 @@
 - 阶段 delivery：complete；HEAD bc2be236e5a928c03432c55ebc41dcf181d5c2c1
 - 最近检查：entry，退出码 0；docs/harness/evidence/ch1-launch-recovery-20261011/003-entry.txt
 <!-- /task:ch1-launch-recovery-20261011 -->
+
+<!-- task:chapter-test-20261011 -->
+## 任务 chapter-test-20261011
+- 状态：in_progress
+- 更新：2026-10-11T09:24:45.654629+00:00
+- 下一步：保留旧默认包并构建，执行离线/HTTP/手机包验收后推送main
+- 任务记录：source/tasks/active/chapter-test-20261011.json
+- 已完成：原件归档、运行审计、基线Node和浏览器均通过；实现及验收计划已落盘；八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验；最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限；最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致
+- 待完成：更新默认离线包并验收；GitHub main保存与任务归档
+- 决定：扩展已有V25/V26独立测试模式；只增加测试工具，不修改章稿、地图、正常剧情或平衡；阶段为审计基线、实现、验证交付；任务跳过在独立RPG副本执行，失败保持原会话；V26采集/交付仅本次测试调用忽略距离视线，不改地图；剧情击退与救援保持；首项失败仅为测试忽略parseSave默认游标，已修断言；010集成76回归通过，浏览器旧QA hook引用game已撤下的V26绑定失败；改为hook明确动态导入原生成器，不改原测试内容或断言
+- 阻塞：无
+- 阶段 audit：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
+- 阶段 implementation：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
+- 阶段 verification：complete；HEAD 68d508e41a878afbb278093275cba9518fd831e8
+- 阶段 delivery：in_progress；HEAD 68d508e41a878afbb278093275cba9518fd831e8
+- 最近检查：map-quality，退出码 0；docs/harness/evidence/chapter-test-20261011/015-map-quality.txt
+<!-- /task:chapter-test-20261011 -->

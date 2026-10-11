@@ -1,0 +1,43 @@
+✖ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (10.065334ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (5966.911584ms)
+✔ each later chapter start can skip to the final result without stuck quests (6732.715833ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (3.242ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (3.043292ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (9.018666ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (1.865292ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 12866.298208
+
+✖ failing tests:
+
+test at tests/chapter-test.test.mjs:11:1
+✖ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (10.065334ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   closing: false,
+      id: 'intro',
+  +   line: 0,
+  +   phase: 'action',
+      then: null
+    }
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:16:36)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'intro', then: null, line: 0, phase: 'action', closing: false },
+    expected: { id: 'intro', then: null },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

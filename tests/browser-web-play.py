@@ -100,6 +100,20 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.locator('[data-act="export-save"]').click();assert len(page.locator('#saveTransfer').input_value())>100
     checks += ['export_save_text']
     page.locator('[data-act="pause"]').click();page.locator('[data-act="story-test"]').click()
+    normal_before_tests=page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")
+    assert page.locator('[data-test-chapter]:not([data-test-resume])').count()==8
+    for chapter,map_id in [(1,'hall'),(2,'post'),(3,'hellGate'),(4,'deepGate'),(5,'ch5AshRoad')]:
+        page.locator(f'[data-test-chapter="{chapter}"]:not([data-test-resume])').click()
+        key='ashen-vow-rpg-v10-story-test-v25-chapter'+str(chapter)
+        page.wait_for_function('(key)=>!!localStorage.getItem(key)',arg=key)
+        seed=page.evaluate('(key)=>JSON.parse(localStorage.getItem(key))',key)
+        assert seed['format']=='ashen-vow-story-test-v25' and seed['save']['map']==map_id
+        page.locator('[data-act="test-skip"]').click()
+        page.locator('.hud').wait_for(timeout=15000)
+        page.locator('[data-act="pause"]').click()
+        assert page.evaluate("localStorage.getItem('ashen-vow-rpg-v10')")==normal_before_tests
+        page.locator('[data-act="story-test"]').click()
+    checks += ['eight_chapter_selector','early_five_chapter_starts','skip_main_or_dialogue','isolated_test_saves']
     page.locator('[data-test-chapter="8"]').last.click();page.wait_for_timeout(1700)
     # The chapter begins with a walking cinematic, not immediate dialogue.
     page.wait_for_function('document.querySelector(".dialogue-card") || document.querySelector("#ui").textContent.includes("免伤")',timeout=30000)

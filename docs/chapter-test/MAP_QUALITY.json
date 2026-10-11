@@ -1,0 +1,165 @@
+{
+  "task_id": "chapter-test-20261011",
+  "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+  "reviewed_paths": [
+    "dist/core-v14.js",
+    "dist/game-v14.js"
+  ],
+  "assets": [],
+  "scope": "Map/art files are unchanged. Broad core/UI path matching triggers the gate; this review concerns test entry/HUD/actor restoration on the exercised scenes, not a new map redesign acceptance.",
+  "unchanged_world_evidence": "docs/chapter-test/SCOPE.json",
+  "limits": [
+    "No map, collision, dialogue, scenery or character asset edits; registered data exactly matches baseline across 118 maps.",
+    "Test skips bypass travel and V26 interaction distance/sight by design; do not use their success as natural-navigation evidence.",
+    "Existing map and original-art limitations remain as documented by the retained baseline."
+  ],
+  "maps": [
+    {
+      "id": "road",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮测试入口/控制切换/真实攻击与手机点击通过；原碰撞和所有注册地图数据逐项一致。跳过不代表自然寻路验收。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/browser/RESULT.json",
+            "sha256": "e8a7245fd9f3df930aa0718fb17e931acbbbad12b3a68a0dbc9c9c2075520174"
+          },
+          {
+            "path": "docs/harness/evidence/chapter-test-20261011/013-chapter-test.txt",
+            "sha256": "35e3e2b2aa38d09d188eadaa860c6b25a5754bfe085a6064fcdb8f7fab610593"
+          },
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原旧王道地表/道路/景物与角色外观保留；新测试标记/跳过按钮不遮住主角，实际普攻命中秒杀；结合源码/数据相等证明本轮未改变原有场景用途或布置，不重新评定历史场景缺点。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-one-combat.png",
+            "sha256": "ec700f45e9367ef4f7a234dc3b823925e14159e268b018847b6bee49ca13d7f4"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际截图核对现有角色和动作；SCOPE核验196个未改运行模块及原图未变，保持既有角色原画映射/比例/遮挡。本次仅测试会话和UI变动。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-one-combat.png",
+            "sha256": "ec700f45e9367ef4f7a234dc3b823925e14159e268b018847b6bee49ca13d7f4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellWall",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮测试入口/控制切换/真实攻击与手机点击通过；原碰撞和所有注册地图数据逐项一致。跳过不代表自然寻路验收。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/browser/RESULT.json",
+            "sha256": "e8a7245fd9f3df930aa0718fb17e931acbbbad12b3a68a0dbc9c9c2075520174"
+          },
+          {
+            "path": "docs/harness/evidence/chapter-test-20261011/013-chapter-test.txt",
+            "sha256": "35e3e2b2aa38d09d188eadaa860c6b25a5754bfe085a6064fcdb8f7fab610593"
+          },
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原哭墙地形与亡魂、患者姿态保留；圣女主控和诺恩倒地保持角色关系/脚锚，未创建新人物画稿；结合源码/数据相等证明本轮未改变原有场景用途或布置，不重新评定历史场景缺点。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-three-rescue.png",
+            "sha256": "07fed614a1ffae0d10a21ee2e7424d0486b4fbd806885a70fae1890db5e864c6"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际截图核对现有角色和动作；SCOPE核验196个未改运行模块及原图未变，保持既有角色原画映射/比例/遮挡。本次仅测试会话和UI变动。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-three-rescue.png",
+            "sha256": "07fed614a1ffae0d10a21ee2e7424d0486b4fbd806885a70fae1890db5e864c6"
+          }
+        ]
+      }
+    },
+    {
+      "id": "post",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮测试入口/控制切换/真实攻击与手机点击通过；原碰撞和所有注册地图数据逐项一致。跳过不代表自然寻路验收。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/browser/RESULT.json",
+            "sha256": "e8a7245fd9f3df930aa0718fb17e931acbbbad12b3a68a0dbc9c9c2075520174"
+          },
+          {
+            "path": "docs/harness/evidence/chapter-test-20261011/013-chapter-test.txt",
+            "sha256": "35e3e2b2aa38d09d188eadaa860c6b25a5754bfe085a6064fcdb8f7fab610593"
+          },
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原驿站道路、建筑与NPC岗位保留；手机横屏有免伤/秒杀标识及可点击跳过控件；结合源码/数据相等证明本轮未改变原有场景用途或布置，不重新评定历史场景缺点。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-two-mobile.png",
+            "sha256": "4dd30bec8c000668ae53251022a326354305f73f91f4a87fc6be64fc8f3abd4c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际截图核对现有角色和动作；SCOPE核验196个未改运行模块及原图未变，保持既有角色原画映射/比例/遮挡。本次仅测试会话和UI变动。",
+        "evidence": [
+          {
+            "path": "docs/chapter-test/SCOPE.json",
+            "sha256": "e899a10bab6ebcea2f56864cdc5e7696b28b692605ee9cdf857a4ee1bcc80dd8"
+          },
+          {
+            "path": "docs/chapter-test/browser/chapter-two-mobile.png",
+            "sha256": "4dd30bec8c000668ae53251022a326354305f73f91f4a87fc6be64fc8f3abd4c"
+          }
+        ]
+      }
+    }
+  ]
+}

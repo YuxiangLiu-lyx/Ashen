@@ -4,6 +4,10 @@
 
 原站源码服务持续返回 HTTP 500 / 超时，因此这是**已发布运行源码恢复快照**，不冒充原始开发仓库的完整 Git 历史。具体范围见 [BACKUP_STATUS.md](BACKUP_STATUS.md)。
 
+## 2026-10-11 章节测试模式
+
+标题页点击“章节测试 · 免伤秒杀”，选择职业后可直接进入第一至第八章，每章分别保存测试进度。游戏、暂停或对白界面可跳过当前主线步骤/对白；测试中主角与同行免伤，命中即可秒杀。剧情击退和角色切换保留，正式存档不被覆盖。详见[测试模式验收](docs/chapter-test/ACCEPTANCE.md)。
+
 ## 2026-10-10 第一章对话修订
 
 按用户要求保留人物、地图、追兵图集和交互优化，撤下新增全屏分镜与对应Harness设计。新增幕后情节接回原对话框，以黑影呈现；未知人物不加身份描述，只留简短对白。旧六行尾段存档兼容；原任务、对白、地图与奖励保留。记录见 [修订验收](docs/ch1-dialogue-cleanup/ACCEPTANCE.md)。原站未发布。
@@ -68,7 +72,7 @@
 
 当前开发内容请运行本仓库的 `dist/`。下方在线试玩链接固定在历史V28.1，不会随main更新。
 
-本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。2026-10-11已将此路径更新为第一章0.4；旧分镜包保存在 `qa-export/release-build-before-dialogue-20261011/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
+本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。2026-10-11将此路径更新为第一章0.4加八章测试模式（以同目录清单为准）；旧分镜包保存在 `qa-export/release-build-before-dialogue-20261011/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
 
 需要 Git 和 Python 3.9+；不需要安装第三方 Python 包。
 
@@ -104,7 +108,7 @@ python3 tools/restore_archives.py --all --verify-only
 
 | 路径 | 内容 |
 | --- | --- |
-| `dist/` | 当前 199 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
+| `dist/` | 当前 200 个 JS、7 个 CSS 和 HTML 入口；运行代码内含当前全部剧情、对白、任务、战斗及资源映射 |
 | `archives/runtime-assets.*` | 116 张当前运行图片的原始字节；恢复到 `dist/assets/` |
 | `archives/library-originals.*` | 135 个历史原件，包括源码包、文案、部门交付、原图和旧资源；恢复到 `history/originals/` |
 | `history/library-documents/` | 45 份历史文档的可直接阅读副本 |

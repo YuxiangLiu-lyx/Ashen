@@ -1,0 +1,330 @@
+{
+  "schema": 1,
+  "id": "chapter-test-20261011",
+  "goal": "补齐第一至第五章独立测试入口，统一八章选择，支持跳过任务、免伤和一刀秒杀，隔离正式存档",
+  "acceptance": [
+    "八章三职业入口可进入并续档；跳任务推进真实状态；免伤和秒杀仅测试有效；正常存档字节不变；fast/integration及浏览器和本地包验证"
+  ],
+  "baseline_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+  "modules": [
+    "economy",
+    "save"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-11T08:57:29.844378+00:00",
+  "updated_at_utc": "2026-10-11T09:24:45.654629+00:00",
+  "decisions": [
+    "扩展已有V25/V26独立测试模式；只增加测试工具，不修改章稿、地图、正常剧情或平衡；阶段为审计基线、实现、验证交付",
+    "任务跳过在独立RPG副本执行，失败保持原会话；V26采集/交付仅本次测试调用忽略距离视线，不改地图；剧情击退与救援保持；首项失败仅为测试忽略parseSave默认游标，已修断言",
+    "010集成76回归通过，浏览器旧QA hook引用game已撤下的V26绑定失败；改为hook明确动态导入原生成器，不改原测试内容或断言"
+  ],
+  "completed": [
+    "原件归档、运行审计、基线Node和浏览器均通过；实现及验收计划已落盘",
+    "八章三职业入口、隔离测试存档、免伤秒杀与主线/对白跳过完成；7项专项通过含三职业全链及逐步存档校验",
+    "最终新功能Node7与桌面/移动端UI已通过；118图/任务/对白/景物注册数据与基线完全相等，core仅新增测试伤害下限",
+    "最终011 fast28、012完整integration、013新功能7组、014八章实际浏览器与手机操作、015三维范围门禁全部通过；当前源码与证据指纹一致"
+  ],
+  "remaining": [
+    "更新默认离线包并验收；GitHub main保存与任务归档"
+  ],
+  "blockers": [],
+  "next": "保留旧默认包并构建，执行离线/HTTP/手机包验收后推送main",
+  "required_checks": [
+    "fast",
+    "integration",
+    "chapter-test",
+    "chapter-test-browser"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "docs/chapter-test/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T08:57:29.988979+00:00",
+      "finished_at_utc": "2026-10-11T09:00:25.885970+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/001-baseline.txt",
+      "output_sha256": "c9096ebb48e31e313737dad8e5690a88d8bd94e99393408335b539dde44d8114",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "chapter-test",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:05:43.009767+00:00",
+      "finished_at_utc": "2026-10-11T09:05:55.958990+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "12350d71cf67226a2364933119ec65db0b463eeab70d3585572ce8b313670e01",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/002-chapter-test.txt",
+      "output_sha256": "aaedae9e8a289ec880231e4969b7faa97f90e331aea51d4f64d878437719463a",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter-test",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:07:04.443566+00:00",
+      "finished_at_utc": "2026-10-11T09:07:17.937281+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "b8466cda3475b6356f24bbe0913f2ee67f17b92356ae8a6e79509bf1922d6743",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/003-chapter-test.txt",
+      "output_sha256": "5ef42f5c8480d959c6e4e12965bdf06c7815a4aad97362eb48eb5381dcd24a99",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter-test-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:07:43.716867+00:00",
+      "finished_at_utc": "2026-10-11T09:08:53.206176+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "b8466cda3475b6356f24bbe0913f2ee67f17b92356ae8a6e79509bf1922d6743",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/004-chapter-test-browser.txt",
+      "output_sha256": "4b793abb015ca00688f5addf1da40160222ff53a5694b8b31f446ba30499fd23",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "chapter-test-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:09:39.573533+00:00",
+      "finished_at_utc": "2026-10-11T09:09:55.636247+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "2cfc3cf845eaedf2dfa37af24d1685917fc96c293b2fddceda9be695333be01b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/005-chapter-test-browser.txt",
+      "output_sha256": "6171f160354756eea626f7eae8d034a5d8df29fbbf33710853103abb852db4ba",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "chapter-test-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:14:23.059050+00:00",
+      "finished_at_utc": "2026-10-11T09:14:38.662400+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "6eb68e4c065146024387d040bde80ac4338a4805763c1af5b63bf5850c49a872",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/006-chapter-test-browser.txt",
+      "output_sha256": "5ba0f4d4d0054e810ddd226a2109d3740dcf1ebb20e4ca93849ce22bed96f813",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "chapter-test",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:15:30.388895+00:00",
+      "finished_at_utc": "2026-10-11T09:15:43.740822+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "6eb68e4c065146024387d040bde80ac4338a4805763c1af5b63bf5850c49a872",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/007-chapter-test.txt",
+      "output_sha256": "b2ace9740352c105a312768cc2668e7270fd5a1f158e581ebb85f54b4d49396b",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "scope",
+      "command": [
+        "python3",
+        "docs/chapter-test/verify_scope.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:15:43.808399+00:00",
+      "finished_at_utc": "2026-10-11T09:15:49.498715+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "6eb68e4c065146024387d040bde80ac4338a4805763c1af5b63bf5850c49a872",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/008-scope.txt",
+      "output_sha256": "bbad769ad8e02aed51e7c95bf438ec23862004b05b38d05e3487761bde607cff",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:15:49.565933+00:00",
+      "finished_at_utc": "2026-10-11T09:16:31.673446+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "6eb68e4c065146024387d040bde80ac4338a4805763c1af5b63bf5850c49a872",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/009-fast.txt",
+      "output_sha256": "9ea17a7601f0b6d7c20df5705a095c8a9565dbdb950f927dd2c9f2541748f374",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-11T09:16:31.738343+00:00",
+      "finished_at_utc": "2026-10-11T09:16:57.333371+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "6eb68e4c065146024387d040bde80ac4338a4805763c1af5b63bf5850c49a872",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/010-integration.txt",
+      "output_sha256": "adb473bd091e03b55aab961a72e71f2c6ba98810ed26f1ed8fbfc48bb16e7ad6",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:18:13.937741+00:00",
+      "finished_at_utc": "2026-10-11T09:18:27.387053+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/011-fast.txt",
+      "output_sha256": "848859cff72b02b097fe01d5400176da93858e35f6c2aa2840cfdece73a671a6",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:18:27.464837+00:00",
+      "finished_at_utc": "2026-10-11T09:21:37.794307+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/012-integration.txt",
+      "output_sha256": "949a61a3a5230aab4f9bbf9d972d04765ac12fdf94d2982eaefac089af8ebbf0",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "chapter-test",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:21:37.884160+00:00",
+      "finished_at_utc": "2026-10-11T09:21:51.172182+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/013-chapter-test.txt",
+      "output_sha256": "35e3e2b2aa38d09d188eadaa860c6b25a5754bfe085a6064fcdb8f7fab610593",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "chapter-test-browser",
+      "command": [
+        "node",
+        "tests/browser-chapter-test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:21:51.273131+00:00",
+      "finished_at_utc": "2026-10-11T09:22:06.664654+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/014-chapter-test-browser.txt",
+      "output_sha256": "5ba0f4d4d0054e810ddd226a2109d3740dcf1ebb20e4ca93849ce22bed96f813",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "68d508e41a878afbb278093275cba9518fd831e8"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-11T09:24:20.101080+00:00",
+      "finished_at_utc": "2026-10-11T09:24:20.198751+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/chapter-test-20261011/015-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:00:45.046975+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "40c6d23db1ef0044ce9a5a3e2434acef154643f721c2955802c50e9654eaf793",
+      "worktree": "M .codex/progress.md\n?? docs/chapter-test/\n?? docs/harness/evidence/chapter-test-20261011/\n?? source/tasks/active/chapter-test-20261011.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:07:43.549784+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "b8466cda3475b6356f24bbe0913f2ee67f17b92356ae8a6e79509bf1922d6743",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/story-test-v25.js\n M dist/style-v14.css\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n?? dist/story-test-v31.js\n?? docs/chapter-test/\n?? docs/harness/evidence/chapter-test-20261011/\n?? source/tasks/active/chapter-test-20261011.json\n?? tests/browser-chapter-test.mjs\n?? tests/chapter-test.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T09:24:45.519791+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/story-test-v25.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-presentation-v281.mjs\n M tests/browser-web-play.py\n?? dist/story-test-v31.js\n?? docs/chapter-test/\n?? docs/harness/evidence/chapter-test-20261011/\n?? source/tasks/active/chapter-test-20261011.json\n?? tests/browser-chapter-test.mjs\n?? tests/chapter-test.test.mjs"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-11T09:24:45.626724+00:00",
+      "head_commit": "68d508e41a878afbb278093275cba9518fd831e8",
+      "source_fingerprint": "a353d2591071d9781a48c91543528f5be4ef7bc4f61d3e93538a8b3a5bebc237",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/story-test-v25.js\n M dist/style-v14.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-presentation-v281.mjs\n M tests/browser-web-play.py\n?? dist/story-test-v31.js\n?? docs/chapter-test/\n?? docs/harness/evidence/chapter-test-20261011/\n?? source/tasks/active/chapter-test-20261011.json\n?? tests/browser-chapter-test.mjs\n?? tests/chapter-test.test.mjs"
+    }
+  ]
+}

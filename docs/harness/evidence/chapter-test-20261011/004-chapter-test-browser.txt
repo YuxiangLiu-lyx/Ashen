@@ -1,0 +1,9 @@
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43
+      async wait(expression,timeout=60000){const end=Date.now()+timeout;while(Date.now()<end){if(await evaluate(expression))return;await delay(100);}throw Error('Timed out: '+expression);},
+                                                                                                                                                           ^
+
+Error: Timed out: QA.mode==="play"
+    at Object.wait (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43:156)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-test.mjs:31:41
+
+Node.js v25.2.1

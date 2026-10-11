@@ -38,6 +38,7 @@ window.__ASHEN_QA={ready:()=>assetsReady,state:()=>({mode,map:g?.map,version:'28
  checkpoint(ch){beginChapterTestV26(ch);return {map:g.map,stage:g.sagaV25?.stage};},
  async preview(map,cls='shadow'){
   const {loot}=await import('./core-v14.js');
+  const {createStoryChapterTestV26}=await import('./story-test-v26.js');
   g=/^ch[678]/.test(map)?createStoryChapterTestV26(RPG,stats,8,cls):new RPG(cls);
   g.flags.complete=false;g.p.level=24;g.p.gear={};
   for(const slot of ['weapon','head','chest','hands','feet','relic'])g.p.gear[slot]=loot(cls,23,()=>.4,{slot,rarity:'epic',id:slot==='weapon'?'v28-oath-ember':'qa-'+slot});
