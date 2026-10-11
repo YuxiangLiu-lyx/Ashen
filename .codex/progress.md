@@ -4,7 +4,7 @@
 
 ## 当前目标与范围
 
-当前任务 `ch1-dialogue-cleanup-20261010`：0.4实现与全部验收完成，待GitHub main保存/核对/归档。保留0f3c9f9的人物/地图/交互优化，撤下新增全屏分镜和现行Harness设计；幕后改原对话框＋黑影，未知人无身份标签，每人一句。009集成、008浏览器通过；只改打包测试等待后013/014核验复用，最终011 fast28、012 dialogue9、015离线/HTTP/移动端、016三维通过。失败日志和范围限制落盘docs/ch1-dialogue-cleanup/ACCEPTANCE.md。原动作/对白/任务/奖励及保留文件哈希相等；旧H2六行游标兼容。下方0.3完成记录为修改前历史。
+当前任务 `ch1-dialogue-cleanup-20261010`已完成并归档：0.4实现与全部验收通过，fdffaca已推送GitHub main并ls-remote核对，任务记录位于archive；交付回执见docs/ch1-dialogue-cleanup/GIT_SAVE.json。保留0f3c9f9的人物/地图/交互优化，撤下新增全屏分镜和现行Harness设计；幕后改原对话框＋黑影，未知人无身份标签，每人一句。009集成、008浏览器通过；只改打包测试等待后013/014核验复用，最终011 fast28、012 dialogue9、015离线/HTTP/移动端、016三维通过。失败日志和范围限制落盘docs/ch1-dialogue-cleanup/ACCEPTANCE.md。原动作/对白/任务/奖励及保留文件哈希相等；旧H2六行游标兼容。下方0.3完成记录为修改前历史。
 
 
 第一章0.3局部增强 `ch1-pilot-r2-20261010` 与V29历史收尾已完成本地验收并保存GitHub main（49614e0，ls-remote已核对），任务归档。第二章只策划；旧0.1/0.2大重构任务继续暂停。
@@ -240,16 +240,17 @@
 
 <!-- task:ch1-dialogue-cleanup-20261010 -->
 ## 任务 ch1-dialogue-cleanup-20261010
-- 状态：in_progress
-- 更新：2026-10-11T03:53:25.093692+00:00
-- 下一步：核对diff/资源/ignore/staged，提交、推送main并验证远端
-- 任务记录：source/tasks/active/ch1-dialogue-cleanup-20261010.json
-- 已完成：已检查干净main并fetch，保存0f3c9f9的地图/对白/任务/景物/原STAGING和保留资源哈希，计划落盘。；原对话与黑影接入、匿名三句和旧游标迁移完成；九项专项通过，10个保留文件及原地图/对白/任务/STAGING哈希相等。现行分镜Harness删除，历史原件保留。；最终fast28项、dialogue9项、浏览器两完整场景/18图221路径/48帧/三视口、integration76项与14事件/35图均通过。015打包离线/HTTP/移动端通过，旧尾段实际导入/刷新/出门安全保存无重复；三维门禁通过。
-- 待完成：提交并正常推送GitHub main，ls-remote核对后归档任务和最终回执
+- 状态：complete
+- 更新：2026-10-11T03:56:40.745963+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/ch1-dialogue-cleanup-20261010.json
+- 已完成：已检查干净main并fetch，保存0f3c9f9的地图/对白/任务/景物/原STAGING和保留资源哈希，计划落盘。；原对话与黑影接入、匿名三句和旧游标迁移完成；九项专项通过，10个保留文件及原地图/对白/任务/STAGING哈希相等。现行分镜Harness删除，历史原件保留。；最终fast28项、dialogue9项、浏览器两完整场景/18图221路径/48帧/三视口、integration76项与14事件/35图均通过。015打包离线/HTTP/移动端通过，旧尾段实际导入/刷新/出门安全保存无重复；三维门禁通过。；fdffacae9f8625c4079130625a90ea144bb47f4d已正常推送GitHub main，ls-remote与本地HEAD相等；实现、资源归档、截图、全部成功及失败日志已保存。未发布网站。
+- 待完成：无
 - 决定：0.4采用原对话UI；H1保留6句，H2匿名黑影3人各一句；旧H2六行游标按组映射，明确版本避免二次迁移。；010打包UI失败是早于既有封闭战斗结束读安全存档；只修测试等待，保留运行规则。013/014逐文件及日志哈希核验复用未变的008/009检查，015核验复用010已完成构建，避免重做。
 - 阻塞：无
 - 阶段 baseline：complete；HEAD 0f3c9f9f08cd71befe20b22da7c74e5f6482b674
 - 阶段 implementation：complete；HEAD 0f3c9f9f08cd71befe20b22da7c74e5f6482b674
 - 阶段 verification：complete；HEAD 0f3c9f9f08cd71befe20b22da7c74e5f6482b674
+- 阶段 delivery：complete；HEAD fdffacae9f8625c4079130625a90ea144bb47f4d
 - 最近检查：map-quality，退出码 0；docs/harness/evidence/ch1-dialogue-cleanup-20261010/016-map-quality.txt
 <!-- /task:ch1-dialogue-cleanup-20261010 -->

@@ -13,9 +13,9 @@
     "chapter01_plan",
     "lab"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-11T03:24:01.844785+00:00",
-  "updated_at_utc": "2026-10-11T03:53:25.093692+00:00",
+  "updated_at_utc": "2026-10-11T03:56:40.745963+00:00",
   "decisions": [
     "0.4采用原对话UI；H1保留6句，H2匿名黑影3人各一句；旧H2六行游标按组映射，明确版本避免二次迁移。",
     "010打包UI失败是早于既有封闭战斗结束读安全存档；只修测试等待，保留运行规则。013/014逐文件及日志哈希核验复用未变的008/009检查，015核验复用010已完成构建，避免重做。"
@@ -23,13 +23,12 @@
   "completed": [
     "已检查干净main并fetch，保存0f3c9f9的地图/对白/任务/景物/原STAGING和保留资源哈希，计划落盘。",
     "原对话与黑影接入、匿名三句和旧游标迁移完成；九项专项通过，10个保留文件及原地图/对白/任务/STAGING哈希相等。现行分镜Harness删除，历史原件保留。",
-    "最终fast28项、dialogue9项、浏览器两完整场景/18图221路径/48帧/三视口、integration76项与14事件/35图均通过。015打包离线/HTTP/移动端通过，旧尾段实际导入/刷新/出门安全保存无重复；三维门禁通过。"
+    "最终fast28项、dialogue9项、浏览器两完整场景/18图221路径/48帧/三视口、integration76项与14事件/35图均通过。015打包离线/HTTP/移动端通过，旧尾段实际导入/刷新/出门安全保存无重复；三维门禁通过。",
+    "fdffacae9f8625c4079130625a90ea144bb47f4d已正常推送GitHub main，ls-remote与本地HEAD相等；实现、资源归档、截图、全部成功及失败日志已保存。未发布网站。"
   ],
-  "remaining": [
-    "提交并正常推送GitHub main，ls-remote核对后归档任务和最终回执"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "核对diff/资源/ignore/staged，提交、推送main并验证远端",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "dialogue",
@@ -336,6 +335,17 @@
       "head_commit": "0f3c9f9f08cd71befe20b22da7c74e5f6482b674",
       "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n D dist/assets/c1-incremental/chapel-action-a.png\n D dist/assets/c1-incremental/chapel-action-b.png\n D dist/assets/c1-incremental/chapel.png\n D dist/assets/c1-incremental/seal-echo.png\n D dist/chapter-one-cinematic-v31.css\n D dist/chapter-one-cinematic-v31.js\n M dist/game-v14.js\n M dist/index.html\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n D docs/harness/CHAPTER_01_DEVELOPMENT_PROMPT.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORLD.md\n M docs/harness/WORLD_VISION.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-chapter-one-play-v30.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/harness/test_narrative_routing.py\n?? dist/chapter-one-dialogues-v31.js\n?? docs/ch1-dialogue-cleanup/\n?? docs/harness/evidence/ch1-dialogue-cleanup-20261010/\n?? docs/map-quality/ch1-pilot-r2-20261010.json\n?? history/c1-cinematic-20261010/\n?? source/tasks/active/ch1-dialogue-cleanup-20261010.json"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-11T03:56:40.688548+00:00",
+      "head_commit": "fdffacae9f8625c4079130625a90ea144bb47f4d",
+      "source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6",
+      "worktree": ""
     }
-  ]
+  ],
+  "summary": "第一章0.4原对话/黑影修订完成；保留人物和地图优化，删除现行分镜Harness与运行接入，存档兼容和全部验收通过，GitHub main已核验fdffaca。",
+  "completed_at_utc": "2026-10-11T03:56:40.852745+00:00",
+  "verified_source_fingerprint": "ab42584eefbcfd0d2e27b043f81f5e2b66e29b0a10de474493978959158addb6"
 }
