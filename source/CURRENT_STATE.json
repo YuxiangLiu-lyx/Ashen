@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Chapter-one0.5 replaces the commission tail and removes the newly added anonymous scene. Default saint portrait reuses a preserved cover-derived gentle image; world bodies and late disguises are unchanged. Original maps/tasks/mainline dialogue tables/rewards remain. Final packaging verification in progress; no website deployment or private save access.",
-  "checked_at_utc": "2026-10-11T10:02:43.266114+00:00",
+  "known_limits": "Chapter-one0.5 replaces the commission tail and removes the newly added anonymous scene. Default saint portrait reuses a preserved cover-derived gentle image; world bodies and late disguises are unchanged. Original maps/tasks/mainline dialogue tables/rewards remain. No eight-chapter natural campaign playthrough, private save access or website deployment.",
+  "checked_at_utc": "2026-10-12T06:59:57.046087+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Current0.5: 26 scenes/263 original lines plus 11 new tail lines; 18 maps/221 routes/48 frames and three viewports passed. Integration and packaged verification in progress.",
+  "browser_qa_status": "Chapter-one0.5 passed: 26 scenes/263 original lines + 11 new tail lines, 18 maps/221 routes/48 frames, 20 targeted regressions, fast28, full integration, three-dimension review, real5174 entry/failure recovery and offline/HTTP/mobile package. See docs/ch1-voice/ACCEPTANCE.md.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "c6980d5b663e647a3bf16e0470805a4c963cc7a0",
+  "runtime_source_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -313,7 +313,7 @@
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "0.5",
       "script_status": "IMPLEMENTED",
-      "implementation": "Implemented; validation in progress under ch1-voice-20261012 / docs/ch1-voice/ACCEPTANCE.md"
+      "implementation": "0.5 implemented and all scoped validation passed; current verification docs/ch1-voice/ACCEPTANCE.md, task ch1-voice-20261012"
     },
     "chapter02": {
       "id": "V01C02",
@@ -613,11 +613,27 @@
   "chapter01_voice_revision": {
     "task_id": "ch1-voice-20261012",
     "script_revision": "0.5",
-    "status": "implemented; validation in progress",
+    "status": "implementation_and_validation_complete; remote_sync_pending",
     "source_baseline": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
     "asset_manifest": "docs/ch1-voice/ASSET_MANIFEST.json",
     "dialogue": "docs/ch1-voice/DIALOGUE.json",
     "acceptance": "docs/ch1-voice/ACCEPTANCE.md",
-    "site_deployed": false
+    "site_deployed": false,
+    "implementation_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+    "checks": {
+      "fast": 28,
+      "story": 20,
+      "browser": "26 scenes/263 original lines plus11 new tail lines; three viewports",
+      "scenes": "18 maps/221 routes/48 frames",
+      "integration": "passed",
+      "map_quality": "passed",
+      "local_5174": "passed with error recovery and real imported old saves",
+      "packaged_ui": "offline/HTTP/mobile passed"
+    },
+    "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+    "current_offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-voice-20261012",
+    "package": "docs/ch1-voice/PACKAGE.json",
+    "git_receipt": "docs/ch1-voice/GIT_SAVE.json"
   }
 }

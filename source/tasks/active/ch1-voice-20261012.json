@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-12T06:32:47.404472+00:00",
-  "updated_at_utc": "2026-10-12T06:55:50.923331+00:00",
+  "updated_at_utc": "2026-10-12T06:59:57.204241+00:00",
   "decisions": [
     "当前用户授权优先于旧0.4匿名黑影条款；只取回符合封面的elyria-gentle原件，不恢复暂停重构或其他旧剧情。",
     "新增段11行含4处简短动作/沉默旁白，薇蕾娜先问禁制再要求保护诺恩，鲁恩两次道歉；移除H2；旁白无人物占位。",
@@ -22,13 +22,15 @@
   "completed": [
     "保存26场263行浏览器基线；完整读取第一章0.4并记录0.5采用稿、逐句稿和角色知识边界；旧稿与代码保留历史；核对封面与柔和原件",
     "11行接委托对白、柔和立绘、旧H1/H2迁移已实现；19项Node初测通过，保留迁移测试fixture失败日志",
-    "最终fast28、story20、26场263行加新11行/三视口、18图221路径48帧、完整integration、三维及真实5174都通过"
+    "最终fast28、story20、26场263行加新11行/三视口、18图221路径48帧、完整integration、三维及真实5174都通过",
+    "实现与全部本地验收检查点8cd49f8已保存",
+    "012干净运行源码构建200模块129图；013离线HTTP手机包通过；014核验337输入与旧128图并提升常用入口，旧包保留"
   ],
   "remaining": [
-    "干净源码构建/离线HTTP手机包；提交推送GitHub main并核验"
+    "GitHub main保存与远端核验"
   ],
   "blockers": [],
-  "next": "保存实现检查点后生成常用离线包",
+  "next": "提交并正常快进main，推送后核对远端SHA",
   "required_checks": [
     "fast",
     "story",
@@ -235,6 +237,62 @@
       "output": "docs/harness/evidence/ch1-voice-20261012/011-local-5174.txt",
       "output_sha256": "3252e646fce068aa504f008286eafd04d3338cf9ac64ea250a7bc9f44717ed39",
       "timeout_seconds": 240.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/voice-release-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:56:18.626269+00:00",
+      "finished_at_utc": "2026-10-12T06:57:21.580096+00:00",
+      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/012-package-build.txt",
+      "output_sha256": "e98c20431c1c6f2896c1bf5c9d7f0dc564128600719e1d7200cb5ae359993f0f",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/voice-release-build",
+        "--out",
+        "docs/ch1-voice/packaged"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:57:21.671603+00:00",
+      "finished_at_utc": "2026-10-12T06:58:46.800776+00:00",
+      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/013-packaged-ui.txt",
+      "output_sha256": "4abe5f4e199ef057af7dd0b12124f59e6283f29f3dc14593f17bfaed3b6ed6ce",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "package-promote",
+      "command": [
+        "python3",
+        "docs/ch1-voice/promote_package.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:59:01.371203+00:00",
+      "finished_at_utc": "2026-10-12T06:59:01.896304+00:00",
+      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/014-package-promote.txt",
+      "output_sha256": "502771c23fcecf14578f6a27bb612cccaaffb309dfcf720a90860ffe4e3f7ea3",
+      "timeout_seconds": 60.0
     }
   ],
   "stages": [
@@ -261,6 +319,22 @@
       "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
       "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/game-v14.js\n M dist/identity-visuals-v18.js\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-ch12-portraits.mjs\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-test.test.mjs\n?? dist/assets/c1-voice/\n?? docs/ch1-voice/\n?? docs/harness/evidence/ch1-voice-20261012/\n?? history/c1-backstage-20261012/\n?? source/tasks/active/ch1-voice-20261012.json"
+    },
+    {
+      "name": "package",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T06:59:57.088973+00:00",
+      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M docs/ch1-voice/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch1-voice-20261012.json\n?? docs/ch1-voice/PACKAGE.json\n?? docs/ch1-voice/WEB_BUILD_MANIFEST.json\n?? docs/ch1-voice/packaged/\n?? docs/ch1-voice/promote_package.py\n?? docs/harness/evidence/ch1-voice-20261012/012-package-build.txt\n?? docs/harness/evidence/ch1-voice-20261012/013-packaged-ui.txt\n?? docs/harness/evidence/ch1-voice-20261012/014-package-promote.txt"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-12T06:59:57.173929+00:00",
+      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M docs/ch1-voice/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch1-voice-20261012.json\n?? docs/ch1-voice/PACKAGE.json\n?? docs/ch1-voice/WEB_BUILD_MANIFEST.json\n?? docs/ch1-voice/packaged/\n?? docs/ch1-voice/promote_package.py\n?? docs/harness/evidence/ch1-voice-20261012/012-package-build.txt\n?? docs/harness/evidence/ch1-voice-20261012/013-packaged-ui.txt\n?? docs/harness/evidence/ch1-voice-20261012/014-package-promote.txt"
     }
   ]
 }
