@@ -1,0 +1,265 @@
+{
+  "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+  "checked_at_utc": "2026-10-12T11:25:39.761668+00:00",
+  "status": "development_review_incomplete",
+  "review": {
+    "causality": {
+      "status": "pass",
+      "reason": "委托/训练/维护班次/午钟门禁/退路检修按实际阶段连接；原18行刺杀与第二章事件受保护。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/REVIEW_NOTES.md",
+          "sha256": "f725e8f0bca3a7d7a5c32e6c3f48b952c06265c5ade970e2aceb964742d60963"
+        },
+        {
+          "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+          "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+        },
+        {
+          "path": "dist/chapter-one-expansion-quests.js",
+          "sha256": "f5960cbb4ba54bfd07ebe765074c819b756fc6d41b5d440106bdfb6f65d61978"
+        }
+      ]
+    },
+    "world_feedback": {
+      "status": "pass",
+      "reason": "封墙、双路线试炼、修灯、符片诊断、泄压踏板、废窑通风与短梯有实际交互和状态前后图。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/browser/QA.json",
+          "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+        },
+        {
+          "path": "docs/ch1-expansion/MAP_QUALITY.json",
+          "sha256": "53bb5ebc6a884d9bda3949081724ea83cd154d622c83e699fe0de1f31b54d9c6"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+          "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+        }
+      ]
+    },
+    "pacing": {
+      "status": "failed",
+      "reason": "精英熟练脚本均值约1.8–9.4秒，低于30–55秒目标；人类首次主线45–60、典型65–90、全完成90–110分钟和资金6–12分钟尚未实测。未增血拖时；保留用户既定预算等待体验评估。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json",
+          "sha256": "24e50e4a2af33a6ba398e180b432278e72cec68bd89cfc360063f7f683b05f15"
+        },
+        {
+          "path": "docs/ch1-expansion/NATURAL_TIMING.json",
+          "sha256": "ffde411f69d39a3e06be51713090fe1f0751a80803b23088fe379784822952f9"
+        },
+        {
+          "path": "docs/ch1-expansion/CHANGE_SUMMARY.md",
+          "sha256": "70f2f08df3610734fb132bcb88ffdc1966cf938a5058a81e41ac9f43de39c606"
+        }
+      ]
+    },
+    "character_voice": {
+      "status": "pass",
+      "reason": "原圣女抵抗、诺恩知识边界和薇蕾娜/鲁恩私下安排保持；无新增匿名人，既有18行刺杀受测试保护。助手对白审阅不替代整段人类体验。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/REVIEW_NOTES.md",
+          "sha256": "f725e8f0bca3a7d7a5c32e6c3f48b952c06265c5ade970e2aceb964742d60963"
+        },
+        {
+          "path": "dist/chapter-one-expansion-quests.js",
+          "sha256": "f5960cbb4ba54bfd07ebe765074c819b756fc6d41b5d440106bdfb6f65d61978"
+        },
+        {
+          "path": "docs/ch1-expansion/package/WEB_QA.json",
+          "sha256": "eb8cce9cf87e63d9adb52eb013b1f1a2002d327ddb18dde39142af697c8cf49e"
+        },
+        {
+          "path": "docs/harness/evidence/c1-expansion-20261012/033-release.txt",
+          "sha256": "8af9ae796e09d9bd259594037716a078f9050ba30d17bd768e8386a031b4a4e2"
+        }
+      ]
+    }
+  },
+  "natural_play": {
+    "shadow": {
+      "status": "pass",
+      "reason": "正常新档，通过真实键鼠、实际加点/穿装/买药，连续完成前两章；只读查询钩子。60份保存节点另用当前严格校验器和RPG读写复核。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+          "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+        },
+        {
+          "path": "docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json",
+          "sha256": "71a7c8e7857b1f879555ff1437c3751deb9e1a000258fd525c0a721edf85ce24"
+        }
+      ],
+      "input_method": "normal_ui",
+      "ending_phase": 12,
+      "state_mutation_hooks": false
+    },
+    "oath": {
+      "status": "pass",
+      "reason": "正常新档，通过真实键鼠、实际加点/穿装/买药，连续完成前两章；只读查询钩子。60份保存节点另用当前严格校验器和RPG读写复核。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/natural/oath-final-corners/PLAY.json",
+          "sha256": "47cf235974b535c2b3c1c7b19840cbf9905dc3e1cbe549d6a9048f29f414dddf"
+        },
+        {
+          "path": "docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json",
+          "sha256": "71a7c8e7857b1f879555ff1437c3751deb9e1a000258fd525c0a721edf85ce24"
+        }
+      ],
+      "input_method": "normal_ui",
+      "ending_phase": 12,
+      "state_mutation_hooks": false
+    },
+    "ember": {
+      "status": "pass",
+      "reason": "正常新档，通过真实键鼠、实际加点/穿装/买药，连续完成前两章；只读查询钩子。60份保存节点另用当前严格校验器和RPG读写复核。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/natural/ember-final-corners/PLAY.json",
+          "sha256": "127476ce8c029700e1ed50140499ed1eee67fb0b87d3b82a687ed8ba2a847e62"
+        },
+        {
+          "path": "docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json",
+          "sha256": "71a7c8e7857b1f879555ff1437c3751deb9e1a000258fd525c0a721edf85ce24"
+        }
+      ],
+      "input_method": "normal_ui",
+      "ending_phase": 12,
+      "state_mutation_hooks": false
+    }
+  },
+  "human_full_observation": {
+    "status": "unverified",
+    "reason": "用户原需求13.2要求至少一条路线由人工观察真实键鼠/触屏全过程。未收到人类完整观察记录；助手截图和脚本不冒充这项证据。",
+    "evidence": [
+      {
+        "path": "docs/ch1-expansion/REQUEST.md",
+        "sha256": "358abdc3859162ef9bda3fd60e11cf58e148253bba1927154fc7a6fbf4f26b62"
+      }
+    ],
+    "observer_kind": "not_performed",
+    "scope": "pending_entire_normal_input_route"
+  },
+  "economy": {
+    "main_only": {
+      "status": "pass",
+      "reason": "实际付款/奖励/掉落事件账本与逐里程碑存档，三职业均完成原第二章；加速时间不作人类净金币/分钟。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/economy/shadow-main_only.json",
+          "sha256": "6e721308440ab1cf8ce0bd530158614b505fcd12f45df91f4e98ba999c21097a"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/oath-main_only.json",
+          "sha256": "2cfb8fefc7a2e504b7cb02be5f10105c9971cd818ed9671dab7c9a0a26e84b42"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/ember-main_only.json",
+          "sha256": "041e653127785b867568751cc14d543a22ca73bdc9fcec9cba2349e0544ae110"
+        }
+      ],
+      "basis": "runtime_events",
+      "actual_snapshot": true
+    },
+    "typical": {
+      "status": "pass",
+      "reason": "实际付款/奖励/掉落事件账本与逐里程碑存档，三职业均完成原第二章；加速时间不作人类净金币/分钟。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/economy/shadow-typical.json",
+          "sha256": "06b20511410b0e3d22d339b5674453f1f9242f66cabf41f045f782343ada151d"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/oath-typical.json",
+          "sha256": "fc070a0d760c4d1f744d7f40178d9769e66b41dc333d7b68251d3e6fc601a77a"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/ember-typical.json",
+          "sha256": "096e546f102ff7af3dfc572ed3be146c06667baa818c0e769a6f9189270301a8"
+        }
+      ],
+      "basis": "runtime_events",
+      "actual_snapshot": true
+    },
+    "all_once": {
+      "status": "pass",
+      "reason": "实际付款/奖励/掉落事件账本与逐里程碑存档，三职业均完成原第二章；加速时间不作人类净金币/分钟。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+          "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/oath-all_once.json",
+          "sha256": "c95ae6ced06e424791d5828edec368f6a78e7b088df0fffcf50092a5d0e16794"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/ember-all_once.json",
+          "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+        }
+      ],
+      "basis": "runtime_events",
+      "actual_snapshot": true
+    },
+    "repeat_patrol": {
+      "status": "pass",
+      "reason": "实际付款/奖励/掉落事件账本与逐里程碑存档，三职业均完成原第二章；加速时间不作人类净金币/分钟。",
+      "evidence": [
+        {
+          "path": "docs/ch1-expansion/economy/shadow-repeat_patrol.json",
+          "sha256": "110e060771ba50657955415695a2698d0b24d4cecb9d775e6ad487e4b9820ff8"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/oath-repeat_patrol.json",
+          "sha256": "59288128e1a9975ed81e15769ebfb49fbc23d87082cfd5af2ed8b6fb8177c134"
+        },
+        {
+          "path": "docs/ch1-expansion/economy/ember-repeat_patrol.json",
+          "sha256": "f8c1cac85c61242e24bb52817e611b4ba21242e45a7123e7866a5daa9e24d6a2"
+        }
+      ],
+      "basis": "runtime_events",
+      "actual_snapshot": true
+    }
+  },
+  "balance": {
+    "status": "pass",
+    "reason": "三职业×三种真实成长快照×五关键遭遇×三入场资源状态×十二种子，共1620次；通过指证据齐全和运行规则一致，不表示所有压力场景获胜或TTK达标。",
+    "evidence": [
+      {
+        "path": "docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json",
+        "sha256": "24e50e4a2af33a6ba398e180b432278e72cec68bd89cfc360063f7f683b05f15"
+      }
+    ],
+    "minimum_seeds_per_class_encounter": 12,
+    "total_encounters": 1620
+  },
+  "compatibility": {
+    "status": "pass",
+    "reason": "旧phase2/3/4/5/12、满包暂存、重复领取、制作幂等、训练退出、第二章布伦与章节测试回归通过；60份正常路线存档在当前严格校验器加载保持进度和钱。",
+    "evidence": [
+      {
+        "path": "docs/harness/evidence/c1-expansion-20261012/033-release.txt",
+        "sha256": "8af9ae796e09d9bd259594037716a078f9050ba30d17bd768e8386a031b4a4e2"
+      },
+      {
+        "path": "docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json",
+        "sha256": "71a7c8e7857b1f879555ff1437c3751deb9e1a000258fd525c0a721edf85ce24"
+      },
+      {
+        "path": "docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt",
+        "sha256": "5243943b61f4511fdb296d4e825fd0cacfac08f634bd1639a7dfcf84aa7f2835"
+      }
+    ]
+  },
+  "limits": [
+    "三条正常输入路线均用免费首次制作和真实购买药品；零支线/零付费制作成立。零制作路径另由状态机测试覆盖，不能称为三条零制作自然通关。",
+    "Economic routes execute actual runtime movement/combat/economic methods with accelerated scripted control, distinct from normal browser input.",
+    "三职业通关与isolated Lab压力失败均保留，不能相互替代。"
+  ]
+}

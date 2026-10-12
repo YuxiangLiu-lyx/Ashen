@@ -1,5 +1,5 @@
 {
-  "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+  "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
   "checked_at_utc": "2026-10-12T11:25:39.761668+00:00",
   "status": "development_review_incomplete",
   "review": {
@@ -9,7 +9,7 @@
       "evidence": [
         {
           "path": "docs/ch1-expansion/REVIEW_NOTES.md",
-          "sha256": "f725e8f0bca3a7d7a5c32e6c3f48b952c06265c5ade970e2aceb964742d60963"
+          "sha256": "c43455afd5235f5315c483e5f81f3b193ca05736a4e34ac49c2a9caaacc3ce27"
         },
         {
           "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
@@ -31,7 +31,7 @@
         },
         {
           "path": "docs/ch1-expansion/MAP_QUALITY.json",
-          "sha256": "53bb5ebc6a884d9bda3949081724ea83cd154d622c83e699fe0de1f31b54d9c6"
+          "sha256": "c7a49da5bd1fbcc5f1c233b9e5337aa88813e6b9e0a9da20e5c832bc4f375c95"
         },
         {
           "path": "docs/ch1-expansion/economy/shadow-all_once.json",
@@ -41,7 +41,7 @@
     },
     "pacing": {
       "status": "failed",
-      "reason": "精英熟练脚本均值约1.8–9.4秒，低于30–55秒目标；人类首次主线45–60、典型65–90、全完成90–110分钟和资金6–12分钟尚未实测。未增血拖时；保留用户既定预算等待体验评估。",
+      "reason": "三精英较短战斗已获用户明确接受，保留现有数值预算。追缉官熟练脚本均值10.5–26.7秒仍短于其原目标；人类首次主线45–60、典型65–90、全完成90–110分钟及资金6–12分钟尚未实测。这些独立项未被本次答复豁免。",
       "evidence": [
         {
           "path": "docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json",
@@ -53,7 +53,11 @@
         },
         {
           "path": "docs/ch1-expansion/CHANGE_SUMMARY.md",
-          "sha256": "70f2f08df3610734fb132bcb88ffdc1966cf938a5058a81e41ac9f43de39c606"
+          "sha256": "50d308d535e3c1d6bb447945edc749b66b8f41b748c70dede3ccb057701ebef8"
+        },
+        {
+          "path": "docs/ch1-expansion/ELITE_DURATION_DECISION.json",
+          "sha256": "f4872c9ffcc3168ccb5d824dbd1b74cd3c86f935e4da161414117611a8e5971e"
         }
       ]
     },
@@ -63,7 +67,7 @@
       "evidence": [
         {
           "path": "docs/ch1-expansion/REVIEW_NOTES.md",
-          "sha256": "f725e8f0bca3a7d7a5c32e6c3f48b952c06265c5ade970e2aceb964742d60963"
+          "sha256": "c43455afd5235f5315c483e5f81f3b193ca05736a4e34ac49c2a9caaacc3ce27"
         },
         {
           "path": "dist/chapter-one-expansion-quests.js",
@@ -261,5 +265,25 @@
     "三条正常输入路线均用免费首次制作和真实购买药品；零支线/零付费制作成立。零制作路径另由状态机测试覆盖，不能称为三条零制作自然通关。",
     "Economic routes execute actual runtime movement/combat/economic methods with accelerated scripted control, distinct from normal browser input.",
     "三职业通关与isolated Lab压力失败均保留，不能相互替代。"
-  ]
+  ],
+  "rule_only_revalidation": {
+    "kind": "documented_user_acceptance_only",
+    "at_utc": "2026-10-12T23:36:48.039331+00:00",
+    "previous_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+    "evidence": {
+      "path": "docs/ch1-expansion/ELITE_DECISION_VALIDATION.json",
+      "sha256": "f02e199f452a06b972283aa87ef1e4874d937ddeb1c50e4813837b7e0f3d850e"
+    },
+    "limits": "Gameplay/rendering unchanged; existing run and visual-review dates retained."
+  },
+  "elite_duration_acceptance": {
+    "status": "accepted_by_user",
+    "reason": "用户接受三精英较短战斗，保留当前数值预算；三精英时长不再是本轮阻塞项。",
+    "evidence": [
+      {
+        "path": "docs/ch1-expansion/ELITE_DURATION_DECISION.json",
+        "sha256": "f4872c9ffcc3168ccb5d824dbd1b74cd3c86f935e4da161414117611a8e5971e"
+      }
+    ]
+  }
 }

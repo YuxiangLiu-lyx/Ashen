@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-12T08:37:39.182577+00:00",
-  "updated_at_utc": "2026-10-12T11:30:19.583685+00:00",
+  "updated_at_utc": "2026-10-12T23:38:14.496706+00:00",
   "decisions": [
     "采用新授权0.6；保留0.5刺杀与幕后、第二章0.3仅策划、旧重构继续暂停；六阶段按用户Prompt推进",
     "基线子命令全部退出0，但期间新增未接入模块使sources_changed_during_check=true，仅作改前运行证据，不作最终门禁；最终需重新验证",
@@ -22,7 +22,8 @@
     "保留精英既定数值预算；熟练脚本战时偏短已报告，未冒充目标达成。新增人工观察门禁，助手截图审阅不能替代用户要求的人类全过程观察。",
     "保留029组合退出1：集成0，真实输入1。誓卫/烬术师在旧长凳拐角被脚本提前跳点卡住，未计通关。布伦改用实际庄园入口存档，原首章期末压力试验另存。",
     "熟练脚本精英1.8–9.4秒、追缉官10.5–26.7秒短于目标；烬术师低资源失败保留。未改全局经验或第二章敌人，未加血拖时；待真人体验校准。",
-    "033 release因内容报告缺失退出1；现报告完整，043仅剩pacing与human_full_observation不通过。任务不finish，不将Git保存说成网站发布。"
+    "033 release因内容报告缺失退出1；现报告完整，043仅剩pacing与human_full_observation不通过。任务不finish，不将Git保存说成网站发布。",
+    "用户明确选择：保留数值预算，接受较短战斗；适用本次问题中的三精英。无需延长三精英战时，其他验收不自动通过。"
   ],
   "completed": [
     "Git干净、fetch核对38bf430、独立分支、需求和两章及相关领域规则已读",
@@ -34,17 +35,18 @@
     "三职业正常新档均以真实键鼠连续完成前两章；当前严格验证器重载全部60份阶段存档保持地图/进度/等级/金币。",
     "四经济路线×三职业及三条一件紫装变体均续通第二章；1620次实际成长快照实战、两项章界奖励、满包/幂等/旧档/7组八章测试通过。",
     "5f05e5f离线/HTTP/手机横屏包通过；独立038 fast30、039 core133、040 integration、041章界奖励、042地图三维通过，原件分卷全部验证。",
-    "实现及全部开发验收证据ac5eb35已正常快进并推送GitHub main；ls-remote核对相等。可玩包源5f05e5f，本地http://127.0.0.1:5176/，网站未发布。"
+    "实现及全部开发验收证据ac5eb35已正常快进并推送GitHub main；ls-remote核对相等。可玩包源5f05e5f，本地http://127.0.0.1:5176/，网站未发布。",
+    "用户接受三精英较短战斗已写入采用稿、状态、内容报告和摘要；044确认仅规则文档改变，运行/测试/工具无变化；045 fast30与046地图证据核验通过，047保留其他未验收内容。"
   ],
   "remaining": [
     "人类完整正常输入观察与首次时长/净金币每分钟测量",
-    "精英/追缉官节奏校准与低资源烬术师体验评估",
+    "追缉官节奏与低资源烬术师体验评估；三精英短战已接受，不再要求延长",
     "内容通过后正式release及finish"
   ],
   "blockers": [
     "用户需求13.2要求至少一条人类观察全过程，当前尚无此项记录"
   ],
-  "next": "使用已验证开发包完成一条人类全过程观察，记录时长/操作停滞/战斗感受；按证据继续节奏校准，不能自动把pending改pass",
+  "next": "使用当前可玩版本完成独立人工验收；三精英保留当前数值预算与较短战斗，不再为旧时长目标整改",
   "required_checks": [
     "fast",
     "core",
@@ -802,6 +804,74 @@
       "output": "docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt",
       "output_sha256": "0370f5e69c82a71ae0f19c224942832cae3e79b297cbcf9c2994034cb9a120bf",
       "timeout_seconds": 60.0
+    },
+    {
+      "label": "elite-decision-scope",
+      "command": [
+        "python3",
+        "docs/ch1-expansion/verify-elite-decision.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T23:36:24.391747+00:00",
+      "finished_at_utc": "2026-10-12T23:36:48.090388+00:00",
+      "head_commit": "6d4f4e0c3adad463cf93a97884c059177fe0310e",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/044-elite-decision-scope.txt",
+      "output_sha256": "9062eeb9f203bb1a33cbb6b0ed2634ba35600a10e6c4a18195ff5a0abe11823a",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T23:37:26.912571+00:00",
+      "finished_at_utc": "2026-10-12T23:37:41.506541+00:00",
+      "head_commit": "6d4f4e0c3adad463cf93a97884c059177fe0310e",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/045-fast.txt",
+      "output_sha256": "c527f6f7ab7d1cd36df746f2a863967fdf202820279e0125a43b7991fab8f446",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "map-evidence-rule-update",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "38bf430"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T23:38:13.970732+00:00",
+      "finished_at_utc": "2026-10-12T23:38:14.167320+00:00",
+      "head_commit": "6d4f4e0c3adad463cf93a97884c059177fe0310e",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/046-map-evidence-rule-update.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "content-after-elite-decision",
+      "command": [
+        "python3",
+        "tools/harness/chapter_quality.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T23:38:14.284425+00:00",
+      "finished_at_utc": "2026-10-12T23:38:14.370916+00:00",
+      "head_commit": "6d4f4e0c3adad463cf93a97884c059177fe0310e",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/047-content-after-elite-decision.txt",
+      "output_sha256": "0370f5e69c82a71ae0f19c224942832cae3e79b297cbcf9c2994034cb9a120bf",
+      "timeout_seconds": 60.0
     }
   ],
   "stages": [
@@ -844,6 +914,14 @@
       "head_commit": "ac5eb35bb3f6ca22a0310decd257b366120235f4",
       "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
       "worktree": "M docs/ch1-expansion/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/ch1-expansion/GIT_SAVE.json"
+    },
+    {
+      "name": "acceptance-decision",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T23:38:14.468085+00:00",
+      "head_commit": "6d4f4e0c3adad463cf93a97884c059177fe0310e",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "worktree": "M .codex/progress.md\n M docs/ch1-expansion/ACCEPTANCE.md\n M docs/ch1-expansion/CHANGE_SUMMARY.md\n M docs/ch1-expansion/CONTENT_ACCEPTANCE.json\n M docs/ch1-expansion/MAP_QUALITY.json\n M docs/ch1-expansion/PLAN.md\n M docs/ch1-expansion/REVIEW_NOTES.md\n M docs/harness/CHAPTER_01_EXPANSION.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-expansion-20261012.json\n?? docs/ch1-expansion/ELITE_DECISION_VALIDATION.json\n?? docs/ch1-expansion/ELITE_DURATION_DECISION.json\n?? docs/ch1-expansion/history/\n?? docs/ch1-expansion/verify-elite-decision.py\n?? docs/harness/evidence/c1-expansion-20261012/044-elite-decision-scope.txt\n?? docs/harness/evidence/c1-expansion-20261012/045-fast.txt\n?? docs/harness/evidence/c1-expansion-20261012/046-map-evidence-rule-update.txt\n?? docs/harness/evidence/c1-expansion-20261012/047-content-after-elite-decision.txt"
     }
   ],
   "chapter_quality": "V01C01"
