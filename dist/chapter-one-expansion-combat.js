@@ -32,7 +32,7 @@ export function installC1Combat(RPG,{stats}){
   return result;
  };
  P.c1TickEnemy=function(e,dt){
-  if(e.c1Training)return true;if(!e.c1Custom){
+  if(e.c1Training){if(this.c1TrainingSession?.kind==='drill'){const target={x:940,y:540+Math.sin(this.time*.8)*100};this.moveActor(e,target.x,target.y,false);e.angle=Math.cos(this.time*.8)>0?Math.PI/2:-Math.PI/2;e.moving=true;}return true;}if(!e.c1Custom){
    const t=e.telegraph;if(t&&['heavySlam','chainSlam','charge','shieldBash','wolfLunge','wolfSweep','chainSweep'].includes(t.kind)&&c1Danger(t,this.p)&&this.clearLine(e,this.p,false))t.c1Threatened=true;
    return false;
   }
@@ -66,16 +66,16 @@ export function installC1Combat(RPG,{stats}){
  P.enemyHit=function(e){const t=e.telegraph,threatened=t?.c1Threatened===true,outside=t&&!c1Danger(t,this.p);const result=old.enemyHit.call(this,e);if(threatened){if(e.action)e.action.c1Threatened=true;else if(outside&&!e.dead)this.c1EvadedThreat();}return result;};
  P.c1ResolvedCharge=function(e,a){if(!e.dead&&a.c1Threatened&&!a.hit)this.c1EvadedThreat();};
  P.c1EvadedThreat=function(){if(c1Effects(this.p).evasion&&!(this.p.cd.c1Evasion>0)){this.p.cd.c1Evasion=10;this.p.cd.c1EvasionWindow=6;this.effect('guard',this.p.x,this.p.y-20,36,'#e7c47d',.3);}};
- P.c1StartTraining=function(kind){
+ P.c1StartTraining=function(kind,assist=false){
   if(!['c1TrainingYard','c1DrillGallery'].includes(this.map)||this.chapter>=5)return false;
   this.c1EndTraining();const p=this.p;
-  this.c1TrainingSession={kind,map:this.map,backup:c1Clone({gear:p.gear,skills:p.skills,activeSkills:p.activeSkills,bar:p.bar,mp:p.mp,hp:p.hp,cd:p.cd}),warning:null,timer:1,failed:steps(this,'c1ExitDrill').attempts||0,lastHit:-100,previous:{x:p.x,y:p.y},borrowed:kind==='copper'};
+  this.c1TrainingSession={kind,assist,alarmWarning:null,map:this.map,backup:c1Clone({gear:p.gear,skills:p.skills,activeSkills:p.activeSkills,bar:p.bar,mp:p.mp,hp:p.hp,cd:p.cd,emotion:p.emotion,shield:p.shield,shieldTime:p.shieldTime,guard:p.guard,empower:p.empower,resonance:p.resonance,invuln:p.invuln,sprint:p.sprint,dash:p.dash,combo:p.combo,comboLife:p.comboLife}),warning:null,timer:1,failed:steps(this,'c1ExitDrill').attempts||0,lastHit:-100,previous:{x:p.x,y:p.y},borrowed:kind==='copper'};
   if(kind==='copper'){p.gear={...p.gear,weapon:{id:'training-staff',name:'借用训练杖',slot:'weapon',weaponType:'staff',atk:0,hp:0},offhand:null,relic:{id:'training-ring',slot:'relic',name:'试装铜圈',uniqueEffect:'copperPractice',atk:0,hp:8}};p.skills={...p.skills,cleave:1};p.activeSkills=['cleave',...p.activeSkills.filter(k=>k!=='cleave')].slice(0,5);p.bar=c1Clone(p.bar);p.bar[0][0]='cleave';}
   const target=this.enemy('rat',kind==='drill'?940:910,kind==='drill'?560:480,'c1-training-target');Object.assign(target,{hp:kind==='drill'?110:10000,maxHP:kind==='drill'?110:10000,c1Training:true,label:'练习构装靶',storyTag:'c1-training',v28RewardXP:0,v28RewardGold:0});this.enemies.push(target);p.hp=stats(p).hp;p.mp=stats(p).mp;this.active=true;
   this.say(kind==='drill'?'先看铃线，处理构装靶；上方掩体与下方绕道都能合格。':'普攻后衔接自己的战技；走进预警区，再在落地前走出。练习不耗药。');return true;
  };
  P.c1EndTraining=function(){const s=this.c1TrainingSession;if(!s)return;Object.assign(this.p,c1Clone(s.backup));for(const st of Object.values(this.states))st.enemies=st.enemies.filter(e=>!e.c1Training);this.bullets=[];this.zones=[];delete this.c1TrainingSession;};
- P.damage=function(e,n,kind='hit'){const hp=e.hp,result=old.damage.call(this,e,n,kind),s=this.c1TrainingSession;if(e.c1Training&&s&&hp>e.hp){if(s.kind==='drill'){if(e.dead||e.hp<=0){steps(this,'c1ExitDrill').target=true;this.say('构装靶停下了。把负重带到便门，记住你选的路线。');}}else{e.hp=e.maxHP;e.dead=false;}if(s.kind==='copper'&&['skill','ch3skill'].includes(kind)){steps(this,'copper').tested=true;this.c1EndTraining();this.say('铜圈把力传到了杖端。借用装已归还，回洛缇的工作台装牢。');}else if(s.kind==='readiness'){if(kind==='hit')s.lastHit=this.time;if(['skill','ch3skill'].includes(kind)){steps(this,'c1Readiness').skill=true;if(this.time-s.lastHit<5)steps(this,'c1Readiness').combo=true;}}}return result;};
+ P.damage=function(e,n,kind='hit',source){const hp=e.hp,result=old.damage.call(this,e,n,kind,source),s=this.c1TrainingSession;if(e.c1Training&&s&&hp>e.hp){if(s.kind==='drill'){if(e.dead||e.hp<=0){steps(this,'c1ExitDrill').target=true;this.say('构装靶停下了。把负重带到便门，记住你选的路线。');}}else{e.hp=e.maxHP;e.dead=false;}if(s.kind==='copper'&&['skill','ch3skill'].includes(kind)){steps(this,'copper').tested=true;this.c1EndTraining();this.say('铜圈把力传到了杖端。借用装已归还，回洛缇的工作台装牢。');}else if(s.kind==='readiness'){if(kind==='hit')s.lastHit=this.time;if(['skill','ch3skill'].includes(kind)){steps(this,'c1Readiness').skill=true;if(this.time-s.lastHit<5)steps(this,'c1Readiness').combo=true;}}}return result;};
  P.snapshot=function(){const out=old.snapshot.call(this),s=this.c1TrainingSession;if(!s)return out;const saved=c1Clone(out);Object.assign(saved.p,c1Clone(s.backup));for(const st of Object.values(saved.states))st.enemies=st.enemies.filter(e=>!e.c1Training);return saved;};
  P.restore=function(...args){delete this.c1TrainingSession;const result=old.restore.apply(this,args);for(const st of Object.values(this.states))st.enemies=st.enemies.filter(e=>!e.c1Training);return result;};
  P.respawn=function(...args){this.c1EndTraining();return old.respawn.apply(this,args);};
@@ -87,7 +87,7 @@ export function installC1Combat(RPG,{stats}){
   this.p.hp=stats(this.p).hp;this.p.mp=stats(this.p).mp;
   if(s.kind==='drill'){
    const q=steps(this,'c1ExitDrill'),crossed=s.previous.x<535&&this.p.x>=535&&this.p.y>320&&this.p.y<840;
-   if(crossed&&!q.line){s.failed++;q.attempts=s.failed;q.route=false;this.text('警铃响了',this.p.x,this.p.y-65);this.relocate(370,550);this.say(s.failed>=2?'鲁恩标出了铃扣：沿门口红绳向上找到挂钩，再过线。失败不扣药、不扣钱。':'踩过未断开的铃线。回到负重架，先沿绳找到挂钩。');}
+   if(crossed&&!q.line&&!s.alarmWarning){s.alarmWarning={life:.6+(s.assist?.3:0)};this.text('铃绳绷紧 · 退回线后',this.p.x,this.p.y-65);}if(s.alarmWarning){s.alarmWarning.life-=dt;if(q.line||this.p.x<530)s.alarmWarning=null;else if(s.alarmWarning.life<=0){s.failed++;q.attempts=s.failed;q.route=false;this.text('警铃响了',this.p.x,this.p.y-65);this.relocate(370,550);s.alarmWarning=null;this.say(s.failed>=2?'可回负重架选择延长0.3秒预警的练习辅助；沿红绳找到铃扣。':'踩过未断开的铃线。沿绳找到挂钩，再试一次。');}}
    s.previous={x:this.p.x,y:this.p.y};
   }
   if(s.kind==='readiness'){

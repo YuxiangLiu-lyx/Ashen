@@ -14,7 +14,10 @@
         "核心",
         "巡检",
         "第一章经济",
-        "第一章存档"
+        "第一章存档",
+        "第一章0.6",
+        "第一章流程",
+        "成长扩充"
       ],
       "entries": [
         "docs/harness/CHAPTER_01_EXPANSION.md",
@@ -29,7 +32,9 @@
         "tests/chapter-one-crafting*",
         "tests/chapter-one-elites*",
         "tests/chapter-one-economy*",
-        "tests/browser-chapter-one-natural*"
+        "tests/browser-chapter-one-natural*",
+        "tests/browser-chapter-one-expansion.mjs",
+        "tools/balance_lab/chapter-one.mjs"
       ],
       "rules": [
         "docs/harness/CHAPTER_01.md",
@@ -44,8 +49,9 @@
       ],
       "risk": "0.6新增五图、成长与幂等事务；原刺杀、第二章、118图及旧档保持，真实输入不能被状态夹具替代。",
       "tests": [
-        "node --test tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs",
-        "node tests/browser-chapter-one-expansion.mjs"
+        "node --test tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs",
+        "node tests/browser-chapter-one-expansion.mjs",
+        "node tools/balance_lab/chapter-one.mjs"
       ]
     },
     {
@@ -718,7 +724,8 @@
         "tools/balance_lab/simulator.mjs",
         "tools/balance_lab/run.mjs",
         "tools/balance_lab/economy.mjs",
-        "tools/balance_lab/effects.mjs"
+        "tools/balance_lab/effects.mjs",
+        "tools/balance_lab/chapter-one.mjs"
       ],
       "patterns": [
         "tools/balance_lab/*",

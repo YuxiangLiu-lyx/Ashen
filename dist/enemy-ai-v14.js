@@ -356,7 +356,7 @@ export function tickProjectilesV9(g,dt){
       if(b.friendly){
         const inRange=o=>b.rangeLimit==null||distance(o,point(b.originX,b.originY))<=b.rangeLimit;
         const e=g.enemies.find(e=>!e.dead&&!b.hitIds?.includes(e.id)&&distance(e,b)<B.hitRadius+b.r&&inRange(e));
-        if(e){const n=b.n*(b.holy&&e.type==='hellSoul'?1.15:1);g.damage(e,n,b.skillKey?'ch3skill':b.skill?'skill':'hit');if(b.slowDuration&&!e.dead){e.slow=Math.max(e.slow,b.slowDuration);e.slowFactor=b.slowFactor||.75;}g.effect(b.holy?'holyHit':'sparks',e.x,e.y-30,30,b.color,.3);if(b.pierce>0){b.pierce--;b.hitIds.push(e.id);b.n*=b.secondaryMultiplier||1;}else b.life=0;}
+        if(e){const n=b.n*(b.holy&&e.type==='hellSoul'?1.15:1);g.damage(e,n,b.skillKey?'ch3skill':b.skill?'skill':'hit',b.c1Action);if(b.slowDuration&&!e.dead){e.slow=Math.max(e.slow,b.slowDuration);e.slowFactor=b.slowFactor||.75;}g.effect(b.holy?'holyHit':'sparks',e.x,e.y-30,30,b.color,.3);if(b.pierce>0){b.pierce--;b.hitIds.push(e.id);b.n*=b.secondaryMultiplier||1;}else b.life=0;}
         else{const o=g.props.find(o=>!o.action&&!o.broken&&distance(o,b)<B.hitRadius+b.r&&inRange(o));if(o){g.damageProp(o,b.n);b.life=0;}}
       }else if(distance(b,g.p)<20+b.r){g.hurt(b.n);b.life=0;}
     }

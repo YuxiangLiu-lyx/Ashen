@@ -13,6 +13,7 @@ export const C1_STEP_GUIDE={
  v12CourierRoad:[['sign','road','c1-road-sign','查破损路牌'],['cart','road','c1-cart','循拖痕检查断轴车'],['route','road','c1-route-mark','排除伏击，确认安全路线']],
  v12NorthDelivery:[['ledger','town','c1-duty-book','核对封套与值班簿'],['verified','town','watch','请托马核验维护班次']],
  c1GateCheck:[['entry','town','c1-entry-rule','亲自查看礼拜入口封门牌'],['verified','town','watch','向托马核实午钟后的封门规则']],
+ c1CanalBreak:[['opened','canal','c1-sluice','击败追缉官后亲手打开东闸'],['sheltered','canal','c1-hideout','沿东墙走到闸后藏身处']],
  c1CanalPrep:[['water','c1NorthWalk','c1-water-sign','辨认水痕与排水方向'],['pressure','c1NorthWalk','c1-pressure','先泄压'],['plank','c1NorthWalk','c1-plank','处理阀旁敌人，再放踏板'],['crossed','c1NorthWalk','c1-mark','亲自走过踏板，留下记号']],
  oil:[['lampChecked','warehouse','c1-lamp-right','检查两盏灯，找出漏油的一盏'],['lampFixed','warehouse','c1-lamp-valve','关阀换垫'],['lampLit','warehouse','c1-lamp-light','点灯核实不再漏油']],
  v12Water:[['water','guestroom','c1-kettle','把烧好的水装进带盖壶'],['injury','hall','steward','向奥伦说明外出旧伤'],['bandage','hall','steward','复核后说明疼痛位置并换绷带']],
@@ -144,7 +145,7 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,stats}){
    case 'kettle':return mark('v12Water','water','水温刚好，扣紧盖子，把旧绷带一并带给奥伦。');
    case 'record':if(this.chapter<2)return this.say('先听完这趟委托，再做行前复核。');if(this.c1Ready('c1Readiness')){this.c1EndTraining();this.c1Claim('c1Readiness');chat(this,[['薇蕾娜',{shadow:'转身利索了，别只顾追上去。',oath:'压住重剑时肩膀还僵，收势留一点。',ember:'印落得准。别为了引爆把自己留在警铃下面。'}[this.p.cls]],['鲁恩','记下了，可执行。撤出的路再走一遍。']]);return true;}return this.c1StartTraining('readiness');
    case 'training-target':case 'warning-target':return this.say('使用现有普攻与战技；看到地面预警就走出危险区。');
-   case 'drill-start':return this.c1StartTraining('drill');
+   case 'drill-start':if((step(this,'c1ExitDrill').attempts||0)>=2&&!this.c1TrainingSession){this.emit('mechanism',{kind:'c1-drill-assist'});return true;}return this.c1StartTraining('drill');
    case 'alarm-cut':if(!this.c1TrainingSession)return this.say('先在门口领取演练负重，查看线路图。');return mark('c1ExitDrill','line','沿线找到铃扣，将受力绳移到空钩。警铃安静了。');
    case 'drill-cover':case 'drill-detour':if(this.c1TrainingSession?.kind!=='drill'||!has(this,'c1ExitDrill','line'))return this.say('先处理铃线再选择路线。');step(this,'c1ExitDrill').path=key==='drill-cover'?'cover':'detour';return mark('c1ExitDrill','route',key==='drill-cover'?'靠掩体穿过，没惊动另一侧的靶。':'避开构装靶的朝向，从下方巡查道绕出。');
    case 'drill-exit':if(this.c1TrainingSession?.kind!=='drill')return this.say('在入口领取负重后再演练。');if(!has(this,'c1ExitDrill','line','target','route'))return this.say('铃线、构装靶和所走路线，还要再核实。');step(this,'c1ExitDrill').exit=true;h.worldChanges.drillDoor=true;this.c1EndTraining();return this.c1Claim('c1ExitDrill');
@@ -167,23 +168,26 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,stats}){
    case 'transmission':return mark('copper','transmission','铜圈磨损在内缘，传动架的断口能对上。');
    case 'copper-test':if(!has(this,'copper','fitted'))return this.say('先在洛缇的工作台试装铜圈。');return this.c1StartTraining('copper');
    case 'name':if(!this.flags.rumor)return this.say('刻痕太浅，先问问井边等候的人。');return mark('c1ClockMemory','name','刻名与井沿同一个姓，银环内侧留着修钟人的旧记号。');
-   case 'loom':step(this,'c1LoomBrief').observed=true;this.c1Accept('c1LoomBrief');this.emit('mechanism',{kind:'c1-loom'});return true;
+   case 'loom':step(this,'c1LoomBrief').observed=true;this.say('检查刀口和绑带后，把无刃样胚放进机台。试织片留在这里，只带走选好的材料。');this.c1Accept('c1LoomBrief');this.emit('mechanism',{kind:'c1-loom'});return true;
    case 'rune-board':if(!has(this,'c1RuneWear','a','b','leak'))return this.say('把两节点与漏压记录带回来，再验证试织。');h.worldChanges.runePattern=true;return mark('c1RuneWear','weave','调整线张力，试织样片不再偏移。样片留在机台。');
    case 'wet-a':return mark('c1RuneWear','a','西片亮得平稳，湿气没有侵进刻槽。');
    case 'wet-b':return mark('c1RuneWear','b','东片沿接头向外偏，漏压点就在北侧。');
-   case 'leak':if(!has(this,'c1RuneWear','a','b')||!safe())return this.say('先对照两处符片，清出接头周围。');h.worldChanges.leakFixed=true;return mark('c1RuneWear','leak','收紧接头，气泡停了。记录仍需回台试织验证。');
+   case 'leak':if(!has(this,'c1RuneWear','a','b')||!safe())return this.say('先对照两处符片，清出接头周围。');this.emit('mechanism',{kind:'c1-leak-diagnosis'});return true;
    case 'kiln-plan':return mark('c1RuneKiln','plan','图上低处进风，高处排烟；先通下口，再拉上绳。');
    case 'kiln-intake':if(!has(this,'c1RuneKiln','plan'))return this.say('先看罗萨留下的通风图。');h.worldChanges.kilnIntake=true;return mark('c1RuneKiln','intake','低口开了，苇叶向里倾，翼尘慢慢升起。');
    case 'kiln-exhaust':if(!h.worldChanges.kilnIntake){h.worldChanges.kilnBackflow=true;return this.say('烟尘倒灌。把绳子放回，先打开低处进风口。');}h.worldChanges.kilnExhaust=true;return mark('c1RuneKiln','exhaust','排烟道接通，翼尘越过窑柱，指向东边的破纹。');
    case 'kiln-node':if(!h.worldChanges.kilnExhaust)return this.say('尘土遮住了纹路，先理顺气流。');return mark('c1RuneKiln','node','破纹紧挨废液留下的沉积。记下位置，无需冒险惊动巢里的夜翼。');
-   case 'kiln-ladder':h.worldChanges.kilnLadder=true;this.relocate(290,810);this.saveEvent();return this.say('放下短梯，沿墙回到入口，不必绕过巢穴。');
+   case 'kiln-ladder':h.worldChanges.kilnLadder=true;this.paths?.clear();this.saveEvent();return this.say('放下短梯，西墙浅沟已经接通。沿梯走回入口，不必再绕窑柱。');
+   case 'cloth-rack':return this.say(this.quests.lantern==='done'?'朵莉把外侧衣架收起，衣物折好放在摊边。':'衣架占住一半灯路。先看清两段路，再替朵莉确认收摊方向。');
    case 'sample-tray':return this.choose('c1:samples');
-   case 'sluice':if(!this.flags.captainDefeated||this.enemies.some(e=>!e.dead))return this.say('追兵还在，先稳住闸口。');h.worldChanges.sluice=true;return this.c1Claim('c1CanalBreak');
+   case 'sluice':if(!this.flags.captainDefeated||this.enemies.some(e=>!e.dead))return this.say('追兵还在，先稳住闸口。');h.worldChanges.sluice=true;return mark('c1CanalBreak','opened','绞盘咬住闸齿。东墙后有背风的窄窝，先带她在那里站稳。');
+   case 'hideout':if(!h.worldChanges.sluice)return this.say('东闸还没开，先转动绞盘。');step(this,'c1CanalBreak').sheltered=true;this.c1Claim('c1CanalBreak');chat(this,[['旁白','闸后的石壁挡住了脚步声。诺恩松开手，艾莉娅退开半步。'],['艾莉娅','别碰我。'],['旁白','他没有回答。出口就在前面。']]);return true;
    default:if(key.startsWith('patrol-')){const s=hPatrol(this);if(!s)return this.say('设备记录仍在罗萨手里。');const front=s.route?'patrol-grove':'patrol-road',back=s.route?'patrol-kiln':'patrol-mill';if(key===front){s.diagnosed=true;this.say('沿受潮痕定位：本轮是后段接头松动。');}else if(key===back&&s.diagnosed){if(!safe())return this.say('先处理设备周围的敌人，再动接头。');if(!s.repaired){s.repaired=true;h.worldChanges[key]=s.sequence;this.say('接头修好了，沿工作面走开，再回来验证输出。');s.repairPosition={x:this.p.x,y:this.p.y};}else if(s.walkedAway){s.verified=true;this.say('输出稳定，本轮可以回罗萨核对。');}}this.saveEvent();return true;}return this.say('这里的工作已经记在手记里。');
   }
  };
  const update=P.update;
  P.update=function(dt,input){const wasActive=this.active,oldX=this.p.x,result=update.call(this,dt,input);if(!wasActive||this.pending)return result;const h=c1State(this);if(this.map==='c1NorthWalk'&&h.worldChanges.plank&&oldX<=835&&this.p.x>835&&this.p.y>400&&this.p.y<620)step(this,'c1CanalPrep').crossed=true;const p=hPatrol(this);if(p?.repaired&&p.repairPosition&&Math.hypot(this.p.x-p.repairPosition.x,this.p.y-p.repairPosition.y)>100)p.walkedAway=true;return result;};
+ P.c1RepairLeak=function(choice){const p=this.props.find(p=>p.id==='c1-leak');if(this.map!=='c1NorthWalk'||!near(this,p)||!has(this,'c1RuneWear','a','b'))return false;if(choice!=='joint'){this.effect('frost',p.x,p.y,55,'#a6bccc',.6);this.say('西片没有渗痕。先松手，沿东片偏移的方向看接头，不损失符片。');return false;}if(this.enemies.some(e=>!e.dead&&Math.hypot(e.x-p.x,e.y-p.y)<220))return false;c1State(this).worldChanges.leakFixed=true;step(this,'c1RuneWear').leak=true;this.say('收紧接头后气泡停了。带记录回台试织，检查纹样是否回正。');this.saveEvent();return true;};
  P.c1SearchDirection=function(direction){if(this.map!=='road'||!has(this,'letter','cloth'))return false;if(direction==='east'){step(this,'letter').mud=true;this.say('车辙与线头都向东，信落在原弯道。');this.saveEvent();return true;}this.say('这串是狼的脚印，折回岔口即可重新判断。');return false;};
  P.c1Morning=function(){if(this.map!=='road')return false;c1State(this).worldChanges.morning=true;chat(this,[['旁白','车棚遮住了夜雨。诺恩把通行纸压进干燥的内袋。'],['旁白','天亮了。白榆城开门，离午钟还有一段时间。']]);this.saveEvent();return true;};
 }

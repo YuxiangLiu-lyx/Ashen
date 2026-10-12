@@ -13,7 +13,7 @@ def matches(task, keyword):
         re.search(r'(?<![\w])' + re.escape(keyword) + r'(?![\w])', task, re.I))
 
 
-def route(task, max_files=16, budget=24000, expand=False, root=ROOT):
+def route(task, max_files=20, budget=24000, expand=False, root=ROOT):
     index = read_json(INDEX, root)
     changed = stale(index, root)
     if changed:
@@ -104,7 +104,7 @@ def route(task, max_files=16, budget=24000, expand=False, root=ROOT):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--task', required=True)
-    parser.add_argument('--max-files', type=int, default=16)
+    parser.add_argument('--max-files', type=int, default=20)
     parser.add_argument('--budget', type=int, default=24000, help='UTF-8 excerpt bytes')
     parser.add_argument('--expand', action='store_true')
     args = parser.parse_args()

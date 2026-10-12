@@ -3,7 +3,7 @@ import {c1State} from './chapter-one-expansion-save.js';
 export const C1_CONNECTIONS=[['hall','c1TrainingYard'],['c1TrainingYard','c1DrillGallery'],['c1DrillGallery','warehouse'],['workshop','c1LoomRoom'],['town','c1NorthWalk'],['c1NorthWalk','alley'],['grove','c1ReedKiln']];
 export const C1_CHANGED_MAPS=['hall','warehouse','road','grove','millpath','echo','town','workshop','alley','canal','guestroom'];
 const prop=(id,label,x,y,extra={})=>({id:'c1-'+id,label,x,y,type:'book',action:'c1:'+id,flat:true,geometryV26:false,collisionV281:false,...extra});
-const door=(to,x,y,tx,ty,label)=>({to,x,y,tx,ty,label,c1Door:true});
+const door=(to,x,y,tx,ty,label)=>({to,x,y,tx,ty,label,c1Door:true,manualOnly:true});
 const walls=[[0,0,1600,160],[0,1000,1600,80],[0,160,140,840],[1460,160,140,840]];
 const npc=(id,name,x,y,sprite)=>({id,name,x,y,sprite,angle:Math.PI/2});
 export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
@@ -36,8 +36,8 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  add('road',prop('road-sign','破损路牌',500,540),prop('cart','断轴车与拖痕',1020,590),prop('route-mark','安全路线标记',1180,595),prop('cloth','断车布片',1090,680),prop('mud','岔路两组泥迹',930,740),prop('shelter','城门外车棚／天亮进城',1320,540),prop('patrol-road','投递线受潮接头',620,560));
  add('millpath',prop('transmission','断裂传动架',460,540),prop('patrol-mill','磨坊线路开关',1010,650));
  add('grove',prop('healthy','比较健康与污染植株',470,760),prop('branch','移开药圃倒枝',470,690),prop('name','辨认松石下的刻名',1250,380),prop('patrol-grove','溪岸通风接头',1050,730));
- add('town',prop('duty-book','北门维护值班簿',1030,430),prop('entry-rule','礼拜入口与午钟封门牌',930,290),prop('lamp-west','西街灯路',590,760),prop('lamp-east','东街灯路',1050,750));
- add('canal',prop('sluice','东闸绞盘',1270,750));
+ add('town',prop('cloth-rack','朵莉的外侧衣架',640,820),prop('duty-book','北门维护值班簿',1030,430),prop('entry-rule','礼拜入口与午钟封门牌',930,290),prop('lamp-west','西街灯路',590,760),prop('lamp-east','东街灯路',1050,750));
+ add('canal',prop('sluice','东闸绞盘',1270,750),prop('hideout','闸后藏身处',1320,860));
  // Scene props share a footprint with their physical machine; reachable actions
  // sit on its working side. Decorative sprites never create invisible obstacles.
  for(const id of C1_NEW_MAPS){const m=MAPS[id];for(let i=4;i<m.blocks.length;i++){const b=m.blocks[i];
@@ -51,8 +51,8 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
 }
 export function installC1World(RPG){
  const P=RPG.prototype,blocked=P.blocked,line=P.clearLine,enter=P.enter;
- P.blocked=function(x,y,...args){if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank&&x>655&&x<835&&y>395&&y<625)return true;return blocked.call(this,x,y,...args);};
- P.clearLine=function(a,b,...args){if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank){for(let t=0;t<=1;t+=.025)if(a.x+(b.x-a.x)*t>655&&a.x+(b.x-a.x)*t<835&&a.y+(b.y-a.y)*t>395&&a.y+(b.y-a.y)*t<625)return false;}return line.call(this,a,b,...args);};
+ P.blocked=function(x,y,...args){if(this.map==='c1ReedKiln'&&!c1State(this).worldChanges.kilnLadder&&x>155&&x<355&&y>615&&y<680)return true;if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank&&x>655&&x<835&&y>395&&y<625)return true;return blocked.call(this,x,y,...args);};
+ P.clearLine=function(a,b,...args){if(this.map==='c1ReedKiln'&&!c1State(this).worldChanges.kilnLadder){for(let t=0;t<=1;t+=.025)if(a.x+(b.x-a.x)*t>155&&a.x+(b.x-a.x)*t<355&&a.y+(b.y-a.y)*t>615&&a.y+(b.y-a.y)*t<680)return false;}if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank){for(let t=0;t<=1;t+=.025)if(a.x+(b.x-a.x)*t>655&&a.x+(b.x-a.x)*t<835&&a.y+(b.y-a.y)*t>395&&a.y+(b.y-a.y)*t<625)return false;}return line.call(this,a,b,...args);};
  P.enter=function(...args){this.c1EndTraining?.();return enter.apply(this,args);};
  P.c1AtService=function(which){if(this.map!=='c1LoomRoom'||this.p.hp<=0||this.enemies.some(e=>!e.dead))return false;const at=which==='loom'?{x:780,y:520}:which==='rosa'?{x:400,y:480}:{x:1170,y:460};return Math.hypot(this.p.x-at.x,this.p.y-at.y)<150&&this.clearLine(this.p,at,false);};
 }

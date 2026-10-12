@@ -6,9 +6,17 @@
     "c1LoomRoom",
     "c1NorthWalk",
     "c1ReedKiln",
+    "hall",
     "warehouse",
+    "road",
+    "grove",
+    "millpath",
+    "echo",
     "town",
-    "grove"
+    "workshop",
+    "alley",
+    "canal",
+    "guestroom"
   ],
   "ui": [
     {
@@ -35,10 +43,104 @@
       "template": "c1LoomWeapon",
       "rune": {
         "id": "c1RuneEdge",
-        "value": 1
+        "value": 2
       }
     }
   ],
   "errors": [],
+  "touch": [
+    {
+      "id": "c1TrainingYard",
+      "before": {
+        "x": 780,
+        "y": 850,
+        "blocked": false
+      },
+      "after": {
+        "x": 780,
+        "y": 918.305999999999,
+        "blocked": false
+      }
+    },
+    {
+      "id": "c1DrillGallery",
+      "before": {
+        "x": 780,
+        "y": 850,
+        "blocked": false
+      },
+      "after": {
+        "x": 780,
+        "y": 918.3264999999994,
+        "blocked": false
+      }
+    },
+    {
+      "id": "c1LoomRoom",
+      "before": {
+        "x": 780,
+        "y": 850,
+        "blocked": false
+      },
+      "after": {
+        "x": 780,
+        "y": 918.3264999999997,
+        "blocked": false
+      }
+    },
+    {
+      "id": "c1NorthWalk",
+      "before": {
+        "x": 840,
+        "y": 850,
+        "blocked": false
+      },
+      "after": {
+        "x": 840,
+        "y": 918.3265,
+        "blocked": false
+      }
+    },
+    {
+      "id": "c1ReedKiln",
+      "before": {
+        "x": 780,
+        "y": 850,
+        "blocked": false
+      },
+      "after": {
+        "x": 780,
+        "y": 918.3060000000002,
+        "blocked": false
+      }
+    }
+  ],
+  "interactions": [
+    {
+      "map": "c1TrainingYard",
+      "id": "c1-record",
+      "passed": true
+    },
+    {
+      "map": "c1DrillGallery",
+      "id": "c1-drill-start",
+      "passed": true
+    },
+    {
+      "map": "c1LoomRoom",
+      "id": "c1-loom",
+      "passed": true
+    },
+    {
+      "map": "c1NorthWalk",
+      "id": "c1-plank",
+      "passed": true
+    },
+    {
+      "map": "c1ReedKiln",
+      "id": "c1-kiln-ladder",
+      "passed": true
+    }
+  ],
   "status": "passed"
 }

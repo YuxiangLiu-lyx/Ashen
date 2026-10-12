@@ -43,20 +43,22 @@ export function installC1Gear(RPG,{stats,ITEMS}){
  const sell=P.sell,canSell=P.canSell;
  P.canSell=function(item){return item?.c1SellPrice!==undefined||canSell.call(this,item);};
  P.sell=function(id){const item=this.p.bag.find(i=>i.id===id);if(item?.c1SellPrice!==undefined){if(this.p.hp<=0||!['hall','town','guestroom','workshop','c1LoomRoom','post','inn'].includes(this.map)||this.enemies.some(e=>!e.dead))return false;this.p.bag=this.p.bag.filter(i=>i.id!==id);this.p.gold+=item.c1SellPrice;this.saveEvent();return true;}return sell.call(this,id);};
- const damage=P.damage,hurt=P.hurt,skill=P.skill,potion=P.potion,update=P.update;
- P.skill=function(k){const before=this.p.cd[k]||0;this.c1CastSequence=(this.c1CastSequence||0)+1;return skill.call(this,k);};
- P.damage=function(e,n,kind='hit'){
+ const damage=P.damage,hurt=P.hurt,skill=P.skill,attack=P.attack,potion=P.potion,update=P.update;
+ const action=(g,fn,args,type)=>{const previous=g.c1DamageAction,source={type,counted:false,manaReturned:false,boosted:false},bullets=new Set(g.bullets),pulses=new Set(g.ch3?.pulses||[]);g.c1DamageAction=source;try{return fn.apply(g,args);}finally{for(const b of g.bullets)if(!bullets.has(b))b.c1Action=source;for(const b of g.ch3?.pulses||[])if(!pulses.has(b))b.c1Action=source;g.c1DamageAction=previous;}};
+ P.skill=function(...args){return action(this,skill,args,'skill');};
+ P.attack=function(...args){return action(this,attack,args,'attack');};
+ P.damage=function(e,n,kind='hit',source=this.c1DamageAction){
   if(e.dead)return damage.call(this,e,n,kind);
   const p=this.p,f=c1Effects(p),direct=['hit','skill','ch3skill'].includes(kind),activeSkill=['skill','ch3skill'].includes(kind),valid=validEnemy(e),hp=e.hp;
   if(direct){n*=1+(activeSkill?(f.skill||0):(f.attack||0));if(valid){
    if(f.opener&&e.hp>e.maxHP*.7&&!(p.cd.c1Opener>0)){n*=1.15;p.cd.c1Opener=8;}
-   if(activeSkill&&f.threeHits&&(p.c1WingHits||0)>=3&&!(p.cd.c1Wing>0)){n*=1.12;p.c1WingHits=0;p.cd.c1Wing=8;}
+   if(activeSkill&&f.threeHits&&!source?.boosted&&(p.c1WingHits||0)>=3&&!(p.cd.c1Wing>0)){n*=1.12;p.c1WingHits=0;p.cd.c1Wing=8;if(source)source.boosted=true;}
    if(activeSkill&&f.evasion&&p.cd.c1EvasionWindow>0){n*=1.18;p.cd.c1EvasionWindow=0;}
   }}
   const result=damage.call(this,e,n,kind);
   if(valid&&direct&&e.hp<hp){
-   if(kind==='hit'&&f.threeHits&&!(p.cd.c1Wing>0))p.c1WingHits=Math.min(3,(p.c1WingHits||0)+1);
-   if(activeSkill&&f.skillMana&&!(p.cd.c1SkillMana>0)){p.mp=Math.min(stats(p).mp,p.mp+2);p.cd.c1SkillMana=8;}
+   if(kind==='hit'&&f.threeHits&&!source?.counted&&!(p.cd.c1Wing>0)){p.c1WingHits=Math.min(3,(p.c1WingHits||0)+1);if(source)source.counted=true;}
+   if(activeSkill&&f.skillMana&&!source?.manaReturned&&!(p.cd.c1SkillMana>0)){p.mp=Math.min(stats(p).mp,p.mp+2);p.cd.c1SkillMana=8;if(source)source.manaReturned=true;}
    if(e.dead&&f.killMana&&!(p.cd.c1KillMana>0)){p.mp=Math.min(stats(p).mp,p.mp+3);p.cd.c1KillMana=3;}
   }return result;
  };

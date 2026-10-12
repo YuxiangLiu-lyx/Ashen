@@ -1,0 +1,63 @@
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (0.91ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (4.628542ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (14.864041ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (64.059375ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.102125ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.0225ms)
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.382959ms)
+✖ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (1.0395ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 224.857084
+
+✖ failing tests:
+
+test at tests/chapter-one-elites.test.mjs:11:1
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.382959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + {
+  +   a: 3.141592653589793,
+  +   hit: false,
+  +   life: 0.95
+  + }
+  - null
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:12:224)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { a: 3.141592653589793, life: 0.95, hit: false },
+    expected: null,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-elites.test.mjs:16:1
+✖ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (1.0395ms)
+  TypeError: Cannot read properties of undefined (reading 'some')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:18:337)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.076s
+
+OK
+[1, 0, 0]

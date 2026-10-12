@@ -149,6 +149,8 @@ def can_finish(record, root=ROOT):
     errors = validate(record, root)
     from map_quality import task_errors
     errors.extend(task_errors(record, root))
+    from chapter_quality import task_errors as chapter_errors
+    errors.extend(chapter_errors(record, root))
     if record.get('running_check'):
         errors.append('Interrupted or running check has no final exit status; rerun verification')
     current = fingerprint(inventory(root))

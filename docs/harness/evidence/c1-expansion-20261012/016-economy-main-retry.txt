@@ -1,0 +1,13 @@
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:17
+ function fight(only=null,seconds=200){lastAction='combat:'+g.map;for(let n=0;n<seconds/dt;n++){finish();const es=g.enemies.filter(e=>!e.dead&&(!only||e.id===only)).sort((a,b)=>Math.hypot(a.x-g.p.x,a.y-g.p.y)-Math.hypot(b.x-g.p.x,b.y-g.p.y));if(!es.length){grow();return;}const e=es[0];g.target=e.id;if(g.p.hp<stats(g.p).hp*.6)g.potion('hp');if(g.p.mp<20)g.potion('mp');const t=e.telegraph;let input={auto:true};if(t&&e.wind>.12&&c1Danger(t,g.p)){const a=t.shape==='line'||t.shape==='cone'?t.a+Math.PI/2:Math.atan2(g.p.y-t.y,g.p.x-t.x);input={x:Math.cos(a),y:Math.sin(a)};}else {if(cls!=='shadow'||e.bleed>=3)g.skill('e');g.skill('q');if(g.p.emotion>=100)g.skill('resonance');}tick(input);}throw Error('Fight timed out '+g.map+' '+only);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+
+Error: Fight timed out c1NorthWalk null
+    at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:17:697)
+    at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:384)
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:35:144
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:654:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.2.1
