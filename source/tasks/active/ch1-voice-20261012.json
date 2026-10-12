@@ -1,0 +1,266 @@
+{
+  "schema": 1,
+  "id": "ch1-voice-20261012",
+  "goal": "女主改用封面柔和立绘；删除第一章匿名神秘人；按用户主旨重写诺恩接任务后薇蕾娜与鲁恩的对话",
+  "acceptance": [
+    "原对话框逐句呈现用户指定冲突与两次沉默；匿名神秘人不再显示；女主默认立绘接近封面且后期换装保留；旧尾段存档安全迁移且提交只一次；真实5174与离线/HTTP/移动端验收；保存GitHub main"
+  ],
+  "baseline_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "art"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-12T06:32:47.404472+00:00",
+  "updated_at_utc": "2026-10-12T06:55:50.923331+00:00",
+  "decisions": [
+    "当前用户授权优先于旧0.4匿名黑影条款；只取回符合封面的elyria-gentle原件，不恢复暂停重构或其他旧剧情。",
+    "新增段11行含4处简短动作/沉默旁白，薇蕾娜先问禁制再要求保护诺恩，鲁恩两次道歉；移除H2；旁白无人物占位。",
+    "迁移控制组采用相同存档和读取次数，保留完整结果深比较；无游戏规则调整"
+  ],
+  "completed": [
+    "保存26场263行浏览器基线；完整读取第一章0.4并记录0.5采用稿、逐句稿和角色知识边界；旧稿与代码保留历史；核对封面与柔和原件",
+    "11行接委托对白、柔和立绘、旧H1/H2迁移已实现；19项Node初测通过，保留迁移测试fixture失败日志",
+    "最终fast28、story20、26场263行加新11行/三视口、18图221路径48帧、完整integration、三维及真实5174都通过"
+  ],
+  "remaining": [
+    "干净源码构建/离线HTTP手机包；提交推送GitHub main并核验"
+  ],
+  "blockers": [],
+  "next": "保存实现检查点后生成常用离线包",
+  "required_checks": [
+    "fast",
+    "story",
+    "browser",
+    "integration",
+    "map-quality",
+    "packaged-ui"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "env",
+        "ASHEN_PORTRAIT_OUTPUT=docs/ch1-voice/baseline/browser",
+        "node",
+        "tests/browser-ch12-portraits.mjs",
+        "--baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:33:08.404713+00:00",
+      "finished_at_utc": "2026-10-12T06:33:25.174745+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "2aa59e167a21a90fd89795675639303e055bde31b5045393705c21feb4437587",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/001-baseline.txt",
+      "output_sha256": "de13dc646b44b76a37d5067dbed5a03b381a45050d4e3ea31b723ee60bb86d15",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "migration-initial",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T06:40:59.567522+00:00",
+      "finished_at_utc": "2026-10-12T06:41:00.193304+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "8f070fbd8905de0769de97d68035ba0d06286fcd28348a119f5a2a0b9721ded2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/002-migration-initial.txt",
+      "output_sha256": "1f181eef681b84f084344379650713b48302223500178645de79edf26bd643ba",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "migration",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-test.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:42:15.275022+00:00",
+      "finished_at_utc": "2026-10-12T06:42:28.998880+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "84b283f5ba74a8408938395fb8aa0157154c0161cc68c78ec562fab32e95ed45",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/003-migration.txt",
+      "output_sha256": "a18a67669931e75e12904bfe4b858d570c5031ee6f074d919963f68be76188df",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "browser",
+      "command": [
+        "env",
+        "ASHEN_PORTRAIT_OUTPUT=docs/ch1-voice/browser",
+        "node",
+        "tests/browser-ch12-portraits.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:47:44.195568+00:00",
+      "finished_at_utc": "2026-10-12T06:48:03.985483+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "7385a3a44126dae0487fc58343429c4ff0faaacedcb532c14a41cfbff7173b94",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/004-browser.txt",
+      "output_sha256": "54ea7ccca307b442583a038101b8bad073f8c4fee84cd2bf01b618a33c347a65",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:48:47.481218+00:00",
+      "finished_at_utc": "2026-10-12T06:49:01.801415+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/005-fast.txt",
+      "output_sha256": "71430a3076174d3a215c573348819115140fe92975e271550be99b3d575bec00",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "story",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-test.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:49:01.888378+00:00",
+      "finished_at_utc": "2026-10-12T06:49:16.467026+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/006-story.txt",
+      "output_sha256": "c953033955f71ce60e19d679354507d392c1590cfbcc1f0cbb8d76950a03d490",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "browser",
+      "command": [
+        "env",
+        "ASHEN_PORTRAIT_OUTPUT=docs/ch1-voice/browser",
+        "node",
+        "tests/browser-ch12-portraits.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:49:16.539282+00:00",
+      "finished_at_utc": "2026-10-12T06:49:35.998293+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/007-browser.txt",
+      "output_sha256": "54ea7ccca307b442583a038101b8bad073f8c4fee84cd2bf01b618a33c347a65",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "scenes",
+      "command": [
+        "env",
+        "ASHEN_C1_OUTPUT=docs/ch1-voice/scenes",
+        "node",
+        "tests/browser-chapter-one-incremental.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:49:36.086881+00:00",
+      "finished_at_utc": "2026-10-12T06:50:21.830437+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/008-scenes.txt",
+      "output_sha256": "34dbfd4e882e07abbd56d9df6e6adaa80e603054e6b1a38893000a2d1d132ecb",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:50:21.916947+00:00",
+      "finished_at_utc": "2026-10-12T06:53:49.900740+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/009-integration.txt",
+      "output_sha256": "599b7eccbb15a0732b34c1e412adc8216a70eb9188a1fb9ef5a93fade8ef92a6",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "71dcfce"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:53:58.240570+00:00",
+      "finished_at_utc": "2026-10-12T06:53:58.383520+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/010-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "local-5174",
+      "command": [
+        ".venv/bin/python",
+        "docs/ch1-voice/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T06:53:58.447649+00:00",
+      "finished_at_utc": "2026-10-12T06:55:01.876884+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ch1-voice-20261012/011-local-5174.txt",
+      "output_sha256": "3252e646fce068aa504f008286eafd04d3338cf9ac64ea250a7bc9f44717ed39",
+      "timeout_seconds": 240.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T06:35:36.930462+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "1e7c17774f9ea35595783e2e973c27da68f44f97d580309d0e40e98fb713ab65",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n?? docs/ch1-voice/\n?? docs/harness/evidence/ch1-voice-20261012/\n?? history/c1-backstage-20261012/\n?? source/tasks/active/ch1-voice-20261012.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T06:47:36.721922+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "885504528b906db9a07e3ffd732c110103afaa2a58d4b1cb99e65f16c7f77455",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/game-v14.js\n M dist/identity-visuals-v18.js\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/modules.json\n M tests/browser-ch12-portraits.mjs\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-test.test.mjs\n?? dist/assets/c1-voice/\n?? docs/ch1-voice/\n?? docs/harness/evidence/ch1-voice-20261012/\n?? history/c1-backstage-20261012/\n?? source/tasks/active/ch1-voice-20261012.json"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T06:55:50.894146+00:00",
+      "head_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-dialogues-v31.js\n M dist/game-v14.js\n M dist/identity-visuals-v18.js\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M docs/harness/WORKFLOW.md\n M docs/harness/WORLD.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-ch12-portraits.mjs\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-web-play.py\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-test.test.mjs\n?? dist/assets/c1-voice/\n?? docs/ch1-voice/\n?? docs/harness/evidence/ch1-voice-20261012/\n?? history/c1-backstage-20261012/\n?? source/tasks/active/ch1-voice-20261012.json"
+    }
+  ]
+}

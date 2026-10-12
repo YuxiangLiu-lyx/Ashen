@@ -5,21 +5,21 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_ch12_portrait_fixes_with_chapter_testing",
+  "snapshot_type": "v30_ch1_voice_05_gentle_saint_with_chapter_testing",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
   "runtime_modules": 200,
   "runtime_stylesheets": 7,
-  "runtime_images": 133,
-  "runtime_resource_bytes": 289747967,
+  "runtime_images": 134,
+  "runtime_resource_bytes": 292397534,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Known backstage speakers use original portraits; anonymous figures use explicit dark SVG fills. Current default did not reproduce reported white silhouettes, but text-color override reproduced the old weakness and now stays dark. Chapter-two end rewards are idempotent. No dialogue, original image or map changes; no complete natural campaign playthrough or private save access; no website publication.",
+  "known_limits": "Chapter-one0.5 replaces the commission tail and removes the newly added anonymous scene. Default saint portrait reuses a preserved cover-derived gentle image; world bodies and late disguises are unchanged. Original maps/tasks/mainline dialogue tables/rewards remain. Final packaging verification in progress; no website deployment or private save access.",
   "checked_at_utc": "2026-10-11T10:02:43.266114+00:00",
   "v28": {
     "date": "2026-09-19",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Ch12 portrait/bug repair passed: 26 scenes/263 lines/15 original character images, 18 maps/221 routes/48 frames, 18 chapter regressions, full integration and offline/HTTP/mobile packaged UI. See docs/ch12-portrait-bugs/ACCEPTANCE.md.",
+  "browser_qa_status": "Current0.5: 26 scenes/263 original lines plus 11 new tail lines; 18 maps/221 routes/48 frames and three viewports passed. Integration and packaged verification in progress.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -301,9 +301,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "0.4",
-    "task_id": "narrative-incremental-20261010",
-    "status": "0.4 chapter-one original-dialogue revision; chapter-two planning only",
+    "version": "0.5",
+    "task_id": "ch1-voice-20261012",
+    "status": "0.5 chapter-one known-speaker exchange and gentle saint portrait; chapter-two planning only",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,9 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "0.4",
+      "script_revision": "0.5",
       "script_status": "IMPLEMENTED",
-      "implementation": "Original dialogue UI with silhouette backstage lines implemented; current verification docs/ch1-dialogue-cleanup/ACCEPTANCE.md, task ch1-dialogue-cleanup-20261010"
+      "implementation": "Implemented; validation in progress under ch1-voice-20261012 / docs/ch1-voice/ACCEPTANCE.md"
     },
     "chapter02": {
       "id": "V01C02",
@@ -329,7 +329,7 @@
       "Long-term background, prophecy and final plans remain provisional",
       "Existing runtime and planned additions are distinguished in chapter records",
       "Saint confrontation is cinematic only, no new playable combat",
-      "Original documentation task changed no runtime; current0.4 implementation is recorded in chapter01_dialogue_revision; chapter01_incremental remains historical0.3."
+      "Current0.5 implementation is recorded in chapter01_voice_revision; prior chapter01_dialogue_revision0.4 and chapter01_incremental0.3 are historical."
     ],
     "evidence": "docs/harness/acceptance/NARRATIVE_INCREMENTAL.json",
     "previous_plan": {
@@ -609,5 +609,15 @@
     "implementation_and_qa_commit": "f060ab99b22a1d7c004893cc2508034d328bb0e1",
     "git_remote_verified_commit": "f060ab99b22a1d7c004893cc2508034d328bb0e1",
     "task_record": "source/tasks/archive/serve-loading-20261012.json"
+  },
+  "chapter01_voice_revision": {
+    "task_id": "ch1-voice-20261012",
+    "script_revision": "0.5",
+    "status": "implemented; validation in progress",
+    "source_baseline": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+    "asset_manifest": "docs/ch1-voice/ASSET_MANIFEST.json",
+    "dialogue": "docs/ch1-voice/DIALOGUE.json",
+    "acceptance": "docs/ch1-voice/ACCEPTANCE.md",
+    "site_deployed": false
   }
 }

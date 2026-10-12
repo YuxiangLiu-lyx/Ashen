@@ -35,7 +35,7 @@ test('all three classes skip from chapter one through eight with every intermedi
   assert.equal(g.sagaV25.phase,'finished',cls);assert.deepEqual([...visited],[1,2,3,4,5,6,7,8]);
   assert.ok(actors.has('saint'));assert.equal(g.p.cls,cls);
   for(const flag of ['chapterOneComplete','chapterTwoComplete','ch3Unsealed','ch3TreatmentApplied','ch3HeroRecovered','ch3Complete','v12WatchHoursDone','v12CleanBottlesDone','ch4V13MemoryComplete','ch4Complete','ch5CityUnlocked','ch5BossDefeated','ch5Complete'])assert.equal(g.flags[flag],true,flag);
-  assert.equal(g.flags.ch4V13SaintTruthKnown,false);assert.ok(g.flags.c1Viewed.c1HiddenSealEcho);
+  assert.equal(g.flags.ch4V13SaintTruthKnown,false);assert.equal(g.flags.c1Viewed.c1HiddenPairArrangement,true);assert.equal(g.flags.c1Viewed.c1HiddenSealEcho,undefined);
   assert.ok(g.knowledge.player.includes('trio-betrayal-memory'));
   const before=JSON.stringify(g.snapshot());assert.throws(()=>skipStoryTestStepV31(RPG,stats,g),/已完成/);assert.equal(JSON.stringify(g.snapshot()),before);
  }

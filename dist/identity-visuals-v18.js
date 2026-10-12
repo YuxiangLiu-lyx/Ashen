@@ -2,9 +2,9 @@ import {drawFittedEquipmentV281,drawWeaponSignatureV281} from './equipment-art-v
 import {IDENTITY_META_V18} from './identity-meta-v18.js';
 
 // One stable identity controls exploration, staging, companion combat and paper dolls.
-// Existing portrait art is untouched. Coordinates remain actor ground pivots.
+// Default saint portrait follows the cover; world bodies and ground pivots stay unchanged.
 export const VISUAL_IDENTITIES_V18=Object.freeze({
- aelia:{name:'艾莉娅',sheet:'identityCityV18',row:0,portrait:['portraits',1]},
+ aelia:{name:'艾莉娅',sheet:'identityCityV18',row:0,portrait:['saintCoverV31',0]},
  graena:{name:'格蕾娜',sheet:'identityCityV18',row:1,portrait:['v14Portraits',5]},
  miya:{name:'弥娅',sheet:'identityCityV18',row:2,portrait:['v14Portraits',6]},
  serena:{name:'瑟琳娜',sheet:'identityCityV18',row:3,portrait:['v14Portraits',7]},
@@ -89,6 +89,7 @@ export function drawHeroSocialV18(c,bank,actor,x,y,time=0,extra={}){
  c.save();c.translate(Math.round(x),Math.round(y));if(Math.cos(extra.angle??actor.angle??0)<0)c.scale(-1,1);c.imageSmoothingEnabled=true;c.drawImage(bank.images.heroLifeV18,sx,sy,sw,sh,-ax*k,-ay*k,sw*k,sh*k);c.restore();return true;
 }
 export const IDENTITY_LOADS_V18=[
+ ['saintCoverV31','assets/c1-voice/elyria-gentle.png',1,1,true],
  ['identityCityV18','assets/v18/city-identities-v18.png',8,4,true],
  ['identityServiceV18','assets/v18/city-service-identities-v18.png',8,3,true],
  ['identityPartyV18','assets/v18/party-identities-v18.png',8,3,true],

@@ -12,7 +12,7 @@ python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --stat
 
 直接给 Codex 一句需求，仓库 AGENTS 和六项 Skills 会引导执行。通用 Prompt见根 NEXT_SESSION_PROMPT.md，不需要粘贴大型项目历史。
 
-章节与剧情开发增加一个前置阶段：按 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md) 读取本章稿并记录采用版本，再实现。分卷分章登记在 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md)；[WORLD_VISION](WORLD_VISION.md) 是按需参考，未完善处不会自动阻塞本章。第一章与第二章需分别查询并读取，router 的一次混合任务最多选择三个模块，未命中的模块不会进入 deferred。低预算得到的摘录也不能代替整份章节稿。完整记录不等于全章改写授权；当前第一章按0.4修订执行：保留人物/地图优化，新增幕后用原对话框与匿名黑影；0.3分镜要求已经撤销。
+章节与剧情开发增加一个前置阶段：按 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md) 读取本章稿并记录采用版本，再实现。分卷分章登记在 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md)；[WORLD_VISION](WORLD_VISION.md) 是按需参考，未完善处不会自动阻塞本章。第一章与第二章需分别查询并读取，router 的一次混合任务最多选择三个模块，未命中的模块不会进入 deferred。低预算得到的摘录也不能代替整份章节稿。完整记录不等于全章改写授权；当前第一章按0.5修订执行：保留人物/地图优化；圣女默认立绘柔和，幕后只保留接委托后的薇蕾娜/鲁恩私下对话，删除新增匿名神秘人；0.3分镜要求已经撤销。
 
 ```bash
 python3 tools/harness/index.py --check

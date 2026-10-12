@@ -58,16 +58,19 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.locator('[data-act="continue"]').click()
     checks += ['no_removed_cinematic_entry']
     module='@ashen/core-v14.js' if offline else './core-v14.js'
-    known_tail="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=1;g.enter('hall',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('contract','contractAccept');Object.assign(g.pending,{line:19,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenPairArrangement',line:0,revision:2}});return JSON.stringify(g.snapshot());}"""
+    known_tail="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=1;g.enter('hall',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('contract','contractAccept');Object.assign(g.pending,{line:19,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenPairArrangement',line:1,revision:3}});return JSON.stringify(g.snapshot());}"""
     raw_known=page.evaluate(known_tail,module)
     page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
     page.locator('#saveTransfer').fill(raw_known);page.locator('[data-act="confirm-import"]').click()
     page.wait_for_function("document.querySelector('img.portrait-art')?.naturalWidth>0")
-    assert page.locator('.speaker').inner_text()=='鲁恩' and page.locator('.backstage-shadow').count()==0
+    assert page.locator('.speaker').inner_text()=='薇蕾娜' and page.locator('.backstage-shadow').count()==0
     first_portrait=page.locator('img.portrait-art').get_attribute('src')
     page.screenshot(path=str(out/(label+'-known-backstage.png')))
     page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
-    assert page.locator('.speaker').inner_text()=='薇蕾娜'
+    assert page.locator('.speaker').inner_text()=='旁白'
+    assert page.locator('img.portrait-art').count()==0
+    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
+    assert page.locator('.speaker').inner_text()=='鲁恩'
     assert page.locator('img.portrait-art').get_attribute('src')!=first_portrait
     advance_intro(page)
     checks += ['known_backstage_original_portraits','known_portrait_changes_with_speaker']
@@ -75,16 +78,7 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     raw=page.evaluate(legacy,module)
     page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
     page.locator('#saveTransfer').fill(raw);page.locator('[data-act="confirm-import"]').click()
-    page.locator('.backstage-shadow').wait_for(timeout=15000)
-    assert page.locator('.backstage-shadow path').first.evaluate('(el)=>getComputedStyle(el).fill')=='rgb(6, 8, 12)'
-    assert page.locator('.dialogue-card .line').inner_text()=='是结果变了。旧案先留着，再算一次。'
-    assert page.locator('.speaker,.scene-label,.c1-cinema-ui').count()==0
-    page.screenshot(path=str(out/(label+'-anonymous-dialogue.png')))
-    page.reload(wait_until='domcontentloaded',timeout=180000);ready(page);page.locator('[data-act="continue"]').click()
-    assert page.locator('.dialogue-card .line').inner_text()=='是结果变了。旧案先留着，再算一次。'
-    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
-    assert page.locator('.dialogue-card .line').inner_text()=='这次只响了一声。先记下来，别把人都叫来。'
-    page.wait_for_timeout(300);page.locator('[data-act="next"]').click()
+    assert page.locator('.backstage-shadow,.c1-cinema-ui').count()==0
     page.locator('.hud').wait_for(timeout=15000)
     # The original chapel battle blocks saving until the actor exits through the side door.
     # Finish at x1390 beside that door; use the real interaction key, then await the safe save.
@@ -96,7 +90,7 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.reload(wait_until='domcontentloaded',timeout=180000);ready(page);page.locator('[data-act="continue"]').click()
     assert page.locator('.backstage-shadow').count()==0
     assert page.evaluate("JSON.parse(localStorage.getItem('ashen-vow-rpg-v10')).p.xp")==saved_tail['p']['xp']
-    checks += ['legacy_tail_import','anonymous_original_dialogue_ui','tail_reload_migrates_once','tail_completes_once']
+    checks += ['legacy_tail_import','removed_anonymous_tail_skipped','tail_reload_migrates_once','tail_completes_once']
     fixture="""async (module)=>{const {RPG,stats}=await import(module);const g=new RPG('shadow',null,()=>.4);g.ensureMap('warehouse');g.map='warehouse';const e=g.enemies[0];for(const other of g.enemies)if(other!==e){other.dead=true;other.hp=0;}const p=g.safePoint(e.x-40,e.y+22);g.relocate(p.x,p.y);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.pending=null;g.events=[];g.active=true;return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};}"""
     test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]
     # Import through the real UI; beforeunload autosave must remain enabled.

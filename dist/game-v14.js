@@ -56,7 +56,7 @@ import {RESET_ITEMS} from './attunement-v14.js';
 import {exportSave,parseSave} from './save-transfer-v14.js';
 import {ArtBank,drawHero,drawNPC,drawMonster,drawScenery,footShadow,SCENERY} from './visuals-v14.js';
 import {totalAttributes,attributeParts,CLASS_GROWTH,UNIQUE_EFFECTS} from './growth-v14.js';
-import {ChapterOneStoryFlow as StoryFlow,hiddenPortraitHTML} from './chapter-one-dialogues-v31.js';
+import {ChapterOneStoryFlow as StoryFlow} from './chapter-one-dialogues-v31.js';
 import {EQUIPMENT_SLOTS,SLOT_NAMES,canEquip,equipmentPlan,weaponHands,WEAPON_RULES} from './equipment-v14.js';
 import {actionPropArt} from './world-v14.js';
 import {AudioDirector,sceneMusicV17} from './audio-v17.js';
@@ -181,7 +181,7 @@ function renderScene(){
  }
  const [speaker,line]=flow.current;if(!cine&&!hidden){const id=Object.keys(npcNames).find(k=>npcNames[k].endsWith(speaker));if(id)g.faceNPC(id);}
  const art=hidden?null:sceneIllustrationV19(flow,SCENE_ILLUSTRATIONS_V20),artHTML=storyIllustrationHTMLV19(art);
- ui.innerHTML=`<div class="dialogue-wrap ${hidden?'backstage-dialogue':''} ${['ch2TargetBefore','ch2TargetAfter'].includes(flow.id)?'court-dialogue':''} ${artHTML?'story-illustrated-v19':''}">${hidden?(portraitHTML(speaker)||hiddenPortraitHTML()):artHTML||portraitHTML(speaker)}${label?`<p class="scene-label">${escape(label)}</p>`:''}<section class="dialogue-card"><div class="dialogue-copy">${speaker?`<p class="speaker">${escape(speaker)}</p>`:''}<p class="line">${escape(line)}</p><div class="dialogue-bottom"><span>${speaker==='旁白'?'':' '}</span>${testSkipButton()}<button data-act="next" data-scene-token="${sceneToken}">继续 ▸</button></div></div></section></div>`;
+ ui.innerHTML=`<div class="dialogue-wrap ${hidden?'backstage-dialogue':''} ${['ch2TargetBefore','ch2TargetAfter'].includes(flow.id)?'court-dialogue':''} ${artHTML?'story-illustrated-v19':''}">${artHTML||portraitHTML(speaker)}${label?`<p class="scene-label">${escape(label)}</p>`:''}<section class="dialogue-card"><div class="dialogue-copy">${speaker?`<p class="speaker">${escape(speaker)}</p>`:''}<p class="line">${escape(line)}</p><div class="dialogue-bottom"><span>${speaker==='旁白'?'':' '}</span>${testSkipButton()}<button data-act="next" data-scene-token="${sceneToken}">继续 ▸</button></div></div></section></div>`;
 }
 function testSkipButton(){return isStoryTestV25(g)?`<button data-act="test-skip" title="跳过当前主线步骤；对白中跳过当前连续对白">${g.pending?'跳过当前对白':'跳过主线步骤'}</button>`:'';}
 function skipTestStep(){

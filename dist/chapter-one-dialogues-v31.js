@@ -1,39 +1,79 @@
 import {StoryFlow} from './story-flow-v14.js';
 
-// Short backstage additions, using the original dialogue renderer and staging.
-// Keep the pending IDs, completion actions and viewed markers from revision 0.3.
+// Revision 0.5: familiar speakers after the commission; no anonymous seal scene.
+// Original pending IDs and completion actions remain compatible with old saves.
 export const C1_HIDDEN = {
  c1HiddenPairArrangement: [
-  ['鲁恩','只为杀卡德兰，不必把她也带出来。'],
-  ['薇蕾娜','上面要的，不止他的死。还要让诺恩和她同行一段。'],
-  ['鲁恩','你觉得会有结果？'],
-  ['薇蕾娜','我不知道。她不会顺着他，他也没学过怎么跟这样的人相处。'],
-  ['鲁恩','他回来问你呢？'],
-  ['薇蕾娜','我会答。先把答应我的退路留好，两个人都得回来。']
- ],
- c1HiddenSealEcho: [
-  ['','印启用了。把旧记录取来。'],
-  ['','是结果变了。旧案先留着，再算一次。'],
-  ['','这次只响了一声。先记下来，别把人都叫来。']
- ]
+  [
+    "旁白",
+    "诺恩离开后，薇蕾娜仍望着门口。直到脚步声远了，她才转过身。"
+  ],
+  [
+    "薇蕾娜",
+    "门上的禁制，明明有别的办法解开。为什么还要让诺恩把圣女带走？"
+  ],
+  [
+    "旁白",
+    "鲁恩沉默了一会儿，才开口。"
+  ],
+  [
+    "鲁恩",
+    "这是上面的安排。薇蕾娜，别再问了。"
+  ],
+  [
+    "薇蕾娜",
+    "不管你们上面有什么计划，有一件事我得说清楚：别害诺恩。"
+  ],
+  [
+    "鲁恩",
+    "对不起……这件事，我做不了主。"
+  ],
+  [
+    "旁白",
+    "薇蕾娜盯着他，声音陡然抬高。"
+  ],
+  [
+    "薇蕾娜",
+    "做不了主？鲁恩，他是我们看着长大的！"
+  ],
+  [
+    "薇蕾娜",
+    "你就一点也不担心他吗？在你心里，除了服从命令，就没有别的了？"
+  ],
+  [
+    "旁白",
+    "鲁恩垂下眼。薇蕾娜等着他的回答，他却迟迟没有出声。"
+  ],
+  [
+    "鲁恩",
+    "对不起……"
+  ]
+]
 };
-const tailFor={contract:'c1HiddenPairArrangement',assassination:'c1HiddenSealEcho'};
+const tailFor={contract:'c1HiddenPairArrangement'};
 const actionFor={contract:'contractAccept',assassination:'assassinate'};
 
 export class ChapterOneStoryFlow extends StoryFlow {
  constructor(g,lines){
+  const saved=g.pending?.c1Tail;
+  const retired=g.pending?.id==='assassination'&&saved?.id==='c1HiddenSealEcho';
+  // This old tail began after every original line and the outro. Resume its
+  // original completion, without displaying removed dialogue or paying twice.
+  if(retired)Object.assign(g.pending,{line:lines.length-1,phase:'dialogue',closing:true});
   super(g,lines);
   this.mainCine=this.cine;this.c1TailID=tailFor[this.id];
-  const saved=g.pending?.c1Tail;
+  if(retired){
+   delete g.pending.c1Tail;
+   g.flags.c1Viewed={...g.flags.c1Viewed,c1HiddenSealEcho:true};
+   super.complete();return;
+  }
   if(this.c1TailID&&saved?.id===this.c1TailID){
-   const oldLine=Math.max(0,Math.floor(Number(saved.line)||0));
-   const line=saved.id==='c1HiddenSealEcho'&&saved.revision!==2?Math.floor(oldLine/2):oldLine;
-   this.openTail(line);
+   this.openTail(saved.revision===3?saved.line:0);
   }
  }
  openTail(line=0){
   const last=C1_HIDDEN[this.c1TailID].length-1;
-  this.c1Tail={id:this.c1TailID,line:Math.max(0,Math.min(last,Math.floor(Number(line)||0))),revision:2};
+  this.c1Tail={id:this.c1TailID,line:Math.max(0,Math.min(last,Math.floor(Number(line)||0))),revision:3};
   this.phase='dialogue';this.closing=true;this.cine=null;
   this.revision++;this.sync();
  }
@@ -60,17 +100,4 @@ export class ChapterOneStoryFlow extends StoryFlow {
   return true;
  }
  update(dt){return this.c1Tail?[]:super.update(dt);}
-}
-
-// Anonymous hood and cloak, using the original bust area. Explicit dark fills
-// stay black even if text color is inherited before the stylesheet is ready.
-// No face, insignia or identity is invented for these unnamed speakers.
-export function hiddenPortraitHTML(){
- return `<svg class="portrait-art backstage-shadow" viewBox="0 0 360 480" preserveAspectRatio="xMidYMax meet" aria-hidden="true" focusable="false">
- <path fill="#06080c" d="M14 480 23 367Q28 322 48 291L103 264 119 235 107 205 109 143Q109 107 128 78L164 42Q178 33 190 40L219 67Q245 99 250 139L255 198 242 233 251 259 308 282Q329 302 337 344L351 480Z"/>
- <path fill="#11171e" d="M164 49Q128 99 124 146L120 204 142 230 128 178Q131 121 167 87L201 75 185 45 216 74Q244 114 244 163L250 197 222 239 205 225 227 185Q231 126 201 94L181 80Z"/>
- <path fill="#030509" d="M169 93 186 83Q224 120 227 163L220 194 199 219 174 229 148 209 135 179 136 148Q143 116 169 93Z"/>
- <path fill="#10151c" d="M111 247 166 270 226 238 243 264 208 305 174 289 140 308 103 270ZM50 300 125 282 144 313 112 354 132 480 110 421 92 349ZM252 277 307 299 283 342 291 433 278 480 266 357 235 315Z"/>
- <path fill="none" stroke="#1b232c" stroke-width="2" stroke-linecap="round" d="M126 95Q110 139 115 191M232 113Q246 157 248 185M54 303 97 290M270 292 307 306M145 315 157 394 151 450M209 313 194 385 208 460"/>
- </svg>`;
 }

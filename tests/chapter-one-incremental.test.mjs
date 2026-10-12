@@ -9,12 +9,28 @@ import {StoryFlow} from '../dist/story-flow-v14.js';
 import {ChapterOneStoryFlow,C1_HIDDEN} from '../dist/chapter-one-dialogues-v31.js';
 import {STAGING} from '../dist/staging-v14.js';
 import {C1_PURSUIT_LOADS,pursuitSheet,pursuitFrame,drawPursuit} from '../dist/chapter-one-pursuit-v31.js';
+import {identityPortraitV18,IDENTITY_LOADS_V18} from '../dist/identity-visuals-v18.js';
+import {sagaPortraitV25} from '../dist/saga-art-v25.js';
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/ch1-dialogue-cleanup/BASELINE.json',import.meta.url)));
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const copy=v=>JSON.parse(JSON.stringify(v));
 function game(cls,id){const g=new RPG(cls,null,()=>.44);g.chapter=id==='contract'?1:2;g.enter(id==='contract'?'hall':'chapel',800,850);g.beginScene(id,id==='contract'?'contractAccept':'assassinate');g.events=[];return g;}
 function finish(f){let n=0;while(!f.finished&&n++<200){if(f.phase==='action')f.update(30);else f.advance();}assert.equal(f.finished,true);}
 function outcome(g){return copy({chapter:g.chapter,quests:g.quests,p:g.p,knowledge:g.knowledge,saint:g.saint,enemies:g.enemies,relations:g.relations});}
+
+test('default saint portrait uses the preserved gentle original; later disguises retain their own image',()=>{
+ const manifest=JSON.parse(fs.readFileSync(new URL('../docs/ch1-voice/ASSET_MANIFEST.json',import.meta.url)));
+ const asset=fs.readFileSync(new URL('../dist/assets/c1-voice/elyria-gentle.png',import.meta.url));
+ assert.equal(crypto.createHash('sha256').update(asset).digest('hex'),'6acd8529a1255205c170ed6654cb8804811457540a2f0947c22f7b3282fcaa9f');
+ assert.deepEqual(asset,fs.readFileSync(new URL('../history/reconstruction-20261010/dist/assets/v30-narrative/elyria-gentle.png',import.meta.url)));
+ assert.equal(manifest.sha256,crypto.createHash('sha256').update(asset).digest('hex'));assert.deepEqual(IDENTITY_LOADS_V18.find(([name])=>name==='saintCoverV31'),['saintCoverV31','assets/c1-voice/elyria-gentle.png',1,1,true]);
+ const bank={cropped:(sheet,index)=>sheet+'/'+index,portrait(name){return identityPortraitV18(this,name);}};
+ for(const name of ['艾莉娅','saint','aelia'])assert.equal(bank.portrait(name),'saintCoverV31/0');
+ assert.equal(sagaPortraitV25(bank,'艾莉娅',{map:'chapel'}),'saintCoverV31/0');
+ assert.equal(sagaPortraitV25(bank,'艾莉娅',{sagaV25:{disguise:true}}),'sagaElyriaPortraitV27/0');
+ assert.equal(sagaPortraitV25(bank,'艾莉娅',{map:'ch8Forest',sagaV25:{started:true}}),'sagaElyriaPortraitV27/0');
+ assert.equal(sagaPortraitV25(bank,'艾莉娅',{}, {get:()=>({disguiseV25:true})}),'sagaElyriaPortraitV27/0');
+});
 
 test('original world and retained art are unchanged; core only adds the approved test-damage guard',()=>{
  for(const [key,table]of Object.entries({maps:MAPS,scenery:SCENERY,quests:QUESTS,dialogues:DIALOGUES,originalStaging:STAGING.scenes})){
@@ -38,7 +54,7 @@ test('normal dialogue completion preserves original outcomes and cannot commit t
   const control=game(cls,id);finish(new StoryFlow(control,DIALOGUES[id]));
   const g=game(cls,id),f=new ChapterOneStoryFlow(g,DIALOGUES[id]);finish(f);
   assert.deepEqual(outcome(g),outcome(control),cls+'/'+id);
-  assert.equal(Object.keys(g.flags.c1Viewed).length,1);
+  assert.deepEqual(g.flags.c1Viewed,id==='contract'?{c1HiddenPairArrangement:true}:undefined);
   const committed=copy(g.snapshot());f.complete();f.advance();f.update(1);
   assert.deepEqual(copy(g.snapshot()),committed,'repeated input must not commit twice');
  }
@@ -56,7 +72,7 @@ test('every original pending line resumes in both action and dialogue phases wit
  }
 });
 test('all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private',()=>{
- for(const id of ['contract','assassination'])for(let line=0;line<C1_HIDDEN[id==='contract'?'c1HiddenPairArrangement':'c1HiddenSealEcho'].length;line++){
+ for(const id of ['contract'])for(let line=0;line<C1_HIDDEN.c1HiddenPairArrangement.length;line++){
   const g=game('shadow',id),f=new ChapterOneStoryFlow(g,DIALOGUES[id]);
   while(!f.c1Tail){if(f.phase==='action')f.update(30);else f.advance();}
   for(let i=0;i<line;i++)f.advance();
@@ -66,19 +82,30 @@ test('all hidden-tail cursors survive real snapshot/restore and keep backstage k
   assert.equal(r.flags.c1Viewed[resume.c1TailID],true);
  }
 });
-test('legacy six-line hidden saves migrate once and retain original completion outcomes',()=>{
- for(const id of ['contract','assassination'])for(let line=0;line<6;line++)for(const closing of [false,true]){
-  const old=game('shadow',id),tail=id==='contract'?'c1HiddenPairArrangement':'c1HiddenSealEcho';
-  Object.assign(old.pending,{line:DIALOGUES[id].length-1,phase:'dialogue',closing,c1Tail:{id:tail,line}});
-  const g=new RPG('shadow',copy(old.snapshot()),()=>.44),f=new ChapterOneStoryFlow(g,DIALOGUES[id]);
-  const expected=id==='assassination'?Math.floor(line/2):line;
-  assert.equal(f.c1Tail.line,expected);assert.equal(g.pending.c1Tail.revision,2);
-  const save=copy(g.snapshot()),controlSave=copy(save);delete controlSave.pending.c1Tail;
-  const control=new RPG('shadow',controlSave,()=>.44);finish(new StoryFlow(control,DIALOGUES[id]));
-  const r=new RPG('shadow',save,()=>.44),resumed=new ChapterOneStoryFlow(r,DIALOGUES[id]);
-  assert.equal(resumed.c1Tail.line,expected,'second restore must not migrate again');
-  assert.deepEqual(resumed.current,C1_HIDDEN[tail][expected]);finish(resumed);
-  assert.deepEqual(outcome(r),outcome(control),id+'/'+line+'/'+closing);
+test('legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor',()=>{
+ for(const revision of [undefined,1,2])for(let line=0;line<6;line++)for(const closing of [false,true]){
+  const old=game('shadow','contract');
+  Object.assign(old.pending,{line:19,phase:'dialogue',closing,c1Tail:{id:'c1HiddenPairArrangement',line,revision}});
+  const g=new RPG('shadow',copy(old.snapshot()),()=>.44),f=new ChapterOneStoryFlow(g,DIALOGUES.contract);
+  assert.equal(f.c1Tail.line,0);assert.equal(g.pending.c1Tail.revision,3);
+  f.advance();const saved=copy(g.snapshot()),r=new RPG('shadow',copy(saved),()=>.44),resumed=new ChapterOneStoryFlow(r,DIALOGUES.contract);
+  assert.equal(resumed.c1Tail.line,1,'second restore must not restart');
+  assert.deepEqual(resumed.current,C1_HIDDEN.c1HiddenPairArrangement[1]);finish(resumed);
+  delete saved.pending.c1Tail;const control=new RPG('shadow',saved,()=>.44);finish(new StoryFlow(control,DIALOGUES.contract));
+  assert.deepEqual(outcome(r),outcome(control));
+ }
+});
+test('every retired H2 cursor completes the original assassination once without anonymous dialogue',()=>{
+ for(const cls of ['shadow','oath','ember'])for(const revision of [undefined,1,2])for(let line=0;line<(revision===2?3:6);line++)for(const closing of [false,true]){
+  const old=game(cls,'assassination');
+  Object.assign(old.pending,{line:17,phase:'dialogue',closing,c1Tail:{id:'c1HiddenSealEcho',line,revision}});
+  const saved=copy(old.snapshot()),g=new RPG(cls,copy(saved),()=>.44),f=new ChapterOneStoryFlow(g,DIALOGUES.assassination);
+  assert.equal(f.finished,true);assert.equal(f.current,null);assert.equal(g.pending,null);assert.equal(g.chapter,3);
+  delete saved.pending.c1Tail;saved.pending.closing=true;
+  const control=new RPG(cls,saved,()=>.44);finish(new StoryFlow(control,DIALOGUES.assassination));
+  assert.deepEqual(outcome(g),outcome(control),`${cls}/${revision}/${line}/${closing}`);
+  const committed=copy(g.snapshot());f.complete();f.advance();f.update(1);assert.deepEqual(copy(g.snapshot()),committed);
+  const r=new RPG(cls,committed,()=>.44);assert.equal(r.pending,null);assert.equal(r.p.xp,g.p.xp);assert.equal(r.p.gold,g.p.gold);
  }
 });
 test('past-event saves do not replay tails and already viewed flags suppress duplication',()=>{
@@ -90,12 +117,16 @@ test('past-event saves do not replay tails and already viewed flags suppress dup
   const f=new ChapterOneStoryFlow(r,DIALOGUES[id]);finish(f);assert.equal(f.c1Tail,undefined);
  }
 });
-test('anonymous backstage speakers have only three short lines and no identity labels',()=>{
- assert.equal(C1_HIDDEN.c1HiddenSealEcho.length,3);
- for(const [speaker,line]of C1_HIDDEN.c1HiddenSealEcho){assert.equal(speaker,'');assert.ok(line.length<=30);assert.doesNotMatch(line,/女性|老人|青年|身形|身材|研究者|军官/);}
+test('only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed',()=>{
+ const expected=JSON.parse(fs.readFileSync(new URL('../docs/ch1-voice/DIALOGUE.json',import.meta.url)));
+ assert.deepEqual(C1_HIDDEN,{c1HiddenPairArrangement:expected.lines});
+ assert.deepEqual(expected.lines.at(-1),['鲁恩','对不起……']);
+ assert.ok(expected.lines.some(([speaker,line])=>speaker==='薇蕾娜'&&line.includes('禁制')));
+ assert.ok(expected.lines.some(([speaker,line])=>speaker==='薇蕾娜'&&line.includes('服从命令')));
+ assert.ok(expected.lines.every(([speaker])=>['旁白','薇蕾娜','鲁恩'].includes(speaker)));
  for(const [,url]of C1_PURSUIT_LOADS)assert.ok(fs.statSync(new URL('../dist/'+url,import.meta.url)).size>100000,url);
  const gameSource=fs.readFileSync(new URL('../dist/game-v14.js',import.meta.url),'utf8');
- assert.doesNotMatch(gameSource,/c1Replay|c1-skip|c1-replay|C1_CINEMATIC|drawC1Cinematic|c1DialogueHTML/);
+ assert.doesNotMatch(gameSource,/hiddenPortraitHTML|backstage-shadow|c1Replay|c1-skip|c1-replay|C1_CINEMATIC|drawC1Cinematic|c1DialogueHTML/);
  assert.equal(fs.existsSync(new URL('../dist/chapter-one-cinematic-v31.js',import.meta.url)),false);
 });
 test('the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves',()=>{

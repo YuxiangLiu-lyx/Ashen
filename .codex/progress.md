@@ -1,8 +1,10 @@
 # Ashen 增量执行进度
 
-最后更新：2026-10-11。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，先 `task.py list`。回滚任务已完成；重构任务按用户要求暂停，不得自动接续。保留其他任务与历史证据。
+最后更新：2026-10-12。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，先 `task.py list`。回滚任务已完成；重构任务按用户要求暂停，不得自动接续。保留其他任务与历史证据。
 
 ## 当前目标与范围
+
+2026-10-12当前任务 `ch1-voice-20261012`：采用章稿0.5，柔和圣女默认立绘，接委托后的薇蕾娜/鲁恩私下对话，删除新增匿名神秘人；当前实现完成，正在验收。下方0.4匿名黑影规则为历史，第二章仍只策划。
 
 2026-10-11前两章人物与缺陷修复 `ch12-portrait-bugs-20261011`：已知幕后人物恢复原立绘，匿名兜帽/披风黑影固定深色；第二章章界经验金币只结算一次。26场263行/15角色/三视口、18图221路径/48帧/完整对白、18章节回归、fast28、integration及离线HTTP手机包均通过。实现c6980d5、完整验收bdbb15a已推送main并ls-remote核对；常用包已更新且旧包保留，任务归档。验收docs/ch12-portrait-bugs/ACCEPTANCE.md；旧图/对白/地图与暂停重构保留。
 
@@ -328,3 +330,19 @@
 - 阶段 delivery：complete；HEAD f060ab99b22a1d7c004893cc2508034d328bb0e1
 - 最近检查：presentation，退出码 0；docs/harness/evidence/serve-loading-20261012/007-presentation.txt
 <!-- /task:serve-loading-20261012 -->
+
+<!-- task:ch1-voice-20261012 -->
+## 任务 ch1-voice-20261012
+- 状态：in_progress
+- 更新：2026-10-12T06:55:50.923331+00:00
+- 下一步：保存实现检查点后生成常用离线包
+- 任务记录：source/tasks/active/ch1-voice-20261012.json
+- 已完成：保存26场263行浏览器基线；完整读取第一章0.4并记录0.5采用稿、逐句稿和角色知识边界；旧稿与代码保留历史；核对封面与柔和原件；11行接委托对白、柔和立绘、旧H1/H2迁移已实现；19项Node初测通过，保留迁移测试fixture失败日志；最终fast28、story20、26场263行加新11行/三视口、18图221路径48帧、完整integration、三维及真实5174都通过
+- 待完成：干净源码构建/离线HTTP手机包；提交推送GitHub main并核验
+- 决定：当前用户授权优先于旧0.4匿名黑影条款；只取回符合封面的elyria-gentle原件，不恢复暂停重构或其他旧剧情。；新增段11行含4处简短动作/沉默旁白，薇蕾娜先问禁制再要求保护诺恩，鲁恩两次道歉；移除H2；旁白无人物占位。；迁移控制组采用相同存档和读取次数，保留完整结果深比较；无游戏规则调整
+- 阻塞：无
+- 阶段 audit：complete；HEAD 71dcfce51938b8d3e0a35dd803d78120bb0ce688
+- 阶段 implementation：complete；HEAD 71dcfce51938b8d3e0a35dd803d78120bb0ce688
+- 阶段 verification：complete；HEAD 71dcfce51938b8d3e0a35dd803d78120bb0ce688
+- 最近检查：local-5174，退出码 0；docs/harness/evidence/ch1-voice-20261012/011-local-5174.txt
+<!-- /task:ch1-voice-20261012 -->

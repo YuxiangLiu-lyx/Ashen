@@ -1,70 +1,97 @@
 {
-  "task_id": "ch12-portrait-bugs-20261011",
-  "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+  "task_id": "ch1-voice-20261012",
+  "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
   "reviewed_paths": [
+    "dist/assets/c1-voice/elyria-gentle.png",
     "dist/chapter-one-dialogues-v31.js",
-    "dist/game-v14.js"
+    "dist/game-v14.js",
+    "dist/identity-visuals-v18.js"
   ],
-  "assets": [],
-  "scope": "Dialogue portrait-only art repair; no map topology, world renderer, collision, NPC body or original raster edits. Existing scene quality limitations remain; not acceptance of a new map design.",
+  "assets": [
+    {
+      "path": "dist/assets/c1-voice/elyria-gentle.png",
+      "sha256": "6acd8529a1255205c170ed6654cb8804811457540a2f0947c22f7b3282fcaa9f"
+    },
+    {
+      "path": "dist/assets/keyart.png",
+      "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
+    },
+    {
+      "path": "dist/assets/v4/main-portraits.png",
+      "sha256": "8e082eab354608c342467b34f601ea640f69d5826e9509e2e034533f8c5a4730"
+    }
+  ],
+  "scope": "Dialogue and default portrait only. Independently reviewed hall/chapel presentation with shared portrait regression; no geometry/NPC bodies changed and no new map design claimed.",
   "maps": [
     {
       "id": "hall",
       "playability": {
         "status": "pass",
-        "reason": "18图221条正式moveActor路径无未验证项；本场景完整原动作/对白点击到原结果，旧尾段重载与三视口按钮通过。原地图/任务/碰撞注册哈希保持。",
+        "reason": "实际18图221条moveActor路径无未验证，完整委托11行尾段/原刺杀0匿名尾段完成，三视口可点击；三职业228旧主线游标、全部旧H1/H2迁移与重复提交一致性通过。地图/任务/原对白/原staging完整哈希保持。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/scenes/QA.json",
-            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+            "path": "docs/ch1-voice/scenes/QA.json",
+            "sha256": "44eae52c0e5ed9f34c2b049b92b64709e8326c73ada26c8939b51d2fad0bece0"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/hall-collision.webp",
-            "sha256": "ecadde7af82608417c097035c4898c9120d15d827fd4cafc417ca368db877a36"
+            "path": "docs/ch1-voice/scenes/hall-collision.webp",
+            "sha256": "51682761ed28101f9f150f0dd9f83abae4f6693b2d28877202f1e83a32d30818"
           },
           {
-            "path": "docs/harness/evidence/ch12-portrait-bugs-20261011/008-chapter-regression.txt",
-            "sha256": "315401d52af7f279febb40a653278ca0dfe323d63cb7e6a710b011d6e8c02cb1"
+            "path": "docs/harness/evidence/ch1-voice-20261012/006-story.txt",
+            "sha256": "c953033955f71ce60e19d679354507d392c1590cfbcc1f0cbb8d76950a03d490"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "本轮只修对话层人物，原会馆/礼拜厅布景、道路和NPC岗位保留。查看实际全图、原剧情画面及哈希相等证据；不扩大为场景重设计质量结论。",
+        "reason": "查看实际会馆/礼拜厅和对白截图：会馆书架/办事桌与礼拜厅祭台/长椅保持原用途，地图层未改。私下交谈明确发生于诺恩离开后，原对话框与幕间底色；无新增地点或奇怪匿名形象。本项仅验收本轮改动与原场景相容，不声称旧布局全面改造。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/scenes/hall.webp",
-            "sha256": "978b3b839638b0cea4021156725a169f1290a5e68d9b335a9606243dd54a5642"
+            "path": "docs/ch1-voice/scenes/hall.webp",
+            "sha256": "100cd362aa2b2d6d1936f68dc4c5c2687268bc0186fc6a209e6e00d7719e3afc"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/commission.webp",
-            "sha256": "565a6736300ee9e346bed0cff51914d072989c13f6b6e834f4b7ae89f8f257a9"
+            "path": "docs/ch1-voice/browser/backstage-known-3.png",
+            "sha256": "64ba5fbf7a473182dc8994765b76fee1c997396be372a5acc83c6b701abeaee0"
           },
           {
-            "path": "docs/ch12-portrait-bugs/SCOPE.json",
-            "sha256": "38135ffdb2f85af8dd8d0eab082d26e232c159d5ce556b754d88b4ca6b83b29c"
+            "path": "docs/ch1-voice/SCOPE.json",
+            "sha256": "6e1a4a516ac6e816bb6073b0c98889977534d08c9850db11f2bc2c79499baffe"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "鲁恩、薇蕾娜恢复已有原立绘；衣着与原裁切逐字节匹配，同一普通对白位置，已查看两人实际画面。 26场263行显示、原图匹配、深色填充及48帧原追兵回归通过；原图库历史边缘色不在本次修改中。",
+        "reason": "已对照封面、旧默认画像和新默认实景：银金长发、蓝眼、星形冠环、白金披风及蓝色饰物相符，眉眼较舒缓。薇蕾娜/鲁恩原立绘保留；旁白无图片；26场263原对白+新11行实际UI正常。48帧角色体量与脚锚原样保留，后期便装覆盖回归通过。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/browser/RESULT.json",
-            "sha256": "98aaebc5b9f3264a18a478c97bc44bb3fac73e52900517176f17a1c96cc3a46f"
+            "path": "docs/ch1-voice/browser/known-6.png",
+            "sha256": "69c6a7552b4decb0f6899d618e3fb8936eed87e7ea0ff2a46d688d242b2c99af"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/commission.webp",
-            "sha256": "565a6736300ee9e346bed0cff51914d072989c13f6b6e834f4b7ae89f8f257a9"
+            "path": "docs/ch1-voice/baseline/browser/known-6.png",
+            "sha256": "9d77a677c35edc87d0f2ff6c7e07ec25f6ccccde1124df450f26f9ca5ffb5122"
           },
           {
-            "path": "docs/ch12-portrait-bugs/browser/backstage-known-1.png",
-            "sha256": "7172a3fbd37983e8b67c63eda29f51b6ab1ccb71efec25dcd3d530a80fa130ef"
+            "path": "dist/assets/keyart.png",
+            "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
           },
           {
-            "path": "docs/ch12-portrait-bugs/browser/anonymous-844.png",
-            "sha256": "33ebc556c81a32d929dcaf977e4e8213db14429e47c2837490783b132fc46acf"
+            "path": "docs/ch1-voice/browser/exchange-390.png",
+            "sha256": "92bcec4999bef795ea7490ac8095a82d13ef9f289d82f785d1f1051afc488e11"
+          },
+          {
+            "path": "docs/ch1-voice/browser/RESULT.json",
+            "sha256": "32296f4da3412b9a839dc7cdafd7019d9db9892bbfde42324cecf809eb6fd93c"
+          },
+          {
+            "path": "docs/ch1-voice/scenes/role-comparison.webp",
+            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
+          },
+          {
+            "path": "docs/ch1-voice/ASSET_MANIFEST.json",
+            "sha256": "ec5608c2f64a9f6ab6a38b7f8e130f378eee0fb74d02dffa36bde4ed53c6120f"
           }
         ]
       }
@@ -73,59 +100,71 @@
       "id": "chapel",
       "playability": {
         "status": "pass",
-        "reason": "18图221条正式moveActor路径无未验证项；本场景完整原动作/对白点击到原结果，旧尾段重载与三视口按钮通过。原地图/任务/碰撞注册哈希保持。",
+        "reason": "实际18图221条moveActor路径无未验证，完整委托11行尾段/原刺杀0匿名尾段完成，三视口可点击；三职业228旧主线游标、全部旧H1/H2迁移与重复提交一致性通过。地图/任务/原对白/原staging完整哈希保持。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/scenes/QA.json",
-            "sha256": "2496410462eb6c10376bac16caca6cef113c5d87711fae28eb9b5e072bec8efa"
+            "path": "docs/ch1-voice/scenes/QA.json",
+            "sha256": "44eae52c0e5ed9f34c2b049b92b64709e8326c73ada26c8939b51d2fad0bece0"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/chapel-collision.webp",
-            "sha256": "2855f808954fdd7bec24b93e4dc4f394bfea3af81c366c55f125b93972ea5638"
+            "path": "docs/ch1-voice/scenes/chapel-collision.webp",
+            "sha256": "e42437d0326ac38a343f1cf788efc9ade9a7e4520e6640d2238e9517c9afe473"
           },
           {
-            "path": "docs/harness/evidence/ch12-portrait-bugs-20261011/008-chapter-regression.txt",
-            "sha256": "315401d52af7f279febb40a653278ca0dfe323d63cb7e6a710b011d6e8c02cb1"
+            "path": "docs/harness/evidence/ch1-voice-20261012/006-story.txt",
+            "sha256": "c953033955f71ce60e19d679354507d392c1590cfbcc1f0cbb8d76950a03d490"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "本轮只修对话层人物，原会馆/礼拜厅布景、道路和NPC岗位保留。查看实际全图、原剧情画面及哈希相等证据；不扩大为场景重设计质量结论。",
+        "reason": "查看实际会馆/礼拜厅和对白截图：会馆书架/办事桌与礼拜厅祭台/长椅保持原用途，地图层未改。私下交谈明确发生于诺恩离开后，原对话框与幕间底色；无新增地点或奇怪匿名形象。本项仅验收本轮改动与原场景相容，不声称旧布局全面改造。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/scenes/chapel.webp",
+            "path": "docs/ch1-voice/scenes/chapel.webp",
             "sha256": "18d4d9f4fc0143777b3e3733149037009874e29c8aec3018bdb6df760e34a553"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/echo-1.webp",
-            "sha256": "f23f413291fb9f3a3db5bc090d075c0cf653c49efa28147bd665f1245ac85082"
+            "path": "docs/ch1-voice/browser/backstage-known-3.png",
+            "sha256": "64ba5fbf7a473182dc8994765b76fee1c997396be372a5acc83c6b701abeaee0"
           },
           {
-            "path": "docs/ch12-portrait-bugs/SCOPE.json",
-            "sha256": "38135ffdb2f85af8dd8d0eab082d26e232c159d5ce556b754d88b4ca6b83b29c"
+            "path": "docs/ch1-voice/SCOPE.json",
+            "sha256": "6e1a4a516ac6e816bb6073b0c98889977534d08c9850db11f2bc2c79499baffe"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "匿名角色用明确深色兜帽/肩颈/披风轮廓，保持无面容/姓名/身份，原圣女与主祭图像未变；已查看桌面及手机画面。 26场263行显示、原图匹配、深色填充及48帧原追兵回归通过；原图库历史边缘色不在本次修改中。",
+        "reason": "已对照封面、旧默认画像和新默认实景：银金长发、蓝眼、星形冠环、白金披风及蓝色饰物相符，眉眼较舒缓。薇蕾娜/鲁恩原立绘保留；旁白无图片；26场263原对白+新11行实际UI正常。48帧角色体量与脚锚原样保留，后期便装覆盖回归通过。",
         "evidence": [
           {
-            "path": "docs/ch12-portrait-bugs/browser/RESULT.json",
-            "sha256": "98aaebc5b9f3264a18a478c97bc44bb3fac73e52900517176f17a1c96cc3a46f"
+            "path": "docs/ch1-voice/browser/known-6.png",
+            "sha256": "69c6a7552b4decb0f6899d618e3fb8936eed87e7ea0ff2a46d688d242b2c99af"
           },
           {
-            "path": "docs/ch12-portrait-bugs/scenes/echo-1.webp",
-            "sha256": "f23f413291fb9f3a3db5bc090d075c0cf653c49efa28147bd665f1245ac85082"
+            "path": "docs/ch1-voice/baseline/browser/known-6.png",
+            "sha256": "9d77a677c35edc87d0f2ff6c7e07ec25f6ccccde1124df450f26f9ca5ffb5122"
           },
           {
-            "path": "docs/ch12-portrait-bugs/browser/backstage-known-1.png",
-            "sha256": "7172a3fbd37983e8b67c63eda29f51b6ab1ccb71efec25dcd3d530a80fa130ef"
+            "path": "dist/assets/keyart.png",
+            "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
           },
           {
-            "path": "docs/ch12-portrait-bugs/browser/anonymous-844.png",
-            "sha256": "33ebc556c81a32d929dcaf977e4e8213db14429e47c2837490783b132fc46acf"
+            "path": "docs/ch1-voice/browser/exchange-390.png",
+            "sha256": "92bcec4999bef795ea7490ac8095a82d13ef9f289d82f785d1f1051afc488e11"
+          },
+          {
+            "path": "docs/ch1-voice/browser/RESULT.json",
+            "sha256": "32296f4da3412b9a839dc7cdafd7019d9db9892bbfde42324cecf809eb6fd93c"
+          },
+          {
+            "path": "docs/ch1-voice/scenes/role-comparison.webp",
+            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
+          },
+          {
+            "path": "docs/ch1-voice/ASSET_MANIFEST.json",
+            "sha256": "ec5608c2f64a9f6ab6a38b7f8e130f378eee0fb74d02dffa36bde4ed53c6120f"
           }
         ]
       }

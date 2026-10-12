@@ -47,22 +47,22 @@ try{
  }
  const roles=await b.evaluate('__C1.roles()');save('role-comparison',roles.image);report.roles=roles.frames;assert.equal(roles.frames.length,48);
  for(const f of roles.frames)assert.ok(f.w>20&&f.h>150&&Number.isFinite(f.foot.x),f.sheet+f.index);
- for(const [name,id,line,tail]of [['commission','contract',19,0],['commission-answer','contract',19,5],['before','assassination',0],['stab','assassination',4],['heal','assassination',9],['seal','assassination',10],['door','assassination',13],['outro','assassination',17],['echo-1','assassination',17,0],['echo-2','assassination',17,1],['echo-3','assassination',17,2]]){
+ for(const [name,id,line,tail]of [['commission','contract',19,1],['commission-question','contract',19,8],['commission-answer','contract',19,10],['before','assassination',0],['stab','assassination',4],['heal','assassination',9],['seal','assassination',10],['door','assassination',13],['outro','assassination',17]]){
   report.scenes.push({name,state:await b.evaluate(`__C1.scene('${id}',${line},${tail??null})`)});await shot(name);
  }
  for(const [width,height]of [[844,390],[390,844],[1440,980]]){
   await b.call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<900});
   await b.call('Emulation.setEmulatedMedia',{features:[{name:'prefers-reduced-motion',value:'reduce'}]});
-  await b.evaluate("__C1.scene('assassination',17,0)");await delay(250);
+  await b.evaluate("__C1.scene('contract',19,8)");await delay(250);
   const controls=await b.evaluate('__C1.controls()');assert.ok(controls.loaded);assert.ok(controls.next);assert.equal(controls.overflow,false);
   assert.ok(controls.dialogue.y>=0);assert.ok(controls.dialogue.y+controls.dialogue.height<=height+1);
-  assert.equal(await b.evaluate("document.querySelectorAll('.backstage-shadow').length"),1);
-  assert.equal(await b.evaluate("document.querySelectorAll('.speaker,.scene-label,.c1-cinema-ui').length"),0);
-  report.viewports.push(controls);await shot('shadow-'+width);
-  await clickNext();assert.equal((await b.evaluate('__C1.state()')).tail.line,1);
+  assert.equal(await b.evaluate("document.querySelectorAll('.backstage-shadow').length"),0);
+  assert.equal(await b.evaluate("document.querySelectorAll('img.portrait-art').length"),1);
+  report.viewports.push(controls);await shot('exchange-'+width);
+  await clickNext();assert.equal((await b.evaluate('__C1.state()')).tail.line,9);
   await b.evaluate("__C1.scene('assassination',12)");await delay(250);await shot('original-dialogue-'+width);await clickNext();assert.equal((await b.evaluate('__C1.state()')).index,13);
  }
- await b.evaluate("__C1.scene('assassination',17,2)");const rt=await b.evaluate('__C1.roundtrip()');assert.equal(rt.after.tail.line,2);assert.equal(rt.after.tail.revision,2);report.roundtrip=rt;
+ await b.evaluate("__C1.scene('contract',19,10)");const rt=await b.evaluate('__C1.roundtrip()');assert.equal(rt.after.tail.line,10);assert.equal(rt.after.tail.revision,3);report.roundtrip=rt;
  await b.call('Emulation.setDeviceMetricsOverride',{width:1440,height:980,deviceScaleFactor:1,mobile:false});
  report.fullScenes=[];
  for(const id of ['contract','assassination']){
@@ -71,7 +71,7 @@ try{
    if(s.tail)seen.add(s.tail.line);if(s.phase==='dialogue')await clickNext();await delay(280);
   }
   const final=await b.evaluate('__C1.state()');assert.equal(final.pending,null,id+' completion');
-  assert.equal(final.chapter,id==='contract'?2:3);assert.equal(seen.size,id==='contract'?6:3);report.fullScenes.push({id,hiddenLines:[...seen],final});
+  assert.equal(final.chapter,id==='contract'?2:3);assert.equal(seen.size,id==='contract'?11:0);report.fullScenes.push({id,hiddenLines:[...seen],final});
  }
  assert.equal(await b.evaluate("document.querySelectorAll('[data-act=c1-replay],.c1-cinema-ui').length"),0);
  assert.equal(b.requests.filter(p=>/chapter-one-cinematic|c1-incremental\/(chapel|seal-echo)/.test(p)).length,0);
