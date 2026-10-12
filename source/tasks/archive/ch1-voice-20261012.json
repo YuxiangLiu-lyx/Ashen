@@ -11,9 +11,9 @@
     "chapter01_plan",
     "art"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-12T06:32:47.404472+00:00",
-  "updated_at_utc": "2026-10-12T06:59:57.204241+00:00",
+  "updated_at_utc": "2026-10-12T07:01:26.680827+00:00",
   "decisions": [
     "当前用户授权优先于旧0.4匿名黑影条款；只取回符合封面的elyria-gentle原件，不恢复暂停重构或其他旧剧情。",
     "新增段11行含4处简短动作/沉默旁白，薇蕾娜先问禁制再要求保护诺恩，鲁恩两次道歉；移除H2；旁白无人物占位。",
@@ -24,13 +24,12 @@
     "11行接委托对白、柔和立绘、旧H1/H2迁移已实现；19项Node初测通过，保留迁移测试fixture失败日志",
     "最终fast28、story20、26场263行加新11行/三视口、18图221路径48帧、完整integration、三维及真实5174都通过",
     "实现与全部本地验收检查点8cd49f8已保存",
-    "012干净运行源码构建200模块129图；013离线HTTP手机包通过；014核验337输入与旧128图并提升常用入口，旧包保留"
+    "012干净运行源码构建200模块129图；013离线HTTP手机包通过；014核验337输入与旧128图并提升常用入口，旧包保留",
+    "实现8cd49f8、完整验收dab57a7已推送GitHub main并ls-remote核对相等；原件/对白/默认包与旧包/全部证据均保留；未发布网站"
   ],
-  "remaining": [
-    "GitHub main保存与远端核验"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交并正常快进main，推送后核对远端SHA",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "story",
@@ -330,11 +329,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-12T06:59:57.173929+00:00",
-      "head_commit": "8cd49f8ea6b922b85d8306f4ce409e8f1a21dd8c",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T07:01:26.650110+00:00",
+      "head_commit": "dab57a758979d7905ba4f351877c6097385f6f97",
       "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M docs/ch1-voice/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n M source/tasks/active/ch1-voice-20261012.json\n?? docs/ch1-voice/PACKAGE.json\n?? docs/ch1-voice/WEB_BUILD_MANIFEST.json\n?? docs/ch1-voice/packaged/\n?? docs/ch1-voice/promote_package.py\n?? docs/harness/evidence/ch1-voice-20261012/012-package-build.txt\n?? docs/harness/evidence/ch1-voice-20261012/013-packaged-ui.txt\n?? docs/harness/evidence/ch1-voice-20261012/014-package-promote.txt"
+      "worktree": "M .codex/progress.md\n M source/CURRENT_STATE.json\n?? docs/ch1-voice/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "圣女柔和默认立绘、接委托后的薇蕾娜/鲁恩新对白与匿名神秘人移除完成；全部本轮检查通过并保存GitHub main",
+  "completed_at_utc": "2026-10-12T07:01:26.788962+00:00",
+  "verified_source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0"
 }
