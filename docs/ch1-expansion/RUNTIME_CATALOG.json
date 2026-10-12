@@ -1,0 +1,950 @@
+{
+  "basis": "runtime exports, includes unchanged host-map connections",
+  "newMaps": [
+    "c1TrainingYard",
+    "c1DrillGallery",
+    "c1LoomRoom",
+    "c1NorthWalk",
+    "c1ReedKiln"
+  ],
+  "changedHostMaps": [
+    "hall",
+    "warehouse",
+    "road",
+    "grove",
+    "millpath",
+    "echo",
+    "town",
+    "workshop",
+    "alley",
+    "canal",
+    "guestroom"
+  ],
+  "addedUndirectedEdges": [
+    [
+      "hall",
+      "c1TrainingYard"
+    ],
+    [
+      "c1TrainingYard",
+      "c1DrillGallery"
+    ],
+    [
+      "c1DrillGallery",
+      "warehouse"
+    ],
+    [
+      "workshop",
+      "c1LoomRoom"
+    ],
+    [
+      "town",
+      "c1NorthWalk"
+    ],
+    [
+      "c1NorthWalk",
+      "alley"
+    ],
+    [
+      "grove",
+      "c1ReedKiln"
+    ]
+  ],
+  "adjacency": {
+    "c1TrainingYard": {
+      "name": "灰烛练武庭",
+      "doors": [
+        {
+          "to": "hall",
+          "x": 220,
+          "y": 820,
+          "tx": 235,
+          "ty": 560,
+          "added": true,
+          "manualOnly": true
+        },
+        {
+          "to": "c1DrillGallery",
+          "x": 1330,
+          "y": 850,
+          "tx": 230,
+          "ty": 830,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "c1DrillGallery": {
+      "name": "旧试炼廊",
+      "doors": [
+        {
+          "to": "c1TrainingYard",
+          "x": 230,
+          "y": 830,
+          "tx": 1330,
+          "ty": 850,
+          "added": true,
+          "manualOnly": true
+        },
+        {
+          "to": "warehouse",
+          "x": 1320,
+          "y": 850,
+          "tx": 235,
+          "ty": 730,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "c1LoomRoom": {
+      "name": "缀纹工坊",
+      "doors": [
+        {
+          "to": "workshop",
+          "x": 230,
+          "y": 850,
+          "tx": 1280,
+          "ty": 740,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "c1NorthWalk": {
+      "name": "北渠检修道",
+      "doors": [
+        {
+          "to": "town",
+          "x": 230,
+          "y": 850,
+          "tx": 1100,
+          "ty": 300,
+          "added": true,
+          "manualOnly": true
+        },
+        {
+          "to": "alley",
+          "x": 1340,
+          "y": 850,
+          "tx": 480,
+          "ty": 790,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "c1ReedKiln": {
+      "name": "苇湾废窑",
+      "doors": [
+        {
+          "to": "grove",
+          "x": 230,
+          "y": 870,
+          "tx": 1300,
+          "ty": 540,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "hall": {
+      "name": "灰烛会馆",
+      "doors": [
+        {
+          "to": "warehouse",
+          "x": 1430,
+          "y": 520,
+          "tx": 230,
+          "ty": 540,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "road",
+          "x": 800,
+          "y": 960,
+          "tx": 230,
+          "ty": 550,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "guestroom",
+          "x": 800,
+          "y": 190,
+          "tx": 800,
+          "ty": 850,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1TrainingYard",
+          "x": 235,
+          "y": 560,
+          "tx": 220,
+          "ty": 820,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "warehouse": {
+      "name": "旧库房",
+      "doors": [
+        {
+          "to": "hall",
+          "x": 170,
+          "y": 540,
+          "tx": 1340,
+          "ty": 520,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1DrillGallery",
+          "x": 235,
+          "y": 730,
+          "tx": 1320,
+          "ty": 850,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "road": {
+      "name": "旧王道",
+      "doors": [
+        {
+          "to": "hall",
+          "x": 160,
+          "y": 540,
+          "tx": 800,
+          "ty": 880,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "town",
+          "x": 1430,
+          "y": 540,
+          "tx": 230,
+          "ty": 610,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "grove",
+          "x": 920,
+          "y": 190,
+          "tx": 800,
+          "ty": 880,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "millpath",
+          "x": 1050,
+          "y": 870,
+          "tx": 800,
+          "ty": 270,
+          "added": false,
+          "manualOnly": false
+        }
+      ]
+    },
+    "grove": {
+      "name": "溪边旧径",
+      "doors": [
+        {
+          "to": "road",
+          "x": 800,
+          "y": 960,
+          "tx": 920,
+          "ty": 280,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1ReedKiln",
+          "x": 1300,
+          "y": 540,
+          "tx": 230,
+          "ty": 870,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "millpath": {
+      "name": "旧磨坊小径",
+      "doors": [
+        {
+          "to": "road",
+          "x": 800,
+          "y": 180,
+          "tx": 1090,
+          "ty": 805,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "echo",
+          "x": 1180,
+          "y": 870,
+          "tx": 300,
+          "ty": 810,
+          "added": false,
+          "manualOnly": false
+        }
+      ]
+    },
+    "echo": {
+      "name": "回水机房",
+      "doors": [
+        {
+          "to": "millpath",
+          "x": 300,
+          "y": 890,
+          "tx": 1180,
+          "ty": 800,
+          "added": false,
+          "manualOnly": false
+        }
+      ]
+    },
+    "town": {
+      "name": "白榆城",
+      "doors": [
+        {
+          "to": "road",
+          "x": 150,
+          "y": 610,
+          "tx": 1340,
+          "ty": 540,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "chapel",
+          "x": 820,
+          "y": 180,
+          "tx": 780,
+          "ty": 900,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "alley",
+          "x": 1430,
+          "y": 500,
+          "tx": 230,
+          "ty": 530,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "workshop",
+          "x": 1170,
+          "y": 340,
+          "tx": 800,
+          "ty": 850,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1NorthWalk",
+          "x": 1100,
+          "y": 300,
+          "tx": 230,
+          "ty": 850,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "workshop": {
+      "name": "白榆修理铺",
+      "doors": [
+        {
+          "to": "town",
+          "x": 800,
+          "y": 940,
+          "tx": 1170,
+          "ty": 420,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1LoomRoom",
+          "x": 1280,
+          "y": 740,
+          "tx": 230,
+          "ty": 850,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "alley": {
+      "name": "北门小巷",
+      "doors": [
+        {
+          "to": "town",
+          "x": 150,
+          "y": 530,
+          "tx": 1350,
+          "ty": 500,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "chapel",
+          "x": 850,
+          "y": 190,
+          "tx": 1330,
+          "ty": 640,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "canal",
+          "x": 1430,
+          "y": 560,
+          "tx": 240,
+          "ty": 630,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "c1NorthWalk",
+          "x": 480,
+          "y": 790,
+          "tx": 1340,
+          "ty": 850,
+          "added": true,
+          "manualOnly": true
+        }
+      ]
+    },
+    "canal": {
+      "name": "北门水渠",
+      "doors": [
+        {
+          "to": "alley",
+          "x": 170,
+          "y": 630,
+          "tx": 1340,
+          "ty": 560,
+          "added": false,
+          "manualOnly": false
+        },
+        {
+          "to": "end",
+          "x": 1410,
+          "y": 500,
+          "added": false,
+          "manualOnly": false
+        }
+      ]
+    },
+    "guestroom": {
+      "name": "会馆客房",
+      "doors": [
+        {
+          "to": "hall",
+          "x": 800,
+          "y": 940,
+          "tx": 800,
+          "ty": 280,
+          "added": false,
+          "manualOnly": false
+        }
+      ]
+    }
+  },
+  "main": [
+    {
+      "id": "rats",
+      "name": "库房异响",
+      "xp": 65,
+      "gold": 25,
+      "map": "hall",
+      "target": "steward",
+      "requires": [],
+      "index": 1,
+      "type": "主线"
+    },
+    {
+      "id": "c1CommissionBrief",
+      "name": "委托与行前准备",
+      "xp": 15,
+      "gold": 10,
+      "map": "hall",
+      "target": "sister",
+      "requires": [
+        "rats"
+      ],
+      "index": 2,
+      "type": "主线"
+    },
+    {
+      "id": "c1Readiness",
+      "name": "久行归来的例检",
+      "xp": 20,
+      "gold": 12,
+      "map": "c1TrainingYard",
+      "target": "c1-record",
+      "requires": [
+        "c1CommissionBrief"
+      ],
+      "index": 3,
+      "type": "主线"
+    },
+    {
+      "id": "c1ExitDrill",
+      "name": "带负重走出试炼廊",
+      "xp": 20,
+      "gold": 12,
+      "map": "c1DrillGallery",
+      "target": "c1-drill-exit",
+      "requires": [
+        "c1Readiness"
+      ],
+      "index": 4,
+      "type": "主线"
+    },
+    {
+      "id": "c1LoomBrief",
+      "name": "看清手上的纹路",
+      "xp": 15,
+      "gold": 10,
+      "map": "c1LoomRoom",
+      "target": "c1-loom",
+      "requires": [
+        "v12CourierRoad"
+      ],
+      "index": 5,
+      "type": "主线"
+    },
+    {
+      "id": "v12CourierRoad",
+      "name": "旧王道巡查",
+      "xp": 45,
+      "gold": 15,
+      "map": "road",
+      "target": "courier",
+      "requires": [
+        "c1ExitDrill"
+      ],
+      "index": 6,
+      "type": "主线"
+    },
+    {
+      "id": "v12NorthDelivery",
+      "name": "维护班次的封套",
+      "xp": 25,
+      "gold": 10,
+      "map": "town",
+      "target": "watch",
+      "requires": [
+        "c1CommissionBrief"
+      ],
+      "index": 7,
+      "type": "主线"
+    },
+    {
+      "id": "c1GateCheck",
+      "name": "午钟后的门",
+      "xp": 20,
+      "gold": 10,
+      "map": "town",
+      "target": "watch",
+      "requires": [
+        "v12CourierRoad"
+      ],
+      "index": 8,
+      "type": "主线"
+    },
+    {
+      "id": "c1CanalPrep",
+      "name": "先看清退路",
+      "xp": 20,
+      "gold": 12,
+      "map": "c1NorthWalk",
+      "target": "c1-mark",
+      "requires": [
+        "v12NorthDelivery"
+      ],
+      "index": 9,
+      "type": "主线"
+    },
+    {
+      "id": "c1Assassination",
+      "name": "午钟",
+      "xp": 65,
+      "gold": 20,
+      "map": "chapel",
+      "target": "chapel",
+      "requires": [
+        "c1LoomBrief",
+        "v12NorthDelivery",
+        "c1GateCheck",
+        "c1CanalPrep"
+      ],
+      "index": 10,
+      "type": "主线"
+    },
+    {
+      "id": "c1CanalBreak",
+      "name": "打开东闸",
+      "xp": 15,
+      "gold": 15,
+      "map": "canal",
+      "target": "c1-sluice",
+      "requires": [
+        "c1Assassination"
+      ],
+      "index": 11,
+      "type": "主线"
+    },
+    {
+      "id": "c1Departure",
+      "name": "离城",
+      "xp": 100,
+      "gold": 45,
+      "map": "canal",
+      "target": "end",
+      "requires": [
+        "c1CanalBreak"
+      ],
+      "index": 12,
+      "type": "主线"
+    }
+  ],
+  "side": [
+    {
+      "id": "oil",
+      "name": "不漏的灯",
+      "xp": 30,
+      "gold": 15,
+      "map": "hall",
+      "target": "steward",
+      "type": "支线"
+    },
+    {
+      "id": "v12Water",
+      "name": "炉边的旧伤",
+      "xp": 20,
+      "gold": 5,
+      "map": "hall",
+      "target": "steward",
+      "type": "支线"
+    },
+    {
+      "id": "letter",
+      "name": "被水浸过的信",
+      "xp": 40,
+      "gold": 20,
+      "map": "road",
+      "target": "courier",
+      "type": "支线"
+    },
+    {
+      "id": "herbs",
+      "name": "先给谁的药",
+      "xp": 45,
+      "gold": 20,
+      "map": "town",
+      "target": "herbalist",
+      "type": "支线"
+    },
+    {
+      "id": "lantern",
+      "name": "晚归的路",
+      "xp": 35,
+      "gold": 12,
+      "map": "town",
+      "target": "dolly",
+      "type": "支线"
+    },
+    {
+      "id": "copper",
+      "name": "铜圈传力",
+      "xp": 30,
+      "gold": 12,
+      "map": "workshop",
+      "target": "repair-bench",
+      "type": "支线"
+    },
+    {
+      "id": "echo",
+      "name": "旧机芯的回声",
+      "xp": 45,
+      "gold": 20,
+      "map": "workshop",
+      "target": "lotti",
+      "type": "支线"
+    },
+    {
+      "id": "c1ClockMemory",
+      "name": "留在石下的名字",
+      "xp": 30,
+      "gold": 15,
+      "map": "town",
+      "target": "oldwoman",
+      "type": "支线"
+    },
+    {
+      "id": "farewell",
+      "name": "临行之前",
+      "xp": 10,
+      "gold": 5,
+      "map": "town",
+      "target": "dolly",
+      "type": "支线"
+    },
+    {
+      "id": "c1RuneWear",
+      "name": "走偏的纹路",
+      "xp": 30,
+      "gold": 18,
+      "map": "c1LoomRoom",
+      "target": "c1rosa",
+      "type": "支线"
+    },
+    {
+      "id": "c1RuneKiln",
+      "name": "窑里不该有的风",
+      "xp": 35,
+      "gold": 20,
+      "map": "c1LoomRoom",
+      "target": "c1rosa",
+      "type": "支线"
+    },
+    {
+      "id": "c1AlchemistSamples",
+      "name": "三处异变",
+      "xp": 50,
+      "gold": 30,
+      "map": "c1LoomRoom",
+      "target": "c1saido",
+      "type": "支线"
+    }
+  ],
+  "patrol": {
+    "id": "c1RunePatrol",
+    "name": "线路巡检",
+    "xp": 10,
+    "gold": 18,
+    "map": "c1LoomRoom",
+    "target": "c1rosa",
+    "type": "支线",
+    "routes": [
+      [
+        "road",
+        "millpath"
+      ],
+      [
+        "grove",
+        "c1ReedKiln"
+      ]
+    ]
+  },
+  "recipes": {
+    "c1LoomWeapon": {
+      "id": "c1LoomWeapon",
+      "name": "缀纹制式武器",
+      "slot": "weapon",
+      "core": "c1CoreBlade",
+      "atk": 9,
+      "hp": 0,
+      "effect": "skill",
+      "value": 0.03,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    },
+    "c1LoomGloves": {
+      "id": "c1LoomGloves",
+      "name": "缀纹护手",
+      "slot": "hands",
+      "core": "c1CoreBlade",
+      "atk": 1,
+      "hp": 6,
+      "effect": "attack",
+      "value": 0.02,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    },
+    "c1LoomChest": {
+      "id": "c1LoomChest",
+      "name": "衬线轻甲",
+      "slot": "chest",
+      "core": "c1CoreShell",
+      "atk": 0,
+      "hp": 30,
+      "effect": "directReduction",
+      "value": 0.02,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    },
+    "c1LoomBoots": {
+      "id": "c1LoomBoots",
+      "name": "双线短靴",
+      "slot": "feet",
+      "core": "c1CoreShell",
+      "atk": 0,
+      "hp": 10,
+      "effect": "speed",
+      "value": 0.03,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    },
+    "c1LoomHood": {
+      "id": "c1LoomHood",
+      "name": "静线兜帽",
+      "slot": "head",
+      "core": "c1CoreConduit",
+      "atk": 0,
+      "hp": 16,
+      "effect": "regen",
+      "value": 0.06,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    },
+    "c1LoomCharm": {
+      "id": "c1LoomCharm",
+      "name": "蓄线坠",
+      "slot": "relic",
+      "core": "c1CoreConduit",
+      "atk": 0,
+      "hp": 8,
+      "effect": "mana",
+      "value": 8,
+      "rarity": "rare",
+      "level": 3,
+      "minLevel": 2,
+      "fee": 6,
+      "sell": 6
+    }
+  },
+  "runes": {
+    "c1RuneEdge": {
+      "id": "c1RuneEdge",
+      "name": "锋纹",
+      "price": 24,
+      "stat": "atk",
+      "min": 1,
+      "max": 2,
+      "tier": 1
+    },
+    "c1RuneStrength": {
+      "id": "c1RuneStrength",
+      "name": "力纹",
+      "price": 20,
+      "stat": "str",
+      "min": 1,
+      "max": 2,
+      "tier": 1
+    },
+    "c1RuneDexterity": {
+      "id": "c1RuneDexterity",
+      "name": "轻纹",
+      "price": 20,
+      "stat": "dex",
+      "min": 1,
+      "max": 2,
+      "tier": 1
+    },
+    "c1RuneVitality": {
+      "id": "c1RuneVitality",
+      "name": "厚纹",
+      "price": 22,
+      "stat": "vit",
+      "min": 1,
+      "max": 2,
+      "tier": 1
+    },
+    "c1RuneWisdom": {
+      "id": "c1RuneWisdom",
+      "name": "静纹",
+      "price": 20,
+      "stat": "wis",
+      "min": 1,
+      "max": 2,
+      "tier": 1
+    },
+    "c1RuneMana": {
+      "id": "c1RuneMana",
+      "name": "蓄纹",
+      "price": 18,
+      "stat": "mp",
+      "min": 10,
+      "max": 18,
+      "tier": 1
+    }
+  },
+  "elites": {
+    "c1-elite-rat": {
+      "name": "裂齿渠鼠",
+      "type": "rat",
+      "map": "grove",
+      "hp": 540,
+      "hit": 16,
+      "heavy": 27,
+      "wind": 0.9,
+      "part": "c1PartJaw",
+      "pool": [
+        "c1FangWeapon",
+        "c1TrailBoots"
+      ],
+      "x": 1150,
+      "y": 540
+    },
+    "echo-warden": {
+      "name": "灰脊守兽",
+      "type": "wolf",
+      "map": "echo",
+      "hp": 720,
+      "hit": 19,
+      "heavy": 30,
+      "wind": 1,
+      "part": "c1PartTendon",
+      "pool": [
+        "c1EchoHood",
+        "c1QuietRing"
+      ]
+    },
+    "c1-elite-bat": {
+      "name": "苇窑夜翼",
+      "type": "bat",
+      "map": "c1ReedKiln",
+      "hp": 660,
+      "hit": 17,
+      "heavy": 25,
+      "wind": 0.9,
+      "part": "c1PartMembrane",
+      "pool": [
+        "c1WingGloves",
+        "c1VeinChest"
+      ],
+      "x": 1140,
+      "y": 450
+    }
+  }
+}

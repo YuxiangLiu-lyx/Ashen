@@ -13,14 +13,16 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-12T08:37:39.182577+00:00",
-  "updated_at_utc": "2026-10-12T10:35:21.794944+00:00",
+  "updated_at_utc": "2026-10-12T11:26:42.711328+00:00",
   "decisions": [
     "采用新授权0.6；保留0.5刺杀与幕后、第二章0.3仅策划、旧重构继续暂停；六阶段按用户Prompt推进",
     "基线子命令全部退出0，但期间新增未接入模块使sources_changed_during_check=true，仅作改前运行证据，不作最终门禁；最终需重新验证",
     "真实输入影刃首轮到训练：六鼠/委托通过，避险脚本在预警尾段启动失败；保留009失败及截图，不计通关。新场景错误书柜贴图已换成器械、石墩与水槽。",
     "自然影刃014在进城后对白/加点时序失败，保留证据；013 core两项上下文与章稿状态错误已修，待复测；加速路线不证明目标时长或真实浏览器连续通关",
     "保留精英既定数值预算；熟练脚本战时偏短已报告，未冒充目标达成。新增人工观察门禁，助手截图审阅不能替代用户要求的人类全过程观察。",
-    "保留029组合退出1：集成0，真实输入1。誓卫/烬术师在旧长凳拐角被脚本提前跳点卡住，未计通关。布伦改用实际庄园入口存档，原首章期末压力试验另存。"
+    "保留029组合退出1：集成0，真实输入1。誓卫/烬术师在旧长凳拐角被脚本提前跳点卡住，未计通关。布伦改用实际庄园入口存档，原首章期末压力试验另存。",
+    "熟练脚本精英1.8–9.4秒、追缉官10.5–26.7秒短于目标；烬术师低资源失败保留。未改全局经验或第二章敌人，未加血拖时；待真人体验校准。",
+    "033 release因内容报告缺失退出1；现报告完整，043仅剩pacing与human_full_observation不通过。任务不finish，不将Git保存说成网站发布。"
   ],
   "completed": [
     "Git干净、fetch核对38bf430、独立分支、需求和两章及相关领域规则已读",
@@ -28,13 +30,20 @@
     "123图与schema16接入；十二主线支线和制作精英事务初步实现；31项状态/制作/精英/0.5保护回归通过；原118图几何保护及新目标可达扫描通过",
     "加速运行路线影刃纯主线与全支线通过，实际移动/战斗/付款/领奖生成账本与快照；演练巡查靶、失败辅助、可步行短梯与闸后收束补齐；新增门主动交互避免误触",
     "十二主线/十二支线/巡检、制作/精英/炼金/迁移已接入；12条经济路线实际方法通章二；专属掉落与三精英行为专项通过；影刃/烬术师正常输入首轮通章二",
-    "集成全部通过：126项核心、1620次快照实战、7组浏览器专项；影刃正常输入在e98fa42通关第二章"
+    "集成全部通过：126项核心、1620次快照实战、7组浏览器专项；影刃正常输入在e98fa42通关第二章",
+    "三职业正常新档均以真实键鼠连续完成前两章；当前严格验证器重载全部60份阶段存档保持地图/进度/等级/金币。",
+    "四经济路线×三职业及三条一件紫装变体均续通第二章；1620次实际成长快照实战、两项章界奖励、满包/幂等/旧档/7组八章测试通过。",
+    "5f05e5f离线/HTTP/手机横屏包通过；独立038 fast30、039 core133、040 integration、041章界奖励、042地图三维通过，原件分卷全部验证。"
   ],
   "remaining": [
-    "誓卫/烬术师键鼠脚本拐角修正后复测；最终表现、构建、人工节奏评审和Git同步"
+    "人类完整正常输入观察与首次时长/净金币每分钟测量",
+    "精英/追缉官节奏校准与低资源烬术师体验评估",
+    "内容通过后正式release及finish；本轮GitHub开发版保存"
   ],
-  "blockers": [],
-  "next": "新代码冻结后重跑三职业与最终集成，制作隔离试玩包",
+  "blockers": [
+    "用户需求13.2要求至少一条人类观察全过程，当前尚无此项记录"
+  ],
+  "next": "审查staged/ignore/原始失败日志，正常快进main推送并ls-remote核验",
   "required_checks": [
     "fast",
     "core",
@@ -544,6 +553,254 @@
       "output": "docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt",
       "output_sha256": "2f695e1b9cb40067a45e634ee17ad502fc4382803aee6d5e56d346608cc8d8fe",
       "timeout_seconds": 1200.0
+    },
+    {
+      "label": "final-corners-integration-build",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,sys; a=subprocess.Popen([\"python3\",\"tools/harness/check.py\",\"--tier\",\"integration\"],stdout=open(\"docs/ch1-expansion/integration-final.txt\",\"w\"),stderr=subprocess.STDOUT); b=subprocess.Popen([\"node\",\"tests/browser-chapter-one-natural-batch.mjs\"]); c=subprocess.Popen([\"qa-export/qa-venv/bin/python\",\"tools/build_web_play.py\",\"--output\",\"qa-export/c1-expansion-preview\"],stdout=open(\"docs/ch1-expansion/build-run.txt\",\"w\"),stderr=subprocess.STDOUT); results=[a.wait(),b.wait(),c.wait()];print(\"integration / natural / build:\",results);sys.exit(any(results))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T10:36:24.338251+00:00",
+      "finished_at_utc": "2026-10-12T10:44:37.217971+00:00",
+      "head_commit": "20ebda2e447419b14c2e88b62fd8a45d59d92438",
+      "source_fingerprint": "0799a5db06e7342b6cbf0ead3fc9c4fca810ef0e9dc95949c09550c27668078d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/030-final-corners-integration-build.txt",
+      "output_sha256": "7de73b1a715b39124485cd06a3ef24ed5a0164cde2b78966f5f62723a11bd703",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "final-core-shadow-and-package",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,sys,os; a=subprocess.Popen([\"python3\",\"tools/harness/check.py\",\"--tier\",\"core\"],stdout=open(\"docs/ch1-expansion/core-final.txt\",\"w\"),stderr=subprocess.STDOUT); b=subprocess.Popen([\"node\",\"tests/browser-chapter-one-natural.mjs\"],env={**os.environ,\"ASHEN_CLASS\":\"shadow\",\"ASHEN_PLAY_OUTPUT\":\"docs/ch1-expansion/natural/shadow-final\"}); build=subprocess.run([\"qa-export/qa-venv/bin/python\",\"tools/build_web_play.py\",\"--output\",\"qa-export/c1-expansion-preview\"],stdout=open(\"docs/ch1-expansion/build-final.txt\",\"w\"),stderr=subprocess.STDOUT).returncode; ui=build or subprocess.run([\"qa-export/qa-venv/bin/python\",\"tests/browser-web-play.py\",\"--build\",\"qa-export/c1-expansion-preview\",\"--out\",\"docs/ch1-expansion/package\"],env={**os.environ,\"CHROME_BIN\":\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"},stdout=open(\"docs/ch1-expansion/package-final.txt\",\"w\"),stderr=subprocess.STDOUT).returncode; results=[a.wait(),b.wait(),build,ui];print(\"core / shadow / build / package:\",results);sys.exit(any(results))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T10:52:14.871620+00:00",
+      "finished_at_utc": "2026-10-12T10:59:23.151594+00:00",
+      "head_commit": "6f55969913ad820e318677618ab9bfa20816a3fc",
+      "source_fingerprint": "9f799e7a904c758177af70032da85b41ea37897b8800cc0e83b96105da5d855f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/031-final-core-shadow-and-package.txt",
+      "output_sha256": "ef600413a345eec17b4b270497754b0c9d8202641a24d1aef6f83bae620d57aa",
+      "timeout_seconds": 1000.0
+    },
+    {
+      "label": "chapter-test-compatibility",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:03:37.757536+00:00",
+      "finished_at_utc": "2026-10-12T11:03:51.298390+00:00",
+      "head_commit": "6f55969913ad820e318677618ab9bfa20816a3fc",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt",
+      "output_sha256": "5243943b61f4511fdb296d4e825fd0cacfac08f634bd1639a7dfcf84aa7f2835",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "release",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "release"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T11:06:16.118473+00:00",
+      "finished_at_utc": "2026-10-12T11:11:12.433864+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/033-release.txt",
+      "output_sha256": "8af9ae796e09d9bd259594037716a078f9050ba30d17bd768e8386a031b4a4e2",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "preview-build",
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/c1-expansion-preview"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:12:16.357406+00:00",
+      "finished_at_utc": "2026-10-12T11:12:17.899493+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/034-preview-build.txt",
+      "output_sha256": "cfed0f568cb502db3419ffb6961eb0cff227b5aba31e40114f79aa7aa0ab2254",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "packaged-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "qa-export/qa-venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/c1-expansion-preview",
+        "--out",
+        "docs/ch1-expansion/package"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:12:38.721400+00:00",
+      "finished_at_utc": "2026-10-12T11:14:05.400176+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/035-packaged-ui.txt",
+      "output_sha256": "f86d544cb669852ed8cf92a2f52e78bfb5023f6c563b7e9d1a273008db8674a7",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "retained-route-compatibility",
+      "command": [
+        "node",
+        "docs/ch1-expansion/verify-saved-routes.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:14:27.339259+00:00",
+      "finished_at_utc": "2026-10-12T11:14:27.732376+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/036-retained-route-compatibility.txt",
+      "output_sha256": "521aeec6adc6c5a091d6a59beeec450810eb574d5d6450d1d86aa02e84d8c902",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "archive-integrity",
+      "command": [
+        "python3",
+        "tools/restore_archives.py",
+        "--all",
+        "--verify-only"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:14:37.909606+00:00",
+      "finished_at_utc": "2026-10-12T11:14:40.241335+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/037-archive-integrity.txt",
+      "output_sha256": "9723350645426447b94d2ce36b6a3a30787b6172044886a7b883a88e1b5ffd7d",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:18:42.819313+00:00",
+      "finished_at_utc": "2026-10-12T11:18:57.536663+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/038-fast.txt",
+      "output_sha256": "66e336a7b7fcaf0a485456858209746401c0d4fc76afc3f78723964a8d4ff593",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "core",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:18:57.607549+00:00",
+      "finished_at_utc": "2026-10-12T11:19:56.060867+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/039-core.txt",
+      "output_sha256": "651d6c3d6934b6a9f7c082b5f9dfcd09c48934cca4db0d0f97b715296444e99f",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:19:56.127291+00:00",
+      "finished_at_utc": "2026-10-12T11:24:52.592491+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/040-integration.txt",
+      "output_sha256": "a3d902afd9797a0816e2470f27e724afad4cb236f675817a26dad5e2e7d28ae2",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "second-chapter-rewards",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:25:25.055112+00:00",
+      "finished_at_utc": "2026-10-12T11:25:25.278415+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/041-second-chapter-rewards.txt",
+      "output_sha256": "2679d8ba7b4c969ddff00209100db7e5fcf314b02d699babc1ecd3d9ebaee0a2",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "38bf430"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T11:25:40.381297+00:00",
+      "finished_at_utc": "2026-10-12T11:25:40.597127+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/042-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "chapter-content-gate",
+      "command": [
+        "python3",
+        "tools/harness/chapter_quality.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T11:25:40.710418+00:00",
+      "finished_at_utc": "2026-10-12T11:25:40.813202+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt",
+      "output_sha256": "0370f5e69c82a71ae0f19c224942832cae3e79b297cbcf9c2994034cb9a120bf",
+      "timeout_seconds": 60.0
     }
   ],
   "stages": [
@@ -557,11 +814,11 @@
     },
     {
       "name": "main-route",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-12T09:52:38.418188+00:00",
-      "head_commit": "f93ec7f5d51feaecbfa1e2b4bd733aa044470949",
-      "source_fingerprint": "0f6861a4e2fd21dd3c3a5987d2761c3d1dd937791c10768f315513765408b11b",
-      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter3-runtime-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-collision.webp\n M docs/ch1-expansion/browser/c1LoomRoom.webp\n M docs/ch1-expansion/browser/c1NorthWalk-after.webp\n M docs/ch1-expansion/browser/c1NorthWalk-collision.webp\n M docs/ch1-expansion/browser/c1NorthWalk.webp\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-collision.webp\n M docs/ch1-expansion/browser/c1TrainingYard.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/loom-1440.png\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/loom-844.png\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-expansion-20261012.json\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-chapter123.mjs\n M tests/chapter-one-elites.test.mjs\n M tools/harness/check.py\n M tools/harness/context.py\n M tools/harness/task.py\n?? docs/ch1-expansion/economy/\n?? docs/ch1-expansion/natural/shadow-growth/\n?? docs/ch1-expansion/natural/shadow-retry1/\n?? docs/harness/evidence/c1-expansion-20261012/011-natural-shadow-retry1.txt\n?? docs/harness/evidence/c1-expansion-20261012/012-ui-art-recheck.txt\n?? docs/harness/evidence/c1-expansion-20261012/013-core-first.txt\n?? docs/harness/evidence/c1-expansion-20261012/014-natural-shadow-growth.txt\n?? docs/harness/evidence/c1-expansion-20261012/015-economy-main-prototype.txt\n?? docs/harness/evidence/c1-expansion-20261012/016-economy-main-retry.txt\n?? docs/harness/evidence/c1-expansion-20261012/017-economy-main-crossing.txt\n?? docs/harness/evidence/c1-expansion-20261012/018-economy-full-first.txt\n?? tests/chapter-one-economy.mjs\n?? tests/harness/test_chapter_quality.py\n?? tools/harness/chapter_quality.py"
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T11:26:42.369151+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "worktree": "M .codex/progress.md\n M README.md\n M docs/ch1-expansion/NAVIGATION.json\n M docs/ch1-expansion/PLAN.md\n M docs/ch1-expansion/browser/QA.json\n M docs/ch1-expansion/browser/alley-after.webp\n M docs/ch1-expansion/browser/alley-collision.webp\n M docs/ch1-expansion/browser/alley.webp\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery-interaction.png\n M docs/ch1-expansion/browser/c1DrillGallery-touch.png\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-collision.webp\n M docs/ch1-expansion/browser/c1LoomRoom-interaction.png\n M docs/ch1-expansion/browser/c1LoomRoom.webp\n M docs/ch1-expansion/browser/c1NorthWalk-after.webp\n M docs/ch1-expansion/browser/c1NorthWalk-collision.webp\n M docs/ch1-expansion/browser/c1NorthWalk-interaction.png\n M docs/ch1-expansion/browser/c1NorthWalk.webp\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln-interaction.png\n M docs/ch1-expansion/browser/c1ReedKiln-touch.png\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-touch.png\n M docs/ch1-expansion/browser/canal-after.webp\n M docs/ch1-expansion/browser/canal-collision.webp\n M docs/ch1-expansion/browser/canal.webp\n M docs/ch1-expansion/browser/echo-after.webp\n M docs/ch1-expansion/browser/echo-collision.webp\n M docs/ch1-expansion/browser/echo.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/hall-after.webp\n M docs/ch1-expansion/browser/hall-collision.webp\n M docs/ch1-expansion/browser/hall.webp\n M docs/ch1-expansion/browser/loom-1440.png\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/loom-844.png\n M docs/ch1-expansion/browser/millpath-after.webp\n M docs/ch1-expansion/browser/millpath-collision.webp\n M docs/ch1-expansion/browser/millpath.webp\n M docs/ch1-expansion/browser/road-after.webp\n M docs/ch1-expansion/browser/road-collision.webp\n M docs/ch1-expansion/browser/road.webp\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M docs/ch1-expansion/browser/workshop-after.webp\n M docs/ch1-expansion/browser/workshop-collision.webp\n M docs/ch1-expansion/browser/workshop.webp\n M docs/ch1-expansion/economy/ember-all_once.json\n M docs/ch1-expansion/economy/ember-main_only.json\n M docs/ch1-expansion/economy/ember-repeat_patrol.json\n M docs/ch1-expansion/economy/ember-typical.json\n M docs/ch1-expansion/economy/oath-all_once.json\n M docs/ch1-expansion/economy/oath-main_only.json\n M docs/ch1-expansion/economy/oath-repeat_patrol.json\n M docs/ch1-expansion/economy/oath-typical.json\n M docs/ch1-expansion/economy/shadow-all_once.json\n M docs/ch1-expansion/economy/shadow-main_only.json\n M docs/ch1-expansion/economy/shadow-repeat_patrol.json\n M docs/ch1-expansion/economy/shadow-typical.json\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-expansion-20261012.json\n?? docs/ch1-expansion/ACCEPTANCE.md\n?? docs/ch1-expansion/CHANGE_SUMMARY.md\n?? docs/ch1-expansion/CONTENT_ACCEPTANCE.json\n?? docs/ch1-expansion/ECONOMY_SUMMARY.json\n?? docs/ch1-expansion/LOCAL_PREVIEW.json\n?? docs/ch1-expansion/MAP_QUALITY.json\n?? docs/ch1-expansion/MAP_QUALITY_PREVIOUS.json\n?? docs/ch1-expansion/NATURAL_TIMING.json\n?? docs/ch1-expansion/REVIEW_NOTES.md\n?? docs/ch1-expansion/RUNTIME_CATALOG.json\n?? docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json\n?? docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json\n?? docs/ch1-expansion/balance/CH1_END_STRESS.json\n?? docs/ch1-expansion/balance/SUMMARY.json\n?? docs/ch1-expansion/build-final.txt\n?? docs/ch1-expansion/build-run.txt\n?? docs/ch1-expansion/core-final.txt\n?? docs/ch1-expansion/economy/ember-all_once-one-epic.json\n?? docs/ch1-expansion/economy/oath-all_once-one-epic.json\n?? docs/ch1-expansion/economy/shadow-all_once-one-epic.json\n?? docs/ch1-expansion/integration-final.txt\n?? docs/ch1-expansion/integration-run.txt\n?? docs/ch1-expansion/natural/ember-final-corners/\n?? docs/ch1-expansion/natural/ember-restored-training/\n?? docs/ch1-expansion/natural/oath-final-corners/\n?? docs/ch1-expansion/natural/oath-restored-training/\n?? docs/ch1-expansion/natural/shadow-final-corners/\n?? docs/ch1-expansion/natural/shadow-final/\n?? docs/ch1-expansion/natural/shadow-restored-training/\n?? docs/ch1-expansion/package-attempt1/\n?? docs/ch1-expansion/package-final.txt\n?? docs/ch1-expansion/package-first-failure.txt\n?? docs/ch1-expansion/package/\n?? docs/ch1-expansion/verify-saved-routes.mjs\n?? docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt\n?? docs/harness/evidence/c1-expansion-20261012/030-final-corners-integration-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/031-final-core-shadow-and-package.txt\n?? docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/033-release.txt\n?? docs/harness/evidence/c1-expansion-20261012/034-preview-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/035-packaged-ui.txt\n?? docs/harness/evidence/c1-expansion-20261012/036-retained-route-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/037-archive-integrity.txt\n?? docs/harness/evidence/c1-expansion-20261012/038-fast.txt\n?? docs/harness/evidence/c1-expansion-20261012/039-core.txt\n?? docs/harness/evidence/c1-expansion-20261012/040-integration.txt\n?? docs/harness/evidence/c1-expansion-20261012/041-second-chapter-rewards.txt\n?? docs/harness/evidence/c1-expansion-20261012/042-map-quality.txt\n?? docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt"
     },
     {
       "name": "systems",
@@ -574,10 +831,18 @@
     {
       "name": "compatibility-balance",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-12T10:35:21.703166+00:00",
-      "head_commit": "e98fa42858297f7292cea0dcb9b78b006b28f35b",
-      "source_fingerprint": "5053acf1a08e7b8a38adc0031114d5be0eab9ac72fd2f65115e9d24b4b8b84fb",
-      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M docs/ch1-expansion/NAVIGATION.json\n M docs/ch1-expansion/browser/QA.json\n M docs/ch1-expansion/browser/alley-after.webp\n M docs/ch1-expansion/browser/alley-collision.webp\n M docs/ch1-expansion/browser/alley.webp\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-touch.png\n M docs/ch1-expansion/browser/c1NorthWalk-interaction.png\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln-touch.png\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-touch.png\n M docs/ch1-expansion/browser/canal-after.webp\n M docs/ch1-expansion/browser/canal-collision.webp\n M docs/ch1-expansion/browser/canal.webp\n M docs/ch1-expansion/browser/echo-after.webp\n M docs/ch1-expansion/browser/echo-collision.webp\n M docs/ch1-expansion/browser/echo.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/hall-after.webp\n M docs/ch1-expansion/browser/hall-collision.webp\n M docs/ch1-expansion/browser/hall.webp\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/millpath-after.webp\n M docs/ch1-expansion/browser/millpath-collision.webp\n M docs/ch1-expansion/browser/millpath.webp\n M docs/ch1-expansion/browser/road-after.webp\n M docs/ch1-expansion/browser/road-collision.webp\n M docs/ch1-expansion/browser/road.webp\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M docs/ch1-expansion/browser/workshop-after.webp\n M docs/ch1-expansion/browser/workshop-collision.webp\n M docs/ch1-expansion/browser/workshop.webp\n M docs/ch1-expansion/economy/ember-all_once.json\n M docs/ch1-expansion/economy/ember-main_only.json\n M docs/ch1-expansion/economy/ember-repeat_patrol.json\n M docs/ch1-expansion/economy/ember-typical.json\n M docs/ch1-expansion/economy/oath-all_once.json\n M docs/ch1-expansion/economy/oath-main_only.json\n M docs/ch1-expansion/economy/oath-repeat_patrol.json\n M docs/ch1-expansion/economy/oath-typical.json\n M docs/ch1-expansion/economy/shadow-all_once.json\n M docs/ch1-expansion/economy/shadow-main_only.json\n M docs/ch1-expansion/economy/shadow-repeat_patrol.json\n M docs/ch1-expansion/economy/shadow-typical.json\n M source/harness/index.json\n M source/tasks/active/c1-expansion-20261012.json\n M tests/browser-chapter-one-natural-batch.mjs\n M tests/browser-chapter-one-natural.mjs\n M tools/balance_lab/chapter-one.mjs\n?? docs/ch1-expansion/ECONOMY_SUMMARY.json\n?? docs/ch1-expansion/REVIEW_NOTES.md\n?? docs/ch1-expansion/RUNTIME_CATALOG.json\n?? docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json\n?? docs/ch1-expansion/balance/CH1_END_STRESS.json\n?? docs/ch1-expansion/economy/ember-all_once-one-epic.json\n?? docs/ch1-expansion/economy/oath-all_once-one-epic.json\n?? docs/ch1-expansion/economy/shadow-all_once-one-epic.json\n?? docs/ch1-expansion/integration-run.txt\n?? docs/ch1-expansion/natural/ember-restored-training/\n?? docs/ch1-expansion/natural/oath-restored-training/\n?? docs/ch1-expansion/natural/shadow-restored-training/\n?? docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt"
+      "updated_at_utc": "2026-10-12T11:26:42.554735+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "worktree": "M .codex/progress.md\n M README.md\n M docs/ch1-expansion/NAVIGATION.json\n M docs/ch1-expansion/PLAN.md\n M docs/ch1-expansion/browser/QA.json\n M docs/ch1-expansion/browser/alley-after.webp\n M docs/ch1-expansion/browser/alley-collision.webp\n M docs/ch1-expansion/browser/alley.webp\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery-interaction.png\n M docs/ch1-expansion/browser/c1DrillGallery-touch.png\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-collision.webp\n M docs/ch1-expansion/browser/c1LoomRoom-interaction.png\n M docs/ch1-expansion/browser/c1LoomRoom.webp\n M docs/ch1-expansion/browser/c1NorthWalk-after.webp\n M docs/ch1-expansion/browser/c1NorthWalk-collision.webp\n M docs/ch1-expansion/browser/c1NorthWalk-interaction.png\n M docs/ch1-expansion/browser/c1NorthWalk.webp\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln-interaction.png\n M docs/ch1-expansion/browser/c1ReedKiln-touch.png\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-touch.png\n M docs/ch1-expansion/browser/canal-after.webp\n M docs/ch1-expansion/browser/canal-collision.webp\n M docs/ch1-expansion/browser/canal.webp\n M docs/ch1-expansion/browser/echo-after.webp\n M docs/ch1-expansion/browser/echo-collision.webp\n M docs/ch1-expansion/browser/echo.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/hall-after.webp\n M docs/ch1-expansion/browser/hall-collision.webp\n M docs/ch1-expansion/browser/hall.webp\n M docs/ch1-expansion/browser/loom-1440.png\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/loom-844.png\n M docs/ch1-expansion/browser/millpath-after.webp\n M docs/ch1-expansion/browser/millpath-collision.webp\n M docs/ch1-expansion/browser/millpath.webp\n M docs/ch1-expansion/browser/road-after.webp\n M docs/ch1-expansion/browser/road-collision.webp\n M docs/ch1-expansion/browser/road.webp\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M docs/ch1-expansion/browser/workshop-after.webp\n M docs/ch1-expansion/browser/workshop-collision.webp\n M docs/ch1-expansion/browser/workshop.webp\n M docs/ch1-expansion/economy/ember-all_once.json\n M docs/ch1-expansion/economy/ember-main_only.json\n M docs/ch1-expansion/economy/ember-repeat_patrol.json\n M docs/ch1-expansion/economy/ember-typical.json\n M docs/ch1-expansion/economy/oath-all_once.json\n M docs/ch1-expansion/economy/oath-main_only.json\n M docs/ch1-expansion/economy/oath-repeat_patrol.json\n M docs/ch1-expansion/economy/oath-typical.json\n M docs/ch1-expansion/economy/shadow-all_once.json\n M docs/ch1-expansion/economy/shadow-main_only.json\n M docs/ch1-expansion/economy/shadow-repeat_patrol.json\n M docs/ch1-expansion/economy/shadow-typical.json\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-expansion-20261012.json\n?? docs/ch1-expansion/ACCEPTANCE.md\n?? docs/ch1-expansion/CHANGE_SUMMARY.md\n?? docs/ch1-expansion/CONTENT_ACCEPTANCE.json\n?? docs/ch1-expansion/ECONOMY_SUMMARY.json\n?? docs/ch1-expansion/LOCAL_PREVIEW.json\n?? docs/ch1-expansion/MAP_QUALITY.json\n?? docs/ch1-expansion/MAP_QUALITY_PREVIOUS.json\n?? docs/ch1-expansion/NATURAL_TIMING.json\n?? docs/ch1-expansion/REVIEW_NOTES.md\n?? docs/ch1-expansion/RUNTIME_CATALOG.json\n?? docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json\n?? docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json\n?? docs/ch1-expansion/balance/CH1_END_STRESS.json\n?? docs/ch1-expansion/balance/SUMMARY.json\n?? docs/ch1-expansion/build-final.txt\n?? docs/ch1-expansion/build-run.txt\n?? docs/ch1-expansion/core-final.txt\n?? docs/ch1-expansion/economy/ember-all_once-one-epic.json\n?? docs/ch1-expansion/economy/oath-all_once-one-epic.json\n?? docs/ch1-expansion/economy/shadow-all_once-one-epic.json\n?? docs/ch1-expansion/integration-final.txt\n?? docs/ch1-expansion/integration-run.txt\n?? docs/ch1-expansion/natural/ember-final-corners/\n?? docs/ch1-expansion/natural/ember-restored-training/\n?? docs/ch1-expansion/natural/oath-final-corners/\n?? docs/ch1-expansion/natural/oath-restored-training/\n?? docs/ch1-expansion/natural/shadow-final-corners/\n?? docs/ch1-expansion/natural/shadow-final/\n?? docs/ch1-expansion/natural/shadow-restored-training/\n?? docs/ch1-expansion/package-attempt1/\n?? docs/ch1-expansion/package-final.txt\n?? docs/ch1-expansion/package-first-failure.txt\n?? docs/ch1-expansion/package/\n?? docs/ch1-expansion/verify-saved-routes.mjs\n?? docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt\n?? docs/harness/evidence/c1-expansion-20261012/030-final-corners-integration-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/031-final-core-shadow-and-package.txt\n?? docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/033-release.txt\n?? docs/harness/evidence/c1-expansion-20261012/034-preview-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/035-packaged-ui.txt\n?? docs/harness/evidence/c1-expansion-20261012/036-retained-route-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/037-archive-integrity.txt\n?? docs/harness/evidence/c1-expansion-20261012/038-fast.txt\n?? docs/harness/evidence/c1-expansion-20261012/039-core.txt\n?? docs/harness/evidence/c1-expansion-20261012/040-integration.txt\n?? docs/harness/evidence/c1-expansion-20261012/041-second-chapter-rewards.txt\n?? docs/harness/evidence/c1-expansion-20261012/042-map-quality.txt\n?? docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt"
+    },
+    {
+      "name": "verification-delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-12T11:26:42.681763+00:00",
+      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+      "worktree": "M .codex/progress.md\n M README.md\n M docs/ch1-expansion/NAVIGATION.json\n M docs/ch1-expansion/PLAN.md\n M docs/ch1-expansion/browser/QA.json\n M docs/ch1-expansion/browser/alley-after.webp\n M docs/ch1-expansion/browser/alley-collision.webp\n M docs/ch1-expansion/browser/alley.webp\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery-interaction.png\n M docs/ch1-expansion/browser/c1DrillGallery-touch.png\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-collision.webp\n M docs/ch1-expansion/browser/c1LoomRoom-interaction.png\n M docs/ch1-expansion/browser/c1LoomRoom.webp\n M docs/ch1-expansion/browser/c1NorthWalk-after.webp\n M docs/ch1-expansion/browser/c1NorthWalk-collision.webp\n M docs/ch1-expansion/browser/c1NorthWalk-interaction.png\n M docs/ch1-expansion/browser/c1NorthWalk.webp\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln-interaction.png\n M docs/ch1-expansion/browser/c1ReedKiln-touch.png\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-touch.png\n M docs/ch1-expansion/browser/canal-after.webp\n M docs/ch1-expansion/browser/canal-collision.webp\n M docs/ch1-expansion/browser/canal.webp\n M docs/ch1-expansion/browser/echo-after.webp\n M docs/ch1-expansion/browser/echo-collision.webp\n M docs/ch1-expansion/browser/echo.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/hall-after.webp\n M docs/ch1-expansion/browser/hall-collision.webp\n M docs/ch1-expansion/browser/hall.webp\n M docs/ch1-expansion/browser/loom-1440.png\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/loom-844.png\n M docs/ch1-expansion/browser/millpath-after.webp\n M docs/ch1-expansion/browser/millpath-collision.webp\n M docs/ch1-expansion/browser/millpath.webp\n M docs/ch1-expansion/browser/road-after.webp\n M docs/ch1-expansion/browser/road-collision.webp\n M docs/ch1-expansion/browser/road.webp\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M docs/ch1-expansion/browser/workshop-after.webp\n M docs/ch1-expansion/browser/workshop-collision.webp\n M docs/ch1-expansion/browser/workshop.webp\n M docs/ch1-expansion/economy/ember-all_once.json\n M docs/ch1-expansion/economy/ember-main_only.json\n M docs/ch1-expansion/economy/ember-repeat_patrol.json\n M docs/ch1-expansion/economy/ember-typical.json\n M docs/ch1-expansion/economy/oath-all_once.json\n M docs/ch1-expansion/economy/oath-main_only.json\n M docs/ch1-expansion/economy/oath-repeat_patrol.json\n M docs/ch1-expansion/economy/oath-typical.json\n M docs/ch1-expansion/economy/shadow-all_once.json\n M docs/ch1-expansion/economy/shadow-main_only.json\n M docs/ch1-expansion/economy/shadow-repeat_patrol.json\n M docs/ch1-expansion/economy/shadow-typical.json\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-expansion-20261012.json\n?? docs/ch1-expansion/ACCEPTANCE.md\n?? docs/ch1-expansion/CHANGE_SUMMARY.md\n?? docs/ch1-expansion/CONTENT_ACCEPTANCE.json\n?? docs/ch1-expansion/ECONOMY_SUMMARY.json\n?? docs/ch1-expansion/LOCAL_PREVIEW.json\n?? docs/ch1-expansion/MAP_QUALITY.json\n?? docs/ch1-expansion/MAP_QUALITY_PREVIOUS.json\n?? docs/ch1-expansion/NATURAL_TIMING.json\n?? docs/ch1-expansion/REVIEW_NOTES.md\n?? docs/ch1-expansion/RUNTIME_CATALOG.json\n?? docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json\n?? docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json\n?? docs/ch1-expansion/balance/CH1_END_STRESS.json\n?? docs/ch1-expansion/balance/SUMMARY.json\n?? docs/ch1-expansion/build-final.txt\n?? docs/ch1-expansion/build-run.txt\n?? docs/ch1-expansion/core-final.txt\n?? docs/ch1-expansion/economy/ember-all_once-one-epic.json\n?? docs/ch1-expansion/economy/oath-all_once-one-epic.json\n?? docs/ch1-expansion/economy/shadow-all_once-one-epic.json\n?? docs/ch1-expansion/integration-final.txt\n?? docs/ch1-expansion/integration-run.txt\n?? docs/ch1-expansion/natural/ember-final-corners/\n?? docs/ch1-expansion/natural/ember-restored-training/\n?? docs/ch1-expansion/natural/oath-final-corners/\n?? docs/ch1-expansion/natural/oath-restored-training/\n?? docs/ch1-expansion/natural/shadow-final-corners/\n?? docs/ch1-expansion/natural/shadow-final/\n?? docs/ch1-expansion/natural/shadow-restored-training/\n?? docs/ch1-expansion/package-attempt1/\n?? docs/ch1-expansion/package-final.txt\n?? docs/ch1-expansion/package-first-failure.txt\n?? docs/ch1-expansion/package/\n?? docs/ch1-expansion/verify-saved-routes.mjs\n?? docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt\n?? docs/harness/evidence/c1-expansion-20261012/030-final-corners-integration-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/031-final-core-shadow-and-package.txt\n?? docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/033-release.txt\n?? docs/harness/evidence/c1-expansion-20261012/034-preview-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/035-packaged-ui.txt\n?? docs/harness/evidence/c1-expansion-20261012/036-retained-route-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/037-archive-integrity.txt\n?? docs/harness/evidence/c1-expansion-20261012/038-fast.txt\n?? docs/harness/evidence/c1-expansion-20261012/039-core.txt\n?? docs/harness/evidence/c1-expansion-20261012/040-integration.txt\n?? docs/harness/evidence/c1-expansion-20261012/041-second-chapter-rewards.txt\n?? docs/harness/evidence/c1-expansion-20261012/042-map-quality.txt\n?? docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt"
     }
   ],
   "chapter_quality": "V01C01"

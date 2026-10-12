@@ -1,173 +1,1194 @@
 {
-  "task_id": "ch1-voice-20261012",
-  "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+  "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
+  "reviewed_at_utc": "2026-10-12T11:25:39.761668+00:00",
+  "reviewer": "assistant visual review of actual renderer screenshots, separate from automated paths",
   "reviewed_paths": [
-    "dist/assets/c1-voice/elyria-gentle.png",
-    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-expansion-world.js",
+    "dist/core-v14.js",
     "dist/game-v14.js",
-    "dist/identity-visuals-v18.js"
+    "dist/visuals-v14.js",
+    "dist/world-runtime-v29.js"
   ],
   "assets": [
+    {
+      "path": "dist/assets/v4/actors-world.png",
+      "sha256": "761447478e44de6979b20a60b0ec7dce32195b1f591091ecb0349c56f6ed9207"
+    },
+    {
+      "path": "dist/assets/v4/hero-bodies.png",
+      "sha256": "fdf7f884ba80a559ed0a2db7db5373adf93b08c4b39e97f63f761c9ec39a096e"
+    },
+    {
+      "path": "dist/assets/v4/main-portraits.png",
+      "sha256": "8e082eab354608c342467b34f601ea640f69d5826e9509e2e034533f8c5a4730"
+    },
     {
       "path": "dist/assets/c1-voice/elyria-gentle.png",
       "sha256": "6acd8529a1255205c170ed6654cb8804811457540a2f0947c22f7b3282fcaa9f"
     },
     {
-      "path": "dist/assets/keyart.png",
-      "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
+      "path": "dist/assets/c1-incremental/pursuit-guard.png",
+      "sha256": "330316ae49fcccebff367ce5a7c9e0b431123273ba1763f6d68bbc89de4eb585"
     },
     {
-      "path": "dist/assets/v4/main-portraits.png",
-      "sha256": "8e082eab354608c342467b34f601ea640f69d5826e9509e2e034533f8c5a4730"
+      "path": "dist/assets/c1-incremental/pursuit-elite.png",
+      "sha256": "adaedef8ea532ccf185c0d528e5ad031e11117daf0fea0a7812e300d4246b365"
+    },
+    {
+      "path": "dist/assets/c1-incremental/pursuit-officer.png",
+      "sha256": "23c883a0f17d96178d4631b26483e3dd0cffa486ead1b15130bf91e4edcbee71"
     }
   ],
-  "scope": "Dialogue and default portrait only. Independently reviewed hall/chapel presentation with shared portrait regression; no geometry/NPC bodies changed and no new map design claimed.",
   "maps": [
     {
-      "id": "hall",
+      "id": "c1TrainingYard",
+      "name": "灰烛练武庭",
       "playability": {
         "status": "pass",
-        "reason": "实际18图221条moveActor路径无未验证，完整委托11行尾段/原刺杀0匿名尾段完成，三视口可点击；三职业228旧主线游标、全部旧H1/H2迁移与重复提交一致性通过。地图/任务/原对白/原staging完整哈希保持。",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/scenes/QA.json",
-            "sha256": "44eae52c0e5ed9f34c2b049b92b64709e8326c73ada26c8939b51d2fad0bece0"
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
           },
           {
-            "path": "docs/ch1-voice/scenes/hall-collision.webp",
-            "sha256": "51682761ed28101f9f150f0dd9f83abae4f6693b2d28877202f1e83a32d30818"
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
           },
           {
-            "path": "docs/harness/evidence/ch1-voice-20261012/006-story.txt",
-            "sha256": "c953033955f71ce60e19d679354507d392c1590cfbcc1f0cbb8d76950a03d490"
+            "path": "docs/ch1-expansion/browser/c1TrainingYard-collision.webp",
+            "sha256": "202eb3a15ec1e1a9468371fbf65a241d5a8ce56c5d3cebc227a2c4bcfc2c9849"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1TrainingYard-touch.png",
+            "sha256": "5d0a30531d6974037fceeb7921b29d1a711403f6bd2c53c9787af2f0e23ea77b"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1TrainingYard-interaction.png",
+            "sha256": "09e0bd83e522a5594f3c6423c80a4cc95a957d557e3e3352b8e0967f3a8108e1"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "查看实际会馆/礼拜厅和对白截图：会馆书架/办事桌与礼拜厅祭台/长椅保持原用途，地图层未改。私下交谈明确发生于诺恩离开后，原对话框与幕间底色；无新增地点或奇怪匿名形象。本项仅验收本轮改动与原场景相容，不声称旧布局全面改造。",
+        "reason": "两块训练留白、两具草靶与工具台分区，薇蕾娜/鲁恩在场边；预警地面未被器械遮盖。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/scenes/hall.webp",
-            "sha256": "100cd362aa2b2d6d1936f68dc4c5c2687268bc0186fc6a209e6e00d7719e3afc"
+            "path": "docs/ch1-expansion/browser/c1TrainingYard.webp",
+            "sha256": "e790a0761732b83ebf8f0a978763a9f7748f9baea8c7623f0c6cc27c55d93306"
           },
           {
-            "path": "docs/ch1-voice/browser/backstage-known-3.png",
-            "sha256": "64ba5fbf7a473182dc8994765b76fee1c997396be372a5acc83c6b701abeaee0"
-          },
-          {
-            "path": "docs/ch1-voice/SCOPE.json",
-            "sha256": "6e1a4a516ac6e816bb6073b0c98889977534d08c9850db11f2bc2c79499baffe"
+            "path": "docs/ch1-expansion/browser/c1TrainingYard-after.webp",
+            "sha256": "d455905bfdee98d5258be019b13be4420d6760ca884ea8bd9d0d7d92839440cb"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "已对照封面、旧默认画像和新默认实景：银金长发、蓝眼、星形冠环、白金披风及蓝色饰物相符，眉眼较舒缓。薇蕾娜/鲁恩原立绘保留；旁白无图片；26场263原对白+新11行实际UI正常。48帧角色体量与脚锚原样保留，后期便装覆盖回归通过。",
+        "reason": "原薇蕾娜、鲁恩、奥伦与诺恩世界像保持服装及脚锚；训练靶使用既有木人图元。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/browser/known-6.png",
-            "sha256": "69c6a7552b4decb0f6899d618e3fb8936eed87e7ea0ff2a46d688d242b2c99af"
+            "path": "docs/ch1-expansion/browser/c1TrainingYard.webp",
+            "sha256": "e790a0761732b83ebf8f0a978763a9f7748f9baea8c7623f0c6cc27c55d93306"
           },
           {
-            "path": "docs/ch1-voice/baseline/browser/known-6.png",
-            "sha256": "9d77a677c35edc87d0f2ff6c7e07ec25f6ccccde1124df450f26f9ca5ffb5122"
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
           },
           {
-            "path": "dist/assets/keyart.png",
-            "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
           },
           {
-            "path": "docs/ch1-voice/browser/exchange-390.png",
-            "sha256": "92bcec4999bef795ea7490ac8095a82d13ef9f289d82f785d1f1051afc488e11"
-          },
-          {
-            "path": "docs/ch1-voice/browser/RESULT.json",
-            "sha256": "32296f4da3412b9a839dc7cdafd7019d9db9892bbfde42324cecf809eb6fd93c"
-          },
-          {
-            "path": "docs/ch1-voice/scenes/role-comparison.webp",
-            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
-          },
-          {
-            "path": "docs/ch1-voice/ASSET_MANIFEST.json",
-            "sha256": "ec5608c2f64a9f6ab6a38b7f8e130f378eee0fb74d02dffa36bde4ed53c6120f"
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
           }
         ]
       }
     },
     {
-      "id": "chapel",
+      "id": "c1DrillGallery",
+      "name": "旧试炼廊",
       "playability": {
         "status": "pass",
-        "reason": "实际18图221条moveActor路径无未验证，完整委托11行尾段/原刺杀0匿名尾段完成，三视口可点击；三职业228旧主线游标、全部旧H1/H2迁移与重复提交一致性通过。地图/任务/原对白/原staging完整哈希保持。",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/scenes/QA.json",
-            "sha256": "44eae52c0e5ed9f34c2b049b92b64709e8326c73ada26c8939b51d2fad0bece0"
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
           },
           {
-            "path": "docs/ch1-voice/scenes/chapel-collision.webp",
-            "sha256": "e42437d0326ac38a343f1cf788efc9ade9a7e4520e6640d2238e9517c9afe473"
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
           },
           {
-            "path": "docs/harness/evidence/ch1-voice-20261012/006-story.txt",
-            "sha256": "c953033955f71ce60e19d679354507d392c1590cfbcc1f0cbb8d76950a03d490"
+            "path": "docs/ch1-expansion/browser/c1DrillGallery-collision.webp",
+            "sha256": "cd06cdbc612bf34697264ac0bd718b23c992009fd2ce018c42f2de1e162d711e"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1DrillGallery-touch.png",
+            "sha256": "9f1f5a3899af6341ecd02786946b9fa3c918e88b9f98ff618ec83678a3d1fd00"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1DrillGallery-interaction.png",
+            "sha256": "204bf2710938be343788357c65d444ff8a71e443b3db5f529c241aba51e19585"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "查看实际会馆/礼拜厅和对白截图：会馆书架/办事桌与礼拜厅祭台/长椅保持原用途，地图层未改。私下交谈明确发生于诺恩离开后，原对话框与幕间底色；无新增地点或奇怪匿名形象。本项仅验收本轮改动与原场景相容，不声称旧布局全面改造。",
+        "reason": "木地板上铃线及上下两条训练路线可见，三块掩体与终点书页形成试炼用途；两次失败辅助只延长预警。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/scenes/chapel.webp",
-            "sha256": "18d4d9f4fc0143777b3e3733149037009874e29c8aec3018bdb6df760e34a553"
+            "path": "docs/ch1-expansion/browser/c1DrillGallery.webp",
+            "sha256": "c8114a9cac95f53df9fb72c621d4c78eaca1b335cdb4c2fe1e6732c6507a4498"
           },
           {
-            "path": "docs/ch1-voice/browser/backstage-known-3.png",
-            "sha256": "64ba5fbf7a473182dc8994765b76fee1c997396be372a5acc83c6b701abeaee0"
-          },
-          {
-            "path": "docs/ch1-voice/SCOPE.json",
-            "sha256": "6e1a4a516ac6e816bb6073b0c98889977534d08c9850db11f2bc2c79499baffe"
+            "path": "docs/ch1-expansion/browser/c1DrillGallery-after.webp",
+            "sha256": "c3cf572a8550243f3439db51dedcdb04b5f0970cb2b4e99b22ad76d1df7c8c83"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "已对照封面、旧默认画像和新默认实景：银金长发、蓝眼、星形冠环、白金披风及蓝色饰物相符，眉眼较舒缓。薇蕾娜/鲁恩原立绘保留；旁白无图片；26场263原对白+新11行实际UI正常。48帧角色体量与脚锚原样保留，后期便装覆盖回归通过。",
+        "reason": "诺恩沿用原世界像，移动巡查靶沿用木人；没有新增人形占位立绘。",
         "evidence": [
           {
-            "path": "docs/ch1-voice/browser/known-6.png",
-            "sha256": "69c6a7552b4decb0f6899d618e3fb8936eed87e7ea0ff2a46d688d242b2c99af"
+            "path": "docs/ch1-expansion/browser/c1DrillGallery.webp",
+            "sha256": "c8114a9cac95f53df9fb72c621d4c78eaca1b335cdb4c2fe1e6732c6507a4498"
           },
           {
-            "path": "docs/ch1-voice/baseline/browser/known-6.png",
-            "sha256": "9d77a677c35edc87d0f2ff6c7e07ec25f6ccccde1124df450f26f9ca5ffb5122"
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
           },
           {
-            "path": "dist/assets/keyart.png",
-            "sha256": "de81ce518fe7a928544e74054ac24f4e8a8bad8a66ffc3d5ea51069f86525f3b"
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
           },
           {
-            "path": "docs/ch1-voice/browser/exchange-390.png",
-            "sha256": "92bcec4999bef795ea7490ac8095a82d13ef9f289d82f785d1f1051afc488e11"
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1LoomRoom",
+      "name": "缀纹工坊",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
           },
           {
-            "path": "docs/ch1-voice/browser/RESULT.json",
-            "sha256": "32296f4da3412b9a839dc7cdafd7019d9db9892bbfde42324cecf809eb6fd93c"
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
           },
           {
-            "path": "docs/ch1-voice/scenes/role-comparison.webp",
-            "sha256": "038c8869bf8000a3523f05f0272006446937989c3c9a907f00efc0a479c67b0a"
+            "path": "docs/ch1-expansion/browser/c1LoomRoom-collision.webp",
+            "sha256": "863532c6c9f5aee0a4a4bacf0151f51b2c3b07ab3298f64c2af8b2be1a05ad2a"
           },
           {
-            "path": "docs/ch1-voice/ASSET_MANIFEST.json",
-            "sha256": "ec5608c2f64a9f6ab6a38b7f8e130f378eee0fb74d02dffa36bde4ed53c6120f"
+            "path": "docs/ch1-expansion/browser/c1LoomRoom-touch.png",
+            "sha256": "1dbd0008d3efc5d7e2a79e50d5209984e8a83698baafa325378b73cbb8df22dc"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1LoomRoom-interaction.png",
+            "sha256": "c78d76ecad716e9c6c333b11f8556c3b240c5a91fd9efa0151bd8bde0d1f7241"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "左晶料台、中央带线轴的缀纹机、右草药台可分辨；封存样本的三瓶已移到天平前避免被桌面遮住。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1LoomRoom.webp",
+            "sha256": "4d754905fc1f8388d9cacb5d02fa232000abaadb630883f4316627243291d344"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1LoomRoom-after.webp",
+            "sha256": "af47ed201161dca86b188ec21cc89d12a46837bea573ca5d38ee7dda8abe33be"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "罗萨、赛铎复用现有风格世界像，左右岗位不挡中央机位；尚无为两人新增独立手绘立绘，不声称唯一美术设计。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1LoomRoom.webp",
+            "sha256": "4d754905fc1f8388d9cacb5d02fa232000abaadb630883f4316627243291d344"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1NorthWalk",
+      "name": "北渠检修道",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk-collision.webp",
+            "sha256": "d46340281b9690891afb3a928616556d7e68265b81d7825a2a1eff43a79d2271"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk-touch.png",
+            "sha256": "e3033da6df4c8acfcedf36d21d5d31be718d6a07fa3c9939fa54a47eaba9437a"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk-interaction.png",
+            "sha256": "012e109e60eb9b6c43d9c8959deb3bf6fe07743dedb0de40270f39d9db113852"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "南北贯通水道与岸边阀门、横向木板可辨；泄压后架板与碰撞开放同步，岸边交战留白存在。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk.webp",
+            "sha256": "96c6295ea4775db7af41e1d4d0de02ffe31965481598a4d7c4eb486d5fee60f3"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk-after.webp",
+            "sha256": "30a5c53e384358d980a0acd39d9aca589927cc1bac51e5b2ae3d6f0a1507dc45"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原鼠/蝙蝠与诺恩贴图保持物种和体型，板桥按地面绘制，角色脚锚不悬空。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1NorthWalk.webp",
+            "sha256": "96c6295ea4775db7af41e1d4d0de02ffe31965481598a4d7c4eb486d5fee60f3"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1ReedKiln",
+      "name": "苇湾废窑",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln-collision.webp",
+            "sha256": "d4063d90d4e9aa185a5526eda2bb65dbc3409a08e9d117417d33a6b03b8d7616"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln-touch.png",
+            "sha256": "22a4351d495309fcc9e1e7b8b68cbe4c14aab7bb2f179e179f8212845cdd1523"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln-interaction.png",
+            "sha256": "810393eb7708fd7f48042a865474d9af131f32d46c9cdb62c58c83c62ad81093"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "窑炉与管线、进风和排烟口连成现场；西沟有短梯，倒灌/通风后气流图可对照，巢穴在窑炉下方。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln.webp",
+            "sha256": "8d2127968af5751b122ae3b7a185513cd6e3c0a82e4763cd4c23c993d55d1a82"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln-after.webp",
+            "sha256": "0ae68b2aff08d958a000976bd0f1ff83ab04cc3df36f5347cf8cadf8c688b044"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "夜翼保留蝙蝠轮廓、朝向及翼膜细节；精英是同种异变而非单纯放大，近战/远程正式AI有独立试验。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/c1ReedKiln.webp",
+            "sha256": "8d2127968af5751b122ae3b7a185513cd6e3c0a82e4763cd4c23c993d55d1a82"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hall",
+      "name": "灰烛会馆",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/hall-collision.webp",
+            "sha256": "a626c568ff37f50ddce43abce5f5a34787d4e0f74a0f4952fd1b803c06f9235b"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原会馆布局及委托区保留；新增练武庭门框在西侧可见，训练动线与库房/外门各自清楚。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/hall.webp",
+            "sha256": "03aacc5802e78f0927a48bdb4c4dbc4fc3338df9f35eca82089f858a002aafcd"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/hall-after.webp",
+            "sha256": "dec0a4734a1d95d5b2d8267b9aea834d95e38cae3172f07e31a37fd085996127"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "薇蕾娜、鲁恩、奥伦与诺恩原装束和人物图保持；接委托后使用原对话形式。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/hall.webp",
+            "sha256": "03aacc5802e78f0927a48bdb4c4dbc4fc3338df9f35eca82089f858a002aafcd"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warehouse",
+      "name": "旧库房",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/warehouse-collision.webp",
+            "sha256": "ecc7469398a2ca37578e32a9290de73b0096728a54aa63ed602da1dd83761d80"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原货架和鼠洞保留，木板搬运贴随角色，封墙后补板可見；西侧试炼廊门框可辨。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/warehouse.webp",
+            "sha256": "7e1a20920ed0be71364f105a931cd912ec496b7e10abaf5b28b9b183c846a6ab"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/warehouse-after.webp",
+            "sha256": "63d7d594c8933c364f1f79e0cefdb9998c96bcd41c26c794082b69e4210eb0d6"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原鼠与诺恩动作/脚锚保持；搬板不替换角色贴图或生成匿名人物。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/warehouse.webp",
+            "sha256": "7e1a20920ed0be71364f105a931cd912ec496b7e10abaf5b28b9b183c846a6ab"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "road",
+      "name": "旧王道",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/road-collision.webp",
+            "sha256": "8df6e50d27510d2ebad60be60e8222c162d023c10b6ac5c4e867f7eff00289b0"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "路牌、断车、路标和避雨处依附既有道路，原四出口仍保留；跨夜有明确准备地点。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/road.webp",
+            "sha256": "414ab597321a4a17fe3cd8b5d7794be3a02f08e9fc2e75c06b33d389f61e12d1"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/road-after.webp",
+            "sha256": "2e4150422f98d9ec68ac0a526fdb82e9185e1c9fae81b0244c284d09279643e2"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "阿林与路敌沿用原角色图，不改变原阵营识别和地面比例。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/road.webp",
+            "sha256": "414ab597321a4a17fe3cd8b5d7794be3a02f08e9fc2e75c06b33d389f61e12d1"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "grove",
+      "name": "溪边旧径",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/grove-collision.webp",
+            "sha256": "b8915f606af41dc8e5cc67eb34a8bea0d26162849d6ac037bd3a1eb55341f0fa"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "草药标记和精英位于既有林缘，废窑入口有门框；精英交战区与普通草药调查可绕行。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/grove.webp",
+            "sha256": "3ac230f4bf640241a3ca0a08f13bdf2609e292407571c5b3db99ed5e09af129c"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/grove-after.webp",
+            "sha256": "18ac5d6bd2439b6eee7933859133f2ce97670750c66c5643cc82b168361db182"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "裂齿渠鼠保持原鼠躯干与脚锚，只加贴合口部骨齿；修正了首轮脱离身体的过大白刺。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/grove.webp",
+            "sha256": "3ac230f4bf640241a3ca0a08f13bdf2609e292407571c5b3db99ed5e09af129c"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "millpath",
+      "name": "旧磨坊小径",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/millpath-collision.webp",
+            "sha256": "b679d15d7a14609eb726efb81fbf99c127aef932390322cf5166687a25d2ce28"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "沿原回水支路添加巡检节点和原机芯任务线索；两出口与原树石保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/millpath.webp",
+            "sha256": "cbcaf79360593bfda5c7fd3008a39111fe52c2baede25e02efc348df9ebdd8b6"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/millpath-after.webp",
+            "sha256": "e4c0237cabe9b6062b7004f7e9c0709d6085ec5ac644a61a448afd23002ede21"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原NPC/狼与诺恩服装、体型和物种沿用；巡检阀门是场景机关，不做人形占位。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/millpath.webp",
+            "sha256": "cbcaf79360593bfda5c7fd3008a39111fe52c2baede25e02efc348df9ebdd8b6"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "echo",
+      "name": "回水机房",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/echo-collision.webp",
+            "sha256": "7ebda57f8876cd2ecb6627c42978daf402fa23fd07a8a0bea10df962a931a1fd"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "旧响石坡的守兽和原机芯位置保留，巡检不替代手取机芯；击败/刷新后原任务物仍独立。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/echo.webp",
+            "sha256": "6dbcf89bda77f1501471c479dc2b452a50704679f27d2e17ddf403f68fd9218e"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/echo-after.webp",
+            "sha256": "2ca978bdd1b82a6f47d86ae7d0ec598edc08ecebf5036fb210d4ce4f4a746965"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "灰脊守兽保留狼的背线、头与脚锚，灰脊细节贴在背部；原受击/死亡身体不变。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/echo.webp",
+            "sha256": "6dbcf89bda77f1501471c479dc2b452a50704679f27d2e17ddf403f68fd9218e"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "town",
+      "name": "白榆城",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/town-collision.webp",
+            "sha256": "8c18a1660ea3a0417c91aedd4de01d4f7f1893424612a810fd21a6fd443ee716"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "街镇原岗位保留，班次簿/门牌和东西灯路依附原城镇；检修道门框可见，修灯后折叠布架反馈可见。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/town.webp",
+            "sha256": "ed080d3518dd050c2101d52ca61523d22f880bac3f50cf16b66a57faa72c3e3a"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/town-after.webp",
+            "sha256": "0f2ff18dfce2385285f1dba6cac85fe84b82b6249af06b980f4e28baf2570591"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "托马、多莉及老人沿用现有世界像/对白；新增交互不冒用未知人的立绘。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/town.webp",
+            "sha256": "ed080d3518dd050c2101d52ca61523d22f880bac3f50cf16b66a57faa72c3e3a"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "workshop",
+      "name": "白榆修理铺",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/workshop-collision.webp",
+            "sha256": "17a850764fb0114fbd03e30a575970fe3610ca28090ad7f9ab70c8525407022b"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原修理铺增加缀纹工坊门框，绕原长凳的真实走路已通；未用隐藏传送替代拐角。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/workshop.webp",
+            "sha256": "90cfe3189771322d9dd2511a567775b3f4c66573a3f20d1432b8c7692a406257"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/workshop-after.webp",
+            "sha256": "4ab232cf1aadbb3a8e42c584a3a780c0f84915527af9095b3a293b2344f6fd54"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "铁匠与诺恩沿用原美术；新门在原场景地面，不覆盖NPC脚锚。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/workshop.webp",
+            "sha256": "90cfe3189771322d9dd2511a567775b3f4c66573a3f20d1432b8c7692a406257"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "alley",
+      "name": "北门小巷",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/alley-collision.webp",
+            "sha256": "5c41fa83aaf27eaf0f05b09d1bb4a53cf152f2f98bb65a1a2202e8201d4c5ff5"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原北门小巷及逃离通路保留，检修道返口有门框；不会绕过原水渠追缉官。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/alley.webp",
+            "sha256": "0659716d81d8027786809c87aa3a24abd93fa5c9c24d6ec06798890502f819e9"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/alley-after.webp",
+            "sha256": "ff3b319d1550fe0c2cf3d7b3476bfeaecbef7020698de3ca6d0731e280845c6a"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "护卫、艾莉娅和诺恩保持原剧情动作；圣女没有新增实战系统。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/alley.webp",
+            "sha256": "0659716d81d8027786809c87aa3a24abd93fa5c9c24d6ec06798890502f819e9"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "canal",
+      "name": "北门水渠",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/canal-collision.webp",
+            "sha256": "f34aa298cd6a8ae5f0c37e24646b07bbc23ddfc5b1514acf9478e32840b54ed6"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原追缉官战场保留；战后需开闸、在闸后藏身，随后原离城确认；闸门有状态前后对照。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/canal.webp",
+            "sha256": "eeb6170fea4a20bb9f9d7e784a3acdab4db0eb93d0509f7c6605c507e7f257e3"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/canal-after.webp",
+            "sha256": "a7d174cd5c0dd8412220e9c9e93c5f8805391d2295e4aa1af0b5d1050ef862dd"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "追缉官原独立图集和圣女原动作保持；收束只使用原对话框，无匿名影像或新增全屏CG。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/canal.webp",
+            "sha256": "eeb6170fea4a20bb9f9d7e784a3acdab4db0eb93d0509f7c6605c507e7f257e3"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+          }
+        ]
+      }
+    },
+    {
+      "id": "guestroom",
+      "name": "会馆客房",
+      "playability": {
+        "status": "pass",
+        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/NAVIGATION.json",
+            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/QA.json",
+            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/guestroom-collision.webp",
+            "sha256": "3c2c2397307a956ad82409894203f74d53d15e664c9c2ee28603995d587ae160"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
+            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+          },
+          {
+            "path": "docs/ch1-expansion/economy/ember-all_once.json",
+            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+          },
+          {
+            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
+            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原客房与会馆连接保持，接委托后的原形式私下对话接续新准备线；未新增匿名第三人。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/guestroom.webp",
+            "sha256": "a0997bc5935ff8f1ff0c653ddb45bc7c57c81e97f38c663bbd3176c50443e2c5"
+          },
+          {
+            "path": "docs/ch1-expansion/browser/guestroom-after.webp",
+            "sha256": "c8485c4b91c54d5bb2d48879558775efec4dc34982ce601328be632625b24b28"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "已知幕后人物保留薇蕾娜/鲁恩原立绘，圣女默认柔和原图见打包UI与原图哈希保护。",
+        "evidence": [
+          {
+            "path": "docs/ch1-expansion/browser/guestroom.webp",
+            "sha256": "a0997bc5935ff8f1ff0c653ddb45bc7c57c81e97f38c663bbd3176c50443e2c5"
+          },
+          {
+            "path": "dist/chapter-one-expansion-art.js",
+            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+          },
+          {
+            "path": "dist/chapter-one-expansion-world.js",
+            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+          },
+          {
+            "path": "dist/actor-art-v281.js",
+            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
           }
         ]
       }
     }
+  ],
+  "limits": [
+    "Pass applies to explicitly affected 16 maps and observed functions/visuals. Original 118-map registry regression is separate.",
+    "These judgments do not certify first-time human pacing or an entirely human-observed route.",
+    "Before/after browser images show interaction state changes in this build, not pre-development images; pre-development map data and hashes are retained separately."
   ]
 }
