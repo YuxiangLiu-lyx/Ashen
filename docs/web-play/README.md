@@ -1,3 +1,5 @@
+本轮0.6开发试玩包位于 `qa-export/c1-expansion-preview/Ashen-V28.1-Play.html`，文件名沿用历史，构建身份见同目录报告及site/BUILD.json。它尚未通过人类全过程观察与节奏验收；默认release-build仍保留上一0.5包。源码dist为0.6开发版；下方旧入口说明按历史理解。可玩内容与限制见[开发版摘要](../ch1-expansion/CHANGE_SUMMARY.md)。
+
 # 当前本地试玩与历史在线入口
 
 当前第一章0.4修订运行代码在 `dist/`。用 `python3 tools/serve.py` 启动；端口占用时指定 `--port 5174`，打开终端显示的地址。不要用固定历史链接核对当前代码。
