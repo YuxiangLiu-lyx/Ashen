@@ -64,4 +64,4 @@ Lab每职业、每遭遇、每资源条件各12种子；3职业×3成长路线×
 - 031打包发现真实回归：第二章快捷测试未生成。新增封墙/开闸后的原章节测试生成器未同步，已修复5f05e5f并将原7组回归纳入标准core；035包内入口通过。package/WEB_FAILURE.json与package-attempt1是原失败证据，当前成功看WEB_QA.json。
 - 033内容报告缺失使release退出1。现已补真实报告，节奏/人类观察仍不满足；不会为得到绿色而把它们改为pass。
 
-回滚方法与一页摘要见[CHANGE_SUMMARY.md](CHANGE_SUMMARY.md)。源代码和证据将正常保存GitHub main；这不是站点发布或最终内容验收。
+回滚方法与一页摘要见[CHANGE_SUMMARY.md](CHANGE_SUMMARY.md)。源代码和证据已正常保存GitHub main；这不是站点发布或最终内容验收。

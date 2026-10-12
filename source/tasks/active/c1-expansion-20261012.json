@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-12T08:37:39.182577+00:00",
-  "updated_at_utc": "2026-10-12T11:26:42.711328+00:00",
+  "updated_at_utc": "2026-10-12T11:30:19.583685+00:00",
   "decisions": [
     "采用新授权0.6；保留0.5刺杀与幕后、第二章0.3仅策划、旧重构继续暂停；六阶段按用户Prompt推进",
     "基线子命令全部退出0，但期间新增未接入模块使sources_changed_during_check=true，仅作改前运行证据，不作最终门禁；最终需重新验证",
@@ -33,17 +33,18 @@
     "集成全部通过：126项核心、1620次快照实战、7组浏览器专项；影刃正常输入在e98fa42通关第二章",
     "三职业正常新档均以真实键鼠连续完成前两章；当前严格验证器重载全部60份阶段存档保持地图/进度/等级/金币。",
     "四经济路线×三职业及三条一件紫装变体均续通第二章；1620次实际成长快照实战、两项章界奖励、满包/幂等/旧档/7组八章测试通过。",
-    "5f05e5f离线/HTTP/手机横屏包通过；独立038 fast30、039 core133、040 integration、041章界奖励、042地图三维通过，原件分卷全部验证。"
+    "5f05e5f离线/HTTP/手机横屏包通过；独立038 fast30、039 core133、040 integration、041章界奖励、042地图三维通过，原件分卷全部验证。",
+    "实现及全部开发验收证据ac5eb35已正常快进并推送GitHub main；ls-remote核对相等。可玩包源5f05e5f，本地http://127.0.0.1:5176/，网站未发布。"
   ],
   "remaining": [
     "人类完整正常输入观察与首次时长/净金币每分钟测量",
     "精英/追缉官节奏校准与低资源烬术师体验评估",
-    "内容通过后正式release及finish；本轮GitHub开发版保存"
+    "内容通过后正式release及finish"
   ],
   "blockers": [
     "用户需求13.2要求至少一条人类观察全过程，当前尚无此项记录"
   ],
-  "next": "审查staged/ignore/原始失败日志，正常快进main推送并ls-remote核验",
+  "next": "使用已验证开发包完成一条人类全过程观察，记录时长/操作停滞/战斗感受；按证据继续节奏校准，不能自动把pending改pass",
   "required_checks": [
     "fast",
     "core",
@@ -839,10 +840,10 @@
     {
       "name": "verification-delivery",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-12T11:26:42.681763+00:00",
-      "head_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+      "updated_at_utc": "2026-10-12T11:30:19.550339+00:00",
+      "head_commit": "ac5eb35bb3f6ca22a0310decd257b366120235f4",
       "source_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
-      "worktree": "M .codex/progress.md\n M README.md\n M docs/ch1-expansion/NAVIGATION.json\n M docs/ch1-expansion/PLAN.md\n M docs/ch1-expansion/browser/QA.json\n M docs/ch1-expansion/browser/alley-after.webp\n M docs/ch1-expansion/browser/alley-collision.webp\n M docs/ch1-expansion/browser/alley.webp\n M docs/ch1-expansion/browser/c1DrillGallery-after.webp\n M docs/ch1-expansion/browser/c1DrillGallery-collision.webp\n M docs/ch1-expansion/browser/c1DrillGallery-interaction.png\n M docs/ch1-expansion/browser/c1DrillGallery-touch.png\n M docs/ch1-expansion/browser/c1DrillGallery.webp\n M docs/ch1-expansion/browser/c1LoomRoom-after.webp\n M docs/ch1-expansion/browser/c1LoomRoom-collision.webp\n M docs/ch1-expansion/browser/c1LoomRoom-interaction.png\n M docs/ch1-expansion/browser/c1LoomRoom.webp\n M docs/ch1-expansion/browser/c1NorthWalk-after.webp\n M docs/ch1-expansion/browser/c1NorthWalk-collision.webp\n M docs/ch1-expansion/browser/c1NorthWalk-interaction.png\n M docs/ch1-expansion/browser/c1NorthWalk.webp\n M docs/ch1-expansion/browser/c1ReedKiln-after.webp\n M docs/ch1-expansion/browser/c1ReedKiln-collision.webp\n M docs/ch1-expansion/browser/c1ReedKiln-interaction.png\n M docs/ch1-expansion/browser/c1ReedKiln-touch.png\n M docs/ch1-expansion/browser/c1ReedKiln.webp\n M docs/ch1-expansion/browser/c1TrainingYard-after.webp\n M docs/ch1-expansion/browser/c1TrainingYard-touch.png\n M docs/ch1-expansion/browser/canal-after.webp\n M docs/ch1-expansion/browser/canal-collision.webp\n M docs/ch1-expansion/browser/canal.webp\n M docs/ch1-expansion/browser/echo-after.webp\n M docs/ch1-expansion/browser/echo-collision.webp\n M docs/ch1-expansion/browser/echo.webp\n M docs/ch1-expansion/browser/grove-after.webp\n M docs/ch1-expansion/browser/grove-collision.webp\n M docs/ch1-expansion/browser/grove.webp\n M docs/ch1-expansion/browser/hall-after.webp\n M docs/ch1-expansion/browser/hall-collision.webp\n M docs/ch1-expansion/browser/hall.webp\n M docs/ch1-expansion/browser/loom-1440.png\n M docs/ch1-expansion/browser/loom-390.png\n M docs/ch1-expansion/browser/loom-844.png\n M docs/ch1-expansion/browser/millpath-after.webp\n M docs/ch1-expansion/browser/millpath-collision.webp\n M docs/ch1-expansion/browser/millpath.webp\n M docs/ch1-expansion/browser/road-after.webp\n M docs/ch1-expansion/browser/road-collision.webp\n M docs/ch1-expansion/browser/road.webp\n M docs/ch1-expansion/browser/town-after.webp\n M docs/ch1-expansion/browser/town-collision.webp\n M docs/ch1-expansion/browser/town.webp\n M docs/ch1-expansion/browser/warehouse-after.webp\n M docs/ch1-expansion/browser/warehouse-collision.webp\n M docs/ch1-expansion/browser/warehouse.webp\n M docs/ch1-expansion/browser/workshop-after.webp\n M docs/ch1-expansion/browser/workshop-collision.webp\n M docs/ch1-expansion/browser/workshop.webp\n M docs/ch1-expansion/economy/ember-all_once.json\n M docs/ch1-expansion/economy/ember-main_only.json\n M docs/ch1-expansion/economy/ember-repeat_patrol.json\n M docs/ch1-expansion/economy/ember-typical.json\n M docs/ch1-expansion/economy/oath-all_once.json\n M docs/ch1-expansion/economy/oath-main_only.json\n M docs/ch1-expansion/economy/oath-repeat_patrol.json\n M docs/ch1-expansion/economy/oath-typical.json\n M docs/ch1-expansion/economy/shadow-all_once.json\n M docs/ch1-expansion/economy/shadow-main_only.json\n M docs/ch1-expansion/economy/shadow-repeat_patrol.json\n M docs/ch1-expansion/economy/shadow-typical.json\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-expansion-20261012.json\n?? docs/ch1-expansion/ACCEPTANCE.md\n?? docs/ch1-expansion/CHANGE_SUMMARY.md\n?? docs/ch1-expansion/CONTENT_ACCEPTANCE.json\n?? docs/ch1-expansion/ECONOMY_SUMMARY.json\n?? docs/ch1-expansion/LOCAL_PREVIEW.json\n?? docs/ch1-expansion/MAP_QUALITY.json\n?? docs/ch1-expansion/MAP_QUALITY_PREVIOUS.json\n?? docs/ch1-expansion/NATURAL_TIMING.json\n?? docs/ch1-expansion/REVIEW_NOTES.md\n?? docs/ch1-expansion/RUNTIME_CATALOG.json\n?? docs/ch1-expansion/SAVED_ROUTE_COMPATIBILITY.json\n?? docs/ch1-expansion/balance/ACTUAL_SNAPSHOTS.json\n?? docs/ch1-expansion/balance/CH1_END_STRESS.json\n?? docs/ch1-expansion/balance/SUMMARY.json\n?? docs/ch1-expansion/build-final.txt\n?? docs/ch1-expansion/build-run.txt\n?? docs/ch1-expansion/core-final.txt\n?? docs/ch1-expansion/economy/ember-all_once-one-epic.json\n?? docs/ch1-expansion/economy/oath-all_once-one-epic.json\n?? docs/ch1-expansion/economy/shadow-all_once-one-epic.json\n?? docs/ch1-expansion/integration-final.txt\n?? docs/ch1-expansion/integration-run.txt\n?? docs/ch1-expansion/natural/ember-final-corners/\n?? docs/ch1-expansion/natural/ember-restored-training/\n?? docs/ch1-expansion/natural/oath-final-corners/\n?? docs/ch1-expansion/natural/oath-restored-training/\n?? docs/ch1-expansion/natural/shadow-final-corners/\n?? docs/ch1-expansion/natural/shadow-final/\n?? docs/ch1-expansion/natural/shadow-restored-training/\n?? docs/ch1-expansion/package-attempt1/\n?? docs/ch1-expansion/package-final.txt\n?? docs/ch1-expansion/package-first-failure.txt\n?? docs/ch1-expansion/package/\n?? docs/ch1-expansion/verify-saved-routes.mjs\n?? docs/harness/evidence/c1-expansion-20261012/029-final-integration-and-natural.txt\n?? docs/harness/evidence/c1-expansion-20261012/030-final-corners-integration-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/031-final-core-shadow-and-package.txt\n?? docs/harness/evidence/c1-expansion-20261012/032-chapter-test-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/033-release.txt\n?? docs/harness/evidence/c1-expansion-20261012/034-preview-build.txt\n?? docs/harness/evidence/c1-expansion-20261012/035-packaged-ui.txt\n?? docs/harness/evidence/c1-expansion-20261012/036-retained-route-compatibility.txt\n?? docs/harness/evidence/c1-expansion-20261012/037-archive-integrity.txt\n?? docs/harness/evidence/c1-expansion-20261012/038-fast.txt\n?? docs/harness/evidence/c1-expansion-20261012/039-core.txt\n?? docs/harness/evidence/c1-expansion-20261012/040-integration.txt\n?? docs/harness/evidence/c1-expansion-20261012/041-second-chapter-rewards.txt\n?? docs/harness/evidence/c1-expansion-20261012/042-map-quality.txt\n?? docs/harness/evidence/c1-expansion-20261012/043-chapter-content-gate.txt"
+      "worktree": "M docs/ch1-expansion/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/ch1-expansion/GIT_SAVE.json"
     }
   ],
   "chapter_quality": "V01C01"
