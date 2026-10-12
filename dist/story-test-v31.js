@@ -67,13 +67,13 @@ function earlyStep(g){
  switch(g.chapter){
  case 0:
   if(!g.quests.rats){g.choose('ratsAccept');finishScenes(g);}
-  go(g,'warehouse');finishScenes(g);clear(g);use(g,'crack');finishScenes(g);
+  go(g,'warehouse');finishScenes(g);clear(g);for(const id of ['c1-wall-hole','c1-board','c1-wall-seal'])if(g.props.some(p=>p.id===id))use(g,id);use(g,'crack');finishScenes(g);
   go(g,'hall');g.choose('ratsDone');break;
  case 1:go(g,'hall');g.choose('contractAccept');break;
  case 2:go(g,'town');finishScenes(g);g.choose('pass');finishScenes(g);go(g,'chapel');finishScenes(g);g.choose('observe');break;
  case 3:go(g,'canal');finishScenes(g);if(!g.flags.captainStarted)g.apply('captain');clear(g);break;
  case 4:{
-  go(g,'canal');clear(g);g.requestDeparture();approach(g,MAPS.canal.doors.find(d=>d.to==='end'));
+  go(g,'canal');clear(g);for(const id of ['c1-sluice','c1-hideout'])if(g.props.some(p=>p.id===id)){use(g,id);finishScenes(g);}g.requestDeparture();approach(g,MAPS.canal.doors.find(d=>d.to==='end'));
   if(!g.confirmDeparture())throw Error('离城准备尚未完成。');break;
  }
  case 5:g.enter('post',...entry('post'));break;

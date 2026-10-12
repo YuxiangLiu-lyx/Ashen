@@ -93,7 +93,7 @@ def main():
     if args.tier in ['core', 'integration', 'release']:
         assets()
         commands += [[sys.executable, 'tools/harness/runtime_audit.py'],
-                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs', 'tests/world-v29.test.mjs', 'tests/chapter-one-v30.test.mjs', 'tests/chapter23-v30.test.mjs', 'tests/chapter123-v30.test.mjs','tests/chapter-one-incremental.test.mjs','tests/chapter-one-expansion.test.mjs','tests/chapter-one-crafting.test.mjs','tests/chapter-one-elites.test.mjs','tests/chapter-one-economy.test.mjs']]
+                     ['node', '--test', 'tests/presentation-v281.test.mjs', 'tests/balance-lab.test.mjs', 'tests/world-v29.test.mjs', 'tests/chapter-one-v30.test.mjs', 'tests/chapter23-v30.test.mjs', 'tests/chapter123-v30.test.mjs','tests/chapter-one-incremental.test.mjs','tests/chapter-one-expansion.test.mjs','tests/chapter-one-crafting.test.mjs','tests/chapter-one-elites.test.mjs','tests/chapter-one-economy.test.mjs','tests/chapter-test.test.mjs']]
     if args.tier in ['integration', 'release']:
         commands += [['node', 'tools/balance_lab/chapter-one.mjs'], ['node', 'tests/browser-presentation-v281.mjs'], ['node', 'tests/browser-balance-lab.mjs'],
                      ['node', 'tests/browser-world-v29.mjs'], ['node', 'tests/browser-chapter-one-v30.mjs'], ['node', 'tests/browser-chapter23.mjs'], ['node', 'tests/browser-chapter123.mjs'], ['node','tests/browser-chapter-one-expansion.mjs']]
