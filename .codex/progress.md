@@ -314,17 +314,17 @@
 
 <!-- task:serve-loading-20261012 -->
 ## 任务 serve-loading-20261012
-- 状态：in_progress
-- 更新：2026-10-12T06:13:20.032209+00:00
-- 下一步：提交本地入口修复和验收证据
-- 任务记录：source/tasks/active/serve-loading-20261012.json
-- 已完成：真实5174入口基线通过正常新游戏/前两章测试；注入模块请求失败复现整页空白，图片失败无可见重试。首次基线fixture在暂停自动保存前取值导致误报，已修正并保留失败日志。；本地入口共享既有加载器，源码响应禁用旧缓存；4项HTTP回归与真实5174桌面/移动端浏览器故障恢复通过，200个打包模块与原实现逐字节相同；fast含28项Harness检查通过；23项表现回归通过；4项HTTP与真实5174桌面/移动端和双故障恢复通过；打包200模块与原实现逐字节一致
-- 待完成：GitHub main保存与远端核验；收尾归档
+- 状态：complete
+- 更新：2026-10-12T06:14:39.425254+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/serve-loading-20261012.json
+- 已完成：真实5174入口基线通过正常新游戏/前两章测试；注入模块请求失败复现整页空白，图片失败无可见重试。首次基线fixture在暂停自动保存前取值导致误报，已修正并保留失败日志。；本地入口共享既有加载器，源码响应禁用旧缓存；4项HTTP回归与真实5174桌面/移动端浏览器故障恢复通过，200个打包模块与原实现逐字节相同；fast含28项Harness检查通过；23项表现回归通过；4项HTTP与真实5174桌面/移动端和双故障恢复通过；打包200模块与原实现逐字节一致；实现和验收提交f060ab9已推送GitHub main，ls-remote与本地HEAD一致；修复后的5174服务已启动；当前状态与Git回执已落盘
+- 待完成：无
 - 决定：全新Chrome可加载原始入口：292响应无失败；用户原始卡点尚未复现。发现serve直接使用无启动提示的dist入口，并发解码全部图集；离线/打包入口已有4路加载队列与错误提示。采用共享现有启动包装，不改游戏规则与美术。；用户确认整页空白/黑屏；故障注入复现同类症状，但不声称已确定其浏览器原始网络/缓存原因。；本轮仅修改本地服务器和共享打包入口；无dist/地图/美术改动，采用fast＋HTTP＋实际CLI浏览器＋原表现回归，不执行完整release或网站发布。
 - 阻塞：无
 - 阶段 reproduce：complete；HEAD c195c96021b6d35105e38223b00009e6ee69acd1
 - 阶段 implementation：complete；HEAD c195c96021b6d35105e38223b00009e6ee69acd1
 - 阶段 validation：complete；HEAD c195c96021b6d35105e38223b00009e6ee69acd1
-- 阶段 delivery：in_progress；HEAD c195c96021b6d35105e38223b00009e6ee69acd1
+- 阶段 delivery：complete；HEAD f060ab99b22a1d7c004893cc2508034d328bb0e1
 - 最近检查：presentation，退出码 0；docs/harness/evidence/serve-loading-20261012/007-presentation.txt
 <!-- /task:serve-loading-20261012 -->
