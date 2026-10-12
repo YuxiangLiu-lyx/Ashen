@@ -53,7 +53,7 @@ export function drawC1Prop(c,bank,g,p){if(!p.action?.startsWith('c1:'))return fa
 }
 export function drawC1Telegraph(c,t){if(!t)return;c.save();c.fillStyle='#e6aa553d';c.strokeStyle='#f5cc87';c.lineWidth=3;c.translate(t.x,t.y);c.beginPath();if(t.shape==='circle')c.arc(0,0,t.r,0,Math.PI*2);else if(t.shape==='cone'){c.moveTo(0,0);c.arc(0,0,t.r,t.a-t.arc,t.a+t.arc);c.closePath();}else{c.rotate(t.a);c.rect(0,-t.width/2,t.length,t.width);}c.fill();c.stroke();c.restore();}
 export function drawC1World(c,g,bank){const h=g.c1Expansion?.worldChanges||{};
- if(bank&&!C1_NEW_MAPS.includes(g.map))for(const d of g.doors)if(d.c1Door)bank.draw(c,'chapterArchitecture',3,d.x,d.y+6,100,120);
+ if(bank&&!C1_NEW_MAPS.includes(g.map))for(const d of g.targets())if(d.c1Door)bank.draw(c,'chapterArchitecture',3,d.x,d.y+6,100,120);
  if(bank&&g.map==='c1NorthWalk'&&h.plank){c.save();c.translate(750,540);c.rotate(Math.PI/2);bank.draw(c,'chapterArchitecture',7,0,95,105,190);c.restore();}
  if(g.map==='c1ReedKiln'){c.fillStyle='#151c1e';c.fillRect(140,620,225,55);c.fillStyle='#314348';c.fillRect(145,630,215,35);c.strokeStyle='#8a836750';c.lineWidth=3;c.beginPath();c.moveTo(145,625);c.lineTo(365,625);c.moveTo(145,670);c.lineTo(365,670);c.stroke();if(h.kilnLadder){c.strokeStyle='#b49b6e';c.lineWidth=7;for(const x of [245,305]){c.beginPath();c.moveTo(x,609);c.lineTo(x,685);c.stroke();}c.lineWidth=4;for(let y=620;y<680;y+=14){c.beginPath();c.moveTo(245,y);c.lineTo(305,y);c.stroke();}}}
  if(g.map==='c1ReedKiln'&&h.kilnExhaust){c.strokeStyle='#bbd2c26b';c.lineWidth=2;for(let i=0;i<8;i++){c.beginPath();c.moveTo(430+i*6,760);c.quadraticCurveTo(780,540,880+i*4,280);c.stroke();}}
