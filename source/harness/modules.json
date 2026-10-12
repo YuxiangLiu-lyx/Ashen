@@ -573,9 +573,17 @@
         "恢复",
         "验收",
         "集成",
-        "资源完整性"
+        "资源完整性",
+        "serve.py",
+        "本地启动",
+        "加载失败",
+        "黑屏",
+        "空白"
       ],
       "entries": [
+        "tools/serve.py",
+        "tools/web_runtime.py",
+        "web/launcher.html",
         "tools/restore_archives.py",
         "tools/build_web_play.py",
         "tests/browser-presentation-v281.mjs",
@@ -584,7 +592,9 @@
       "patterns": [
         "tools/*.py",
         "tests/browser*",
-        ".github/workflows/*"
+        ".github/workflows/*",
+        "web/*.html",
+        "tests/test_local_serve.py"
       ],
       "rules": [
         "docs/harness/GIT_SAVE.md",
@@ -595,7 +605,8 @@
       "tests": [
         "python3 tools/harness/check.py --tier fast",
         "node --test tests/presentation-v281.test.mjs",
-        "python3 tools/harness/check.py --tier release"
+        "python3 tools/harness/check.py --tier release",
+        "python3 tests/test_local_serve.py"
       ]
     },
     {

@@ -47,7 +47,7 @@ def digest(path):
 def inventory(root=ROOT):
     """Versioned discovery inputs; excludes generated index, receipts and task records."""
     files = set()
-    for pattern in ['dist/*.js', 'dist/*.css', 'dist/*.html', 'tools/**/*.py',
+    for pattern in ['dist/*.js', 'dist/*.css', 'dist/*.html', 'web/*.html', 'tools/**/*.py',
                     'tools/**/*.mjs', 'tests/**/*.py', 'tests/**/*.mjs', 'tests/fixtures/*.json',
                     '.agents/skills/*/SKILL.md', '.github/workflows/*.yml',
                     'docs/harness/*.md', 'docs/balance-lab/*.md', 'source/harness/modules.json',

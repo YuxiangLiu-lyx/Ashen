@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "cd630f46be5f3aafdbce99147c10c5da327d6928",
-  "source_fingerprint": "2117b552da4e8e2145c7c7e31008ab36b403381cc38b19c2cb698adc860529f9",
+  "basis_commit": "c195c96021b6d35105e38223b00009e6ee69acd1",
+  "source_fingerprint": "2aa59e167a21a90fd89795675639303e055bde31b5045393705c21feb4437587",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "553b4d0ef2e67414b060b94fa6c890226f2855f50ccafa77659be2d8ee83f2bb",
@@ -6385,8 +6385,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "5fa81c635bad991f4c2bb325357c3a82309e253d5309cce1a8e7a76a37e007c7",
-      "bytes": 20540,
+      "sha256": "840c845ff161da1db07a4b3eae678764241383b8c294c592ba13ba1deb9092e2",
+      "bytes": 20835,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6678,6 +6678,15 @@
         "water",
         "waterScene"
       ],
+      "modules": [
+        "build"
+      ]
+    },
+    "tests/browser-local-serve.py": {
+      "sha256": "c2f902025035b497b02f80e4a860b1f63bbc2754463236db0851a8bc1fdf3949",
+      "bytes": 8182,
+      "imports": [],
+      "symbols": [],
       "modules": [
         "build"
       ]
@@ -7096,6 +7105,18 @@
       ],
       "modules": []
     },
+    "tests/test_local_serve.py": {
+      "sha256": "02230817a94404364546d0c8fab07a5356f7de4d4952e084bc480c495b4cef9d",
+      "bytes": 4574,
+      "imports": [],
+      "symbols": [
+        "LocalServeTests",
+        "sample"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tests/world-v29.test.mjs": {
       "sha256": "b3cc311fcd037dc8165cbbbdaf461888b082b4f5365eda9e354bad68178166b2",
       "bytes": 8962,
@@ -7367,19 +7388,15 @@
       ]
     },
     "tools/build_web_play.py": {
-      "sha256": "8a04d0b37577c48302b3d344dc501f1442a79c3bf6da34b0b19395c2f14539ee",
-      "bytes": 10046,
+      "sha256": "a0d1e4a154c0a7a193db722abea14392e98de17b48ee48179caa22af8be27517",
+      "bytes": 8015,
       "imports": [],
       "symbols": [
         "app",
         "imports",
         "map",
         "packed",
-        "pendingLoads",
-        "rs",
-        "shareGame",
-        "style",
-        "url"
+        "style"
       ],
       "modules": [
         "build"
@@ -7404,8 +7421,8 @@
       ]
     },
     "tools/harness/common.py": {
-      "sha256": "8740c0a9caef13a6ed83c026d652773106a3a1a929e5b6534bc96d77401c0fe8",
-      "bytes": 2561,
+      "sha256": "123aea3978b65dbae43bcbd1ffeed61b860f9c8e212970a782bdc9e2906a12d1",
+      "bytes": 2575,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7501,10 +7518,12 @@
       "modules": []
     },
     "tools/serve.py": {
-      "sha256": "22884b38d29fea5984ec921654e3ac736649fb7768921a55fcdd924595439d79",
-      "bytes": 1001,
+      "sha256": "bad8de4fb90f39fed4ec5a4ca14b52dfb5b850b398bef19b59457b1a1b5de804",
+      "bytes": 4376,
       "imports": [],
-      "symbols": [],
+      "symbols": [
+        "GameRequestHandler"
+      ],
       "modules": [
         "build"
       ]
@@ -7523,6 +7542,20 @@
       "bytes": 9067,
       "imports": [],
       "symbols": [],
+      "modules": [
+        "build"
+      ]
+    },
+    "tools/web_runtime.py": {
+      "sha256": "fd171642454fcda718f51ed0e5dbc109ce3f1eebe4316c6d3aa34f86555fcb04",
+      "bytes": 2385,
+      "imports": [],
+      "symbols": [
+        "pendingLoads",
+        "rs",
+        "shareGame",
+        "url"
+      ],
       "modules": [
         "build"
       ]
@@ -7550,6 +7583,22 @@
         "x"
       ],
       "modules": []
+    },
+    "web/launcher.html": {
+      "sha256": "6bda2ca15e2e3e3e4a46497143ab58ddca898cd705f2dab80856d8afc0378f3c",
+      "bytes": 4969,
+      "imports": [],
+      "symbols": [
+        "bar",
+        "binary",
+        "boot",
+        "el",
+        "p",
+        "packed"
+      ],
+      "modules": [
+        "build"
+      ]
     }
   },
   "core_installer_order": [

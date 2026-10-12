@@ -582,5 +582,29 @@
     "remote_verified_at_utc": "2026-10-11T10:04:16.843102+00:00",
     "git_receipt": "docs/ch12-portrait-bugs/GIT_SAVE.json",
     "task_record": "source/tasks/archive/ch12-portrait-bugs-20261011.json"
+  },
+  "local_serve_fix": {
+    "task_id": "serve-loading-20261012",
+    "development_date_local": "2026-10-12",
+    "status": "verified_pending_git_save",
+    "command": "python3 tools/serve.py --port 5174",
+    "url": "http://127.0.0.1:5174/",
+    "loading": "existing web launcher, four concurrent atlas loads, visible errors and retry",
+    "cache": "no-store for current HTML/JS/CSS; original images retain conditional caching",
+    "shared_packaged_module_outputs_byte_identical": 200,
+    "original_runtime_source_unchanged": true,
+    "saves_unchanged": true,
+    "browser_qa": "docs/local-serve/fixed/BROWSER_QA.json",
+    "baseline": "docs/local-serve/baseline-confirmed/BROWSER_QA.json",
+    "acceptance": "docs/local-serve/ACCEPTANCE.md",
+    "git_receipt": "docs/local-serve/GIT_SAVE.json",
+    "limits": "Clean browser originally loaded successfully; injected required-module failure reproduced blank page. Original user browser cache/request failure not identified. No full campaign replay, offline package replacement or website publication.",
+    "checked_at_utc": "2026-10-12T06:12:39.047524+00:00",
+    "checks": {
+      "fast_harness_tests": 28,
+      "presentation_tests": 23,
+      "http_tests": 4,
+      "browser_cases": 4
+    }
   }
 }

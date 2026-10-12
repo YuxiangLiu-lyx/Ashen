@@ -7,31 +7,10 @@ from __future__ import annotations
 import argparse, base64, concurrent.futures, hashlib, io, json, re, shutil, subprocess
 from pathlib import Path
 from PIL import Image
+from web_runtime import require_replace, source_modules
 
 ROOT = Path(__file__).resolve().parents[1]
 SHA = lambda b: hashlib.sha256(b).hexdigest()
-
-def require_replace(source: str, old: str, new: str) -> str:
-    if source.count(old) != 1:
-        raise ValueError(f'Expected one build hook, found {source.count(old)}: {old[:90]}')
-    return source.replace(old, new, 1)
-
-def source_modules(dist: Path) -> dict[str, str]:
-    modules = {p.name: p.read_text(encoding='utf-8') for p in sorted(dist.glob('*.js'))}
-    v = modules['visuals-v14.js']
-    v = require_replace(v, ' async load(name,url,cols=1,rows=1,key=false){',
-        " async load(...args){return globalThis.__ASHEN_WEB__.run(async()=>{args[1]=globalThis.__ASHEN_WEB__.asset(args[1]);try{await this.loadWebOriginal(...args);globalThis.__ASHEN_WEB__.done();}catch(error){throw new Error('素材 '+args[0]+' 未能加载：'+error.message);}});}\n async loadWebOriginal(name,url,cols=1,rows=1,key=false){")
-    modules['visuals-v14.js'] = v
-    modules['story-illustrations-v19.js'] = modules['story-illustrations-v19.js'].replace('art.src', 'globalThis.__ASHEN_WEB__.asset(art.src)')
-    g = modules['game-v14.js']
-    g = require_replace(g, 'const rs=await Promise.allSettled([', 'const pendingLoads=[')
-    g = require_replace(g, "]);if(rs.some(r=>r.status==='rejected'))", "];globalThis.__ASHEN_WEB__.begin(pendingLoads.length);const rs=await Promise.allSettled(pendingLoads);if(rs.some(r=>r.status==='rejected'))")
-    g = require_replace(g, "toast('有场景未能载入，请刷新重试。');return;", "throw new Error(rs.filter(r=>r.status==='rejected').map(r=>r.reason?.message||String(r.reason)).join('\\n'));")
-    g = require_replace(g, 'warmPaintedFX(bank);assetsReady=true;', 'warmPaintedFX(bank);assetsReady=true;globalThis.__ASHEN_WEB__.finish();')
-    g = require_replace(g, 'init();requestAnimationFrame(loop);', 'init().catch(error=>globalThis.__ASHEN_WEB__.fail(error));requestAnimationFrame(loop);')
-    g = require_replace(g, 'async function shareGame(){const url=', "async function shareGame(){if(location.protocol==='file:'){toast('这是离线试玩网页。请直接分享下载的 HTML 文件。');return;}const url=")
-    modules['game-v14.js'] = g
-    return modules
 
 def encode_asset(p: Path, dist: Path, cache: Path) -> tuple[str, bytes, str, dict]:
     rel = p.relative_to(dist).as_posix(); raw = p.read_bytes(); digest = SHA(raw)
@@ -60,7 +39,7 @@ def build(output: Path, workers: int = 4) -> dict:
     modules = source_modules(dist)
     version = str(json.loads((ROOT/'source/CURRENT_STATE.json').read_text())['product_version'])
     source_commit = subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
-    source_dirty = bool(subprocess.check_output(['git','status','--porcelain','--','dist','web','tools/build_web_play.py','source/CURRENT_STATE.json'],cwd=ROOT,text=True).strip())
+    source_dirty = bool(subprocess.check_output(['git','status','--porcelain','--','dist','web','tools/build_web_play.py','tools/web_runtime.py','source/CURRENT_STATE.json'],cwd=ROOT,text=True).strip())
     template = (ROOT / 'web/launcher.html').read_text(encoding='utf-8').replace('V28.1','V'+version).replace("version:'28.1'",'version:'+json.dumps(version))
     styles = re.findall(r'href="([^"]+\.css)"', (dist/'index.html').read_text())
     css = '\n'.join((dist/name).read_text(encoding='utf-8') for name in styles)
