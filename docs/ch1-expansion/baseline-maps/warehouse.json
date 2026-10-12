@@ -1,0 +1,219 @@
+{
+  "name": "旧库房",
+  "sub": "木板下面传来抓挠声",
+  "atlas": "interior",
+  "cell": 1,
+  "doors": [
+    {
+      "x": 170,
+      "y": 540,
+      "to": "hall",
+      "tx": 1340,
+      "ty": 520,
+      "label": "灰烛会馆"
+    }
+  ],
+  "npcs": [],
+  "spawns": [
+    [
+      "rat",
+      660,
+      400
+    ],
+    [
+      "rat",
+      800,
+      570
+    ],
+    [
+      "rat",
+      1020,
+      430
+    ],
+    [
+      "rat",
+      1140,
+      700
+    ],
+    [
+      "rat",
+      660,
+      780
+    ],
+    [
+      "rat",
+      1250,
+      450
+    ]
+  ],
+  "props": [
+    {
+      "id": "crack",
+      "type": "crate",
+      "x": 1270,
+      "y": 210,
+      "label": "松动的墙板",
+      "action": "crack",
+      "interactX": 1270,
+      "interactY": 290,
+      "flat": true
+    },
+    {
+      "id": "oil",
+      "type": "crate",
+      "x": 390,
+      "y": 290,
+      "label": "备用灯油",
+      "action": "oil"
+    },
+    {
+      "id": "frost",
+      "type": "book",
+      "x": 1250,
+      "y": 850,
+      "label": "潮湿的书箱",
+      "action": "frostBook",
+      "flat": true
+    },
+    {
+      "id": "wbox1",
+      "type": "crate",
+      "x": 480,
+      "y": 760
+    },
+    {
+      "id": "wbox2",
+      "type": "pot",
+      "x": 980,
+      "y": 830
+    },
+    {
+      "id": "wbox3",
+      "type": "crate",
+      "x": 400,
+      "y": 500
+    }
+  ],
+  "blocks": [
+    [
+      0,
+      0,
+      1600,
+      190
+    ],
+    [
+      0,
+      900,
+      690,
+      180
+    ],
+    [
+      930,
+      925,
+      670,
+      155
+    ],
+    [
+      0,
+      190,
+      145,
+      245
+    ],
+    [
+      0,
+      655,
+      145,
+      245
+    ],
+    [
+      1480,
+      190,
+      120,
+      710
+    ],
+    [
+      525,
+      215,
+      190,
+      60
+    ],
+    [
+      765,
+      215,
+      190,
+      60
+    ],
+    [
+      438,
+      520,
+      154,
+      50
+    ],
+    [
+      920,
+      500,
+      110,
+      85
+    ],
+    [
+      1040,
+      750,
+      130,
+      40
+    ],
+    [
+      602,
+      636,
+      96,
+      29
+    ]
+  ],
+  "encounters": [
+    {
+      "groupId": "v9-stock-tutorial",
+      "bounds": [
+        570,
+        330,
+        770,
+        520
+      ],
+      "size": 6,
+      "danger": "tutorial",
+      "refresh": "never",
+      "storyWave": true,
+      "spawnIds": [
+        "warehouse-0",
+        "warehouse-1",
+        "warehouse-2",
+        "warehouse-3",
+        "warehouse-4",
+        "warehouse-5"
+      ],
+      "types": [
+        "rat"
+      ],
+      "count": [
+        6,
+        6
+      ],
+      "area": [
+        570,
+        330,
+        770,
+        520
+      ],
+      "center": [
+        955,
+        590
+      ],
+      "spread": [
+        360,
+        235
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": true
+    }
+  ],
+  "worldV4": true
+}

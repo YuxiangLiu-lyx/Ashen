@@ -1,0 +1,51 @@
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (14.497375ms)
+✖ preview does not roll or consume; all recipe/rune ranges match actual stats (0.31775ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (2.546ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.491708ms)
+✖ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (1.110917ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.548333ms)
+ℹ tests 6
+ℹ suites 0
+ℹ pass 4
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 145.526
+
+✖ failing tests:
+
+test at tests/chapter-one-crafting.test.mjs:8:1
+✖ preview does not roll or consume; all recipe/rune ranges match actual stats (0.31775ms)
+  TypeError: Cannot read properties of undefined (reading 'crafting')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-crafting.test.mjs:8:301)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/chapter-one-crafting.test.mjs:11:1
+✖ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (1.110917ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 0.61
+  - 0.6099999999999999
+       ^
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-crafting.test.mjs:11:615)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0.61,
+    expected: 0.6099999999999999,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

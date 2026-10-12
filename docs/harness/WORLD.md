@@ -9,3 +9,8 @@ world/各 chapter-world 配置及 scene-geometry、presentation-physics 控制�
 2026-10-10用户要求保留已有地图和人物优化，撤下第一章新增分镜式剧情。现行范围见 [CHAPTER_01](CHAPTER_01.md)：追兵独立图集、成人比例/脚锚、地图表现和井沿交互修复保持；不新增几何或移动任务目标。0.5幕后使用原对话框和薇蕾娜/鲁恩原立绘，新增匿名神秘人删除；圣女默认立绘改为封面柔和形象，无新场所图。旧分镜开发prompt已从现行Harness移除。
 
 每次实际地图/人物美术修改继续分别执行[三维验收](MAP_QUALITY.md)。当前运行以1cefe80为底稿并保留后续人物/地图局部优化，不安装已撤回的spatial重构；现场及回滚验收见[回滚记录](../rollback-v30/ACCEPTANCE.md)。这些历史现场不构成本轮恢复开发的指令。
+
+
+## 第一章0.6采用范围（2026-10-12）
+
+本次明确授权118→123图：hall↔c1TrainingYard↔c1DrillGallery↔warehouse、workshop↔c1LoomRoom、town↔c1NorthWalk↔alley、grove↔c1ReedKiln。北渠不能绕过原水渠Boss。旧图只追加列明入口/互动，原碰撞与其他章通路保护；新图按物理/用途/角色三维分别取证。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。

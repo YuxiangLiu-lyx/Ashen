@@ -1,0 +1,719 @@
+{
+  "status": "budget_limited",
+  "task": "首章任务 制作 符文 精英掉落 经济 存档 地图",
+  "basis_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+  "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+  "modules": [
+    "economy",
+    "gear",
+    "maps"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/ECONOMY.md",
+      "reasons": [
+        "economy: current constraints",
+        "gear: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "9f24567bafb4841905ca0d9f7230fe8402b17d71d3bc1942b38701dd0be6a3d4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 经济与奖励约束",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "V28 1%是在原 loot 方法后追加的独立抽样，不取代普通掉落。storyTag/trialFloor/v11Add排除；bag/gear/pendingRewards 的同 ID 排重；每敌人只 roll 一次。tier=max(玩家等级,敌人等级)；生成时 v28Tier 可能与击杀时重新计算的掉落池不同。池只含重新计算层和前层，但不保证按章节封顶。满包普通 gear 会折10金，专属 ID 的处理须看 obtainGear 的真实判断。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "章节拥有自己的持久 RNG seed，战斗用 g.rng。经济 Lab 的路径是明确列出的事件序列与资源假设；只分析真实 reward/pay/XP/loot 结算，不声称已验证任务可达、所有材料来源或八章通关。失败消耗由路径配置指定，再交给真实 potion/action 方法执行。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1155
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "gear: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "6b9bbf3b882aac7f01f26af441b62efdb6c8c8e64060d3f285817ad07fa229a8",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "V28 调整生成与旧档敌人生命比例、伤害倍率、经验/金币和独立1%额外掉落。实际 tier 使用玩家等级与敌人等级的最大值，三个等级一区间，19–22为第七层，23起第八层；不按章节。已有高等级玩家回旧图会进入高层池，这是既有边界，未经授权不得修掉或描述成章节限定。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1564
+    },
+    {
+      "path": "docs/harness/EXPLORATION.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c2f289b62054a96022553a8e802ab72ec65ff364ac10388b6c63200e032aaa7e",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "V29仅重新设计road/millpath/echo/workshop，地图与出口坐标系仍1600×1080。其他114图不据此认定已经重构。配置在configureWorld最后执行；world-runtime在表现/碰撞installer之后安装。布局/路线/地标在world-design，渲染在world-art，新对白在world-dialogues；不得在核心循环重复堆特例。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "V30按用户要求取消短操作等待。worldInteractionV29仍显式接入，站在interactX/Y附近且clearLine才执行，朝向物件后当次调用原useProp；不生成计时环、不锁移动和存档。距离/隔墙/清场/笔记/一次性领取条件仍有效，短暂环境反馈保存在WeakMap。纯装饰不加入targets。向其他图推广前要验证交互点在物件碰撞外、实际截图和既有结果；客房三项既有交互同样即时进入原结果。V29等待设计为历史行为，不能重新覆盖用户当前授权。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "验证：world-v29.test.mjs + browser-world-v29.mjs。后者在隔离档中一次建立Lv3旧短刃起点，后续真实更新、普通战斗、鼠标/键盘交互、地图门与读档；不得偷偷伤害敌人或免伤后声称正常通关。--baseline仅全景截图，--audit-only抓其他代表图，不运行任务。world_audit用真实碰撞的网格泛洪和活动半径作诊断，quiet估计不是实测游玩时间；不能用最大密度优化覆盖率。所有视觉验收另看图，错误/初稿也保留在docs/v29。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "V30第二、三章接续：chapter23-design/art-v30显式覆盖9+14图，复用原图；不改变地图几何与敌群。灰桥v9-bridge-water交互锚点由(1040,525)修到(1040,495)，ensureMap/restore对已访问旧图同步该坐标，保留领取、死亡与used。历史导航基线仍保留，测试只精确消除该条已修复诊断；其余网格/诊断逐项核对。chapter23专项/真实浏览器画廊纳入core/integration。详情docs/chapter23/ACCEPTANCE.md。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3302
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "eb464b03845792aba284ca6fafe460a36740ba97d39a52262eab8c91debaea82",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用地图布局、碰撞、路径、NPC岗位、场景渲染和人物资源修改，包括小改动。读取受影响地图及其调用者；保留改前证据。三项均须单独完成，任何失败或未知均不能用其他项抵消。自动脚本只检查几何事实和证据完整性，不声称能自动判断审美。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "2. **场景可信度 scene_credibility**：实际游戏分辨率全图及局部对照，说明地理、道路/建筑用途、物件为什么在此、主次与留白、NPC岗位/停顿/活动依据。禁止随机堆物作为主要布局逻辑；每种地图保留自己的结构节奏。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "`python3 tools/harness/map_quality.py --base <任务基线>` 验证当前源码、改动覆盖和证据哈希；task.py finish 对真实地图/美术改动自动调用该校验，即使未手动声明必需检查也不能绕过。check.py --recommend 自动推荐三维检查。代码、资源或证据改变后需重新检查相关维度并更新记录。历史回执不覆盖，LATEST只是当前证据索引。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2306
+    },
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "0d394bbeabc9bf5aa1a0d0fba4672f4d06bd2bea0eb583191b3f6395bb3c3895",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 地图与资产约束",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "world/各 chapter-world 配置及 scene-geometry、presentation-physics 控制真实地图/足部碰撞；visuals/art/actor-art/equipment-art 控制绘制。地图表现任务默认不改战斗或经济。118地图和封锁出口基线在 tests/fixtures/v28-navigation.json；原本锁住的出口不能改成新增问题，也不能通过更改基线掩盖回归。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "已有回归包含图集哈希、正式渲染器画廊、地图和章节回放；它们不是完整八章人工通关。改动资产后检查 preload/HTML/离线构建与引用完整性。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "2026-10-10用户要求保留已有地图和人物优化，撤下第一章新增分镜式剧情。现行范围见 [CHAPTER_01](CHAPTER_01.md)：追兵独立图集、成人比例/脚锚、地图表现和井沿交互修复保持；不新增几何或移动任务目标。0.5幕后使用原对话框和薇蕾娜/鲁恩原立绘，新增匿名神秘人删除；圣女默认立绘改为封面柔和形象，无新场所图。旧分镜开发prompt已从现行Harness移除。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "每次实际地图/人物美术修改继续分别执行[三维验收](MAP_QUALITY.md)。当前运行以1cefe80为底稿并保留后续人物/地图局部优化，不安装已撤回的spatial重构；现场及回滚验收见[回滚记录](../rollback-v30/ACCEPTANCE.md)。这些历史现场不构成本轮恢复开发的指令。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1774
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 38,
+          "text": "本地23项 Node 测试通过，包括所有118张地图注册/已开放出口、9个后续章节/职业检查点构造与读档、27段医疗/坐席/第八章演出路由、24件装备映射、5张图集 SHA256、碰撞和步态。地图审计以V28真实基线导出，不把原来就有的封锁出口当作新增问题。",
+          "truncated": false
+        },
+        {
+          "line": 44,
+          "text": "没有逐段人工通关全部八章；自动检查通过不等于每个动态战斗或任意存档均已穷尽验证。没有重新绘制全部怪物/职业/装备帧，也没有恢复此前缺失的原始开发 Git 历史。GitHub同步与原试玩网站发布分开，本轮不自动部署原站。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4137
+    },
+    {
+      "path": "dist/chapter5-economy-v14.js",
+      "reasons": [
+        "economy: task matched 经济, 制作; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "c20eb1f13c86a54b858d9c60731c60dd4c5e30fed6a92c6b862532c2d4447d7f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Pure data; safe to import from growth without a runtime/data circular import.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const CH5_MATERIALS={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " ch5GoldSand:{name:'残温金砂',kind:'material',desc:'星屑矿庭与空甲中留下的细金砂，用于铸造职业套装。',sell:3,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " ch5LampCore:{name:'凝灯芯',kind:'material',desc:'亡灵的灯火凝成的芯，用于调药、换取技法与契约。',sell:3,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " ch5Dew:{name:'穹顶凝露',kind:'material',desc:'凝露水院收集的净露。再回到水院时，收集器可能重新积满。',sell:2,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " ch5PrizeCoin:{name:'回铃铜券',kind:'currency',desc:'三盏回铃的奖券；仅在游艺厅兑换物品，没有现金用途。',sell:0,stack:999},",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " ch5CourierPage:{name:'沾灰的名册页',kind:'quest',desc:'练场空甲携带的名册页。维兰正在清点这些名字。',sell:0,stack:99}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "};",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6372
+    },
+    {
+      "path": "dist/chapter5-runtime-v14.js",
+      "reasons": [
+        "economy: task matched 经济, 制作; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "11ae63209e00fc3d043e50a7c76d76f339a868ac8bb5367390d51e7f94ec6841",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {isStoryTestV25} from './story-test-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {reconcileSkillUnlocks} from './systems-runtime-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {QUEST_PROGRESS_DIALOGUE_V16} from './quest-dialogue-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {MAPS,ITEMS,QUESTS,SKILLS,DIALOGUES} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {SCENERY} from './world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {CHAPTER_STAGING} from './chapter-staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 33584
+    },
+    {
+      "path": "dist/equipment-v14.js",
+      "reasons": [
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "ccec9087de19832d2a4f9ecfe24fb766d94260da500c330736745f6a56311097",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {QUALITIES,gearQuality} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {createHellRouteGearV15} from './hell-route-gear-v15.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function gearBudgetV17(cls,lv,slot,rarity){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " const power=QUALITIES[rarity]?.power||1,primary={shadow:'dex',oath:'str',ember:'wis',saint:'wis'}[cls]||'vit',late=Math.max(0,Math.min(32,lv)-6);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " return {gearGrowthVersion:17,attrs:power>1?{[primary]:Math.ceil((power-1)*(1+Math.max(0,Math.min(32,lv)-5)*.25)),...(power>=4?{vit:Math.ceil((power-2)*(1+Math.max(0,Math.min(32,lv)-5)*.12))}:{})}:{},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  atk:slot==='weapon'||slot==='offhand'?lv+power*2+Math.ceil(late*(power-1)*.33):slot==='hands'||slot==='relic'?power+Math.ceil(late*(power-1)*.1):0,",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  hp:(slot==='chest'?12+power*9:slot==='head'?power*6:slot==='feet'||slot==='relic'?power*4:0)+(late>0&&['chest','head','feet','relic'].includes(slot)?Math.ceil(late*power*(slot==='chest'?.8:.3)):0)};",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7162
+    },
+    {
+      "path": "dist/presentation-physics-v281.js",
+      "reasons": [
+        "maps: task matched 地图; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "5d8fbff6cc52412b87200a60a2f5fd9cf3b28c5a119dec7b516de1f701d4c151",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {footRadiusV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const validFootBoxV281=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function pointInFootBoxV281(x,y,b,pad=0){return validFootBoxV281(b)&&x>b[0]-pad&&x<b[0]+b[2]+pad&&y>b[1]-pad&&y<b[1]+b[3]+pad;}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function segmentFootBoxV281(a,b,box,pad=0){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " if(!validFootBoxV281(box))return false;let lo=0,hi=1;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " for(const [p,d,mn,mx]of [[a.x,b.x-a.x,box[0]-pad,box[0]+box[2]+pad],[a.y,b.y-a.y,box[1]-pad,box[1]+box[3]+pad]]){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(Math.abs(d)<1e-9){if(p<=mn||p>=mx)return false;continue;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  const u=(mn-p)/d,v=(mx-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));if(lo>=hi)return false;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6309
+    },
+    {
+      "path": "dist/quest-service-v14.js",
+      "reasons": [
+        "economy: task matched 经济, 制作; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "1c48a9e2bdd8a4aa2db742beb0e89a788d188617d41273a08907b5f980023470",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {FAREWELL_IDS} from './mechanisms-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "// This is the final presentation resolver, installed after all chapter modules.",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "// Markers and menu priority use the SAME semantic option state, never label text.",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const QUEST_PRIORITY={ready:0,advance:0,available:1,waiting:2,service:3,daily:4};",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function mapRegion(map){return map.startsWith('ch5')?5:map.startsWith('deep')?4:map.startsWith('hell')?3:['post','inn','bridge','manor','chamber','spillway','exile','bridgecellar','wellcrypt'].includes(map)?2:1;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function chapterRegion(g){return mapRegion(g.map);}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6974
+    },
+    {
+      "path": "dist/chapter123-presentation-v30.js",
+      "reasons": [
+        "maps: task matched 地图; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Presentation only. Object IDs, feet, depth, collision, targets and quest state",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// remain owned by the original world/runtime. Explicit host bindings avoid drawing",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// a second pot on a well, or a second mechanism over an interactive scenery object.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {chapter123V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const art=(sheet,index,w,h)=>({sheet,index,...(w?{w,h}:{})});",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const furniture=(i,w,h)=>art('chapterFurnishings',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const settlement=(i,w,h)=>art('chapterSettlement',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const utility=(i,w,h)=>art('chapterUtilities',i,w,h);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6728
+    },
+    {
+      "path": "dist/enchantments-v14.js",
+      "reasons": [
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8c03b6ff9a113b78f426d78808f63d61aedfe73b031456ab4672d13d6247217f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {ENCHANT_DEFS as DEFS,ENCHANT_RULES as RULES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export {DEFS as ENCHANT_DEFS,RULES as ENCHANT_RULES};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const rows=p=>Object.values(p.gear||{}).filter(Boolean).map(i=>({i,e:i.enchantment,d:DEFS[i.enchantment?.defId]})).filter(r=>r.d&&r.d.slots.includes(r.i.slot));",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function enchantStat(p,key){return rows(p).reduce((n,{e,d})=>n+(d.kind==='stat'&&d.stat===key?e.value:0),0);}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export function enchantDescription(e){const d=DEFS[e?.defId];return d?`${RULES.qualityNames[e.quality]} · ${d.name}：${d.display.replaceAll('{value}',e.value).replaceAll('{decimal}',(e.value/10).toFixed(1))}`:'尚无刻印';}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function skillEnchantRows(p,k){const m=new Map();for(const r of rows(p)){if(r.d.kind!=='skill'||!r.d.skills.includes(k))continue;const key=r.d.stackGroup||r.d.id;if(!m.has(key)||m.get(key).e.value<r.e.value)m.set(key,r);}return [...m.values()];}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function modifySkill(p,k,s,{range,radius,hpCap,maxHP}={}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " if(!s)return s;s={...s};let mult=1,healMult=1,shieldMult=1;const desc=[];const baseCd=s.cd;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4457
+    }
+  ],
+  "excerpt_bytes": 11182,
+  "max_files": 14,
+  "budget_bytes": 12000,
+  "deferred": [
+    "dist/systems-data-v14.js",
+    "dist/chapter23-design-v30.js",
+    "dist/combat-overhaul-v28.js",
+    "dist/world-runtime-v29.js",
+    "dist/growth-v14.js",
+    "dist/world-design-v29.js",
+    "dist/systems-runtime-v14.js",
+    "dist/world-art-v29.js",
+    "dist/world-v14.js",
+    "dist/save-protection-v23.js",
+    "dist/scene-geometry-v26.js",
+    "dist/navigation-v14.js",
+    "dist/world-entry-v22.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter123-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-chapter123.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-world-v29.mjs",
+    "node tools/world_audit.mjs",
+    "python3 tools/harness/map_quality.py"
+  ],
+  "risks": [
+    "一次性领取、材料支付、满包队列、章节 RNG 和存档 claims 不能重复发奖。",
+    "V28 分层由玩家/敌人等级最大值决定，不能假设按章节；刻印 proc 不递归。",
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 222
+    },
+    {
+      "name": "installChapter4",
+      "line": 223
+    },
+    {
+      "name": "installPacing",
+      "line": 225
+    },
+    {
+      "name": "installQuestService",
+      "line": 226
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 231
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 233
+    },
+    {
+      "name": "installChapter5",
+      "line": 234
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 235
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 236
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 237
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 239
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 240
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 241
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 242
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 243
+    },
+    {
+      "name": "installCityV18",
+      "line": 244
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 246
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 247
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 249
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 252
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 253
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 254
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 255
+    },
+    {
+      "name": "installSagaV25",
+      "line": 260
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 264
+    },
+    {
+      "name": "installSagaV26",
+      "line": 267
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 274
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 276
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 278
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 280
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 281
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

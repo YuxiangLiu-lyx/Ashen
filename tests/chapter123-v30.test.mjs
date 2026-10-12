@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
+import {C1_NEW_MAPS} from '../dist/chapter-one-expansion-data.js';
 import {RPG,MAPS} from '../dist/core-v14.js';
 import {SCENERY} from '../dist/world-v14.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
@@ -13,11 +14,11 @@ const read=n=>JSON.parse(fs.readFileSync(new URL('../docs/chapter123/'+n,import.
 const game=()=>new RPG('shadow',null,()=>.44);
 const maps=Object.keys(MAPS).filter(id=>(MAPS[id].chapterRegion??MAPS[id].chapter??1)<=3);
 
-test('runtime independently enumerates all 35 maps including optional rooms and staged chamber',()=>{
- assert.equal(maps.length,35);assert.deepEqual([...CHAPTER123_MAPS_V30].sort(),maps.sort());
- for(const id of maps){const g=game();g.chapter=MAPS[id].chapterRegion||2;g.enter(id,800,540);assert.equal(g.map,id);
+test('runtime independently enumerates all 35 original maps and five explicitly authorized chapter-one additions',()=>{
+ assert.equal(maps.length,40);assert.deepEqual([...CHAPTER123_MAPS_V30,...C1_NEW_MAPS].sort(),maps.sort());
+ for(const id of CHAPTER123_MAPS_V30){const g=game();g.chapter=MAPS[id].chapterRegion||2;g.enter(id,800,540);assert.equal(g.map,id);
   for(const o of SCENERY[id])assert.ok(chapter123SceneryArtV30(o,id),id+'/'+o.id);
-  for(const p of g.props){const host=CHAPTER123_HOSTS_V30[p.id];
+  for(const p of g.props.filter(p=>!p.action?.startsWith('c1:'))){const host=CHAPTER123_HOSTS_V30[p.id];
    if(host)assert.ok(SCENERY[id].some(o=>o.id===host),id+'/'+p.id+' host');
    else assert.ok(chapter123PropArtV30(p,id,null,g),id+'/'+p.id+' artwork');
   }
@@ -28,6 +29,10 @@ test('runtime independently enumerates all 35 maps including optional rooms and 
 test('all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable',()=>{
  const g=game(),baseline=read('BASELINE_NAVIGATION.json');assert.equal(baseline.length,118);
  for(const row of baseline){g.enter(row.id);const after=inspectWorldMap(g,row.id);
+  // New interactions and the one named grove encounter are authorized additions.
+  // Original navigation and target identities remain protected by the next test.
+  after.targets-=g.targets().filter(t=>t.id?.startsWith('c1-')||C1_NEW_MAPS.includes(t.id)).length;
+  if(row.id==='grove')after.enemies-=g.enemies.filter(e=>e.id==='c1-elite-rat').length;
   for(const key of ['walkableCells','connectedCells','enemies','targets','unreachable']){
    const expected=key==='unreachable'&&row.id==='town'?row[key].filter(t=>t.id!=='well'):row[key];
    assert.deepEqual(after[key],expected,row.id+'/'+key);
@@ -37,7 +42,7 @@ test('all 118 maps preserve baseline navigation and counts; only the documented 
 
 test('original chapter geometry, exits, encounters and object identities remain intact',()=>{
  for(const before of read('BASELINE_CONTENT.json')){
-  const map=MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify(map[key]||[])),before[key],before.id+'/'+key);
+  const map=MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify((key==='doors'?map[key].filter(d=>!d.c1Door):map[key])||[])),before[key],before.id+'/'+key);
   assert.deepEqual(SCENERY[before.id],before.scenery,before.id+'/scenery');
   const g=game();g.chapter=map.chapterRegion||2;g.enter(before.id,800,540);
   for(const p of before.props){const actual=g.props.find(a=>a.id===p.id);assert.ok(actual);

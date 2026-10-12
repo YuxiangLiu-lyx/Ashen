@@ -1,0 +1,384 @@
+{
+  "name": "回水机房",
+  "sub": "先听水声，再看铜管的去向",
+  "atlas": "interior",
+  "cell": 3,
+  "ground": "stone",
+  "doors": [
+    {
+      "x": 300,
+      "y": 890,
+      "to": "millpath",
+      "tx": 1180,
+      "ty": 800,
+      "label": "旧磨坊小径"
+    }
+  ],
+  "npcs": [],
+  "spawns": [
+    [
+      "bat",
+      480,
+      440,
+      "echo-0"
+    ],
+    [
+      "wolf",
+      1130,
+      740,
+      "echo-1"
+    ],
+    [
+      "wolf",
+      1170,
+      500,
+      "echo-warden"
+    ]
+  ],
+  "blocks": [
+    [
+      0,
+      0,
+      1600,
+      190
+    ],
+    [
+      0,
+      190,
+      150,
+      890
+    ],
+    [
+      1450,
+      190,
+      150,
+      890
+    ],
+    [
+      150,
+      945,
+      1300,
+      135
+    ],
+    [
+      1140,
+      295,
+      140,
+      55
+    ],
+    [
+      384,
+      300,
+      132,
+      30
+    ],
+    [
+      521,
+      256,
+      18,
+      14
+    ],
+    [
+      891,
+      836,
+      18,
+      14
+    ],
+    [
+      194.7,
+      493,
+      180.6,
+      27
+    ],
+    [
+      1204.4,
+      653,
+      151.2,
+      27
+    ],
+    [
+      881.7,
+      293,
+      96.6,
+      27
+    ],
+    [
+      212,
+      307,
+      96,
+      33
+    ],
+    [
+      994.3,
+      778,
+      71.4,
+      22
+    ],
+    [
+      530,
+      385,
+      40,
+      20
+    ],
+    [
+      675,
+      190,
+      105,
+      340
+    ],
+    [
+      675,
+      650,
+      105,
+      295
+    ]
+  ],
+  "props": [
+    {
+      "id": "echo-machine",
+      "action": "echoMachine",
+      "type": "machine",
+      "x": 1210,
+      "y": 350,
+      "interactX": 1210,
+      "interactY": 450,
+      "label": "旧回声机",
+      "worldInteractionV29": {
+        "duration": 0.5
+      }
+    },
+    {
+      "id": "echo-notes",
+      "action": "echoNotes",
+      "type": "book",
+      "x": 450,
+      "y": 260,
+      "depthY": 331,
+      "interactX": 450,
+      "interactY": 370,
+      "label": "留在石台上的检修簿",
+      "worldInteractionV29": {
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "echo-crystal-west",
+      "action": "echoCrystal",
+      "type": "crystal",
+      "x": 385,
+      "y": 635,
+      "label": "石缝中的晶簇",
+      "worldInteractionV29": {
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "echo-crystal-east",
+      "action": "echoCrystal",
+      "type": "crystal",
+      "x": 1200,
+      "y": 810,
+      "label": "水轮旁的回声晶簇",
+      "worldInteractionV29": {
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "echo-valve",
+      "action": "echoValve",
+      "type": "wheel",
+      "x": 850,
+      "y": 425,
+      "interactX": 850,
+      "interactY": 485,
+      "label": "配重泄压阀",
+      "worldInteractionV29": {
+        "duration": 0.65
+      }
+    },
+    {
+      "id": "echo-pot",
+      "type": "pot",
+      "x": 545,
+      "y": 840
+    },
+    {
+      "id": "v29-echo-core",
+      "action": "v29EchoCore",
+      "type": "book",
+      "x": 1150,
+      "y": 390,
+      "label": "后槽里的黄铜心轴",
+      "art": {
+        "sheet": "mechanisms",
+        "index": 7,
+        "w": 48,
+        "h": 34
+      },
+      "worldInteractionV29": {
+        "duration": 0.75
+      },
+      "interactX": 1150,
+      "interactY": 450,
+      "depthY": 391
+    }
+  ],
+  "encounters": [
+    {
+      "groupId": "v29-echo-archive",
+      "bounds": [
+        390,
+        380,
+        180,
+        140
+      ],
+      "activationBounds": [
+        390,
+        380,
+        180,
+        140
+      ],
+      "leashBounds": [
+        340,
+        330,
+        280,
+        240
+      ],
+      "spawnIds": [
+        "echo-0"
+      ],
+      "types": [
+        "bat"
+      ],
+      "count": [
+        1,
+        1
+      ],
+      "size": 1,
+      "refresh": "never",
+      "danger": "ordinary",
+      "area": [
+        390,
+        380,
+        180,
+        140
+      ],
+      "center": [
+        480,
+        450
+      ],
+      "spread": [
+        65,
+        45
+      ],
+      "entryExclusionRadius": 130,
+      "aggroShareRadius": 155,
+      "unique": true
+    },
+    {
+      "groupId": "v29-echo-tailrace",
+      "bounds": [
+        1050,
+        700,
+        250,
+        160
+      ],
+      "activationBounds": [
+        1050,
+        700,
+        250,
+        160
+      ],
+      "leashBounds": [
+        1000,
+        650,
+        350,
+        260
+      ],
+      "spawnIds": [
+        "echo-1"
+      ],
+      "types": [
+        "wolf"
+      ],
+      "count": [
+        1,
+        1
+      ],
+      "size": 1,
+      "refresh": "never",
+      "danger": "ordinary",
+      "area": [
+        1050,
+        700,
+        250,
+        160
+      ],
+      "center": [
+        1175,
+        780
+      ],
+      "spread": [
+        100,
+        55
+      ],
+      "entryExclusionRadius": 130,
+      "aggroShareRadius": 155,
+      "unique": true
+    },
+    {
+      "groupId": "v29-echo-warden",
+      "bounds": [
+        1060,
+        425,
+        260,
+        160
+      ],
+      "activationBounds": [
+        1060,
+        425,
+        260,
+        160
+      ],
+      "leashBounds": [
+        1010,
+        375,
+        360,
+        260
+      ],
+      "spawnIds": [
+        "echo-warden"
+      ],
+      "types": [
+        "wolf"
+      ],
+      "count": [
+        1,
+        1
+      ],
+      "size": 1,
+      "refresh": "never",
+      "danger": "elite",
+      "area": [
+        1060,
+        425,
+        260,
+        160
+      ],
+      "center": [
+        1190,
+        505
+      ],
+      "spread": [
+        105,
+        55
+      ],
+      "entryExclusionRadius": 130,
+      "aggroShareRadius": 155,
+      "unique": true,
+      "bossId": "echo-warden"
+    }
+  ],
+  "worldV4": true,
+  "worldLayoutV29": 1
+}

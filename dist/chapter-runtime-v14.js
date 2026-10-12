@@ -12,7 +12,7 @@ function scene(g,id,then=null){g.beginScene(id,then);}
 function once(g,key,id,then=null){if(g.flags[key])return false;g.flags[key]=true;scene(g,id,then);return true;}
 export function chapterRestore(g,s){if(s.version===7&&s.flags?.complete){g.flags.complete=false;g.flags.chapterOneComplete=true;g.chapter=5;g.map='post';g.p.x=680;g.p.y=660;g.pending={id:'ch2Arrival',then:'ch2_arrival'};g.quests.relay='active';g.flags.tracked=null;g.flags.mapGoal=null;}if(g.chapter>=5&&C2.has(g.map))g.flags.chapterOneComplete=true;}
 export function chapterApply(g,a,stats){
- if(a==='end'){if(g.chapter!==4||g.flags.chapterOneComplete)return true;g.quests.escape='done';if(!g.flags.legacyV6Completed){g.gainXP(100);g.p.gold+=45;}g.flags.chapterOneComplete=true;g.flags.complete=false;g.flags.tracked=null;g.flags.mapGoal=null;g.chapter=5;g.quests.relay='active';g.enter('post',680,660);return true;}
+ if(a==='end'){if(g.chapter!==4||g.flags.chapterOneComplete)return true;g.quests.escape='done';if(!g.flags.legacyV6Completed){g.c1MainPayment('c1Departure');}g.flags.chapterOneComplete=true;g.flags.complete=false;g.flags.tracked=null;g.flags.mapGoal=null;g.chapter=5;g.quests.relay='active';g.enter('post',680,660);return true;}
  if(a==='ch2_arrival'){if(g.chapter!==5)return true;g.chapter=6;g.flags.postArrival=true;g.gainXP(20);g.flags.tracked=null;scene(g,'ch2SearchAside');return true;}
  if(a==='ch2_relay'){if(g.chapter!==6)return true;g.flags.relayRead=true;scene(g,'ch2Terms','ch2_terms');return true;}
  if(a==='ch2_terms'){if(g.chapter!==6)return true;g.chapter=7;g.quests.relay='done';g.quests.breakout='active';g.gainXP(35);g.addItem('mp');return true;}

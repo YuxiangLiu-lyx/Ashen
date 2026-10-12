@@ -41,7 +41,7 @@ export function installWorldExplorationV29(RPG,{MAPS,DIALOGUES}){
   for(const e of st.enemies){const group=m.encounters?.find(a=>a.spawnIds.includes(e.id));if(group)Object.assign(e,{groupId:group.groupId,leashBounds:group.leashBounds,activationBounds:group.activationBounds,isBossArena:false,isBoss:group.bossId===e.id});}
   // Old resolved claims remain authoritative; new prerequisites are not imposed retroactively.
   if(g.flags.echoCoreFound||g.quests.echo==='done'||(g.p.items.echoCore||0)>0){g.flags.echoCoreFound=true;if(g.quests.echo==='done'||g.flags.echoCoreFound)g.flags.echoWardenDefeated=true;}
-  if(id==='echo'&&g.flags.echoWardenDefeated){const w=st.enemies.find(e=>e.id==='echo-warden');if(w){w.dead=true;w.hp=0;w.aiState='DEAD';}}
+  if(id==='echo'&&g.flags.echoWardenDefeated&&!g.c1Expansion?.elite?.['echo-warden']){const w=st.enemies.find(e=>e.id==='echo-warden');if(w){w.dead=true;w.hp=0;w.aiState='DEAD';}}
  }
  P.ensureMap=function(id){const result=oldEnsure.call(this,id);migrate(this,id);return result;};
  P.enter=function(...args){feedback.delete(this);const result=oldEnter.apply(this,args);migrate(this,this.map);return result;};

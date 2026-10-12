@@ -1,0 +1,265 @@
+{
+  "name": "北门水渠",
+  "sub": "出城闸门就在前面",
+  "atlas": "interior",
+  "cell": 3,
+  "doors": [
+    {
+      "x": 170,
+      "y": 630,
+      "to": "alley",
+      "tx": 1340,
+      "ty": 560,
+      "label": "北门小巷",
+      "gate": "bossLock"
+    },
+    {
+      "x": 1410,
+      "y": 500,
+      "to": "end",
+      "label": "北郊驿道",
+      "gate": "end"
+    }
+  ],
+  "npcs": [],
+  "props": [
+    {
+      "id": "canalbox",
+      "type": "crate",
+      "x": 450,
+      "y": 350
+    },
+    {
+      "id": "canalpot",
+      "type": "pot",
+      "x": 1220,
+      "y": 840
+    }
+  ],
+  "spawns": [
+    [
+      "rat",
+      640,
+      830
+    ],
+    [
+      "rat",
+      960,
+      700
+    ],
+    [
+      "bat",
+      640,
+      330
+    ],
+    [
+      "bat",
+      1200,
+      770
+    ],
+    [
+      "bat",
+      990,
+      310,
+      "canal-v8-bat"
+    ],
+    [
+      "rat",
+      540,
+      570,
+      "canal-v9-rat"
+    ]
+  ],
+  "blocks": [
+    [
+      0,
+      0,
+      690,
+      200
+    ],
+    [
+      920,
+      0,
+      680,
+      200
+    ],
+    [
+      0,
+      900,
+      690,
+      180
+    ],
+    [
+      920,
+      900,
+      680,
+      180
+    ],
+    [
+      0,
+      200,
+      130,
+      700
+    ],
+    [
+      1490,
+      200,
+      110,
+      700
+    ],
+    [
+      498,
+      395,
+      24,
+      15
+    ],
+    [
+      365,
+      748,
+      70,
+      27
+    ],
+    [
+      700,
+      200,
+      140,
+      230
+    ],
+    [
+      700,
+      620,
+      140,
+      280
+    ]
+  ],
+  "encounters": [
+    {
+      "groupId": "v9-canal-west",
+      "bounds": [
+        430,
+        280,
+        225,
+        600
+      ],
+      "size": 3,
+      "danger": "ordinary",
+      "refresh": "revisit",
+      "spawnIds": [
+        "canal-0",
+        "canal-2",
+        "canal-v9-rat"
+      ],
+      "types": [
+        "bat",
+        "rat",
+        "rat"
+      ],
+      "count": [
+        3,
+        3
+      ],
+      "area": [
+        430,
+        280,
+        225,
+        600
+      ],
+      "center": [
+        542.5,
+        580
+      ],
+      "spread": [
+        87.5,
+        275
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": false
+    },
+    {
+      "groupId": "v9-canal-east",
+      "bounds": [
+        900,
+        270,
+        460,
+        610
+      ],
+      "size": 3,
+      "danger": "ordinary",
+      "refresh": "revisit",
+      "spawnIds": [
+        "canal-1",
+        "canal-3",
+        "canal-v8-bat"
+      ],
+      "types": [
+        "rat",
+        "bat",
+        "bat"
+      ],
+      "count": [
+        3,
+        4
+      ],
+      "area": [
+        900,
+        270,
+        460,
+        610
+      ],
+      "center": [
+        1130,
+        575
+      ],
+      "spread": [
+        205,
+        280
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": false
+    },
+    {
+      "groupId": "v9-canal-captain",
+      "bounds": [
+        910,
+        395,
+        350,
+        270
+      ],
+      "size": 1,
+      "danger": "boss",
+      "refresh": "never",
+      "bossId": "captain",
+      "storyWave": true,
+      "spawnIds": [
+        "captain"
+      ],
+      "types": [
+        "captain"
+      ],
+      "count": [
+        1,
+        1
+      ],
+      "area": [
+        910,
+        395,
+        350,
+        270
+      ],
+      "center": [
+        1085,
+        530
+      ],
+      "spread": [
+        150,
+        110
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": true
+    }
+  ],
+  "worldV4": true
+}

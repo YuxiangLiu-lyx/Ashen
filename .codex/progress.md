@@ -348,3 +348,18 @@
 - 阶段 delivery：complete；HEAD dab57a758979d7905ba4f351877c6097385f6f97
 - 最近检查：package-promote，退出码 0；docs/harness/evidence/ch1-voice-20261012/014-package-promote.txt
 <!-- /task:ch1-voice-20261012 -->
+
+<!-- task:c1-expansion-20261012 -->
+## 任务 c1-expansion-20261012
+- 状态：in_progress
+- 更新：2026-10-12T09:21:01.799747+00:00
+- 下一步：重新真实输入避险并继续零支线主线，逐段观察截图
+- 任务记录：source/tasks/active/c1-expansion-20261012.json
+- 已完成：Git干净、fetch核对38bf430、独立分支、需求和两章及相关领域规则已读；完整需求、两章路由、0.5原稿、118图清单、改前全部dist哈希已保存；0.6从SCRIPT_READY采用为DEV_FROZEN；机器奖励/配方/掉落数据已写；123图与schema16接入；十二主线支线和制作精英事务初步实现；31项状态/制作/精英/0.5保护回归通过；原118图几何保护及新目标可达扫描通过
+- 待完成：真实输入三职业前两章；支线玩法与四经济路线；真实快照Lab；地图角色审阅；内容门禁与标准全部检查；构建GitHub
+- 决定：采用新授权0.6；保留0.5刺杀与幕后、第二章0.3仅策划、旧重构继续暂停；六阶段按用户Prompt推进；基线子命令全部退出0，但期间新增未接入模块使sources_changed_during_check=true，仅作改前运行证据，不作最终门禁；最终需重新验证；真实输入影刃首轮到训练：六鼠/委托通过，避险脚本在预警尾段启动失败；保留009失败及截图，不计通关。新场景错误书柜贴图已换成器械、石墩与水槽。
+- 阻塞：无
+- 阶段 specification：complete；HEAD 38bf430a05422030d4a7ddf37e115160b3b2fe70
+- 阶段 main-route：in_progress；HEAD 38bf430a05422030d4a7ddf37e115160b3b2fe70
+- 最近检查：expansion-state-recheck，退出码 0；docs/harness/evidence/c1-expansion-20261012/010-expansion-state-recheck.txt
+<!-- /task:c1-expansion-20261012 -->

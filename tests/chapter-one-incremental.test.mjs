@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import {C1_NEW_MAPS,C1_QUESTS} from '../dist/chapter-one-expansion-data.js';
 import {RPG,MAPS,QUESTS} from '../dist/core-v14.js';
 import {DIALOGUES} from '../dist/data-v14.js';
 import {SCENERY} from '../dist/world-v14.js';
@@ -32,10 +33,16 @@ test('default saint portrait uses the preserved gentle original; later disguises
  assert.equal(sagaPortraitV25(bank,'艾莉娅',{}, {get:()=>({disguiseV25:true})}),'sagaElyriaPortraitV27/0');
 });
 
-test('original world and retained art are unchanged; core only adds the approved test-damage guard',()=>{
+test('original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions',()=>{
  for(const [key,table]of Object.entries({maps:MAPS,scenery:SCENERY,quests:QUESTS,dialogues:DIALOGUES,originalStaging:STAGING.scenes})){
-  assert.deepEqual(Object.keys(table).sort(),Object.keys(baseline[key]).sort(),key);
-  for(const [id,h]of Object.entries(baseline[key]))assert.equal(hash(table[id]),h,key+'/'+id);
+  const added=Object.keys(table).filter(id=>!(id in baseline[key]));
+  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c1Conversation']:[];
+  assert.deepEqual(added.sort(),allowed.slice().sort(),key+' authorized additions');
+  for(const [id,h]of Object.entries(baseline[key])){
+   if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
+   let value=table[id];if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
+   assert.equal(hash(value),h,key+'/'+id);
+  }
  }
  for(const [file,h]of Object.entries(baseline.retainedFiles)){
   let data=fs.readFileSync(new URL('../'+file,import.meta.url));
@@ -44,8 +51,16 @@ test('original world and retained art are unchanged; core only adds the approved
    // baseline. Keep the complete original core hash check around that change.
    const guard='if(isStoryTestV25(this))n=Math.max(1,n,e.hp);',source=data.toString();
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
-   data=Buffer.from(source.replace(guard,''));
+   let original=source.replace(guard,'');
+   for(const [approved,prior]of [
+    ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],
+    ["\ninstallChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});\n",''],
+    ["this.c1MainPayment('c1CommissionBrief');",'this.gainXP(15);'],["this.c1MainPayment('c1Assassination');",'this.gainXP(65);'],
+    ['if(!this.c1Expansion)this.gainXP(20);','this.gainXP(20);'],['已问清礼拜厅入口。亲自看过封门牌后，再回来核实。','已问清礼拜厅的入口 · 经验 +20'],['追缉官倒地。转动东侧绞盘，把撤离闸打开。','追缉官倒地。东侧闸门已经打开。']]){
+     assert.equal(original.split(approved).length,2,'one scoped 0.6 core change');original=original.replace(approved,prior);
+    }data=Buffer.from(original);
   }
+  if(file==='dist/visuals-v14.js'){let source=data.toString();for(const approved of ["import {c1Ground} from './chapter-one-expansion-art.js';\n",'c1Ground(this,id)||']){assert.equal(source.split(approved).length,2);source=source.replace(approved,'');}data=Buffer.from(source);}
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),h,file);
  }
 });

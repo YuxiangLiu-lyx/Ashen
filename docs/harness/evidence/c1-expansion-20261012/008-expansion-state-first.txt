@@ -1,0 +1,52 @@
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (14.906958ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (34.352292ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.260875ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.419375ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.798625ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.598708ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (0.929417ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (3.710917ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (16.042334ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (66.608541ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.73575ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (1.8695ms)
+✔ numeric source preserves twelve main/side awards and exact 123-map adjacency (0.793709ms)
+✔ all new interactions reachable after intended plank operation; initial canal cannot be crossed (179.096083ms)
+✔ zero sidequest/zero crafted equipment main gates require training, daylight, records and actual crossing (21.144416ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (1.594375ms)
+✖ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (7.242ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.261833ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (1.8145ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.509208ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 19
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 341.499
+
+✖ failing tests:
+
+test at tests/chapter-one-expansion.test.mjs:13:1
+✖ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (7.242ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  6 !== 5
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:13:399)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 6,
+    expected: 5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

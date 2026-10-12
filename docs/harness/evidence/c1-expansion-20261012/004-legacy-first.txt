@@ -1,0 +1,140 @@
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (25.131917ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.633666ms)
+✔ 12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event (192.987041ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (7.1795ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.195042ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.130208ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (2.885083ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (3920.5635ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.296833ms)
+✖ runtime independently enumerates all 35 maps including optional rooms and staged chamber (0.758458ms)
+✖ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (12.608291ms)
+✖ original chapter geometry, exits, encounters and object identities remain intact (3.70625ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (16.654792ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (1.150708ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (19.518208ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (3577.907375ms)
+✔ native species is independent of V28 player-level skin fields (0.529167ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.204583ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.129208ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.070708ms)
+✔ footprint validation and segment clipping handle boundaries (0.105ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.133708ms)
+✔ arch posts block sides without sealing the central doorway (0.080625ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (1.612917ms)
+✔ walk phase advances with travelled distance, not wall time (0.210333ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.261666ms)
+✔ resting/carry transfers never receive fake walking limbs (0.071292ms)
+✔ all 24 rare gear IDs have appearance signatures (0.065583ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.278833ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.299292ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.265375ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.532291ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (18.001041ms)
+✔ all nine later-chapter/class checkpoints construct and restore (328.114334ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (202.731541ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (10.079ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.38125ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.1315ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.158208ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (82.671958ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (2.731417ms)
+✔ distance and a real occluding wall reject immediate interaction (0.573584ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (2.309291ms)
+✔ accepted and discovery-first routes both return once, retain rewards and persistent state (10.241416ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (1.015292ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (9.179459ms)
+✔ new state round trips and rejects malformed records; old state remains optional (1.620791ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.213958ms)
+✔ legacy player in a new footprint is repaired only during restore (1.153ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (0.7565ms)
+✔ other 114 maps retain baseline navigation and interaction diagnostics (769.804167ms)
+ℹ tests 51
+ℹ suites 0
+ℹ pass 48
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4289.444125
+
+✖ failing tests:
+
+test at tests/chapter123-v30.test.mjs:16:1
+✖ runtime independently enumerates all 35 maps including optional rooms and staged chamber (0.758458ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  40 !== 35
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:17:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 35,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter123-v30.test.mjs:28:1
+✖ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (12.608291ms)
+  AssertionError [ERR_ASSERTION]: hall/targets
+  
+  8 !== 7
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:33:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 8,
+    expected: 7,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter123-v30.test.mjs:38:1
+✖ original chapter geometry, exits, encounters and object identities remain intact (3.70625ms)
+  AssertionError [ERR_ASSERTION]: hall/doors
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        label: '旧库房',
+        to: 'warehouse',
+        tx: 230,
+  ...
+      },
+  +   {
+  +     c1Door: true,
+  +     label: '灰烛练武庭',
+  +     to: 'c1TrainingYard',
+  +     tx: 220,
+  +     ty: 820,
+  +     x: 235,
+  +     y: 560
+  +   }
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:40:81)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { x: 1430, y: 520, to: 'warehouse', tx: 230, ty: 540, label: '旧库房' }, { x: 800, y: 960, to: 'road', tx: 230, ty: 550, label: '旧王道' }, { x: 800, y: 190, to: 'guestroom', tx: 800, ty: 850, label: '会馆客房', direction: '北' }, { to: 'c1TrainingYard', x: 235, y: 560, tx: 220, ty: 820, label: '灰烛练武庭', c1Door: true } ],
+    expected: [ { x: 1430, y: 520, to: 'warehouse', tx: 230, ty: 540, label: '旧库房' }, { x: 800, y: 960, to: 'road', tx: 230, ty: 550, label: '旧王道' }, { x: 800, y: 190, to: 'guestroom', tx: 800, ty: 850, label: '会馆客房', direction: '北' } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

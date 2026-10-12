@@ -1,0 +1,240 @@
+{
+  "schema": 1,
+  "id": "c1-expansion-20261012",
+  "goal": "实施第一章0.6流程扩充与成长系统：五图、十二主线十二支线、制作精英炼金；保持第二章与旧档兼容",
+  "acceptance": [
+    "零支线主线可通；任务制作掉落幂等且满包安全；123图三维证据；三职业前两章真实输入、四种经济路线与旧档；fast/core/integration/release和GitHub保存"
+  ],
+  "baseline_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "chapter02_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-12T08:37:39.182577+00:00",
+  "updated_at_utc": "2026-10-12T09:21:01.799747+00:00",
+  "decisions": [
+    "采用新授权0.6；保留0.5刺杀与幕后、第二章0.3仅策划、旧重构继续暂停；六阶段按用户Prompt推进",
+    "基线子命令全部退出0，但期间新增未接入模块使sources_changed_during_check=true，仅作改前运行证据，不作最终门禁；最终需重新验证",
+    "真实输入影刃首轮到训练：六鼠/委托通过，避险脚本在预警尾段启动失败；保留009失败及截图，不计通关。新场景错误书柜贴图已换成器械、石墩与水槽。"
+  ],
+  "completed": [
+    "Git干净、fetch核对38bf430、独立分支、需求和两章及相关领域规则已读",
+    "完整需求、两章路由、0.5原稿、118图清单、改前全部dist哈希已保存；0.6从SCRIPT_READY采用为DEV_FROZEN；机器奖励/配方/掉落数据已写",
+    "123图与schema16接入；十二主线支线和制作精英事务初步实现；31项状态/制作/精英/0.5保护回归通过；原118图几何保护及新目标可达扫描通过"
+  ],
+  "remaining": [
+    "真实输入三职业前两章；支线玩法与四经济路线；真实快照Lab；地图角色审阅；内容门禁与标准全部检查；构建GitHub"
+  ],
+  "blockers": [],
+  "next": "重新真实输入避险并继续零支线主线，逐段观察截图",
+  "required_checks": [
+    "fast",
+    "core",
+    "integration",
+    "release"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "qa-export/baseline-c1-expansion"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T08:38:10.091752+00:00",
+      "finished_at_utc": "2026-10-12T08:42:22.880891+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/c1-expansion-20261012/001-baseline.txt",
+      "output_sha256": "ddf46ea563f0b1e76e517c6c1e93bb351634e313fcb597977db6e248fa6a5be5",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "crafting-first",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-crafting.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T08:59:03.620275+00:00",
+      "finished_at_utc": "2026-10-12T08:59:03.818840+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "c54ccdd7c27ea08d38f2fe60e9651acbe5e85c98dd667f37666c45ce41ec8813",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/002-crafting-first.txt",
+      "output_sha256": "4ccd4a9b8999e5a3f369551c2752e0ad0e34e910975dcf24de196ede8c6cd783",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "crafting-elites",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T09:00:04.580519+00:00",
+      "finished_at_utc": "2026-10-12T09:00:04.830594+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "6ffc2bc3968abb95f6da630ccb66a3f3a7a1467c36ef58e690cb4f01ac49af3d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/003-crafting-elites.txt",
+      "output_sha256": "c3bc322140d3a91ee51255b2f2a8267cfd23de812abcd95ae6104355562886dd",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "legacy-first",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/world-v29.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T09:00:14.775661+00:00",
+      "finished_at_utc": "2026-10-12T09:00:19.122155+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "6ffc2bc3968abb95f6da630ccb66a3f3a7a1467c36ef58e690cb4f01ac49af3d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/004-legacy-first.txt",
+      "output_sha256": "f9e69f968f988ce9a2cefcb1a91a1e3364631ecf18a23df2922b4a3961c12d22",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "browser-first",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-expansion.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T09:00:57.181402+00:00",
+      "finished_at_utc": "2026-10-12T09:01:05.633877+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "6d356626f0aa263946f59b5ea53bdfae62f7543a3380c0b76c17877475b9022a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/005-browser-first.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "crafting-elites-recheck",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T09:08:14.548600+00:00",
+      "finished_at_utc": "2026-10-12T09:08:14.812711+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "79ff8ef8537c886907233a79649676419cbc59ed3aa27ca07b49e800f55b3dd3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/006-crafting-elites-recheck.txt",
+      "output_sha256": "856070b7491b8fd872780e69c9cf9ed2c21d0e6c93bbcfbad3f65acad95087dc",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "regression-recheck",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter123-v30.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T09:10:06.464890+00:00",
+      "finished_at_utc": "2026-10-12T09:10:07.600776+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "7553589343ccdfaf3434d020625fb068e08acc53536f0537903a960140d7c8d0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/007-regression-recheck.txt",
+      "output_sha256": "bcb6eeb368ce5ea9df9671de011041075be0446b6ed0660b4393b9514eac11b5",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "expansion-state-first",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T09:12:02.330249+00:00",
+      "finished_at_utc": "2026-10-12T09:12:02.713316+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "0bdcfb127ccd4a318636b93d694c44e61be6e9e20a38551c9a89b0bb322432f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/008-expansion-state-first.txt",
+      "output_sha256": "b43ec3d39181902675cb26523bacfb2f84475438443c118f357d4705c585de8c",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "natural-shadow-first",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-natural.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-12T09:15:19.823390+00:00",
+      "finished_at_utc": "2026-10-12T09:17:08.843765+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "04134bdb20374fe6bfcb43afc9828ba8fa03130ed04c1779dd2ce0b5680c001b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/009-natural-shadow-first.txt",
+      "output_sha256": "25b700f9d5451b4bc947972cfb093566886fbb78e0668a8127001722534e2c53",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "expansion-state-recheck",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-12T09:18:45.996480+00:00",
+      "finished_at_utc": "2026-10-12T09:18:51.263487+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "d815ab4ef5bed1635fbe75d0c1f088b06a4ec3b49176fef77e2e153d514d0996",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-expansion-20261012/010-expansion-state-recheck.txt",
+      "output_sha256": "f3b6507dcf339f89b77130fa515163f13f6a4b577d8664c709c4dad724b39b3c",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "specification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-12T08:50:50.453541+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "0cc9a6637b7de2d627d7ef8085f93db42629d54073f11cd65c8cc8147d0ccbd3",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n?? dist/chapter-one-expansion-data.js\n?? dist/chapter-one-expansion-gear.js\n?? dist/chapter-one-expansion-quests.js\n?? dist/chapter-one-expansion-save.js\n?? dist/chapter-one-expansion-world.js\n?? docs/ch1-expansion/\n?? docs/harness/CHAPTER_01_EXPANSION.md\n?? docs/harness/evidence/c1-expansion-20261012/\n?? source/tasks/active/c1-expansion-20261012.json"
+    },
+    {
+      "name": "main-route",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-12T09:21:01.766579+00:00",
+      "head_commit": "38bf430a05422030d4a7ddf37e115160b3b2fe70",
+      "source_fingerprint": "3d1035ae74246359b81bb0c86e92bf34067c32c2d9c721e723e8e9e78acfa3d6",
+      "worktree": "M .agents/skills/ashen-art-maps/SKILL.md\n M .agents/skills/ashen-classes-gear/SKILL.md\n M .agents/skills/ashen-qa-release/SKILL.md\n M .agents/skills/ashen-quests-economy/SKILL.md\n M .agents/skills/ashen-story-characters/SKILL.md\n M .codex/progress.md\n M AGENTS.md\n M dist/chapter-runtime-v14.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/growth-v14.js\n M dist/save-protection-v23.js\n M dist/save-transfer-v14.js\n M dist/visuals-v14.js\n M dist/world-runtime-v29.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/COMBAT.md\n M docs/harness/ECONOMY.md\n M docs/harness/MAP_QUALITY.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/SAVE.md\n M docs/harness/WORLD.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter123-v30.test.mjs\n M tools/harness/check.py\n?? dist/chapter-one-expansion-art.js\n?? dist/chapter-one-expansion-combat.js\n?? dist/chapter-one-expansion-data.js\n?? dist/chapter-one-expansion-gear.js\n?? dist/chapter-one-expansion-quests.js\n?? dist/chapter-one-expansion-runtime.js\n?? dist/chapter-one-expansion-save.js\n?? dist/chapter-one-expansion-ui.js\n?? dist/chapter-one-expansion-world.js\n?? docs/ch1-expansion/\n?? docs/harness/CHAPTER_01_EXPANSION.md\n?? docs/harness/evidence/c1-expansion-20261012/\n?? source/tasks/active/c1-expansion-20261012.json\n?? tests/browser-chapter-one-expansion.mjs\n?? tests/browser-chapter-one-natural.mjs\n?? tests/chapter-one-crafting.test.mjs\n?? tests/chapter-one-elites.test.mjs\n?? tests/chapter-one-expansion.test.mjs"
+    }
+  ]
+}

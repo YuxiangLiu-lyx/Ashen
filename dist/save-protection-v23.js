@@ -1,6 +1,6 @@
 // Preserve pre-reconstruction save bytes. Unsupported progress is never guessed,
 // skipped or converted to an empty state. This is not proof of real V22 compatibility.
-const KNOWN_TOP_LEVEL_V23=new Set(['version','map','chapter','time','p','flags','quests','states','pending','companion','pendingRewards','knowledge','relations','beforeDeparture','ch3','v11','v12','v13','ch5','mercenariesV14','hellActivitiesV15','hellActivitiesV17','saintBondV17','hellExpeditionsV18','cityStoriesV18','discoveryV19','saintStoryV18','romanceV20','arrivalV22','cityMomentsV24','sagaV25','sagaV26','memoryV13']);
+const KNOWN_TOP_LEVEL_V23=new Set(['c1Expansion','version','map','chapter','time','p','flags','quests','states','pending','companion','pendingRewards','knowledge','relations','beforeDeparture','ch3','v11','v12','v13','ch5','mercenariesV14','hellActivitiesV15','hellActivitiesV17','saintBondV17','hellExpeditionsV18','cityStoriesV18','discoveryV19','saintStoryV18','romanceV20','arrivalV22','cityMomentsV24','sagaV25','sagaV26','memoryV13']);
 // These four actual production helpers intentionally create dialogue in pending.lines.
 const INLINE_SCENES_V23=new Set(['_spoken','_hellTalk','_explore','_post_sign']);
 export function assertSupportedSavedProgressV23(save,dialogues){

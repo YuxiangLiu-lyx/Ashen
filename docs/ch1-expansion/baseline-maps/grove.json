@@ -1,0 +1,258 @@
+{
+  "name": "溪边旧径",
+  "sub": "这里很久没人走过了",
+  "atlas": "exterior",
+  "cell": 3,
+  "doors": [
+    {
+      "x": 800,
+      "y": 960,
+      "to": "road",
+      "tx": 920,
+      "ty": 280,
+      "label": "旧王道"
+    }
+  ],
+  "npcs": [],
+  "spawns": [
+    [
+      "wolf",
+      650,
+      450
+    ],
+    [
+      "wolf",
+      1020,
+      650
+    ],
+    [
+      "wolf",
+      480,
+      600,
+      "grove-v8-wolf"
+    ],
+    [
+      "rat",
+      520,
+      830,
+      "grove-v9-rat"
+    ],
+    [
+      "bat",
+      1220,
+      460,
+      "grove-v9-bat"
+    ],
+    [
+      "rat",
+      1250,
+      780,
+      "grove-v9-rat-east"
+    ]
+  ],
+  "props": [
+    {
+      "id": "stone",
+      "type": "crate",
+      "x": 1250,
+      "y": 320,
+      "label": "第三块松石",
+      "action": "secret"
+    },
+    {
+      "id": "groveherb",
+      "type": "herb",
+      "x": 400,
+      "y": 700,
+      "label": "银叶草",
+      "action": "herb"
+    }
+  ],
+  "blocks": [
+    [
+      0,
+      0,
+      660,
+      175
+    ],
+    [
+      990,
+      0,
+      610,
+      175
+    ],
+    [
+      0,
+      175,
+      215,
+      575
+    ],
+    [
+      1450,
+      175,
+      150,
+      575
+    ],
+    [
+      0,
+      750,
+      310,
+      100
+    ],
+    [
+      1360,
+      750,
+      240,
+      100
+    ],
+    [
+      0,
+      850,
+      570,
+      230
+    ],
+    [
+      1060,
+      850,
+      540,
+      230
+    ],
+    [
+      264,
+      450,
+      72,
+      40
+    ],
+    [
+      1340,
+      680,
+      80,
+      40
+    ],
+    [
+      1046,
+      214,
+      68,
+      31
+    ],
+    [
+      1027,
+      328,
+      46,
+      17
+    ],
+    [
+      1125,
+      313,
+      50,
+      17
+    ],
+    [
+      549,
+      662,
+      72,
+      28
+    ],
+    [
+      790,
+      175,
+      120,
+      310
+    ],
+    [
+      790,
+      620,
+      120,
+      200
+    ]
+  ],
+  "encounters": [
+    {
+      "groupId": "v9-grove-west",
+      "bounds": [
+        390,
+        365,
+        335,
+        520
+      ],
+      "size": 3,
+      "danger": "ordinary",
+      "refresh": "revisit",
+      "spawnIds": [
+        "grove-0",
+        "grove-v8-wolf",
+        "grove-v9-rat"
+      ],
+      "types": [
+        "wolf",
+        "rat",
+        "bat"
+      ],
+      "count": [
+        3,
+        4
+      ],
+      "area": [
+        390,
+        365,
+        335,
+        520
+      ],
+      "center": [
+        557.5,
+        625
+      ],
+      "spread": [
+        142.5,
+        235
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": false
+    },
+    {
+      "groupId": "v9-grove-east",
+      "bounds": [
+        960,
+        405,
+        395,
+        435
+      ],
+      "size": 3,
+      "danger": "ordinary",
+      "refresh": "revisit",
+      "spawnIds": [
+        "grove-1",
+        "grove-v9-bat",
+        "grove-v9-rat-east"
+      ],
+      "types": [
+        "wolf",
+        "bat",
+        "rat"
+      ],
+      "count": [
+        3,
+        3
+      ],
+      "area": [
+        960,
+        405,
+        395,
+        435
+      ],
+      "center": [
+        1157.5,
+        622.5
+      ],
+      "spread": [
+        172.5,
+        192.5
+      ],
+      "entryExclusionRadius": 160,
+      "aggroShareRadius": 190,
+      "unique": false
+    }
+  ],
+  "worldV4": true
+}

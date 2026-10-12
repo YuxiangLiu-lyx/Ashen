@@ -1,0 +1,417 @@
+{
+  "name": "旧磨坊小径",
+  "sub": "断了的水槽通向东岸，狼爪印停在检修洞前",
+  "atlas": "exterior",
+  "cell": 3,
+  "ground": "millPath",
+  "doors": [
+    {
+      "x": 800,
+      "y": 180,
+      "to": "road",
+      "tx": 1090,
+      "ty": 805,
+      "label": "旧王道"
+    },
+    {
+      "x": 1180,
+      "y": 870,
+      "to": "echo",
+      "tx": 300,
+      "ty": 810,
+      "label": "回水机房 · 建议Lv.3"
+    }
+  ],
+  "npcs": [],
+  "spawns": [
+    [
+      "rat",
+      470,
+      620,
+      "millpath-0"
+    ],
+    [
+      "wolf",
+      1030,
+      590,
+      "millpath-2"
+    ],
+    [
+      "bat",
+      1210,
+      710,
+      "millpath-3"
+    ]
+  ],
+  "blocks": [
+    [
+      0,
+      0,
+      690,
+      190
+    ],
+    [
+      910,
+      0,
+      690,
+      190
+    ],
+    [
+      0,
+      190,
+      195,
+      735
+    ],
+    [
+      1430,
+      190,
+      170,
+      735
+    ],
+    [
+      0,
+      925,
+      1600,
+      155
+    ],
+    [
+      355,
+      265,
+      270,
+      95
+    ],
+    [
+      281.7,
+      533,
+      96.6,
+      27
+    ],
+    [
+      620,
+      648,
+      120,
+      32
+    ],
+    [
+      692.8,
+      848,
+      134.4,
+      27
+    ],
+    [
+      537,
+      395,
+      66,
+      22
+    ],
+    [
+      1010,
+      376,
+      100,
+      24
+    ],
+    [
+      365,
+      737,
+      110,
+      23
+    ],
+    [
+      198,
+      276,
+      44,
+      24
+    ],
+    [
+      128,
+      496,
+      44,
+      24
+    ],
+    [
+      267.45,
+      801,
+      45.1,
+      24
+    ],
+    [
+      510.2,
+      916,
+      39.6,
+      24
+    ],
+    [
+      874.7,
+      916,
+      50.6,
+      24
+    ],
+    [
+      1369.1,
+      836,
+      41.8,
+      24
+    ],
+    [
+      1407.45,
+      546,
+      45.1,
+      24
+    ],
+    [
+      1315.8,
+      306,
+      48.4,
+      24
+    ],
+    [
+      1098.55,
+      196,
+      42.9,
+      24
+    ],
+    [
+      940.2,
+      166,
+      39.6,
+      24
+    ],
+    [
+      1239,
+      388,
+      102.00000000000001,
+      22
+    ],
+    [
+      926,
+      803,
+      68,
+      22
+    ],
+    [
+      1330,
+      430,
+      85,
+      275
+    ],
+    [
+      1220,
+      260,
+      195,
+      100
+    ]
+  ],
+  "props": [
+    {
+      "id": "mill-copper",
+      "action": "copperPackage",
+      "type": "bundle",
+      "x": 430,
+      "y": 560,
+      "label": "西墙下的油布包",
+      "worldInteractionV29": {
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "mill-practice",
+      "action": "practiceBench",
+      "type": "book",
+      "x": 680,
+      "y": 615,
+      "label": "旧练习台上的字迹",
+      "depthY": 681,
+      "interactX": 680,
+      "interactY": 715,
+      "worldInteractionV29": {
+        "duration": 0.25
+      }
+    },
+    {
+      "id": "mill-door",
+      "action": "millDoor",
+      "type": "door",
+      "x": 485,
+      "y": 400,
+      "label": "顶住的磨坊门",
+      "depthY": 401,
+      "worldInteractionV29": {
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "mill-barrel",
+      "type": "barrel",
+      "x": 1050,
+      "y": 760
+    },
+    {
+      "id": "mill-pot",
+      "type": "pot",
+      "x": 560,
+      "y": 780
+    },
+    {
+      "id": "mill-wheel",
+      "action": "millWheel",
+      "type": "wheel",
+      "x": 1190,
+      "y": 430,
+      "label": "拆下的轮轴",
+      "art": {
+        "sheet": "chapterProps",
+        "index": 5,
+        "w": 64,
+        "h": 96
+      },
+      "worldInteractionV29": {
+        "duration": 0.4
+      }
+    },
+    {
+      "id": "v29-mill-tracks",
+      "action": "v29MillTracks",
+      "type": "book",
+      "x": 880,
+      "y": 510,
+      "label": "湿泥里的爪印",
+      "art": {
+        "sheet": "details",
+        "index": 14,
+        "w": 48,
+        "h": 28
+      },
+      "worldInteractionV29": {
+        "duration": 0.35
+      },
+      "flat": true
+    },
+    {
+      "id": "v29-mill-channel",
+      "action": "v29MillChannel",
+      "type": "book",
+      "x": 1280,
+      "y": 690,
+      "label": "卡住的旧引水槽",
+      "art": {
+        "sheet": "details",
+        "index": 3,
+        "w": 56,
+        "h": 34
+      },
+      "worldInteractionV29": {
+        "duration": 0.35
+      },
+      "interactX": 1210,
+      "interactY": 675
+    }
+  ],
+  "encounters": [
+    {
+      "groupId": "v29-mill-oldstock",
+      "bounds": [
+        410,
+        580,
+        170,
+        170
+      ],
+      "activationBounds": [
+        410,
+        580,
+        170,
+        170
+      ],
+      "leashBounds": [
+        360,
+        530,
+        270,
+        270
+      ],
+      "spawnIds": [
+        "millpath-0"
+      ],
+      "types": [
+        "rat"
+      ],
+      "count": [
+        1,
+        1
+      ],
+      "size": 1,
+      "refresh": "revisit",
+      "danger": "ordinary",
+      "area": [
+        410,
+        580,
+        170,
+        170
+      ],
+      "center": [
+        495,
+        665
+      ],
+      "spread": [
+        60,
+        60
+      ],
+      "entryExclusionRadius": 130,
+      "aggroShareRadius": 155,
+      "unique": false
+    },
+    {
+      "groupId": "v29-mill-waterbank",
+      "bounds": [
+        980,
+        540,
+        270,
+        230
+      ],
+      "activationBounds": [
+        980,
+        540,
+        270,
+        230
+      ],
+      "leashBounds": [
+        930,
+        490,
+        370,
+        330
+      ],
+      "spawnIds": [
+        "millpath-2",
+        "millpath-3"
+      ],
+      "types": [
+        "wolf",
+        "bat"
+      ],
+      "count": [
+        2,
+        2
+      ],
+      "size": 2,
+      "refresh": "revisit",
+      "danger": "ordinary",
+      "area": [
+        980,
+        540,
+        270,
+        230
+      ],
+      "center": [
+        1115,
+        655
+      ],
+      "spread": [
+        110,
+        90
+      ],
+      "entryExclusionRadius": 130,
+      "aggroShareRadius": 155,
+      "unique": false
+    }
+  ],
+  "worldV4": true,
+  "worldLayoutV29": 1
+}

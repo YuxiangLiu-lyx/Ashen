@@ -245,7 +245,7 @@ function updateAction(g,e,dt){
   e.angle=a.a;
   if(!a.hit&&distance(e,g.p)<a.width/2+24&&g.clearLine(e,g.p,false)){g.hurt(a.damage);a.hit=true;}
   for(const member of g.activeMercenaries?.()||[]){if(member.visible&&!a.mercenaryHits?.includes(member.id)&&distance(e,member)<a.width/2+24&&g.clearLine(e,member,false)){(a.mercenaryHits||(a.mercenaryHits=[])).push(member.id);g.hurtMercenary?.(member,a.damage);}}
-  if(a.life<=0||distance(e,point(ox,oy))<.1){e.action=null;e.cd=Math.max(e.cd,.65);if(formidable(e)){e.exposedUntil=g.time+(boss(e)?B.bossChargeOpening:B.eliteOpening);g.text('破绽',e.x,e.y-101,'#b7dfbf');}}
+  if(a.life<=0||distance(e,point(ox,oy))<.1){g.c1ResolvedCharge?.(e,a);e.action=null;e.cd=Math.max(e.cd,.65);if(formidable(e)){e.exposedUntil=g.time+(boss(e)?B.bossChargeOpening:B.eliteOpening);g.text('破绽',e.x,e.y-101,'#b7dfbf');}}
   return true;
 }
 
@@ -255,6 +255,7 @@ export function tickEnemiesV9(g,dt,idleAI){
   for(const e of g.enemies){
     ensureEnemyAI(e,g);
     if(e.dead){transition(g,e,'DEAD');continue;}
+    if(g.c1TickEnemy?.(e,dt))continue;
     const cfg=profileForEnemy(e.type,e.id),p=g.p;
     e.moving=false;e.attackAnim=Math.max(0,(e.attackAnim||0)-dt);
     if(e.type==='bat')e.anim+=dt*8;

@@ -1,0 +1,35 @@
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (15.073583ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (28.5545ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.030959ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.414875ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.782208ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.597375ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (0.993292ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (3.603375ms)
+✖ each elite has final custom budget, one kill transaction and independent guaranteed part (8.033ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (22.64725ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.492542ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (1.846375ms)
+ℹ tests 12
+ℹ suites 0
+ℹ pass 11
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 170.565625
+
+✖ failing tests:
+
+test at tests/chapter-one-elites.test.mjs:7:1
+✖ each elite has final custom budget, one kill transaction and independent guaranteed part (8.033ms)
+  Error: 场景动作数据不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:57:427)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:7:551)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

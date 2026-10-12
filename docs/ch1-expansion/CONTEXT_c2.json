@@ -1,0 +1,288 @@
+{
+  "status": "budget_limited",
+  "task": "第二章剧情",
+  "basis_commit": "71dcfce51938b8d3e0a35dd803d78120bb0ce688",
+  "source_fingerprint": "d6d0725ff09033ae2e09609bd7aed4e1c86d23afc1b8c722930c329e2cf441c0",
+  "modules": [
+    "story",
+    "chapter02_plan",
+    "maps"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter02_plan: current constraints"
+      ],
+      "priority": 125,
+      "category": "current_rules",
+      "sha256": "82ca164c8eaf2da9123545d0c1fb141db3175cb26c796584d15d37cfc53575fb",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 章节剧情记录与开发流程",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "2. 实现前在本章稿记录版本、目标、进入/结束状态、逐场剧情、角色与玩家各自知道什么、地图/任务/演出交接、揭露上限及验收。缺稿就先补稿；不能边写代码边临时决定主线。使用 [章节模板](#章节模板)。",
+          "truncated": false
+        },
+        {
+          "line": 10,
+          "text": "4. 开发者把当前章节改为 `DEV_FROZEN`，写明采用版本与少量实施调整；通过 task.py 保存 checkpoint。中途改剧情同步改稿和登记表，记录原因与知识/存档影响，禁止只有代码发生变化。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.3仍只策划。两章记录分别见 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，不再有独立分镜开发prompt。长期世界观不扩大本轮范围。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "局部增强的章稿可采用“完整主线记录＋现有最终场景ID与对白来源＋本轮增量逐句稿”；保",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 4713
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter02_plan: current constraints"
+      ],
+      "priority": 125,
+      "category": "current_rules",
+      "sha256": "ce27b1fa693206ed106fdc20e04b030045bba3cbc4ddd8c7e3c9e5c4b09fad90",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 剧情与角色约束",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "## 当前剧情记录与局部增强",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "用户已确定宏大叙事的长期方向，当前实施范围已经收缩；长期世界观是 [WORLD_VISION](WORLD_VISION.md) 的可选参考，区分确定方向、建议与待完善事项。它不是所有剧情任务的必读全文。 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md) 保存分卷分章架构和固定登记；每章开发前遵循 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md)，读取对应完整稿并记录采用版本。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1915
+    },
+    {
+      "path": "docs/harness/EXPLORATION.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "c2f289b62054a96022553a8e802ab72ec65ff364ac10388b6c63200e032aaa7e",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 已验证示范区的接续约束",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "V29仅重新设计road/millpath/echo/workshop，地图与出口坐标系仍1600×1080。其他114图不据此认定已经重构。配置在configureWorld最后执行；world-runtime在表现/碰撞installer之后安装。布局/路线/地标在world-design，渲染在world-art，新对白在world-dialogues；不得在核心循环重复堆特例。",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "V30按用户要求取消短操作等待。worldInteractionV29仍显式接入，站在interactX/Y附近且clearLine才执行，朝向物件后当次调用原useProp；不生成计时环、不锁移动和存档。距离/隔墙/清场/笔记/一次性领取条件仍有效，短暂环境反馈保存在WeakMap。纯装饰不加入targets。向其他图推广前要验证交互点在物件碰撞外、实际截图和既有结果；客房三项既有交互同样即时进入原结果。V29等待设计为历史行为，不能重新覆盖用户当前授权。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "echo任务ID、机芯物品、原XP/金、炼洗章门槛、前槽卷筒/指环二选一保持。新档击败warden只标记清场进度，清稳周围并读检修簿后亲手取后槽机芯，先取机芯才能开前槽。旧echoCoreFound/items.echoCore/echo done档免除新条件。不得给旧档补领第二份机芯、改动echoChoice或强行重播新对白。新文本用新ID，保留旧对白游标。",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3302
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "eb464b03845792aba284ca6fafe460a36740ba97d39a52262eab8c91debaea82",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用地图布局、碰撞、路径、NPC岗位、场景渲染和人物资源修改，包括小改动。读取受影响地图及其调用者；保留改前证据。三项均须单独完成，任何失败或未知均不能用其他项抵消。自动脚本只检查几何事实和证据完整性，不声称能自动判断审美。",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "1. **可玩性 playability**：实际RPG blocked/clearLine/moveActor生成可达/不可达/碰撞/瓶颈图；走通每个入口到出口与任务目标，检查真实实体不穿透、NPC不堵路。相关野外检查近战、远程、追击、脱战、绕障、技能、范围攻击躲避和多敌；普通区240×192仅为24像素脚部直径的初始参考，不以面积比例代替实战。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "2. **场景可信度 scene_credibility**：实际游戏分辨率全图及局部对照，说明地理、道路/建筑用途、物件为什么在此、主次与留白、NPC岗位/停顿/活动依据。禁止随机堆物作为主要布局逻辑；每种地图保留自己的结构节奏。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "3. **角色一致性 character_consistency**：实际人物截图与原画/角色映射对照，分别检查相似性、职业轮廓、头身比、服装、脚锚、前后遮挡及待机/移动/攻击。士兵/精锐/军官依赖独立设计，不依赖同图缩放或换色。缺资源记录未完成，不接受占位图冒充。",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2306
+    },
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "0d394bbeabc9bf5aa1a0d0fba4672f4d06bd2bea0eb583191b3f6395bb3c3895",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "2026-10-10用户要求保留已有地图和人物优化，撤下第一章新增分镜式剧情。现行范围见 [CHAPTER_01](CHAPTER_01.md)：追兵独立图集、成人比例/脚锚、地图表现和井沿交互修复保持；不新增几何或移动任务目标。0.5幕后使用原对话框和薇蕾娜/鲁恩原立绘，新增匿名神秘人删除；圣女默认立绘改为封面柔和形象，无新场所图。旧分镜开发prompt已从现行Harness移除。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1774
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "`presentation-physics-v281.js` 补充没有 authored box 的树干、墙体、建筑基座、门柱、水盆、床和推车；门框保持中间通行。大型敌人移动/寻路使用更大脚底半径，包括已有桌椅的足部轮廓；直线寻路与移动共用同一间距。无名运行时家具获得独立稳定 ID，入座时不会批量忽略其它对象。卡位修复包含当前同行，不挪动倒地者或搬运中的患者。原有细网格剧情寻路、坐席切换和患者搬运例外保留。入图/读档时才修复卡在障碍里的角色，常规移动不以瞬移替代寻路。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4137
+    }
+  ],
+  "excerpt_bytes": 6756,
+  "max_files": 8,
+  "budget_bytes": 8000,
+  "deferred": [
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "dist/data-v14.js",
+    "dist/presentation-physics-v281.js",
+    "docs/harness/CHAPTER_02.md",
+    "dist/chapter123-presentation-v30.js",
+    "dist/dialogue-runtime-v16.js",
+    "dist/chapter23-design-v30.js",
+    "dist/saga-runtime-v26.js",
+    "dist/story-flow-v14.js",
+    "dist/world-design-v29.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/world-runtime-v29.js",
+    "dist/world-art-v29.js",
+    "dist/world-v14.js",
+    "dist/scene-geometry-v26.js",
+    "dist/dialogue-save-migration-v26.js",
+    "dist/navigation-v14.js",
+    "dist/world-entry-v22.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/chapter123-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-chapter123.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-world-v29.mjs",
+    "node tools/world_audit.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/map_quality.py"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "第二章0.3是保留主线的剧情记录与未来幕后补充，本轮不改第二章代码或知识状态。",
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

@@ -11,3 +11,8 @@
 用 `task.py run` 记录真实检查。验收写到 `docs/map-quality/LATEST.json`：source_fingerprint、reviewed_paths（相对路径）、assets（path/sha256）、maps数组。每图id下三个维度各自包含 status=pass/failed/unverified、reason、evidence数组（每项path/sha256）。必须实际查看图片和报告后写理由，不能仅根据文件存在批量自动批准。未执行的检查注明限制与复现步骤，维度保持unverified。
 
 `python3 tools/harness/map_quality.py --base <任务基线>` 验证当前源码、改动覆盖和证据哈希；task.py finish 对真实地图/美术改动自动调用该校验，即使未手动声明必需检查也不能绕过。check.py --recommend 自动推荐三维检查。代码、资源或证据改变后需重新检查相关维度并更新记录。历史回执不覆盖，LATEST只是当前证据索引。
+
+
+## 第一章0.6采用范围（2026-10-12）
+
+0.6新增五图及11张追加互动的旧图在docs/ch1-expansion/NAVIGATION.json独立审计。检修道需分别验证踏板前后；训练/巡检/炼金场景反馈须有前后截图。章节质量门禁进一步要求真实三职业路线与经济证据，几何通过不等于内容通过。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。

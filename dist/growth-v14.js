@@ -1,3 +1,4 @@
+import {c1Stats} from './chapter-one-expansion-gear.js';
 import {sagaBasePowerV25,applySagaStatsV25} from './saga-stats-v25.js';
 import {mercenaryQualityBonusV18} from './mercenary-quality-v18.js';
 import {saintBondBonusesV17} from './rank-scaling-v17.js';
@@ -23,7 +24,7 @@ export function vitalStats(p,c,a=totalAttributes(p)){
 export function characterStats(p,c){
  const a=totalAttributes(p),B=baseCombatPower(p,c),coeff={shadow:{str:1.4,dex:1.1},oath:{str:2,dex:.4},ember:{wis:2,dex:.3},saint:{wis:1.6,dex:.3}}[p.cls];
  const atk=B+Object.entries(coeff).reduce((n,[k,v])=>n+a[k]*v,0),haste=(p.cls==='shadow'?.15:0)+(p.battleTempo>0?.25:0);
- return applySagaStatsV25(p,applyHellRouteGearStats(p,applyChapter5Stats(p,applyCareerStats(p,{...vitalStats(p,c,a),atk,crit:Math.min(.35,.06+a.dex*.0025),critMultiplier:1.5,speed:205,attackRate:({shadow:.46,oath:.68,ember:.72,saint:.76}[p.cls])/(1+haste),haste,manaRegen:Math.min(1.2,.6+a.wis*.01),reduction:Math.min(.42,(p.cls==='oath'?Math.min(.32,.08+a.vit*.0025):0)+(p.skills.trialResolve?.04:0)+(p.stoneSkin>0?.12:0)+saintBondBonusesV17(p).reduction),healing:p.cls==='saint'?1.2:1,affixes:new Set(Object.values(p.gear||{}).map(i=>i?.affix).filter(Boolean))},a))));
+ return c1Stats(p,applySagaStatsV25(p,applyHellRouteGearStats(p,applyChapter5Stats(p,applyCareerStats(p,{...vitalStats(p,c,a),atk,crit:Math.min(.35,.06+a.dex*.0025),critMultiplier:1.5,speed:205,attackRate:({shadow:.46,oath:.68,ember:.72,saint:.76}[p.cls])/(1+haste),haste,manaRegen:Math.min(1.2,.6+a.wis*.01),reduction:Math.min(.42,(p.cls==='oath'?Math.min(.32,.08+a.vit*.0025):0)+(p.skills.trialResolve?.04:0)+(p.stoneSkin>0?.12:0)+saintBondBonusesV17(p).reduction),healing:p.cls==='saint'?1.2:1,affixes:new Set(Object.values(p.gear||{}).map(i=>i?.affix).filter(Boolean))},a)))));
 }
 export function hasPracticeRing(p){return ['staff','wand'].includes((p.gear.weapon||p.gear.offhand)?.weaponType)&&Object.values(p.gear).some(i=>i?.uniqueEffect==='copperPractice');}
 export function damageModifier(p,kind){if(!hasPracticeRing(p))return 1;if(['cleave','crash'].includes(kind))return 1.35;if(['firebolt','frost'].includes(kind)||(p.cls==='ember'&&['attack','q','e'].includes(kind)))return .8;return 1;}
