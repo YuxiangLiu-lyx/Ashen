@@ -1,5 +1,7 @@
 # 项目指令定位
 
+当前用户进一步授权第一章0.9跨层多怪目标、互通通路、入图刷新与通用规则。采用稿docs/harness/CHAPTER_01_LAYER_RULES.md；固定游戏设定docs/harness/GAME_SETTINGS.md纳入Harness：默认主线、金叹号/灰问号/金问号、无明面爆率、自然门禁、任务无关常驻刷新。0.8以下内容为保留基线，0.6独立人工节奏验收仍待办。
+
 唯一执行入口为根 AGENTS.md。当前状态在 CURRENT_STATE.json，按任务检索 docs/harness规则和 .agents/skills；不要求每次读完整历史。恢复范围以 BACKUP_STATUS.md为准，版本以当前代码与发布回执为准。旧入口原文保留在 docs/harness/history，不作为重复权威。
 
 

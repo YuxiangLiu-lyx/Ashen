@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {journey} from './chapter-one-economy.mjs';import {C1_LOCAL_QUESTS} from '../dist/chapter-one-story-world.js';import {C1_MAIN,C1_SIDE} from '../dist/chapter-one-expansion-data.js';
-const out='docs/ch1-story-world/economy';fs.mkdirSync(out,{recursive:true});
+const out='docs/ch1-layer-rules/economy';fs.mkdirSync(out,{recursive:true});
 for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typical','all_once','repeat_patrol','local_work'])test(cls+' '+route+' actual campaign economy and second-chapter carry',()=>{
  const r=journey(cls,route,2654435769),g=r.g,h=g.c1Expansion;
  for(const q of C1_MAIN)assert.equal(g.quests[q.id],'done',q.id);
@@ -13,5 +13,5 @@ for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typi
  r.continueChapterTwo();fs.writeFileSync(path,JSON.stringify({route,cls,basis:'runtime_events',events:r.events,milestones:r.milestones,limits:r.limits},null,2));
 });
 for(const cls of ['shadow','oath','ember'])test(cls+' full route with exactly one exclusive epic carries through chapter two',()=>{
- const r=journey(cls,'all_once',10);assert.equal(Object.values(r.g.c1Expansion.elite).filter(e=>e.lootResult>=0).length,1);r.continueChapterTwo();fs.writeFileSync(out+'/'+cls+'-all_once-one-epic.json',JSON.stringify({route:'all_once',cls,seed:10,basis:'runtime_events',variant:'exactly one exclusive epic',events:r.events,milestones:r.milestones,limits:r.limits},null,2)+'\n');
+ const r=journey(cls,'all_once',10);assert.equal(Object.entries(r.g.c1Expansion.claimLedger).filter(([id,tx])=>id.startsWith('elite:')&&tx.draw>=0).length,1);r.continueChapterTwo();fs.writeFileSync(out+'/'+cls+'-all_once-one-epic.json',JSON.stringify({route:'all_once',cls,seed:10,basis:'runtime_events',variant:'exactly one exclusive epic',events:r.events,milestones:r.milestones,limits:r.limits},null,2)+'\n');
 });

@@ -1,3 +1,4 @@
+import {installGameSettings} from './game-settings-v31.js';
 import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';
 import {BOUNDARIES} from './world-v14.js';
 import {installChapterOneInteraction} from './chapter-one-interaction-v31.js';
@@ -283,3 +284,4 @@ installChapterOneMotionV30(RPG);
 installChapterOneInteraction(RPG);
 
 installChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});
+installGameSettings(RPG,{MAPS});

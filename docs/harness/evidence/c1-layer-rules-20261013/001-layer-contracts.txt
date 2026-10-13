@@ -1,0 +1,79 @@
+✖ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (13.824416ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (6.696083ms)
+✖ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (3.382292ms)
+✔ materials from each floor remain separate and one death generation receives one roll (2.1455ms)
+✖ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (1.303708ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (3.342709ms)
+✔ two herb sources cannot be replaced with four leaves from one source (3.338792ms)
+✖ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (2.008ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (2.33425ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.802916ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 6
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 169.356917
+
+✖ failing tests:
+
+test at tests/chapter-one-layer-rules.test.mjs:17:1
+✖ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (13.824416ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + 'steward'
+  - 'sister'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:19:52)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 'steward',
+    expected: 'sister',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-layer-rules.test.mjs:24:1
+✖ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (3.382292ms)
+  Error: 场景动作数据不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:57:427)
+      at reload (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:15:34)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:26:584)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-layer-rules.test.mjs:31:1
+✖ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (1.303708ms)
+  Error: 场景动作数据不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:57:427)
+      at reload (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:15:34)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:33:160)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-layer-rules.test.mjs:42:1
+✖ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (2.008ms)
+  Error: 场景动作数据不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:57:427)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:44:266)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

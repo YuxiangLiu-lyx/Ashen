@@ -1,0 +1,144 @@
+{
+  "schema": 1,
+  "id": "c1-layer-rules-20261013",
+  "goal": "第一章跨层多怪目标与互通路线、入图刷新、自然门禁、主线默认跟踪、三色任务标记及融入场景的墙板；记录通用游戏设定并接入Harness",
+  "acceptance": [
+    "跨层目标分别计数且旧档不丢进度；每次真实入图任务无关刷新敌群与单个精英；无玩家可见爆率或公式门禁；可接金叹号、进行灰问号、可交及剧情联系人金问号；默认主线；墙板三维实景验收；Harness规则可路由可回归；构建及Git保存"
+  ],
+  "baseline_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+  "modules": [
+    "chapter01_plan",
+    "story"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-13T07:19:22.801036+00:00",
+  "updated_at_utc": "2026-10-13T07:47:21.584506+00:00",
+  "decisions": [
+    "新增横向路线而非机械堆图；已取得目标证据不随刷新倒扣；保留三精英预算",
+    "真实刷新使告别后再返水渠有新普通巡卫，追缉官仍保持死亡；脚本需实际清场，任务交付证据不倒扣"
+  ],
+  "completed": [
+    "已读取0.8采用稿/相关Skills；新0.9采用稿、通用设定、四阶段计划与真实基线落盘",
+    "跨层计数/旧档嵌套schema4、三色标记、主线默认与自然门禁已接入；新增5条双向通路和2张原图",
+    "跨层与刷新运行已落地；43项专项及22图初版画廊通过；15条三职业经济路线走通前两章，正在修正精英掉落统计读取最后一次而非全部事务的问题"
+  ],
+  "remaining": [
+    "最终专项、正常键鼠、旧档审计、三维审阅、集成、构建和Git保存"
+  ],
+  "blockers": [],
+  "next": "保存实现检查点，然后执行最终验收",
+  "required_checks": [
+    "fast",
+    "integration",
+    "map-quality"
+  ],
+  "checks": [
+    {
+      "label": "layer-contracts",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-layer-rules.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:37:00.422465+00:00",
+      "finished_at_utc": "2026-10-13T07:37:00.692384+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "516d417a0fa6d7f9774799e59d0b09850a3c48b6c73001de9aa6a7b4a0262c56",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/001-layer-contracts.txt",
+      "output_sha256": "6d63d092e688059db8abf4d5a5a9d18cc812d4b9fdbc4f41f758206db3f16684",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "quest-map-specialists",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-elites.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:39:02.766960+00:00",
+      "finished_at_utc": "2026-10-13T07:39:03.524822+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "5ec53531cdc1a1ef5e2cc544f18c7e9243fc58c378a70ea32d668fba7a4b93a0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/002-quest-map-specialists.txt",
+      "output_sha256": "b3e881e1805dec69757282213b6daea8213273281363a6856152a39453518576",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "contracts-and-gallery",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,sys,os; cmds=[[\"node\",\"--test\",\"tests/chapter-one-layer-rules.test.mjs\",\"tests/chapter-one-story-world.test.mjs\",\"tests/chapter-one-map-quests.test.mjs\",\"tests/chapter-one-expansion.test.mjs\",\"tests/chapter-one-elites.test.mjs\"],[\"node\",\"tests/browser-chapter-one-map-quests.mjs\"]]; codes=[subprocess.run(c).returncode for c in cmds]; print(codes);sys.exit(any(codes))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:40:15.484412+00:00",
+      "finished_at_utc": "2026-10-13T07:40:26.601860+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "f695f3a109407bb981f629c24ad0b79e0dcd10acfac113573200374311699f88",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/003-contracts-and-gallery.txt",
+      "output_sha256": "bc9a4bbb3ccec843205b68cef20b73362b75a186254b6544e9e995562653d4d2",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "contracts-gallery-campaign",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,sys,os; cmds=[[\"node\",\"--test\",\"tests/chapter-one-layer-rules.test.mjs\",\"tests/chapter-one-story-world.test.mjs\",\"tests/chapter-one-map-quests.test.mjs\",\"tests/chapter-one-expansion.test.mjs\",\"tests/chapter-one-elites.test.mjs\"],[\"node\",\"tests/browser-chapter-one-map-quests.mjs\"],[\"node\",\"--test\",\"tests/chapter-one-economy.test.mjs\"]]; codes=[subprocess.run(c).returncode for c in cmds]; print(codes);sys.exit(any(codes))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:41:14.076338+00:00",
+      "finished_at_utc": "2026-10-13T07:42:00.589210+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "9b10e29c6c80cd25cd9ea44520e4eb8d24ea8c3caad72c114d6dba542e6b8a9c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/004-contracts-gallery-campaign.txt",
+      "output_sha256": "b6dcacc46f7d4321ef06efe95a74663e35746e28ed5462534c758d80efd11d64",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "campaign-refresh-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:43:51.490418+00:00",
+      "finished_at_utc": "2026-10-13T07:44:25.755373+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "0d02413ee245261087fc5212061156108be9f0517b4156cc7b6e0ef71ba3dec6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/005-campaign-refresh-regression.txt",
+      "output_sha256": "683e2b55f6b57f0efc9d81476553ad928dbcc51d1d1ec673a60cd4a16589d616",
+      "timeout_seconds": 240.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "plan",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T07:23:17.818354+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "5e4c3e4cacfb8fd3edd20662b66479815c1158ca4665e74f1a3ee22331c6b615",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n?? docs/ch1-layer-rules/\n?? docs/harness/CHAPTER_01_LAYER_RULES.md\n?? docs/harness/GAME_SETTINGS.md\n?? source/tasks/active/c1-layer-rules-20261013.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T07:47:21.530974+00:00",
+      "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
+      "source_fingerprint": "e14ddd9abab35f49c80a755356fa6ff95956540fc176949345f132ef7e745898",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-objectives.js\n M dist/chapter-one-story-world.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/navigation-v14.js\n M dist/quest-service-v14.js\n M dist/story-test-v31.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-map-quests.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/harness/test_harness.py\n M tools/balance_lab/chapter-one.mjs\n M tools/harness/check.py\n?? dist/assets/c1-layer-rules/\n?? dist/game-settings-v31.js\n?? docs/ch1-layer-rules/\n?? docs/harness/CHAPTER_01_LAYER_RULES.md\n?? docs/harness/GAME_SETTINGS.md\n?? docs/harness/evidence/c1-layer-rules-20261013/\n?? source/tasks/active/c1-layer-rules-20261013.json\n?? tests/chapter-one-layer-rules.test.mjs"
+    }
+  ]
+}

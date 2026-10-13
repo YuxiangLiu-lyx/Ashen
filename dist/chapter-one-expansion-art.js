@@ -24,7 +24,7 @@ export function c1Ground(bank,id){const plan=C1_LAYOUTS[id];if(!plan)return null
  }
 
  if(!plan.outdoor||plan.edge==='masonry'){
-  for(const side of ['north','south'])for(let y=180;y<980;y+=20){let start=null;for(let x=140;x<=1480;x+=20){const edge=x<1480&&c1Land(id,x+10,y+10)&&!c1Land(id,x+10,y+(side==='north'?-10:30));if(edge&&start===null)start=x;if(!edge&&start!==null){for(let xx=start;xx<x;xx+=200)c1WallPiece(c,bank,side==='north'?0:1,xx,y+(side==='north'?5:40),x-xx);start=null;}}}
+  for(const side of ['north','south'])for(let y=180;y<980;y+=20){let start=null;for(let x=140;x<=1480;x+=20){const edge=x<1480&&c1Land(id,x+10,y+10)&&!c1Land(id,x+10,y+(side==='north'?-10:30));if(edge&&start===null)start=x;if(!edge&&start!==null){for(let xx=start;xx<x;xx+=200){if(id==='warehouse'&&side==='north'&&y===180&&xx>=1140){if(xx===1140)bank.draw(c,'c1WallPatch',0,1300,185,320,70);}else c1WallPiece(c,bank,side==='north'?0:1,xx,y+(side==='north'?5:40),x-xx);}start=null;}}}
   for(const side of ['west','east'])for(let x=140;x<1480;x+=20){let start=null;for(let y=180;y<=980;y+=20){const edge=y<980&&c1Land(id,x+10,y+10)&&!c1Land(id,x+(side==='west'?-10:30),y+10);if(edge&&start===null)start=y;if(!edge&&start!==null){for(let yy=start;yy<y;yy+=190)c1WallPiece(c,bank,side==='west'?2:3,x+(side==='west'?-38:7),yy+Math.min(190,y-yy),y-yy);start=null;}}}
  }
  for(const [x,y,w,h]of plan.water||[]){const water=bank.images.c1Water;if(water){c.save();c.beginPath();c.rect(x,y,w,h);c.clip();for(let yy=y;yy<y+h;yy+=320)c.drawImage(water,x-80,yy,320,320);c.restore();}
@@ -34,6 +34,7 @@ export function c1Ground(bank,id){const plan=C1_LAYOUTS[id];if(!plan)return null
  return canvas;
 }
 export function drawC1Prop(c,bank,g,p,people=[]){
+ if(p.c1WallPatch)return true;
  if(!p.c1Art&&!p.action?.startsWith('c1:'))return false;
  if(p.c1Resource&&!g.c1PropVisible?.(p))return true;
  const spec=p.c1Art;if(!spec)return true;
@@ -41,7 +42,7 @@ export function drawC1Prop(c,bank,g,p,people=[]){
 }
 // Readable enemy windups use the game's painted dust/impact images, never floor polygons.
 export function drawC1Telegraph(c,t,bank){if(!t||!bank)return;const f=bank.frame('combatFX',1);if(!f)return;const width=t.r?2*t.r:t.length||120,height=t.shape==='rect'?t.width:width*.65;c.save();c.globalAlpha=.48;c.translate(t.x,t.y);c.rotate(t.a||0);bank.draw(c,'combatFX',1,t.shape==='rect'?width/2:0,height/2,width,height);c.restore();}
-export function drawC1World(c,g,bank){if(c1Map(g.map)){const plan=C1_LAYOUTS[g.map];for(const d of g.targets().filter(t=>t.kind==='door')){const outside=plan.outdoor;if(outside)c1NaturalSprite(c,bank,5,d.x+38,d.y,42,88);else if(plan.floor===2)bank.draw(c,'chapterUtilities',6,d.x,d.y,80,125);else bank.draw(c,'c1Walls',d.to==='c1TrialCrypt'||d.to==='c1TrialVault'||d.to==='c1DrillGallery'?4:5,d.x,d.y+12,112,108);if(Math.hypot(g.p.x-d.x,g.p.y-d.y)<240){c.save();c.textAlign='center';c.font='16px serif';c.fillStyle='#ecdfbf';c.shadowColor='#121913';c.shadowBlur=5;c.fillText(d.label||d.to,d.x,d.y+26);c.restore();}}}
+export function drawC1World(c,g,bank){if(c1Map(g.map)){const plan=C1_LAYOUTS[g.map];for(const d of g.targets().filter(t=>t.kind==='door')){const outside=plan.outdoor;if(d.c1Stair)bank.draw(c,'c1Walls',d.c1Stair==='down'?4:5,d.x,d.y+12,112,108);else if(outside)c1NaturalSprite(c,bank,5,d.x+38,d.y,42,88);else bank.draw(c,'chapterUtilities',6,d.x,d.y,80,125);if(Math.hypot(g.p.x-d.x,g.p.y-d.y)<240){c.save();c.textAlign='center';c.font='16px serif';c.fillStyle='#ecdfbf';c.shadowColor='#121913';c.shadowBlur=5;c.fillText(d.label||d.to,d.x,d.y+26);c.restore();}}}
  drawC1Telegraph(c,g.c1TrainingSession?.warning,bank);for(const e of g.enemies)if(!e.dead&&e.telegraph?.c1)drawC1Telegraph(c,e.telegraph,bank);
 }
 export function drawC1Target(c,e,bank){if(!e.c1Training)return false;if(bank)bank.draw(c,'chapterUtilities',16,e.x,e.y,65,105);return true;}

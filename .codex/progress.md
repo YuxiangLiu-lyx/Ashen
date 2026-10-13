@@ -1,3 +1,7 @@
+# 当前工作：第一章0.9分层任务与通用设定
+
+2026-10-13，从干净main efdf696接续；分支work/c1-layer-rules-20261013。阶段计划docs/ch1-layer-rules/PLAN.md，采用稿docs/harness/CHAPTER_01_LAYER_RULES.md。先规则/数据与存档，再通路/美术，最后专项集成及Git保存。
+
 # Ashen 增量执行进度
 
 最后更新：2026-10-13。中断恢复先读 `AGENTS.md`、本文件、`git diff` 和未跟踪文件，先 `task.py list`。回滚任务已完成；重构任务按用户要求暂停，不得自动接续。保留其他任务与历史证据。
@@ -407,3 +411,18 @@
 - 阶段 delivery：complete；HEAD ace068a74c532f83cf4c6449d9952fd53ab7e121
 - 最近检查：package-promote，退出码 0；docs/harness/evidence/c1-story-world-20261012/032-package-promote.txt
 <!-- /task:c1-story-world-20261012 -->
+
+<!-- task:c1-layer-rules-20261013 -->
+## 任务 c1-layer-rules-20261013
+- 状态：in_progress
+- 更新：2026-10-13T07:47:21.584506+00:00
+- 下一步：保存实现检查点，然后执行最终验收
+- 任务记录：source/tasks/active/c1-layer-rules-20261013.json
+- 已完成：已读取0.8采用稿/相关Skills；新0.9采用稿、通用设定、四阶段计划与真实基线落盘；跨层计数/旧档嵌套schema4、三色标记、主线默认与自然门禁已接入；新增5条双向通路和2张原图；跨层与刷新运行已落地；43项专项及22图初版画廊通过；15条三职业经济路线走通前两章，正在修正精英掉落统计读取最后一次而非全部事务的问题
+- 待完成：最终专项、正常键鼠、旧档审计、三维审阅、集成、构建和Git保存
+- 决定：新增横向路线而非机械堆图；已取得目标证据不随刷新倒扣；保留三精英预算；真实刷新使告别后再返水渠有新普通巡卫，追缉官仍保持死亡；脚本需实际清场，任务交付证据不倒扣
+- 阻塞：无
+- 阶段 plan：complete；HEAD efdf69677de8fe3366a0fc04297c6d15f06f217a
+- 阶段 implementation：complete；HEAD efdf69677de8fe3366a0fc04297c6d15f06f217a
+- 最近检查：campaign-refresh-regression，退出码 1；docs/harness/evidence/c1-layer-rules-20261013/005-campaign-refresh-regression.txt
+<!-- /task:c1-layer-rules-20261013 -->

@@ -1,4 +1,4 @@
-// Chapter 0.8: the walkable land, terrain and authored feet share one plan.
+// Chapter 0.9: the walkable land, terrain and authored feet share one plan.
 // Rooms/clearings overlap through wide passages; hubs remain broad open spaces.
 export const C1_LAYOUTS={
  hall:{floor:2,space:'接待大厅 · 书记角 · 后院通道',rooms:[[140,180,1320,780]]},
@@ -14,13 +14,13 @@ export const C1_LAYOUTS={
  echo:{floor:3,space:'入口间 · 检修廊 · 守兽后槽',rooms:[[180,620,520,350],[420,220,480,570],[960,180,500,740],[780,430,280,250]]},
  workshop:{floor:2,space:'修理柜台 · 工作台 · 练习角',rooms:[[220,240,1180,720]]},
  c1TrainingYard:{floor:1,outdoor:true,space:'集合地 · 苔壳兽场 · 东侧通道',rooms:[[140,680,540,280],[200,240,560,560],[820,200,640,740],[650,430,320,240]],paths:[[[220,820],[460,710],[460,500],[920,550],[1320,850]]]},
- c1DrillGallery:{floor:3,space:'西训练厅 · 中央回廊 · 看守室',rooms:[[140,220,530,740],[770,180,690,780],[600,390,270,300],[570,780,330,180]]},
+ c1DrillGallery:{floor:3,space:'地下一层 · 西训练厅 · 东厅侧阶',rooms:[[140,220,530,740],[770,180,690,780],[600,390,270,300],[570,780,330,180]]},
  c1LoomRoom:{floor:2,space:'符文柜 · 缀纹机 · 样本台',rooms:[[180,220,1240,740]]},
  c1NorthWalk:{floor:0,outdoor:true,space:'西岸检修台 · 双桥 · 东岸灯路',rooms:[[160,240,490,720],[820,180,630,780],[590,420,300,220],[590,800,300,160]],water:[[660,0,160,420],[660,640,160,160],[660,960,160,120]],bridges:[[630,420,220,220],[630,800,220,160]]},
  c1ReedKiln:{floor:1,outdoor:true,space:'苇湾入口 · 窑前空场 · 东侧蝠巢',rooms:[[160,600,480,360],[440,340,630,530],[900,180,540,580]],paths:[[[230,870],[530,730],[770,610],[1180,430]]]},
  c1TrialFoyer:{floor:3,space:'地下接待室 · 值守桌 · 两侧阶梯',rooms:[[180,240,1240,720]]},
- c1TrialCrypt:{floor:3,space:'维修工入口 · 西蓄能厅 · 东回流槽',rooms:[[140,680,380,280],[370,180,500,780],[990,180,470,780],[770,360,330,270],[740,780,340,180]]},
- c1TrialVault:{floor:3,space:'守库账桌 · 封存书架 · 失控看守内室',rooms:[[140,650,450,310],[380,180,480,700],[980,180,480,780],[740,440,350,250]]},
+ c1TrialCrypt:{floor:3,space:'地下二层 · 啃线鼠窝 · 旧升降井',rooms:[[140,680,380,280],[370,180,500,780],[990,180,470,780],[770,360,330,270],[740,780,340,180]]},
+ c1TrialVault:{floor:3,space:'地下三层 · 封存书架 · 检修便道',rooms:[[140,650,450,310],[380,180,480,700],[980,180,480,780],[740,440,350,250]]},
  c1RiversideCamp:{floor:1,outdoor:true,space:'柴车停靠地 · 药棚 · 林边步道',rooms:[[140,250,1320,710]],paths:[[[220,820],[740,650],[1360,600]]]},
  c1KilnCourt:{floor:0,outdoor:true,edge:'masonry',space:'窑工歇脚院 · 晾坯棚 · 后窑通道',rooms:[[160,280,1280,680]],paths:[[[220,810],[800,650],[1380,540]]]},
 };

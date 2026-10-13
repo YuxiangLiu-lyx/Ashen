@@ -1,3 +1,4 @@
+import {c1Map} from './chapter-one-layout.js';
 import {COMBAT_BALANCE as B} from './balance-v14.js';
 import {C1_ELITES,c1DropIndex} from './chapter-one-expansion-data.js';
 import {c1State,c1Random,c1Clone} from './chapter-one-expansion-save.js';
@@ -8,9 +9,9 @@ export function c1Encounter(g,id){const h=c1State(g);return h.elite[id]||(h.elit
 export function c1Danger(t,p){if(!t)return false;if(t.shape==='circle')return distance(t,p)<t.r;if(t.shape==='cone')return distance(t,p)<t.r&&Math.cos(Math.atan2(p.y-t.y,p.x-t.x)-t.a)>Math.cos(t.arc);const dx=p.x-t.x,dy=p.y-t.y,along=dx*Math.cos(t.a)+dy*Math.sin(t.a),across=Math.abs(-dx*Math.sin(t.a)+dy*Math.cos(t.a));return along>-18&&along<t.length&&across<t.width/2+12;}
 function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=e.hp/Math.max(1,e.maxHP);if(!e.c1Tuned){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;}
  Object.assign(e,{label:cfg.name,elite:true,c1Custom:true,c1Generation:e.c1Generation||h.aliveGeneration,v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:35,v28RewardGold:12,v13Tuned:true});}
-export function installC1Combat(RPG,{stats}){
+export function installC1Combat(RPG,{stats,MAPS}){
  const P=RPG.prototype,old={};for(const k of ['ensureMap','enemy','enter','update','damage','handleHellDeath','dropCombatLoot','snapshot','restore','respawn','skill','enemyHit'])old[k]=P[k];
- P.enemy=function(...args){const e=old.enemy.apply(this,args);tune(this,e);if(e.id.startsWith('c1-moss-')){e.c1Species='beetle';e.label='苔壳爬兽';}if(e.id.startsWith('c1-sentry-')||e.id.startsWith('c1-crypt-')||e.id.startsWith('c1-vault-')||e.id==='c1-trial-warden'){e.c1Species='construct';e.label=e.id==='c1-trial-warden'?'试炼守卫':e.id==='c1-vault-warden'?'封存看守':e.id.startsWith('c1-crypt-')?'蓄能构装体':e.id.startsWith('c1-vault-')?'封存库守卫':'旧廊构装体';}if(e.id==='c1-vault-warden')e.c1Species='vaultwarden';if(['c1-trial-warden','c1-vault-warden'].includes(e.id)){e.elite=true;e.maxHP=320;e.hp=e.dead?0:320;}return e;};
+ P.enemy=function(...args){const e=old.enemy.apply(this,args);tune(this,e);if(e.id.startsWith('c1-moss-')){e.c1Species='beetle';e.label='苔壳爬兽';}if(e.id.startsWith('c1-crypt-'))e.label='啃线鼠';if(e.id.startsWith('c1-sentry-')||e.id.startsWith('c1-vault-')||e.id==='c1-trial-warden'){e.c1Species='construct';e.label=e.id==='c1-trial-warden'?'试炼守卫':e.id==='c1-vault-warden'?'封存看守':e.id.startsWith('c1-crypt-')?'蓄能构装体':e.id.startsWith('c1-vault-')?'封存库守卫':'旧廊构装体';}if(e.id==='c1-vault-warden')e.c1Species='vaultwarden';if(['c1-trial-warden','c1-vault-warden'].includes(e.id)){e.elite=true;e.maxHP=320;e.hp=e.dead?0:320;}return e;};
  P.ensureMap=function(id){c1State(this);const r=old.ensureMap.call(this,id);const st=this.states[id];if(!st)return r;for(const [eliteId,cfg]of Object.entries(C1_ELITES)){if(cfg.map!==id)continue;let e=st.enemies.find(e=>e.id===eliteId);if(!e&&cfg.x!==undefined){e=this.enemy(cfg.type,cfg.x,cfg.y,eliteId);st.enemies.push(e);}if(e)tune(this,e);}return r;};
  P.c1EliteKill=function(e){
   const cfg=C1_ELITES[e.id];if(!cfg||this.map!==cfg.map)return false;e.hp=0;const h=c1Encounter(this,e.id),key='elite:'+e.id+':'+e.c1Generation;
@@ -25,11 +26,24 @@ export function installC1Combat(RPG,{stats}){
  };
  P.handleHellDeath=function(e){if(e.c1Training||e.c1NoReward)return true;if(C1_ELITES[e.id]&&C1_ELITES[e.id].map===this.map)return this.c1EliteKill(e);return old.handleHellDeath?.call(this,e);};
  P.dropCombatLoot=function(e){if(C1_ELITES[e.id]&&C1_ELITES[e.id].map===this.map)return this.c1EliteKill(e);if(this.map==='canal'&&e.id==='captain')return this.c1Transaction('captain:seal',()=>{const item=c1Item(this.p.cls,'c1CaptainSeal','c1-captain-seal');this.c1Deliver(item);return {items:[item.id]};});return old.dropCombatLoot.call(this,e);};
+ // Reset authored resident encounters on a real crossing, never on a load or
+ // ensureMap. Each new enemy has its own durable generation for quest/loot credit.
  P.enter=function(id,...args){
-  const previous=this.map;for(const [eliteId,cfg]of Object.entries(C1_ELITES))if(cfg.map===previous&&id!==previous&&this.states[previous]?.enemies.find(e=>e.id===eliteId)?.dead)c1Encounter(this,eliteId).leftAfterKill=true;
-  const result=old.enter.call(this,id,...args);if(this.map!==id)return result;
-  for(const [eliteId,cfg]of Object.entries(C1_ELITES))if(cfg.map===id){const h=c1Encounter(this,eliteId),e=this.enemies.find(e=>e.id===eliteId);if(e?.dead&&h.leftAfterKill&&h.outsideActiveSeconds>=180){h.aliveGeneration++;h.outsideActiveSeconds=0;h.leftAfterKill=false;const replacement=this.enemy(cfg.type,e.homeX,e.homeY,eliteId);replacement.c1Generation=h.aliveGeneration;this.states[id].enemies[this.enemies.indexOf(e)]=replacement;}}
-  return result;
+  const previous=this.map,visited=!!this.states[id],allowed=!this.flags.complete;
+  const result=old.enter.call(this,id,...args);if(!allowed||this.map!==id||previous===id||!c1Map(id)||this.chapter>=5||!visited)return result;
+  const state=this.states[id],prior=new Map(state.enemies.map(e=>[e.id,e]));
+  const spawns=MAPS[id].spawns.map((s,i)=>({type:s[0],x:s[1],y:s[2],id:s[3]||id+'-'+i}));
+  for(const [eliteId,cfg]of Object.entries(C1_ELITES))if(cfg.map===id&&!spawns.some(s=>s.id===eliteId))spawns.push({id:eliteId,type:cfg.type,x:cfg.x,y:cfg.y});
+  const residents=new Set(spawns.map(s=>s.id));
+  state.enemies=state.enemies.filter(e=>!residents.has(e.id)&&!e.c1NoReward&&!e.c1Training);
+  for(const spawn of spawns){const e=prior.get(spawn.id);
+   if(e&&(e.storyTag||e.id==='captain')){state.enemies.push(e);continue;}
+   if(C1_ELITES[spawn.id]){const h=c1Encounter(this,spawn.id);h.aliveGeneration++;h.leftAfterKill=false;h.outsideActiveSeconds=0;}
+   const replacement=this.enemy(spawn.type,spawn.x??e.homeX,spawn.y??e.homeY,spawn.id);
+   replacement.c1QuestGeneration=Math.max(e?.c1QuestGeneration||1,c1State(this).journey.kills[id+':'+spawn.id]||0)+1;
+   state.enemies.push(replacement);
+  }
+  this.repairEntities();this.saveEvent();return result;
  };
  P.c1TickEnemy=function(e,dt){
   if(e.c1Training){if(this.c1TrainingSession?.kind==='drill'){const target={x:940,y:540+Math.sin(this.time*.8)*100};this.moveActor(e,target.x,target.y,false);e.angle=Math.cos(this.time*.8)>0?Math.PI/2:-Math.PI/2;e.moving=true;}return true;}if(!e.c1Custom){
@@ -82,7 +96,6 @@ export function installC1Combat(RPG,{stats}){
  P.update=function(dt,input={}){
   const active=this.active&&!this.pending&&!this.transition,at={x:this.p.x,y:this.p.y};
   const result=old.update.call(this,dt,input);if(!active)return result;
-  for(const [id,cfg]of Object.entries(C1_ELITES)){const e=c1State(this).elite[id];if(e?.leftAfterKill&&this.map!==cfg.map&&(distance(at,this.p)>.01||(this.p.attackAnim>0&&this.enemies.some(e=>!e.dead&&distance(e,this.p)<450))))e.outsideActiveSeconds+=dt;}
   const s=this.c1TrainingSession;if(!s)return result;if(s.map!==this.map||this.p.hp<=0){this.c1EndTraining();return result;}
   this.p.hp=stats(this.p).hp;this.p.mp=stats(this.p).mp;
   if(s.kind==='drill'){

@@ -1,0 +1,96 @@
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.142208ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (10.118667ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (20.3595ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (2.877084ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (3.262834ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.08375ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (2.246333ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.406166ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (7.443708ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (0.78425ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (185.624917ms)
+✖ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (8.649167ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (6.235208ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (10.951125ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.2755ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (2.698208ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.744834ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (15.438ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (9.781458ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (5.109042ms)
+✔ materials from each floor remain separate and one death generation receives one roll (2.40325ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (57.205834ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (5.879375ms)
+✔ two herb sources cannot be replaced with four leaves from one source (3.245917ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (10.949333ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (1.700875ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.795416ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (29.566166ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (1.807083ms)
+✔ real reentry refreshes ordinary enemies without idle time and creates new kill credit (1.582542ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (6.743958ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (3.576375ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.066375ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (7.529042ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (473.403833ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.49775ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (12.456834ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (19.000167ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (2.17275ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (7.348ms)
+✖ two gathering requests use physical plants only after acceptance and persist their shared harvest (3.411291ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (5.786167ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (4.232833ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 41
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 663.12475
+
+✖ failing tests:
+
+test at tests/chapter-one-expansion.test.mjs:11:1
+✖ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (8.649167ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!g.canDoor(MAPS.road.doors.find(d=>d.to==='town')))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:12:668)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-story-world.test.mjs:19:1
+✖ two gathering requests use physical plants only after acceptance and persist their shared harvest (3.411291ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.useProp(t.id))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-story-world.test.mjs:19:409)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

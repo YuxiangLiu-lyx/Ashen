@@ -45,3 +45,17 @@ Object.assign(C1_OBJECTIVES,{
 });
 Object.assign(C1_NPC_NAMES,{saint:'艾莉娅',...Object.fromEntries(Object.entries(C1_PEOPLE).map(([id,p])=>[id,p.name]))});
 Object.assign(C1_ACCEPT_TEXT,C1_STORY_ACCEPT,{oil:'灰鼠拖走了五袋灯油。处理粮仓鼠群时留意油囊，带齐五袋回来修门廊的灯。',v12Water:'苔壳兽身上的清心苔能缓解肩伤。带五份回来，我替你配药换好绷带。',v12CourierRoad:'八只野兽占了东段车道。清掉它们，再回来找我，车夫们等着回去收断车。',lantern:'北渠八只夜蝠占了灯路，晚归的人不敢过桥。帮忙驱走它们，再回来告诉我，我去添灯油。',copper:'磨坊狼群咬走了五个传力铜圈。找回铜圈交给我，我替你做个练武环，也能把铺子的工具修好。'});
+
+// Stable per-source keys keep several floors from sharing one ambiguous counter.
+const sentries={id:'sentries',map:'c1DrillGallery',count:8,prefix:'c1-sentry-',name:'一层旧廊哨兵'};
+const cableRats={id:'cableRats',map:'c1TrialCrypt',count:8,prefix:'c1-crypt-',name:'二层啃线鼠'};
+const layered={
+ c1ExitDrill:[sentries,cableRats],
+ c1CryptRepair:[cableRats,sentries],
+ c1VaultWatch:[{id:'vaultGuards',map:'c1TrialVault',count:8,prefix:'c1-vault-sentry-',name:'三层封存库守卫'},cableRats],
+ c1CampHunt:[{id:'millWolves',map:'millpath',count:8,types:['wolf'],name:'磨坊狼群'},{id:'kilnBats',map:'c1ReedKiln',count:8,types:['bat'],name:'废窑夜蝠'}],
+ c1TrialSalvage:[{...sentries,id:'rivets',count:5,name:'完整铆钉',monster:'一层旧廊哨兵',chance:.7},{...cableRats,id:'wire',count:3,name:'完整导线',monster:'二层啃线鼠',chance:.7}],
+ c1CampHerbs:[{id:'groveLeaves',map:'grove',count:2,name:'溪林银叶草'},{id:'roadLeaves',map:'road',count:2,name:'王道银叶草'}],
+};
+for(const [id,parts]of Object.entries(layered))Object.assign(C1_OBJECTIVES[id],{parts,count:parts.reduce((n,p)=>n+p.count,0)});
+export const c1ObjectiveParts=o=>o.parts?o.parts.map(p=>({kind:o.kind,...p})):[o];

@@ -3,7 +3,7 @@ import {C1_NEW_MAPS} from './chapter-one-expansion-data.js';
 import {c1State} from './chapter-one-expansion-save.js';
 import {C1_LAYOUTS,C1_MAPS,C1_FURNITURE,C1_RESOURCE_SITES,c1Boundary,c1Map,c1Land} from './chapter-one-layout.js';
 import {WATERS,BRIDGES} from './world-v14.js';
-export const C1_CONNECTIONS=[['hall','c1TrainingYard'],['c1TrainingYard','c1TrialFoyer'],['c1TrialFoyer','c1DrillGallery'],['c1TrialFoyer','c1TrialCrypt'],['c1TrialCrypt','c1TrialVault'],['grove','c1RiversideCamp'],['road','c1RiversideCamp'],['c1RiversideCamp','c1KilnCourt'],['c1KilnCourt','c1ReedKiln'],['c1DrillGallery','warehouse'],['workshop','c1LoomRoom'],['town','c1NorthWalk'],['c1NorthWalk','alley'],['grove','c1ReedKiln']];
+export const C1_CONNECTIONS=[['hall','c1TrainingYard'],['c1TrainingYard','c1TrialFoyer'],['c1TrialFoyer','c1DrillGallery'],['c1TrialFoyer','c1TrialCrypt'],['c1TrialCrypt','c1TrialVault'],['grove','c1RiversideCamp'],['road','c1RiversideCamp'],['c1RiversideCamp','c1KilnCourt'],['c1KilnCourt','c1ReedKiln'],['c1DrillGallery','warehouse'],['workshop','c1LoomRoom'],['town','c1NorthWalk'],['c1NorthWalk','alley'],['grove','c1ReedKiln'],['c1DrillGallery','c1TrialCrypt'],['c1TrialCrypt','c1TrainingYard'],['c1TrialVault','c1DrillGallery'],['c1RiversideCamp','millpath'],['c1ReedKiln','c1NorthWalk']];
 export const C1_CHANGED_MAPS=C1_MAPS.filter(id=>!C1_NEW_MAPS.includes(id));
 const door=(to,x,y,tx,ty,label)=>({to,x,y,tx,ty,label,c1Door:true,manualOnly:true});
 const prop=(id,label,x,y,action,extra={})=>({id,label,x,y,type:'book',action,flat:true,geometryV26:false,collisionV281:false,...extra});
@@ -11,16 +11,24 @@ const npc=(id,name,x,y,sprite)=>({id,name,x,y,sprite,angle:Math.PI/2});
 export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  const create=(id,name,safe,npcs,spawns)=>{MAPS[id]={name,sub:C1_LAYOUTS[id].space,atlas:'interior',cell:0,safe,worldV4:true,c1Expansion:true,doors:[],blocks:[],props:[],npcs,spawns};};
  create('c1TrainingYard','灰烛练武庭',false,[],[['rat',480,380,'c1-moss-1'],['rat',590,560,'c1-moss-2'],['rat',1030,530,'c1-moss-3'],['rat',1270,660,'c1-moss-4']]);
- create('c1DrillGallery','旧试炼廊',false,[],[['rat',360,845,'c1-sentry-1'],['rat',800,620,'c1-sentry-2'],['wolf',1260,520,'c1-trial-warden']]);
+ create('c1DrillGallery','一层旧试炼廊',false,[],[['rat',360,845,'c1-sentry-1'],['rat',800,620,'c1-sentry-2'],['wolf',1260,520,'c1-trial-warden']]);
  create('c1LoomRoom','缀纹工坊',true,[npc('c1rosa','罗萨',400,480,4),npc('c1saido','赛铎',1170,460,11)],[]);
  create('c1NorthWalk','北渠检修道',false,[],[['rat',370,490,'c1-valve-rat'],['rat',470,760,'c1-north-rat-2'],['rat',960,420,'c1-north-rat-3'],['rat',1130,760,'c1-north-rat-4'],['rat',1260,620,'c1-north-rat-5'],['bat',1080,280,'c1-valve-bat'],['bat',1340,470,'c1-north-bat-2'],['bat',980,860,'c1-north-bat-3']]);
  create('c1ReedKiln','苇湾废窑',false,[],[['bat',550,760,'c1-kiln-bat-a'],['bat',760,580,'c1-kiln-bat-b'],['bat',1030,460,'c1-kiln-bat-c'],['bat',1280,620,'c1-kiln-bat-d'],['bat',1200,760,'c1-kiln-bat-e']]);
- for(const [id,name,safe]of [['c1TrialFoyer','地下接待室',true],['c1TrialCrypt','地下蓄能廊',false],['c1TrialVault','封存库',false],['c1RiversideCamp','河畔营地',true],['c1KilnCourt','窑工院',true]])create(id,name,safe,[],[]);
+ for(const [id,name,safe]of [['c1TrialFoyer','地下接待室',true],['c1TrialCrypt','二层蓄能廊',false],['c1TrialVault','三层封存库',false],['c1RiversideCamp','河畔营地',true],['c1KilnCourt','窑工院',true]])create(id,name,safe,[],[]);
  for(const [id,p]of Object.entries(C1_PEOPLE)){const xy={c1iden:[530,530],c1hesha:[280,855],c1venn:[285,845],c1blake:[455,530],c1eve:[1130,900],c1mada:[465,540]}[id];MAPS[p.map].npcs.push(npc(id,p.name,...xy,4));}
  const join=(a,b,ax,ay,bx,by)=>{MAPS[a].doors.push(door(b,ax,ay,bx,by,MAPS[b].name));MAPS[b].doors.push(door(a,bx,by,ax,ay,MAPS[a].name));};
  join('hall','c1TrainingYard',180,560,220,820);join('c1TrainingYard','c1TrialFoyer',1360,860,220,870);join('c1TrialFoyer','c1DrillGallery',1360,520,220,870);join('c1TrialFoyer','c1TrialCrypt',1020,880,210,905);join('c1TrialCrypt','c1TrialVault',1380,870,210,915);join('c1DrillGallery','warehouse',1350,860,240,870);
  join('workshop','c1LoomRoom',1340,740,230,850);join('town','c1NorthWalk',1100,220,230,850);join('c1NorthWalk','alley',1370,850,480,870);join('grove','c1ReedKiln',1390,540,230,870);
  join('grove','c1RiversideCamp',320,910,1370,450);join('road','c1RiversideCamp',1240,900,230,850);join('c1RiversideCamp','c1KilnCourt',1370,600,230,850);join('c1KilnCourt','c1ReedKiln',1360,540,380,900);
+ join('c1DrillGallery','c1TrialCrypt',1380,390,1290,580);join('c1TrialCrypt','c1TrainingYard',480,870,890,310);join('c1TrialVault','c1DrillGallery',810,620,420,290);
+ join('c1RiversideCamp','millpath',880,320,760,870);join('c1ReedKiln','c1NorthWalk',560,410,900,300);
+ // Destinations describe the adjoining floor, while the passage itself belongs to the building.
+ const passage=(map,to,label)=>{const d=MAPS[map].doors.find(d=>d.to===to);d.label=label;d.c1Passage=true;};
+ passage('c1DrillGallery','c1TrialCrypt','二层蓄能廊 · 东厅侧阶');passage('c1TrialCrypt','c1DrillGallery','一层旧廊 · 上行侧阶');
+ passage('c1TrialCrypt','c1TrainingYard','练武庭 · 旧升降井台阶');passage('c1TrainingYard','c1TrialCrypt','二层蓄能廊 · 旧升降井');
+ passage('c1TrialVault','c1DrillGallery','一层旧廊 · 检修便道');passage('c1DrillGallery','c1TrialVault','三层封存库 · 检修便道');
+ passage('c1ReedKiln','c1NorthWalk','北渠检修道 · 窑工小径');passage('c1NorthWalk','c1ReedKiln','苇湾废窑 · 窑工小径');
  MAPS.millpath.spawns.push(['wolf',1150,830,'c1-mill-wolf-2'],['wolf',710,350,'c1-mill-wolf-3']);
  const keep={hall:['hallbook','hallpot'],warehouse:['crack','frost','wbox1','wbox2'],road:[],town:['well','townbook'],chapel:[],alley:['alleycrate'],canal:['canalbox'],grove:['stone'],guestroom:['guest-journal','guest-basin','guest-bunk'],millpath:['mill-barrel'],echo:['echo-machine','echo-valve','v29-echo-core'],workshop:['repair-bench','reset-bench','v29-repair-core']};
  for(const [id,ids]of Object.entries(keep))MAPS[id].props=MAPS[id].props.filter(p=>ids.includes(p.id));
@@ -35,7 +43,7 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  at('warehouse','frost',1200,910,{c1Art:['Furnishings',9,44,32]});at('warehouse','wbox1',340,690,{c1Art:['Furnishings',4,82,72]});at('warehouse','wbox2',1070,840,{c1Art:['Objects',0,38,56]});
  at('millpath','mill-barrel',1050,760,{c1Art:['Furnishings',6,68,86]});
  at('alley','alleycrate',1050,800,{c1Art:['Furnishings',4,80,74]});at('canal','canalbox',430,730,{c1Art:['Furnishings',4,80,74]});
- at('warehouse','crack',1290,280,{interactY:325,c1Art:['Settlement',5,105,120]});at('warehouse','frost',1200,910);at('warehouse','wbox1',340,690);at('warehouse','wbox2',1070,840);
+ at('warehouse','crack',1300,185,{interactY:235,c1WallPatch:true,label:'北墙松动的修补木板'});at('warehouse','frost',1200,910);at('warehouse','wbox1',340,690);at('warehouse','wbox2',1070,840);
  at('grove','stone',1290,355,{c1Art:['Utilities',19,92,58]});at('echo','v29-echo-core',1200,405,{c1Art:['Utilities',14,65,38]});at('echo','echo-machine',1280,330,{interactX:1280,interactY:425,c1Art:['Settlement',10,175,165]});at('echo','echo-valve',880,725,{c1Art:['Furnishings',11,56,76]});
  at('workshop','repair-bench',1040,490,{interactY:535,c1Art:['Utilities',8,80,42]});at('workshop','reset-bench',390,585,{c1Art:['Utilities',17,48,30]});at('workshop','v29-repair-core',1080,480,{interactY:535,c1Art:['Utilities',14,60,34]});
  at('guestroom','guest-basin',950,395,{c1Art:['Utilities',13,65,42]});
@@ -48,7 +56,7 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  C1_FURNITURE.guestroom=C1_FURNITURE.guestroom.filter(o=>!(o.sheet==='chapterUtilities'&&o.asset===0));
  C1_FURNITURE.road=C1_FURNITURE.road.filter(o=>!(o.sheet==='chapterObjects'&&o.asset===10));
  C1_FURNITURE.echo=C1_FURNITURE.echo.filter(o=>o.sheet!=='chapterSettlement');
- for(const id of C1_MAPS){const m=MAPS[id],layout=C1_LAYOUTS[id];m.c1Layout=8;m.sub=layout.space;
+ for(const id of C1_MAPS){const m=MAPS[id],layout=C1_LAYOUTS[id];m.c1Layout=9;m.sub=layout.space;
   const boundary=c1Boundary(id);BOUNDARIES[id]=boundary;WATERS[id]=(layout.water||[]).map(b=>[...b]);delete BRIDGES[id];
   SCENERY[id]=(C1_FURNITURE[id]||[]).map((o,i)=>({...o,id:'c1-furniture-'+id+'-'+i}));
   m.blocks=[...boundary,...SCENERY[id].map(o=>o.box),...m.props.flatMap(p=>p.c1Box?[p.c1Box]:[])];
@@ -70,16 +78,16 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
   // Old V29 encounter rectangles followed old narrow lanes; updated groups use authored clearings.
   if(m.encounters)m.encounters=[];
   m.ambientActors=(m.ambientActors||[]).filter((a,i)=>i<2&&!(m.blocks.some(([x,y,w,h])=>a.x>x-20&&a.x<x+w+20&&a.y>y-20&&a.y<y+h+20)));
-  for(const d of m.doors){d.manualOnly=true;d.c1Exit=true;d.x=Math.max(175,Math.min(1425,d.x));d.y=Math.max(225,Math.min(935,d.y));if(id==='town'&&d.to==='chapel')d.y=290;}
-  for(const p of m.props){p.c1Layout=8;p.geometryV26=false;p.collisionV281=false;}
+  for(const d of m.doors){const floors={hall:0,warehouse:0,c1TrainingYard:0,c1TrialFoyer:1,c1DrillGallery:1,c1TrialCrypt:2,c1TrialVault:3};if(floors[id]!==undefined&&floors[d.to]!==undefined&&floors[id]!==floors[d.to])d.c1Stair=floors[d.to]>floors[id]?'down':'up';d.manualOnly=true;d.c1Exit=true;d.x=Math.max(175,Math.min(1425,d.x));d.y=Math.max(225,Math.min(935,d.y));if(id==='town'&&d.to==='chapel')d.y=290;}
+  for(const p of m.props){p.c1Layout=9;p.geometryV26=false;p.collisionV281=false;}
  }
 }
 export function installC1World(RPG){
  const P=RPG.prototype,enter=P.enter,ensure=P.ensureMap,restore=P.restore,pathDirection=P.pathDirection;
  function align(g,id){if(!c1Map(id)||!g.states[id])return;const st=g.states[id],m=worldMaps[id];
   const previous=new Map(st.props.map(p=>[p.id,p]));st.props=m.props.map(p=>({...previous.get(p.id),...p,hp:previous.get(p.id)?.hp??(p.action?999:18),used:previous.get(p.id)?.used||false,broken:previous.get(p.id)?.broken||false}));
-  if(st.c1Layout!==8){st.c1Layout=8;for(const [i,s]of m.spawns.entries()){const key=s[3]||id+'-'+i;if(!st.enemies.some(e=>e.id===key))st.enemies.push(g.enemy(s[0],s[1],s[2],key));}
-   for(const e of st.enemies){const spawn=m.spawns.find(s=>(s[3]||id+'-'+m.spawns.indexOf(s))===e.id);if(e.dead&&!e.c1Custom&&!e.storyTag&&e.id!=='captain'){const j=c1State(g).journey;j.refresh[id+':'+e.id]??=j.clock+45;}if(spawn)Object.assign(e,{x:spawn[1],y:spawn[2],homeX:spawn[1],homeY:spawn[2],roamTarget:null,leashBounds:null,activationBounds:null});}for(const k of Object.keys(g.npcPoses||{}))if(k.startsWith(id+':'))delete g.npcPoses[k];}
+  if(st.c1Layout!==9){st.c1Layout=9;for(const [i,s]of m.spawns.entries()){const key=s[3]||id+'-'+i;if(!st.enemies.some(e=>e.id===key))st.enemies.push(g.enemy(s[0],s[1],s[2],key));}
+   for(const e of st.enemies){const spawn=m.spawns.find(s=>(s[3]||id+'-'+m.spawns.indexOf(s))===e.id);if(e.id.startsWith('c1-crypt-')){delete e.c1Species;e.label='啃线鼠';}if(spawn)Object.assign(e,{x:spawn[1],y:spawn[2],homeX:spawn[1],homeY:spawn[2],roamTarget:null,leashBounds:null,activationBounds:null});}for(const k of Object.keys(g.npcPoses||{}))if(k.startsWith(id+':'))delete g.npcPoses[k];}
  }
  P.ensureMap=function(id){const r=ensure.call(this,id);align(this,id);return r;};
  P.enter=function(...args){this.c1EndTraining?.();const r=enter.apply(this,args);align(this,this.map);this.repairEntities();return r;};

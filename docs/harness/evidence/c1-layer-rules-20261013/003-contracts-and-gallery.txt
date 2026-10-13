@@ -1,0 +1,94 @@
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.090209ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (6.078208ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (21.668958ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (2.76575ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (3.19925ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (5.121ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (3.196208ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.158334ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (9.370959ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (0.810625ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (191.582041ms)
+✖ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (9.320458ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (6.830917ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (10.529291ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.324917ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (2.316083ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (1.2025ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (14.667125ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (10.390333ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (4.786708ms)
+✔ materials from each floor remain separate and one death generation receives one roll (2.01925ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (50.481334ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (2.45675ms)
+✔ two herb sources cannot be replaced with four leaves from one source (2.981708ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (11.107833ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (1.779625ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.804333ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (15.973125ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (2.417333ms)
+✔ real reentry refreshes ordinary enemies without idle time and creates new kill credit (2.481208ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (13.126875ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (3.524292ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.027917ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (5.064916ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (492.006292ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.493792ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (18.24675ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (20.554375ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (19.363042ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (9.263416ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (4.413292ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (7.372375ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (4.764416ms)
+ℹ tests 43
+ℹ suites 0
+ℹ pass 42
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 673.413083
+
+✖ failing tests:
+
+test at tests/chapter-one-expansion.test.mjs:11:1
+✖ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (9.320458ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(!g.canDoor(MAPS.road.doors.find(d=>d.to==='town')))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:12:668)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+Error: TypeError: Cannot read properties of undefined (reading 'enemies')
+    at get enemies (http://127.0.0.1:56358/core-v14.js:118:45)
+    at P.canDoor (http://127.0.0.1:56358/chapter-one-expansion-quests.js:128:47)
+    at mapRoute (http://127.0.0.1:56358/navigation-v14.js:4:318)
+    at routeHint (http://127.0.0.1:56358/navigation-v14.js:6:13)
+    at updateHUD (http://127.0.0.1:56358/game-v14.js:169:779)
+    at buildHUD (http://127.0.0.1:56358/game-v14.js:165:3272)
+    at play (http://127.0.0.1:56358/game-v14.js:164:143)
+    at Object.fixture (http://127.0.0.1:56358/game-v14.js:316:292)
+    at <anonymous>:1:8
+    at Object.evaluate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39:156)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-map-quests.mjs:12:279
+
+Node.js v25.2.1
+[1, 1]

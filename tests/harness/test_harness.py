@@ -18,6 +18,13 @@ from check import recommend
 
 
 class RoutingTests(unittest.TestCase):
+    def test_persistent_game_settings_routes_to_rules_and_real_contracts(self):
+        for task in ['通用游戏设定', '默认跟踪主线', '灰色问号', '入图刷新', '跨层任务', '墙板']:
+            result = route(task, max_files=14, budget=16000)
+            self.assertIn('game_settings', result['modules'], task)
+            self.assertIn('docs/harness/GAME_SETTINGS.md', {c['path'] for c in result['contexts']})
+            self.assertIn('node --test tests/chapter-one-layer-rules.test.mjs', result['test_suggestions'])
+
     def test_multiline_imports_and_embedded_browser_hooks_are_distinct(self):
         source = '''import {foo,
             bar} from './actual.js';

@@ -1,3 +1,4 @@
+import {questMarkerForOptions} from './game-settings-v31.js';
 import {MAPS,QUESTS} from './data-v14.js';
 import {FAREWELL_IDS} from './mechanisms-v14.js';
 
@@ -56,16 +57,14 @@ export function installQuestService(RPG){
    if(id==='echo-machine'&&this.flags.echoWardenDefeated&&!this.flags.echoChoice)return 'gold?';
    const goals=[this.objective(),...Object.keys(QUESTS).filter(q=>this.quests[q]==='active').map(q=>this.questGoal(q))];return goals.some(goal=>goal&&!goal.completed&&!goal.suspended&&goal.map===this.map&&goal.target===id)?'gold?':'';
   }
-  const options=this.npcOptions(id),kinds=options.map(o=>o.questState);
-  if(kinds.some(k=>k==='ready'||k==='advance'))return 'gold?';
-  if(kinds.includes('available'))return '!';
-  if(kinds.includes('waiting'))return '?';
+  const marker=questMarkerForOptions(this.npcOptions(id));if(marker)return marker;
   if(Object.entries(returning).some(([q,n])=>n===id&&questRegion(q)===chapterRegion(this)&&this.quests[q]==='active'&&!this.ready(q)))return '?';
   return '';
  };
  P.questGoal=function(id){return this.pacingGoal?.(id)||legacyQuestGoal(this,id);};
+ P.trackQuest=function(id){this.flags.manualTrackedId=id||null;this.flags.tracked=id||null;this.flags.mapGoal=null;};
  P.trackedGoal=function(){
-  const id=this.flags.tracked;
+  const id=this.flags.manualTrackedId;
   if(id&&this.quests[id]==='active'){const goal=this.questGoal(id);if(goal&&!goal.suspended&&!goal.completed)return goal;}
   const map=this.flags.mapGoal;
   if(map&&MAPS[map]&&chapterRegion(this)===mapRegion(map))return {text:'前往 '+MAPS[map].name,map,type:'探索目的地'};
