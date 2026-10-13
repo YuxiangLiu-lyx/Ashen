@@ -1,0 +1,3518 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 43.242s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 213 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-test.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (4656.660583ms)
+✔ all base classes run real ordinary, elite and boss encounters (4087.631917ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (445.6445ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (10.712583ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (18.441333ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (609.63725ms)
+✔ real AI damage, resources and distinct policies affect outcomes (1831.774875ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.66275ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.952833ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (3.449458ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.630666ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.276916ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.449042ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (37.255ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (4.520292ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (5.088333ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (9.78225ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (13.502ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (17.212958ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (2939.042667ms)
+✔ distribution separates censored fights and reports confidence interval (192.102584ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (565.796959ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (1049.186458ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (68.125333ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (10.5185ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (4.170208ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (2.816625ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (205.210625ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (61.132584ms)
+shadow main_only prepared town 5 249
+shadow main_only captain-entry canal 5 277
+shadow main_only captain-done canal 5 305
+shadow main_only chapter-one-end post 6 365
+shadow main_only bridge-entry bridge 6 237
+shadow main_only manor-entry manor 6 265
+shadow main_only manor-exit spillway 7 289
+shadow main_only chapter-two-end hellGate 7 359
+shadow typical prepared town 6 304
+shadow typical captain-entry canal 6 332
+shadow typical captain-done canal 6 360
+shadow typical chapter-one-end post 7 420
+shadow typical bridge-entry bridge 7 292
+shadow typical manor-entry manor 7 327
+shadow typical manor-exit spillway 7 357
+shadow typical chapter-two-end hellGate 8 427
+shadow all_once rat-entry grove 6 353
+shadow all_once bat-entry c1ReedKiln 6 397
+shadow all_once warden-entry echo 7 526
+shadow all_once prepared town 8 623
+shadow all_once captain-entry canal 8 653
+shadow all_once captain-done canal 9 688
+shadow all_once chapter-one-end post 9 753
+shadow all_once bridge-entry bridge 9 625
+shadow all_once manor-entry manor 9 660
+shadow all_once manor-exit spillway 9 690
+shadow all_once chapter-two-end hellGate 10 755
+shadow repeat_patrol rat-entry grove 6 353
+shadow repeat_patrol bat-entry c1ReedKiln 6 397
+shadow repeat_patrol warden-entry echo 7 526
+shadow repeat_patrol patrol-1 c1LoomRoom 9 731
+shadow repeat_patrol patrol-2 c1LoomRoom 9 893
+shadow repeat_patrol patrol-3 c1LoomRoom 10 1011
+shadow repeat_patrol patrol-4 c1LoomRoom 11 1197
+shadow repeat_patrol patrol-5 c1LoomRoom 11 1323
+shadow repeat_patrol prepared town 11 1323
+shadow repeat_patrol captain-entry canal 11 1355
+shadow repeat_patrol captain-done canal 11 1397
+shadow repeat_patrol chapter-one-end post 12 1462
+shadow repeat_patrol bridge-entry bridge 12 1334
+shadow repeat_patrol manor-entry manor 12 1376
+shadow repeat_patrol manor-exit spillway 12 1412
+shadow repeat_patrol chapter-two-end hellGate 12 1489
+shadow local_work vault-entry c1TrialVault 4 249
+shadow local_work underground-reported c1TrialFoyer 5 313
+shadow local_work rat-entry grove 7 475
+shadow local_work bat-entry c1ReedKiln 7 555
+shadow local_work camp-and-kiln-reported c1ReedKiln 8 621
+shadow local_work warden-entry echo 8 726
+shadow local_work prepared town 9 863
+shadow local_work captain-entry canal 9 893
+shadow local_work captain-done canal 9 928
+shadow local_work chapter-one-end post 10 993
+shadow local_work bridge-entry bridge 10 865
+shadow local_work manor-entry manor 10 907
+shadow local_work manor-exit spillway 10 943
+shadow local_work chapter-two-end hellGate 11 1020
+oath main_only prepared town 5 249
+oath main_only captain-entry canal 5 277
+oath main_only captain-done canal 5 305
+oath main_only chapter-one-end post 6 365
+oath main_only bridge-entry bridge 6 237
+oath main_only manor-entry manor 6 265
+oath main_only manor-exit spillway 7 289
+oath main_only chapter-two-end hellGate 7 359
+oath typical prepared town 6 304
+oath typical captain-entry canal 6 332
+oath typical captain-done canal 6 360
+oath typical chapter-one-end post 7 420
+oath typical bridge-entry bridge 7 292
+oath typical manor-entry manor 7 327
+oath typical manor-exit spillway 7 357
+oath typical chapter-two-end hellGate 8 427
+oath all_once rat-entry grove 6 349
+oath all_once bat-entry c1ReedKiln 6 393
+oath all_once warden-entry echo 7 524
+oath all_once prepared town 8 661
+oath all_once captain-entry canal 8 691
+oath all_once captain-done canal 9 726
+oath all_once chapter-one-end post 9 791
+oath all_once bridge-entry bridge 9 663
+oath all_once manor-entry manor 9 698
+oath all_once manor-exit spillway 9 728
+oath all_once chapter-two-end hellGate 10 798
+oath repeat_patrol rat-entry grove 6 349
+oath repeat_patrol bat-entry c1ReedKiln 6 393
+oath repeat_patrol warden-entry echo 7 524
+oath repeat_patrol patrol-1 c1LoomRoom 9 769
+oath repeat_patrol patrol-2 c1LoomRoom 9 931
+oath repeat_patrol patrol-3 c1LoomRoom 10 1049
+oath repeat_patrol patrol-4 c1LoomRoom 11 1235
+oath repeat_patrol patrol-5 c1LoomRoom 11 1361
+oath repeat_patrol prepared town 11 1361
+oath repeat_patrol captain-entry canal 11 1393
+oath repeat_patrol captain-done canal 11 1435
+oath repeat_patrol chapter-one-end post 12 1500
+oath repeat_patrol bridge-entry bridge 12 1372
+oath repeat_patrol manor-entry manor 12 1414
+oath repeat_patrol manor-exit spillway 12 1450
+oath repeat_patrol chapter-two-end hellGate 12 1527
+oath local_work vault-entry c1TrialVault 4 249
+oath local_work underground-reported c1TrialFoyer 5 313
+oath local_work rat-entry grove 7 479
+oath local_work bat-entry c1ReedKiln 7 559
+oath local_work camp-and-kiln-reported c1ReedKiln 8 625
+oath local_work warden-entry echo 8 735
+oath local_work prepared town 9 832
+oath local_work captain-entry canal 9 862
+oath local_work captain-done canal 10 897
+oath local_work chapter-one-end post 10 962
+oath local_work bridge-entry bridge 10 834
+oath local_work manor-entry manor 10 876
+oath local_work manor-exit spillway 10 912
+oath local_work chapter-two-end hellGate 11 989
+ember main_only prepared town 5 249
+ember main_only captain-entry canal 5 277
+ember main_only captain-done canal 5 305
+ember main_only chapter-one-end post 6 365
+ember main_only bridge-entry bridge 6 237
+ember main_only manor-entry manor 6 265
+ember main_only manor-exit spillway 7 289
+ember main_only chapter-two-end hellGate 7 359
+ember typical prepared town 6 304
+ember typical captain-entry canal 6 332
+ember typical captain-done canal 6 360
+ember typical chapter-one-end post 7 420
+ember typical bridge-entry bridge 7 292
+ember typical manor-entry manor 7 322
+ember typical manor-exit spillway 7 352
+ember typical chapter-two-end hellGate 8 422
+ember all_once rat-entry grove 6 349
+ember all_once bat-entry c1ReedKiln 6 393
+ember all_once warden-entry echo 7 524
+ember all_once prepared town 8 626
+ember all_once captain-entry canal 8 656
+ember all_once captain-done canal 9 691
+ember all_once chapter-one-end post 9 756
+ember all_once bridge-entry bridge 9 628
+ember all_once manor-entry manor 9 663
+ember all_once manor-exit spillway 9 693
+ember all_once chapter-two-end hellGate 10 763
+ember repeat_patrol rat-entry grove 6 349
+ember repeat_patrol bat-entry c1ReedKiln 6 393
+ember repeat_patrol warden-entry echo 7 524
+ember repeat_patrol patrol-1 c1LoomRoom 9 734
+ember repeat_patrol patrol-2 c1LoomRoom 9 896
+ember repeat_patrol patrol-3 c1LoomRoom 10 1014
+ember repeat_patrol patrol-4 c1LoomRoom 11 1212
+ember repeat_patrol patrol-5 c1LoomRoom 11 1338
+ember repeat_patrol prepared town 11 1338
+ember repeat_patrol captain-entry canal 11 1370
+ember repeat_patrol captain-done canal 11 1412
+ember repeat_patrol chapter-one-end post 12 1477
+ember repeat_patrol bridge-entry bridge 12 1349
+ember repeat_patrol manor-entry manor 12 1391
+ember repeat_patrol manor-exit spillway 12 1434
+ember repeat_patrol chapter-two-end hellGate 13 1511
+ember local_work vault-entry c1TrialVault 4 249
+ember local_work underground-reported c1TrialFoyer 5 313
+ember local_work rat-entry grove 7 475
+ember local_work bat-entry c1ReedKiln 7 555
+ember local_work camp-and-kiln-reported c1ReedKiln 8 621
+ember local_work warden-entry echo 8 721
+ember local_work prepared town 9 858
+ember local_work captain-entry canal 9 888
+ember local_work captain-done canal 9 923
+ember local_work chapter-one-end post 10 988
+ember local_work bridge-entry bridge 10 860
+ember local_work manor-entry manor 10 896
+ember local_work manor-exit spillway 10 938
+ember local_work chapter-two-end hellGate 11 1015
+shadow all_once rat-entry grove 6 321
+shadow all_once bat-entry c1ReedKiln 6 365
+shadow all_once warden-entry echo 7 494
+shadow all_once prepared town 8 596
+shadow all_once captain-entry canal 8 626
+shadow all_once captain-done canal 8 661
+shadow all_once chapter-one-end post 9 726
+shadow all_once bridge-entry bridge 9 598
+shadow all_once manor-entry manor 9 633
+shadow all_once manor-exit spillway 9 663
+shadow all_once chapter-two-end hellGate 10 733
+oath all_once rat-entry grove 6 321
+oath all_once bat-entry c1ReedKiln 6 365
+oath all_once warden-entry echo 7 494
+oath all_once prepared town 8 596
+oath all_once captain-entry canal 8 626
+oath all_once captain-done canal 8 661
+oath all_once chapter-one-end post 9 726
+oath all_once bridge-entry bridge 9 598
+oath all_once manor-entry manor 9 633
+oath all_once manor-exit spillway 9 670
+oath all_once chapter-two-end hellGate 10 740
+ember all_once rat-entry grove 6 321
+ember all_once bat-entry c1ReedKiln 6 365
+ember all_once warden-entry echo 7 494
+ember all_once prepared town 8 601
+ember all_once captain-entry canal 8 631
+ember all_once captain-done canal 8 666
+ember all_once chapter-one-end post 9 731
+ember all_once bridge-entry bridge 9 603
+ember all_once manor-entry manor 9 638
+ember all_once manor-exit spillway 9 672
+ember all_once chapter-two-end hellGate 10 742
+✔ shadow main_only actual campaign economy and second-chapter carry (14401.616541ms)
+✔ shadow typical actual campaign economy and second-chapter carry (5142.404375ms)
+✔ shadow all_once actual campaign economy and second-chapter carry (7407.29775ms)
+✔ shadow repeat_patrol actual campaign economy and second-chapter carry (10918.376042ms)
+✔ shadow local_work actual campaign economy and second-chapter carry (3030.948875ms)
+✔ oath main_only actual campaign economy and second-chapter carry (2198.921375ms)
+✔ oath typical actual campaign economy and second-chapter carry (2070.603292ms)
+✔ oath all_once actual campaign economy and second-chapter carry (2980.427375ms)
+✔ oath repeat_patrol actual campaign economy and second-chapter carry (4846.678583ms)
+✔ oath local_work actual campaign economy and second-chapter carry (3127.477375ms)
+✔ ember main_only actual campaign economy and second-chapter carry (2038.413208ms)
+✔ ember typical actual campaign economy and second-chapter carry (2028.822125ms)
+✔ ember all_once actual campaign economy and second-chapter carry (3164.57225ms)
+✔ ember repeat_patrol actual campaign economy and second-chapter carry (10675.703917ms)
+✔ ember local_work actual campaign economy and second-chapter carry (7166.285417ms)
+✔ shadow full route with exactly one exclusive epic carries through chapter two (2541.343041ms)
+✔ oath full route with exactly one exclusive epic carries through chapter two (2779.043375ms)
+✔ ember full route with exactly one exclusive epic carries through chapter two (3245.247875ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (15.403584ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (96.273208ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (554.680542ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (1469.034584ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (41.13275ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (14.090625ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (101.573125ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (92.485458ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (67.66825ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (20.522ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (3171.219208ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (660.676334ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (48.836334ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (211.90725ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (7.768ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (53.597875ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (15.150375ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (78.819416ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (289.888625ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (1103.258333ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (11035.2875ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (63.479084ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (402.406958ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (3267.19675ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (27.955208ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (3.184375ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (12.247667ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (1.302292ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (390.870917ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (55.393209ms)
+✔ returning immediately or idling does not respawn; active movement and return create fresh credit (704.283917ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (340.132625ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (79.384792ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (64.428084ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (137.855334ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (5579.270208ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (10.813041ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (304.195708ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (300.001708ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (17.037584ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (214.66075ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (105.206083ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (16.406ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (60.910542ms)
+✔ 12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event (4852.591417ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (97.907709ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.9395ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.770625ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (63.157416ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (2.524ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.294125ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (8409.065083ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (30014.3855ms)
+✔ each later chapter start can skip to the final result without stuck quests (11259.674125ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (5.245ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (6.760959ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (20.955125ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.721041ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (477.100959ms)
+✔ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (10050.55575ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (99.891875ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (77.241916ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (2.309917ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (256.3755ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (29.211584ms)
+✔ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (3102.784542ms)
+✔ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (7728.64475ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (93.09625ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (17.974417ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (96.869833ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.922834ms)
+✔ native species is independent of V28 player-level skin fields (8.959125ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (1.518208ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.392542ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (9.363125ms)
+✔ footprint validation and segment clipping handle boundaries (0.796125ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.725209ms)
+✔ arch posts block sides without sealing the central doorway (0.530125ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (56.011959ms)
+✔ walk phase advances with travelled distance, not wall time (0.636416ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.901833ms)
+✔ resting/carry transfers never receive fake walking limbs (0.433291ms)
+✔ all 24 rare gear IDs have appearance signatures (0.253917ms)
+✔ weapon types and offhand-only rarity survive appearance projection (43.9815ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (6.522708ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (1.295ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (7.496667ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (357.235458ms)
+✔ all nine later-chapter/class checkpoints construct and restore (5558.620292ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (2219.237583ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (29.85925ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (1.205792ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.409167ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (5.829375ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (717.069125ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (40.102083ms)
+✔ distance and a real occluding wall reject immediate interaction (37.670334ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (65.00875ms)
+✔ acceptance before extraction, return once and persistent state (120.248ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (30.965083ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (122.255167ms)
+✔ new state round trips and rejects malformed records; old state remains optional (42.605875ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.934667ms)
+✔ legacy player in a new footprint is repaired only during restore (25.890917ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (7.446833ms)
+✔ other 114 maps retain baseline navigation and interaction diagnostics (6678.401875ms)
+ℹ tests 153
+ℹ suites 0
+ℹ pass 153
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 92222.284875
+RUN: node tools/balance_lab/chapter-one.mjs
+[
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.0449999999997033,
+      3.7099999999996385,
+      3.4299999999996658,
+      3.744999999999635,
+      1.959999999999809,
+      3.0799999999997,
+      3.6399999999996453,
+      3.394999999999669,
+      3.6049999999996487,
+      3.7799999999996317,
+      3.6399999999996453,
+      3.7799999999996317
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.299999999999386,
+      6.0899999999994066,
+      6.0899999999994066,
+      6.0899999999994066,
+      6.0899999999994066,
+      6.0899999999994066,
+      5.94999999999942,
+      6.124999999999403,
+      6.0899999999994066,
+      6.0899999999994066,
+      5.94999999999942,
+      6.0899999999994066
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.0449999999997033,
+      3.7099999999996385,
+      3.4299999999996658,
+      3.744999999999635,
+      1.959999999999809,
+      3.0799999999997,
+      3.6399999999996453,
+      3.394999999999669,
+      3.6049999999996487,
+      3.7799999999996317,
+      3.6399999999996453,
+      3.7799999999996317
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.864999999999526,
+      4.61999999999955,
+      5.039999999999509,
+      5.039999999999509,
+      4.969999999999516,
+      5.039999999999509,
+      4.829999999999529,
+      4.8999999999995225,
+      4.40999999999957,
+      4.969999999999516,
+      5.004999999999512,
+      5.039999999999509
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.244999999999294,
+      6.999999999999318,
+      6.824999999999335,
+      7.0349999999993145,
+      7.349999999999284,
+      7.104999999999308,
+      7.209999999999297,
+      7.279999999999291,
+      7.104999999999308,
+      7.349999999999284,
+      6.964999999999321,
+      7.174999999999301
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.864999999999526,
+      4.61999999999955,
+      5.039999999999509,
+      5.039999999999509,
+      4.969999999999516,
+      5.039999999999509,
+      4.829999999999529,
+      4.8999999999995225,
+      4.40999999999957,
+      4.969999999999516,
+      5.004999999999512,
+      5.039999999999509
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.059999999999604,
+      4.829999999999529,
+      5.354999999999478,
+      4.059999999999604,
+      4.969999999999516,
+      5.424999999999471,
+      4.759999999999536,
+      3.6399999999996453,
+      4.72499999999954,
+      4.059999999999604,
+      4.339999999999577,
+      4.059999999999604
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.13499999999911,
+      7.979999999999222,
+      5.529999999999461,
+      7.664999999999253,
+      8.119999999999209,
+      7.419999999999277,
+      9.204999999999103,
+      7.314999999999287,
+      9.169999999999106,
+      7.69999999999925,
+      9.204999999999103,
+      8.049999999999216
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.059999999999604,
+      4.829999999999529,
+      5.354999999999478,
+      4.059999999999604,
+      4.969999999999516,
+      5.424999999999471,
+      4.759999999999536,
+      3.6399999999996453,
+      4.72499999999954,
+      4.059999999999604,
+      4.339999999999577,
+      4.059999999999604
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      16.239999999998417,
+      16.30999999999841,
+      15.364999999998503,
+      16.239999999998417,
+      17.25499999999832,
+      16.869999999998356,
+      15.889999999998452,
+      15.609999999998479,
+      16.904999999998353,
+      16.83499999999836,
+      16.239999999998417,
+      17.25499999999832
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.579999999997995,
+      20.01999999999805,
+      19.669999999998083,
+      21.03499999999795,
+      20.684999999997984,
+      20.159999999998035,
+      19.59999999999809,
+      19.80999999999807,
+      20.264999999998025,
+      20.544999999997998,
+      20.509999999998,
+      20.579999999997995
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      16.239999999998417,
+      16.30999999999841,
+      15.364999999998503,
+      16.239999999998417,
+      17.25499999999832,
+      16.869999999998356,
+      15.889999999998452,
+      15.609999999998479,
+      16.904999999998353,
+      16.83499999999836,
+      16.239999999998417,
+      17.25499999999832
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      19.80999999999807,
+      19.214999999998128,
+      19.039999999998145,
+      19.4949999999981,
+      19.91499999999806,
+      19.529999999998097,
+      18.829999999998165,
+      19.879999999998063,
+      19.634999999998087,
+      19.4949999999981,
+      20.089999999998042,
+      19.80999999999807
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      21.76999999999788,
+      23.20499999999774,
+      21.34999999999792,
+      21.804999999997875,
+      21.594999999997896,
+      21.5599999999979,
+      23.169999999997742,
+      21.909999999997865,
+      21.314999999997923,
+      21.5599999999979,
+      21.699999999997885,
+      21.419999999997913
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      19.80999999999807,
+      19.214999999998128,
+      19.039999999998145,
+      19.4949999999981,
+      19.91499999999806,
+      19.529999999998097,
+      18.829999999998165,
+      19.879999999998063,
+      19.634999999998087,
+      19.4949999999981,
+      20.089999999998042,
+      19.80999999999807
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      0.6999999999999318,
+      1.0499999999998977,
+      0.6999999999999318,
+      1.0499999999998977,
+      0.48999999999995225,
+      1.0849999999998943,
+      1.2249999999998806,
+      0.6999999999999318,
+      1.189999999999884,
+      0.6999999999999318,
+      1.2249999999998806,
+      1.0499999999998977
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.4299999999996658,
+      3.569999999999652,
+      3.2899999999996794,
+      3.6049999999996487,
+      3.0449999999997033,
+      3.3599999999996726,
+      3.499999999999659,
+      3.0449999999997033,
+      3.4649999999996624,
+      3.2899999999996794,
+      3.499999999999659,
+      3.2899999999996794
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      0.6999999999999318,
+      1.0499999999998977,
+      0.6999999999999318,
+      1.0499999999998977,
+      0.48999999999995225,
+      1.0849999999998943,
+      1.2249999999998806,
+      0.6999999999999318,
+      1.189999999999884,
+      0.6999999999999318,
+      1.2249999999998806,
+      1.0499999999998977
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.7499999999998295,
+      1.4699999999998568,
+      1.3999999999998636,
+      1.8549999999998192,
+      1.7499999999998295,
+      1.8199999999998226,
+      1.3999999999998636,
+      1.7499999999998295,
+      1.2599999999998772,
+      1.7499999999998295,
+      1.4349999999998602,
+      1.7499999999998295
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.444999999999567,
+      4.199999999999591,
+      4.374999999999574,
+      4.234999999999587,
+      4.479999999999563,
+      4.549999999999557,
+      4.059999999999604,
+      3.7799999999996317,
+      3.989999999999611,
+      4.479999999999563,
+      4.51499999999956,
+      4.374999999999574
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.7499999999998295,
+      1.4699999999998568,
+      1.3999999999998636,
+      1.8549999999998192,
+      1.7499999999998295,
+      1.8199999999998226,
+      1.3999999999998636,
+      1.7499999999998295,
+      1.2599999999998772,
+      1.7499999999998295,
+      1.4349999999998602,
+      1.7499999999998295
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.53999999999985,
+      1.784999999999826,
+      2.7649999999997306,
+      1.53999999999985,
+      2.554999999999751,
+      2.799999999999727,
+      1.364999999999867,
+      1.53999999999985,
+      1.6799999999998363,
+      1.53999999999985,
+      1.7149999999998329,
+      1.53999999999985
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.599999999999454,
+      5.739999999999441,
+      4.72499999999954,
+      5.774999999999437,
+      5.4949999999994645,
+      5.529999999999461,
+      5.319999999999482,
+      5.144999999999499,
+      5.984999999999417,
+      5.459999999999468,
+      5.6699999999994475,
+      5.809999999999434
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.53999999999985,
+      1.784999999999826,
+      2.7649999999997306,
+      1.53999999999985,
+      2.554999999999751,
+      2.799999999999727,
+      1.364999999999867,
+      1.53999999999985,
+      1.6799999999998363,
+      1.53999999999985,
+      1.7149999999998329,
+      1.53999999999985
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      15.57500000001113,
+      15.470000000011055,
+      14.700000000010505,
+      15.36500000001098,
+      15.36500000001098,
+      15.57500000001113,
+      15.260000000010905,
+      16.41500000001173,
+      15.470000000011055,
+      16.41500000001173,
+      15.260000000010905,
+      16.41500000001173
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      19.35500000001383,
+      18.970000000013556,
+      19.28500000001378,
+      19.600000000014006,
+      19.42500000001388,
+      19.740000000014106,
+      18.970000000013556,
+      19.740000000014106,
+      19.390000000013856,
+      19.63500000001403,
+      19.49500000001393,
+      19.35500000001383
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      15.57500000001113,
+      15.470000000011055,
+      14.700000000010505,
+      15.36500000001098,
+      15.36500000001098,
+      15.57500000001113,
+      15.260000000010905,
+      16.41500000001173,
+      15.470000000011055,
+      16.41500000001173,
+      15.260000000010905,
+      16.41500000001173
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      13.82500000000988,
+      14.59500000001043,
+      12.775000000009129,
+      13.82500000000988,
+      13.930000000009954,
+      14.24500000001018,
+      13.860000000009904,
+      13.580000000009704,
+      14.31500000001023,
+      14.560000000010405,
+      14.52500000001038,
+      14.80500000001058
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      17.04500000001218,
+      17.88500000001278,
+      16.76500000001198,
+      18.130000000012956,
+      16.83500000001203,
+      17.430000000012456,
+      17.18500000001228,
+      16.62500000001188,
+      17.220000000012305,
+      17.780000000012706,
+      17.32500000001238,
+      17.39500000001243
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      13.82500000000988,
+      14.59500000001043,
+      12.775000000009129,
+      13.82500000000988,
+      13.930000000009954,
+      14.24500000001018,
+      13.860000000009904,
+      13.580000000009704,
+      14.31500000001023,
+      14.560000000010405,
+      14.52500000001038,
+      14.80500000001058
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      0.49000000000035016,
+      0.7000000000005002,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.7000000000005002,
+      0.7000000000005002,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.9100000000006503,
+      0.49000000000035016,
+      0.7000000000005002
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.570000000002551,
+      4.200000000003001,
+      3.500000000002501,
+      4.060000000002901,
+      4.130000000002951,
+      4.165000000002976,
+      3.710000000002651,
+      4.095000000002926,
+      3.850000000002751,
+      4.130000000002951,
+      3.9550000000028263,
+      3.570000000002551
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      0.49000000000035016,
+      0.7000000000005002,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.7000000000005002,
+      0.7000000000005002,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.49000000000035016,
+      0.9100000000006503,
+      0.49000000000035016,
+      0.7000000000005002
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.6450000000011755,
+      1.5400000000011005,
+      1.1550000000008254,
+      1.2600000000009004,
+      1.7500000000012506,
+      1.5400000000011005,
+      1.5400000000011005,
+      1.7150000000012255,
+      1.1200000000008004,
+      1.7500000000012506,
+      1.5750000000011255,
+      1.6450000000011755
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.5850000000032765,
+      5.180000000003702,
+      4.095000000002926,
+      4.6200000000033015,
+      4.6900000000033515,
+      4.7250000000033765,
+      4.7250000000033765,
+      4.6550000000033265,
+      4.410000000003151,
+      5.705000000004077,
+      4.515000000003226,
+      4.165000000002976
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.6450000000011755,
+      1.5400000000011005,
+      1.1550000000008254,
+      1.2600000000009004,
+      1.7500000000012506,
+      1.5400000000011005,
+      1.5400000000011005,
+      1.7150000000012255,
+      1.1200000000008004,
+      1.7500000000012506,
+      1.5750000000011255,
+      1.6450000000011755
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.3650000000009754,
+      1.5400000000011005,
+      1.5400000000011005,
+      1.8200000000013006,
+      1.5400000000011005,
+      2.835000000002026,
+      1.3300000000009504,
+      1.2250000000008754,
+      2.555000000001826,
+      2.835000000002026,
+      1.3300000000009504,
+      2.0300000000014506
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.300000000004502,
+      6.055000000004327,
+      5.810000000004152,
+      6.335000000004527,
+      6.405000000004577,
+      4.6550000000033265,
+      6.020000000004302,
+      5.530000000003952,
+      5.705000000004077,
+      4.970000000003552,
+      6.230000000004452,
+      6.300000000004502
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.3650000000009754,
+      1.5400000000011005,
+      1.5400000000011005,
+      1.8200000000013006,
+      1.5400000000011005,
+      2.835000000002026,
+      1.3300000000009504,
+      1.2250000000008754,
+      2.555000000001826,
+      2.835000000002026,
+      1.3300000000009504,
+      2.0300000000014506
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      11.200000000008004,
+      11.865000000008479,
+      10.255000000007328,
+      10.150000000007253,
+      11.620000000008304,
+      13.370000000009554,
+      10.990000000007853,
+      11.620000000008304,
+      11.305000000008079,
+      13.33500000000953,
+      10.885000000007778,
+      12.880000000009204
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      16.590000000011855,
+      16.62500000001188,
+      16.100000000011505,
+      16.870000000012055,
+      16.62500000001188,
+      16.520000000011805,
+      16.380000000011705,
+      16.62500000001188,
+      16.660000000011905,
+      16.730000000011955,
+      16.76500000001198,
+      16.83500000001203
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      11.200000000008004,
+      11.865000000008479,
+      10.255000000007328,
+      10.150000000007253,
+      11.620000000008304,
+      13.370000000009554,
+      10.990000000007853,
+      11.620000000008304,
+      11.305000000008079,
+      13.33500000000953,
+      10.885000000007778,
+      12.880000000009204
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      11.095000000007929,
+      12.845000000009179,
+      10.465000000007478,
+      11.095000000007929,
+      11.620000000008304,
+      12.530000000008954,
+      11.130000000007954,
+      10.780000000007703,
+      10.990000000007853,
+      12.915000000009229,
+      11.935000000008529,
+      12.775000000009129
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      16.83500000001203,
+      16.83500000001203,
+      16.76500000001198,
+      17.500000000012506,
+      16.62500000001188,
+      16.520000000011805,
+      16.62500000001188,
+      16.62500000001188,
+      16.660000000011905,
+      17.25500000001233,
+      16.97500000001213,
+      16.83500000001203
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      11.095000000007929,
+      12.845000000009179,
+      10.465000000007478,
+      11.095000000007929,
+      11.620000000008304,
+      12.530000000008954,
+      11.130000000007954,
+      10.780000000007703,
+      10.990000000007853,
+      12.915000000009229,
+      11.935000000008529,
+      12.775000000009129
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.039999999999509,
+      5.039999999999509,
+      5.634999999999451,
+      5.039999999999509,
+      5.6699999999994475,
+      5.704999999999444,
+      5.039999999999509,
+      4.654999999999546,
+      5.039999999999509,
+      5.039999999999509,
+      5.039999999999509,
+      5.039999999999509
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999999308,
+      7.104999999999308,
+      6.334999999999383,
+      7.104999999999308,
+      6.369999999999379,
+      6.404999999999376,
+      7.104999999999308,
+      6.719999999999345,
+      7.104999999999308,
+      6.684999999999349,
+      7.104999999999308,
+      7.104999999999308
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.039999999999509,
+      5.039999999999509,
+      5.634999999999451,
+      5.039999999999509,
+      5.6699999999994475,
+      5.704999999999444,
+      5.039999999999509,
+      4.654999999999546,
+      5.039999999999509,
+      5.039999999999509,
+      5.039999999999509,
+      5.039999999999509
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.249999999999488,
+      5.0749999999995055,
+      5.249999999999488,
+      5.109999999999502,
+      5.0749999999995055,
+      5.0749999999995055,
+      5.249999999999488,
+      7.104999999999308,
+      7.0349999999993145,
+      5.0749999999995055,
+      5.039999999999509,
+      5.249999999999488
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.48999999999927,
+      7.244999999999294,
+      7.419999999999277,
+      7.279999999999291,
+      7.874999999999233,
+      7.244999999999294,
+      7.4549999999992735,
+      7.804999999999239,
+      7.734999999999246,
+      7.874999999999233,
+      7.209999999999297,
+      7.419999999999277
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.249999999999488,
+      5.0749999999995055,
+      5.249999999999488,
+      5.109999999999502,
+      5.0749999999995055,
+      5.0749999999995055,
+      5.249999999999488,
+      7.104999999999308,
+      7.0349999999993145,
+      5.0749999999995055,
+      5.039999999999509,
+      5.249999999999488
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.664999999999253,
+      7.804999999999239,
+      7.4549999999992735,
+      8.049999999999216,
+      7.419999999999277,
+      9.34499999999909,
+      7.734999999999246,
+      9.484999999999076,
+      7.69999999999925,
+      7.349999999999284,
+      7.734999999999246,
+      8.049999999999216
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.499999999998977,
+      10.639999999998963,
+      11.759999999998854,
+      10.67499999999896,
+      12.494999999998782,
+      12.459999999998786,
+      10.56999999999897,
+      10.044999999999021,
+      10.534999999998973,
+      10.149999999999011,
+      10.56999999999897,
+      10.709999999998956
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.664999999999253,
+      7.804999999999239,
+      7.4549999999992735,
+      8.049999999999216,
+      7.419999999999277,
+      9.34499999999909,
+      7.734999999999246,
+      9.484999999999076,
+      7.69999999999925,
+      7.349999999999284,
+      7.734999999999246,
+      8.049999999999216
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.474999999998005,
+      20.054999999998046,
+      20.299999999998022,
+      20.509999999998,
+      20.579999999997995,
+      20.474999999998005,
+      20.01999999999805,
+      20.544999999997998,
+      20.054999999998046,
+      20.61499999999799,
+      20.40499999999801,
+      20.474999999998005
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      28.94499999999718,
+      29.609999999997115,
+      28.279999999997244,
+      28.979999999997176,
+      29.784999999997098,
+      29.504999999997125,
+      28.384999999997234,
+      28.559999999997217,
+      28.769999999997196,
+      29.46999999999713,
+      28.874999999997186,
+      28.94499999999718
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      21.839999999997872,
+      27.40499999999733,
+      21.839999999997872,
+      22.224999999997834,
+      22.294999999997827,
+      24.149999999997647,
+      26.77499999999739,
+      21.839999999997872,
+      21.839999999997872,
+      25.374999999997527,
+      22.119999999997844,
+      21.839999999997872
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.474999999998232,
+      20.054999999998046,
+      20.439999999998207,
+      20.509999999998257,
+      20.579999999998307,
+      20.194999999998032,
+      19.424999999998107,
+      20.544999999998282,
+      20.299999999998107,
+      20.299999999998107,
+      20.439999999998207,
+      20.474999999998232
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      30.45000000000536,
+      29.995000000005035,
+      29.435000000004635,
+      30.45000000000536,
+      30.87000000000566,
+      29.085000000004385,
+      29.365000000004585,
+      29.435000000004635,
+      30.45000000000536,
+      29.89000000000496,
+      30.45000000000536,
+      30.17000000000516
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      25.62000000000191,
+      25.445000000001784,
+      25.305000000001684,
+      25.655000000001934,
+      25.445000000001784,
+      25.655000000001934,
+      25.375000000001734,
+      25.445000000001784,
+      25.445000000001784,
+      25.655000000001934,
+      25.55000000000186,
+      25.62000000000191
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.010000000002151,
+      3.150000000002251,
+      2.0300000000014506,
+      3.185000000002276,
+      2.0300000000014506,
+      2.940000000002101,
+      3.080000000002201,
+      2.1000000000015007,
+      3.045000000002176,
+      2.0650000000014757,
+      3.080000000002201,
+      3.220000000002301
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.475000000004627,
+      6.615000000004727,
+      6.335000000004527,
+      6.650000000004752,
+      6.370000000004552,
+      6.405000000004577,
+      6.545000000004677,
+      6.020000000004302,
+      6.510000000004652,
+      6.685000000004777,
+      6.545000000004677,
+      6.685000000004777
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.010000000002151,
+      3.150000000002251,
+      2.0300000000014506,
+      3.185000000002276,
+      2.0300000000014506,
+      2.940000000002101,
+      3.080000000002201,
+      2.1000000000015007,
+      3.045000000002176,
+      2.0650000000014757,
+      3.080000000002201,
+      3.220000000002301
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.075000000003627,
+      5.075000000003627,
+      5.075000000003627,
+      4.515000000003226,
+      5.075000000003627,
+      5.075000000003627,
+      4.6900000000033515,
+      5.040000000003602,
+      4.235000000003026,
+      5.075000000003627,
+      4.445000000003176,
+      4.6550000000033265
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.490000000005352,
+      7.9450000000056775,
+      8.120000000005803,
+      7.280000000005202,
+      7.8750000000056275,
+      7.9450000000056775,
+      7.455000000005327,
+      7.105000000005077,
+      7.035000000005027,
+      7.175000000005127,
+      7.210000000005152,
+      7.420000000005302
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.075000000003627,
+      5.075000000003627,
+      5.075000000003627,
+      4.515000000003226,
+      5.075000000003627,
+      5.075000000003627,
+      4.6900000000033515,
+      5.040000000003602,
+      4.235000000003026,
+      5.075000000003627,
+      4.445000000003176,
+      4.6550000000033265
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.965000000004977,
+      7.245000000005177,
+      6.195000000004427,
+      7.245000000005177,
+      6.545000000004677,
+      7.595000000005427,
+      7.245000000005177,
+      5.810000000004152,
+      7.000000000005002,
+      5.775000000004127,
+      7.245000000005177,
+      7.245000000005177
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.500000000007503,
+      10.640000000007603,
+      11.655000000008329,
+      9.975000000007128,
+      10.990000000007853,
+      10.325000000007378,
+      10.570000000007553,
+      9.345000000006678,
+      10.535000000007528,
+      10.010000000007153,
+      10.570000000007553,
+      10.010000000007153
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.965000000004977,
+      7.245000000005177,
+      6.195000000004427,
+      7.245000000005177,
+      6.545000000004677,
+      7.595000000005427,
+      7.245000000005177,
+      5.810000000004152,
+      7.000000000005002,
+      5.775000000004127,
+      7.245000000005177,
+      7.245000000005177
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.47500000001463,
+      20.26500000001448,
+      20.160000000014406,
+      20.510000000014657,
+      20.580000000014707,
+      20.300000000014506,
+      20.230000000014456,
+      20.54500000001468,
+      20.440000000014606,
+      20.300000000014506,
+      20.510000000014657,
+      20.47500000001463
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      26.845000000019184,
+      28.91000000002066,
+      26.18000000001871,
+      27.475000000019634,
+      25.655000000018333,
+      27.16000000001941,
+      28.175000000020134,
+      26.915000000019234,
+      27.265000000019484,
+      27.125000000019384,
+      27.405000000019584,
+      27.44000000001961
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      22.190000000015857,
+      23.625000000016882,
+      21.420000000015307,
+      23.625000000016882,
+      24.360000000017408,
+      22.400000000016007,
+      22.890000000016357,
+      21.560000000015407,
+      22.715000000016232,
+      23.205000000016582,
+      23.520000000016807,
+      22.890000000016357
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.47500000001463,
+      20.510000000014657,
+      20.40500000001458,
+      20.510000000014657,
+      20.580000000014707,
+      20.300000000014506,
+      20.230000000014456,
+      20.54500000001468,
+      20.40500000001458,
+      20.300000000014506,
+      20.40500000001458,
+      20.47500000001463
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      28.21000000002016,
+      29.505000000021084,
+      26.495000000018933,
+      28.245000000020184,
+      28.315000000020234,
+      26.53000000001896,
+      27.965000000019984,
+      26.18000000001871,
+      27.335000000019534,
+      25.130000000017958,
+      27.895000000019934,
+      27.51000000001966
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      25.690000000018358,
+      25.865000000018483,
+      24.220000000017308,
+      25.725000000018383,
+      25.795000000018433,
+      24.570000000017558,
+      25.130000000017958,
+      25.060000000017908,
+      25.515000000018233,
+      25.270000000018058,
+      25.620000000018308,
+      24.990000000017858
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.2250000000008754,
+      1.4000000000010004,
+      1.1900000000008504,
+      0.49000000000035016,
+      1.3300000000009504,
+      1.1900000000008504,
+      1.3650000000009754,
+      1.2950000000009254,
+      1.1900000000008504,
+      1.1900000000008504,
+      1.1900000000008504,
+      1.2250000000008754
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.480000000003201,
+      6.020000000004302,
+      4.410000000003151,
+      5.880000000004202,
+      5.950000000004252,
+      5.565000000003977,
+      5.985000000004277,
+      5.915000000004227,
+      5.670000000004052,
+      5.530000000003952,
+      5.775000000004127,
+      5.845000000004177
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      1.2250000000008754,
+      1.4000000000010004,
+      1.1900000000008504,
+      0.49000000000035016,
+      1.3300000000009504,
+      1.1900000000008504,
+      1.3650000000009754,
+      1.2950000000009254,
+      1.1900000000008504,
+      1.1900000000008504,
+      1.1900000000008504,
+      1.2250000000008754
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.185000000002276,
+      4.060000000002901,
+      3.115000000002226,
+      1.9600000000014006,
+      3.9900000000028513,
+      2.905000000002076,
+      4.025000000002876,
+      3.9550000000028263,
+      3.010000000002151,
+      3.535000000002526,
+      3.815000000002726,
+      3.8850000000027762
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.950000000004252,
+      6.125000000004377,
+      5.880000000004202,
+      6.685000000004777,
+      6.755000000004827,
+      5.670000000004052,
+      6.790000000004852,
+      6.720000000004802,
+      6.475000000004627,
+      6.335000000004527,
+      6.580000000004702,
+      6.650000000004752
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      3.185000000002276,
+      4.060000000002901,
+      3.115000000002226,
+      1.9600000000014006,
+      3.9900000000028513,
+      2.905000000002076,
+      4.025000000002876,
+      3.9550000000028263,
+      3.010000000002151,
+      3.535000000002526,
+      3.815000000002726,
+      3.8850000000027762
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.285000000003777,
+      5.810000000004152,
+      5.285000000003777,
+      5.285000000003777,
+      5.740000000004102,
+      5.740000000004102,
+      5.775000000004127,
+      5.705000000004077,
+      5.390000000003852,
+      5.705000000004077,
+      5.565000000003977,
+      5.635000000004027
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.170000000006553,
+      9.345000000006678,
+      9.100000000006503,
+      9.205000000006578,
+      9.275000000006628,
+      10.080000000007203,
+      9.310000000006653,
+      9.240000000006603,
+      9.590000000006853,
+      10.150000000007253,
+      9.100000000006503,
+      9.170000000006553
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.285000000003777,
+      5.810000000004152,
+      5.285000000003777,
+      5.285000000003777,
+      5.740000000004102,
+      5.740000000004102,
+      5.775000000004127,
+      5.705000000004077,
+      5.390000000003852,
+      5.705000000004077,
+      5.565000000003977,
+      5.635000000004027
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      16.13500000001153,
+      16.870000000012055,
+      15.540000000011105,
+      16.13500000001153,
+      16.76500000001198,
+      17.290000000012355,
+      16.240000000011605,
+      16.730000000011955,
+      16.34500000001168,
+      18.480000000013206,
+      16.13500000001153,
+      15.29500000001093
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      25.340000000018108,
+      26.005000000018583,
+      24.815000000017733,
+      26.11000000001866,
+      25.480000000018208,
+      25.795000000018433,
+      25.375000000018133,
+      25.410000000018158,
+      25.900000000018508,
+      25.760000000018408,
+      26.005000000018583,
+      26.075000000018633
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.090000000014356,
+      21.525000000015382,
+      18.060000000012906,
+      20.12500000001438,
+      20.19500000001443,
+      21.000000000015007,
+      21.490000000015357,
+      20.160000000014406,
+      18.65500000001333,
+      21.10500000001508,
+      20.020000000014306,
+      18.830000000013456
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      16.69500000000062,
+      18.864999999998645,
+      16.69500000000062,
+      17.290000000000077,
+      17.290000000000077,
+      17.325000000000045,
+      16.800000000000523,
+      17.290000000000077,
+      18.444999999999027,
+      17.325000000000045,
+      17.290000000000077,
+      16.69500000000062
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      26.56499999999164,
+      27.089999999991164,
+      26.59999999999161,
+      26.59999999999161,
+      26.669999999991546,
+      26.284999999991896,
+      26.459999999991737,
+      26.03999999999212,
+      26.3899999999918,
+      25.689999999992438,
+      27.19499999999107,
+      26.56499999999164
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      21.874999999995907,
+      22.294999999995525,
+      21.80499999999597,
+      22.504999999995334,
+      22.57499999999527,
+      22.18999999999562,
+      21.6649999999961,
+      21.944999999995844,
+      22.889999999994984,
+      22.18999999999562,
+      22.39999999999543,
+      21.874999999995907
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.4949999999994645,
+      4.969999999999516,
+      5.634999999999451,
+      5.039999999999509,
+      5.6699999999994475,
+      5.914999999999424,
+      4.8999999999995225,
+      4.969999999999516,
+      5.4949999999994645,
+      4.374999999999574,
+      4.8999999999995225,
+      4.969999999999516
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.0899999999994066,
+      6.789999999999338,
+      6.229999999999393,
+      6.789999999999338,
+      6.2649999999993895,
+      6.299999999999386,
+      8.294999999999192,
+      6.05499999999941,
+      6.964999999999321,
+      6.05499999999941,
+      8.294999999999192,
+      6.789999999999338
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.4949999999994645,
+      4.969999999999516,
+      5.634999999999451,
+      5.039999999999509,
+      5.6699999999994475,
+      5.914999999999424,
+      4.8999999999995225,
+      4.969999999999516,
+      5.4949999999994645,
+      4.374999999999574,
+      4.8999999999995225,
+      4.969999999999516
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.139999999999304,
+      7.48999999999927,
+      6.824999999999335,
+      6.719999999999345,
+      7.174999999999301,
+      7.48999999999927,
+      5.634999999999451,
+      7.104999999999308,
+      7.069999999999311,
+      7.174999999999301,
+      6.684999999999349,
+      5.984999999999417
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.804999999999239,
+      9.414999999999083,
+      7.804999999999239,
+      8.994999999999123,
+      8.644999999999158,
+      9.414999999999083,
+      7.664999999999253,
+      9.414999999999083,
+      9.204999999999103,
+      8.644999999999158,
+      8.679999999999154,
+      7.664999999999253
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.139999999999304,
+      7.48999999999927,
+      6.824999999999335,
+      6.719999999999345,
+      7.174999999999301,
+      7.48999999999927,
+      5.634999999999451,
+      7.104999999999308,
+      7.069999999999311,
+      7.174999999999301,
+      6.684999999999349,
+      5.984999999999417
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.879999999999427,
+      6.334999999999383,
+      7.0349999999993145,
+      6.369999999999379,
+      5.879999999999427,
+      6.369999999999379,
+      6.0899999999994066,
+      6.369999999999379,
+      6.369999999999379,
+      6.0899999999994066,
+      6.2649999999993895,
+      6.369999999999379
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.469999999999175,
+      10.604999999998967,
+      12.494999999998782,
+      10.639999999998963,
+      7.769999999999243,
+      9.974999999999028,
+      10.534999999998973,
+      10.709999999998956,
+      10.254999999999,
+      10.67499999999896,
+      10.534999999998973,
+      11.094999999998919
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.879999999999427,
+      6.334999999999383,
+      7.0349999999993145,
+      6.369999999999379,
+      5.879999999999427,
+      6.369999999999379,
+      6.0899999999994066,
+      6.369999999999379,
+      6.369999999999379,
+      6.0899999999994066,
+      6.2649999999993895,
+      6.369999999999379
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      19.669999999998083,
+      20.369999999998015,
+      18.37499999999821,
+      20.22999999999803,
+      20.264999999998025,
+      19.669999999998083,
+      19.59999999999809,
+      19.669999999998083,
+      19.669999999998083,
+      20.22999999999803,
+      20.22999999999803,
+      19.144999999998134
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      26.07499999999746,
+      27.82499999999729,
+      25.199999999997544,
+      26.38999999999743,
+      27.08999999999736,
+      26.354999999997432,
+      26.354999999997432,
+      25.899999999997476,
+      26.07499999999746,
+      26.354999999997432,
+      27.08999999999736,
+      26.354999999997432
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      19.669999999998083,
+      20.369999999998015,
+      18.37499999999821,
+      20.22999999999803,
+      20.264999999998025,
+      19.669999999998083,
+      19.59999999999809,
+      19.669999999998083,
+      19.669999999998083,
+      20.22999999999803,
+      20.22999999999803,
+      19.144999999998134
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      38.67500000002764,
+      39.34000000002811,
+      38.67500000002764,
+      39.23500000002804,
+      39.34000000002811,
+      38.50000000002751,
+      38.60500000002759,
+      39.16500000002799,
+      38.67500000002764,
+      39.23500000002804,
+      38.50000000002751,
+      38.67500000002764
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 0.16666666666666666,
+    "ttk": [
+      38.60500000002759,
+      39.16500000002799
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.9000000000035016,
+      4.515000000003226,
+      4.7600000000034015,
+      4.550000000003251,
+      4.7950000000034265,
+      5.495000000003927,
+      4.445000000003176,
+      4.375000000003126,
+      4.935000000003527,
+      3.640000000002601,
+      4.445000000003176,
+      4.375000000003126
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.090000000004352,
+      6.790000000004852,
+      5.495000000003927,
+      6.790000000004852,
+      5.530000000003952,
+      5.565000000003977,
+      7.8050000000055775,
+      6.055000000004327,
+      6.965000000004977,
+      6.055000000004327,
+      7.8050000000055775,
+      6.790000000004852
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.9000000000035016,
+      4.515000000003226,
+      4.7600000000034015,
+      4.550000000003251,
+      4.7950000000034265,
+      5.495000000003927,
+      4.445000000003176,
+      4.375000000003126,
+      4.935000000003527,
+      3.640000000002601,
+      4.445000000003176,
+      4.375000000003126
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.635000000004027,
+      5.880000000004202,
+      5.530000000003952,
+      5.915000000004227,
+      5.705000000004077,
+      5.880000000004202,
+      5.530000000003952,
+      6.370000000004552,
+      6.335000000004527,
+      5.705000000004077,
+      5.880000000004202,
+      5.530000000003952
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.7350000000055275,
+      8.610000000006153,
+      7.7350000000055275,
+      8.575000000006128,
+      7.8050000000055775,
+      8.610000000006153,
+      7.7350000000055275,
+      8.540000000006103,
+      7.9100000000056525,
+      7.8050000000055775,
+      7.8400000000056025,
+      7.7350000000055275
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.635000000004027,
+      5.880000000004202,
+      5.530000000003952,
+      5.915000000004227,
+      5.705000000004077,
+      5.880000000004202,
+      5.530000000003952,
+      6.370000000004552,
+      6.335000000004527,
+      5.705000000004077,
+      5.880000000004202,
+      5.530000000003952
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.670000000004052,
+      6.545000000004677,
+      7.035000000005027,
+      6.580000000004702,
+      6.370000000004552,
+      7.035000000005027,
+      6.475000000004627,
+      6.615000000004727,
+      6.615000000004727,
+      6.615000000004727,
+      6.475000000004627,
+      6.615000000004727
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.545000000004677,
+      12.075000000008629,
+      11.690000000008354,
+      12.110000000008654,
+      11.865000000008479,
+      16.83500000001203,
+      12.005000000008579,
+      11.235000000008029,
+      12.495000000008929,
+      11.235000000008029,
+      12.005000000008579,
+      12.145000000008679
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.670000000004052,
+      6.545000000004677,
+      7.035000000005027,
+      6.580000000004702,
+      6.370000000004552,
+      7.035000000005027,
+      6.475000000004627,
+      6.615000000004727,
+      6.615000000004727,
+      6.615000000004727,
+      6.475000000004627,
+      6.615000000004727
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      18.16500000001298,
+      18.620000000013306,
+      17.920000000012806,
+      18.16500000001298,
+      18.620000000013306,
+      18.16500000001298,
+      18.620000000013306,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      22.435000000016032,
+      23.310000000016657,
+      21.735000000015532,
+      22.750000000016257,
+      22.785000000016282,
+      22.750000000016257,
+      23.275000000016632,
+      22.750000000016257,
+      22.750000000016257,
+      22.750000000016257,
+      22.750000000016257,
+      22.750000000016257
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      18.16500000001298,
+      18.620000000013306,
+      17.920000000012806,
+      18.16500000001298,
+      18.620000000013306,
+      18.16500000001298,
+      18.620000000013306,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298,
+      18.16500000001298
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      35.35000000002526,
+      37.76500000002699,
+      35.35000000002526,
+      35.35000000002526,
+      35.84000000002561,
+      34.37000000002456,
+      36.99500000002644,
+      35.28000000002521,
+      35.35000000002526,
+      35.875000000025636,
+      34.37000000002456,
+      35.35000000002526
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 0.4166666666666667,
+    "ttk": [
+      35.35000000002526,
+      35.35000000002526,
+      36.99500000002644,
+      35.28000000002521,
+      35.35000000002526
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      2.870000000002051,
+      3.640000000002601,
+      3.745000000002676,
+      2.870000000002051,
+      2.905000000002076,
+      4.270000000003051,
+      2.940000000002101,
+      2.905000000002076,
+      4.375000000003126,
+      4.270000000003051,
+      3.745000000002676,
+      2.870000000002051
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.7600000000034015,
+      5.215000000003727,
+      4.095000000002926,
+      6.090000000004352,
+      5.180000000003702,
+      5.600000000004002,
+      5.180000000003702,
+      5.180000000003702,
+      4.7250000000033765,
+      5.565000000003977,
+      4.7250000000033765,
+      6.090000000004352
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      2.870000000002051,
+      3.640000000002601,
+      3.745000000002676,
+      2.870000000002051,
+      2.905000000002076,
+      4.270000000003051,
+      2.940000000002101,
+      2.905000000002076,
+      4.375000000003126,
+      4.270000000003051,
+      3.745000000002676,
+      2.870000000002051
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.060000000002901,
+      4.7600000000034015,
+      5.005000000003577,
+      4.060000000002901,
+      4.060000000002901,
+      5.635000000004027,
+      4.7950000000034265,
+      4.060000000002901,
+      5.495000000003927,
+      5.635000000004027,
+      5.005000000003577,
+      4.060000000002901
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.140000000005102,
+      6.090000000004352,
+      6.930000000004952,
+      7.140000000005102,
+      5.985000000004277,
+      6.335000000004527,
+      6.090000000004352,
+      5.950000000004252,
+      7.070000000005052,
+      7.000000000005002,
+      7.140000000005102,
+      7.665000000005477
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      4.060000000002901,
+      4.7600000000034015,
+      5.005000000003577,
+      4.060000000002901,
+      4.060000000002901,
+      5.635000000004027,
+      4.7950000000034265,
+      4.060000000002901,
+      5.495000000003927,
+      5.635000000004027,
+      5.005000000003577,
+      4.060000000002901
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.530000000003952,
+      5.670000000004052,
+      4.165000000002976,
+      5.565000000003977,
+      5.635000000004027,
+      4.165000000002976,
+      5.670000000004052,
+      5.600000000004002,
+      3.535000000002526,
+      4.165000000002976,
+      4.165000000002976,
+      5.530000000003952
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.240000000006603,
+      9.240000000006603,
+      5.600000000004002,
+      9.240000000006603,
+      9.240000000006603,
+      7.8400000000056025,
+      9.240000000006603,
+      9.240000000006603,
+      9.870000000007053,
+      8.540000000006103,
+      5.600000000004002,
+      9.240000000006603
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.530000000003952,
+      5.670000000004052,
+      4.165000000002976,
+      5.565000000003977,
+      5.635000000004027,
+      4.165000000002976,
+      5.670000000004052,
+      5.600000000004002,
+      3.535000000002526,
+      4.165000000002976,
+      4.165000000002976,
+      5.530000000003952
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      17.18500000001228,
+      17.88500000001278,
+      16.800000000012005,
+      17.53500000001253,
+      17.53500000001253,
+      17.53500000001253,
+      17.18500000001228,
+      17.53500000001253,
+      17.18500000001228,
+      17.53500000001253,
+      17.53500000001253,
+      17.18500000001228
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      22.610000000016157,
+      21.10500000001508,
+      21.875000000015632,
+      23.345000000016682,
+      23.380000000016707,
+      23.345000000016682,
+      21.070000000015057,
+      23.345000000016682,
+      22.610000000016157,
+      23.345000000016682,
+      23.345000000016682,
+      22.610000000016157
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      17.18500000001228,
+      17.88500000001278,
+      16.800000000012005,
+      17.53500000001253,
+      17.53500000001253,
+      17.53500000001253,
+      17.18500000001228,
+      17.53500000001253,
+      17.18500000001228,
+      17.53500000001253,
+      17.53500000001253,
+      17.18500000001228
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      22.504999999979532,
+      21.7699999999802,
+      23.13499999997896,
+      22.049999999979946,
+      21.7699999999802,
+      22.399999999979627,
+      21.7699999999802,
+      21.7699999999802,
+      22.399999999979627,
+      23.13499999997896,
+      23.13499999997896,
+      22.504999999979532
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      44.16999999995983,
+      44.93999999995913,
+      44.16999999995983,
+      44.16999999995983,
+      44.90499999995916,
+      44.16999999995983,
+      44.65999999995938,
+      44.90499999995916,
+      44.16999999995983,
+      44.90499999995916,
+      44.16999999995983,
+      44.16999999995983
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/ch1-story-world/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      22.504999999979532,
+      21.7699999999802,
+      23.13499999997896,
+      22.049999999979946,
+      21.7699999999802,
+      22.399999999979627,
+      21.7699999999802,
+      21.7699999999802,
+      22.399999999979627,
+      23.13499999997896,
+      23.13499999997896,
+      22.504999999979532
+    ]
+  }
+]
+RUN: node tests/browser-presentation-v281.mjs
+Browser QA passed: 16 checks, 319 resource requests, no runtime exceptions.
+RUN: node tests/browser-balance-lab.mjs
+{"passed":true,"fixtureCount":14,"exactFullEventParity":true}
+RUN: node tests/browser-world-v29.mjs
+Journey: entered millpath
+Journey: entered echo
+Journey: manually extracted core
+Journey: returned core to Lotti
+World visual capture: 4 maps; baseline: false
+RUN: node tests/browser-chapter-one-v30.mjs
+Captured 11 chapter-one maps; browser errors: 0
+RUN: node tests/browser-chapter23.mjs
+Captured 23 chapter-two/three maps; browser errors: 0
+RUN: node tests/browser-chapter123.mjs
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+
+45 !== 40
+
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter123.mjs:8:8
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:654:26)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5) {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: 45,
+  expected: 40,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v25.2.1
+FAILED with exit 1

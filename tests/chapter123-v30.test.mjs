@@ -15,8 +15,8 @@ const read=n=>JSON.parse(fs.readFileSync(new URL('../docs/chapter123/'+n,import.
 const game=()=>new RPG('shadow',null,()=>.44);
 const maps=Object.keys(MAPS).filter(id=>(MAPS[id].chapterRegion??MAPS[id].chapter??1)<=3);
 
-test('runtime independently enumerates all 35 original maps and five explicitly authorized chapter-one additions',()=>{
- assert.equal(maps.length,40);assert.deepEqual([...CHAPTER123_MAPS_V30,...C1_NEW_MAPS].sort(),maps.sort());
+test('runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions',()=>{
+ assert.equal(maps.length,45);assert.deepEqual([...CHAPTER123_MAPS_V30,...C1_NEW_MAPS].sort(),maps.sort());
  for(const id of CHAPTER123_MAPS_V30){const g=game();g.chapter=MAPS[id].chapterRegion||2;g.enter(id,800,540);assert.equal(g.map,id);
   for(const o of SCENERY[id])assert.ok(o.c1Authored||chapter123SceneryArtV30(o,id),id+'/'+o.id);
   for(const p of g.props.filter(p=>!p.action?.startsWith('c1:'))){const host=CHAPTER123_HOSTS_V30[p.id];

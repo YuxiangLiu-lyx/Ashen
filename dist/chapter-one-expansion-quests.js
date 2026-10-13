@@ -55,7 +55,7 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
    if(id==='oil'){this.p.items.oil=Math.max(0,(this.p.items.oil||0)-5);this.addItem('hp',2);h.worldChanges.lampFixed=true;}
    if(id==='v12Water')this.addItem('hp');
    if(id==='letter'){this.p.items.letter=Math.max(0,(this.p.items.letter||0)-1);this.addItem('sprintBook');}
-   if(['herbs','c1CampHerbs'].includes(id)){this.p.items.herb=Math.max(0,(this.p.items.herb||0)-3);this.flags.herbChoice=choice==='woman'?'woman':'mira';if(choice==='woman'){this.addItem('pointBook');this.flags.oldLead=true;}else this.addItem('hp',3);}
+   if(id==='herbs'){this.p.items.herb=Math.max(0,(this.p.items.herb||0)-3);this.flags.herbChoice=choice==='woman'?'woman':'mira';if(choice==='woman'){this.addItem('pointBook');this.flags.oldLead=true;}else this.addItem('hp',3);}
    if(id==='copper'){this.flags.practiceCopper=false;this.flags.practiceCopperTaken=true;this.flags.practiceNote=true;this.flags.practiceComplete=true;this.flags.copperComplete=true;this.flags.copperTaken=true;const item=normalizeGear({id:'quest-copper-practice-ring',name:'缠铜练武环',slot:'relic',rarity:'rare',atk:0,hp:8,uniqueEffect:'copperPractice',affix:null},this.p.cls);item.instanceId=item.id;this.c1Deliver(item);items.push(item.id);if(!this.knowsOrHolds('cleaveBook'))this.addItem('cleaveBook');}
    if(id==='lantern'){this.flags.lanternRoute=this.chapter<3?'before':'after';const item=normalizeGear({...STORY.quest.reward},this.p.cls);item.instanceId=item.id;this.c1Deliver(item);items.push(item.id);}
    if(id==='echo')this.p.items.echoCore=Math.max(0,(this.p.items.echoCore||0)-1);
@@ -112,7 +112,7 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
   if(verb==='samples')return this.choose('c1:claim:c1AlchemistSamples');
   if(verb==='waterTalk')return this.choose('c1:'+(this.c1Ready('v12Water')?'claim':'progress')+':v12Water');
   if(verb==='patrolAccept'){const h=c1State(this);if(h.merchant.activePatrol||this.quests.c1RuneWear!=='done')return;const sequence=++h.merchant.patrolSequence;h.merchant.activePatrol={sequence,route:(sequence-1)%2,diagnosed:false,repaired:false,verified:false};h.journey.counts.c1RunePatrol=0;this.quests.c1RunePatrol='active';this.flags.tracked='c1RunePatrol';chat(this,[['罗萨',(sequence%2?'旧王道与磨坊':'溪边林地与废窑')+'沿线清除八只野兽。数量记满后回来领核心。']]);this.saveEvent();return;}
-  if(verb==='patrolClaim')return this.c1Claim('c1RunePatrol');
+  if(verb==='patrolClaim'){const tx=this.c1Claim('c1RunePatrol');if(tx)chat(this,[['罗萨','八只沿线野兽都处理了，运料的人可以继续走。这枚核心是约好的报酬；有下一段路需要照看时，再来问我。']]);return tx;}
   if(verb==='patrolProgress')return this.choose('c1:progress:c1RunePatrol');
  };
  P.apply=function(action){const id=typeof action==='string'?action:action?.id;if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id==='herbsWoman'?'woman':null);if(id==='c1:samples')return this.c1Claim('c1AlchemistSamples');

@@ -1,5 +1,6 @@
 // Test-session tools reuse production scene, quest, combat and reward reducers.
 // There is no write to storage here; the UI owns the existing isolated test slots.
+import {c1UIAction} from './chapter-one-expansion-ui.js';
 import {V12_PACING} from './pacing-data-v14.js';
 import {MAPS,DIALOGUES} from './data-v14.js';
 import {enableStoryTestV25,isStoryTestV25,storyTestChapterSaveKeyV26,STORY_TEST_CHAPTERS} from './story-test-v25.js';
@@ -70,10 +71,21 @@ function earlyStep(g){
   go(g,'warehouse');finishScenes(g);clear(g);for(const id of ['c1-wall-hole','c1-board','c1-wall-seal'])if(g.props.some(p=>p.id===id))use(g,id);use(g,'crack');finishScenes(g);
   go(g,'hall');g.choose('ratsDone');break;
  case 1:go(g,'hall');g.choose('contractAccept');break;
- case 2:go(g,'town');finishScenes(g);g.choose('pass');finishScenes(g);go(g,'chapel');finishScenes(g);g.choose('observe');break;
- case 3:go(g,'canal');finishScenes(g);if(!g.flags.captainStarted)g.apply('captain');clear(g);break;
+ case 2:{
+  // Test skip settles the real current objectives and giver reducers, one task
+  // per step. It never relies on the retired auto-payment behavior.
+  const routes=[['c1Readiness','hall','c1TrainingYard'],['c1ExitDrill','c1TrialFoyer','c1DrillGallery'],['v12CourierRoad','road','road'],['v12NorthDelivery','town','town'],['c1GateCheck','town','town'],['c1CanalPrep','town','c1NorthWalk'],['c1LoomBrief','c1LoomRoom','c1LoomRoom']];
+  const next=routes.find(([id])=>g.quests[id]!=='done');
+  if(next){const [id,giver,map]=next;go(g,giver);finishScenes(g);g.choose('c1:accept:'+id);finishScenes(g);go(g,map);finishScenes(g);
+   if(id==='c1LoomBrief'){use(g,'c1-loom');c1UIAction(g,'preview');c1UIAction(g,'gift');}else if(['c1Readiness','c1ExitDrill','v12CourierRoad','c1CanalPrep'].includes(id))clear(g);
+   go(g,giver);g.choose('c1:claim:'+id);finishScenes(g);if(g.quests[id]!=='done')throw Error('章节测试交接尚未完成：'+id);
+   if(id==='v12CourierRoad'){g.c1Morning();finishScenes(g);}return;
+  }
+  go(g,'chapel');finishScenes(g);g.choose('observe');break;
+ }
+ case 3:go(g,'canal');finishScenes(g);g.choose('c1:accept:c1CanalBreak');finishScenes(g);if(!g.flags.captainStarted)g.apply('captain');clear(g);break;
  case 4:{
-  go(g,'canal');clear(g);for(const id of ['c1-sluice','c1-hideout'])if(g.props.some(p=>p.id===id)){use(g,id);finishScenes(g);}g.requestDeparture();approach(g,MAPS.canal.doors.find(d=>d.to==='end'));
+  go(g,'canal');g.choose('c1:accept:c1CanalBreak');finishScenes(g);clear(g);g.choose('c1:claim:c1CanalBreak');finishScenes(g);for(const id of ['c1-sluice','c1-hideout'])if(g.props.some(p=>p.id===id)){use(g,id);finishScenes(g);}g.requestDeparture();approach(g,MAPS.canal.doors.find(d=>d.to==='end'));
   if(!g.confirmDeparture())throw Error('离城准备尚未完成。');break;
  }
  case 5:g.enter('post',...entry('post'));break;
@@ -184,9 +196,9 @@ export function skipStoryTestStepV31(RPG,stats,current){
  if(!isStoryTestV25(current))throw Error('请先进入章节测试模式。');
  // Work on a detached copy. Failure keeps the active session and stored bytes intact.
  const g=enableStoryTestV25(new RPG(current.p.cls,current.snapshot()),stats,current.storyTestSaveKeyV26);
- const before=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags]);
+ const before=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion]);
  g.active=true;step(g);finishScenes(g);
- const after=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags]);
+ const after=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion]);
  if(before===after)throw Error('当前步骤未能推进，请完成眼前交互或重新选择章节。');
  g.moveTo=null;g.target=null;g.bullets=[];g.zones=[];g.events=[];g.active=true;
  return g;

@@ -5,8 +5,9 @@ import {browserSession,delay} from '../tools/browser_session.mjs';
 import {MAPS} from '../dist/core-v14.js';
 // Independent runtime inventory, NOT the presentation allowlist under test.
 const allMaps=Object.entries(MAPS).filter(([,m])=>(m.chapterRegion??m.chapter??1)<=3);
-assert.equal(allMaps.length,40);
-// Five authorized additions have their own renderer/state/UI acceptance suite.
+assert.equal(allMaps.length,45);
+assert.deepEqual(allMaps.filter(([,m])=>m.c1Expansion).map(([id])=>id).sort(),['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt'].sort());
+// Ten authorized additions have their own renderer/state/UI acceptance suite.
 const maps=allMaps.filter(([,m])=>!m.c1Expansion).map(([id])=>id);assert.equal(maps.length,35);
 const out=path.resolve(process.env.ASHEN_CAPTURE_OUTPUT||'qa-export/chapter123/after');
 fs.mkdirSync(out,{recursive:true});

@@ -1,6 +1,7 @@
 // Accelerated campaign using normal movement/combat and interaction methods.
 // No teleport, chapter skip, reward injection or direct damage. Browser input remains separate evidence.
 import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';
+import {parseSave} from '../dist/save-transfer-v14.js';
 import {RPG,MAPS,stats,needXP} from '../dist/core-v14.js';
 import {c1UIAction} from '../dist/chapter-one-expansion-ui.js';
 import {seeded} from '../tools/balance_lab/simulator.mjs';
@@ -20,7 +21,7 @@ export function journey(cls='shadow',route='main_only',seed=42){
  function walk(x,y,r=45){const start=g.map;lastAction='walk:'+x+','+y;for(let n=0;n<20000;n++){finish();if(g.map!==start)return;const d=Math.hypot(g.p.x-x,g.p.y-y);if(d<r)return;const hostile=g.enemies.find(e=>!e.dead&&!e.c1Training&&Math.hypot(e.x-g.p.x,e.y-g.p.y)<200);if(hostile){fight(hostile.id);continue;}const dir=g.pathDirection(g.p,{x,y});if(!dir||Math.hypot(dir.x,dir.y)<.1)throw Error('No path '+g.map+' '+x+','+y);tick(dir);}throw Error('Walk timeout '+g.map);}
  function use(id){finish();if(id==='saint')for(let i=0;i<60&&!g.saint.visible;i++)tick();const map=g.map,t=g.targets().find(t=>t.id===id);assert.ok(t,'Missing target '+g.map+'/'+id);walk(t.x,t.y+(t.kind==='npc'?45:0),t.kind==='door'?28:55);if(g.map!==map)return;lastAction='interact:'+id;g.interact(t);finish();}
  function choose(a){lastAction='choose:'+a;g.choose(a);finish();}
- function snapshot(name){console.log(cls,route,name,g.map,g.p.level,g.p.gold);milestones.push({name,time:g.time,map:g.map,balance:balance(),snapshot:JSON.parse(JSON.stringify(g.snapshot()))});}
+ function snapshot(name){console.log(cls,route,name,g.map,g.p.level,g.p.gold);milestones.push({name,time:g.time,map:g.map,balance:balance(),snapshot:parseSave(JSON.stringify(g.snapshot()))});}
  function buy(n){use('herbalist');for(let i=0;i<n;i++)assert.ok(g.buyPotion('hp'));}
  function craft(n=1){use('c1-loom');g.c1Preview('c1LoomWeapon','c1RuneEdge',cls==='shadow'?'daggers':cls==='oath'?'greatsword':'staff');c1UIAction(g,'preview');
  g.c1FreeMaterials('c1CoreBlade','c1RuneEdge');for(let i=0;i<n;i++){const core=Object.keys(C1_CORES).find(k=>g.p.items[k]>0);if(!core)break;const recipe=Object.values(C1_RECIPES).find(r=>r.core===core);if(!(g.p.items.c1RuneEdge>0)){use('c1rosa');g.c1BuyRune('c1RuneEdge');use('c1-loom');}assert.ok(g.c1Craft({recipeId:recipe.id,runeId:'c1RuneEdge',weaponType:cls==='shadow'?'daggers':cls==='oath'?'greatsword':'staff',useCoupon:true,transactionId:'craft:'+(g.c1Expansion.crafting.sequence+1)}));}grow();}
@@ -64,6 +65,6 @@ export function journey(cls='shadow',route='main_only',seed=42){
    for(let n=0;!g.c1Ready('c1RunePatrol')&&n<8;n++){use('road');fight();if(branch){use('grove');fight();use('c1ReedKiln');fight();use('grove');use('road');}else{use('millpath');fight();use('road');}use('town');if(!g.c1Ready('c1RunePatrol'))waitActive();}
    assert.ok(g.c1Ready('c1RunePatrol'));use('workshop');use('c1LoomRoom');use('c1rosa');choose('c1:patrolClaim');snapshot('patrol-'+(round+1));use('workshop');use('town');}
  }
- snapshot('prepared');use('chapel');finish();use('alley');finish();accept('saint','c1CanalBreak');use('canal');finish();grow();snapshot('captain-entry');fight();snapshot('captain-done');claim('saint','c1CanalBreak');if(['all_once','repeat_patrol'].includes(route)){use('end');use('alley');use('town');use('workshop');use('lotti');choose('goodbye:lotti');use('town');use('alley');use('canal');}use('end');assert.ok(g.confirmDeparture());finish();snapshot('chapter-one-end');return {g,events,milestones,continueChapterTwo,limits:['Accelerated runtime actions are not browser input or measured human play time.','All movement and damage are actual runtime; scene reading is skipped.']};
+ snapshot('prepared');use('chapel');finish();use('alley');finish();accept('saint','c1CanalBreak');use('canal');finish();grow();snapshot('captain-entry');fight();snapshot('captain-done');claim('saint','c1CanalBreak');if(['all_once','repeat_patrol','local_work'].includes(route)){use('end');use('alley');use('town');use('workshop');use('lotti');choose('goodbye:lotti');use('town');use('alley');use('canal');}use('end');assert.ok(g.confirmDeparture());finish();snapshot('chapter-one-end');return {g,events,milestones,continueChapterTwo,limits:['Accelerated runtime actions are not browser input or measured human play time.','All movement and damage are actual runtime; scene reading is skipped.']};
 }
 if(import.meta.url==='file://'+path.resolve(process.argv[1]||'')){const cls=process.env.ASHEN_CLASS||'shadow',route=process.env.ASHEN_ROUTE||'main_only';const r=journey(cls,route);fs.mkdirSync('docs/ch1-story-world/economy',{recursive:true});fs.writeFileSync('docs/ch1-story-world/economy/'+cls+'-'+route+'.json',JSON.stringify({...r,g:undefined},null,2));}

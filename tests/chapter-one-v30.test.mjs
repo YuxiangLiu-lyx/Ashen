@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {RPG} from '../dist/core-v14.js';
+import {RPG,MAPS} from '../dist/core-v14.js';
 import {simulate} from '../tools/balance_lab/simulator.mjs';
 import {reactionV30,defeatsV30,motionPoseV30} from '../dist/chapter-one-motion-v30.js';
 import {chapterOneV30,drawChapterStrikeV30,chapterSceneryArtV30,chapterGuardFrameV30} from '../dist/chapter-one-art-v30.js';
@@ -9,7 +9,13 @@ import {worldOperationV29} from '../dist/world-runtime-v29.js';
 
 test('12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-combat-presentation.json',import.meta.url)));
- for(const {config,result} of baseline.runs)assert.deepEqual(simulate(config),result,config.cls+'/'+config.enemy);
+ // Reproduce the original six-spawn setup, whose enemy construction consumes
+ // RNG before the isolated duel. Production now has eight rats by authorization;
+ // exact damage/cooldown/RNG events remain protected at the original input seed.
+ const original=JSON.parse(fs.readFileSync(new URL('../docs/chapter123/BASELINE_CONTENT.json',import.meta.url))).find(m=>m.id==='warehouse');
+ const live=MAPS.warehouse.spawns;
+ try{MAPS.warehouse.spawns=original.spawns;for(const {config,result}of baseline.runs)assert.deepEqual(simulate(config),result,config.cls+'/'+config.enemy);}
+ finally{MAPS.warehouse.spawns=live;}
 });
 test('hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter',()=>{
  const g=new RPG('shadow',null,()=>.44);g.enter('warehouse',680,400);g.pending=null;g.active=true;

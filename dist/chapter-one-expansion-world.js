@@ -20,7 +20,7 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  const join=(a,b,ax,ay,bx,by)=>{MAPS[a].doors.push(door(b,ax,ay,bx,by,MAPS[b].name));MAPS[b].doors.push(door(a,bx,by,ax,ay,MAPS[a].name));};
  join('hall','c1TrainingYard',180,560,220,820);join('c1TrainingYard','c1TrialFoyer',1360,860,220,870);join('c1TrialFoyer','c1DrillGallery',1360,520,220,870);join('c1TrialFoyer','c1TrialCrypt',1020,880,210,905);join('c1TrialCrypt','c1TrialVault',1380,870,210,915);join('c1DrillGallery','warehouse',1350,860,240,870);
  join('workshop','c1LoomRoom',1340,740,230,850);join('town','c1NorthWalk',1100,220,230,850);join('c1NorthWalk','alley',1370,850,480,870);join('grove','c1ReedKiln',1390,540,230,870);
- join('grove','c1RiversideCamp',320,910,1370,450);join('road','c1RiversideCamp',1060,930,230,850);join('c1RiversideCamp','c1KilnCourt',1370,600,230,850);join('c1KilnCourt','c1ReedKiln',1360,540,380,900);
+ join('grove','c1RiversideCamp',320,910,1370,450);join('road','c1RiversideCamp',1240,900,230,850);join('c1RiversideCamp','c1KilnCourt',1370,600,230,850);join('c1KilnCourt','c1ReedKiln',1360,540,380,900);
  MAPS.millpath.spawns.push(['wolf',1150,830,'c1-mill-wolf-2'],['wolf',710,350,'c1-mill-wolf-3']);
  const keep={hall:['hallbook','hallpot'],warehouse:['crack','frost','wbox1','wbox2'],road:[],town:['well','townbook'],chapel:[],alley:['alleycrate'],canal:['canalbox'],grove:['stone'],guestroom:['guest-journal','guest-basin','guest-bunk'],millpath:['mill-barrel'],echo:['echo-machine','echo-valve','v29-echo-core'],workshop:['repair-bench','reset-bench','v29-repair-core']};
  for(const [id,ids]of Object.entries(keep))MAPS[id].props=MAPS[id].props.filter(p=>ids.includes(p.id));

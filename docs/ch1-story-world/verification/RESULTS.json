@@ -1,0 +1,64 @@
+[
+  {
+    "name": "integration",
+    "command": [
+      "python3",
+      "tools/harness/check.py",
+      "--tier",
+      "integration"
+    ],
+    "exit_code": 1,
+    "seconds": 161.0376491546631,
+    "log": "docs/ch1-story-world/verification/integration.log"
+  },
+  {
+    "name": "render",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-map-quests.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 56.38211488723755,
+    "log": "docs/ch1-story-world/verification/render.log"
+  },
+  {
+    "name": "handoffs-touch",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-expansion.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 100.46358799934387,
+    "log": "docs/ch1-story-world/verification/handoffs-touch.log"
+  },
+  {
+    "name": "shadow",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 544.1450991630554,
+    "log": "docs/ch1-story-world/verification/shadow.log"
+  },
+  {
+    "name": "oath",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 539.3510007858276,
+    "log": "docs/ch1-story-world/verification/oath.log"
+  },
+  {
+    "name": "ember",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 556.4679601192474,
+    "log": "docs/ch1-story-world/verification/ember.log"
+  }
+]

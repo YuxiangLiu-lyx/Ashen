@@ -13,22 +13,31 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-13T02:37:43.977543+00:00",
-  "updated_at_utc": "2026-10-13T03:26:20.396714+00:00",
+  "updated_at_utc": "2026-10-13T05:00:42.875607+00:00",
   "decisions": [
     "最新用户方向覆盖0.7自动推进和几何装饰；原刺杀、第二章、旧奖励与三精英预算保持",
     "实际看图发现NPC跨帧与石柱重复问题，已修帧界并追加自然墙阶图；最终三维尚未验收",
-    "008暴露水渠贴墙角18px寻路点提前耗尽，局部修复并新增回归；旧核心规则和三精英数值不变"
+    "008暴露水渠贴墙角18px寻路点提前耗尽，局部修复并新增回归；旧核心规则和三精英数值不变",
+    "不将012失败当作通过；正常输入从标题重跑；修复档案柜遮挡楼梯、临近出口路牌重叠与墙段末端拉伸",
+    "014新增本地路线漏走告别；章节测试仍依赖旧自动交付；旧战斗快照受增加出生怪数量的RNG影响；正常影刃撤离未喝持有药、誓卫点击视口外怪失败，修复脚本实际输入，不改游戏数值",
+    "正常输入018三职业全部通过且没有浏览器异常；只修C1自定义精英动画计时默认值，不改变任何数值。未覆盖018失败日志；原12战斗逐事件基线继续在原六鼠RNG初始化条件下精确保护",
+    "019整体失败为浏览器旧清单仍期待40图，已改为45并显式验证10张授权新增图；保留全部原35图检查，020通过。原0.6人工节奏仍独立待办。"
   ],
   "completed": [
     "保存4d6b4bb全部dist哈希与0.8采用章稿、22图实施计划",
     "22图布局、6本地NPC与6支线、8目标及显式交接已接入；001状态/真实移动16项通过，002正式渲染成功",
-    "6张新原图、22图、6成人NPC/6支线、显式接交与schema3迁移实现；005交付契约、007新增支线实战、009影刃誓卫全支线至章二通过"
+    "6张新原图、22图、6成人NPC/6支线、显式接交与schema3迁移实现；005交付契约、007新增支线实战、009影刃誓卫全支线至章二通过",
+    "011定位章稿登记未同步；012三职业真实输入发现库房交付过场渲染变量作用域错误，已修正，失败快照完整另存",
+    "014正式22图渲染、六位NPC实际点击交付、10图触屏、烬术师正常键鼠前两章通过；核心141/149通过，失败已分类并保留",
+    "016经济三职业新增支线、原战斗逐事件与45图保护已通过；017章节测试24种开局/八章跳过和隔离档全部通过",
+    "018三职业正常键鼠均连续通完前两章、152核心及22图/交付UI通过；精英首击前attackAnim未初始化导致快照非法已定位修复，新增严格快照回归",
+    "019核心153、18条经济路线、1620快照实战及前五浏览器组通过；020修正地图清单后35图/464景物/91交互/77敌姿与180份阶段旧档全通过"
   ],
   "remaining": [
-    "三职业正常键鼠、全套集成、22图最终三维、旧档和包入口、推送交付"
+    "最终integration、22图三维门禁与离线HTTP手机包、常用入口和GitHub保存"
   ],
   "blockers": [],
-  "next": "保存实现检查点后运行完整回归与三职业真实输入",
+  "next": "提交修复实现，最终integration与包入口并行记录，然后三维门禁和推送",
   "required_checks": [
     "fast",
     "integration",
@@ -187,6 +196,216 @@
       "output": "docs/harness/evidence/c1-story-world-20261012/009-movement-and-ledger.txt",
       "output_sha256": "19a4210fd57aaaddc224f46f076a182c628c180884b18524c1ffa0fc577622ce",
       "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:27:41.501821+00:00",
+      "finished_at_utc": "2026-10-13T03:27:41.694042+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/010-fast.txt",
+      "output_sha256": "09079bab44b89b40c9886c758f5b33d23a2acbf4abb030b3bed1b054070fb168",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:30:54.423012+00:00",
+      "finished_at_utc": "2026-10-13T03:31:38.092791+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/011-fast.txt",
+      "output_sha256": "65994bc708c7340a5090996ba36d2b6d9206f8edcf83adcb3ce7dadefab3e29b",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/verify.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:35:12.216393+00:00",
+      "finished_at_utc": "2026-10-13T03:38:47.625888+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/012-integration.txt",
+      "output_sha256": "4f9a2d89fc46f4c8dbefccdaedd4fb62ba70016f2e4144df27cf86cbb77c2ae6",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T03:47:28.729720+00:00",
+      "finished_at_utc": "2026-10-13T03:48:13.402774+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "67da7ab27c1e14793f36e0ab89b5a6f75e82d66c90a3afabc6f935f8649df02c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/013-fast.txt",
+      "output_sha256": "db74d57e50700df934832740f7b75cd4ac4d320655d79b4fae24b34a9db76dc9",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/verify.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:55:47.776138+00:00",
+      "finished_at_utc": "2026-10-13T04:07:23.251764+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "26ea75199794db43a442d164feb9e9f8fffba2311f7431a82081364095410053",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/014-integration.txt",
+      "output_sha256": "45bed7a183931cb3bb37fb521cb49af2e242b59b994ec83bacc6d9badb193355",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "combat-isolation-diagnostic",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import fs from 'node:fs';import assert from 'node:assert/strict';import {MAPS} from './dist/core-v14.js';import {simulate} from './tools/balance_lab/simulator.mjs';const legacy=JSON.parse(fs.readFileSync('docs/chapter123/BASELINE_CONTENT.json')).find(m=>m.id==='warehouse');const live=MAPS.warehouse.spawns;try{MAPS.warehouse.spawns=legacy.spawns;for(const r of JSON.parse(fs.readFileSync('tests/fixtures/v29-combat-presentation.json')).runs)assert.deepEqual(simulate(r.config),r.result,r.config.cls+'/'+r.config.enemy);console.log('12 original encounters preserve all events with original warehouse spawn RNG setup');}finally{MAPS.warehouse.spawns=live;}"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T04:12:46.312497+00:00",
+      "finished_at_utc": "2026-10-13T04:12:47.723250+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "eb3fc075c660b8847d0441c18c707572d7ecc565b1c827f3b4788588d3cb5c47",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/015-combat-isolation-diagnostic.txt",
+      "output_sha256": "baed9f809ee918de9db668e427b5ebb42384a055b07572d4d310f9edebba814c",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "corrected-core",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T04:14:22.847416+00:00",
+      "finished_at_utc": "2026-10-13T04:16:37.761807+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "a2d24359ea309c68aed38a0648b2f4826e6319c9e9f6e8f543691e0422a2ffaf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/016-corrected-core.txt",
+      "output_sha256": "eee5289e8be75d40f135c382d4f4033d3681593e7bab67a75c06725473b2b0d3",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "chapter-test-compatibility",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T04:25:05.489550+00:00",
+      "finished_at_utc": "2026-10-13T04:25:57.837942+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "5eb16cbb50eadcef0e4eaeb3a91a50484cf2c67898ef594eec45c15cb029a2d4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/017-chapter-test-compatibility.txt",
+      "output_sha256": "6ba0cb71e26a3fbd03ec168fca842eab59b0ab88e725efa1555685f21b4a3b4b",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/verify.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T04:27:41.679009+00:00",
+      "finished_at_utc": "2026-10-13T04:38:38.977829+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "164e25aad6e5d4feb99fe7fe2d136ed50f70edefe4bd5a62ee5fa22bbd9a8ce2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/018-integration.txt",
+      "output_sha256": "6431196bb9abd5ce7da904a42fee1931ed971112da50df59f559fac7f8a684c5",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T04:46:37.100350+00:00",
+      "finished_at_utc": "2026-10-13T04:56:55.004758+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "cb0a278836d6e8dfc58c74dfdb34009ba98c67cba08d2ad9d6c3ef0a41939973",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/019-integration.txt",
+      "output_sha256": "e4bb34809fd437b09cb22eb8f5674a891f659c4b4bf8803e729d165b23232804",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "browser-inventory-and-saves",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; commands=[[\"node\",\"docs/ch1-story-world/audit-saves.mjs\"],[\"node\",\"tests/browser-chapter123.mjs\"]]; codes=[subprocess.run(c).returncode for c in commands]; print(codes); raise SystemExit(any(codes))"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T04:57:45.215242+00:00",
+      "finished_at_utc": "2026-10-13T04:58:48.351936+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "532f997fb6e3d3b6bf0cd9f9e88ab5443f729113b4dd33ba1e06b9acd360ccbc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/020-browser-inventory-and-saves.txt",
+      "output_sha256": "045ded841bd9efe148a74be874eb4fab9fa945ba25a874bb5fdd60d4b024fdbe",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T04:59:58.835414+00:00",
+      "finished_at_utc": "2026-10-13T05:00:42.861882+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "532f997fb6e3d3b6bf0cd9f9e88ab5443f729113b4dd33ba1e06b9acd360ccbc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/021-fast.txt",
+      "output_sha256": "b1411e55cd260e9a5e4bc1e0bd55550e011b8b73cd46b68a22fd278b380b0312",
+      "timeout_seconds": 120.0
     }
   ],
   "stages": [
@@ -205,6 +424,14 @@
       "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
       "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-objectives.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-map-quests.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/c1-story-world/\n?? dist/chapter-one-natural-art.js\n?? dist/chapter-one-story-world.js\n?? docs/ch1-story-world/\n?? docs/harness/CHAPTER_01_STORY_WORLD.md\n?? docs/harness/evidence/c1-story-world-20261012/\n?? source/tasks/active/c1-story-world-20261012.json\n?? tests/chapter-one-story-world.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-13T04:59:58.545722+00:00",
+      "head_commit": "6823b2c83cd26848c886da85db871ab508225481",
+      "source_fingerprint": "532f997fb6e3d3b6bf0cd9f9e88ab5443f729113b4dd33ba1e06b9acd360ccbc",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-natural-art.js\n M dist/game-v14.js\n M dist/story-test-v31.js\n M docs/ch1-story-world/MOVEMENT.json\n M docs/ch1-story-world/NAVIGATION.json\n M docs/ch1-story-world/economy/ember-all_once-one-epic.json\n M docs/ch1-story-world/economy/ember-all_once.json\n M docs/ch1-story-world/economy/ember-main_only.json\n M docs/ch1-story-world/economy/ember-repeat_patrol.json\n M docs/ch1-story-world/economy/ember-typical.json\n M docs/ch1-story-world/economy/oath-all_once-one-epic.json\n M docs/ch1-story-world/economy/oath-all_once.json\n M docs/ch1-story-world/economy/oath-main_only.json\n M docs/ch1-story-world/economy/oath-repeat_patrol.json\n M docs/ch1-story-world/economy/oath-typical.json\n M docs/ch1-story-world/economy/shadow-all_once-one-epic.json\n M docs/ch1-story-world/economy/shadow-local_work.json\n M docs/ch1-story-world/economy/shadow-main_only.json\n M docs/ch1-story-world/economy/shadow-repeat_patrol.json\n M docs/ch1-story-world/economy/shadow-typical.json\n M docs/ch1-story-world/visual/alley-after.webp\n M docs/ch1-story-world/visual/alley-collision.webp\n M docs/ch1-story-world/visual/alley.webp\n M docs/ch1-story-world/visual/c1Construct-frames.webp\n M docs/ch1-story-world/visual/c1DrillGallery-after.webp\n M docs/ch1-story-world/visual/c1DrillGallery-collision.webp\n M docs/ch1-story-world/visual/c1DrillGallery.webp\n M docs/ch1-story-world/visual/c1KilnCourt-after.webp\n M docs/ch1-story-world/visual/c1KilnCourt-collision.webp\n M docs/ch1-story-world/visual/c1KilnCourt.webp\n M docs/ch1-story-world/visual/c1LoomRoom-after.webp\n M docs/ch1-story-world/visual/c1LoomRoom-collision.webp\n M docs/ch1-story-world/visual/c1LoomRoom.webp\n M docs/ch1-story-world/visual/c1NorthWalk-after.webp\n M docs/ch1-story-world/visual/c1NorthWalk-collision.webp\n M docs/ch1-story-world/visual/c1NorthWalk.webp\n M docs/ch1-story-world/visual/c1ReedKiln-after.webp\n M docs/ch1-story-world/visual/c1ReedKiln-collision.webp\n M docs/ch1-story-world/visual/c1ReedKiln.webp\n M docs/ch1-story-world/visual/c1RiversideCamp-after.webp\n M docs/ch1-story-world/visual/c1RiversideCamp-collision.webp\n M docs/ch1-story-world/visual/c1RiversideCamp.webp\n M docs/ch1-story-world/visual/c1TrainingYard-after.webp\n M docs/ch1-story-world/visual/c1TrainingYard-collision.webp\n M docs/ch1-story-world/visual/c1TrialCrypt-after.webp\n M docs/ch1-story-world/visual/c1TrialCrypt-collision.webp\n M docs/ch1-story-world/visual/c1TrialCrypt.webp\n M docs/ch1-story-world/visual/c1TrialFoyer-after.webp\n M docs/ch1-story-world/visual/c1TrialFoyer-collision.webp\n M docs/ch1-story-world/visual/c1TrialFoyer.webp\n M docs/ch1-story-world/visual/c1TrialVault-after.webp\n M docs/ch1-story-world/visual/c1TrialVault-collision.webp\n M docs/ch1-story-world/visual/c1TrialVault.webp\n M docs/ch1-story-world/visual/c1VaultGuardian-frames.webp\n M docs/ch1-story-world/visual/canal-after.webp\n M docs/ch1-story-world/visual/canal-collision.webp\n M docs/ch1-story-world/visual/canal.webp\n M docs/ch1-story-world/visual/chapel-after.webp\n M docs/ch1-story-world/visual/chapel-collision.webp\n M docs/ch1-story-world/visual/chapel.webp\n M docs/ch1-story-world/visual/echo-after.webp\n M docs/ch1-story-world/visual/echo-collision.webp\n M docs/ch1-story-world/visual/echo.webp\n M docs/ch1-story-world/visual/grove-after.webp\n M docs/ch1-story-world/visual/grove-collision.webp\n M docs/ch1-story-world/visual/grove.webp\n M docs/ch1-story-world/visual/guestroom-after.webp\n M docs/ch1-story-world/visual/guestroom-collision.webp\n M docs/ch1-story-world/visual/guestroom.webp\n M docs/ch1-story-world/visual/hall-after.webp\n M docs/ch1-story-world/visual/hall-collision.webp\n M docs/ch1-story-world/visual/hall.webp\n M docs/ch1-story-world/visual/millpath-after.webp\n M docs/ch1-story-world/visual/millpath-collision.webp\n M docs/ch1-story-world/visual/millpath.webp\n M docs/ch1-story-world/visual/road-after.webp\n M docs/ch1-story-world/visual/road-collision.webp\n M docs/ch1-story-world/visual/road.webp\n M docs/ch1-story-world/visual/town-after.webp\n M docs/ch1-story-world/visual/town-collision.webp\n M docs/ch1-story-world/visual/town.webp\n M docs/ch1-story-world/visual/warehouse-after.webp\n M docs/ch1-story-world/visual/warehouse-collision.webp\n M docs/ch1-story-world/visual/warehouse.webp\n M docs/ch1-story-world/visual/workshop-after.webp\n M docs/ch1-story-world/visual/workshop-collision.webp\n M docs/ch1-story-world/visual/workshop.webp\n M docs/harness/CHAPTER_01_STORY_WORLD.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/tasks/active/c1-story-world-20261012.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-chapter123.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n?? docs/ch1-story-world/MAP_REVIEW.md\n?? docs/ch1-story-world/REVIEW_NOTES.json\n?? docs/ch1-story-world/SAVES.json\n?? docs/ch1-story-world/audit-saves.mjs\n?? docs/ch1-story-world/balance/\n?? docs/ch1-story-world/browser/\n?? docs/ch1-story-world/economy/ember-local_work.json\n?? docs/ch1-story-world/economy/failures/018-invalid-elite-animation.json\n?? docs/ch1-story-world/economy/oath-local_work.json\n?? docs/ch1-story-world/economy/shadow-all_once.json\n?? docs/ch1-story-world/natural-attempt-012/\n?? docs/ch1-story-world/natural-attempt-014/\n?? docs/ch1-story-world/natural/\n?? docs/ch1-story-world/verification-attempt-012/\n?? docs/ch1-story-world/verification-attempt-014/\n?? docs/ch1-story-world/verification/\n?? docs/ch1-story-world/verify.py\n?? docs/ch1-story-world/visual-review.html\n?? docs/harness/evidence/c1-story-world-20261012/010-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/011-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/012-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/013-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/014-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/015-combat-isolation-diagnostic.txt\n?? docs/harness/evidence/c1-story-world-20261012/016-corrected-core.txt\n?? docs/harness/evidence/c1-story-world-20261012/017-chapter-test-compatibility.txt\n?? docs/harness/evidence/c1-story-world-20261012/018-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/019-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/020-browser-inventory-and-saves.txt"
     }
   ]
 }

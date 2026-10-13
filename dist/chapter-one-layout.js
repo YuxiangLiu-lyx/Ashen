@@ -53,7 +53,7 @@ export const C1_FURNITURE={
  echo:[a('Settlement',10,1280,320,185,180,125,65),wall(1060,700,150),wall(840,350,150),a('Utilities',14,600,390,130,70,100,30),a('Objects',5,400,830,115,135,85,35)],
  workshop:[table(1050,455,230),a('Objects',5,420,380,140,155),a('Utilities',2,1270,370,155,170,100,60),a('Utilities',16,680,430,70,125,34,20),a('Furnishings',1,580,820,170,65),a('Objects',4,1300,870,110,130)],
  c1TrainingYard:[a('Utilities',4,360,680,170,90,145,35),tree(620,320,190),rock(1090,335,110),a('Utilities',4,1080,790,170,90,145,35),a('Furnishings',1,290,880,140,60)],
- c1DrillGallery:[wall(400,745,150),wall(770,460,150),wall(1210,335,150),a('Objects',5,1340,780,120,140,80,38)],
+ c1DrillGallery:[wall(400,745,150),wall(770,460,150),wall(1210,335,150),a('Objects',5,1320,650,120,140,80,38)],
  c1LoomRoom:[a('Furnishings',2,380,335,220,155,160,45),table(1180,370,190),a('Furnishings',1,620,830,145,60),a('Objects',5,1280,800,130,150,85,40)],
  c1NorthWalk:[a('Objects',2,350,350,170,55,130,30),a('Furnishings',3,1230,310,46,120),a('Furnishings',3,1270,840,46,120),rock(1040,660,110),wall(440,680,165)],
  c1ReedKiln:[{...a('Utilities',2,1180,300,270,218,170,95),sheet:'c1Kiln',asset:0},wall(920,620,150),wall(670,495,150),a('Objects',2,680,810,165,55,115,30),rock(360,820,105),tree(1340,680,190)],

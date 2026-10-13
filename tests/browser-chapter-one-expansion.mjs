@@ -9,7 +9,30 @@ let touch=false;async function tap(x,y){if(touch){await b.call('Input.dispatchTo
 async function click(selector){const p=await b.evaluate(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)return null;e.scrollIntoView({block:'center'});const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);assert.ok(p,selector);await tap(p.x,p.y);}
 try{
  await b.wait('window.__C1QA?.ready()',120000);
- for(const id of ['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','hall','warehouse','road','grove','millpath','echo','town','workshop','alley','canal','guestroom','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt']){await b.evaluate(`__C1QA.fixture('${id}')`);image(id,await b.evaluate('__C1QA.capture()'));image(id+'-collision',await b.evaluate('__C1QA.collision()'));await b.evaluate('__C1QA.change()');image(id+'-after',await b.evaluate('__C1QA.capture()'));report.maps.push(id);}
+ for(const id of ['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','hall','warehouse','road','grove','millpath','echo','town','workshop','alley','canal','guestroom','chapel','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt']){await b.evaluate(`__C1QA.fixture('${id}')`);image(id,await b.evaluate('__C1QA.capture()'));image(id+'-collision',await b.evaluate('__C1QA.collision()'));await b.evaluate('__C1QA.change()');image(id+'-after',await b.evaluate('__C1QA.capture()'));report.maps.push(id);}
+ // Isolated ready-state boundaries use the actual NPC menu, click handler, portrait and payment.
+ report.handoffs=[];
+ for(const [map,npcID,qid,count,requires,cause]of [
+  ['c1TrialFoyer','c1iden','c1TrialSalvage',5,'c1Readiness'],
+  ['c1TrialCrypt','c1hesha','c1CryptRepair',8,'c1Readiness'],
+  ['c1TrialVault','c1venn','c1VaultWatch',8,'c1CryptRepair','c1-vault-warden'],
+  ['c1RiversideCamp','c1blake','c1CampHunt',8,'c1ExitDrill'],
+  ['c1RiversideCamp','c1eve','c1CampHerbs',4,'c1ExitDrill'],
+  ['c1KilnCourt','c1mada','c1KilnRoost',8,'c1ExitDrill']]){
+  await b.evaluate(`__C1QA.fixture('${map}')`);
+  const prepare=`g.quests['${requires}']='done';g.c1Accept('${qid}');g.c1Expansion.journey.counts['${qid}']=${count};${cause?`g.enemies.find(e=>e.id==='${cause}').dead=true;`:''}const n=g.npcs.find(n=>n.id==='${npcID}');g.relocate(n.x,n.y+65);draw();`;
+  await b.evaluate(`__C1QA.check(${JSON.stringify(prepare)})`);
+  assert.equal(await b.evaluate(`__C1QA.check("g.marker('${npcID}')")`),'gold?');
+  image(npcID+'-ready',await b.evaluate('__C1QA.capture()'));
+  const before=(await b.evaluate('__C1QA.state()')).expansion.claimLedger['quest:'+qid];assert.equal(before,undefined);
+  await b.evaluate(`__C1QA.check("ui.style.visibility='visible';npc('${npcID}')")`);
+  await b.shot(path.join(out,npcID+'-menu.png'));
+  await click(`[data-choice="c1:claim:${qid}"]`);await delay(180);
+  assert.equal((await b.evaluate('__C1QA.state()')).quests[qid],'done');
+  assert.notEqual(await b.evaluate(`__C1QA.check("g.marker('${npcID}')")`),'gold?');
+  await b.shot(path.join(out,npcID+'-report.png'));
+  report.handoffs.push({map,npcID,qid,passed:true,scope:'ready fixture + actual click and payment'});
+ }
  for(const [width,height]of [[1440,980],[844,390],[390,844]]){touch=width<900;await b.call('Emulation.setTouchEmulationEnabled',{enabled:touch,maxTouchPoints:1});await b.call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:touch});await b.evaluate("__C1QA.fixture('c1LoomRoom');__C1QA.loom()");await click('[data-c1=preview]');await click('[data-c1=gift]');await click('[data-c1=craft]');const s=await b.evaluate('__C1QA.state()');assert.equal(s.bag.length,1);assert.equal(s.expansion.crafting.sequence,1);await b.shot(path.join(out,'loom-'+width+'.png'));report.ui.push({width,height,template:s.bag[0].c1Template,rune:s.bag[0].c1Rune});}
  report.touch=[];for(const id of ['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt']){await b.evaluate(`__C1QA.fixture('${id}');__C1QA.touchReady()`);await delay(250);const before=await b.evaluate('__C1QA.position()'),point=await b.evaluate('__C1QA.touchPoint()');await tap(point.x,point.y);await delay(1400);const after=await b.evaluate('__C1QA.position()');assert.ok(Math.hypot(after.x-before.x,after.y-before.y)>25,id+' touch movement');assert.ok(!after.blocked,id);await b.shot(path.join(out,id+'-touch.png'));report.touch.push({id,before,after});}
  // Quest prompts appear only for accepted objectives; removed puzzle controls never return.

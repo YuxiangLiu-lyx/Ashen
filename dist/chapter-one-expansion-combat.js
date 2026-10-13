@@ -37,7 +37,7 @@ export function installC1Combat(RPG,{stats}){
    return false;
   }
   const cfg=C1_ELITES[e.id],p=this.p;e.stun=Math.max(0,e.stun-dt);e.slow=Math.max(0,(e.slow||0)-dt);e.bleedTime=Math.max(0,e.bleedTime-dt);if(!e.bleedTime)e.bleed=0;e.dot-=dt;if(e.dot<=0){e.dot=1;if(e.bleed||e.burn)this.damage(e,e.bleed*B.bleedTickDamage+(e.burn||0)*B.burnTickDamage,'dot');e.burn=Math.max(0,e.burn-1);}if(e.dead)return true;
-  e.attackAnim=Math.max(0,e.attackAnim-dt);e.cd=Math.max(0,e.cd-dt);e.c1Recovery=Math.max(0,(e.c1Recovery||0)-dt);e.anim=(e.anim||0)+dt*5;e.moving=false;
+  e.attackAnim=Math.max(0,(e.attackAnim||0)-dt);e.cd=Math.max(0,e.cd-dt);e.c1Recovery=Math.max(0,(e.c1Recovery||0)-dt);e.anim=(e.anim||0)+dt*5;e.moving=false;
   if(e.stun>0||e.c1Recovery>0)return true;
   if(e.c1Charge){const a=e.c1Charge,oldX=e.x,oldY=e.y;this.moveActor(e,e.x+Math.cos(a.a)*650*dt,e.y+Math.sin(a.a)*650*dt,false);a.life-=dt;
    if(!a.hit&&distance(e,p)<48&&this.clearLine(e,p,false)){a.hit=true;this.hurt(cfg.heavy);}

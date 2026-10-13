@@ -1,10 +1,11 @@
-import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {journey} from './chapter-one-economy.mjs';import {C1_MAIN,C1_SIDE} from '../dist/chapter-one-expansion-data.js';
+import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {journey} from './chapter-one-economy.mjs';import {C1_LOCAL_QUESTS} from '../dist/chapter-one-story-world.js';import {C1_MAIN,C1_SIDE} from '../dist/chapter-one-expansion-data.js';
 const out='docs/ch1-story-world/economy';fs.mkdirSync(out,{recursive:true});
-for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typical','all_once','repeat_patrol'])test(cls+' '+route+' actual campaign economy and second-chapter carry',()=>{
+for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typical','all_once','repeat_patrol','local_work'])test(cls+' '+route+' actual campaign economy and second-chapter carry',()=>{
  const r=journey(cls,route,2654435769),g=r.g,h=g.c1Expansion;
  for(const q of C1_MAIN)assert.equal(g.quests[q.id],'done',q.id);
  assert.equal(C1_MAIN.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].xp,0),425);assert.equal(C1_MAIN.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].gold,0),196);
- if(['all_once','repeat_patrol'].includes(route)){for(const q of C1_SIDE)assert.equal(g.quests[q.id],'done',q.id);assert.equal(C1_SIDE.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].xp,0),400);assert.equal(h.crafting.sequence,3);for(const e of Object.values(h.elite))assert.ok(e.firstPartGranted);}
+ if(['all_once','repeat_patrol','local_work'].includes(route)){for(const q of C1_SIDE)assert.equal(g.quests[q.id],'done',q.id);assert.equal(C1_SIDE.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].xp,0),400);assert.equal(h.crafting.sequence,3);for(const e of Object.values(h.elite))assert.ok(e.firstPartGranted);}
+ if(route==='local_work'){for(const q of C1_LOCAL_QUESTS)assert.equal(g.quests[q.id],'done',q.id);assert.equal(C1_LOCAL_QUESTS.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].xp,0),180);assert.equal(C1_LOCAL_QUESTS.reduce((n,q)=>n+h.claimLedger['quest:'+q.id].gold,0),84);}
  if(route==='typical'){assert.equal(h.crafting.sequence,2);for(const id of ['oil','letter','c1RuneWear'])assert.equal(g.quests[id],'done');}
  if(route==='repeat_patrol'){assert.equal(h.merchant.patrolSequence,5);assert.equal(Object.keys(h.claimLedger).filter(k=>k.startsWith('patrol:')).length,5);}
  const latest=r.milestones.at(-1),path=out+'/'+cls+'-'+route+'.json';fs.writeFileSync(path,JSON.stringify({route,cls,basis:'runtime_events',events:r.events,milestones:r.milestones,limits:r.limits},null,2));

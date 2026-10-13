@@ -1,0 +1,54 @@
+[
+  {
+    "name": "integration",
+    "command": [
+      "python3",
+      "tools/harness/check.py",
+      "--tier",
+      "integration"
+    ],
+    "exit_code": 1,
+    "seconds": 67.24709296226501,
+    "log": "docs/ch1-story-world/verification/integration.log"
+  },
+  {
+    "name": "render",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-map-quests.mjs"
+    ],
+    "exit_code": 0,
+    "seconds": 67.05444312095642,
+    "log": "docs/ch1-story-world/verification/render.log"
+  },
+  {
+    "name": "shadow",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 1,
+    "seconds": 186.27079796791077,
+    "log": "docs/ch1-story-world/verification/shadow.log"
+  },
+  {
+    "name": "oath",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 1,
+    "seconds": 199.12129092216492,
+    "log": "docs/ch1-story-world/verification/oath.log"
+  },
+  {
+    "name": "ember",
+    "command": [
+      "node",
+      "tests/browser-chapter-one-natural.mjs"
+    ],
+    "exit_code": 1,
+    "seconds": 148.13205885887146,
+    "log": "docs/ch1-story-world/verification/ember.log"
+  }
+]
