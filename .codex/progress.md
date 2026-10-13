@@ -388,3 +388,18 @@
 - 阶段 delivery：complete；HEAD 45daa219a7c4f65395c50de350933d2f0a3fdd4a
 - 最近检查：package-promote，退出码 0；docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt
 <!-- /task:c1-map-quests-20261012 -->
+
+<!-- task:c1-story-world-20261012 -->
+## 任务 c1-story-world-20261012
+- 状态：in_progress
+- 更新：2026-10-13T03:26:20.396714+00:00
+- 下一步：保存实现检查点后运行完整回归与三职业真实输入
+- 任务记录：source/tasks/active/c1-story-world-20261012.json
+- 已完成：保存4d6b4bb全部dist哈希与0.8采用章稿、22图实施计划；22图布局、6本地NPC与6支线、8目标及显式交接已接入；001状态/真实移动16项通过，002正式渲染成功；6张新原图、22图、6成人NPC/6支线、显式接交与schema3迁移实现；005交付契约、007新增支线实战、009影刃誓卫全支线至章二通过
+- 待完成：三职业正常键鼠、全套集成、22图最终三维、旧档和包入口、推送交付
+- 决定：最新用户方向覆盖0.7自动推进和几何装饰；原刺杀、第二章、旧奖励与三精英预算保持；实际看图发现NPC跨帧与石柱重复问题，已修帧界并追加自然墙阶图；最终三维尚未验收；008暴露水渠贴墙角18px寻路点提前耗尽，局部修复并新增回归；旧核心规则和三精英数值不变
+- 阻塞：无
+- 阶段 baseline：complete；HEAD 4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65
+- 阶段 implementation：complete；HEAD 4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65
+- 最近检查：movement-and-ledger，退出码 0；docs/harness/evidence/c1-story-world-20261012/009-movement-and-ledger.txt
+<!-- /task:c1-story-world-20261012 -->

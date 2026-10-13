@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
-  "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+  "basis_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+  "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "09b641fbe431864da77e9fb71cb1f5ead9f335925950bda57a1c1c54d1cf35f2",
@@ -96,8 +96,8 @@
       ]
     },
     "AGENTS.md": {
-      "sha256": "c84cdac9bedea9a2fd428c6a988d37235fb8c9276b1130b4920ca407da57ace5",
-      "bytes": 5323,
+      "sha256": "4e6030973445ebca7b711d2b3a8d85a4fff856c67c2b43d84f69f8cbc34b6c39",
+      "bytes": 5449,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -424,10 +424,11 @@
       ]
     },
     "dist/chapter-one-expansion-art.js": {
-      "sha256": "f8ef2cb6c6d4e5c008e20b16175dee3a69b4c4c48061f2daf951d4ed22e38352",
-      "bytes": 9122,
+      "sha256": "679172745724135caf9148ee43923ec7e6378faee2b487e7b8e853e934642c67",
+      "bytes": 6805,
       "imports": [
         "dist/chapter-one-layout.js",
+        "dist/chapter-one-natural-art.js",
         "dist/scene-geometry-v26.js"
       ],
       "symbols": [
@@ -438,7 +439,6 @@
         "c1PersonFrame",
         "canvas",
         "d",
-        "doors",
         "drawC1Creature",
         "drawC1Elite",
         "drawC1Person",
@@ -450,23 +450,16 @@
         "e",
         "edge",
         "f",
-        "gr",
-        "gradient",
         "k",
-        "label",
-        "locked",
         "material",
-        "offset",
+        "outside",
         "plan",
-        "points",
         "sheet",
-        "sign",
+        "side",
         "size",
-        "soot",
         "spec",
-        "warm",
+        "water",
         "width",
-        "x",
         "xx"
       ],
       "modules": [
@@ -476,8 +469,8 @@
       ]
     },
     "dist/chapter-one-expansion-combat.js": {
-      "sha256": "883cb282e0e9ab5697ab1da9ef247cc8cb8f782cbdce3d98aeb42e716d622031",
-      "bytes": 14012,
+      "sha256": "3ebab1353bfec1eadfda04e2842130c1a74b179c7e8a610aa25b607a1cb10aa7",
+      "bytes": 14288,
       "imports": [
         "dist/balance-v14.js",
         "dist/chapter-one-expansion-data.js",
@@ -529,9 +522,11 @@
       ]
     },
     "dist/chapter-one-expansion-data.js": {
-      "sha256": "5bbad6ba2ed3d3d0bc88c9956a7d14ee8f1cafa3eb93d26bb254625abf57bb4d",
-      "bytes": 6038,
-      "imports": [],
+      "sha256": "d66203e81be79afee60d4f77b929057a3840cab046eec72063909fd04a40ee2e",
+      "bytes": 6196,
+      "imports": [
+        "dist/chapter-one-story-world.js"
+      ],
       "symbols": [
         "C1_CORES",
         "C1_EFFECT_TEXT",
@@ -556,8 +551,8 @@
       ]
     },
     "dist/chapter-one-expansion-gear.js": {
-      "sha256": "f6bb4bb08c36e63e278b3c3e65fd57d7fc763d62d8ba6474e78f05c132927101",
-      "bytes": 9105,
+      "sha256": "69b47d822e256b65997624a47877605ae6e4115cdcfd74ee197c2b65c6ac90d4",
+      "bytes": 9139,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-save.js",
@@ -602,14 +597,15 @@
       ]
     },
     "dist/chapter-one-expansion-quests.js": {
-      "sha256": "6c186b64a9cc94145f3f557b6efd7ae0a6fc813609bb950428be761fa8527718",
-      "bytes": 25977,
+      "sha256": "5d20face1be072985aec7a0eaa218364b9f52d0f19f9921a741ee3d52e0199f2",
+      "bytes": 26863,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
         "dist/chapter-one-expansion-save.js",
         "dist/chapter-one-layout.js",
         "dist/chapter-one-objectives.js",
+        "dist/chapter-one-story-world.js",
         "dist/equipment-v14.js",
         "dist/quest-service-v14.js",
         "dist/story-data-v14.js"
@@ -628,6 +624,7 @@
         "e",
         "event",
         "giver",
+        "giverMap",
         "h",
         "hPatrol",
         "here",
@@ -651,12 +648,14 @@
         "present",
         "previous",
         "q",
+        "qid",
         "r",
         "replacement",
         "result",
         "reward",
         "roll",
         "running",
+        "scene",
         "sequence",
         "steps",
         "submitAliases",
@@ -687,10 +686,11 @@
       ]
     },
     "dist/chapter-one-expansion-save.js": {
-      "sha256": "0ae043fe467e51ce3cf6593f40aa01337c293fc44ee6efab49677e5460234e58",
-      "bytes": 13207,
+      "sha256": "d8d8a85c76f72334b9bed30a9fd44911e0272d4b040fb0c27172b9f93f5c71dc",
+      "bytes": 14065,
       "imports": [
-        "dist/chapter-one-expansion-data.js"
+        "dist/chapter-one-expansion-data.js",
+        "dist/chapter-one-objectives.js"
       ],
       "symbols": [
         "P",
@@ -704,6 +704,7 @@
         "c1State",
         "changes",
         "counts",
+        "credit",
         "e",
         "equipment",
         "exact",
@@ -716,10 +717,12 @@
         "k",
         "object",
         "old",
+        "oldCounts",
         "out",
         "past",
         "patrol",
         "q",
+        "r",
         "record",
         "result",
         "s",
@@ -733,13 +736,14 @@
       ]
     },
     "dist/chapter-one-expansion-ui.js": {
-      "sha256": "a5b4f840dd575175c05f29ea9f9eac0b1dc773a3fde0811a5b55449888d40313",
-      "bytes": 9867,
+      "sha256": "74f9606031040162fbe59e558d565451ddedebd3ab4ec54e55694247c6eaf126",
+      "bytes": 10193,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
         "dist/chapter-one-expansion-save.js",
-        "dist/chapter-one-objectives.js"
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-story-world.js"
       ],
       "symbols": [
         "mapNames",
@@ -752,12 +756,13 @@
       ]
     },
     "dist/chapter-one-expansion-world.js": {
-      "sha256": "b63bae65f7c578355a6093b0387f410ef67d2ef810304c1d1d9c138971774778",
-      "bytes": 9253,
+      "sha256": "ea0474944de3bf317bb08d845217821a92dd521d0418d1677b75ae17707abe0e",
+      "bytes": 12935,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-save.js",
         "dist/chapter-one-layout.js",
+        "dist/chapter-one-story-world.js",
         "dist/world-v14.js"
       ],
       "symbols": [
@@ -771,8 +776,10 @@
         "configureC1World",
         "create",
         "d",
+        "direction",
         "door",
         "e",
+        "fill",
         "id",
         "installC1World",
         "j",
@@ -781,13 +788,16 @@
         "keep",
         "key",
         "m",
+        "next",
         "npc",
         "p",
         "previous",
         "prop",
         "r",
         "spawn",
-        "st"
+        "spots",
+        "st",
+        "xy"
       ],
       "modules": [
         "chapter01_expansion",
@@ -812,8 +822,8 @@
       ]
     },
     "dist/chapter-one-layout.js": {
-      "sha256": "b5724e4cb9cf79be2b61351642e73fee8442a1bed493f326ed1cc82e23811ccb",
-      "bytes": 8067,
+      "sha256": "a05eec7e3d88a331f29cf852c23502be1d3e11571256be648537c8a01c98cb34",
+      "bytes": 9712,
       "imports": [],
       "symbols": [
         "C1_FURNITURE",
@@ -870,10 +880,42 @@
         "combat"
       ]
     },
+    "dist/chapter-one-natural-art.js": {
+      "sha256": "c5583f510fd6e90577723e422b6eacddfb5d8ba0b3c66528d1da2a3f2be0be88",
+      "bytes": 3092,
+      "imports": [
+        "dist/chapter-one-story-world.js"
+      ],
+      "symbols": [
+        "back",
+        "c",
+        "c1LocalPortrait",
+        "c1NaturalSprite",
+        "d",
+        "direction",
+        "drawC1Directions",
+        "drawC1LocalPerson",
+        "drawC1QuestMark",
+        "f",
+        "installC1NaturalFrames",
+        "k",
+        "key",
+        "p",
+        "ready",
+        "regions",
+        "ys"
+      ],
+      "modules": [
+        "chapter01_expansion",
+        "art"
+      ]
+    },
     "dist/chapter-one-objectives.js": {
-      "sha256": "adf09cd01820a52385a0c46488a30753482198921e42b00bdb93677be310ef7c",
-      "bytes": 3801,
-      "imports": [],
+      "sha256": "adccd0e22e94dafb174b21928aa1909d44beab938caf27bfc7ff183afa9d90bc",
+      "bytes": 5575,
+      "imports": [
+        "dist/chapter-one-story-world.js"
+      ],
       "symbols": [
         "C1_ACCEPT_TEXT",
         "C1_GIVERS",
@@ -915,6 +957,23 @@
       "modules": [
         "art",
         "ui"
+      ]
+    },
+    "dist/chapter-one-story-world.js": {
+      "sha256": "83da4551236b5b26efa77bfd8d2d0c874246b2cac6409219ac70bd3750d8ee93",
+      "bytes": 7599,
+      "imports": [],
+      "symbols": [
+        "C1_LOCAL_QUESTS",
+        "C1_LOCAL_TALK",
+        "C1_PEOPLE",
+        "C1_STORY_ACCEPT",
+        "C1_STORY_RETURN"
+      ],
+      "modules": [
+        "chapter01_expansion",
+        "story",
+        "maps"
       ]
     },
     "dist/chapter-runtime-v14.js": {
@@ -2915,8 +2974,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "56fc2e2ea73f82deef8054c474036254a9b0d021d95fe6cd8c22cc9008841e25",
-      "bytes": 110576,
+      "sha256": "be2679e7d643163d642d4284ea60c3351c723774b1ea959ac4d75a6d2d2e02ca",
+      "bytes": 111695,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2927,6 +2986,7 @@
         "dist/chapter-one-expansion-ui.js",
         "dist/chapter-one-interaction-v31.js",
         "dist/chapter-one-motion-v30.js",
+        "dist/chapter-one-natural-art.js",
         "dist/chapter-one-pursuit-v31.js",
         "dist/chapter-runtime-v14.js",
         "dist/chapter123-presentation-v30.js",
@@ -3496,8 +3556,8 @@
       "modules": []
     },
     "dist/lifecycle-v14.js": {
-      "sha256": "72d13d096de54a486161ef1693def9a4490789d08ee456acec193af47d08c635",
-      "bytes": 7089,
+      "sha256": "0454c0927b95f36c17b3261a637777ddca35cc19bf4af472260635de5e4b9aa9",
+      "bytes": 7088,
       "imports": [
         "dist/data-v14.js"
       ],
@@ -6248,8 +6308,8 @@
       ]
     },
     "dist/visuals-v14.js": {
-      "sha256": "7f1bc4935643f8b9f463a29419e7054c95095a04956c7c94dba162ba374a5bef",
-      "bytes": 22130,
+      "sha256": "426220a2a852d916cb567126afea8f44496a0e1397bff02fa51bf7624c14d205",
+      "bytes": 22315,
       "imports": [
         "dist/actor-art-v281.js",
         "dist/art-meta-v14.js",
@@ -6259,6 +6319,7 @@
         "dist/chapter-one-art-v30.js",
         "dist/chapter-one-expansion-art.js",
         "dist/chapter-one-motion-v30.js",
+        "dist/chapter-one-natural-art.js",
         "dist/chapter-one-pursuit-v31.js",
         "dist/chapter-world-meta-v14.js",
         "dist/chapter123-presentation-v30.js",
@@ -6321,6 +6382,7 @@
         "k",
         "key",
         "layer",
+        "local",
         "m",
         "meta",
         "monsterPoseV8",
@@ -6633,8 +6695,8 @@
       "modules": []
     },
     "docs/harness/CHAPTER_01.md": {
-      "sha256": "ebc720a46bfa63da3696879f2fdf24098e426e759707fb6274952e0a89450906",
-      "bytes": 9278,
+      "sha256": "a717f9a7e5332278c7472c7c3de16cf5dc7330760303e7feea8f76beb46e6469",
+      "bytes": 9399,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6653,6 +6715,15 @@
     "docs/harness/CHAPTER_01_MAP_QUESTS.md": {
       "sha256": "8ec7fba1359833c8565463408ffb88f4aaf604d3ef6ac8718075ce2465314503",
       "bytes": 2296,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "chapter01_expansion"
+      ]
+    },
+    "docs/harness/CHAPTER_01_STORY_WORLD.md": {
+      "sha256": "9f4bfd3a60ed8d3c585f741e70c307de631a93ffb1caf63a3226700a12db7b16",
+      "bytes": 2956,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6704,8 +6775,8 @@
       "modules": []
     },
     "docs/harness/NARRATIVE_ARCHITECTURE.md": {
-      "sha256": "58548185328ce5b3f882746c306cc5f4281bf46b4d576e6d23c7da915e22cab6",
-      "bytes": 4508,
+      "sha256": "a248d85271964b6044e52fbd37da351a1c75e24fb512cb7a364879f09b89b143",
+      "bytes": 4531,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6820,8 +6891,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "4131e42ffecbb51468212c584f504da7d339f75e94692f1860db6b4933925953",
-      "bytes": 23607,
+      "sha256": "a87ca096a7c2921eb60ed1f2af384add1b9411f9617ce52fd20421ba74ead305",
+      "bytes": 23950,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -6949,8 +7020,8 @@
       ]
     },
     "tests/browser-chapter-one-expansion.mjs": {
-      "sha256": "0597c044da74726fb6762e48fd8926f8fe9e6c9b6f27823f6d4c393d6ecd3780",
-      "bytes": 5969,
+      "sha256": "2fc51295ce40cc9626ff3c85a7b79aba41cf8ebcfda2eeecb14508aaa01e90bf",
+      "bytes": 6155,
       "imports": [
         "tools/browser_session.mjs"
       ],
@@ -7005,8 +7076,8 @@
       ]
     },
     "tests/browser-chapter-one-map-quests.mjs": {
-      "sha256": "2a4a07f6f4714ba1922780bec20e02143c3a95faa68fef56c77b6b84f9695ba8",
-      "bytes": 4364,
+      "sha256": "a2f6ea5f4139347b554f3c4d16bed495ea0c2f2cc3127ee476ca660607906301",
+      "bytes": 4508,
       "imports": [
         "tools/browser_session.mjs"
       ],
@@ -7040,8 +7111,8 @@
       ]
     },
     "tests/browser-chapter-one-natural.mjs": {
-      "sha256": "d18e168acaba1df674edc3a956fa5e3ddc7d5537a9c7a971558e704ccd6887e1",
-      "bytes": 11383,
+      "sha256": "3576dec82a2fd6e5e179f1a28aac3efe83a0f8ca68774c696e64a06b974dcc40",
+      "bytes": 12313,
       "imports": [
         "tools/balance_lab/provenance.mjs",
         "tools/browser_session.mjs"
@@ -7064,6 +7135,7 @@
         "grow",
         "hook",
         "i",
+        "id",
         "k",
         "key",
         "keys",
@@ -7381,8 +7453,8 @@
       ]
     },
     "tests/chapter-one-economy.mjs": {
-      "sha256": "5f6b43fa9275a760bdc4a85c70676a13489342b9d44b6f425d3d46afce4c47ac",
-      "bytes": 10837,
+      "sha256": "3d9a9a2645a5c5e5773132abb26a0703bd8d3715e1291328bd7879d9eb2d5959",
+      "bytes": 12947,
       "imports": [
         "dist/chapter-one-expansion-combat.js",
         "dist/chapter-one-expansion-data.js",
@@ -7394,7 +7466,6 @@
         "a",
         "accept",
         "after",
-        "all",
         "audit",
         "balance",
         "before",
@@ -7419,6 +7490,7 @@
         "item",
         "journey",
         "k",
+        "local",
         "map",
         "old",
         "r",
@@ -7439,8 +7511,8 @@
       ]
     },
     "tests/chapter-one-economy.test.mjs": {
-      "sha256": "965908b02025642e87b6b1053e743c86e90a88c0e5a6a268a17280f99a56d784",
-      "bytes": 2399,
+      "sha256": "280c76e0be85a2cdfd48af8f76e7b1473366164051172830198952589b67c3c1",
+      "bytes": 2400,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "tests/chapter-one-economy.mjs"
@@ -7498,8 +7570,8 @@
       ]
     },
     "tests/chapter-one-expansion.test.mjs": {
-      "sha256": "b60a081ec946a5bf5cb83a65665dfd74ee8462a225a26b80d826a0b891702897",
-      "bytes": 7149,
+      "sha256": "659943249503dfcf0f11d766cfbe42914cdd129c9fb584fa5751d37c5cc1a31c",
+      "bytes": 7657,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
@@ -7539,8 +7611,8 @@
       ]
     },
     "tests/chapter-one-incremental.test.mjs": {
-      "sha256": "53ead4d9a3e0b650ac555463bb29f09376344000a0f8753581204ef5848ac023",
-      "bytes": 14305,
+      "sha256": "e0b46d124917e5855d6a678a5d2eb3012b3a593e80b15be162f02d5852a3c24a",
+      "bytes": 14712,
       "imports": [
         "dist/chapter-one-dialogues-v31.js",
         "dist/chapter-one-expansion-data.js",
@@ -7593,8 +7665,8 @@
       "modules": []
     },
     "tests/chapter-one-map-quests.test.mjs": {
-      "sha256": "0358ae32a986240f5816ea781e9141ef5e2fe89261ef20ec68954d1965eae4e1",
-      "bytes": 7236,
+      "sha256": "9e19b84b19d811f57d6f6822e74035d643dba37ae295e0d603a28836c58e18da",
+      "bytes": 7388,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-layout.js",
@@ -7606,6 +7678,7 @@
       "symbols": [
         "before",
         "d",
+        "dep",
         "e",
         "edit",
         "enter",
@@ -7628,6 +7701,40 @@
         "t",
         "target",
         "targets"
+      ],
+      "modules": [
+        "chapter01_expansion"
+      ]
+    },
+    "tests/chapter-one-story-world.test.mjs": {
+      "sha256": "88e8bcb77323a0ffa40d2dfa4f36643e7af8dcad8ed0c6b79fc4b60737860149",
+      "bytes": 6142,
+      "imports": [
+        "dist/chapter-one-expansion-data.js",
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-story-world.js",
+        "dist/core-v14.js",
+        "dist/save-transfer-v14.js"
+      ],
+      "symbols": [
+        "before",
+        "d",
+        "dep",
+        "e",
+        "enter",
+        "finish",
+        "g",
+        "game",
+        "id",
+        "o",
+        "plants",
+        "prerequisites",
+        "q",
+        "r",
+        "s",
+        "source",
+        "t",
+        "target"
       ],
       "modules": [
         "chapter01_expansion"
@@ -7965,8 +8072,8 @@
       "modules": []
     },
     "tools/balance_lab/chapter-one.mjs": {
-      "sha256": "460be283ca393c13170df56a909d380244289c801eaaf739fac7b30a91006bd6",
-      "bytes": 4914,
+      "sha256": "cf3c3c714c76e9b6a49aa0508b6ad3a0a84a8589b6610e1ee43c5c24606d0ede",
+      "bytes": 4917,
       "imports": [
         "dist/chapter-one-expansion-combat.js",
         "dist/chapter-one-expansion-data.js",
@@ -8199,8 +8306,8 @@
       ]
     },
     "tools/browser_session.mjs": {
-      "sha256": "8fc54034504475145acc2c5b852834548d2c752bf46585ca5c354e2335a491f2",
-      "bytes": 4806,
+      "sha256": "166be5b5fdd82287cd7a9bb35f72bca27db775e0a61bc10a26562f224e4b126e",
+      "bytes": 4945,
       "imports": [],
       "symbols": [
         "browserSession",
@@ -8268,8 +8375,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "0fcdab330200d89af28f4f9685af7790a2949a4fcc368557b1839f9383920946",
-      "bytes": 6410,
+      "sha256": "c1f76890639845ccdf82d191b3ed25360f97316a3e8038c8ade2383705199a3a",
+      "bytes": 6451,
       "imports": [],
       "symbols": [],
       "modules": [

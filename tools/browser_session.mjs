@@ -28,7 +28,7 @@ export async function browserSession(root, hook, {width=1440,height=980}={}) {
   if(!executable){server.close();throw Error('Chrome is required');}
   const chrome=spawn(executable,['--headless=new','--no-sandbox','--disable-dev-shm-usage','--remote-debugging-port=0','--user-data-dir='+profile,`--window-size=${width},${height}`,'about:blank'],{stdio:['ignore','ignore','ignore']});
   let ws,seq=0;const pending=new Map();
-  async function close(){ws?.close();chrome.kill('SIGTERM');server.close();await delay(100);fs.rmSync(profile,{recursive:true,force:true});}
+  async function close(){ws?.close();chrome.kill('SIGTERM');server.close();await Promise.race([new Promise(resolve=>{if(chrome.exitCode!==null)resolve();else chrome.once('exit',resolve);}),delay(5000)]);fs.rmSync(profile,{recursive:true,force:true,maxRetries:8,retryDelay:250});}
   try {
     let port;for(let i=0;i<120;i++){const file=path.join(profile,'DevToolsActivePort');if(fs.existsSync(file)){port=fs.readFileSync(file,'utf8').split('\n')[0];break;}await delay(250);}
     if(!port)throw Error('Chrome did not start');

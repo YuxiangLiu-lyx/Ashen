@@ -1,5 +1,5 @@
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {journey} from './chapter-one-economy.mjs';import {C1_MAIN,C1_SIDE} from '../dist/chapter-one-expansion-data.js';
-const out='docs/ch1-map-quests/economy';fs.mkdirSync(out,{recursive:true});
+const out='docs/ch1-story-world/economy';fs.mkdirSync(out,{recursive:true});
 for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typical','all_once','repeat_patrol'])test(cls+' '+route+' actual campaign economy and second-chapter carry',()=>{
  const r=journey(cls,route,2654435769),g=r.g,h=g.c1Expansion;
  for(const q of C1_MAIN)assert.equal(g.quests[q.id],'done',q.id);

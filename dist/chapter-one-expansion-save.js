@@ -1,7 +1,8 @@
+import {C1_OBJECTIVES} from './chapter-one-objectives.js';
 import {C1_MAIN,C1_SIDE,C1_ELITES,C1_PARTS,C1_QUESTS,C1_RECIPES,C1_RUNES,C1_CORES,C1_GEAR} from './chapter-one-expansion-data.js';
 export const c1Clone=v=>JSON.parse(JSON.stringify(v));
-export const c1Journey=()=>({revision:7,counts:{},kills:{},resources:{},clock:0,refresh:{},seed:3266489917});
-export function c1Fresh(){return {schema:2,journey:c1Journey(),mainStages:{},questSteps:{},claimLedger:{},crafting:{sequence:0,rngState:1597463007,transactions:{}},merchant:{patrolSequence:0,activePatrol:null},elite:{},samples:{c1PartJaw:false,c1PartTendon:false,c1PartMembrane:false,delivered:false},worldChanges:{},legacyReadinessBypass:false,escrow:[],economy:[],lootSeed:2654435769,materialSeed:2246822519};}
+export const c1Journey=()=>({revision:8,counts:{},kills:{},resources:{},clock:0,refresh:{},seed:3266489917});
+export function c1Fresh(){return {schema:3,journey:c1Journey(),mainStages:{},questSteps:{},claimLedger:{},crafting:{sequence:0,rngState:1597463007,transactions:{}},merchant:{patrolSequence:0,activePatrol:null},elite:{},samples:{c1PartJaw:false,c1PartTendon:false,c1PartMembrane:false,delivered:false},worldChanges:{},legacyReadinessBypass:false,escrow:[],economy:[],lootSeed:2654435769,materialSeed:2246822519};}
 export const c1State=g=>{if(g.c1Expansion)return g.c1Expansion;const h=c1Fresh();
  // New saves get independent seeds without drawing from the combat RNG. Restores
  // and legacy migrations keep their serialized/deterministic seed values.
@@ -13,7 +14,7 @@ export function validateC1Save(s){
  const exact=(v,keys)=>object(v)&&Object.keys(v).every(k=>keys.includes(k))&&keys.every(k=>k in v);
  const finite=v=>Number.isFinite(v)&&v>=0;
  const allowed=Object.keys(c1Fresh()).filter(k=>h?.schema!==1||k!=='journey');
- if(!object(h)||![1,2].includes(h.schema)||Object.keys(h).some(k=>!allowed.includes(k))||allowed.some(k=>!(k in h)))throw Error('第一章扩充记录格式不正确。');
+ if(!object(h)||![1,2,3].includes(h.schema)||Object.keys(h).some(k=>!allowed.includes(k))||allowed.some(k=>!(k in h)))throw Error('第一章扩充记录格式不正确。');
  for(const k of ['mainStages','questSteps','claimLedger','crafting','merchant','elite','samples','worldChanges'])if(!object(h[k]))throw Error('第一章记录不完整：'+k);
  if(!uint(h.crafting.rngState)||!h.crafting.rngState||!uint(h.lootSeed)||!h.lootSeed||!uint(h.materialSeed)||!h.materialSeed||!uint(h.crafting.sequence)||!object(h.crafting.transactions)||!uint(h.merchant.patrolSequence)||typeof h.legacyReadinessBypass!=='boolean'||!Array.isArray(h.escrow)||!Array.isArray(h.economy))throw Error('第一章事务或随机记录不正确。');
  if(!exact(h.crafting,['sequence','rngState','transactions'])||!exact(h.merchant,['patrolSequence','activePatrol'])||!exact(h.samples,[...Object.keys(C1_PARTS),'delivered']))throw Error('第一章嵌套记录含未知字段。');
@@ -21,12 +22,12 @@ export function validateC1Save(s){
  const patrol=h.merchant.activePatrol;if(patrol!==null&&(!object(patrol)||Object.keys(patrol).some(k=>!['sequence','route','diagnosed','repaired','verified','walkedAway','repairPosition'].includes(k))||!uint(patrol.sequence)||patrol.sequence!==h.merchant.patrolSequence||![0,1].includes(patrol.route)||['diagnosed','repaired','verified'].some(k=>typeof patrol[k]!=='boolean')||patrol.walkedAway!==undefined&&typeof patrol.walkedAway!=='boolean'||patrol.repairPosition&&(!exact(patrol.repairPosition,['x','y'])||!finite(patrol.repairPosition.x)||!finite(patrol.repairPosition.y))))throw Error('巡检记录不正确。');
  const changes=['wallSealed','lampFixed','morning','envelope','drillDoor','pressure','plank','wrongValve','northDoor','herbGarden','runePattern','leakFixed','kilnIntake','kilnExhaust','kilnBackflow','kilnLadder','samplesSealed','sluice','loomGift'];
  for(const [k,v]of Object.entries(h.worldChanges))if(k.startsWith('patrol-')?!['patrol-road','patrol-mill','patrol-grove','patrol-kiln'].includes(k)||!uint(v):!changes.includes(k)||typeof v!=='boolean')throw Error('场景变更记录不正确。');
- if(h.schema===2){const j=h.journey;if(!exact(j,['revision','counts','kills','resources','clock','refresh','seed'])||j.revision!==7||!uint(j.seed)||!j.seed||!finite(j.clock))throw Error('首章任务记录不正确。');
+ if(h.schema>=2){const j=h.journey;if(!exact(j,['revision','counts','kills','resources','clock','refresh','seed'])||j.revision!==(h.schema===2?7:8)||!uint(j.seed)||!j.seed||!finite(j.clock))throw Error('首章任务记录不正确。');
   for(const k of ['counts','kills','resources','refresh'])if(!object(j[k]))throw Error('首章任务记录缺失。');
   for(const [id,n]of Object.entries(j.counts))if(!C1_QUESTS[id]||!uint(n)||n>1000)throw Error('任务数量不正确。');
   for(const [id,n]of Object.entries(j.kills))if(!/^[A-Za-z0-9:_-]{1,160}$/.test(id)||!uint(n))throw Error('任务击杀序列不正确。');
   for(const [id,n]of Object.entries(j.refresh))if(!/^[A-Za-z0-9:_-]{1,160}$/.test(id)||!finite(n))throw Error('怪物恢复时间不正确。');
-  for(const [map,r]of Object.entries(j.resources))if(!['road','grove'].includes(map)||!exact(r,['present','taken','cycle','next'])||!uint(r.cycle)||!finite(r.next)||!Array.isArray(r.present)||!Array.isArray(r.taken)||[...r.present,...r.taken].some(n=>!Number.isInteger(n)||n<0||n>5)||new Set(r.present).size!==r.present.length||new Set(r.taken).size!==r.taken.length||r.taken.some(n=>!r.present.includes(n)))throw Error('药草生长记录不正确。');
+  for(const [map,r]of Object.entries(j.resources))if(!['road','grove'].includes(map)||!exact(r,['present','taken','cycle','next'])||!uint(r.cycle)||!finite(r.next)||!Array.isArray(r.present)||!Array.isArray(r.taken)||[...r.present,...r.taken].some(n=>!Number.isInteger(n)||n<0||n>(h.schema===2?5:9))||new Set(r.present).size!==r.present.length||new Set(r.taken).size!==r.taken.length||r.taken.some(n=>!r.present.includes(n)))throw Error('药草生长记录不正确。');
  }
  const equipment=i=>object(i)&&typeof i.id==='string'&&i.id===i.instanceId&&(C1_GEAR[i.c1Template]||C1_RECIPES[i.c1Template])&&finite(i.atk)&&finite(i.hp)&&(!i.c1Rune||C1_RUNES[i.c1Rune.id]&&Number.isInteger(i.c1Rune.value)&&i.c1Rune.value>=C1_RUNES[i.c1Rune.id].min&&i.c1Rune.value<=C1_RUNES[i.c1Rune.id].max);
  for(const i of [...(s.p?.bag||[]),...Object.values(s.p?.gear||{}),...h.escrow])if(i?.c1Template&&!equipment(i))throw Error('首章装备实例或符文范围不正确。');
@@ -59,7 +60,18 @@ export function c1Migrate(g,s){
   // Old valid investigation evidence substitutes for the removed puzzle, no reward here.
   if(qs.c1ClockMemory?.name)qs.c1ClockMemory.legacyEvidence=true;
   if(h.merchant.activePatrol?.verified)counts.c1RunePatrol=5;
- }return;}
+ }
+ if(h.schema<3){
+  const oldCounts={rats:6,c1Readiness:3,c1ExitDrill:1,v12CourierRoad:4,c1CanalPrep:4,oil:1,v12Water:1,copper:2,lantern:3,c1RunePatrol:5};
+  for(const [id,n]of Object.entries(oldCounts)){const credit=id==='rats'?(s.flags?.rats||0):h.journey.counts[id]||0;
+   if(s.quests?.[id]==='active'&&credit>=n&&(id!=='rats'||s.flags?.crack)){h.questSteps[id]||={};h.questSteps[id].legacyEvidence=true;}
+  }
+  for(const r of Object.values(h.journey.resources))for(const i of [6,7,8,9])if(!r.present.includes(i))r.present.push(i);
+  h.schema=3;h.journey.revision=8;
+  // Keep previously unlocked paths. No reward is paid by migration.
+  if((s.chapter||0)>=3)for(const q of C1_MAIN.filter(q=>q.index<=10))if(!h.mainStages[q.id])h.mainStages[q.id]='waived';
+ }
+ return;}
  const h=g.c1Expansion=c1Fresh(),phase=s.chapter||0;h.legacyReadinessBypass=phase>=2;
  // Existing facts remain authoritative. Waivers pay nothing and do not pretend completion.
  const past=phase>=5?C1_MAIN:phase>=3?C1_MAIN.filter(q=>q.index<=10):phase>=2?C1_MAIN.filter(q=>q.index<=9):phase>=1?C1_MAIN.slice(0,1):[];

@@ -1,0 +1,19 @@
+shadow all_once rat-entry grove 6 353
+shadow all_once bat-entry c1ReedKiln 6 397
+shadow all_once warden-entry echo 7 526
+shadow all_once prepared town 8 623
+shadow all_once captain-entry canal 8 653
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:19
+ function fight(only=null,seconds=200){const startingMap=g.map;lastAction='combat:'+g.map;for(let n=0;n<seconds/dt;n++){finish();if(g.map!==startingMap){grow();return;}const es=g.enemies.filter(e=>!e.dead&&(!only||e.id===only)).sort((a,b)=>Math.hypot(a.x-g.p.x,a.y-g.p.y)-Math.hypot(b.x-g.p.x,b.y-g.p.y));if(!es.length){grow();return;}const e=es[0];g.target=e.id;if(g.p.hp<stats(g.p).hp*.6)g.potion('hp');if(g.p.mp<20)g.potion('mp');const t=e.telegraph;let input={auto:true};if(t&&e.wind>.12&&c1Danger(t,g.p)){const a=t.shape==='line'||t.shape==='cone'?t.a+Math.PI/2:Math.atan2(g.p.y-t.y,g.p.x-t.x);input={x:Math.cos(a),y:Math.sin(a)};}else {if(cls!=='shadow'||e.bleed>=3)g.skill('e');g.skill('q');if(g.p.emotion>=100)g.skill('resonance');}tick(input);}fs.mkdirSync('docs/ch1-story-world/economy/failures',{recursive:true});fs.writeFileSync('docs/ch1-story-world/economy/failures/'+cls+'-'+route+'-combat.json',JSON.stringify({map:g.map,snapshot:g.snapshot(),enemies:g.enemies.filter(e=>!e.dead).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,ai:e.aiState,route:g.routeTo(e),playerBlocked:g.blocked(g.p.x,g.p.y),enemyBlocked:g.blocked(e.x,e.y)}))},null,2));throw Error('Fight timed out '+g.map+' '+only);}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+
+Error: Fight timed out canal null
+    at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:19:1154)
+    at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:67:154)
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/[eval1]:1:58
+    at ModuleJob.run (node:internal/modules/esm/module_job:413:25)
+    at async onImport.tracePromise.__proto__ (node:internal/modules/esm/loader:262:26)
+    at async ModuleLoader.executeModuleJob (node:internal/modules/esm/loader:259:20)
+    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)
+
+Node.js v25.2.1

@@ -23,9 +23,15 @@
         "概率掉落",
         "任务指引",
         "金色问号",
-        "地图任务优化"
+        "地图任务优化",
+        "第一章0.8",
+        "地下试炼",
+        "NPC接取",
+        "自然图片",
+        "任务交接"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_STORY_WORLD.md",
         "docs/harness/CHAPTER_01_MAP_QUESTS.md",
         "docs/harness/CHAPTER_01_EXPANSION.md",
         "dist/chapter-one-expansion-runtime.js",
@@ -45,21 +51,25 @@
         "dist/chapter-one-layout.js",
         "dist/chapter-one-objectives.js",
         "tests/chapter-one-map-quests*",
-        "tests/browser-chapter-one-map-quests*"
+        "tests/browser-chapter-one-map-quests*",
+        "dist/chapter-one-story-world.js",
+        "dist/chapter-one-natural-art.js",
+        "tests/chapter-one-story-world.test.mjs"
       ],
       "rules": [
         "docs/harness/CHAPTER_01.md",
         "docs/harness/CHAPTER_01_EXPANSION.md",
         "docs/harness/SAVE.md",
         "docs/harness/MAP_QUALITY.md",
-        "docs/harness/CHAPTER_01_MAP_QUESTS.md"
+        "docs/harness/CHAPTER_01_MAP_QUESTS.md",
+        "docs/harness/CHAPTER_01_STORY_WORLD.md"
       ],
       "safety": [
         "dist/core-v14.js",
         "dist/chapter-runtime-v14.js",
         "dist/world-runtime-v29.js"
       ],
-      "risk": "0.7明确授权第一章17图和目标重做；第二章以后106图、原刺杀、原件、奖励预算与旧档兼容保持。真实输入与状态夹具分别验收。",
+      "risk": "0.8授权第一章22图、自然图片与逐个NPC交接；新增6支线奖励另列，原主支线预算/三精英及后续106图、原刺杀和旧档保持。",
       "tests": [
         "node --test tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs",
         "node tests/browser-chapter-one-expansion.mjs",

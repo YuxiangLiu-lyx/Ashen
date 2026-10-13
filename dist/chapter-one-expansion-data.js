@@ -1,5 +1,6 @@
+import {C1_LOCAL_QUESTS} from './chapter-one-story-world.js';
 // Chapter 0.6 numeric source. Fixed budgets never pass through random gear growth.
-export const C1_VERSION=2;
+export const C1_VERSION=3;
 export const C1_MAIN=[
  ['rats','库房异响',65,25,'hall','steward',[]],
  ['c1CommissionBrief','委托与行前准备',15,10,'hall','sister',['rats']],
@@ -23,7 +24,7 @@ export const C1_SIDE=[
  ['c1RuneKiln','窑里不该有的风',35,20,'c1LoomRoom','c1rosa'],['c1AlchemistSamples','三处异变',50,30,'c1LoomRoom','c1saido']
 ].map(([id,name,xp,gold,map,target])=>({id,name,xp,gold,map,target,type:'支线'}));
 export const C1_PATROL={id:'c1RunePatrol',name:'线路巡检',xp:10,gold:18,map:'c1LoomRoom',target:'c1rosa',type:'支线',routes:[['road','millpath'],['grove','c1ReedKiln']]};
-export const C1_QUESTS=Object.fromEntries([...C1_MAIN,...C1_SIDE,C1_PATROL].map(q=>[q.id,q]));
+export const C1_QUESTS=Object.fromEntries([...C1_MAIN,...C1_SIDE,...C1_LOCAL_QUESTS,C1_PATROL].map(q=>[q.id,q]));
 export const C1_CORES={c1CoreBlade:{name:'刃型工艺核心',chance:.4},c1CoreShell:{name:'壳型工艺核心',chance:.35},c1CoreConduit:{name:'导型工艺核心',chance:.25}};
 export const C1_RUNES=Object.fromEntries([
  ['c1RuneEdge','锋纹',24,'atk',1,2],['c1RuneStrength','力纹',20,'str',1,2],['c1RuneDexterity','轻纹',20,'dex',1,2],['c1RuneVitality','厚纹',22,'vit',1,2],['c1RuneWisdom','静纹',20,'wis',1,2],['c1RuneMana','蓄纹',18,'mp',10,18]
@@ -53,7 +54,7 @@ export const C1_ELITES={
  'c1-elite-bat':{name:'苇窑夜翼',type:'bat',map:'c1ReedKiln',hp:660,hit:17,heavy:25,wind:.9,part:'c1PartMembrane',pool:['c1WingGloves','c1VeinChest'],x:1140,y:450}
 };
 export const C1_PARTS={c1PartJaw:'裂齿下颌',c1PartTendon:'灰脊腱束',c1PartMembrane:'夜翼膜片'};
-export const C1_NEW_MAPS=['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln'];
+export const C1_NEW_MAPS=['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt'];
 export const C1_EFFECT_TEXT={skill:'主动技能直接伤害 +3%（同组取最高）',attack:'普攻直接伤害 +2%',directReduction:'直接承伤 ×0.98',speed:'移速 +3%',regen:'每秒法力恢复增加',mana:'最大法力 +8',opener:'目标生命高于70%时直接命中 +15%；冷却8秒',trail:'4秒未受伤后移速 +6%，受伤结束',killMana:'亲自击杀有效敌人恢复3 MP；冷却3秒',skillMana:'主动技能直接命中恢复2 MP；冷却8秒',threeHits:'3次有效普攻后下一主动技能首次直接命中 +12%；冷却8秒',potionGuard:'疗伤药后4秒承伤 ×0.92；冷却12秒',lowGuard:'生命低于35%时直接承伤 ×0.96',evasion:'避开实际威胁的重击后，6秒内下一主动技能首次直接命中 +18%；冷却10秒'};
 export function c1DropIndex(u){if(!Number.isFinite(u)||u<0||u>=1)throw Error('Invalid uniform draw');return u<.075?0:u<.15?1:-1;}
 export function c1CoreAt(u){return u<.4?'c1CoreBlade':u<.75?'c1CoreShell':'c1CoreConduit';}

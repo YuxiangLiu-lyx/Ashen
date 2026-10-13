@@ -42,7 +42,8 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
    if(['maps','scenery'].includes(key)&&C1_MAPS.includes(id))continue; // 0.7 explicit 17-map geometry/art authorization; independently audited.
-   let value=table[id];if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
+   let value=table[id];if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
+   if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
    assert.equal(hash(value),h,key+'/'+id);
   }
  }
@@ -62,7 +63,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
      assert.equal(original.split(approved).length,2,'one scoped 0.6 core change');original=original.replace(approved,prior);
     }data=Buffer.from(original);
   }
-  if(file==='dist/visuals-v14.js'){let source=data.toString();for(const approved of ["import {c1Ground} from './chapter-one-expansion-art.js';\n",'c1Ground(this,id)||']){assert.equal(source.split(approved).length,2);source=source.replace(approved,'');}data=Buffer.from(source);}
+  if(file==='dist/visuals-v14.js'){let source=data.toString();for(const approved of ["import {c1Ground} from './chapter-one-expansion-art.js';\n",'c1Ground(this,id)||',"import {installC1NaturalFrames,c1LocalPortrait} from './chapter-one-natural-art.js';\n",'installC1NaturalFrames(this,name,data);','const local=c1LocalPortrait(this,name);if(local)return local;']){assert.equal(source.split(approved).length,2);source=source.replace(approved,'');}data=Buffer.from(source);}
   if(file==='dist/chapter-one-interaction-v31.js'){let source=data.toString();source=source.replace("{...t,y:this.props.find(p=>p.id==='well')?.interactY??735}",'{...t,y:735}').replace('{x:p.interactX??p.x,y:p.interactY??735}','{x:p.x,y:735}');data=Buffer.from(source);}
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),h,file);
  }

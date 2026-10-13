@@ -1,0 +1,210 @@
+{
+  "schema": 1,
+  "id": "c1-story-world-20261012",
+  "goal": "第一章0.8：以原生场景图片替代几何装饰，所有任务经NPC接取提交和故事引导，扩充地下试炼与地区，普通击杀目标7至10",
+  "acceptance": [
+    "22图三维验收；无程序绘制的水流/墙条/出口箭头/世界任务几何标记；NPC逐步接取提交且可交付必有金问号；普通讨伐7至10；三职业前两章、旧档和打包验证"
+  ],
+  "baseline_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "art"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-13T02:37:43.977543+00:00",
+  "updated_at_utc": "2026-10-13T03:26:20.396714+00:00",
+  "decisions": [
+    "最新用户方向覆盖0.7自动推进和几何装饰；原刺杀、第二章、旧奖励与三精英预算保持",
+    "实际看图发现NPC跨帧与石柱重复问题，已修帧界并追加自然墙阶图；最终三维尚未验收",
+    "008暴露水渠贴墙角18px寻路点提前耗尽，局部修复并新增回归；旧核心规则和三精英数值不变"
+  ],
+  "completed": [
+    "保存4d6b4bb全部dist哈希与0.8采用章稿、22图实施计划",
+    "22图布局、6本地NPC与6支线、8目标及显式交接已接入；001状态/真实移动16项通过，002正式渲染成功",
+    "6张新原图、22图、6成人NPC/6支线、显式接交与schema3迁移实现；005交付契约、007新增支线实战、009影刃誓卫全支线至章二通过"
+  ],
+  "remaining": [
+    "三职业正常键鼠、全套集成、22图最终三维、旧档和包入口、推送交付"
+  ],
+  "blockers": [],
+  "next": "保存实现检查点后运行完整回归与三职业真实输入",
+  "required_checks": [
+    "fast",
+    "integration",
+    "map-quality"
+  ],
+  "checks": [
+    {
+      "label": "initial-state-paths",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T02:59:31.683489+00:00",
+      "finished_at_utc": "2026-10-13T02:59:32.311763+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "0505ca5ff30e0fdc613b79de94bdb5232970e660d95b65121211880bcc4c12aa",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/001-initial-state-paths.txt",
+      "output_sha256": "782f287d818a4bbac3f6b00e0adf5556d2cb9527bdbdd7b7b4870e1df069c9ac",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "initial-render",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-map-quests.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T03:00:52.911345+00:00",
+      "finished_at_utc": "2026-10-13T03:01:07.689694+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "0505ca5ff30e0fdc613b79de94bdb5232970e660d95b65121211880bcc4c12aa",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/002-initial-render.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "first-campaign",
+      "command": [
+        "node",
+        "tests/chapter-one-economy.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:04:25.192444+00:00",
+      "finished_at_utc": "2026-10-13T03:04:25.939776+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "1be42321e6edf2a2464be705e5f551cb8abf7f0529d93b2d298ccf58cd25091f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/003-first-campaign.txt",
+      "output_sha256": "1bc8f4ef907348af5cc9d6555d58818199eb8f53c02d82263d18318d8dcc4248",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "campaign-handoffs",
+      "command": [
+        "node",
+        "tests/chapter-one-economy.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T03:06:49.991753+00:00",
+      "finished_at_utc": "2026-10-13T03:06:50.843231+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "f2e0f487176cfc1b9f83c32a0dbd304853ce66e80d20b319eb8c4abb9d200c13",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/004-campaign-handoffs.txt",
+      "output_sha256": "c2a8a6f04bd64452aa94dd6a023e812933bed6e599263adef80534a92ad3d3ac",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "story-contracts",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-story-world.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T03:10:05.042490+00:00",
+      "finished_at_utc": "2026-10-13T03:10:06.262245+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "05b621cc8baf2e1cdb623bbb7113018b6d607ebe673a73486245a3f91c8dcabd",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/005-story-contracts.txt",
+      "output_sha256": "c9794e3fc08705e84cac6cd624287a887ed561f9715216cb416f08a34b476785",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "local-campaign",
+      "command": [
+        "env",
+        "ASHEN_ROUTE=local_work",
+        "node",
+        "tests/chapter-one-economy.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:10:58.143493+00:00",
+      "finished_at_utc": "2026-10-13T03:11:02.187754+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "05b621cc8baf2e1cdb623bbb7113018b6d607ebe673a73486245a3f91c8dcabd",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/006-local-campaign.txt",
+      "output_sha256": "bae9c1085be214ef4e46487843ccc02e4fb5fa88b8e546ed843838c774b5026f",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "state-economy-render",
+      "command": [
+        "python3",
+        "/tmp/c1-initial-qa.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:14:03.294963+00:00",
+      "finished_at_utc": "2026-10-13T03:16:05.081697+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "b73c02f49ea9280abad3c40794997f039ebff3c73b76f3b5475b5712e96683b6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/007-state-economy-render.txt",
+      "output_sha256": "4db1709d8cfe23e6c74cc8fc3d9f2e0410b899fadfac9d948134b94be6a1d06b",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "campaign-diagnostic",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {journey} from './tests/chapter-one-economy.mjs'; journey('shadow','all_once',2654435769);"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T03:21:29.367208+00:00",
+      "finished_at_utc": "2026-10-13T03:21:36.866893+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "ebf7d46c864a45ff60d4fb5e9caa4048c21cfc8795ae0bd105cebe061f34fcee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/008-campaign-diagnostic.txt",
+      "output_sha256": "12826f8837f67730357c5f0a8ce7327e535d5de3e9046c28d2456c91b31fb5ca",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "movement-and-ledger",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import {journey} from './tests/chapter-one-economy.mjs'; for(const cls of ['shadow','oath']){const r=journey(cls,'all_once',2654435769);if(r.events.reduce((n,e)=>n+e.delta.gold,30)!==r.milestones.at(-1).balance.gold)throw Error('ledger mismatch');r.continueChapterTwo();}"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T03:23:59.409378+00:00",
+      "finished_at_utc": "2026-10-13T03:24:13.355281+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "bda3213e9394678dacb3d3851a7deca7e29d24f1a4bfed1657297437d6d67e59",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/009-movement-and-ledger.txt",
+      "output_sha256": "19a4210fd57aaaddc224f46f076a182c628c180884b18524c1ffa0fc577622ce",
+      "timeout_seconds": 180.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "baseline",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T02:44:45.273936+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "b07d84f65b60f965d605f1bcf72602abf5a574210964e0462994195aa2a6da62",
+      "worktree": "M .codex/progress.md\n?? docs/ch1-story-world/\n?? docs/harness/CHAPTER_01_STORY_WORLD.md\n?? source/tasks/active/c1-story-world-20261012.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T03:26:20.305779+00:00",
+      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
+      "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-objectives.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-map-quests.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/c1-story-world/\n?? dist/chapter-one-natural-art.js\n?? dist/chapter-one-story-world.js\n?? docs/ch1-story-world/\n?? docs/harness/CHAPTER_01_STORY_WORLD.md\n?? docs/harness/evidence/c1-story-world-20261012/\n?? source/tasks/active/c1-story-world-20261012.json\n?? tests/chapter-one-story-world.test.mjs"
+    }
+  ]
+}

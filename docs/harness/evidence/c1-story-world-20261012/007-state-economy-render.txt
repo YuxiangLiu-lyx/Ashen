@@ -1,0 +1,335 @@
+COMMAND ['env', 'ASHEN_ROUTE=local_work', 'node', 'tests/chapter-one-economy.mjs'] EXIT 0
+shadow local_work vault-entry c1TrialVault 4 217
+shadow local_work underground-reported c1TrialFoyer 5 281
+shadow local_work rat-entry grove 7 439
+shadow local_work bat-entry c1ReedKiln 7 519
+shadow local_work camp-and-kiln-reported c1ReedKiln 8 585
+shadow local_work warden-entry echo 8 690
+shadow local_work prepared town 9 787
+shadow local_work captain-entry canal 9 817
+shadow local_work captain-done canal 9 852
+shadow local_work chapter-one-end post 10 912
+
+
+COMMAND ['node', 'tests/browser-chapter-one-map-quests.mjs'] EXIT 1
+
+node:fs:1212
+  return binding.rmSync(getValidatedPath(path), opts.maxRetries, opts.recursive, opts.retryDelay);
+                 ^
+
+Error: ENOTEMPTY, Directory not empty: /var/folders/f4/3c2p11sd22b76640b44tvyv80000gn/T/ashen-world-H22s9s '/var/folders/f4/3c2p11sd22b76640b44tvyv80000gn/T/ashen-world-H22s9s'
+    at Object.rmSync (node:fs:1212:18)
+    at Object.close (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:31:96)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-map-quests.mjs:15:175 {
+  errno: 66,
+  code: 'ENOTEMPTY',
+  path: '/var/folders/f4/3c2p11sd22b76640b44tvyv80000gn/T/ashen-world-H22s9s',
+  syscall: 'rm'
+}
+
+Node.js v25.2.1
+
+COMMAND ['node', '--test', 'tests/chapter-one-expansion.test.mjs', 'tests/chapter-one-map-quests.test.mjs', 'tests/chapter-one-story-world.test.mjs', 'tests/chapter-one-incremental.test.mjs', 'tests/chapter-one-crafting.test.mjs', 'tests/chapter-one-elites.test.mjs', 'tests/chapter-one-economy.test.mjs'] EXIT 1
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (299.439708ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (1202.066166ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (59.351041ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (10.139458ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (89.760042ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (5.637417ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (28.515875ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (13.331541ms)
+shadow main_only prepared town 5 249
+shadow main_only captain-entry canal 5 277
+shadow main_only captain-done canal 5 305
+shadow main_only chapter-one-end post 6 365
+shadow main_only bridge-entry bridge 6 237
+shadow main_only manor-entry manor 6 265
+shadow main_only manor-exit spillway 7 293
+shadow main_only chapter-two-end hellGate 7 363
+shadow typical prepared town 6 304
+shadow typical captain-entry canal 6 332
+shadow typical captain-done canal 6 360
+shadow typical chapter-one-end post 7 420
+shadow typical bridge-entry bridge 7 292
+shadow typical manor-entry manor 7 327
+shadow typical manor-exit spillway 7 357
+shadow typical chapter-two-end hellGate 8 427
+shadow all_once rat-entry grove 6 353
+shadow all_once bat-entry c1ReedKiln 6 397
+shadow all_once warden-entry echo 7 526
+shadow all_once prepared town 8 623
+shadow all_once captain-entry canal 8 653
+shadow repeat_patrol rat-entry grove 6 353
+shadow repeat_patrol bat-entry c1ReedKiln 6 397
+shadow repeat_patrol warden-entry echo 7 526
+shadow repeat_patrol patrol-1 c1LoomRoom 9 731
+shadow repeat_patrol patrol-2 c1LoomRoom 9 893
+shadow repeat_patrol patrol-3 c1LoomRoom 10 1011
+shadow repeat_patrol patrol-4 c1LoomRoom 11 1197
+shadow repeat_patrol patrol-5 c1LoomRoom 11 1323
+shadow repeat_patrol prepared town 11 1323
+shadow repeat_patrol captain-entry canal 11 1355
+shadow repeat_patrol captain-done canal 11 1397
+shadow repeat_patrol chapter-one-end post 12 1462
+shadow repeat_patrol bridge-entry bridge 12 1334
+shadow repeat_patrol manor-entry manor 12 1376
+shadow repeat_patrol manor-exit spillway 12 1412
+shadow repeat_patrol chapter-two-end hellGate 12 1489
+oath main_only prepared town 5 249
+oath main_only captain-entry canal 5 277
+oath main_only captain-done canal 5 305
+oath main_only chapter-one-end post 6 365
+oath main_only bridge-entry bridge 6 237
+oath main_only manor-entry manor 6 265
+oath main_only manor-exit spillway 7 289
+oath main_only chapter-two-end hellGate 7 359
+oath typical prepared town 6 304
+oath typical captain-entry canal 6 332
+oath typical captain-done canal 6 360
+oath typical chapter-one-end post 7 420
+oath typical bridge-entry bridge 7 292
+oath typical manor-entry manor 7 327
+oath typical manor-exit spillway 7 357
+oath typical chapter-two-end hellGate 8 427
+oath all_once rat-entry grove 6 349
+oath all_once bat-entry c1ReedKiln 6 393
+oath all_once warden-entry echo 7 524
+oath all_once prepared town 8 661
+oath all_once captain-entry canal 8 691
+oath all_once captain-done canal 9 726
+oath all_once chapter-one-end post 9 791
+oath repeat_patrol rat-entry grove 6 349
+oath repeat_patrol bat-entry c1ReedKiln 6 393
+oath repeat_patrol warden-entry echo 7 524
+oath repeat_patrol patrol-1 c1LoomRoom 9 769
+oath repeat_patrol patrol-2 c1LoomRoom 9 931
+oath repeat_patrol patrol-3 c1LoomRoom 10 1049
+oath repeat_patrol patrol-4 c1LoomRoom 11 1235
+oath repeat_patrol patrol-5 c1LoomRoom 11 1361
+oath repeat_patrol prepared town 11 1361
+oath repeat_patrol captain-entry canal 11 1393
+oath repeat_patrol captain-done canal 11 1435
+oath repeat_patrol chapter-one-end post 12 1500
+ember main_only prepared town 5 249
+ember main_only captain-entry canal 5 277
+ember main_only captain-done canal 5 305
+ember main_only chapter-one-end post 6 365
+ember main_only bridge-entry bridge 6 237
+ember main_only manor-entry manor 6 265
+ember main_only manor-exit spillway 7 289
+ember main_only chapter-two-end hellGate 7 359
+ember typical prepared town 6 304
+ember typical captain-entry canal 6 332
+ember typical captain-done canal 6 360
+ember typical chapter-one-end post 7 420
+ember typical bridge-entry bridge 7 292
+ember typical manor-entry manor 7 322
+ember typical manor-exit spillway 7 352
+ember typical chapter-two-end hellGate 8 422
+ember all_once rat-entry grove 6 349
+ember all_once bat-entry c1ReedKiln 6 393
+ember all_once warden-entry echo 7 524
+ember all_once prepared town 8 626
+ember all_once captain-entry canal 8 656
+ember all_once captain-done canal 9 691
+ember all_once chapter-one-end post 9 756
+ember all_once bridge-entry bridge 9 628
+ember all_once manor-entry manor 9 663
+ember all_once manor-exit spillway 9 693
+ember all_once chapter-two-end hellGate 10 763
+ember repeat_patrol rat-entry grove 6 349
+ember repeat_patrol bat-entry c1ReedKiln 6 393
+ember repeat_patrol warden-entry echo 7 524
+ember repeat_patrol patrol-1 c1LoomRoom 9 734
+ember repeat_patrol patrol-2 c1LoomRoom 9 896
+ember repeat_patrol patrol-3 c1LoomRoom 10 1014
+ember repeat_patrol patrol-4 c1LoomRoom 11 1212
+ember repeat_patrol patrol-5 c1LoomRoom 11 1338
+ember repeat_patrol prepared town 11 1338
+ember repeat_patrol captain-entry canal 11 1370
+ember repeat_patrol captain-done canal 11 1412
+ember repeat_patrol chapter-one-end post 12 1477
+ember repeat_patrol bridge-entry bridge 12 1349
+ember repeat_patrol manor-entry manor 12 1391
+ember repeat_patrol manor-exit spillway 12 1434
+ember repeat_patrol chapter-two-end hellGate 13 1511
+shadow all_once rat-entry grove 6 321
+shadow all_once bat-entry c1ReedKiln 6 365
+shadow all_once warden-entry echo 7 494
+shadow all_once prepared town 8 596
+shadow all_once captain-entry canal 8 626
+shadow all_once captain-done canal 8 661
+shadow all_once chapter-one-end post 9 726
+shadow all_once bridge-entry bridge 9 598
+shadow all_once manor-entry manor 9 633
+shadow all_once manor-exit spillway 9 663
+shadow all_once chapter-two-end hellGate 10 733
+oath all_once rat-entry grove 6 321
+oath all_once bat-entry c1ReedKiln 6 365
+oath all_once warden-entry echo 7 494
+oath all_once prepared town 8 596
+oath all_once captain-entry canal 8 626
+oath all_once captain-done canal 8 661
+oath all_once chapter-one-end post 9 726
+oath all_once bridge-entry bridge 9 598
+oath all_once manor-entry manor 9 633
+oath all_once manor-exit spillway 9 670
+oath all_once chapter-two-end hellGate 10 740
+ember all_once rat-entry grove 6 321
+ember all_once bat-entry c1ReedKiln 6 365
+ember all_once warden-entry echo 7 499
+ember all_once prepared town 8 596
+ember all_once captain-entry canal 8 626
+ember all_once captain-done canal 8 661
+ember all_once chapter-one-end post 9 726
+ember all_once bridge-entry bridge 9 598
+ember all_once manor-entry manor 9 633
+ember all_once manor-exit spillway 9 666
+ember all_once chapter-two-end hellGate 10 736
+✔ shadow main_only actual campaign economy and second-chapter carry (15583.783667ms)
+✔ shadow typical actual campaign economy and second-chapter carry (6898.672125ms)
+✖ shadow all_once actual campaign economy and second-chapter carry (8009.290375ms)
+✔ shadow repeat_patrol actual campaign economy and second-chapter carry (11593.507917ms)
+✔ oath main_only actual campaign economy and second-chapter carry (4998.216208ms)
+✔ oath typical actual campaign economy and second-chapter carry (5212.339166ms)
+✖ oath all_once actual campaign economy and second-chapter carry (5594.265041ms)
+✖ oath repeat_patrol actual campaign economy and second-chapter carry (9027.407084ms)
+✔ ember main_only actual campaign economy and second-chapter carry (5491.880416ms)
+✔ ember typical actual campaign economy and second-chapter carry (5532.214ms)
+✔ ember all_once actual campaign economy and second-chapter carry (7918.0385ms)
+✔ ember repeat_patrol actual campaign economy and second-chapter carry (12630.09875ms)
+✔ shadow full route with exactly one exclusive epic carries through chapter two (6294.338667ms)
+✔ oath full route with exactly one exclusive epic carries through chapter two (6507.566292ms)
+✔ ember full route with exactly one exclusive epic carries through chapter two (8194.93425ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (15.217042ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (54.049916ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (296.296334ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (1230.257209ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (115.252959ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (43.048708ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (28.731666ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (41.16125ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (13.411959ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (2346.493292ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (502.766709ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (37.321792ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (203.376333ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (2.230125ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (31.485916ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (5.683458ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (27.152042ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (198.354709ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (949.2775ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (12226.908209ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (76.957833ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (531.083459ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (4700.232584ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (37.88425ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (7.903458ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (17.993542ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (1.386958ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (191.271709ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (62.253125ms)
+✔ returning immediately or idling does not respawn; active movement and return create fresh credit (694.757834ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (94.588375ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (140.552834ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (28.552625ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (99.55675ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (4502.63525ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (8.706917ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (113.759375ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (227.714083ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (24.860291ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (139.727458ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (163.8505ms)
+ℹ tests 64
+ℹ suites 0
+ℹ pass 60
+ℹ fail 4
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 121305.093042
+
+✖ failing tests:
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ shadow all_once actual campaign economy and second-chapter carry (8009.290375ms)
+  Error: Fight timed out canal null
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:19:760)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:67:154)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ oath all_once actual campaign economy and second-chapter carry (5594.265041ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  756 !== 791
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:11:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 756,
+    expected: 791,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ oath repeat_patrol actual campaign economy and second-chapter carry (9027.407084ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1465 !== 1500
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:11:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1465,
+    expected: 1500,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-incremental.test.mjs:37:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (198.354709ms)
+  AssertionError [ERR_ASSERTION]: dist/visuals-v14.js
+  + actual - expected
+  
+  + '66051a8215144715d2941ee8e2fe3c4e7054f25b4b3b17ac04c012cdc4066aa6'
+  - 'b013264542ddec284389e00611f97d523280b9fb265447e1857915742a4fd946'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:68:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '66051a8215144715d2941ee8e2fe3c4e7054f25b4b3b17ac04c012cdc4066aa6',
+    expected: 'b013264542ddec284389e00611f97d523280b9fb265447e1857915742a4fd946',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+

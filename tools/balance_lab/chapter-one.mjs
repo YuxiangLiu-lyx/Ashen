@@ -23,8 +23,8 @@ export function simulateSnapshot(snapshot,encounter,seed,condition='saved',strat
 if(import.meta.url==='file://'+path.resolve(process.argv[1]||'')){
  const report={provenance:provenance(),sources:[],groups:[],limits:['Actual campaign gear/stats, isolated authored map encounters; not human success rates.','Full/low_mana/no_potions are explicit laboratory entry conditions; they do not alter the retained campaign saves.','Uses actual runtime damage, AI, collision and potion cooldown; only scripted control policy.','No target-time claims: compare measured ranges before changing budgets.']};
  for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typical','all_once']){
-  const file='docs/ch1-map-quests/economy/'+cls+'-'+route+'.json',raw=fs.readFileSync(file),data=JSON.parse(raw);report.sources.push({path:file,sha256:sha(raw)});
+  const file='docs/ch1-story-world/economy/'+cls+'-'+route+'.json',raw=fs.readFileSync(file),data=JSON.parse(raw);report.sources.push({path:file,sha256:sha(raw)});
   for(const encounter of Object.keys(encounters)){const milestone=data.milestones.find(x=>x.name===(encounter==='bren'?'manor-entry':encounter==='captain'?'captain-entry':'prepared'));for(const condition of ['full','low_mana','no_potions']){const runs=Array.from({length:12},(_,i)=>simulateSnapshot(milestone.snapshot,encounter,7300+i,condition));const wins=runs.filter(r=>r.outcome==='win');report.groups.push({cls,route,encounter,condition,source:file,milestone:milestone.name,winRate:wins.length/12,ttk:wins.map(r=>r.elapsed),runs});}}
  }
- fs.mkdirSync('docs/ch1-map-quests/balance',{recursive:true});fs.writeFileSync('docs/ch1-map-quests/balance/ACTUAL_SNAPSHOTS.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report.groups.map(({runs,...r})=>r),null,2));
+ fs.mkdirSync('docs/ch1-story-world/balance',{recursive:true});fs.writeFileSync('docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report.groups.map(({runs,...r})=>r),null,2));
 }
