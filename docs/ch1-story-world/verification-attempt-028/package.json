@@ -1,0 +1,28 @@
+{
+  "name": "package",
+  "commands": [
+    {
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/c1-story-world-preview"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/c1-story-world-preview",
+        "--out",
+        "docs/ch1-story-world/package"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0,
+  "seconds": 252.6534547805786,
+  "log": "docs/ch1-story-world/final-verification/package.log"
+}

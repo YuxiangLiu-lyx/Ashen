@@ -1,0 +1,60 @@
+{
+  "name": "integration",
+  "exit_code": 0,
+  "seconds": 334.34596610069275,
+  "commands": [
+    {
+      "command": [
+        "node",
+        "tests/browser-world-v29.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter-one-v30.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter23.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter-one-expansion.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "docs/ch1-story-world/audit-saves.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "tools/restore_archives.py",
+        "--all",
+        "--verify-only"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "reused_components": "docs/ch1-story-world/final-verification/REUSED_COMPONENTS.json",
+  "log": "docs/ch1-story-world/final-verification/integration.log"
+}

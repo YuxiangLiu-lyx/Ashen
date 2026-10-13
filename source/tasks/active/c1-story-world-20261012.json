@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-13T02:37:43.977543+00:00",
-  "updated_at_utc": "2026-10-13T05:12:20.091722+00:00",
+  "updated_at_utc": "2026-10-13T05:45:21.515638+00:00",
   "decisions": [
     "最新用户方向覆盖0.7自动推进和几何装饰；原刺杀、第二章、旧奖励与三精英预算保持",
     "实际看图发现NPC跨帧与石柱重复问题，已修帧界并追加自然墙阶图；最终三维尚未验收",
@@ -22,7 +22,8 @@
     "014新增本地路线漏走告别；章节测试仍依赖旧自动交付；旧战斗快照受增加出生怪数量的RNG影响；正常影刃撤离未喝持有药、誓卫点击视口外怪失败，修复脚本实际输入，不改游戏数值",
     "正常输入018三职业全部通过且没有浏览器异常；只修C1自定义精英动画计时默认值，不改变任何数值。未覆盖018失败日志；原12战斗逐事件基线继续在原六鼠RNG初始化条件下精确保护",
     "019整体失败为浏览器旧清单仍期待40图，已改为45并显式验证10张授权新增图；保留全部原35图检查，020通过。原0.6人工节奏仍独立待办。",
-    "022因人工截图审阅发现同伴暂隐期间误指小巷而主动中止，退出130保留，不计通过；只修交付地图提示，024复现三档通过；023为辅助截图脚本初始化等待错误已修正"
+    "022因人工截图审阅发现同伴暂隐期间误指小巷而主动中止，退出130保留，不计通过；只修交付地图提示，024复现三档通过；023为辅助截图脚本初始化等待错误已修正",
+    "028整体失败于世界浏览器脚本抢读过图确认按钮，真实截图按钮随后已正常显示；仅为脚本添加实际DOM就绪等待，未改运行代码。保存完整028源哈希清单，下一轮严格证明仅此测试文件差异后复用已成功组件并续跑失败项及余项。"
   ],
   "completed": [
     "保存4d6b4bb全部dist哈希与0.8采用章稿、22图实施计划",
@@ -33,13 +34,17 @@
     "016经济三职业新增支线、原战斗逐事件与45图保护已通过；017章节测试24种开局/八章跳过和隔离档全部通过",
     "018三职业正常键鼠均连续通完前两章、152核心及22图/交付UI通过；精英首击前attackAnim未初始化导致快照非法已定位修复，新增严格快照回归",
     "019核心153、18条经济路线、1620快照实战及前五浏览器组通过；020修正地图清单后35图/464景物/91交互/77敌姿与180份阶段旧档全通过",
-    "024三职业真实追缉官战后档验证：同伴暂隐时指引仍指当前水渠，重新显示后有可提交金问号"
+    "024三职业真实追缉官战后档验证：同伴暂隐时指引仍指当前水渠，重新显示后有可提交金问号",
+    "028最终153核心、1620实战、离线HTTP手机包、本地四场景及22图对照控制通过",
+    "最终运行源码dd06730，22图/6 NPC任务与自然图片、同伴文字指引修复全部实现",
+    "029 fast30、028成功组件加030严格源码等价续跑完整通过；153核心/18经济/1620快照/三职业正常前两章/180档；031独立22图三维与320条移动路线通过",
+    "032默认包提升成功：213模块/140图/500文件与验收包逐字节相等，原134图保留，旧包另存；离线HTTP手机、本地5174与22图对照均通过"
   ],
   "remaining": [
-    "最终integration、22图三维门禁与离线HTTP手机包、常用入口和GitHub保存"
+    "提交推送GitHub main并核对，记录回执及归档任务"
   ],
   "blockers": [],
-  "next": "保存最终指引修复，最终fast和集成/包入口验证",
+  "next": "审查Git现场，保存并推送main",
   "required_checks": [
     "fast",
     "integration",
@@ -511,6 +516,90 @@
       "output": "docs/harness/evidence/c1-story-world-20261012/027-fast.txt",
       "output_sha256": "e375b7aef1b406b6782e0cc88d7912cc59c0400f99dd414ff3b10465b994813f",
       "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/final-verification.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T05:13:20.483921+00:00",
+      "finished_at_utc": "2026-10-13T05:22:04.729428+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "7550ce09032fbb4472cf1498587f2d4a4c00340a107ce4e0fadedc3d801923e9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/028-integration.txt",
+      "output_sha256": "abce0209388894b905dfe503fe363a943bf2f0062f2afd5995d494561b671038",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T05:30:34.237411+00:00",
+      "finished_at_utc": "2026-10-13T05:31:17.989196+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/029-fast.txt",
+      "output_sha256": "c5ed3bfd1fc7feba3e732743875a234e818196df397b04586147c446c21f31a5",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/resume-integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T05:31:18.180878+00:00",
+      "finished_at_utc": "2026-10-13T05:36:53.001964+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/030-integration.txt",
+      "output_sha256": "0f1e7b4c8e29ab3dbf6b104b8a7bca60b3f9059f65a448c57f032c59ca9eaf9b",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "4d6b4bb"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T05:39:33.084668+00:00",
+      "finished_at_utc": "2026-10-13T05:39:34.724424+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/031-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-promote",
+      "command": [
+        "python3",
+        "docs/ch1-story-world/promote-package.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T05:39:34.967338+00:00",
+      "finished_at_utc": "2026-10-13T05:39:39.700769+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-world-20261012/032-package-promote.txt",
+      "output_sha256": "9ec9945fee8f8546c493faa8c0f9858771b60aa0a4ac79c4989dd36613d33092",
+      "timeout_seconds": 180.0
     }
   ],
   "stages": [
@@ -525,18 +614,26 @@
     {
       "name": "implementation",
       "status": "complete",
-      "updated_at_utc": "2026-10-13T03:26:20.305779+00:00",
-      "head_commit": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
-      "source_fingerprint": "5c57ea1adb43d5da21fc2d27516e6a06364633bf7bb171f857f81204a12da254",
-      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-objectives.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/visuals-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-map-quests.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/browser_session.mjs\n M tools/harness/check.py\n?? dist/assets/c1-story-world/\n?? dist/chapter-one-natural-art.js\n?? dist/chapter-one-story-world.js\n?? docs/ch1-story-world/\n?? docs/harness/CHAPTER_01_STORY_WORLD.md\n?? docs/harness/evidence/c1-story-world-20261012/\n?? source/tasks/active/c1-story-world-20261012.json\n?? tests/chapter-one-story-world.test.mjs"
+      "updated_at_utc": "2026-10-13T05:45:19.227716+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "worktree": "M .codex/progress.md\n M docs/ch1-story-world/ACCEPTANCE.md\n M docs/ch1-story-world/MAP_REVIEW.md\n M docs/ch1-story-world/MOVEMENT.json\n M docs/ch1-story-world/NAVIGATION.json\n M docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-story-world/browser/QA.json\n M docs/ch1-story-world/browser/alley-after.webp\n M docs/ch1-story-world/browser/alley-collision.webp\n M docs/ch1-story-world/browser/alley.webp\n M docs/ch1-story-world/browser/c1DrillGallery-after.webp\n M docs/ch1-story-world/browser/c1DrillGallery-collision.webp\n M docs/ch1-story-world/browser/c1DrillGallery-touch.png\n M docs/ch1-story-world/browser/c1DrillGallery.webp\n M docs/ch1-story-world/browser/c1KilnCourt-after.webp\n M docs/ch1-story-world/browser/c1KilnCourt-collision.webp\n M docs/ch1-story-world/browser/c1KilnCourt.webp\n M docs/ch1-story-world/browser/c1LoomRoom-after.webp\n M docs/ch1-story-world/browser/c1LoomRoom-collision.webp\n M docs/ch1-story-world/browser/c1LoomRoom.webp\n M docs/ch1-story-world/browser/c1NorthWalk-after.webp\n M docs/ch1-story-world/browser/c1NorthWalk-collision.webp\n M docs/ch1-story-world/browser/c1NorthWalk-touch.png\n M docs/ch1-story-world/browser/c1NorthWalk.webp\n M docs/ch1-story-world/browser/c1ReedKiln-after.webp\n M docs/ch1-story-world/browser/c1ReedKiln-collision.webp\n M docs/ch1-story-world/browser/c1ReedKiln-touch.png\n M docs/ch1-story-world/browser/c1ReedKiln.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-after.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-collision.webp\n M docs/ch1-story-world/browser/c1RiversideCamp.webp\n M docs/ch1-story-world/browser/c1TrainingYard-after.webp\n M docs/ch1-story-world/browser/c1TrainingYard-collision.webp\n M docs/ch1-story-world/browser/c1TrainingYard-touch.png\n M docs/ch1-story-world/browser/c1TrainingYard.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-after.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-collision.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-touch.png\n M docs/ch1-story-world/browser/c1TrialCrypt.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-after.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-collision.webp\n M docs/ch1-story-world/browser/c1TrialFoyer.webp\n M docs/ch1-story-world/browser/c1TrialVault-after.webp\n M docs/ch1-story-world/browser/c1TrialVault-collision.webp\n M docs/ch1-story-world/browser/c1TrialVault-touch.png\n M docs/ch1-story-world/browser/c1TrialVault.webp\n M docs/ch1-story-world/browser/c1blake-ready.webp\n M docs/ch1-story-world/browser/c1blake-report.png\n M docs/ch1-story-world/browser/c1eve-menu.png\n M docs/ch1-story-world/browser/c1eve-ready.webp\n M docs/ch1-story-world/browser/c1hesha-menu.png\n M docs/ch1-story-world/browser/c1hesha-report.png\n M docs/ch1-story-world/browser/c1iden-menu.png\n M docs/ch1-story-world/browser/c1iden-ready.webp\n M docs/ch1-story-world/browser/c1iden-report.png\n M docs/ch1-story-world/browser/c1mada-menu.png\n M docs/ch1-story-world/browser/c1mada-ready.webp\n M docs/ch1-story-world/browser/c1mada-report.png\n M docs/ch1-story-world/browser/c1venn-menu.png\n M docs/ch1-story-world/browser/c1venn-report.png\n M docs/ch1-story-world/browser/canal-after.webp\n M docs/ch1-story-world/browser/canal-collision.webp\n M docs/ch1-story-world/browser/canal.webp\n M docs/ch1-story-world/browser/chapel-after.webp\n M docs/ch1-story-world/browser/chapel-collision.webp\n M docs/ch1-story-world/browser/echo-after.webp\n M docs/ch1-story-world/browser/echo-collision.webp\n M docs/ch1-story-world/browser/grove-after.webp\n M docs/ch1-story-world/browser/grove-collision.webp\n M docs/ch1-story-world/browser/grove.webp\n M docs/ch1-story-world/browser/guestroom-after.webp\n M docs/ch1-story-world/browser/guestroom-collision.webp\n M docs/ch1-story-world/browser/guestroom.webp\n M docs/ch1-story-world/browser/hall-after.webp\n M docs/ch1-story-world/browser/hall-collision.webp\n M docs/ch1-story-world/browser/herb-interaction.png\n M docs/ch1-story-world/browser/loom-844.png\n M docs/ch1-story-world/browser/millpath-after.webp\n M docs/ch1-story-world/browser/millpath-collision.webp\n M docs/ch1-story-world/browser/millpath.webp\n M docs/ch1-story-world/browser/road-after.webp\n M docs/ch1-story-world/browser/road-collision.webp\n M docs/ch1-story-world/browser/road.webp\n M docs/ch1-story-world/browser/town-after.webp\n M docs/ch1-story-world/browser/town-collision.webp\n M docs/ch1-story-world/browser/town.webp\n M docs/ch1-story-world/browser/warehouse-after.webp\n M docs/ch1-story-world/browser/warehouse-collision.webp\n M docs/ch1-story-world/browser/warehouse.webp\n M docs/ch1-story-world/browser/workshop-after.webp\n M docs/ch1-story-world/browser/workshop-collision.webp\n M docs/ch1-story-world/browser/workshop.webp\n M docs/ch1-story-world/economy/ember-all_once-one-epic.json\n M docs/ch1-story-world/economy/ember-all_once.json\n M docs/ch1-story-world/economy/ember-local_work.json\n M docs/ch1-story-world/economy/ember-main_only.json\n M docs/ch1-story-world/economy/ember-repeat_patrol.json\n M docs/ch1-story-world/economy/ember-typical.json\n M docs/ch1-story-world/economy/oath-all_once-one-epic.json\n M docs/ch1-story-world/economy/oath-all_once.json\n M docs/ch1-story-world/economy/oath-local_work.json\n M docs/ch1-story-world/economy/oath-main_only.json\n M docs/ch1-story-world/economy/oath-repeat_patrol.json\n M docs/ch1-story-world/economy/oath-typical.json\n M docs/ch1-story-world/economy/shadow-all_once-one-epic.json\n M docs/ch1-story-world/economy/shadow-all_once.json\n M docs/ch1-story-world/economy/shadow-local_work.json\n M docs/ch1-story-world/economy/shadow-main_only.json\n M docs/ch1-story-world/economy/shadow-repeat_patrol.json\n M docs/ch1-story-world/economy/shadow-typical.json\n M docs/ch1-story-world/local-5174/chapter1.png\n M docs/ch1-story-world/local-5174/chapter2.png\n M docs/ch1-story-world/record-map-review.py\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-story-world-20261012.json\n M tests/browser-world-v29.mjs\n?? docs/ch1-story-world/028-SOURCE_INVENTORY.json\n?? docs/ch1-story-world/MAP_QUALITY.json\n?? docs/ch1-story-world/PACKAGE.json\n?? docs/ch1-story-world/final-verification/\n?? docs/ch1-story-world/integration/\n?? docs/ch1-story-world/local-5174/BROWSER_QA.json\n?? docs/ch1-story-world/local-5174/image-failure.png\n?? docs/ch1-story-world/local-5174/mobile.png\n?? docs/ch1-story-world/package/\n?? docs/ch1-story-world/promote-package.py\n?? docs/ch1-story-world/resume-integration.py\n?? docs/ch1-story-world/verification-attempt-028/\n?? docs/harness/evidence/c1-story-world-20261012/028-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/029-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/030-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/031-map-quality.txt\n?? docs/harness/evidence/c1-story-world-20261012/032-package-promote.txt"
     },
     {
       "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T05:45:20.134340+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "worktree": "M .codex/progress.md\n M docs/ch1-story-world/ACCEPTANCE.md\n M docs/ch1-story-world/MAP_REVIEW.md\n M docs/ch1-story-world/MOVEMENT.json\n M docs/ch1-story-world/NAVIGATION.json\n M docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-story-world/browser/QA.json\n M docs/ch1-story-world/browser/alley-after.webp\n M docs/ch1-story-world/browser/alley-collision.webp\n M docs/ch1-story-world/browser/alley.webp\n M docs/ch1-story-world/browser/c1DrillGallery-after.webp\n M docs/ch1-story-world/browser/c1DrillGallery-collision.webp\n M docs/ch1-story-world/browser/c1DrillGallery-touch.png\n M docs/ch1-story-world/browser/c1DrillGallery.webp\n M docs/ch1-story-world/browser/c1KilnCourt-after.webp\n M docs/ch1-story-world/browser/c1KilnCourt-collision.webp\n M docs/ch1-story-world/browser/c1KilnCourt.webp\n M docs/ch1-story-world/browser/c1LoomRoom-after.webp\n M docs/ch1-story-world/browser/c1LoomRoom-collision.webp\n M docs/ch1-story-world/browser/c1LoomRoom.webp\n M docs/ch1-story-world/browser/c1NorthWalk-after.webp\n M docs/ch1-story-world/browser/c1NorthWalk-collision.webp\n M docs/ch1-story-world/browser/c1NorthWalk-touch.png\n M docs/ch1-story-world/browser/c1NorthWalk.webp\n M docs/ch1-story-world/browser/c1ReedKiln-after.webp\n M docs/ch1-story-world/browser/c1ReedKiln-collision.webp\n M docs/ch1-story-world/browser/c1ReedKiln-touch.png\n M docs/ch1-story-world/browser/c1ReedKiln.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-after.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-collision.webp\n M docs/ch1-story-world/browser/c1RiversideCamp.webp\n M docs/ch1-story-world/browser/c1TrainingYard-after.webp\n M docs/ch1-story-world/browser/c1TrainingYard-collision.webp\n M docs/ch1-story-world/browser/c1TrainingYard-touch.png\n M docs/ch1-story-world/browser/c1TrainingYard.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-after.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-collision.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-touch.png\n M docs/ch1-story-world/browser/c1TrialCrypt.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-after.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-collision.webp\n M docs/ch1-story-world/browser/c1TrialFoyer.webp\n M docs/ch1-story-world/browser/c1TrialVault-after.webp\n M docs/ch1-story-world/browser/c1TrialVault-collision.webp\n M docs/ch1-story-world/browser/c1TrialVault-touch.png\n M docs/ch1-story-world/browser/c1TrialVault.webp\n M docs/ch1-story-world/browser/c1blake-ready.webp\n M docs/ch1-story-world/browser/c1blake-report.png\n M docs/ch1-story-world/browser/c1eve-menu.png\n M docs/ch1-story-world/browser/c1eve-ready.webp\n M docs/ch1-story-world/browser/c1hesha-menu.png\n M docs/ch1-story-world/browser/c1hesha-report.png\n M docs/ch1-story-world/browser/c1iden-menu.png\n M docs/ch1-story-world/browser/c1iden-ready.webp\n M docs/ch1-story-world/browser/c1iden-report.png\n M docs/ch1-story-world/browser/c1mada-menu.png\n M docs/ch1-story-world/browser/c1mada-ready.webp\n M docs/ch1-story-world/browser/c1mada-report.png\n M docs/ch1-story-world/browser/c1venn-menu.png\n M docs/ch1-story-world/browser/c1venn-report.png\n M docs/ch1-story-world/browser/canal-after.webp\n M docs/ch1-story-world/browser/canal-collision.webp\n M docs/ch1-story-world/browser/canal.webp\n M docs/ch1-story-world/browser/chapel-after.webp\n M docs/ch1-story-world/browser/chapel-collision.webp\n M docs/ch1-story-world/browser/echo-after.webp\n M docs/ch1-story-world/browser/echo-collision.webp\n M docs/ch1-story-world/browser/grove-after.webp\n M docs/ch1-story-world/browser/grove-collision.webp\n M docs/ch1-story-world/browser/grove.webp\n M docs/ch1-story-world/browser/guestroom-after.webp\n M docs/ch1-story-world/browser/guestroom-collision.webp\n M docs/ch1-story-world/browser/guestroom.webp\n M docs/ch1-story-world/browser/hall-after.webp\n M docs/ch1-story-world/browser/hall-collision.webp\n M docs/ch1-story-world/browser/herb-interaction.png\n M docs/ch1-story-world/browser/loom-844.png\n M docs/ch1-story-world/browser/millpath-after.webp\n M docs/ch1-story-world/browser/millpath-collision.webp\n M docs/ch1-story-world/browser/millpath.webp\n M docs/ch1-story-world/browser/road-after.webp\n M docs/ch1-story-world/browser/road-collision.webp\n M docs/ch1-story-world/browser/road.webp\n M docs/ch1-story-world/browser/town-after.webp\n M docs/ch1-story-world/browser/town-collision.webp\n M docs/ch1-story-world/browser/town.webp\n M docs/ch1-story-world/browser/warehouse-after.webp\n M docs/ch1-story-world/browser/warehouse-collision.webp\n M docs/ch1-story-world/browser/warehouse.webp\n M docs/ch1-story-world/browser/workshop-after.webp\n M docs/ch1-story-world/browser/workshop-collision.webp\n M docs/ch1-story-world/browser/workshop.webp\n M docs/ch1-story-world/economy/ember-all_once-one-epic.json\n M docs/ch1-story-world/economy/ember-all_once.json\n M docs/ch1-story-world/economy/ember-local_work.json\n M docs/ch1-story-world/economy/ember-main_only.json\n M docs/ch1-story-world/economy/ember-repeat_patrol.json\n M docs/ch1-story-world/economy/ember-typical.json\n M docs/ch1-story-world/economy/oath-all_once-one-epic.json\n M docs/ch1-story-world/economy/oath-all_once.json\n M docs/ch1-story-world/economy/oath-local_work.json\n M docs/ch1-story-world/economy/oath-main_only.json\n M docs/ch1-story-world/economy/oath-repeat_patrol.json\n M docs/ch1-story-world/economy/oath-typical.json\n M docs/ch1-story-world/economy/shadow-all_once-one-epic.json\n M docs/ch1-story-world/economy/shadow-all_once.json\n M docs/ch1-story-world/economy/shadow-local_work.json\n M docs/ch1-story-world/economy/shadow-main_only.json\n M docs/ch1-story-world/economy/shadow-repeat_patrol.json\n M docs/ch1-story-world/economy/shadow-typical.json\n M docs/ch1-story-world/local-5174/chapter1.png\n M docs/ch1-story-world/local-5174/chapter2.png\n M docs/ch1-story-world/record-map-review.py\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-story-world-20261012.json\n M tests/browser-world-v29.mjs\n?? docs/ch1-story-world/028-SOURCE_INVENTORY.json\n?? docs/ch1-story-world/MAP_QUALITY.json\n?? docs/ch1-story-world/PACKAGE.json\n?? docs/ch1-story-world/final-verification/\n?? docs/ch1-story-world/integration/\n?? docs/ch1-story-world/local-5174/BROWSER_QA.json\n?? docs/ch1-story-world/local-5174/image-failure.png\n?? docs/ch1-story-world/local-5174/mobile.png\n?? docs/ch1-story-world/package/\n?? docs/ch1-story-world/promote-package.py\n?? docs/ch1-story-world/resume-integration.py\n?? docs/ch1-story-world/verification-attempt-028/\n?? docs/harness/evidence/c1-story-world-20261012/028-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/029-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/030-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/031-map-quality.txt\n?? docs/harness/evidence/c1-story-world-20261012/032-package-promote.txt"
+    },
+    {
+      "name": "delivery",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-13T05:07:56.421753+00:00",
-      "head_commit": "6506fc604131b20d26ad3b6653cccc9d3eb81d40",
-      "source_fingerprint": "fa2c27635aa02d915fe52130fdc313829d1716aa27ebd55cf7272bf0710c6bae",
-      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-quests.js\n M docs/ch1-story-world/MOVEMENT.json\n M docs/ch1-story-world/NATURAL_PROVENANCE.json\n M docs/ch1-story-world/NAVIGATION.json\n M docs/ch1-story-world/economy/shadow-main_only.json\n M source/harness/index.json\n M source/tasks/active/c1-story-world-20261012.json\n M tests/chapter-one-story-world.test.mjs\n?? docs/ch1-story-world/check-return.mjs\n?? docs/ch1-story-world/companion-return/\n?? docs/ch1-story-world/local-5174/\n?? docs/ch1-story-world/verification-attempt-022/\n?? docs/harness/evidence/c1-story-world-20261012/022-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/023-companion-return.txt\n?? docs/harness/evidence/c1-story-world-20261012/024-companion-return.txt"
+      "updated_at_utc": "2026-10-13T05:45:20.903146+00:00",
+      "head_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+      "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+      "worktree": "M .codex/progress.md\n M docs/ch1-story-world/ACCEPTANCE.md\n M docs/ch1-story-world/MAP_REVIEW.md\n M docs/ch1-story-world/MOVEMENT.json\n M docs/ch1-story-world/NAVIGATION.json\n M docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-story-world/browser/QA.json\n M docs/ch1-story-world/browser/alley-after.webp\n M docs/ch1-story-world/browser/alley-collision.webp\n M docs/ch1-story-world/browser/alley.webp\n M docs/ch1-story-world/browser/c1DrillGallery-after.webp\n M docs/ch1-story-world/browser/c1DrillGallery-collision.webp\n M docs/ch1-story-world/browser/c1DrillGallery-touch.png\n M docs/ch1-story-world/browser/c1DrillGallery.webp\n M docs/ch1-story-world/browser/c1KilnCourt-after.webp\n M docs/ch1-story-world/browser/c1KilnCourt-collision.webp\n M docs/ch1-story-world/browser/c1KilnCourt.webp\n M docs/ch1-story-world/browser/c1LoomRoom-after.webp\n M docs/ch1-story-world/browser/c1LoomRoom-collision.webp\n M docs/ch1-story-world/browser/c1LoomRoom.webp\n M docs/ch1-story-world/browser/c1NorthWalk-after.webp\n M docs/ch1-story-world/browser/c1NorthWalk-collision.webp\n M docs/ch1-story-world/browser/c1NorthWalk-touch.png\n M docs/ch1-story-world/browser/c1NorthWalk.webp\n M docs/ch1-story-world/browser/c1ReedKiln-after.webp\n M docs/ch1-story-world/browser/c1ReedKiln-collision.webp\n M docs/ch1-story-world/browser/c1ReedKiln-touch.png\n M docs/ch1-story-world/browser/c1ReedKiln.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-after.webp\n M docs/ch1-story-world/browser/c1RiversideCamp-collision.webp\n M docs/ch1-story-world/browser/c1RiversideCamp.webp\n M docs/ch1-story-world/browser/c1TrainingYard-after.webp\n M docs/ch1-story-world/browser/c1TrainingYard-collision.webp\n M docs/ch1-story-world/browser/c1TrainingYard-touch.png\n M docs/ch1-story-world/browser/c1TrainingYard.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-after.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-collision.webp\n M docs/ch1-story-world/browser/c1TrialCrypt-touch.png\n M docs/ch1-story-world/browser/c1TrialCrypt.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-after.webp\n M docs/ch1-story-world/browser/c1TrialFoyer-collision.webp\n M docs/ch1-story-world/browser/c1TrialFoyer.webp\n M docs/ch1-story-world/browser/c1TrialVault-after.webp\n M docs/ch1-story-world/browser/c1TrialVault-collision.webp\n M docs/ch1-story-world/browser/c1TrialVault-touch.png\n M docs/ch1-story-world/browser/c1TrialVault.webp\n M docs/ch1-story-world/browser/c1blake-ready.webp\n M docs/ch1-story-world/browser/c1blake-report.png\n M docs/ch1-story-world/browser/c1eve-menu.png\n M docs/ch1-story-world/browser/c1eve-ready.webp\n M docs/ch1-story-world/browser/c1hesha-menu.png\n M docs/ch1-story-world/browser/c1hesha-report.png\n M docs/ch1-story-world/browser/c1iden-menu.png\n M docs/ch1-story-world/browser/c1iden-ready.webp\n M docs/ch1-story-world/browser/c1iden-report.png\n M docs/ch1-story-world/browser/c1mada-menu.png\n M docs/ch1-story-world/browser/c1mada-ready.webp\n M docs/ch1-story-world/browser/c1mada-report.png\n M docs/ch1-story-world/browser/c1venn-menu.png\n M docs/ch1-story-world/browser/c1venn-report.png\n M docs/ch1-story-world/browser/canal-after.webp\n M docs/ch1-story-world/browser/canal-collision.webp\n M docs/ch1-story-world/browser/canal.webp\n M docs/ch1-story-world/browser/chapel-after.webp\n M docs/ch1-story-world/browser/chapel-collision.webp\n M docs/ch1-story-world/browser/echo-after.webp\n M docs/ch1-story-world/browser/echo-collision.webp\n M docs/ch1-story-world/browser/grove-after.webp\n M docs/ch1-story-world/browser/grove-collision.webp\n M docs/ch1-story-world/browser/grove.webp\n M docs/ch1-story-world/browser/guestroom-after.webp\n M docs/ch1-story-world/browser/guestroom-collision.webp\n M docs/ch1-story-world/browser/guestroom.webp\n M docs/ch1-story-world/browser/hall-after.webp\n M docs/ch1-story-world/browser/hall-collision.webp\n M docs/ch1-story-world/browser/herb-interaction.png\n M docs/ch1-story-world/browser/loom-844.png\n M docs/ch1-story-world/browser/millpath-after.webp\n M docs/ch1-story-world/browser/millpath-collision.webp\n M docs/ch1-story-world/browser/millpath.webp\n M docs/ch1-story-world/browser/road-after.webp\n M docs/ch1-story-world/browser/road-collision.webp\n M docs/ch1-story-world/browser/road.webp\n M docs/ch1-story-world/browser/town-after.webp\n M docs/ch1-story-world/browser/town-collision.webp\n M docs/ch1-story-world/browser/town.webp\n M docs/ch1-story-world/browser/warehouse-after.webp\n M docs/ch1-story-world/browser/warehouse-collision.webp\n M docs/ch1-story-world/browser/warehouse.webp\n M docs/ch1-story-world/browser/workshop-after.webp\n M docs/ch1-story-world/browser/workshop-collision.webp\n M docs/ch1-story-world/browser/workshop.webp\n M docs/ch1-story-world/economy/ember-all_once-one-epic.json\n M docs/ch1-story-world/economy/ember-all_once.json\n M docs/ch1-story-world/economy/ember-local_work.json\n M docs/ch1-story-world/economy/ember-main_only.json\n M docs/ch1-story-world/economy/ember-repeat_patrol.json\n M docs/ch1-story-world/economy/ember-typical.json\n M docs/ch1-story-world/economy/oath-all_once-one-epic.json\n M docs/ch1-story-world/economy/oath-all_once.json\n M docs/ch1-story-world/economy/oath-local_work.json\n M docs/ch1-story-world/economy/oath-main_only.json\n M docs/ch1-story-world/economy/oath-repeat_patrol.json\n M docs/ch1-story-world/economy/oath-typical.json\n M docs/ch1-story-world/economy/shadow-all_once-one-epic.json\n M docs/ch1-story-world/economy/shadow-all_once.json\n M docs/ch1-story-world/economy/shadow-local_work.json\n M docs/ch1-story-world/economy/shadow-main_only.json\n M docs/ch1-story-world/economy/shadow-repeat_patrol.json\n M docs/ch1-story-world/economy/shadow-typical.json\n M docs/ch1-story-world/local-5174/chapter1.png\n M docs/ch1-story-world/local-5174/chapter2.png\n M docs/ch1-story-world/record-map-review.py\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-story-world-20261012.json\n M tests/browser-world-v29.mjs\n?? docs/ch1-story-world/028-SOURCE_INVENTORY.json\n?? docs/ch1-story-world/MAP_QUALITY.json\n?? docs/ch1-story-world/PACKAGE.json\n?? docs/ch1-story-world/final-verification/\n?? docs/ch1-story-world/integration/\n?? docs/ch1-story-world/local-5174/BROWSER_QA.json\n?? docs/ch1-story-world/local-5174/image-failure.png\n?? docs/ch1-story-world/local-5174/mobile.png\n?? docs/ch1-story-world/package/\n?? docs/ch1-story-world/promote-package.py\n?? docs/ch1-story-world/resume-integration.py\n?? docs/ch1-story-world/verification-attempt-028/\n?? docs/harness/evidence/c1-story-world-20261012/028-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/029-fast.txt\n?? docs/harness/evidence/c1-story-world-20261012/030-integration.txt\n?? docs/harness/evidence/c1-story-world-20261012/031-map-quality.txt\n?? docs/harness/evidence/c1-story-world-20261012/032-package-promote.txt"
     }
   ]
 }

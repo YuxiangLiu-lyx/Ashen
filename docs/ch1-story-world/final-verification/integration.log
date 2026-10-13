@@ -1,0 +1,19 @@
+Source equivalence verified. Reused six successful components; original 028 failure retained. See REUSED_COMPONENTS.json.
+RUN: node tests/browser-world-v29.mjs
+Journey: entered millpath
+Journey: entered echo
+Journey: manually extracted core
+Journey: returned core to Lotti
+World visual capture: 4 maps; baseline: false
+RUN: node tests/browser-chapter-one-v30.mjs
+Captured 11 chapter-one maps; browser errors: 0
+RUN: node tests/browser-chapter23.mjs
+Captured 23 chapter-two/three maps; browser errors: 0
+RUN: node tests/browser-chapter123.mjs
+{"maps":35,"scenery":464,"props":91,"clicks":6,"errors":[]}
+RUN: node tests/browser-chapter-one-expansion.mjs
+RUN: node docs/ch1-story-world/audit-saves.mjs
+180 actual milestone saves passed strict import, unchanged balances/completions and repeated restore.
+RUN: python3 tools/restore_archives.py --all --verify-only
+Verified: runtime-assets.manifest.json (116 files)
+Verified: library-originals.manifest.json (135 files)

@@ -48,7 +48,7 @@ try{
   if(!baseline&&!auditOnly){
    const Q='window.__WORLD_QA';journey.fixture=await browser.evaluate(Q+'.journey()');
    const state=()=>browser.evaluate(Q+'.state()');
-   async function button(selector){const p=await browser.evaluate(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)return null;const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);assert.ok(p,'Missing button '+selector);await browser.click(p.x,p.y);await delay(130);}
+   async function button(selector){await browser.wait(`!!document.querySelector(${JSON.stringify(selector)})`,5000);const p=await browser.evaluate(`(()=>{const e=document.querySelector(${JSON.stringify(selector)});if(!e)return null;const r=e.getBoundingClientRect();return {x:r.x+r.width/2,y:r.y+r.height/2};})()`);assert.ok(p,'Missing button '+selector);await browser.click(p.x,p.y);await delay(130);}
    async function dialogue(){for(let i=0;i<24;i++){const s=await state();if(s.mode!=='dialogue')break;await button('[data-act="next"]');}assert.notEqual((await state()).mode,'dialogue');}
    async function walk(x,y,expectedMap=null){
     if((await state()).mode==='dialogue')await dialogue();

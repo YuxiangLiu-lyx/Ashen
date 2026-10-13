@@ -12,7 +12,7 @@ results=read(folder+'final-verification/RESULTS.json')
 assert all(r['exit_code']==0 for r in results), 'Final checks must actually finish'
 notes=read(folder+'REVIEW_NOTES.json');nav={r['id']:r for r in read(folder+'NAVIGATION.json')};moves={r['map']:r for r in read(folder+'MOVEMENT.json')}
 assert len(notes)==len(nav)==len(moves)==22
-assert sum(r['paths'] for r in moves.values())==310
+assert sum(r['paths'] for r in moves.values())==320
 assert all(not r['unreachable'] and r['connectedCells']==r['walkableCells'] for r in nav.values())
 assert read(folder+'SAVES.json')['passed']
 assert read(folder+'browser/QA.json')['status']=='passed'

@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_ch1_story_world_08_verification",
+  "snapshot_type": "v30_ch1_story_world_08_verified",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "Scoped 0.8 natural scene and NPC handoff work in final package/integration verification. Historical 0.6 human full-route observation, first-play duration and pacing acceptance remain pending. Three original elite short fights accepted with unchanged budgets. No website deployment; personal saves untouched.",
-  "checked_at_utc": "2026-10-13T05:00:38.143310+00:00",
+  "known_limits": "Scoped 0.8 map/quest delivery verified. Historical 0.6 human full-route observation, first-play duration and pacing acceptance remain pending; 41 low-resource ember versus Bren laboratory losses retained for later experiential review. Original three elite short fights accepted; budgets unchanged. No full release or website deployment; personal saves untouched.",
+  "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "0.8 three normal-input classes completed chapters 1 and 2; 22 formal maps, six actual NPC deliveries and ten touch routes passed; final package verification pending",
+  "browser_qa_status": "0.8 verified: three normal-input classes through first two chapters; six NPC deliveries, ten touch routes, offline/HTTP/mobile and local entry recovery passed",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+  "runtime_source_commit": "dd06730308862617516705f444c3ca7cf169faa3",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -303,7 +303,7 @@
   "narrative_rebuild": {
     "version": "0.8",
     "task_id": "c1-story-world-20261012",
-    "status": "0.8 runtime implemented; final scoped delivery verification in progress; historical human/pacing acceptance remains independent",
+    "status": "0.8 scoped natural scenery/NPC handoff implementation and delivery verified; historical human/pacing acceptance stays independent",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -313,7 +313,7 @@
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "0.8",
       "script_status": "DEV_FROZEN",
-      "implementation": "0.8 implementation 6823b2c; normal-input and full integration verification in progress; historical 0.6 human/pacing gate remains open"
+      "implementation": "0.8 implemented and scoped verification complete; chapter stays DEV_FROZEN pending independent historical human/pacing acceptance"
     },
     "chapter02": {
       "id": "V01C02",
@@ -331,7 +331,7 @@
       "Saint confrontation is cinematic only, no new playable combat",
       "Current0.5 implementation is recorded in chapter01_voice_revision; prior chapter01_dialogue_revision0.4 and chapter01_incremental0.3 are historical."
     ],
-    "evidence": "docs/harness/acceptance/NARRATIVE_INCREMENTAL.json",
+    "evidence": "docs/ch1-story-world/ACCEPTANCE.md",
     "previous_plan": {
       "version": "0.1",
       "task_id": "narrative-harness-20261010",
@@ -385,11 +385,9 @@
       "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
       "limit": "This documentation task performs no runtime rollback and does not resume withdrawn reconstruction"
     },
-    "checked_at_utc": "2026-10-10T06:26:16.101381+00:00",
-    "harness_tests_passed": 27,
-    "remote_verified_commit": "eb332bc4ec887722238f97da8d94f9a0695d9ff7",
-    "remote_verified_at_utc": "2026-10-10T06:29:48.538705+00:00",
-    "git_receipt": "docs/harness/acceptance/NARRATIVE_INCREMENTAL_GIT_SAVE.json",
+    "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
+    "harness_tests_passed": 30,
+    "git_receipt": "docs/ch1-story-world/GIT_SAVE.json",
     "previous_adopted_revision": {
       "version": "0.5",
       "task_id": "ch1-voice-20261012",
@@ -731,12 +729,41 @@
   },
   "chapter_one_story_world_08": {
     "task": "c1-story-world-20261012",
-    "status": "in_progress",
-    "baseline": "4d6b4bb",
+    "status": "verified_locally_remote_save_pending",
+    "baseline": "4d6b4bb2a92d6d0d01d5c172a41bd3260c057a65",
     "spec": "docs/harness/CHAPTER_01_STORY_WORLD.md",
     "scope": "22 first-chapter maps, six new NPCs/optional quests, generated natural world art, explicit acceptance/report, ordinary kill targets eight",
-    "verified": "153 Node, 30 Harness, 18 actual economic campaigns, 1620 actual-snapshot encounters; three normal-input classes through chapter two; 22 rendered maps/310 actual movement paths, six NPC delivery UIs, ten touch routes, 180 strict saved milestones",
-    "pending": "final integration, map evidence gate, offline/HTTP/mobile build promotion and GitHub save",
-    "preserved": "previous 0.7 delivery and assets; original assassination/private dialogue; later chapters; old 0.6 human/pacing remains independent"
+    "verified": "153 Node/30 Harness; 18 economic campaigns, 1620 actual-snapshot encounters; three normal-input classes through chapter two; 22 maps/320 actual movement paths, six NPC deliveries, ten touch routes, 180 strict saved milestones; all package and local entry cases passed",
+    "pending": "GitHub main save and task archival",
+    "preserved": "previous 0.7 delivery and assets; original assassination/private dialogue; later chapters; old 0.6 human/pacing remains independent",
+    "implementation_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+    "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
+    "revision": "0.8",
+    "maps": 22,
+    "new_maps": 5,
+    "new_npcs": 6,
+    "new_local_quests": 6,
+    "new_assets": 6,
+    "save_schema": 16,
+    "nested_c1_schema": 3,
+    "unaffected_later_maps": 106,
+    "acceptance": "docs/ch1-story-world/ACCEPTANCE.md",
+    "map_quality": "docs/ch1-story-world/MAP_QUALITY.json",
+    "visual_review": "docs/ch1-story-world/visual-review.html",
+    "package": "docs/ch1-story-world/PACKAGE.json",
+    "git_receipt": "docs/ch1-story-world/GIT_SAVE.json",
+    "preview_url": "http://127.0.0.1:5174/",
+    "current_offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-story-world-20261013",
+    "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
+    "site_deployed": false,
+    "checks": {
+      "fast": "029 passed, 30 tests",
+      "integration": "028 passed components plus 030 source-equivalent continuation; only test DOM wait changed; all required components passed",
+      "map_quality": "031:22 maps, all three dimensions independently reviewed",
+      "package": "032:500 byte-identical files, old package retained",
+      "normal_input": "018:shadow/oath/ember chapters1–2; three later UI/animation-only fixes audited in NATURAL_PROVENANCE and companion-return",
+      "saves": "180 saves including schema1/2/3; unchanged balances/completions and no automatic payments"
+    }
   }
 }

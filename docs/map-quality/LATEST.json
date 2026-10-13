@@ -1,26 +1,48 @@
 {
-  "task": "c1-map-quests-20261012",
-  "reviewer": "assistant visual inspection and reproducible runtime evidence; not human full-play observation",
-  "checked_at_utc": "2026-10-13T01:34:23.274121+00:00",
-  "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+  "task": "c1-story-world-20261012",
+  "reviewer": "Assistant actual image inspection and reproducible runtime evidence, independently per dimension; not human full-route observation",
+  "checked_at_utc": "2026-10-13T05:39:32.621018+00:00",
+  "source_fingerprint": "68000ecdf777ec150e9cbeee4c07b7a9fb4e6f645eae658311d07c2636e09c2e",
   "reviewed_paths": [
-    "dist/assets/c1-map-quests/artisans.png",
-    "dist/assets/c1-map-quests/kiln.png",
-    "dist/assets/c1-map-quests/loom.png",
-    "dist/assets/c1-map-quests/moss-beetle.png",
-    "dist/assets/c1-map-quests/trial-construct.png",
+    "dist/assets/c1-story-world/field-npcs.png",
+    "dist/assets/c1-story-world/scenery.png",
+    "dist/assets/c1-story-world/underground-npcs.png",
+    "dist/assets/c1-story-world/vault-guardian.png",
+    "dist/assets/c1-story-world/walls-stairs.png",
+    "dist/assets/c1-story-world/water.png",
     "dist/chapter-one-expansion-art.js",
-    "dist/chapter-one-expansion-quests.js",
-    "dist/chapter-one-expansion-save.js",
     "dist/chapter-one-expansion-world.js",
-    "dist/chapter-one-interaction-v31.js",
-    "dist/chapter-one-layout.js",
-    "dist/chapter-one-objectives.js",
-    "dist/core-v14.js",
+    "dist/chapter-one-natural-art.js",
+    "dist/chapter-one-story-world.js",
     "dist/game-v14.js",
-    "dist/presentation-metrics-v281.js"
+    "dist/navigation-v14.js",
+    "dist/visuals-v14.js"
   ],
   "assets": [
+    {
+      "path": "dist/assets/c1-story-world/field-npcs.png",
+      "sha256": "cfa1ebd6c8e139df1fe43a533549c5fc7ee6475ba6b7554fa76af828f4720701"
+    },
+    {
+      "path": "dist/assets/c1-story-world/scenery.png",
+      "sha256": "3951aa13a47faeabf599a288436f74f6c4460eaa2dbadfbbe0cc1638f56be3bc"
+    },
+    {
+      "path": "dist/assets/c1-story-world/underground-npcs.png",
+      "sha256": "a4f761904dee86d74e36fb9f74ae920fc3335bc1d980bc23d8b883dd51125c5c"
+    },
+    {
+      "path": "dist/assets/c1-story-world/vault-guardian.png",
+      "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+    },
+    {
+      "path": "dist/assets/c1-story-world/walls-stairs.png",
+      "sha256": "fca564fc40b16f4fa06c7aa2d855804f30eeba1f6024db1cec0d7548c4d7547b"
+    },
+    {
+      "path": "dist/assets/c1-story-world/water.png",
+      "sha256": "d0d8cdd9b9bb7a4999fde8745613d4885ec8060a0a789cb94d9609c3545094b2"
+    },
     {
       "path": "dist/assets/c1-map-quests/artisans.png",
       "sha256": "103fce6a29a5619718ff74bc3ed430516db18db1196c9a03d325d4e859f2979d"
@@ -47,83 +69,147 @@
       "id": "hall",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图32条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/hall-collision.webp",
+            "sha256": "30b013b1e6f528d5a6fe907ab75f757ab3771819019b73e1d233800ebfe94bd3"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/hall-collision.webp",
-            "sha256": "41ed71135e3e53993163c3d46f4b42c2182ec2600e9ee9e561ea3509fb835536"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "开放接待厅，中间留完整通道；书记区在北墙，休息桌椅在西南。",
+        "reason": "开放接待厅保留中央通道；书桌、壁炉、休息桌和衣架沿用途分布。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/hall.webp",
+            "sha256": "185d0a896f1683d224651d3c3573b8ddd8b366a4c34514f28530be577ebd6392"
           },
           {
-            "path": "docs/ch1-map-quests/visual/hall.webp",
-            "sha256": "644a289b7a5b567c29f09778ba44a119e43a23602a48d1e255efb0672be26ee8"
+            "path": "docs/ch1-story-world/visual/hall-collision.webp",
+            "sha256": "30b013b1e6f528d5a6fe907ab75f757ab3771819019b73e1d233800ebfe94bd3"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "奥伦位于接待处、鲁恩在桌前、薇蕾娜留有接近空间；炉灶、书架、衣架各按用途摆放。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "奥伦负责库房，鲁恩在文书桌前，薇蕾娜使用原人物；原有三人身份、服装保留。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/hall.webp",
+            "sha256": "185d0a896f1683d224651d3c3573b8ddd8b366a4c34514f28530be577ebd6392"
           },
           {
-            "path": "docs/ch1-map-quests/visual/hall.webp",
-            "sha256": "644a289b7a5b567c29f09778ba44a119e43a23602a48d1e255efb0672be26ee8"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -132,83 +218,147 @@
       "id": "warehouse",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图6条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/warehouse-collision.webp",
+            "sha256": "bc8f5eb24630b024cb83e875dda757869617c4c1f7b49daad57d598d5929006f"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/warehouse-collision.webp",
-            "sha256": "3ee4b54112e31789e0dd67585f0962d41d96509c79def4483863810faaf331c7"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "货物分布周边及中央短堆，宽通道连入口与鼠洞。",
+        "reason": "粮袋与木箱分组靠边摆放，中部留追鼠绕行空间；北墙鼠洞与破板对应粮仓异响。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/warehouse.webp",
+            "sha256": "797814b2a6b558dc41dbac63cca09e5cd1ff2da8d5e1e01c35c842b4df9d938a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/warehouse.webp",
-            "sha256": "65eeb1ae2b1a0d6d603cbdca80fe1a5febdaa38cb3f4bef0b9995a76ae68c635"
+            "path": "docs/ch1-story-world/visual/warehouse-collision.webp",
+            "sha256": "bc8f5eb24630b024cb83e875dda757869617c4c1f7b49daad57d598d5929006f"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "六鼠在粮袋周围活动；鼠洞仅清场后出现任务互动，无满地灯油瓶。货箱遮挡实体会淡化。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "灰鼠保留原生物种，八个目标分布货堆两侧；主角在箱后遵循原有足部遮挡。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/warehouse.webp",
+            "sha256": "797814b2a6b558dc41dbac63cca09e5cd1ff2da8d5e1e01c35c842b4df9d938a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/warehouse.webp",
-            "sha256": "65eeb1ae2b1a0d6d603cbdca80fe1a5febdaa38cb3f4bef0b9995a76ae68c635"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -217,83 +367,147 @@
       "id": "road",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图80条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/road-collision.webp",
+            "sha256": "ac2cbb26f143b237ece611274760c0d4954cf5e650d7e367af39c487281f2f56"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/road-collision.webp",
-            "sha256": "da8fc6b5bb9c93552a62e38a3165c03ebebbfe3fa7206b02bc552b12a75a29b2"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "东西主路连接北岔口与南空场，树林描出区域，保持宽战斗空间。",
+        "reason": "王道有分叉空场、损坏货车和车棚，西端信使与东部兽群分开；营地和磨坊路牌已错开。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/road.webp",
+            "sha256": "f0b565b0baea98e497ef7edbaadd5266d307a4c221eed0110ec836158eb93d05"
           },
           {
-            "path": "docs/ch1-map-quests/visual/road.webp",
-            "sha256": "8b477a831ca7d340e9ba7074028a3ded137b045009ebf4e961b8fb974f72dc5e"
+            "path": "docs/ch1-story-world/visual/road-collision.webp",
+            "sha256": "ac2cbb26f143b237ece611274760c0d4954cf5e650d7e367af39c487281f2f56"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "阿林在车道旁，破车与帐篷/铺盖构成路边停歇点；狼和鼠不使用交互道具替代。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "阿林保留信使衣着与安全交接岗位，狼鼠位于袭车路段。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/road.webp",
+            "sha256": "f0b565b0baea98e497ef7edbaadd5266d307a4c221eed0110ec836158eb93d05"
           },
           {
-            "path": "docs/ch1-map-quests/visual/road.webp",
-            "sha256": "8b477a831ca7d340e9ba7074028a3ded137b045009ebf4e961b8fb974f72dc5e"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -302,83 +516,147 @@
       "id": "town",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图60条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/town-collision.webp",
+            "sha256": "162c9fc7bd6fa5c3eb15dc646ec3fc276f5d85ba012ed1bfcd138dda85cf1553"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/town-collision.webp",
-            "sha256": "9cfe1c6e1b97ff96c3f65beaf23261381743bde7f6979cbed3155adb4b35baa0"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "开放广场、药铺/衣摊/井区位于不同边缘，礼拜门在北。",
+        "reason": "白榆城仍是开放广场，教堂、药摊、水井和休息区各占边缘；路口用实物牌和文字方位。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/town.webp",
+            "sha256": "8164bea3d9585b0ccebc23244bf023daeda2b1263e8b8818835214f87f96516a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/town.webp",
-            "sha256": "db242ad1a9a1704f5d51dee8d6b631a160b883f9826c76f56d108413e4b32f36"
+            "path": "docs/ch1-story-world/visual/town-collision.webp",
+            "sha256": "162c9fc7bd6fa5c3eb15dc646ec3fc276f5d85ba012ed1bfcd138dda85cf1553"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "NPC靠服务岗位，水井真实可见且脚部碰撞/交互锚点分开；未完成托马任务是灰问号。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "托马守教堂前路，米拉守药摊，老人和朵莉保留原服装与身份。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/town.webp",
+            "sha256": "8164bea3d9585b0ccebc23244bf023daeda2b1263e8b8818835214f87f96516a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/town.webp",
-            "sha256": "db242ad1a9a1704f5d51dee8d6b631a160b883f9826c76f56d108413e4b32f36"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -387,83 +665,147 @@
       "id": "chapel",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图8条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/chapel-collision.webp",
+            "sha256": "56db61f56ac56764458d788f4e4a1a611b487fd4cf08c7d818186dc6faef9987"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/chapel-collision.webp",
-            "sha256": "edcf4ee36a76d618e4aa38044e3dad8946715d61f191b1c4a1b978f21c646b12"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "中殿保持原动作区域和侧门退路，长凳位于边缘。",
+        "reason": "礼拜厅中央留演出空间，祭台、烛灯与长凳形成礼拜用途，保留原刺杀走位与出口。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/chapel.webp",
+            "sha256": "a3735d826245368f909f8372b59e93208dd8e0a8bde6c1f001f8ce38f968c81d"
           },
           {
-            "path": "docs/ch1-map-quests/visual/chapel.webp",
-            "sha256": "9215a7d757219d25e68d618793214e091073f6d875fddb1661990a9eee1ae9eb"
+            "path": "docs/ch1-story-world/visual/chapel-collision.webp",
+            "sha256": "56db61f56ac56764458d788f4e4a1a611b487fd4cf08c7d818186dc6faef9987"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "主祭与原刺杀人物身份/对白保留；祭台、灯具和长凳对应宗教场所。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "主祭、主角、圣女和追兵保留原剧情角色及原演出；新增交接不改变刺杀对白。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/chapel.webp",
+            "sha256": "a3735d826245368f909f8372b59e93208dd8e0a8bde6c1f001f8ce38f968c81d"
           },
           {
-            "path": "docs/ch1-map-quests/visual/chapel.webp",
-            "sha256": "9215a7d757219d25e68d618793214e091073f6d875fddb1661990a9eee1ae9eb"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -472,83 +814,147 @@
       "id": "alley",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图16条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/alley-collision.webp",
+            "sha256": "9156aa47679276c2c5f0d0664993578682fab417ada1ecc0a558162ff5965f06"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/alley-collision.webp",
-            "sha256": "ed504a764b896f607455fe72023fce540f903a995e2ebaf233c46d5a04027084"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "前街连货场及北支路，房屋和石墙界定城市边缘。",
+        "reason": "街巷以房屋、石墙划分横街和两处退避院，货箱集中北端，南侧保留绕障通道。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/alley.webp",
+            "sha256": "0abf0791783a9c907dd698372c062c7507cb553732c8c14b950570fecb2fa798"
           },
           {
-            "path": "docs/ch1-map-quests/visual/alley.webp",
-            "sha256": "9ad507d0476c0ce9a004acd15a4971e255052a27011d3caece5531e80709dbd6"
+            "path": "docs/ch1-story-world/visual/alley-collision.webp",
+            "sha256": "9156aa47679276c2c5f0d0664993578682fab417ada1ecc0a558162ff5965f06"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "保留原追兵独立形象；货箱/木桶/木料属于卸货点，取消室外衣架。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "追逃阶段仍使用原主角和圣女形象；NPC不会占据狭窄院口。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/alley.webp",
+            "sha256": "0abf0791783a9c907dd698372c062c7507cb553732c8c14b950570fecb2fa798"
           },
           {
-            "path": "docs/ch1-map-quests/visual/alley.webp",
-            "sha256": "9ad507d0476c0ce9a004acd15a4971e255052a27011d3caece5531e80709dbd6"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -557,83 +963,147 @@
       "id": "canal",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/canal-collision.webp",
+            "sha256": "bde8057b25f68c65124bbc38d138a62b4ad19801f23f7bcd5becd79658f99125"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/canal-collision.webp",
-            "sha256": "0caf43d716a8738c5a52ea3510299e852a9facf9aa94862115c4c88939f76100"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "两岸两桥，东闸有绕障与战斗空场。",
+        "reason": "图片水面与石岸将场景分为两岸，两桥提供不同绕行；泵、绞盘对应水渠用途。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/canal.webp",
+            "sha256": "ec4d54d4dd50730904e9b27b8b9f4661af5c527801b8cde8076f78b15bd64c15"
           },
           {
-            "path": "docs/ch1-map-quests/visual/canal.webp",
-            "sha256": "6bc9dd1ca66e9b81abf6202eb89459b9b9d3c0aa816bf9419bfbb8cd50948a3b"
+            "path": "docs/ch1-story-world/visual/canal-collision.webp",
+            "sha256": "bde8057b25f68c65124bbc38d138a62b4ad19801f23f7bcd5becd79658f99125"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "追缉官和卫兵保留原外观；泵和绞盘有水务用途，出口不叠在货箱内。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "追缉官与巡卫继续用独立既有兵种资源，圣女跟随与交接保留原服装。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/canal.webp",
+            "sha256": "ec4d54d4dd50730904e9b27b8b9f4661af5c527801b8cde8076f78b15bd64c15"
           },
           {
-            "path": "docs/ch1-map-quests/visual/canal.webp",
-            "sha256": "6bc9dd1ca66e9b81abf6202eb89459b9b9d3c0aa816bf9419bfbb8cd50948a3b"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -642,83 +1112,147 @@
       "id": "grove",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图33条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/grove-collision.webp",
+            "sha256": "b14c5c10469df093d82b7e69641e849ab4419c524cf763da605b970b63d89afd"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/grove-collision.webp",
-            "sha256": "87096cae225cbd0f0b1be28d230f733a89f219d54581407e12dcd21fcee4ec17"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "两岸草甸、上游支路与两桥形成循环，河流延伸至边界。",
+        "reason": "溪林两岸以两桥连接，刻名石、倒木、林缘形成有来由的调查地点与战斗空场。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/grove.webp",
+            "sha256": "0c0f5e552116943069dee4c789b6b2f681fa40e982fc42bf0abdea048008a65a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/grove.webp",
-            "sha256": "c88f9a56622d7a7981f15050c380ddd55a155b382f13eab3c3bd067c1a7d5611"
+            "path": "docs/ch1-story-world/visual/grove-collision.webp",
+            "sha256": "b14c5c10469df093d82b7e69641e849ab4419c524cf763da605b970b63d89afd"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "狼、蝠、鼠分布在林间，刻名石调查须先除掉致因精英；采集物只在接取后出现。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "狼、鼠、蝠保持原生物种；裂齿渠鼠关联银环调查，营地任务排除该命名精英。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/grove.webp",
+            "sha256": "0c0f5e552116943069dee4c789b6b2f681fa40e982fc42bf0abdea048008a65a"
           },
           {
-            "path": "docs/ch1-map-quests/visual/grove.webp",
-            "sha256": "c88f9a56622d7a7981f15050c380ddd55a155b382f13eab3c3bd067c1a7d5611"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -727,83 +1261,147 @@
       "id": "guestroom",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/guestroom-collision.webp",
+            "sha256": "edb51415a3b7fdb0fdd6c3f2922dcdced367090deebb4e26faad43a8b326a69b"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/guestroom-collision.webp",
-            "sha256": "9ada29a1a56816a3d66fdf8a3671718613c9a8d27d7fa5192704da7f52cf6bcb"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "单一安静房间，床、炉边、水盆、行旅桌各有位置。",
+        "reason": "客房保持单一宽敞室内，床、火炉、水盆、衣架与桌椅构成生活用途，不塞入讨伐任务。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/guestroom.webp",
+            "sha256": "29fabd611dfd9465ad579450e77fb4f1dc3e5117ba250575a6e1c6d84084aac0"
           },
           {
-            "path": "docs/ch1-map-quests/visual/guestroom.webp",
-            "sha256": "cbea135e2a9298e228d1b163f1387f09c7e4788309d8930c0aa6204e7ca10a21"
+            "path": "docs/ch1-story-world/visual/guestroom-collision.webp",
+            "sha256": "edb51415a3b7fdb0fdd6c3f2922dcdced367090deebb4e26faad43a8b326a69b"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "床只绘制一次，脚锚和可用位置在床边；主角成人体量保持。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "主角使用原角色和脚锚，原客房同伴对白与人物保留。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/guestroom.webp",
+            "sha256": "29fabd611dfd9465ad579450e77fb4f1dc3e5117ba250575a6e1c6d84084aac0"
           },
           {
-            "path": "docs/ch1-map-quests/visual/guestroom.webp",
-            "sha256": "cbea135e2a9298e228d1b163f1387f09c7e4788309d8930c0aa6204e7ca10a21"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -812,83 +1410,147 @@
       "id": "millpath",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/millpath-collision.webp",
+            "sha256": "667fcc08b2abfeeb5c31c59cfb154f4d5e5751cc9dae776a8cacc01c96ef6137"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/millpath-collision.webp",
-            "sha256": "0b51da4ae772b2c57de0740e7414705fcbc3c1fd9a1518ea3bc910fcfb43f49b"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "水轮接入西北轮槽，北院与南检修场连接。",
+        "reason": "磨坊靠引水渠设置，路径沿水轮和废石槽展开；野兽散布路旁，出口分置北侧与东南。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/millpath.webp",
+            "sha256": "c98c6bd4cdc9cbfdc9f604ce25528fdcec0fb625eb38f89b77523a01395fec17"
           },
           {
-            "path": "docs/ch1-map-quests/visual/millpath.webp",
-            "sha256": "369a5d58edb57acf522aa7c800deef637cfe52dd3717623a8ab3f21e32630d59"
+            "path": "docs/ch1-story-world/visual/millpath-collision.webp",
+            "sha256": "667fcc08b2abfeeb5c31c59cfb154f4d5e5751cc9dae776a8cacc01c96ef6137"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "磨坊/石槽/粮箱符合生产用途；狼活动于院地，铜圈来自战斗掉落。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "狼群与磨坊被咬走铜圈的委托相连，原生物种和战斗动作保持。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/millpath.webp",
+            "sha256": "c98c6bd4cdc9cbfdc9f604ce25528fdcec0fb625eb38f89b77523a01395fec17"
           },
           {
-            "path": "docs/ch1-map-quests/visual/millpath.webp",
-            "sha256": "369a5d58edb57acf522aa7c800deef637cfe52dd3717623a8ab3f21e32630d59"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -897,83 +1559,147 @@
       "id": "echo",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/echo-collision.webp",
+            "sha256": "4eeacf1b3ba48886d975adae44926eaf530e017e6399011a4ac0a6e91fb52b83"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/echo-collision.webp",
-            "sha256": "99cd6223dde078fe5f40ef5e70ff9bdb3674a6f39abe8d048c567c8eb948f867"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "入口间、上检修廊与东侧守兽槽由宽口连接。",
+        "reason": "入口工具柜、传动件、阀门和深处泵组成旧机房，隔墙形成入口与检修作战室。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/echo.webp",
+            "sha256": "7dcf5dea0d771b441c72d452a516b637e2f3fba5b64e13a66be0d8047a7b760c"
           },
           {
-            "path": "docs/ch1-map-quests/visual/echo.webp",
-            "sha256": "ed270e252a47e587be2933765a69ff5ab48818d5c0596e01f3edc510520204ab"
+            "path": "docs/ch1-story-world/visual/echo-collision.webp",
+            "sha256": "4eeacf1b3ba48886d975adae44926eaf530e017e6399011a4ac0a6e91fb52b83"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "泵、齿轴、阀门区分，不再同形点击桩；废墙恢复原生宽高比，守兽在机器附近。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "灰脊守兽保留狼的原生姿态；精英样本与机芯调查有同一现场原因。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/echo.webp",
+            "sha256": "7dcf5dea0d771b441c72d452a516b637e2f3fba5b64e13a66be0d8047a7b760c"
           },
           {
-            "path": "docs/ch1-map-quests/visual/echo.webp",
-            "sha256": "ed270e252a47e587be2933765a69ff5ab48818d5c0596e01f3edc510520204ab"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -982,83 +1708,147 @@
       "id": "workshop",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图8条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/workshop-collision.webp",
+            "sha256": "421f55d2280161fe6d36bc905435f1004256f183876d69ff025c89c4f890f745"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/workshop-collision.webp",
-            "sha256": "441183d265af3182960f8d5a57b16ad7c7a9dd30bc6edcd05ceb22e460f524f4"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "开放工作间，工具台、壁炉和练习角分区；工坊出口可达。",
+        "reason": "修理铺工作台靠北、衣甲与工具分区，中央通往缀纹工坊的通道畅通。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/workshop.webp",
+            "sha256": "8880a231cfec7c87f6af8cc092155ff80c3c60666287a16d5117b1455656e1af"
           },
           {
-            "path": "docs/ch1-map-quests/visual/workshop.webp",
-            "sha256": "6848509cab35416b6cc9868cd5e406932320f676ecc357a928b7435b345f5932"
+            "path": "docs/ch1-story-world/visual/workshop-collision.webp",
+            "sha256": "421f55d2280161fe6d36bc905435f1004256f183876d69ff025c89c4f890f745"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "洛缇在柜台前；工具卷、维修机芯与假人语义独立，储物柜使用柜形原件。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "洛缇位于工具台前交接，保持原修理工形象；工作台不再冒充交付NPC。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/workshop.webp",
+            "sha256": "8880a231cfec7c87f6af8cc092155ff80c3c60666287a16d5117b1455656e1af"
           },
           {
-            "path": "docs/ch1-map-quests/visual/workshop.webp",
-            "sha256": "6848509cab35416b6cc9868cd5e406932320f676ecc357a928b7435b345f5932"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -1067,83 +1857,147 @@
       "id": "c1TrainingYard",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/c1TrainingYard-collision.webp",
+            "sha256": "f6e6e92c2b1cf1819853a3cded0daeb0305ee4fb8d18391f32f13f4f9fe1a816"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1TrainingYard-collision.webp",
-            "sha256": "1dbb0e37af25485baf6e6ec030936d972f51db38733304c7289efbfbbc509056"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "围栏将三片实战空场分开，连接口足够绕行。",
+        "reason": "庭院以两侧空场和灌木隔带组织八只苔壳兽，入口长凳与木栏呼应会馆后院。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1TrainingYard.webp",
+            "sha256": "810a75cc05f479257b27d80dbf341fedb4cc919db32acdc1764a74df690cc4d6"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1TrainingYard.webp",
-            "sha256": "a940fec6ddb9debb1f1dd62b92f4270d920ff2a1588c3e92f190e1c68c8bef2d"
+            "path": "docs/ch1-story-world/visual/c1TrainingYard-collision.webp",
+            "sha256": "f6e6e92c2b1cf1819853a3cded0daeb0305ee4fb8d18391f32f13f4f9fe1a816"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "四只苔壳爬兽有独立六足/苔甲轮廓及动作，无可点击训练靶任务。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "苔壳兽使用独立甲虫原件，与旧鼠群外观不同；技能起手与移动帧保留。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1TrainingYard.webp",
+            "sha256": "810a75cc05f479257b27d80dbf341fedb4cc919db32acdc1764a74df690cc4d6"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1TrainingYard.webp",
-            "sha256": "a940fec6ddb9debb1f1dd62b92f4270d920ff2a1588c3e92f190e1c68c8bef2d"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -1152,83 +2006,147 @@
       "id": "c1DrillGallery",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/c1DrillGallery-collision.webp",
+            "sha256": "beb26bc80a447c8823eea70c6fa0cea9f9f571a79147f653d1dfc1886a6194e7"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1DrillGallery-collision.webp",
-            "sha256": "dc5ff499be99a390cf7f4e1d08ee749f8052673a495affa899459dc0a140dc5a"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "三室和宽门依次相连，入口至内室及便门可通。",
+        "reason": "扩大旧廊为两间宽作战室，中间有宽通路；档案柜已移离阶梯，残墙可用于绕行。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1DrillGallery.webp",
+            "sha256": "d3a7fd0f6f850309855a24403493d4e5d0fcd9febeceb3307c0be4d4746f9ef2"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1DrillGallery.webp",
-            "sha256": "66a441aca3b40586e66df5053936e4849eaa31abf58be1e43e42755042bb599f"
+            "path": "docs/ch1-story-world/visual/c1DrillGallery-collision.webp",
+            "sha256": "beb26bc80a447c8823eea70c6fa0cea9f9f571a79147f653d1dfc1886a6194e7"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "独立砂岩构装体动画；内室守卫采用同种守卫设定与明确名称。废墙按原比例，不拉伸成柱。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "构装体裁切在490像素分行，待机不再带下排拳头；守卫对应伊登旧口令委托。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1DrillGallery.webp",
+            "sha256": "d3a7fd0f6f850309855a24403493d4e5d0fcd9febeceb3307c0be4d4746f9ef2"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1DrillGallery.webp",
-            "sha256": "66a441aca3b40586e66df5053936e4849eaa31abf58be1e43e42755042bb599f"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -1237,83 +2155,147 @@
       "id": "c1LoomRoom",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/c1LoomRoom-collision.webp",
+            "sha256": "31c2df4c0503c81c5adadcb3600bb684b5892827b2d64816d44c0a678d3e38c6"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1LoomRoom-collision.webp",
-            "sha256": "9734cdf1069246d16b16c00002eeb490a16359fc0fd8892a04aab724b34c1940"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "保持一个开阔工作间，符文柜、真织机、样本工作台分开。",
+        "reason": "织机居中，罗萨和赛铎各有独立工作区，资料柜与长凳靠墙；无点击机关链。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1LoomRoom.webp",
+            "sha256": "076ad0452517a9957f5f70cf3827b3b988d1eaf17f12efd4aaecb709a273acfc"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1LoomRoom.webp",
-            "sha256": "f10fa6583b72c0aaa3175f52edbd5a088d62f4c2fd40149d18bdf1a09da53fac"
+            "path": "docs/ch1-story-world/visual/c1LoomRoom-collision.webp",
+            "sha256": "31c2df4c0503c81c5adadcb3600bb684b5892827b2d64816d44c0a678d3e38c6"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "罗萨与赛铎分别使用独立成人女性/灰须男性八姿态；围裙/工具轮廓一致，脚锚稳定；真实织机有经线和布。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "罗萨和赛铎保留0.7独立工匠原件，织机有真实木框和丝线，人物成人体量。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1LoomRoom.webp",
+            "sha256": "076ad0452517a9957f5f70cf3827b3b988d1eaf17f12efd4aaecb709a273acfc"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1LoomRoom.webp",
-            "sha256": "f10fa6583b72c0aaa3175f52edbd5a088d62f4c2fd40149d18bdf1a09da53fac"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -1322,83 +2304,147 @@
       "id": "c1NorthWalk",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/c1NorthWalk-collision.webp",
+            "sha256": "d48ab62f916e1e0c8218962d6d0b16783b11095f9737fd81811874ebf1e0e5d1"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1NorthWalk-collision.webp",
-            "sha256": "41f90749403f64d28d18320e2ca7e7ba05dee48e6145b3b8e7890cd98c013154"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "西岸台地、两座过水桥和东岸灯路形成环路。",
+        "reason": "检修道两岸双桥、灯柱与废槽对应渠鼠啃木和夜蝠占灯；两岸留可交战范围。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1NorthWalk.webp",
+            "sha256": "dab6dc4fe4d273db7f2a790fc9e8eece70c61afc2b1a7b9bd8c9508ff47787cc"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1NorthWalk.webp",
-            "sha256": "fad91bc9f77c48ed6eee567ccbab3a7d5ea6406bc3b9b7fc8a7bd2a1824ca8fe"
+            "path": "docs/ch1-story-world/visual/c1NorthWalk-collision.webp",
+            "sha256": "d48ab62f916e1e0c8218962d6d0b16783b11095f9737fd81811874ebf1e0e5d1"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "鼠啃木料/蝠占灯的目标直接靠战斗完成；保留水槽、灯和检修遗墙。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "八只渠鼠与八只夜蝠使用各自物种，任务分别统计并回各自委托人。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1NorthWalk.webp",
+            "sha256": "dab6dc4fe4d273db7f2a790fc9e8eece70c61afc2b1a7b9bd8c9508ff47787cc"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1NorthWalk.webp",
-            "sha256": "fad91bc9f77c48ed6eee567ccbab3a7d5ea6406bc3b9b7fc8a7bd2a1824ca8fe"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
-            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
@@ -1407,90 +2453,900 @@
       "id": "c1ReedKiln",
       "playability": {
         "status": "pass",
-        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "reason": "本图4条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/NAVIGATION.json",
-            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+            "path": "docs/ch1-story-world/visual/c1ReedKiln-collision.webp",
+            "sha256": "5c3e523df46ae5735cb56474043882735ece3f31d1e50e63750338626a0c94ac"
           },
           {
-            "path": "docs/ch1-map-quests/MOVEMENT.json",
-            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1ReedKiln-collision.webp",
-            "sha256": "312b99352c54a13e4db7342567d09d1e7d176d3087bc728b3584914ad1e1e213"
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
           },
           {
-            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
-            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
-            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
-            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
           },
           {
-            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
-            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "三片逐渐升入窑区的空场相连，旧墙提供绕行点。",
+        "reason": "废窑位于东北高处，残墙与石槽分隔作战空场；两个出口联系溪林与窑工院。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1ReedKiln.webp",
+            "sha256": "82dc66c1926e33f8a3cbd8b9414fbcbd759ac9f9474501d3e98979069e50f577"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1ReedKiln.webp",
-            "sha256": "716f543af9faa0360a2f892464258c6d70e012f19b565fa43b83973f993f8f50"
+            "path": "docs/ch1-story-world/visual/c1ReedKiln-collision.webp",
+            "sha256": "5c3e523df46ae5735cb56474043882735ece3f31d1e50e63750338626a0c94ac"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "独立穹顶土砖窑替换不符场景的壁炉；窑口、残罐、芦苇可辨，夜翼在窑旁而非点击通风装置。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "reason": "窑蝠和苇窑夜翼保持原物种，废窑原件保留真正烟口与炉膛，不用通用石块替代。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
         "evidence": [
           {
-            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
-            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+            "path": "docs/ch1-story-world/visual/c1ReedKiln.webp",
+            "sha256": "82dc66c1926e33f8a3cbd8b9414fbcbd759ac9f9474501d3e98979069e50f577"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1ReedKiln.webp",
-            "sha256": "716f543af9faa0360a2f892464258c6d70e012f19b565fa43b83973f993f8f50"
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
           },
           {
-            "path": "docs/ch1-map-quests/ASSETS.json",
-            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
             "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
             "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
-            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
           },
           {
-            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialFoyer",
+      "playability": {
+        "status": "pass",
+        "reason": "本图12条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialFoyer-collision.webp",
+            "sha256": "0dd05ef8d980fd35ce9340c0b887c715097779222148f3fa9948d487270f1eab"
+          },
+          {
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
+          },
+          {
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
+          },
+          {
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
+          },
+          {
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
+          },
+          {
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
+          },
+          {
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "新增安全接待室；伊登在登记桌前，书柜、等候凳与三个阶梯说明地下交通用途。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialFoyer.webp",
+            "sha256": "a0bdca6090240350ac1ff2f52fe8e36c47afc9f4c37cc0f9f28d665bdabe9dd2"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialFoyer-collision.webp",
+            "sha256": "0dd05ef8d980fd35ce9340c0b887c715097779222148f3fa9948d487270f1eab"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "伊登蓝衣护肩与胡须对应新原画；左右转身按原图朝向处理，提交界面同人像。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialFoyer.webp",
+            "sha256": "a0bdca6090240350ac1ff2f52fe8e36c47afc9f4c37cc0f9f28d665bdabe9dd2"
+          },
+          {
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
+          },
+          {
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
+          },
+          {
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
             "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialCrypt",
+      "playability": {
+        "status": "pass",
+        "reason": "本图6条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialCrypt-collision.webp",
+            "sha256": "2111887528e079ece4e3317b79aafc51a38b8132920212e7ac7db0cc0ff8cfa9"
+          },
+          {
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
+          },
+          {
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
+          },
+          {
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
+          },
+          {
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
+          },
+          {
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
+          },
+          {
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "新增双室蓄能廊，赫莎工具桌留在西南入口，旧槽和传动件位于构装体工作区。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialCrypt.webp",
+            "sha256": "9d7a3f0d4ad5caf0a0263a962cf1cfe95cb4dd9535557e373610ef45291746c3"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialCrypt-collision.webp",
+            "sha256": "2111887528e079ece4e3317b79aafc51a38b8132920212e7ac7db0cc0ff8cfa9"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "赫莎红发工具围裙对应维修工；八具构装体离交接区有距离，无陌生占位人物。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialCrypt.webp",
+            "sha256": "9d7a3f0d4ad5caf0a0263a962cf1cfe95cb4dd9535557e373610ef45291746c3"
+          },
+          {
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
+          },
+          {
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
+          },
+          {
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "本图2条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialVault-collision.webp",
+            "sha256": "ad22077f3248125fd0d68032f80b76e1de7723de166b91f3283249b903cde524"
+          },
+          {
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
+          },
+          {
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
+          },
+          {
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
+          },
+          {
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
+          },
+          {
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
+          },
+          {
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "新增封存库以两排账架、入口账桌和深处箱柜组织空间，中间隔墙保留宽通路。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialVault.webp",
+            "sha256": "3d001fdbe5240ae51ae0c19ed95133d2a8e2ada096de0ab88fde7ce6a3a43b51"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialVault-collision.webp",
+            "sha256": "ad22077f3248125fd0d68032f80b76e1de7723de166b91f3283249b903cde524"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "维恩黄长衣灰围巾对应档案员；精英封存看守用独立锁胸金属原画和倒地帧。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1TrialVault.webp",
+            "sha256": "3d001fdbe5240ae51ae0c19ed95133d2a8e2ada096de0ab88fde7ce6a3a43b51"
+          },
+          {
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
+          },
+          {
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
+          },
+          {
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1RiversideCamp",
+      "playability": {
+        "status": "pass",
+        "reason": "本图15条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1RiversideCamp-collision.webp",
+            "sha256": "d02f94ea0e40ea32e3c2a1c718cc8c1dd73e5bac00abb826d9bc4358bd24935d"
+          },
+          {
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
+          },
+          {
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
+          },
+          {
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
+          },
+          {
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
+          },
+          {
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
+          },
+          {
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "新增安全营地以帐篷、柴车、药棚组织生活与任务，王道可先入营接取再去溪林。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1RiversideCamp.webp",
+            "sha256": "c85e131ea3ce85a4d70f34330e8fa646fba3093ecf496d7db8f849088adfa317"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1RiversideCamp-collision.webp",
+            "sha256": "d02f94ea0e40ea32e3c2a1c718cc8c1dd73e5bac00abb826d9bc4358bd24935d"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "布莱克披肩弓囊对应护车人；艾芙浅衣蓝裙带药篮，和其他工匠不复用人物。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1RiversideCamp.webp",
+            "sha256": "c85e131ea3ce85a4d70f34330e8fa646fba3093ecf496d7db8f849088adfa317"
+          },
+          {
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
+          },
+          {
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
+          },
+          {
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1KilnCourt",
+      "playability": {
+        "status": "pass",
+        "reason": "本图6条入口至出口/目标实际moveActor路线走通，足点可达网格连通，无不可达目标。三职业正常输入走主线，三职业local_work真实移动/战斗/交付走新增支线，1620快照遭遇另覆盖追击、绕行、技能和预警应对；不据此判断真人时长。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1KilnCourt-collision.webp",
+            "sha256": "9e0d89faede83bde106f80a025f2c005e59616cf70e94848e32c15f9c837febe"
+          },
+          {
+            "path": "docs/ch1-story-world/NAVIGATION.json",
+            "sha256": "ab172bb2801bb039cd56050665169ba7d24984c18da252e8038e9ff7fd3645b4"
+          },
+          {
+            "path": "docs/ch1-story-world/MOVEMENT.json",
+            "sha256": "1e4deeb5accbe2dd88301ea6878d1e64b542e3accee7902a54febf2d50a89d4a"
+          },
+          {
+            "path": "docs/ch1-story-world/SAVES.json",
+            "sha256": "241927373ce058aad6ecd8fbf1e8fdd9a4e4218a5878c95eb7c73534d491323e"
+          },
+          {
+            "path": "docs/ch1-story-world/final-verification/RESULTS.json",
+            "sha256": "c85058f02ea12d6e9e1b21824f91b158a3543a50f68d7d0e11c6f15dfe8ea537"
+          },
+          {
+            "path": "docs/ch1-story-world/NATURAL_PROVENANCE.json",
+            "sha256": "034371a37963fc292ab3a097dcedec6a8e344e7d4bcda11bf4a48badcd8cbe52"
+          },
+          {
+            "path": "docs/ch1-story-world/companion-return/QA.json",
+            "sha256": "e6fd4902d3d0d06ba9231ed09cbb5adbcd416cb9bc24fa2f31a2f155b16b04c2"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/shadow/PLAY.json",
+            "sha256": "992691b571726c6df401c4c09cf9c2f86413fbb8c374534aa4c74a42bab69a9d"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/oath/PLAY.json",
+            "sha256": "c0a30db5bcfe0aec84dbbb5c832f215d1c535cdedceb51250070049597b60d04"
+          },
+          {
+            "path": "docs/ch1-story-world/natural/ember/PLAY.json",
+            "sha256": "0a18757482a080cb7f6e1bf9e97b8403178945915f1f5117f23b345dd500279b"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/shadow-local_work.json",
+            "sha256": "589e2757766381f13f228b5c9f9356dce829dd68889a3e3a3360d9b223b30bec"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/oath-local_work.json",
+            "sha256": "f2d8d9f80e84fb1c3303678ecebc08150ef5c38c9a5ce6635daf7296545b535d"
+          },
+          {
+            "path": "docs/ch1-story-world/economy/ember-local_work.json",
+            "sha256": "99dd03cb540f5b683fc699092915170ac4aea1bd595b76b9f213eab98a80205f"
+          },
+          {
+            "path": "docs/ch1-story-world/balance/ACTUAL_SNAPSHOTS.json",
+            "sha256": "96aba4b8d3f7dec26f9d4ee3b609d6bbfc52d1c97d89346413b26833befcbed2"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "新增窑工安全院，住房、休息桌、物料箱与陶罐说明窑工的生活和停工处境。 已实际查看正式渲染、碰撞对照和局部交接截图；地形图片的实体边沿与可活动区对应。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1KilnCourt.webp",
+            "sha256": "8ec710c21f2d2bc862c59ff2992670d733bddf10dcc996e4e69c4ee20673898d"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1KilnCourt-collision.webp",
+            "sha256": "9e0d89faede83bde106f80a025f2c005e59616cf70e94848e32c15f9c837febe"
+          },
+          {
+            "path": "docs/ch1-story-world/MAP_REVIEW.md",
+            "sha256": "3a11234424e31106be3e750a2c91f634ac384d6220861f57c16fc3d4071c202c"
+          },
+          {
+            "path": "docs/ch1-story-world/REVIEW_NOTES.json",
+            "sha256": "84c6489ef1ab2e646e3deadfab94a2c87d0f71eb772a055d2c08e7020c5a0987"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "玛妲头巾、卷袖和陶土色围裙对应窑工；她在居所前交接而不站在蝠群里。 实际人物/原画和运行图集分别比对；新NPC独立职业衣着与相同人物头像，脚锚及原有前后遮挡保持。",
+        "evidence": [
+          {
+            "path": "docs/ch1-story-world/visual/c1KilnCourt.webp",
+            "sha256": "8ec710c21f2d2bc862c59ff2992670d733bddf10dcc996e4e69c4ee20673898d"
+          },
+          {
+            "path": "docs/ch1-story-world/ASSETS.json",
+            "sha256": "608efa6a934fd2ca08fc2a9b6ba99d38c6a89a67e9d64717108ad06b35261ee2"
+          },
+          {
+            "path": "docs/ch1-story-world/PRESERVATION.json",
+            "sha256": "3e08f9bf92312060dfd1a80dbf8cd9b6b33b71ad07e907d473a308237a8058e4"
+          },
+          {
+            "path": "docs/ch1-story-world/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Scenery-frames.webp",
+            "sha256": "610f5cfb3930f336428be179e55c96895ca7ec701d0755df3e2b471e3f9dc7c4"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Walls-frames.webp",
+            "sha256": "d748cc8f082b83cf53ec3d2a3bd7584ac98fdc9c797bddad14bd8725a81ad030"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1FieldNPC-frames.webp",
+            "sha256": "cf03f9db3020860c9002458f2979817fe09393c5d8df0937c9d9c829e9877530"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Loom-frames.webp",
+            "sha256": "2bbc5675361d91c4296b9d58c1b7d93ef814a8bf7ecc356299e46ddb5f68dafd"
+          },
+          {
+            "path": "docs/ch1-story-world/visual/c1Kiln-frames.webp",
+            "sha256": "6ca24e856feefdeaa0bd42085b6514dbf7bb460616d932dcb398e259a7f12c6e"
           }
         ]
       }
     }
   ],
   "limits": [
-    "Historical 0.6 human full-route observation and pacing acceptance remain pending.",
-    "Later chapter maps unchanged; old assets and all original archives preserved."
+    "Historical 0.6 human full observation and pacing remain separate pending work.",
+    "Original 106 later maps preserved; no later-chapter redesign or site deployment.",
+    "First-chapter 17 old layouts and five new maps reviewed; new maps have no fabricated before screenshot."
   ]
 }
