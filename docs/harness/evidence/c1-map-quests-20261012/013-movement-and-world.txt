@@ -1,0 +1,65 @@
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (15.0495ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (3.584584ms)
+✔ returning immediately or idling does not respawn; active movement and return create fresh credit (24.270958ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (4.197542ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (2.919875ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.049959ms)
+✔ all seventeen maps use manual exits and each authored exit resolves to a real target (3.803917ms)
+✔ real movement solver walks every entrance to every available endpoint in seventeen maps (379.984625ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 639.882708
+Journey: entered millpath
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: wrong click response townbook: {"mode":"play","map":"town","pending":null,"flow":null,"flags":{"rats":0,"cityIntro":true,"chapterCardsV17":[1,2,3,4,5,6,7,8]},"quests":{"c1Readiness":"active","v12NorthDelivery":"active"},"events":[{"type":"toast","text":"午钟礼拜通知旁贴着几张寻人纸，最下面一张被雨浸花了。"}],"notices":[],"player":{"x":990,"y":840},"pendingWalk":null,"moveTo":null}
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter123.mjs:49:129 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v25.2.1
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: c1ReedKiln touch movement
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter-one-expansion.mjs:14:391 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v25.2.1
+Journey: entered echo
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: echo-valve
+    at object (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-world-v29.mjs:70:113)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-world-v29.mjs:75:81 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: null,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v25.2.1
+RESULTS [(['node', '--test', 'tests/chapter-one-map-quests.test.mjs'], 0), (['node', 'tests/browser-world-v29.mjs'], 1), (['node', 'tests/browser-chapter123.mjs'], 1), (['node', 'tests/browser-chapter-one-expansion.mjs'], 1)]

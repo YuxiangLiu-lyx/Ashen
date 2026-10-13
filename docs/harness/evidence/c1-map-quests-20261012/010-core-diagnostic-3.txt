@@ -1,0 +1,625 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 14.726s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 211 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-test.test.mjs
+✖ same seeds replay complete combat metrics and events exactly (6.245125ms)
+✖ all base classes run real ordinary, elite and boss encounters (0.652792ms)
+✖ direct real RPG q matches experiment first cast damage/cost/cooldown (0.743625ms)
+✖ base bleed and e consume real stacks; boss damage differs from ordinary (0.7965ms)
+✖ career bleed uses separate real thirty-stack state and harvest consumes it (0.89275ms)
+✖ insufficient mana/action cooldown reject casts without false simulated uses (2.283958ms)
+✖ real AI damage, resources and distinct policies affect outcomes (0.454917ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.268916ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.458834ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.152834ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.113041ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.078417ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.079458ms)
+✖ real save roundtrip retains V28 markers, build and HP ratio (0.343958ms)
+✖ full inventory rare gear follows real conversion behavior, not fictitious reward queue (1.914416ms)
+✖ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.52675ms)
+✖ real reprisal cannot exceed three charges or retrigger inside one second (0.321834ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (1.777083ms)
+✖ economy real rewards and one-time claim retry, free craft, injected prerequisites (0.402625ms)
+✖ all economy paths execute; resource deficits and repeated callbacks remain visible (0.220667ms)
+✖ distribution separates censored fights and reports confidence interval (0.205417ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (103.278542ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (63.162041ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (24.833208ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.462125ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (4.582041ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (1.126541ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (1.742792ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.487ms)
+shadow main_only prepared town 4 161
+shadow main_only captain-entry canal 4 189
+shadow main_only captain-done canal 5 232
+shadow main_only chapter-one-end post 5 277
+shadow main_only bridge-entry bridge 5 149
+shadow main_only manor-entry manor 6 177
+shadow main_only manor-exit spillway 6 207
+shadow main_only chapter-two-end hellGate 7 270
+shadow all_once rat-entry grove 5 225
+shadow all_once bat-entry c1ReedKiln 5 261
+shadow all_once warden-entry echo 6 313
+shadow all_once prepared town 7 424
+shadow all_once captain-entry canal 7 454
+shadow all_once captain-done canal 7 504
+shadow all_once chapter-one-end post 8 554
+shadow all_once bridge-entry bridge 8 426
+shadow all_once manor-entry manor 8 461
+shadow all_once manor-exit spillway 8 498
+shadow all_once chapter-two-end hellGate 9 568
+shadow repeat_patrol rat-entry grove 5 225
+shadow repeat_patrol bat-entry c1ReedKiln 5 261
+shadow repeat_patrol warden-entry echo 6 313
+oath main_only prepared town 4 161
+oath main_only captain-entry canal 4 189
+oath main_only captain-done canal 5 232
+oath main_only chapter-one-end post 5 277
+oath main_only bridge-entry bridge 5 149
+oath main_only manor-entry manor 6 177
+oath main_only manor-exit spillway 6 201
+oath main_only chapter-two-end hellGate 7 264
+oath all_once rat-entry grove 5 225
+oath all_once bat-entry c1ReedKiln 5 261
+oath all_once warden-entry echo 6 313
+oath all_once prepared town 7 424
+oath all_once captain-entry canal 7 454
+oath all_once captain-done canal 7 504
+oath all_once chapter-one-end post 8 554
+oath all_once bridge-entry bridge 8 426
+oath all_once manor-entry manor 8 461
+oath all_once manor-exit spillway 8 494
+oath all_once chapter-two-end hellGate 9 564
+oath repeat_patrol rat-entry grove 5 225
+oath repeat_patrol bat-entry c1ReedKiln 5 261
+oath repeat_patrol warden-entry echo 6 313
+ember main_only prepared town 4 168
+ember main_only captain-entry canal 4 196
+ember main_only captain-done canal 5 239
+ember main_only chapter-one-end post 5 284
+ember main_only bridge-entry bridge 5 156
+ember main_only manor-entry manor 5 180
+ember main_only manor-exit spillway 6 204
+ember main_only chapter-two-end hellGate 7 267
+ember all_once rat-entry grove 5 232
+ember all_once bat-entry c1ReedKiln 5 268
+ember all_once warden-entry echo 6 320
+ember all_once prepared town 7 431
+ember all_once captain-entry canal 7 461
+ember all_once captain-done canal 7 511
+ember all_once chapter-one-end post 8 561
+ember all_once bridge-entry bridge 8 433
+ember all_once manor-entry manor 8 468
+ember all_once manor-exit spillway 8 498
+ember all_once chapter-two-end hellGate 9 568
+ember repeat_patrol rat-entry grove 5 232
+ember repeat_patrol bat-entry c1ReedKiln 5 268
+ember repeat_patrol warden-entry echo 6 320
+✔ shadow main_only actual campaign economy and second-chapter carry (1458.402708ms)
+✖ shadow typical actual campaign economy and second-chapter carry (373.103208ms)
+✔ shadow all_once actual campaign economy and second-chapter carry (1473.072541ms)
+✖ shadow repeat_patrol actual campaign economy and second-chapter carry (729.928667ms)
+✔ oath main_only actual campaign economy and second-chapter carry (1061.262833ms)
+✖ oath typical actual campaign economy and second-chapter carry (292.6785ms)
+✔ oath all_once actual campaign economy and second-chapter carry (1594.587666ms)
+✖ oath repeat_patrol actual campaign economy and second-chapter carry (810.0135ms)
+✔ ember main_only actual campaign economy and second-chapter carry (1217.052125ms)
+✖ ember typical actual campaign economy and second-chapter carry (366.951083ms)
+✔ ember all_once actual campaign economy and second-chapter carry (1841.277708ms)
+✖ ember repeat_patrol actual campaign economy and second-chapter carry (947.166709ms)
+✖ shadow full route with exactly one exclusive epic carries through chapter two (296.902959ms)
+✖ oath full route with exactly one exclusive epic carries through chapter two (321.174958ms)
+✖ ember full route with exactly one exclusive epic carries through chapter two (378.618166ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (2.145584ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (9.097083ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (22.525375ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (248.96075ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.6425ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (25.979709ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (14.579209ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.518791ms)
+✔ numeric source preserves twelve main/side awards and exact 123-map adjacency (8.627416ms)
+✔ seventeen authored layouts have connected entrances and targets; two bridges cross real water (369.318833ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (35.642417ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (2.286625ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (8.8725ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.287959ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (2.005791ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.691125ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (7.810708ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (39.850833ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (125.880625ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (1264.68625ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (6.660125ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (43.368166ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (782.644834ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (8.85625ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.414833ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (2.797917ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.229625ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (19.788208ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (1.900125ms)
+✔ returning immediately or idling does not respawn; active movement and return create fresh credit (118.273959ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (53.0535ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (3.729333ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.052083ms)
+✔ all seventeen maps use manual exits and each authored exit resolves to a real target (4.158417ms)
+✔ 12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event (513.461209ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (6.47775ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.1905ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.108875ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (2.575375ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (3.859ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.300875ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (767.430333ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (6737.279334ms)
+✔ each later chapter start can skip to the final result without stuck quests (7256.767958ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (3.033458ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.436458ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (10.994875ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.145584ms)
+✔ runtime independently enumerates all 35 original maps and five explicitly authorized chapter-one additions (31.6645ms)
+✔ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (1173.615625ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (7.633875ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (8.089625ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.361166ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (17.618792ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (8.031792ms)
+✔ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (466.856083ms)
+✔ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (654.557208ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (16.096459ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.056083ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (9.897292ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.247167ms)
+✔ native species is independent of V28 player-level skin fields (0.510209ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.226167ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.119209ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.072208ms)
+✔ footprint validation and segment clipping handle boundaries (0.113834ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.142292ms)
+✔ arch posts block sides without sealing the central doorway (0.076958ms)
+✖ actor sweep cannot tunnel through a narrow obstacle (2.695375ms)
+✔ walk phase advances with travelled distance, not wall time (0.289792ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.396833ms)
+✔ resting/carry transfers never receive fake walking limbs (0.092166ms)
+✔ all 24 rare gear IDs have appearance signatures (0.079583ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.302542ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (1.587375ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.526958ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (1.270166ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (144.690625ms)
+✔ all nine later-chapter/class checkpoints construct and restore (563.312458ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (237.196ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (20.833292ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.3735ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.140459ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.170917ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (178.949958ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (2.638417ms)
+✖ distance and a real occluding wall reject immediate interaction (3.518083ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (32.683167ms)
+✔ acceptance before extraction, return once and persistent state (8.670875ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (0.909542ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (19.425834ms)
+✔ new state round trips and rejects malformed records; old state remains optional (1.83675ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.204583ms)
+✔ legacy player in a new footprint is repaired only during restore (5.58375ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (1.204833ms)
+✔ other 114 maps retain baseline navigation and interaction diagnostics (845.030833ms)
+ℹ tests 140
+ℹ suites 0
+ℹ pass 114
+ℹ fail 26
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15175.727542
+
+✖ failing tests:
+
+test at tests/balance-lab.test.mjs:11:1
+✖ same seeds replay complete combat metrics and events exactly (6.245125ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at simulate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:97:30)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:13:19)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+
+test at tests/balance-lab.test.mjs:16:1
+✖ all base classes run real ordinary, elite and boss encounters (0.652792ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at simulate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:97:30)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:18:13)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/balance-lab.test.mjs:25:1
+✖ direct real RPG q matches experiment first cast damage/cost/cooldown (0.743625ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:26:25)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:33:1
+✖ base bleed and e consume real stacks; boss damage differs from ordinary (0.7965ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:34:20)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:42:1
+✖ career bleed uses separate real thirty-stack state and harvest consumes it (0.89275ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:43:20)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:48:1
+✖ insufficient mana/action cooldown reject casts without false simulated uses (2.283958ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:49:18)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:53:1
+✖ real AI damage, resources and distinct policies affect outcomes (0.454917ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at simulate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:97:30)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:54:14)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:101:1
+✖ real save roundtrip retains V28 markers, build and HP ratio (0.343958ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:102:18)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:107:1
+✖ full inventory rare gear follows real conversion behavior, not fictitious reward queue (1.914416ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:108:18)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:112:1
+✖ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.52675ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:113:20)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:121:1
+✖ real reprisal cannot exceed three charges or retrigger inside one second (0.321834ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:122:20)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:137:1
+✖ economy real rewards and one-time claim retry, free craft, injected prerequisites (0.402625ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at economyExperiment (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/economy.mjs:28:13)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:138:15)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:143:1
+✖ all economy paths execute; resource deficits and repeated callbacks remain visible (0.220667ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at economyExperiment (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/economy.mjs:28:13)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:144:48)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/balance-lab.test.mjs:149:1
+✖ distribution separates censored fights and reports confidence interval (0.205417ms)
+  Error: Fixture has no line of sight; choose coordinates explicitly
+      at createEncounter (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:77:43)
+      at simulate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/balance_lab/simulator.mjs:97:30)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/balance-lab.test.mjs:150:14)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ shadow typical actual campaign economy and second-chapter carry (373.103208ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ shadow repeat_patrol actual campaign economy and second-chapter carry (729.928667ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:58:193)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ oath typical actual campaign economy and second-chapter carry (292.6785ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ oath repeat_patrol actual campaign economy and second-chapter carry (810.0135ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:58:193)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ ember typical actual campaign economy and second-chapter carry (366.951083ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-economy.test.mjs:3:114
+✖ ember repeat_patrol actual campaign economy and second-chapter carry (947.166709ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:58:193)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:14:44
+✖ shadow full route with exactly one exclusive epic carries through chapter two (296.902959ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:15:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-economy.test.mjs:14:44
+✖ oath full route with exactly one exclusive epic carries through chapter two (321.174958ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:15:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-economy.test.mjs:14:44
+✖ ember full route with exactly one exclusive epic carries through chapter two (378.618166ms)
+  Error: No path town 850,650
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:391)
+      at waitActive (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:30:124)
+      at townFarm (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:31:78)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:46:107)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:15:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+
+test at tests/chapter-one-incremental.test.mjs:37:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (39.850833ms)
+  AssertionError [ERR_ASSERTION]: dist/chapter-one-interaction-v31.js
+  + actual - expected
+  
+  + 'b57d36cef9df0659e96d6f3654793c101cdbb106a676bcb9eec1a1eccdcedc24'
+  - '2e132eb2e557ad2f963fa5a798e554e45ac977703c3ec48baa0a7040096850cd'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:66:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'b57d36cef9df0659e96d6f3654793c101cdbb106a676bcb9eec1a1eccdcedc24',
+    expected: '2e132eb2e557ad2f963fa5a798e554e45ac977703c3ec48baa0a7040096850cd',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/presentation-v281.test.mjs:60:1
+✖ actor sweep cannot tunnel through a narrow obstacle (2.695375ms)
+  AssertionError [ERR_ASSERTION]: player should not finish inside the authored hall table
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/presentation-v281.test.mjs:62:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/world-v29.test.mjs:25:1
+✖ distance and a real occluding wall reject immediate interaction (3.518083ms)
+  AssertionError [ERR_ASSERTION]: fixture must contain an occluding wall near valve
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/world-v29.test.mjs:30:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+FAILED with exit 1

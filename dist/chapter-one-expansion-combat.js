@@ -10,7 +10,7 @@ function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(
  Object.assign(e,{label:cfg.name,elite:true,c1Custom:true,c1Generation:e.c1Generation||h.aliveGeneration,v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:35,v28RewardGold:12,v13Tuned:true});}
 export function installC1Combat(RPG,{stats}){
  const P=RPG.prototype,old={};for(const k of ['ensureMap','enemy','enter','update','damage','handleHellDeath','dropCombatLoot','snapshot','restore','respawn','skill','enemyHit'])old[k]=P[k];
- P.enemy=function(...args){const e=old.enemy.apply(this,args);tune(this,e);return e;};
+ P.enemy=function(...args){const e=old.enemy.apply(this,args);tune(this,e);if(e.id.startsWith('c1-moss-')){e.c1Species='beetle';e.label='苔壳爬兽';}if(e.id.startsWith('c1-sentry-')||e.id==='c1-trial-warden'){e.c1Species='construct';e.label=e.id==='c1-trial-warden'?'试炼守卫':'旧廊构装体';}if(e.id==='c1-trial-warden'){e.elite=true;e.maxHP=320;e.hp=e.dead?0:320;}return e;};
  P.ensureMap=function(id){c1State(this);const r=old.ensureMap.call(this,id);const st=this.states[id];if(!st)return r;for(const [eliteId,cfg]of Object.entries(C1_ELITES)){if(cfg.map!==id)continue;let e=st.enemies.find(e=>e.id===eliteId);if(!e&&cfg.x!==undefined){e=this.enemy(cfg.type,cfg.x,cfg.y,eliteId);st.enemies.push(e);}if(e)tune(this,e);}return r;};
  P.c1EliteKill=function(e){
   const cfg=C1_ELITES[e.id];if(!cfg||this.map!==cfg.map)return false;e.hp=0;const h=c1Encounter(this,e.id),key='elite:'+e.id+':'+e.c1Generation;

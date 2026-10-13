@@ -11,6 +11,7 @@ export function nativeMonsterTypeV281(a,aliases={}){
  return aliases[t]||t;
 }
 export function actorHeightV281(a={},kind='npc',aliases={}){
+ if(a.c1Species)return a.c1Species==='beetle'?66:95;
  if(a.type){const t=nativeMonsterTypeV281(a,aliases),base=CREATURE_HEIGHT[t]||88;return Math.round(base*(a.elite&&!a.isBoss&&!['captain','deepElite'].includes(t)?1.12:1));}
  if(a.cls==='saint'||a.id==='saint')return HUMAN_HEIGHT.saint;
  if(['chengli','ch8Chengli','v25Chengli'].includes(a.id))return HUMAN_HEIGHT.chengli;

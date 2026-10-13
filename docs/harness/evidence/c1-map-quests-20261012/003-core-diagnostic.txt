@@ -1,0 +1,184 @@
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (30.778667ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (32.131875ms)
+✖ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (1.008833ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.384458ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (1.042375ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.613958ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (1.9745ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.510292ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.048166ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (5.83075ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (24.258166ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (66.111709ms)
+✖ old guardian core remains manually collectible and never refreshed with elite (3.783167ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.065916ms)
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.038375ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.082959ms)
+✔ numeric source preserves twelve main/side awards and exact 123-map adjacency (0.793333ms)
+✖ all new interactions reachable after intended plank operation; initial canal cannot be crossed (84.636583ms)
+✖ zero sidequest/zero crafted equipment main gates require training, daylight, records and actual crossing (5.850042ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (6.224834ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (10.615667ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.3ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (1.98275ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.763084ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (5.628542ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (1.407042ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (58.406875ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (927.609666ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (7.310916ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (42.444625ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (655.014292ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.638167ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.842167ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (2.858125ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.258917ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (489.134292ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (6129.300708ms)
+✔ each later chapter start can skip to the final result without stuck quests (6878.090875ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (2.853625ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (3.919958ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (10.711166ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.16725ms)
+ℹ tests 42
+ℹ suites 0
+ℹ pass 36
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 13668.621208
+
+✖ failing tests:
+
+test at tests/chapter-one-crafting.test.mjs:9:1
+✖ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (1.008833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  0 !== 2
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-crafting.test.mjs:9:524)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: 2,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-elites.test.mjs:9:1
+✖ old guardian core remains manually collectible and never refreshed with elite (3.783167ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.useProp(p.id))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:9:368)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-elites.test.mjs:11:1
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.038375ms)
+  TypeError: Cannot read properties of null (reading 'max')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:13:168)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-expansion.test.mjs:10:1
+✖ all new interactions reachable after intended plank operation; initial canal cannot be crossed (84.636583ms)
+  AssertionError [ERR_ASSERTION]: hall
+  + actual - expected
+  
+  + [
+  +   {
+  +     id: 'road',
+  +     kind: 'door',
+  +     x: 800,
+  +     y: 960
+  +   },
+  +   {
+  +     id: 'guestroom',
+  +     kind: 'door',
+  +     x: 800,
+  +     y: 190
+  +   }
+  + ]
+  - []
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:10:284)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ { id: 'road', kind: 'door', x: 800, y: 960 }, { id: 'guestroom', kind: 'door', x: 800, y: 190 } ],
+    expected: [],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-expansion.test.mjs:11:1
+✖ zero sidequest/zero crafted equipment main gates require training, daylight, records and actual crossing (5.850042ms)
+  AssertionError [ERR_ASSERTION]: c1-record
+      at prop (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:7:63)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-expansion.test.mjs:11:402)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-incremental.test.mjs:36:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (1.407042ms)
+  AssertionError [ERR_ASSERTION]: maps/hall
+  + actual - expected
+  
+  + 'c603f0ffb73244db2d4413adf5d310d44fff7082bdf6ecc367a595620fc0549e'
+  - '07ac65a72a5e4e9b6f4077e65867f0ff664af3535e9c7450fb4078868b999f78'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:44:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'c603f0ffb73244db2d4413adf5d310d44fff7082bdf6ecc367a595620fc0549e',
+    expected: '07ac65a72a5e4e9b6f4077e65867f0ff664af3535e9c7450fb4078868b999f78',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

@@ -1,5 +1,5 @@
 // Chapter 0.6 numeric source. Fixed budgets never pass through random gear growth.
-export const C1_VERSION=1;
+export const C1_VERSION=2;
 export const C1_MAIN=[
  ['rats','库房异响',65,25,'hall','steward',[]],
  ['c1CommissionBrief','委托与行前准备',15,10,'hall','sister',['rats']],

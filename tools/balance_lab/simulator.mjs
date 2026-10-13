@@ -69,7 +69,7 @@ export function createEncounter(input={}) {
   g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.map=config.map;g.ensureMap(g.map);
   g.states[g.map].enemies=[];g.pending=null;g.transition=null;g.active=true;
   g.portCD=config.duration+1;g.saint.visible=false;
-  const at=g.safePoint(config.x??800,config.y??740);Object.assign(g.p,at);
+  const at=g.safePoint(config.x??800,config.y??(config.map==='road'?540:740));Object.assign(g.p,at);
   const enemyAt=g.safePoint(at.x+(config.distance??100),at.y);
   const enemy=g.enemy(config.enemy,enemyAt.x,enemyAt.y,'lab-'+config.enemy);
   g.states[g.map].enemies.push(enemy);g.target=enemy.id;

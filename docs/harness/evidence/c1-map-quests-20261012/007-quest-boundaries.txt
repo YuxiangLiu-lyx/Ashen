@@ -1,0 +1,64 @@
+✔ numeric source preserves twelve main/side awards and exact 123-map adjacency (0.784542ms)
+✔ seventeen authored layouts have connected entrances and targets; two bridges cross real water (152.40425ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (20.913666ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (2.036459ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (9.933125ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.276958ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (2.003959ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.700959ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (4.478625ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (13.654541ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (49.619875ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (867.342833ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (6.18975ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (38.6325ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (626.224625ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.089084ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (0.936542ms)
+✖ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (1.63275ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.266083ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (18.50525ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (2.055583ms)
+✔ returning immediately or idling does not respawn; active movement and return create fresh credit (29.006875ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (4.487167ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (3.053916ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.013042ms)
+✔ all seventeen maps use manual exits and each authored exit resolves to a real target (4.144375ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 25
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1757.076083
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:149:1
+✖ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (1.63275ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      880,
+  +   735,
+  -   705,
+      880,
+      640
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:155:82)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 880, 735, 880, 640 ],
+    expected: [ 880, 705, 880, 640 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

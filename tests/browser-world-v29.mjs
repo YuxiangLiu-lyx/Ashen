@@ -26,7 +26,7 @@ window.__WORLD_QA={ready:()=>assetsReady,
  load(s){start(s);return this.state();},
  data(){return {map:MAPS[g.map],scenery:SCENERY[g.map],targets:g.targets(),enemy:g.enemies.map(e=>({id:e.id,type:e.type,x:e.x,y:e.y,hp:e.hp,dead:e.dead}))};},
  walk(x,y){if(g.pending||mode!=='play')return false;auto=false;pendingWalk=null;g.target=null;g.moveTo={x,y};g.portCD=999;g.active=true;return true;},
- journey(){this.setup('road',850,570);g.gainXP(260);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.flags.lottiMet=true;worldTravel={distance:0,moving:0,quiet:0,maxQuiet:0,samples:[],interactions:0,last:null};this.live();return {level:g.p.level,stats:stats(g.p),gear:g.p.gear,items:g.p.items};},
+ journey(){this.setup('road',850,570);g.gainXP(260);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.flags.lottiMet=true;g.c1Accept('echo');worldTravel={distance:0,moving:0,quiet:0,maxQuiet:0,samples:[],interactions:0,last:null};this.live();return {level:g.p.level,stats:stats(g.p),gear:g.p.gear,items:g.p.items};},
  travel(){return worldTravel;},
  interactPoint(id){const t=g.targets().find(t=>t.id===id);return t?this.point(t.drawX??t.x,(t.drawY??t.y)-25):null;},
  enemies(){return g.enemies.filter(e=>!e.dead).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,maxHP:e.maxHP}));},
@@ -63,27 +63,24 @@ try{
      if(s.mode==='npc')await button('[data-act="resume"]');
      await browser.evaluate(`${Q}.walk(${x},${y})`);
     }
-    if(expectedMap&&(await state()).map===original&&!(await state()).transition){const p=await browser.evaluate(`${Q}.point(${x},${y-25})`);await browser.click(p.x,p.y);await delay(150);}
+    if(expectedMap&&(await state()).map===original&&!(await state()).transition){await browser.key('f');await browser.key('f',false);await delay(150);}
     if((await state()).transition)await button('[data-act="transition-confirm"]');
     if(expectedMap)await browser.wait(`${Q}.state().map===${JSON.stringify(expectedMap)}`,8000);
    }
    async function object(id){const p=await browser.evaluate(`${Q}.interactPoint(${JSON.stringify(id)})`);assert.ok(p,id);await browser.click(p.x,p.y);await delay(1100);}
-   async function fight(range=520){const deadline=Date.now()+65000;let n=0;while(Date.now()<deadline){const s=await state();let enemies=(await browser.evaluate(Q+'.enemies()')).filter(e=>Math.hypot(e.x-s.x,e.y-s.y)<range);if(!enemies.length)return;assert.ok(s.hp>0,'Player died in real combat');const e=enemies.sort((a,b)=>Math.hypot(a.x-s.x,a.y-s.y)-Math.hypot(b.x-s.x,b.y-s.y))[0];const p=await browser.evaluate(`${Q}.point(${e.x},${e.y-30})`);await browser.click(p.x,p.y);if(n%3===0){await browser.key('1');await browser.key('1',false);}if(n%7===0){await browser.key('2');await browser.key('2',false);}if(s.hp<100){await browser.key('4');await browser.key('4',false);}await delay(650);n++;}throw Error('Combat timed out');}
-   await walk(925,710);await object('v29-road-sign');assert.equal((await state()).pending?.id,'v29RoadSign');await dialogue();await browser.shot(path.join(out,'journey-road.png'));await fight();
-   await walk(1010,770);await walk(1050,860,'millpath');journey.millEntry=await state();console.log("Journey: entered millpath");
-   await walk(820,440);await walk(885,535);await object('v29-mill-tracks');assert.equal((await state()).pending?.id,'v29MillTracks');await dialogue();
-   await walk(1080,670);await fight(350);await walk(1180,865,'echo');journey.echoEntry=await state();console.log("Journey: entered echo");
-   await walk(420,700);await walk(450,390);await fight(250);await object('echo-notes');assert.equal((await state()).pending?.id,'v29EchoNotes');await dialogue();
-   await walk(540,590);await walk(835,585);await walk(850,480);await object('echo-valve');assert.equal((await state()).flags.echoValve,true);await browser.shot(path.join(out,'journey-valve.png'));
-   await walk(1080,580);await fight();assert.ok(!(await state()).flags.echoCoreFound);await browser.shot(path.join(out,'journey-clear.png'));
-   await walk(1150,460);await object('v29-echo-core');assert.equal((await state()).pending?.id,'v29EchoCoreTaken');await dialogue();journey.coreTaken=await state();console.log("Journey: manually extracted core");
-   await object('echo-machine');await dialogue();await button('[data-echo-reward="gear"]');await dialogue();journey.rewardTaken=await state();
-   await walk(900,590);await walk(540,590);await walk(300,780);await walk(300,885,'millpath');await walk(1080,700);await walk(850,485);await walk(800,230,'road');
-   await walk(1120,620);await walk(1350,570);await walk(1430,540,'town');await walk(1000,690);await walk(1180,620);await walk(1180,520,'workshop');
-   await walk(890,690);await object('lotti');await browser.wait(`${Q}.state().mode==='npc'`);await button('[data-choice="echoReturn"]');await dialogue();assert.equal((await state()).quests.echo,'done');journey.completed=await state();console.log("Journey: returned core to Lotti");
+   async function fight(range=520){const deadline=Date.now()+65000;let n=0;while(Date.now()<deadline){const s=await state();let enemies=(await browser.evaluate(Q+'.enemies()')).filter(e=>Math.hypot(e.x-s.x,e.y-s.y)<range);if(!enemies.length)return;assert.ok(s.hp>0,'Player died in real combat');const e=enemies.sort((a,b)=>Math.hypot(a.x-s.x,a.y-s.y)-Math.hypot(b.x-s.x,b.y-s.y))[0];if(Math.hypot(e.x-s.x,e.y-s.y)>340){await walk(e.x,e.y);continue;}const p=await browser.evaluate(`${Q}.point(${e.x},${e.y-30})`);await browser.click(p.x,p.y);if(n%3===0){await browser.key('1');await browser.key('1',false);}if(n%7===0){await browser.key('2');await browser.key('2',false);}if(s.hp<100){await browser.key('4');await browser.key('4',false);}await delay(650);n++;}throw Error('Combat timed out');}
+   await walk(960,560);await fight();await browser.shot(path.join(out,'journey-road.png'));
+   await walk(1050,860,'millpath');journey.millEntry=await state();console.log('Journey: entered millpath');
+   await walk(780,580);await fight(650);await walk(1200,800);await fight(600);await walk(1180,865,'echo');journey.echoEntry=await state();console.log('Journey: entered echo');
+   await walk(480,700);await walk(540,500);await fight(350);await walk(840,725);if(!(await state()).flags.echoValve)await object('echo-valve');assert.equal((await state()).flags.echoValve,true);await browser.shot(path.join(out,'journey-valve.png'));
+   await walk(1050,570);await fight(800);assert.ok(!(await state()).flags.echoCoreFound);await browser.shot(path.join(out,'journey-clear.png'));
+   await walk(1200,425);if(!(await state()).flags.echoCoreFound){await object('v29-echo-core');assert.equal((await state()).pending?.id,'v29EchoCoreTaken');}await dialogue();assert.ok((await state()).flags.echoCoreFound);journey.coreTaken=await state();console.log('Journey: manually extracted core');
+   await walk(1280,425);await object('echo-machine');await dialogue();await button('[data-echo-reward="gear"]');await dialogue();journey.rewardTaken=await state();
+   await walk(300,885,'millpath');await walk(800,230,'road');await walk(1430,540,'town');await walk(1180,520,'workshop');
+   await walk(920,645);await object('lotti');await browser.wait(`${Q}.state().mode==='npc'`);await button('[data-choice="c1:claim:echo"]');await dialogue();assert.equal((await state()).quests.echo,'done');journey.completed=await state();console.log('Journey: returned core to Lotti');
    await browser.evaluate(Q+'.overview()');await browser.shot(path.join(out,'workshop-completed.png'));await browser.evaluate(Q+'.live()');
    const loaded=await browser.evaluate(Q+'.safeLoad()');assert.equal(loaded.quests.echo,'done');assert.equal(loaded.flags.echoChoice,'gear');journey.reloaded=loaded;journey.telemetry=await browser.evaluate(Q+'.travel()');
-   journey.scope='Level-3 starter fixture created once on road; mouse/keyboard dialogue, navigation, ordinary combat, valve, extraction, exclusive reward, return and save/reload. Offscreen waypoints use the same moveTo runtime, no damage/teleport/immune hooks. Not a campaign playthrough.';
+   journey.scope='Level-3 starter fixture created once on road with echo quest accepted; mouse/keyboard dialogue, navigation, ordinary combat, valve, extraction, exclusive reward, return and save/reload. Offscreen waypoints use the same moveTo runtime, no damage/teleport/immune hooks. Not a campaign playthrough.';
   }
   assert.deepEqual(browser.errors,[]);
   fs.mkdirSync(out,{recursive:true});

@@ -1,3 +1,4 @@
+import {C1_MAPS} from '../dist/chapter-one-layout.js';
 import test from 'node:test';
 import fs from 'node:fs';
 import assert from 'node:assert/strict';
@@ -7,7 +8,7 @@ import {parseSave} from '../dist/save-transfer-v14.js';
 import {DEMO_MAPS_V29} from '../dist/world-design-v29.js';
 import {worldOperationV29,worldPropVisibleV29,worldProgressV29} from '../dist/world-runtime-v29.js';
 import {inspectWorldMap} from '../tools/world_audit.mjs';
-const game=(map='echo',x=300,y=810)=>{const g=new RPG('shadow',null,()=>.44);g.chapter=1;g.enter(map,x,y);g.pending=null;g.active=true;g.events=[];g.portCD=999;return g;};
+const game=(map='echo',x=300,y=810)=>{const g=new RPG('shadow',null,()=>.44);g.chapter=1;g.enter(map,x,y);g.pending=null;g.active=true;g.events=[];g.portCD=999;g.c1Accept('echo');return g;};
 const finish=g=>{g.finishScene();g.events=[];};
 const clear=g=>{for(const e of [...g.enemies])if(!e.dead)g.damage(e,10000);g.events=[];};
 const at=(g,id)=>{const t=g.targets().find(p=>p.id===id);assert.ok(t,id);g.relocate(t.x,t.y);return t;};
@@ -30,15 +31,12 @@ test('distance and a real occluding wall reject immediate interaction',()=>{
 });
 test('warden death opens a physical claim, and surviving enemies prevent extraction',()=>{
  const g=game();const w=g.enemies.find(e=>e.id==='echo-warden');g.damage(w,10000);assert.equal(g.flags.echoWardenDefeated,true);assert.ok(!g.flags.echoCoreFound);assert.equal(g.p.items.echoCore||0,0);assert.equal(worldProgressV29(g),'clear-workspace');operate(g,'v29-echo-core',false);assert.ok(!g.flags.echoCoreFound);
- clear(g);assert.equal(worldProgressV29(g),'extract');assert.equal(g.takeEchoReward('gear'),false);operate(g,'v29-echo-core',false);assert.equal(g.pending.id,'v29EchoNeedNotes');assert.ok(!g.flags.echoCoreFound);
- finish(g);operate(g,'echo-notes');assert.equal(g.pending.id,'v29EchoNotes');finish(g);operate(g,'v29-echo-core');assert.equal(g.p.items.echoCore,1);assert.equal(g.quests.echo,'active');assert.equal(g.pending.id,'v29EchoCoreTaken');finish(g);
+ clear(g);assert.equal(worldProgressV29(g),'extract');assert.equal(g.takeEchoReward('gear'),false);operate(g,'v29-echo-core');assert.equal(g.p.items.echoCore,1);assert.equal(g.quests.echo,'active');assert.equal(g.pending.id,'v29EchoCoreTaken');finish(g);
  assert.equal(worldPropVisibleV29(g,{id:'v29-echo-core'}),false);assert.equal(g.useProp('v29-echo-core'),false);assert.equal(g.p.items.echoCore,1);
 });
-test('accepted and discovery-first routes both return once, retain rewards and persistent state',()=>{
- for(const accepted of [false,true]){const g=game();if(accepted){g.choose('echoAccept');assert.equal(g.pending.id,'v29LottieWork');finish(g);}clear(g);operate(g,'echo-notes');finish(g);operate(g,'v29-echo-core');finish(g);
-  const gold=g.p.gold;g.enter('workshop',800,870);g.choose('echoReturn');assert.equal(g.pending.id,accepted?'v29LottieReturn':'v29LottieFoundReturn');finish(g);assert.equal(g.quests.echo,'done');assert.equal(g.p.items.echoCore,0);assert.equal(g.p.gold,gold+20);assert.equal(worldProgressV29(g),'curing');assert.equal(worldPropVisibleV29(g,{id:'v29-repair-core'}),true);
-  g.choose('echoReturn');assert.equal(g.p.gold,gold+20);const saved=parseSave(JSON.stringify(g.snapshot())),r=new RPG('shadow',saved,()=>.44);assert.equal(r.quests.echo,'done');r.enter('echo',300,810);assert.ok(r.enemies.every(e=>e.dead));r.chapter=3;assert.equal(worldProgressV29(r),'ready');assert.equal(r.refineryUnlocked(),true);
- }
+test('acceptance before extraction, return once and persistent state',()=>{
+ const g=game();delete g.quests.echo;g.flags.echoLog=false;clear(g);assert.ok(!g.targets().some(t=>t.id==='v29-echo-core'));assert.equal(g.useProp('v29-echo-core'),false);g.c1Accept('echo');operate(g,'v29-echo-core');finish(g);
+ const gold=g.p.gold;g.enter('workshop',800,870);g.choose('echoReturn');finish(g);assert.equal(g.quests.echo,'done');assert.equal(g.p.items.echoCore,0);assert.equal(g.p.gold,gold+20);assert.equal(worldProgressV29(g),'curing');assert.equal(worldPropVisibleV29(g,{id:'v29-repair-core'}),true);g.choose('echoReturn');assert.equal(g.p.gold,gold+20);const saved=parseSave(JSON.stringify(g.snapshot())),r=new RPG('shadow',saved,()=>.44);assert.equal(r.quests.echo,'done');r.enter('echo',300,810);assert.ok(r.enemies.every(e=>e.dead));r.chapter=3;assert.equal(worldProgressV29(r),'ready');assert.equal(r.refineryUnlocked(),true);
 });
 test('front-slot choice is independent, bag-full retry and repeated claims stay safe',()=>{
  const g=game();clear(g);g.flags.echoLog=true;operate(g,'v29-echo-core');finish(g);at(g,'echo-machine');g.p.bag=Array.from({length:60},()=>({...g.p.gear.weapon}));assert.equal(g.takeEchoReward('gear'),false);assert.ok(!g.flags.echoChoice);g.p.bag.pop();assert.equal(g.takeEchoReward('gear'),true);assert.equal(g.takeEchoReward('book'),false);assert.equal(g.flags.echoChoice,'gear');assert.equal(g.p.items.echoCore,1);
@@ -68,6 +66,6 @@ test('opt-in guestroom rest keeps its old result and ends at the original positi
 });
 test('other 114 maps retain baseline navigation and interaction diagnostics',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-live-navigation.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
- for(const m of baseline)if(!DEMO_MAPS_V29.includes(m.id)){const report=inspectWorldMap(g,m.id);// Chapter 2 repair moves the water interaction off the wall; the historical baseline stays intact.
+ for(const m of baseline)if(!C1_MAPS.includes(m.id)){const report=inspectWorldMap(g,m.id);// Chapter 2 repair moves the water interaction off the wall; the historical baseline stays intact.
  const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.id==='town'?m.unreachable.filter(t=>t.id!=='well'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
 });

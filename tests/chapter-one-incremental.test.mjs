@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import crypto from 'node:crypto';
+import {C1_MAPS} from '../dist/chapter-one-layout.js';
 import {C1_NEW_MAPS,C1_QUESTS} from '../dist/chapter-one-expansion-data.js';
 import {RPG,MAPS,QUESTS} from '../dist/core-v14.js';
 import {DIALOGUES} from '../dist/data-v14.js';
@@ -40,6 +41,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
   assert.deepEqual(added.sort(),allowed.slice().sort(),key+' authorized additions');
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
+   if(['maps','scenery'].includes(key)&&C1_MAPS.includes(id))continue; // 0.7 explicit 17-map geometry/art authorization; independently audited.
    let value=table[id];if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
    assert.equal(hash(value),h,key+'/'+id);
   }
@@ -56,11 +58,12 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
     ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],
     ["\ninstallChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});\n",''],
     ["this.c1MainPayment('c1CommissionBrief');",'this.gainXP(15);'],["this.c1MainPayment('c1Assassination');",'this.gainXP(65);'],
-    ['if(!this.c1Expansion)this.gainXP(20);','this.gainXP(20);'],['已问清礼拜厅入口。亲自看过封门牌后，再回来核实。','已问清礼拜厅的入口 · 经验 +20'],['追缉官倒地。转动东侧绞盘，把撤离闸打开。','追缉官倒地。东侧闸门已经打开。']]){
+    ['if(!this.c1Expansion)this.gainXP(20);','this.gainXP(20);'],['礼拜厅门禁已核实。备好退路后，从北侧前厅进入。','已问清礼拜厅的入口 · 经验 +20'],['追缉官倒地。清除剩余追兵后，从东侧闸口撤离。','追缉官倒地。东侧闸门已经打开。']]){
      assert.equal(original.split(approved).length,2,'one scoped 0.6 core change');original=original.replace(approved,prior);
     }data=Buffer.from(original);
   }
   if(file==='dist/visuals-v14.js'){let source=data.toString();for(const approved of ["import {c1Ground} from './chapter-one-expansion-art.js';\n",'c1Ground(this,id)||']){assert.equal(source.split(approved).length,2);source=source.replace(approved,'');}data=Buffer.from(source);}
+  if(file==='dist/chapter-one-interaction-v31.js'){let source=data.toString();source=source.replace("{...t,y:this.props.find(p=>p.id==='well')?.interactY??735}",'{...t,y:735}').replace('{x:p.interactX??p.x,y:p.interactY??735}','{x:p.x,y:735}');data=Buffer.from(source);}
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),h,file);
  }
 });
@@ -147,10 +150,10 @@ test('only the requested known-speaker exchange remains; anonymous dialogue and 
 test('the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves',()=>{
  const g=new RPG('shadow');g.enter('town',900,770);g.pending=null;g.active=true;
  const saved=copy(g.snapshot()),prop=saved.states.town.props.find(p=>p.id==='well');
- assert.deepEqual([prop.x,prop.y],[900,700]);
+ assert.deepEqual([prop.x,prop.y],[880,640]);
  for(const offMap of [false,true]){
   const old=copy(saved);if(offMap)old.map='hall';const r=new RPG('shadow',old);if(offMap)r.enter('town',900,770);
-  r.pending=null;r.active=true;const t=r.targets().find(t=>t.id==='well');assert.deepEqual([t.x,t.y,t.drawX,t.drawY],[900,735,900,700]);
+  r.pending=null;r.active=true;const t=r.targets().find(t=>t.id==='well');assert.deepEqual([t.x,t.y,t.drawX,t.drawY],[880,705,880,640]);
   assert.equal(r.blocked(t.x,t.y,false),false);assert.equal(r.clearLine(r.p,t,false),true);r.interact(t);assert.equal(r.flags.wellSeen,true);
   assert.deepEqual(saved.states.town.props.find(p=>p.id==='well'),prop);
  }

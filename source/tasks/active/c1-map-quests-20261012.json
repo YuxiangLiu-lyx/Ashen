@@ -1,0 +1,340 @@
+{
+  "schema": 1,
+  "id": "c1-map-quests-20261012",
+  "goal": "第一章0.7地图与任务全面优化：分区空间、战斗采集任务、准确指引与场景物件",
+  "acceptance": [
+    "17图可达与实战；未接无任务交互；金问号可立即交付；掉落采集存档兼容；正常输入通章与构建可玩"
+  ],
+  "baseline_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "combat"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-13T00:02:06.141794+00:00",
+  "updated_at_utc": "2026-10-13T01:24:16.141673+00:00",
+  "decisions": [
+    "用户最新要求授权第一章17图布局与任务目标重做；旧0.1/0.2不恢复，第二章及原刺杀保留；三精英接受短战与原数值预算继续有效",
+    "旧0.6步骤迁移为新目标证据；首次解锁与固定奖励ID保持，未接任务不计数或掉落；普通怪45秒有效活动后返图补充，精英仍180秒"
+  ],
+  "completed": [
+    "fde0a1e真实运行基线通过：原件校验、地图审计、23表现回归及正式浏览器；WORLD.json完整保存123图/对白/任务，0.7章稿与逐图计划落盘",
+    "17图布局与材质/碰撞共用数据已实现，首次正式渲染留证；已删除旧机关堆积，接入统一击杀/70%掉落/随机采集及金问号判定，主线动作冒烟走至刺杀入口通过",
+    "统一接取/击杀/掉落/交付与schema2迁移通过：140项核心及30项Harness；15条真实运行经济路线通章二。影刃真实键鼠新档连续通前两章，地图表现继续细修",
+    "旧0.6步骤/已访问地图/掉落种子迁移、满包、幂等与章二兼容通过；17图221条真实移动路线及四组浏览器专项通过，废窑更换独立原件并纠正废墙拉伸"
+  ],
+  "remaining": [
+    "最终三职业/集成；17图三维记录；构建和常用入口；GitHub保存"
+  ],
+  "blockers": [],
+  "next": "固定源码后执行三职业正常输入和最终integration，复核地图与包入口",
+  "required_checks": [
+    "fast",
+    "integration",
+    "map-quality"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "docs/ch1-map-quests/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T00:02:43.149027+00:00",
+      "finished_at_utc": "2026-10-13T00:03:06.298832+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/001-baseline.txt",
+      "output_sha256": "0fb4e3b71f5f47e10ff19aa948b1aacfa4a234608d4f104e2f93ac8c5cdf2e00",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "map-first-render",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "node",
+        "tests/browser-chapter-one-map-quests.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T00:16:08.169577+00:00",
+      "finished_at_utc": "2026-10-13T00:16:19.680390+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "3e99f0aae556dbbd4d51ee1d9b5912a9c048fd0452d0bd639eff14e148387210",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/002-map-first-render.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "core-diagnostic",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-test.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:26:00.498338+00:00",
+      "finished_at_utc": "2026-10-13T00:26:14.280288+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "0fe5e0e63729852f041a636f18fdadbbd2bdb4e236e154929758bdc17e00d0c5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/003-core-diagnostic.txt",
+      "output_sha256": "357d5f45a51ec7a413e5de85c6666a850b0fbfff58dc51a3fd2dff805c8c5894",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "runtime-main-diagnostic",
+      "command": [
+        "node",
+        "tests/chapter-one-economy.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T00:35:19.825331+00:00",
+      "finished_at_utc": "2026-10-13T00:35:20.411360+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "8621f0d8255e6782b5fa58c6b5e5a103707ee84cfa3efa56ceef1326349b49b9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/004-runtime-main-diagnostic.txt",
+      "output_sha256": "b56a979bf7ff7d93feb76cf3bacf476a9c904503c1f75fb033bff60e8e509515",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "economy-diagnostic",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T00:35:25.762550+00:00",
+      "finished_at_utc": "2026-10-13T00:35:49.179595+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "8621f0d8255e6782b5fa58c6b5e5a103707ee84cfa3efa56ceef1326349b49b9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/005-economy-diagnostic.txt",
+      "output_sha256": "334041c851a31b78e0807b41fec80ecd4e7d17734c77387ba0f133816c9046dd",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "core-and-render",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; commands=[['node','--test','tests/chapter-one-expansion.test.mjs','tests/chapter-one-crafting.test.mjs','tests/chapter-one-elites.test.mjs','tests/chapter-one-incremental.test.mjs'],['node','tests/browser-chapter-one-map-quests.mjs']];results=[subprocess.run(c).returncode for c in commands];raise SystemExit(any(results))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:37:59.927960+00:00",
+      "finished_at_utc": "2026-10-13T00:38:13.522129+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "5eadb2b28cc8dfe3663e4e1f202ebf870f0c2c21ccc951ca7a2b1e078d1c5d16",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/006-core-and-render.txt",
+      "output_sha256": "03bb80c77f26cf40cf2f22c8faee000d139f45b17778148a6751c9f1fad9f560",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "quest-boundaries",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-expansion.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:41:37.651879+00:00",
+      "finished_at_utc": "2026-10-13T00:41:39.488110+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "bb7fb7bf17f0956f6e156b162bc82f061078e924181afa180a1ad0e4ddab8719",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/007-quest-boundaries.txt",
+      "output_sha256": "c14161e0b12a39949c6811224fc79e473414275caff1758473cc1d2035c9157c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "core-diagnostic-2",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:42:45.486139+00:00",
+      "finished_at_utc": "2026-10-13T00:43:01.109057+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "0a761695552b060239fea6a4f62ea6cf1c3df5721ed880e940b0b440a7b2308e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/008-core-diagnostic-2.txt",
+      "output_sha256": "5fc799183edf90cbb51315fde8dedbcae1128e90565ce66942c9745feff93439",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "browser-and-core-diagnostic",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,concurrent.futures; cmds=[['python3','tools/harness/check.py','--tier','core'],['node','tests/browser-chapter-one-map-quests.mjs'],['node','tests/browser-chapter-one-natural.mjs']]; pool=concurrent.futures.ThreadPoolExecutor(3); codes=list(pool.map(lambda c:subprocess.run(c).returncode,cmds));print('SUBPROCESS RESULTS',list(zip(cmds,codes)));raise SystemExit(any(codes))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:43:42.752344+00:00",
+      "finished_at_utc": "2026-10-13T00:51:06.571098+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "0a761695552b060239fea6a4f62ea6cf1c3df5721ed880e940b0b440a7b2308e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/009-browser-and-core-diagnostic.txt",
+      "output_sha256": "e7593ce6a49a518e964b96d4310594ec918d6d71a21bcd4d4f91795410f8bf2b",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "core-diagnostic-3",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T00:53:44.505400+00:00",
+      "finished_at_utc": "2026-10-13T00:54:16.481035+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "25d12d387c769473daefe7f5ccf1aa5138b9d19febef44efa2a903dd58e92d43",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/010-core-diagnostic-3.txt",
+      "output_sha256": "44856ad51cc51251798a134ed139b108cb2d3e11201047ffa6bd9aea543530e1",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "core-diagnostic-4",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:00:38.832635+00:00",
+      "finished_at_utc": "2026-10-13T01:01:21.413135+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "c1f994652d4bde7fd2f1c91e30f71a8bb4753feb60c908e6f79cc5c2b3865085",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/011-core-diagnostic-4.txt",
+      "output_sha256": "ff00fe44d5ee0bc6dcd2ce11260d92c47015ee9a896f34b818026a4881a77ed6",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "integration-diagnostic",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T01:03:14.159640+00:00",
+      "finished_at_utc": "2026-10-13T01:06:33.487700+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "95ffde6291d8b71728435526aa0bbd8670fa4c56ed71e6eaffbf18e9bc86c6a2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/012-integration-diagnostic.txt",
+      "output_sha256": "e749a976222adfe2251f1d3f2b75806d3959a50ec3441d808b2a9202fd5109b2",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "movement-and-world",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,concurrent.futures; cmds=[['node','--test','tests/chapter-one-map-quests.test.mjs'],['node','tests/browser-world-v29.mjs'],['node','tests/browser-chapter123.mjs'],['node','tests/browser-chapter-one-expansion.mjs']]; pool=concurrent.futures.ThreadPoolExecutor(4); results=list(pool.map(lambda c:subprocess.run(c).returncode,cmds));print('RESULTS',list(zip(cmds,results)));raise SystemExit(any(results))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T01:08:32.772456+00:00",
+      "finished_at_utc": "2026-10-13T01:09:12.842062+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "91c52ce3cc612e864819267516db10860d92a1f581ae59f1645951a591bf61c8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/013-movement-and-world.txt",
+      "output_sha256": "bfd3a619f0c869665a101f7e624464f160a7ab712ce9f77f84833df09a8147f7",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "world-browser-recheck",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,concurrent.futures; cmds=[['node','tests/browser-world-v29.mjs'],['node','tests/browser-chapter123.mjs'],['node','tests/browser-chapter-one-expansion.mjs'],['node','tests/browser-chapter-one-map-quests.mjs']]; pool=concurrent.futures.ThreadPoolExecutor(4); results=list(pool.map(lambda c:subprocess.run(c).returncode,cmds));print('RESULTS',list(zip(cmds,results)));raise SystemExit(any(results))"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:13:58.602211+00:00",
+      "finished_at_utc": "2026-10-13T01:15:21.730059+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "98d5133e5ddf7def413240b709807caa04465e021166469e50af532f40a3f050",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/014-world-browser-recheck.txt",
+      "output_sha256": "b6a1dd3327a9dc4be3440fd42243145564c9d3c4ab70dfb58eb653ec1ffbf3aa",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:23:33.293348+00:00",
+      "finished_at_utc": "2026-10-13T01:23:48.452186+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/015-fast.txt",
+      "output_sha256": "cd1caf3e8dbf1d541b655832db2ed7f6637bc3c09c887c979ade5558a6193786",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "baseline",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T00:08:59.387710+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "877f498843272c04e780092258441df479dce1831134bf2952aa4d76a3943ada",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n?? dist/assets/c1-map-quests/\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json"
+    },
+    {
+      "name": "maps",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-13T00:08:59.460398+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "877f498843272c04e780092258441df479dce1831134bf2952aa4d76a3943ada",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n?? dist/assets/c1-map-quests/\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json"
+    },
+    {
+      "name": "quests",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T01:02:19.693856+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "c1f994652d4bde7fd2f1c91e30f71a8bb4753feb60c908e6f79cc5c2b3865085",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-runtime.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-interaction-v31.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/presentation-metrics-v281.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-crafting.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/presentation-v281.test.mjs\n M tests/world-v29.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/balance_lab/simulator.mjs\n M tools/harness/check.py\n?? dist/assets/c1-map-quests/\n?? dist/chapter-one-layout.js\n?? dist/chapter-one-objectives.js\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json\n?? tests/browser-chapter-one-map-quests.mjs\n?? tests/chapter-one-map-quests.test.mjs"
+    },
+    {
+      "name": "compatibility",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T01:24:16.105251+00:00",
+      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-runtime.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-interaction-v31.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/presentation-metrics-v281.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/MAP_QUALITY.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-chapter123.mjs\n M tests/browser-world-v29.mjs\n M tests/chapter-one-crafting.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/presentation-v281.test.mjs\n M tests/world-v29.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/balance_lab/simulator.mjs\n M tools/harness/check.py\n?? dist/assets/c1-map-quests/\n?? dist/chapter-one-layout.js\n?? dist/chapter-one-objectives.js\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json\n?? tests/browser-chapter-one-map-quests.mjs\n?? tests/chapter-one-map-quests.test.mjs"
+    }
+  ]
+}

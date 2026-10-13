@@ -1,0 +1,73 @@
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (25.114333ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (22.810625ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.137292ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.376042ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.7145ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.557292ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (1.568458ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.366334ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (0.969584ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (4.88075ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (22.240167ms)
+✔ no door-spam, menu or offline respawn; 180 active seconds elsewhere then reenter (60.5455ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.398833ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (1.848208ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (2.126875ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.315792ms)
+✔ numeric source preserves twelve main/side awards and exact 123-map adjacency (0.80375ms)
+✔ seventeen authored layouts have connected entrances and targets; two bridges cross real water (149.976958ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (21.084375ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (2.321583ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (10.192042ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.291042ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (1.960959ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.677792ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (4.929208ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (19.801166ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (57.715333ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (876.421167ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (6.728125ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (38.947375ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (633.015292ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.362458ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.884042ms)
+✖ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (1.049875ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.258541ms)
+ℹ tests 35
+ℹ suites 0
+ℹ pass 34
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1791.995583
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:149:1
+✖ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (1.049875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   880,
+  +   640
+  -   900,
+  -   700
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:152:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ 880, 640 ],
+    expected: [ 900, 700 ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

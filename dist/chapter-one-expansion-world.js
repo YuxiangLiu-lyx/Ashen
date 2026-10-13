@@ -1,58 +1,72 @@
 import {C1_NEW_MAPS} from './chapter-one-expansion-data.js';
 import {c1State} from './chapter-one-expansion-save.js';
+import {C1_LAYOUTS,C1_MAPS,C1_FURNITURE,C1_RESOURCE_SITES,c1Boundary,c1Map} from './chapter-one-layout.js';
+import {WATERS,BRIDGES} from './world-v14.js';
 export const C1_CONNECTIONS=[['hall','c1TrainingYard'],['c1TrainingYard','c1DrillGallery'],['c1DrillGallery','warehouse'],['workshop','c1LoomRoom'],['town','c1NorthWalk'],['c1NorthWalk','alley'],['grove','c1ReedKiln']];
-export const C1_CHANGED_MAPS=['hall','warehouse','road','grove','millpath','echo','town','workshop','alley','canal','guestroom'];
-const prop=(id,label,x,y,extra={})=>({id:'c1-'+id,label,x,y,type:'book',action:'c1:'+id,flat:true,geometryV26:false,collisionV281:false,...extra});
+export const C1_CHANGED_MAPS=C1_MAPS.filter(id=>!C1_NEW_MAPS.includes(id));
 const door=(to,x,y,tx,ty,label)=>({to,x,y,tx,ty,label,c1Door:true,manualOnly:true});
-const walls=[[0,0,1600,160],[0,1000,1600,80],[0,160,140,840],[1460,160,140,840]];
+const prop=(id,label,x,y,action,extra={})=>({id,label,x,y,type:'book',action,flat:true,geometryV26:false,collisionV281:false,...extra});
 const npc=(id,name,x,y,sprite)=>({id,name,x,y,sprite,angle:Math.PI/2});
 export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
- const create=(id,name,sub,safe,blocks,props,npcs=[],spawns=[])=>{
-  MAPS[id]={name,sub,atlas:'interior',cell:0,safe,worldV4:true,c1Expansion:true,doors:[],blocks:[...walls.map(b=>[...b]),...blocks],props,npcs,spawns};BOUNDARIES[id]=walls.map(b=>[...b]);SCENERY[id]=[];
- };
- create('c1TrainingYard','灰烛练武庭','旧伤复核 · 看清预警后再动手',true,[[370,260,190,65],[1050,270,200,65],[760,690,230,65]],
-  [prop('record','练习记录／开始复核',370,520),prop('training-target','技能靶',900,480),prop('warning-target','预警靶',1150,680),prop('copper-test','铜圈试用架',530,770)],
-  [npc('sister','薇蕾娜',320,460,1),npc('clerk','鲁恩',440,460,3),npc('steward','奥伦',400,810,2)]);
- create('c1DrillGallery','旧试炼廊','上方掩体与下方巡查道，均通向库房便门',true,[[640,390,190,80],[640,660,190,80],[1080,510,150,65]],
-  [prop('drill-start','警铃线路图／演练负重',330,550),prop('alarm-cut','沿线断开铃线',530,400),prop('drill-cover','掩体背面的标记',890,340),prop('drill-detour','巡查道的盲角',950,840),prop('drill-exit','放下负重／开便门',1290,800)]);
- create('c1LoomRoom','缀纹工坊','西侧符文柜 · 中央试织台 · 东侧样本架',true,[[280,275,210,65],[690,400,210,65],[1130,310,220,75]],
-  [prop('loom','缀纹机／预览与制作',780,520,{type:'book'}),prop('rune-board','受潮纹路记录',360,620),prop('kiln-plan','旧窑通风图',410,800),prop('sample-tray','样本鉴定台',1190,560)],
-  [npc('c1rosa','罗萨',400,480,4),npc('c1saido','赛铎',1170,460,11)]);
- create('c1NorthWalk','北渠检修道','水沿北槽东流；先泄压，再放踏板',false,[[670,160,150,240],[670,620,150,380],[1050,300,160,60]],
-  [prop('water-sign','水痕与排水箭头',330,730),prop('pressure','上游泄压阀',500,420),prop('plank','检修踏板绞盘',590,560),prop('mark','东岸撤路记号',1120,800),prop('north-lamp','北渠灯路',1270,590),prop('wet-a','受潮符片节点甲',330,430),prop('wet-b','受潮符片节点乙',1120,680),prop('leak','漏压接头',1030,470)],[],[['rat',470,570,'c1-valve-rat'],['bat',1220,740,'c1-valve-bat']]);
- create('c1ReedKiln','苇湾废窑','上游进风 · 顶部排烟 · 窑柱后的夜翼巢',false,[[670,320,90,115],[670,670,90,115],[1110,210,180,60]],
-  [prop('kiln-intake','下层进风口',430,780),prop('kiln-exhaust','高处排烟绳',880,350),prop('kiln-node','失控纹路与翼尘',1220,800),prop('kiln-ladder','返程短梯',320,420),prop('patrol-kiln','通风巡检接头',950,730)],[],[['bat',700,540,'c1-kiln-bat-a'],['bat',920,780,'c1-kiln-bat-b']]);
+ const create=(id,name,safe,npcs,spawns)=>{MAPS[id]={name,sub:C1_LAYOUTS[id].space,atlas:'interior',cell:0,safe,worldV4:true,c1Expansion:true,doors:[],blocks:[],props:[],npcs,spawns};};
+ create('c1TrainingYard','灰烛练武庭',false,[],[['rat',480,380,'c1-moss-1'],['rat',590,560,'c1-moss-2'],['rat',1030,530,'c1-moss-3'],['rat',1270,660,'c1-moss-4']]);
+ create('c1DrillGallery','旧试炼廊',false,[],[['rat',360,845,'c1-sentry-1'],['rat',800,620,'c1-sentry-2'],['wolf',1260,520,'c1-trial-warden']]);
+ create('c1LoomRoom','缀纹工坊',true,[npc('c1rosa','罗萨',400,480,4),npc('c1saido','赛铎',1170,460,11)],[]);
+ create('c1NorthWalk','北渠检修道',false,[],[['rat',370,490,'c1-valve-rat'],['rat',470,760,'c1-north-rat-2'],['rat',960,420,'c1-north-rat-3'],['rat',1130,760,'c1-north-rat-4'],['rat',1260,620,'c1-north-rat-5'],['bat',1080,280,'c1-valve-bat'],['bat',1340,470,'c1-north-bat-2'],['bat',980,860,'c1-north-bat-3']]);
+ create('c1ReedKiln','苇湾废窑',false,[],[['bat',550,760,'c1-kiln-bat-a'],['bat',760,580,'c1-kiln-bat-b'],['bat',1030,460,'c1-kiln-bat-c'],['bat',1280,620,'c1-kiln-bat-d'],['bat',1200,760,'c1-kiln-bat-e']]);
  const join=(a,b,ax,ay,bx,by)=>{MAPS[a].doors.push(door(b,ax,ay,bx,by,MAPS[b].name));MAPS[b].doors.push(door(a,bx,by,ax,ay,MAPS[a].name));};
- join('hall','c1TrainingYard',235,560,220,820);
- join('c1TrainingYard','c1DrillGallery',1330,850,230,830);
- join('c1DrillGallery','warehouse',1320,850,235,730);
- join('workshop','c1LoomRoom',1280,740,230,850);
- join('town','c1NorthWalk',1100,300,230,850);
- join('c1NorthWalk','alley',1340,850,480,790);
- join('grove','c1ReedKiln',1300,540,230,870);
- const add=(map,...props)=>MAPS[map].props.push(...props);
- add('warehouse',prop('wall-hole','墙脚漏口',1050,320),prop('board','松落的挡板',850,730),prop('wall-seal','扶正挡板并封墙',1060,380),prop('lamp-left','左灯：检查垫片',360,680),prop('lamp-right','右灯：检查垫片',1220,680),prop('lamp-valve','关阀换垫',1200,740),prop('lamp-light','点灯验证',1230,790));
- add('guestroom',prop('kettle','炉边水壶',550,650));
- add('road',prop('road-sign','破损路牌',500,540),prop('cart','断轴车与拖痕',1020,590),prop('route-mark','安全路线标记',1180,595),prop('cloth','断车布片',1090,680),prop('mud','岔路两组泥迹',930,740),prop('shelter','城门外车棚／天亮进城',1320,540),prop('patrol-road','投递线受潮接头',620,560));
- add('millpath',prop('transmission','断裂传动架',460,540),prop('patrol-mill','磨坊线路开关',1010,650));
- add('grove',prop('healthy','比较健康与污染植株',470,760),prop('branch','移开药圃倒枝',470,690),prop('name','辨认松石下的刻名',1250,380),prop('patrol-grove','溪岸通风接头',1050,730));
- add('town',prop('cloth-rack','朵莉的外侧衣架',640,820),prop('duty-book','北门维护值班簿',1030,430),prop('entry-rule','礼拜入口与午钟封门牌',930,290),prop('lamp-west','西街灯路',590,760),prop('lamp-east','东街灯路',1050,750));
- add('canal',prop('sluice','东闸绞盘',1270,750),prop('hideout','闸后藏身处',1320,860));
- // Scene props share a footprint with their physical machine; reachable actions
- // sit on its working side. Decorative sprites never create invisible obstacles.
- for(const id of C1_NEW_MAPS){const m=MAPS[id];for(let i=4;i<m.blocks.length;i++){const b=m.blocks[i];
-   // The long north-channel solids are water, painted by c1Ground, not furniture.
-   if(id==='c1NorthWalk'&&i<6)continue;
-   const kind=id==='c1ReedKiln'?'kiln-pier':id==='c1DrillGallery'?'stone-cover':id==='c1TrainingYard'?'training-rack':'workbench';
-   SCENERY[id].push({id:'c1-solid-'+i,c1Scenery:kind,sheet:'chapterUtilities',asset:1,x:b[0]+b[2]/2,y:b[1]+b[3],w:b[2],h:b[3]+55,box:b,collisionV281:false});}
-  for(const d of m.doors)SCENERY[id].push({id:'c1-door-'+d.to,sheet:'chapterArchitecture',asset:3,x:d.x,y:d.y+6,w:125,h:135,geometryV26:false,collisionV281:false});
+ join('hall','c1TrainingYard',180,560,220,820);join('c1TrainingYard','c1DrillGallery',1360,860,220,870);join('c1DrillGallery','warehouse',1350,860,240,870);
+ join('workshop','c1LoomRoom',1340,740,230,850);join('town','c1NorthWalk',1100,220,230,850);join('c1NorthWalk','alley',1370,850,480,870);join('grove','c1ReedKiln',1390,540,230,870);
+ MAPS.millpath.spawns.push(['wolf',1150,830,'c1-mill-wolf-2'],['wolf',710,350,'c1-mill-wolf-3']);
+ const keep={hall:['hallbook','hallpot'],warehouse:['crack','frost','wbox1','wbox2'],road:[],town:['well','townbook'],chapel:[],alley:['alleycrate'],canal:['canalbox'],grove:['stone'],guestroom:['guest-journal','guest-basin','guest-bunk'],millpath:['mill-barrel'],echo:['echo-machine','echo-valve','v29-echo-core'],workshop:['repair-bench','reset-bench','v29-repair-core']};
+ for(const [id,ids]of Object.entries(keep))MAPS[id].props=MAPS[id].props.filter(p=>ids.includes(p.id));
+ MAPS.road.props.push(prop('c1-shelter','城门外车棚 · 歇到天亮',1330,440,'c1:shelter',{c1Art:['Objects',10,80,48],interactX:1330,interactY:495}));
+ MAPS.c1LoomRoom.props.push(prop('c1-loom','缀纹机 · 比较与制作',780,520,'c1:loom',{c1Art:['loom',0,145,185],c1Box:[725,440,110,80],interactX:780,interactY:575}));
+ for(const [map,sites]of Object.entries(C1_RESOURCE_SITES))sites.forEach(([x,y],i)=>MAPS[map].props.push(prop('c1-herb-'+i,'银叶草',x,y,'c1:herb',{type:'herb',c1Resource:true,c1Art:['Furnishings',8,48,42]})));
+ const at=(map,id,x,y,extra={})=>Object.assign(MAPS[map].props.find(p=>p.id===id),{x,y,interactX:x,interactY:y,...extra});
+ at('hall','hallbook',950,320,{interactY:380,c1Art:['Furnishings',9,46,30]});at('hall','hallpot',1360,320,{c1Art:['Settlement',7,50,58]});
+ at('town','well',880,640,{interactX:880,interactY:705,c1Art:['Settlement',2,145,125],c1Box:[825,600,110,40]});at('town','townbook',990,840,{c1Art:['Furnishings',10,72,95]});
+ at('guestroom','guest-bunk',520,470,{interactX:620,interactY:495,c1Art:['Utilities',0,230,160],c1Box:[435,390,170,80]});
+ at('guestroom','guest-journal',540,650,{interactY:730,c1Art:['Furnishings',9,42,28]});
+ at('warehouse','frost',1200,910,{c1Art:['Furnishings',9,44,32]});at('warehouse','wbox1',340,690,{c1Art:['Furnishings',4,82,72]});at('warehouse','wbox2',1070,840,{c1Art:['Objects',0,38,56]});
+ at('millpath','mill-barrel',1050,760,{c1Art:['Furnishings',6,68,86]});
+ at('alley','alleycrate',1050,800,{c1Art:['Furnishings',4,80,74]});at('canal','canalbox',430,730,{c1Art:['Furnishings',4,80,74]});
+ at('warehouse','crack',1290,280,{interactY:325,c1Art:['Settlement',5,105,120]});at('warehouse','frost',1200,910);at('warehouse','wbox1',340,690);at('warehouse','wbox2',1070,840);
+ at('grove','stone',1290,355,{c1Art:['Utilities',19,92,58]});at('echo','v29-echo-core',1200,405,{c1Art:['Utilities',14,65,38]});at('echo','echo-machine',1280,330,{interactX:1280,interactY:425,c1Art:['Settlement',10,175,165]});at('echo','echo-valve',880,725,{c1Art:['Furnishings',11,56,76]});
+ at('workshop','repair-bench',1040,490,{interactY:535,c1Art:['Utilities',8,80,42]});at('workshop','reset-bench',390,585,{c1Art:['Utilities',17,48,30]});at('workshop','v29-repair-core',1080,480,{interactY:535,c1Art:['Utilities',14,60,34]});
+ at('guestroom','guest-basin',950,395,{c1Art:['Utilities',13,65,42]});
+ // The woodland is a visible branch, available to herb gathering as well as the ring quest.
+ delete MAPS.road.doors.find(d=>d.to==='grove').hidden;
+ Object.assign(MAPS.road.npcs.find(n=>n.id==='courier'),{x:400,y:510});
+ Object.assign(MAPS.town.npcs.find(n=>n.id==='herbalist'),{x:430,y:465});Object.assign(MAPS.town.npcs.find(n=>n.id==='dolly'),{x:665,y:800});Object.assign(MAPS.town.npcs.find(n=>n.id==='oldwoman'),{x:1130,y:575});
+ // Machinery is painted by its interactive prop, not a second copy behind it.
+ C1_FURNITURE.warehouse=C1_FURNITURE.warehouse.filter(o=>o.sheet!=='chapterSettlement');
+ C1_FURNITURE.guestroom=C1_FURNITURE.guestroom.filter(o=>!(o.sheet==='chapterUtilities'&&o.asset===0));
+ C1_FURNITURE.road=C1_FURNITURE.road.filter(o=>!(o.sheet==='chapterObjects'&&o.asset===10));
+ C1_FURNITURE.echo=C1_FURNITURE.echo.filter(o=>o.sheet!=='chapterSettlement');
+ for(const id of C1_MAPS){const m=MAPS[id],layout=C1_LAYOUTS[id];m.c1Layout=7;m.sub=layout.space;
+  const boundary=c1Boundary(id);BOUNDARIES[id]=boundary;WATERS[id]=(layout.water||[]).map(b=>[...b]);delete BRIDGES[id];
+  SCENERY[id]=(C1_FURNITURE[id]||[]).map((o,i)=>({...o,id:'c1-furniture-'+id+'-'+i}));
+  m.blocks=[...boundary,...SCENERY[id].map(o=>o.box),...m.props.flatMap(p=>p.c1Box?[p.c1Box]:[])];
+  // Old V29 encounter rectangles followed old narrow lanes; updated groups use authored clearings.
+  if(m.encounters)m.encounters=[];
+  m.ambientActors=(m.ambientActors||[]).filter((a,i)=>i<2&&!(m.blocks.some(([x,y,w,h])=>a.x>x-20&&a.x<x+w+20&&a.y>y-20&&a.y<y+h+20)));
+  for(const d of m.doors){d.manualOnly=true;d.c1Exit=true;d.x=Math.max(175,Math.min(1425,d.x));d.y=Math.max(225,Math.min(935,d.y));if(id==='town'&&d.to==='chapel')d.y=290;}
+  for(const p of m.props){p.c1Layout=7;p.geometryV26=false;p.collisionV281=false;}
  }
-
 }
 export function installC1World(RPG){
- const P=RPG.prototype,blocked=P.blocked,line=P.clearLine,enter=P.enter;
- P.blocked=function(x,y,...args){if(this.map==='c1ReedKiln'&&!c1State(this).worldChanges.kilnLadder&&x>155&&x<355&&y>615&&y<680)return true;if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank&&x>655&&x<835&&y>395&&y<625)return true;return blocked.call(this,x,y,...args);};
- P.clearLine=function(a,b,...args){if(this.map==='c1ReedKiln'&&!c1State(this).worldChanges.kilnLadder){for(let t=0;t<=1;t+=.025)if(a.x+(b.x-a.x)*t>155&&a.x+(b.x-a.x)*t<355&&a.y+(b.y-a.y)*t>615&&a.y+(b.y-a.y)*t<680)return false;}if(this.map==='c1NorthWalk'&&!c1State(this).worldChanges.plank){for(let t=0;t<=1;t+=.025)if(a.x+(b.x-a.x)*t>655&&a.x+(b.x-a.x)*t<835&&a.y+(b.y-a.y)*t>395&&a.y+(b.y-a.y)*t<625)return false;}return line.call(this,a,b,...args);};
- P.enter=function(...args){this.c1EndTraining?.();return enter.apply(this,args);};
- P.c1AtService=function(which){if(this.map!=='c1LoomRoom'||this.p.hp<=0||this.enemies.some(e=>!e.dead))return false;const at=which==='loom'?{x:780,y:520}:which==='rosa'?{x:400,y:480}:{x:1170,y:460};return Math.hypot(this.p.x-at.x,this.p.y-at.y)<150&&this.clearLine(this.p,at,false);};
+ const P=RPG.prototype,enter=P.enter,ensure=P.ensureMap,restore=P.restore;
+ function align(g,id){if(!c1Map(id)||!g.states[id])return;const st=g.states[id],m=worldMaps[id];
+  const previous=new Map(st.props.map(p=>[p.id,p]));st.props=m.props.map(p=>({...previous.get(p.id),...p,hp:previous.get(p.id)?.hp??(p.action?999:18),used:previous.get(p.id)?.used||false,broken:previous.get(p.id)?.broken||false}));
+  if(st.c1Layout!==7){st.c1Layout=7;for(const [i,s]of m.spawns.entries()){const key=s[3]||id+'-'+i;if(!st.enemies.some(e=>e.id===key))st.enemies.push(g.enemy(s[0],s[1],s[2],key));}
+   for(const e of st.enemies){const spawn=m.spawns.find(s=>(s[3]||id+'-'+m.spawns.indexOf(s))===e.id);if(e.dead&&!e.c1Custom&&!e.storyTag&&e.id!=='captain'){const j=c1State(g).journey;j.refresh[id+':'+e.id]??=j.clock+45;}if(spawn)Object.assign(e,{x:spawn[1],y:spawn[2],homeX:spawn[1],homeY:spawn[2],roamTarget:null,leashBounds:null,activationBounds:null});}for(const k of Object.keys(g.npcPoses||{}))if(k.startsWith(id+':'))delete g.npcPoses[k];}
+ }
+ P.ensureMap=function(id){const r=ensure.call(this,id);align(this,id);return r;};
+ P.enter=function(...args){this.c1EndTraining?.();const r=enter.apply(this,args);align(this,this.map);this.repairEntities();return r;};
+ P.restore=function(...args){const r=restore.apply(this,args);for(const id of C1_MAPS)align(this,id);if(c1Map(this.map)&&this.blocked(this.p.x,this.p.y))this.relocate(this.p.x,this.p.y);return r;};
+ P.c1AtService=function(which){if(this.map!=='c1LoomRoom'||this.p.hp<=0||this.enemies.some(e=>!e.dead))return false;const at=which==='loom'?{x:780,y:575}:which==='rosa'?{x:400,y:480}:{x:1170,y:460};return Math.hypot(this.p.x-at.x,this.p.y-at.y)<150&&this.clearLine(this.p,at,false);};
 }
+// Reference is assigned once by the installer; avoids importing partially initialized core.
+let worldMaps;
+export function c1WorldRegistry(maps){worldMaps=maps;}

@@ -58,8 +58,8 @@ test('arch posts block sides without sealing the central doorway',()=>{
  assert.equal(parts.some(o=>pointInFootBoxV281(800,590,o.box,12)),false);assert.equal(parts.some(o=>pointInFootBoxV281(730,590,o.box,12)),true);
 });
 test('actor sweep cannot tunnel through a narrow obstacle',()=>{
- const g=mapGame('hall'),obstacle={x:800,y:740};g.p.x=275;g.p.y=740;g.moveActor(g.p,620,740,false);
- assert.ok(g.p.x<=288,'player should not finish inside the authored hall table');
+ const g=mapGame('hall'),box=SCENERY.hall.find(o=>o.sheet==='chapterObjects'&&o.asset===9).box;g.p.x=box[0]-60;g.p.y=box[1]+box[3]/2;g.moveActor(g.p,box[0]+box[2]+60,g.p.y,false);
+ assert.ok(g.p.x<=box[0]-10,'player should not tunnel through the authored hall table');
  // A deterministic isolated solver test for thin walls, independent of map furnishing changes.
  const old=g.blocked;g.blocked=(x,y)=>x>500&&x<520;g.p.x=470;g.p.y=500;g.moveActor(g.p,560,500);assert.ok(g.p.x<=500);g.blocked=old;
 });

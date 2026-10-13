@@ -33,7 +33,7 @@ test('ordinary cut metadata takes the restrained trail; magical skills keep thei
  assert.equal(drawChapterStrikeV30(c,{type:'enemyCut',skillKey:'q',x:0,y:0,r:60,life:.1,max:.2}),true);
 });
 test('instant valve action accepts the real nearby target without a second update or save lock',()=>{
- const g=new RPG('shadow',null,()=>.44);g.enter('echo',850,480);g.pending=null;g.active=true;
+ const g=new RPG('shadow',null,()=>.44);g.enter('echo',850,480);g.c1Accept('echo');g.pending=null;g.active=true;
  const t=g.targets().find(t=>t.id==='echo-valve');g.relocate(t.x,t.y);assert.equal(g.interact(t),true);
  assert.equal(g.flags.echoValve,true);assert.equal(worldOperationV29(g),null);assert.notEqual(g.saveBlockReason(),'先放稳手里的东西，再保存。');
 });

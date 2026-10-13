@@ -1,3 +1,4 @@
+import {C1_MAPS} from '../dist/chapter-one-layout.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -17,9 +18,9 @@ const maps=Object.keys(MAPS).filter(id=>(MAPS[id].chapterRegion??MAPS[id].chapte
 test('runtime independently enumerates all 35 original maps and five explicitly authorized chapter-one additions',()=>{
  assert.equal(maps.length,40);assert.deepEqual([...CHAPTER123_MAPS_V30,...C1_NEW_MAPS].sort(),maps.sort());
  for(const id of CHAPTER123_MAPS_V30){const g=game();g.chapter=MAPS[id].chapterRegion||2;g.enter(id,800,540);assert.equal(g.map,id);
-  for(const o of SCENERY[id])assert.ok(chapter123SceneryArtV30(o,id),id+'/'+o.id);
+  for(const o of SCENERY[id])assert.ok(o.c1Authored||chapter123SceneryArtV30(o,id),id+'/'+o.id);
   for(const p of g.props.filter(p=>!p.action?.startsWith('c1:'))){const host=CHAPTER123_HOSTS_V30[p.id];
-   if(host)assert.ok(SCENERY[id].some(o=>o.id===host),id+'/'+p.id+' host');
+   if(p.c1Art)assert.equal(p.c1Art.length,4);else if(host)assert.ok(SCENERY[id].some(o=>o.id===host),id+'/'+p.id+' host');
    else assert.ok(chapter123PropArtV30(p,id,null,g),id+'/'+p.id+' artwork');
   }
  }
@@ -28,7 +29,7 @@ test('runtime independently enumerates all 35 original maps and five explicitly 
 
 test('all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable',()=>{
  const g=game(),baseline=read('BASELINE_NAVIGATION.json');assert.equal(baseline.length,118);
- for(const row of baseline){g.enter(row.id);const after=inspectWorldMap(g,row.id);
+ for(const row of baseline){if(C1_MAPS.includes(row.id))continue;g.enter(row.id);const after=inspectWorldMap(g,row.id);
   // New interactions and the one named grove encounter are authorized additions.
   // Original navigation and target identities remain protected by the next test.
   after.targets-=g.targets().filter(t=>t.id?.startsWith('c1-')||C1_NEW_MAPS.includes(t.id)).length;
@@ -41,7 +42,7 @@ test('all 118 maps preserve baseline navigation and counts; only the documented 
 });
 
 test('original chapter geometry, exits, encounters and object identities remain intact',()=>{
- for(const before of read('BASELINE_CONTENT.json')){
+ for(const before of read('BASELINE_CONTENT.json')){if(C1_MAPS.includes(before.id))continue;
   const map=MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify((key==='doors'?map[key].filter(d=>!d.c1Door):map[key])||[])),before[key],before.id+'/'+key);
   assert.deepEqual(SCENERY[before.id],before.scenery,before.id+'/scenery');
   const g=game();g.chapter=map.chapterRegion||2;g.enter(before.id,800,540);
