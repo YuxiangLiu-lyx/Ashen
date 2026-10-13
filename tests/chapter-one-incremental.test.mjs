@@ -56,6 +56,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
    let original=source.replace(guard,'');
    for(const [approved,prior]of [
+    ["import {installGameSettings} from './game-settings-v31.js';\n",''],["installGameSettings(RPG,{MAPS});\n",''],
     ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],
     ["\ninstallChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});\n",''],
     ["this.c1MainPayment('c1CommissionBrief');",'this.gainXP(15);'],["this.c1MainPayment('c1Assassination');",'this.gainXP(65);'],

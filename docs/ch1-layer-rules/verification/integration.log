@@ -1,0 +1,476 @@
+RUN ['python3', 'tools/harness/check.py', '--tier', 'integration']
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_persistent_game_settings_routes_to_rules_and_real_contracts (test_harness.RoutingTests.test_persistent_game_settings_routes_to_rules_and_real_contracts) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 31 tests in 20.579s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 214 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-one-layer-rules.test.mjs tests/chapter-test.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (707.107917ms)
+✔ all base classes run real ordinary, elite and boss encounters (551.863167ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (86.47075ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (2.945458ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (3.384084ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (144.1585ms)
+✔ real AI damage, resources and distinct policies affect outcomes (514.143042ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.268583ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.39575ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.159666ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.107833ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.070917ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.075125ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (11.843417ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (0.561958ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.544334ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (2.51825ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (2.474583ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (4.66875ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (692.920375ms)
+✔ distribution separates censored fights and reports confidence interval (42.406167ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (100.356583ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (116.36575ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (8.127791ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.482458ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.821709ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.562958ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (1.703375ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (19.296625ms)
+shadow main_only prepared town 5 300
+shadow main_only captain-entry canal 6 328
+shadow main_only captain-done canal 6 356
+shadow main_only chapter-one-end post 6 416
+shadow main_only bridge-entry bridge 7 288
+shadow main_only manor-entry manor 7 323
+shadow main_only manor-exit spillway 7 353
+shadow main_only chapter-two-end hellGate 8 423
+shadow typical prepared town 6 367
+shadow typical captain-entry canal 6 395
+shadow typical captain-done canal 7 423
+shadow typical chapter-one-end post 7 483
+shadow typical bridge-entry bridge 7 355
+shadow typical manor-entry manor 7 385
+shadow typical manor-exit spillway 8 415
+shadow typical chapter-two-end hellGate 8 485
+shadow all_once rat-entry grove 7 416
+shadow all_once bat-entry c1ReedKiln 7 468
+shadow all_once warden-entry echo 8 637
+shadow all_once prepared town 9 799
+shadow all_once captain-entry canal 9 829
+shadow all_once captain-done canal 9 864
+shadow all_once chapter-one-end post 10 959
+shadow all_once bridge-entry bridge 10 831
+shadow all_once manor-entry manor 10 873
+shadow all_once manor-exit spillway 10 909
+shadow all_once chapter-two-end hellGate 11 986
+shadow repeat_patrol rat-entry grove 7 416
+shadow repeat_patrol bat-entry c1ReedKiln 7 468
+shadow repeat_patrol warden-entry echo 8 637
+shadow repeat_patrol patrol-1 c1LoomRoom 10 937
+shadow repeat_patrol patrol-2 c1LoomRoom 11 1195
+shadow repeat_patrol patrol-3 c1LoomRoom 11 1357
+shadow repeat_patrol patrol-4 c1LoomRoom 12 1615
+shadow repeat_patrol patrol-5 c1LoomRoom 13 1783
+shadow repeat_patrol prepared town 13 1783
+shadow repeat_patrol captain-entry canal 13 1817
+shadow repeat_patrol captain-done canal 13 1866
+shadow repeat_patrol chapter-one-end post 13 1973
+shadow repeat_patrol bridge-entry bridge 13 1845
+shadow repeat_patrol manor-entry manor 14 1894
+shadow repeat_patrol manor-exit spillway 14 1936
+shadow repeat_patrol chapter-two-end hellGate 14 2013
+shadow local_work vault-entry c1TrialVault 5 280
+shadow local_work underground-reported c1TrialFoyer 6 404
+shadow local_work rat-entry grove 8 582
+shadow local_work bat-entry c1ReedKiln 8 735
+shadow local_work camp-and-kiln-reported c1ReedKiln 9 801
+shadow local_work warden-entry echo 10 927
+shadow local_work prepared town 10 1104
+shadow local_work captain-entry canal 11 1136
+shadow local_work captain-done canal 11 1178
+shadow local_work chapter-one-end post 11 1279
+shadow local_work bridge-entry bridge 11 1151
+shadow local_work manor-entry manor 11 1193
+shadow local_work manor-exit spillway 12 1229
+shadow local_work chapter-two-end hellGate 12 1306
+oath main_only prepared town 5 304
+oath main_only captain-entry canal 6 332
+oath main_only captain-done canal 6 360
+oath main_only chapter-one-end post 6 420
+oath main_only bridge-entry bridge 7 292
+oath main_only manor-entry manor 7 327
+oath main_only manor-exit spillway 7 357
+oath main_only chapter-two-end hellGate 8 427
+oath typical prepared town 6 358
+oath typical captain-entry canal 6 386
+oath typical captain-done canal 7 414
+oath typical chapter-one-end post 7 474
+oath typical bridge-entry bridge 7 346
+oath typical manor-entry manor 7 376
+oath typical manor-exit spillway 8 406
+oath typical chapter-two-end hellGate 8 476
+oath all_once rat-entry grove 6 403
+oath all_once bat-entry c1ReedKiln 7 447
+oath all_once warden-entry echo 8 611
+oath all_once prepared town 9 773
+oath all_once captain-entry canal 9 803
+oath all_once captain-done canal 9 838
+oath all_once chapter-one-end post 10 933
+oath all_once bridge-entry bridge 10 805
+oath all_once manor-entry manor 10 847
+oath all_once manor-exit spillway 10 887
+oath all_once chapter-two-end hellGate 11 964
+oath repeat_patrol rat-entry grove 6 403
+oath repeat_patrol bat-entry c1ReedKiln 7 447
+oath repeat_patrol warden-entry echo 8 611
+oath repeat_patrol patrol-1 c1LoomRoom 10 906
+oath repeat_patrol patrol-2 c1LoomRoom 11 1170
+oath repeat_patrol patrol-3 c1LoomRoom 11 1338
+oath repeat_patrol patrol-4 c1LoomRoom 12 1602
+oath repeat_patrol patrol-5 c1LoomRoom 13 1758
+oath repeat_patrol prepared town 13 1758
+oath repeat_patrol captain-entry canal 13 1792
+oath repeat_patrol captain-done canal 13 1841
+oath repeat_patrol chapter-one-end post 13 1948
+oath repeat_patrol bridge-entry bridge 13 1820
+oath repeat_patrol manor-entry manor 13 1862
+oath repeat_patrol manor-exit spillway 14 1904
+oath repeat_patrol chapter-two-end hellGate 14 1988
+oath local_work vault-entry c1TrialVault 4 263
+oath local_work underground-reported c1TrialFoyer 6 391
+oath local_work rat-entry grove 8 573
+oath local_work bat-entry c1ReedKiln 8 721
+oath local_work camp-and-kiln-reported c1ReedKiln 9 787
+oath local_work warden-entry echo 10 941
+oath local_work prepared town 11 1159
+oath local_work captain-entry canal 11 1191
+oath local_work captain-done canal 11 1233
+oath local_work chapter-one-end post 11 1334
+oath local_work bridge-entry bridge 11 1206
+oath local_work manor-entry manor 12 1248
+oath local_work manor-exit spillway 12 1284
+oath local_work chapter-two-end hellGate 12 1361
+ember main_only prepared town 5 298
+ember main_only captain-entry canal 6 326
+ember main_only captain-done canal 6 354
+ember main_only chapter-one-end post 6 414
+ember main_only bridge-entry bridge 7 286
+ember main_only manor-entry manor 7 321
+ember main_only manor-exit spillway 7 351
+ember main_only chapter-two-end hellGate 8 421
+ember typical prepared town 6 353
+ember typical captain-entry canal 6 381
+ember typical captain-done canal 7 409
+ember typical chapter-one-end post 7 469
+ember typical bridge-entry bridge 7 341
+ember typical manor-entry manor 7 376
+ember typical manor-exit spillway 8 411
+ember typical chapter-two-end hellGate 8 481
+ember all_once rat-entry grove 6 398
+ember all_once bat-entry c1ReedKiln 7 442
+ember all_once warden-entry echo 8 606
+ember all_once prepared town 9 768
+ember all_once captain-entry canal 9 798
+ember all_once captain-done canal 9 833
+ember all_once chapter-one-end post 10 928
+ember all_once bridge-entry bridge 10 800
+ember all_once manor-entry manor 10 836
+ember all_once manor-exit spillway 10 875
+ember all_once chapter-two-end hellGate 11 952
+ember repeat_patrol rat-entry grove 6 398
+ember repeat_patrol bat-entry c1ReedKiln 7 442
+ember repeat_patrol warden-entry echo 8 606
+ember repeat_patrol patrol-1 c1LoomRoom 10 901
+ember repeat_patrol patrol-2 c1LoomRoom 11 1165
+ember repeat_patrol patrol-3 c1LoomRoom 11 1321
+ember repeat_patrol patrol-4 c1LoomRoom 12 1579
+ember repeat_patrol patrol-5 c1LoomRoom 13 1735
+ember repeat_patrol prepared town 13 1735
+ember repeat_patrol captain-entry canal 13 1769
+ember repeat_patrol captain-done canal 13 1818
+ember repeat_patrol chapter-one-end post 13 1925
+ember repeat_patrol bridge-entry bridge 13 1797
+ember repeat_patrol manor-entry manor 13 1846
+ember repeat_patrol manor-exit spillway 14 1888
+ember repeat_patrol chapter-two-end hellGate 14 1972
+ember local_work vault-entry c1TrialVault 5 266
+ember local_work underground-reported c1TrialFoyer 6 386
+ember local_work rat-entry grove 8 564
+ember local_work bat-entry c1ReedKiln 8 712
+ember local_work camp-and-kiln-reported c1ReedKiln 9 778
+ember local_work warden-entry echo 10 930
+ember local_work prepared town 10 1136
+ember local_work captain-entry canal 11 1168
+ember local_work captain-done canal 11 1210
+ember local_work chapter-one-end post 11 1311
+ember local_work bridge-entry bridge 11 1183
+ember local_work manor-entry manor 11 1219
+ember local_work manor-exit spillway 12 1262
+ember local_work chapter-two-end hellGate 12 1339
+shadow all_once rat-entry grove 6 388
+shadow all_once bat-entry c1ReedKiln 7 432
+shadow all_once warden-entry echo 8 601
+shadow all_once prepared town 9 763
+shadow all_once captain-entry canal 9 793
+shadow all_once captain-done canal 9 828
+shadow all_once chapter-one-end post 10 923
+shadow all_once bridge-entry bridge 10 795
+shadow all_once manor-entry manor 10 837
+shadow all_once manor-exit spillway 10 873
+shadow all_once chapter-two-end hellGate 11 950
+oath all_once rat-entry grove 6 373
+oath all_once bat-entry c1ReedKiln 7 417
+oath all_once warden-entry echo 8 586
+oath all_once prepared town 9 757
+oath all_once captain-entry canal 9 787
+oath all_once captain-done canal 9 822
+oath all_once chapter-one-end post 10 917
+oath all_once bridge-entry bridge 10 789
+oath all_once manor-entry manor 10 831
+oath all_once manor-exit spillway 10 867
+oath all_once chapter-two-end hellGate 11 944
+ember all_once rat-entry grove 6 369
+ember all_once bat-entry c1ReedKiln 7 413
+ember all_once warden-entry echo 8 582
+ember all_once prepared town 9 744
+ember all_once captain-entry canal 9 774
+ember all_once captain-done canal 9 814
+ember all_once chapter-one-end post 10 909
+ember all_once bridge-entry bridge 10 781
+ember all_once manor-entry manor 10 823
+ember all_once manor-exit spillway 10 865
+ember all_once chapter-two-end hellGate 11 942
+✔ shadow main_only actual campaign economy and second-chapter carry (2849.389584ms)
+✔ shadow typical actual campaign economy and second-chapter carry (1394.869833ms)
+✔ shadow all_once actual campaign economy and second-chapter carry (2143.442333ms)
+✔ shadow repeat_patrol actual campaign economy and second-chapter carry (3185.706292ms)
+✔ shadow local_work actual campaign economy and second-chapter carry (2295.398458ms)
+✔ oath main_only actual campaign economy and second-chapter carry (1385.547834ms)
+✔ oath typical actual campaign economy and second-chapter carry (1415.952125ms)
+✔ oath all_once actual campaign economy and second-chapter carry (2154.290333ms)
+✔ oath repeat_patrol actual campaign economy and second-chapter carry (3158.645083ms)
+✔ oath local_work actual campaign economy and second-chapter carry (2242.2165ms)
+✔ ember main_only actual campaign economy and second-chapter carry (1491.240709ms)
+✔ ember typical actual campaign economy and second-chapter carry (1614.110875ms)
+✔ ember all_once actual campaign economy and second-chapter carry (2336.709ms)
+✔ ember repeat_patrol actual campaign economy and second-chapter carry (3487.354625ms)
+✔ ember local_work actual campaign economy and second-chapter carry (2700.392875ms)
+✔ shadow full route with exactly one exclusive epic carries through chapter two (1650.609625ms)
+✔ oath full route with exactly one exclusive epic carries through chapter two (1848.498458ms)
+✔ ember full route with exactly one exclusive epic carries through chapter two (2352.057666ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.220958ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (7.731042ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (168.674125ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (4.927334ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.7375ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (1.995083ms)
+✔ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (2.575375ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (61.438625ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (21.340209ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (0.853958ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (810.827167ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (81.314875ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (10.964666ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (14.002375ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.348541ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (5.601959ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.779166ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (7.5835ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (13.110333ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (391.34875ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (2318.85325ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (14.643625ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (53.858083ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (877.548458ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (9.085583ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.405666ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (4.073959ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.660208ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (22.803333ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (7.550125ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (7.809916ms)
+✔ materials from each floor remain separate and one death generation receives one roll (5.123125ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (358.591417ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (2.320083ms)
+✔ two herb sources cannot be replaced with four leaves from one source (5.563291ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (28.663584ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (4.221042ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.981333ms)
+✔ story captain stays defeated while resident patrols return, and delivered escape stays delivered (1.369542ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (92.037917ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (2.031917ms)
+✔ real reentry refreshes ordinary enemies without idle time and creates new kill credit (28.16475ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (11.083958ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (3.527084ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (2.468ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (44.341792ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (1430.292167ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.8965ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (107.901208ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (70.152958ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (5.076833ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (61.180833ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (15.784208ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (19.878167ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (8.552875ms)
+✔ 12 real combat fixtures retain every baseline damage, resource, cooldown and RNG event (776.852542ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (14.949458ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.64425ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.120375ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (4.898125ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (7.707417ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.270291ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (1739.277459ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (9197.320458ms)
+✔ each later chapter start can skip to the final result without stuck quests (7891.917542ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (3.401458ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.118125ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (12.284667ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.622083ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (123.49775ms)
+✔ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (1922.546459ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (12.545042ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (65.912666ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.398875ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (29.824334ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (10.256333ms)
+✔ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (751.568292ms)
+✔ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (1173.8545ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (16.23125ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.508417ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (11.951458ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.272583ms)
+✔ native species is independent of V28 player-level skin fields (0.570792ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.225625ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.504541ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.193333ms)
+✔ footprint validation and segment clipping handle boundaries (0.129334ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.154333ms)
+✔ arch posts block sides without sealing the central doorway (0.07975ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (2.601458ms)
+✔ walk phase advances with travelled distance, not wall time (0.28275ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (1.171833ms)
+✔ resting/carry transfers never receive fake walking limbs (0.231084ms)
+✔ all 24 rare gear IDs have appearance signatures (0.178709ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.84075ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (1.355083ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.91875ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.658ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (38.597708ms)
+✔ all nine later-chapter/class checkpoints construct and restore (790.900375ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (528.918833ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (20.26075ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.406125ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.137917ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.14925ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (118.01875ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (6.7865ms)
+✔ distance and a real occluding wall reject immediate interaction (11.271083ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (6.523667ms)
+✖ acceptance before extraction, return once and persistent state (34.266042ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (18.454459ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (16.103958ms)
+✔ new state round trips and rejects malformed records; old state remains optional (6.430625ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (1.279958ms)
+✔ legacy player in a new footprint is repaired only during restore (3.408625ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (0.74675ms)
+✔ other 114 maps retain baseline navigation and interaction diagnostics (1382.629042ms)
+ℹ tests 164
+ℹ suites 0
+ℹ pass 162
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 40245.289708
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:37:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (13.110333ms)
+  AssertionError [ERR_ASSERTION]: dist/core-v14.js
+  + actual - expected
+  
+  + 'b2746f13f39f35f75f923211b242798d2ac23e307ac363655d4e7cd74439625b'
+  - '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:68:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'b2746f13f39f35f75f923211b242798d2ac23e307ac363655d4e7cd74439625b',
+    expected: '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/world-v29.test.mjs:37:1
+✖ acceptance before extraction, return once and persistent state (34.266042ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.enemies.every(e=>e.dead))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/world-v29.test.mjs:39:498)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+FAILED with exit 1

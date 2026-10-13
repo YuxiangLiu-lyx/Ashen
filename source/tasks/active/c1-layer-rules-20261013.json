@@ -12,21 +12,24 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-13T07:19:22.801036+00:00",
-  "updated_at_utc": "2026-10-13T07:47:21.584506+00:00",
+  "updated_at_utc": "2026-10-13T08:08:33.734086+00:00",
   "decisions": [
     "新增横向路线而非机械堆图；已取得目标证据不随刷新倒扣；保留三精英预算",
-    "真实刷新使告别后再返水渠有新普通巡卫，追缉官仍保持死亡；脚本需实际清场，任务交付证据不倒扣"
+    "真实刷新使告别后再返水渠有新普通巡卫，追缉官仍保持死亡；脚本需实际清场，任务交付证据不倒扣",
+    "008整体失败保留：两项旧断言和短对白脚本等待已修，运行代码未变；三职业全输入哈希相等可复用"
   ],
   "completed": [
     "已读取0.8采用稿/相关Skills；新0.9采用稿、通用设定、四阶段计划与真实基线落盘",
     "跨层计数/旧档嵌套schema4、三色标记、主线默认与自然门禁已接入；新增5条双向通路和2张原图",
-    "跨层与刷新运行已落地；43项专项及22图初版画廊通过；15条三职业经济路线走通前两章，正在修正精英掉落统计读取最后一次而非全部事务的问题"
+    "跨层与刷新运行已落地；43项专项及22图初版画廊通过；15条三职业经济路线走通前两章，正在修正精英掉落统计读取最后一次而非全部事务的问题",
+    "31项Harness检查通过，通用设定六类关键词能路由到规则与实际回归",
+    "三职业008正常键鼠均通前两章；009三色NPC实际接交/薇蕾娜及243份阶段存档迁移通过，23项历史保护回归通过"
   ],
   "remaining": [
     "最终专项、正常键鼠、旧档审计、三维审阅、集成、构建和Git保存"
   ],
   "blockers": [],
-  "next": "保存实现检查点，然后执行最终验收",
+  "next": "运行最终integration及离线HTTP手机、本地入口；完成三维审阅和Git保存",
   "required_checks": [
     "fast",
     "integration",
@@ -121,6 +124,75 @@
       "output": "docs/harness/evidence/c1-layer-rules-20261013/005-campaign-refresh-regression.txt",
       "output_sha256": "683e2b55f6b57f0efc9d81476553ad928dbcc51d1d1ec673a60cd4a16589d616",
       "timeout_seconds": 240.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:49:10.587113+00:00",
+      "finished_at_utc": "2026-10-13T07:49:26.099094+00:00",
+      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+      "source_fingerprint": "bc7a9f3fb61c48e8f55e6801320560fcb7047fe33bfffaf23b97726f7915a84d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/006-fast.txt",
+      "output_sha256": "e287c392ac6a1ef2c917d933f1f9067bd28a1f8d5f11f325b3d42fc48a32f556",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T07:50:39.977266+00:00",
+      "finished_at_utc": "2026-10-13T07:50:55.294392+00:00",
+      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+      "source_fingerprint": "3e1e9971b1116f92171a3a2b762e9f4bd08e574023e6a12f5e016112e66fa8f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/007-fast.txt",
+      "output_sha256": "77735f4bbf109ec628ade0542209fc3d74827f3c413d7eded22822422930c0fd",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "full-verification",
+      "command": [
+        "python3",
+        "docs/ch1-layer-rules/verify-batches.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T07:55:43.877368+00:00",
+      "finished_at_utc": "2026-10-13T08:04:59.525397+00:00",
+      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+      "source_fingerprint": "7b133fc7100efa4a888fb1c38540f5bfd325e14dd04c78140d17f1f6685e1718",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/008-full-verification.txt",
+      "output_sha256": "75bfa6c3cc498c5b78320759bceb54d67883e203ec6aeacc31129a53ce51711b",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "updated-contracts-ui-saves",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,concurrent.futures; jobs=[[\"node\",\"--test\",\"tests/chapter-one-incremental.test.mjs\",\"tests/world-v29.test.mjs\"],[\"node\",\"tests/browser-chapter-one-layer-rules.mjs\"],[\"node\",\"docs/ch1-layer-rules/audit-saves.mjs\"]]; ex=concurrent.futures.ThreadPoolExecutor(3); codes=list(ex.map(lambda c:subprocess.run(c).returncode,jobs)); print(codes); raise SystemExit(any(codes))"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T08:06:27.292616+00:00",
+      "finished_at_utc": "2026-10-13T08:06:53.488844+00:00",
+      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+      "source_fingerprint": "b30678d26251b867abc54d9c843d17d0431ba52336fc4d2fa678908a7b907d18",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/009-updated-contracts-ui-saves.txt",
+      "output_sha256": "4391affd4ee11413d3680abde903f0e175cbfcfed65b51172d7ef2ed3899f3f1",
+      "timeout_seconds": 240.0
     }
   ],
   "stages": [
@@ -139,6 +211,14 @@
       "head_commit": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
       "source_fingerprint": "e14ddd9abab35f49c80a755356fa6ff95956540fc176949345f132ef7e745898",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-objectives.js\n M dist/chapter-one-story-world.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/navigation-v14.js\n M dist/quest-service-v14.js\n M dist/story-test-v31.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-map-quests.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/harness/test_harness.py\n M tools/balance_lab/chapter-one.mjs\n M tools/harness/check.py\n?? dist/assets/c1-layer-rules/\n?? dist/game-settings-v31.js\n?? docs/ch1-layer-rules/\n?? docs/harness/CHAPTER_01_LAYER_RULES.md\n?? docs/harness/GAME_SETTINGS.md\n?? docs/harness/evidence/c1-layer-rules-20261013/\n?? source/tasks/active/c1-layer-rules-20261013.json\n?? tests/chapter-one-layer-rules.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-13T08:08:33.698635+00:00",
+      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+      "source_fingerprint": "b30678d26251b867abc54d9c843d17d0431ba52336fc4d2fa678908a7b907d18",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/c1-layer-rules-20261013.json\n M tests/chapter-one-incremental.test.mjs\n M tests/world-v29.test.mjs\n?? docs/ch1-layer-rules/ACCEPTANCE.md\n?? docs/ch1-layer-rules/MOVEMENT.json\n?? docs/ch1-layer-rules/NATURAL_PROVENANCE.json\n?? docs/ch1-layer-rules/NAVIGATION.json\n?? docs/ch1-layer-rules/RECOMMENDATIONS.json\n?? docs/ch1-layer-rules/SAVES.json\n?? docs/ch1-layer-rules/audit-saves.mjs\n?? docs/ch1-layer-rules/economy/\n?? docs/ch1-layer-rules/final-verification.py\n?? docs/ch1-layer-rules/markers-attempt-008/\n?? docs/ch1-layer-rules/markers/\n?? docs/ch1-layer-rules/natural/\n?? docs/ch1-layer-rules/verification/\n?? docs/ch1-layer-rules/verify-batches.py\n?? docs/ch1-layer-rules/verify-local.py\n?? docs/ch1-layer-rules/visual-review.html\n?? docs/ch1-layer-rules/visual/\n?? docs/harness/evidence/c1-layer-rules-20261013/006-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/007-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/008-full-verification.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/009-updated-contracts-ui-saves.txt\n?? tests/browser-chapter-one-layer-rules.mjs"
     }
   ]
 }

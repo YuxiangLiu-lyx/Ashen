@@ -1,0 +1,86 @@
+[
+  {
+    "name": "integration",
+    "commands": [
+      {
+        "command": [
+          "python3",
+          "tools/harness/check.py",
+          "--tier",
+          "integration"
+        ],
+        "exit_code": 1
+      }
+    ],
+    "exit_code": 1,
+    "seconds": 63.68393111228943,
+    "log": "docs/ch1-layer-rules/verification/integration.log"
+  },
+  {
+    "name": "visual",
+    "commands": [
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-map-quests.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-layer-rules.mjs"
+        ],
+        "exit_code": 1
+      }
+    ],
+    "exit_code": 1,
+    "seconds": 39.75493597984314,
+    "log": "docs/ch1-layer-rules/verification/visual.log"
+  },
+  {
+    "name": "natural-shadow",
+    "commands": [
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-natural.mjs"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 501.7961721420288,
+    "log": "docs/ch1-layer-rules/verification/natural-shadow.log"
+  },
+  {
+    "name": "natural-oath",
+    "commands": [
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-natural.mjs"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 521.525484085083,
+    "log": "docs/ch1-layer-rules/verification/natural-oath.log"
+  },
+  {
+    "name": "natural-ember",
+    "commands": [
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-natural.mjs"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 555.5266287326813,
+    "log": "docs/ch1-layer-rules/verification/natural-ember.log"
+  }
+]

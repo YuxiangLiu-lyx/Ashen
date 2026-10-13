@@ -11,8 +11,8 @@
   "history_archive": "archives/library-originals.manifest.json",
   "runtime_modules": 214,
   "runtime_stylesheets": 7,
-  "runtime_images": 145,
-  "runtime_resource_bytes": 316508362,
+  "runtime_images": 147,
+  "runtime_resource_bytes": 322597479,
   "historical_original_files": 135,
   "historical_original_bytes": 488540031,
   "original_git_full_history_recovered": false,
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "dd06730308862617516705f444c3ca7cf169faa3",
+  "runtime_source_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -301,9 +301,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "0.8",
-    "task_id": "c1-story-world-20261012",
-    "status": "0.8 scoped natural scenery/NPC handoff implementation and delivery verified; historical human/pacing acceptance stays independent",
+    "version": "0.9",
+    "task_id": "c1-layer-rules-20261013",
+    "status": "0.9 implemented; final scoped integration and package verification in progress",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,9 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "0.8",
+      "script_revision": "0.9",
       "script_status": "DEV_FROZEN",
-      "implementation": "0.8 implemented and scoped verification complete; chapter stays DEV_FROZEN pending independent historical human/pacing acceptance"
+      "implementation": "0.9 implemented; final scoped checks in progress; independent historical human/pacing acceptance remains open"
     },
     "chapter02": {
       "id": "V01C02",
@@ -331,7 +331,7 @@
       "Saint confrontation is cinematic only, no new playable combat",
       "Current0.5 implementation is recorded in chapter01_voice_revision; prior chapter01_dialogue_revision0.4 and chapter01_incremental0.3 are historical."
     ],
-    "evidence": "docs/ch1-story-world/ACCEPTANCE.md",
+    "evidence": "docs/ch1-layer-rules/ACCEPTANCE.md",
     "previous_plan": {
       "version": "0.1",
       "task_id": "narrative-harness-20261010",
@@ -371,7 +371,7 @@
       "git_receipt": "docs/harness/acceptance/NARRATIVE_GIT_SAVE.json",
       "adoption": "0.1 and frozen pilot0.2 withdrawn; preserve rollback records; use independent incremental0.3"
     },
-    "implementation_scope": "0.8 chapter-one 22 maps, generated natural scenery, six local NPC quests and explicit handoffs; keep original fixed budgets and later 106 maps",
+    "implementation_scope": "0.9 layered multi-source objectives, five bidirectional routes, entry refresh and general quest conventions; original budgets and later authored chapters retained",
     "preserve": [
       "original assassination and 0.5 known-speaker dialogue/portraits",
       "106 maps outside chapter one",
@@ -387,7 +387,7 @@
     },
     "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
     "harness_tests_passed": 30,
-    "git_receipt": "docs/ch1-story-world/GIT_SAVE.json",
+    "git_receipt": "docs/ch1-layer-rules/GIT_SAVE.json",
     "previous_adopted_revision": {
       "version": "0.5",
       "task_id": "ch1-voice-20261012",
@@ -399,9 +399,7 @@
         "script_status": "IMPLEMENTED",
         "implementation": "0.5 implemented and all scoped validation passed; current verification docs/ch1-voice/ACCEPTANCE.md, task ch1-voice-20261012"
       }
-    },
-    "remote_verified_commit": "ace068a74c532f83cf4c6449d9952fd53ab7e121",
-    "remote_verified_at_utc": "2026-10-13T05:59:47.536081+00:00"
+    }
   },
   "rollback": {
     "task_id": "rollback-v30-20261010",
@@ -773,11 +771,23 @@
   },
   "chapter_one_layer_rules_09": {
     "task": "c1-layer-rules-20261013",
-    "status": "implementation_in_progress",
+    "status": "implementation_complete_final_verification_in_progress",
     "baseline": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
     "spec": "docs/harness/CHAPTER_01_LAYER_RULES.md",
     "general_settings": "docs/harness/GAME_SETTINGS.md",
-    "pending": "专项、集成、三维实景、构建与GitHub保存",
-    "site_deployed": false
+    "pending": "最终集成、包和三维门禁、GitHub保存",
+    "site_deployed": false,
+    "implementation_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+    "save_schema": 16,
+    "nested_c1_schema": 4,
+    "maps": 22,
+    "new_bidirectional_links": 5,
+    "multi_source_quests": 6,
+    "acceptance": "docs/ch1-layer-rules/ACCEPTANCE.md",
+    "checks": {
+      "natural_input": "3 classes chapters1–2, 21 milestones each",
+      "strict_saves": "243 saves: 0.6/0.7/0.8/0.9; unchanged balances, completed quests and death state on restore",
+      "markers": "real NPC accept, incomplete, report and Vilerena story contact passed"
+    }
   }
 }
