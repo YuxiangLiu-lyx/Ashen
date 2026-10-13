@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_ch1_map_quests_07_development",
+  "snapshot_type": "v30_ch1_map_quests_07_verified",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "0.7 map/quest implementation under final verification. Historical 0.6 human full-route observation and pacing acceptance still pending; three original elite short fights accepted, no numerical rebalance. Personal saves untouched; website not deployed.",
-  "checked_at_utc": "2026-10-12T11:22:22.249940+00:00",
+  "known_limits": "Scoped 0.7 map/quest optimization verified. Historical 0.6 human full-route observation, first-play duration and pacing acceptance remain pending. Three original elite short fights accepted with unchanged numerical budgets. No full release or website deployment; personal saves untouched.",
+  "checked_at_utc": "2026-10-13T02:08:58.276681+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "0.7: 17 map renderer and world/chapter123/expansion UI suites passed; final three-class normal-input regression pending.",
+  "browser_qa_status": "0.7 verified: three normal keyboard/mouse class routes completed chapters one/two; 17-map render and collision review; 120 actual old/new milestone saves; 141 core and 30 Harness; all integration browsers; offline/HTTP/mobile and actual 5174 entry passed.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "5f05e5f4c4954030b0b4308aec11c65a40fe8e4b",
+  "runtime_source_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -303,7 +303,7 @@
   "narrative_rebuild": {
     "version": "0.7",
     "task_id": "c1-map-quests-20261012",
-    "status": "第一章17图与任务优化开发验收中；第二章仍仅兼容回归",
+    "status": "0.7 map and quest objectives implemented and verified; chapter remains DEV_FROZEN pending separate historical human/pacing acceptance",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -313,7 +313,7 @@
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "0.7",
       "script_status": "DEV_FROZEN",
-      "implementation": "17图布局、战斗掉落采集目标与统一交付条件已接入；最终浏览器与构建验收进行中"
+      "implementation": "0.7 scoped map/quest implementation verified; docs/ch1-map-quests/ACCEPTANCE.md; historical 0.6 human/pacing gate remains open"
     },
     "chapter02": {
       "id": "V01C02",
@@ -694,12 +694,35 @@
   "chapter_one_map_quests": {
     "task": "c1-map-quests-20261012",
     "revision": "0.7",
-    "status": "DEV_FROZEN",
+    "status": "scoped_implementation_verified_pending_git_save",
     "baseline_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
     "save_schema": 16,
     "nested_c1_schema": 2,
     "plan": "docs/ch1-map-quests/PLAN.md",
     "script": "docs/harness/CHAPTER_01_MAP_QUESTS.md",
-    "website_deployed": false
+    "website_deployed": false,
+    "implementation_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+    "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+    "maps": 17,
+    "unaffected_later_maps": 106,
+    "new_assets": 5,
+    "acceptance": "docs/ch1-map-quests/ACCEPTANCE.md",
+    "map_review": "docs/ch1-map-quests/MAP_QUALITY.json",
+    "visual_review": "docs/ch1-map-quests/visual-review.html",
+    "package": "docs/ch1-map-quests/PACKAGE.json",
+    "preview_url": "http://127.0.0.1:5174/",
+    "current_offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-map-quests-20261012",
+    "checks": {
+      "fast": 30,
+      "core": 141,
+      "integration": "passed",
+      "normal_input": "three classes completed first two chapters",
+      "movement": "221 actual movement paths across 17 maps",
+      "save_migration": "120 actual snapshots; three unpaid old gate steps legitimately settle once",
+      "map_quality": "all three dimensions passed",
+      "packaged_ui": "offline-file, HTTP, mobile passed",
+      "local_5174": "four cases passed including module/image failure recovery"
+    }
   }
 }

@@ -13,22 +13,25 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-13T00:02:06.141794+00:00",
-  "updated_at_utc": "2026-10-13T01:24:16.141673+00:00",
+  "updated_at_utc": "2026-10-13T02:08:58.539654+00:00",
   "decisions": [
     "用户最新要求授权第一章17图布局与任务目标重做；旧0.1/0.2不恢复，第二章及原刺杀保留；三精英接受短战与原数值预算继续有效",
-    "旧0.6步骤迁移为新目标证据；首次解锁与固定奖励ID保持，未接任务不计数或掉落；普通怪45秒有效活动后返图补充，精英仍180秒"
+    "旧0.6步骤迁移为新目标证据；首次解锁与固定奖励ID保持，未接任务不计数或掉落；普通怪45秒有效活动后返图补充，精英仍180秒",
+    "仅本轮0.7地图任务整改完成；0.6人工完整观察与章节节奏待办独立保留，不运行或宣称完整release，不部署网站"
   ],
   "completed": [
     "fde0a1e真实运行基线通过：原件校验、地图审计、23表现回归及正式浏览器；WORLD.json完整保存123图/对白/任务，0.7章稿与逐图计划落盘",
     "17图布局与材质/碰撞共用数据已实现，首次正式渲染留证；已删除旧机关堆积，接入统一击杀/70%掉落/随机采集及金问号判定，主线动作冒烟走至刺杀入口通过",
     "统一接取/击杀/掉落/交付与schema2迁移通过：140项核心及30项Harness；15条真实运行经济路线通章二。影刃真实键鼠新档连续通前两章，地图表现继续细修",
-    "旧0.6步骤/已访问地图/掉落种子迁移、满包、幂等与章二兼容通过；17图221条真实移动路线及四组浏览器专项通过，废窑更换独立原件并纠正废墙拉伸"
+    "旧0.6步骤/已访问地图/掉落种子迁移、满包、幂等与章二兼容通过；17图221条真实移动路线及四组浏览器专项通过，废窑更换独立原件并纠正废墙拉伸",
+    "17图正式渲染/可达图/角色原件已逐图查看，独立三维报告通过020；新废窑与原比例废墙已复核",
+    "015 fast30、016 integration141/15经济路线/1620实战/三职业正常键鼠前两章全部通过；019离线HTTP手机与120份阶段存档通过；5174四项通过；021常用包已提升并保留原包"
   ],
   "remaining": [
-    "最终三职业/集成；17图三维记录；构建和常用入口；GitHub保存"
+    "GitHub main保存及回执"
   ],
   "blockers": [],
-  "next": "固定源码后执行三职业正常输入和最终integration，复核地图与包入口",
+  "next": "GitHub保存并核对远端HEAD",
   "required_checks": [
     "fast",
     "integration",
@@ -301,6 +304,110 @@
       "output": "docs/harness/evidence/c1-map-quests-20261012/015-fast.txt",
       "output_sha256": "cd1caf3e8dbf1d541b655832db2ed7f6637bc3c09c887c979ade5558a6193786",
       "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "-c",
+        "import os,subprocess,concurrent.futures; jobs=[([\"python3\",\"tools/harness/check.py\",\"--tier\",\"integration\"],{}),([\"node\",\"tests/browser-chapter-one-map-quests.mjs\"],{})]+[([\"node\",\"tests/browser-chapter-one-natural.mjs\"],{\"ASHEN_CLASS\":c,\"ASHEN_PLAY_OUTPUT\":\"docs/ch1-map-quests/natural-final/\"+c}) for c in [\"shadow\",\"oath\",\"ember\"]]; run=lambda job: subprocess.run(job[0],env={**os.environ,**job[1]}).returncode; pool=concurrent.futures.ThreadPoolExecutor(5); results=list(pool.map(run,jobs));print(\"FINAL RESULTS\",list(zip(jobs,results)),flush=True);raise SystemExit(any(results))"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:24:57.378125+00:00",
+      "finished_at_utc": "2026-10-13T01:32:44.430794+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+      "output_sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "package-build",
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/c1-map-quests-preview"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:33:34.216823+00:00",
+      "finished_at_utc": "2026-10-13T01:34:00.035518+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/017-package-build.txt",
+      "output_sha256": "58a4934dfda9dd94403d8f233de7df279dce58fc0a2617a492460d7d181a6736",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "package-and-saves",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,concurrent.futures; jobs=[[\"qa-export/qa-venv/bin/python\",\"tests/browser-web-play.py\",\"--build\",\"qa-export/c1-map-quests-preview\",\"--out\",\"docs/ch1-map-quests/package\"],[\"node\",\"--input-type=module\",\"-e\",\"import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {RPG} from './dist/core-v14.js';import {parseSave} from './dist/save-transfer-v14.js';\\nconst roots=['docs/ch1-expansion/natural/shadow-final','docs/ch1-expansion/natural/oath-final-corners','docs/ch1-expansion/natural/ember-final-corners',...['shadow','oath','ember'].map(c=>'docs/ch1-map-quests/natural-final/'+c)];const rows=[];\\nfor(const root of roots)for(const f of fs.readdirSync(root).filter(f=>f.endsWith('-save.json'))){const p=path.join(root,f),raw=JSON.parse(fs.readFileSync(p,'utf8')),clean=parseSave(JSON.stringify(raw)),g=new RPG(raw.p.cls,clean);for(const k of ['gold','level','xp'])assert.equal(g.p[k],raw.p[k],p+' '+k);assert.equal(g.map,raw.map,p);assert.equal(g.chapter,raw.chapter,p);assert.equal(g.c1Expansion.schema,2,p);const again=parseSave(JSON.stringify(g.snapshot()));assert.equal(again.p.gold,g.p.gold,p);rows.push({path:p,oldSchema:raw.c1Expansion.schema,newSchema:g.c1Expansion.schema,map:g.map,level:g.p.level,gold:g.p.gold});}\\nassert.equal(rows.length,120);fs.writeFileSync('docs/ch1-map-quests/SAVES.json',JSON.stringify({passed:true,scope:'60 historical 0.6 and 60 final 0.7 real milestone snapshots; strict import and repeated reload, no personal saves',rows},null,2)+'\\\\n');console.log('Verified '+rows.length+' actual milestone saves');\"],[\"qa-export/qa-venv/bin/python\",\"-c\",\"import runpy,json\\nfrom pathlib import Path\\nfrom playwright.sync_api import sync_playwright\\nscope=runpy.run_path('tests/browser-local-serve.py')\\nout=Path('docs/ch1-map-quests/local-5174');out.mkdir(parents=True,exist_ok=True)\\nwith sync_playwright() as p:\\n browser=p.chromium.launch(executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless=True)\\n rows=scope['run'](browser,'http://127.0.0.1:5174/',out,False)\\n browser.close()\\n(out/'BROWSER_QA.json').write_text(json.dumps({'passed':True,'url':'http://127.0.0.1:5174/','results':rows},ensure_ascii=False,indent=2)+'\\\\n')\\nprint('Actual 5174 entry: all four cases passed')\"]]; pool=concurrent.futures.ThreadPoolExecutor(3); results=list(pool.map(lambda c: subprocess.run(c).returncode,jobs));print(\"DELIVERY RESULTS\",results,flush=True);raise SystemExit(any(results))"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T01:35:04.220572+00:00",
+      "finished_at_utc": "2026-10-13T01:35:50.680823+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/018-package-and-saves.txt",
+      "output_sha256": "62b6e04b77900a338f6f03db1df0df716ae2e1256be0e3bc889a9af44bef5a9c",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "package-and-save-recheck",
+      "command": [
+        "python3",
+        "-c",
+        "import os,subprocess,concurrent.futures; jobs=[[\"qa-export/qa-venv/bin/python\",\"tests/browser-web-play.py\",\"--build\",\"qa-export/c1-map-quests-preview\",\"--out\",\"docs/ch1-map-quests/package\"],[\"node\",\"--input-type=module\",\"-e\",\"import fs from 'node:fs';import path from 'node:path';import assert from 'node:assert/strict';import {RPG} from './dist/core-v14.js';import {parseSave} from './dist/save-transfer-v14.js';import {C1_QUESTS} from './dist/chapter-one-expansion-data.js';\\nconst roots=['docs/ch1-expansion/natural/shadow-final','docs/ch1-expansion/natural/oath-final-corners','docs/ch1-expansion/natural/ember-final-corners',...['shadow','oath','ember'].map(c=>'docs/ch1-map-quests/natural-final/'+c)];const rows=[];let migratedPayments=0;\\nfor(const root of roots)for(const f of fs.readdirSync(root).filter(f=>f.endsWith('-save.json'))){const p=path.join(root,f),raw=JSON.parse(fs.readFileSync(p,'utf8')),clean=parseSave(JSON.stringify(raw)),g=new RPG(raw.p.cls,clean),extra=Object.keys(g.c1Expansion.claimLedger).filter(k=>!raw.c1Expansion.claimLedger[k]);let delta=0;if(extra.length){assert.equal(raw.c1Expansion.schema,1,p);assert.deepEqual(extra,['quest:c1CanalBreak'],p);assert.ok(raw.flags.captainDefeated,p);assert.ok(raw.states.canal.enemies.every(e=>e.dead),p);assert.ok(!raw.c1Expansion.claimLedger['quest:c1CanalBreak'],p);const tx=g.c1Expansion.claimLedger[extra[0]];assert.equal(tx.gold,C1_QUESTS.c1CanalBreak.gold,p);assert.equal(tx.xp,C1_QUESTS.c1CanalBreak.xp,p);assert.equal(tx.gold,15,p);assert.equal(tx.xp,15,p);delta=15;migratedPayments++;}assert.equal(g.p.gold,raw.p.gold+delta,p);assert.equal(g.p.xp,raw.p.xp+delta,p);assert.equal(g.p.level,raw.p.level,p);assert.equal(g.map,raw.map,p);assert.equal(g.chapter,raw.chapter,p);assert.equal(g.c1Expansion.schema,2,p);for(const [k,v] of Object.entries(raw.c1Expansion.claimLedger))assert.deepEqual(g.c1Expansion.claimLedger[k],v,p);const again=parseSave(JSON.stringify(g.snapshot()));for(const k of ['gold','xp','level'])assert.equal(again.p[k],g.p[k],p);assert.deepEqual(again.c1Expansion.claimLedger,g.c1Expansion.claimLedger,p);rows.push({path:p,oldSchema:raw.c1Expansion.schema,newSchema:g.c1Expansion.schema,map:g.map,level:g.p.level,gold:g.p.gold,newlyEligibleUnclaimedReward:extra});}\\nassert.equal(rows.length,120);assert.equal(migratedPayments,3);fs.writeFileSync('docs/ch1-map-quests/SAVES.json',JSON.stringify({passed:true,scope:'60 historical 0.6 and 60 final 0.7 actual milestone saves; strict import and repeated reload; 3 old post-captain saves legitimately settle newly complete unpaid gate step once',migratedPayments,rows},null,2)+'\\\\n');console.log('Verified 120 actual saves; three unpaid removed-puzzle steps settle exactly once, all prior ledgers unchanged');\"]]; env={**os.environ,\"CHROME_BIN\":\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\"}; pool=concurrent.futures.ThreadPoolExecutor(2); results=list(pool.map(lambda c: subprocess.run(c,env=env).returncode,jobs));print(\"DELIVERY RESULTS\",results,flush=True);raise SystemExit(any(results))"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:40:17.867255+00:00",
+      "finished_at_utc": "2026-10-13T01:41:44.655872+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/019-package-and-save-recheck.txt",
+      "output_sha256": "cfd7dfdfd3d3b3adf1b3a9592819b2fcbbcdb5bef8e25e04b2f88dda56f371f0",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "fde0a1e2624c2d77ffe955a0a56d9674708024c8"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T01:56:51.692741+00:00",
+      "finished_at_utc": "2026-10-13T01:56:51.854291+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/020-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-promote",
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "-c",
+        "from pathlib import Path\nimport json,shutil,hashlib\nfrom playwright.sync_api import sync_playwright\nnew=Path('qa-export/c1-map-quests-preview');dest=Path('qa-export/release-build');backup=Path('qa-export/release-build-before-map-quests-20261012')\nmanifest=json.loads((new/'WEB_BUILD_MANIFEST.json').read_text());old=json.loads((dest/'WEB_BUILD_MANIFEST.json').read_text())\nsha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()\nassert manifest['source_dirty'] is False\nnewassets={x['original']:x['original_sha256'] for x in manifest['assets']}\nfor item in old['assets']:assert newassets[item['original']]==item['original_sha256'],item['original']\nfor item in manifest['assets']:assert sha(Path('dist')/item['original'])==item['original_sha256'];assert sha(new/'site'/item['web_path'])==item['web_sha256']\nassert sha(new/manifest['offline_filename'])==manifest['offline_sha256']\nassert not backup.exists()\nshutil.move(dest,backup);shutil.copytree(new,dest)\nfor p in new.rglob('*'):\n if p.is_file():assert sha(p)==sha(dest/p.relative_to(new))\nout=Path('docs/ch1-map-quests/package');shutil.copy2(new/'WEB_BUILD_MANIFEST.json',out/'WEB_BUILD_MANIFEST.json')\nwith sync_playwright() as pw:\n browser=pw.chromium.launch(executable_path='/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',headless=True)\n page=browser.new_page();page.goto(Path('docs/ch1-map-quests/visual-review.html').resolve().as_uri())\n for key in page.locator('#maps option').evaluate_all('(els)=>els.map(e=>e.value)'):\n  page.select_option('#maps',key);page.wait_for_function('document.querySelector(\"#base\").naturalWidth>0')\n page.click('#collision');assert not page.locator('#overlay').is_visible()\n page.click('#compare');assert page.locator('#overlay').is_visible()\n browser.close()\nreport={'passed':True,'source_commit':manifest['source_commit'],'source_dirty':False,'runtime_modules':manifest['module_count'],'images':manifest['image_count'],'original_packaged_assets_preserved':len(old['assets']),'default_package':str(dest),'previous_package':str(backup),'preview_package':str(new),'offline_sha256':manifest['offline_sha256'],'runtime_input_sha256':manifest['runtime_input_sha256'],'all_packaged_files_byte_equal':True,'visual_review_17_images_and_controls':'passed','site_deployed':False}\nPath('docs/ch1-map-quests/PACKAGE.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\\n');print(json.dumps(report,indent=2))\n"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T02:05:14.928286+00:00",
+      "finished_at_utc": "2026-10-13T02:05:19.096585+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt",
+      "output_sha256": "a9b6b1d5c694dcc7310b177093884b65988bed162cdbdecd288a0c59a408deb6",
+      "timeout_seconds": 240.0
     }
   ],
   "stages": [
@@ -314,11 +421,11 @@
     },
     {
       "name": "maps",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-13T00:08:59.460398+00:00",
-      "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
-      "source_fingerprint": "877f498843272c04e780092258441df479dce1831134bf2952aa4d76a3943ada",
-      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n?? dist/assets/c1-map-quests/\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json"
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T02:08:58.321645+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-map-quests/ACCEPTANCE.md\n M docs/ch1-map-quests/MOVEMENT.json\n M docs/ch1-map-quests/NAVIGATION.json\n M docs/ch1-map-quests/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-map-quests/browser/QA.json\n M docs/ch1-map-quests/browser/alley-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-after.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-touch.png\n M docs/ch1-map-quests/browser/c1DrillGallery.webp\n M docs/ch1-map-quests/browser/c1LoomRoom-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk-after.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-after.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-touch.png\n M docs/ch1-map-quests/browser/c1ReedKiln.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-touch.png\n M docs/ch1-map-quests/browser/canal-after.webp\n M docs/ch1-map-quests/browser/canal-collision.webp\n M docs/ch1-map-quests/browser/echo-after.webp\n M docs/ch1-map-quests/browser/echo-collision.webp\n M docs/ch1-map-quests/browser/echo.webp\n M docs/ch1-map-quests/browser/grove-after.webp\n M docs/ch1-map-quests/browser/grove-collision.webp\n M docs/ch1-map-quests/browser/grove.webp\n M docs/ch1-map-quests/browser/guestroom-collision.webp\n M docs/ch1-map-quests/browser/hall-after.webp\n M docs/ch1-map-quests/browser/herb-interaction.png\n M docs/ch1-map-quests/browser/millpath-after.webp\n M docs/ch1-map-quests/browser/millpath-collision.webp\n M docs/ch1-map-quests/browser/road-after.webp\n M docs/ch1-map-quests/browser/road-collision.webp\n M docs/ch1-map-quests/browser/road.webp\n M docs/ch1-map-quests/browser/town-after.webp\n M docs/ch1-map-quests/browser/town-collision.webp\n M docs/ch1-map-quests/browser/town.webp\n M docs/ch1-map-quests/browser/warehouse-after.webp\n M docs/ch1-map-quests/browser/warehouse-collision.webp\n M docs/ch1-map-quests/browser/workshop-after.webp\n M docs/ch1-map-quests/economy/ember-all_once-one-epic.json\n M docs/ch1-map-quests/economy/ember-all_once.json\n M docs/ch1-map-quests/economy/ember-main_only.json\n M docs/ch1-map-quests/economy/ember-repeat_patrol.json\n M docs/ch1-map-quests/economy/ember-typical.json\n M docs/ch1-map-quests/economy/oath-all_once-one-epic.json\n M docs/ch1-map-quests/economy/oath-all_once.json\n M docs/ch1-map-quests/economy/oath-main_only.json\n M docs/ch1-map-quests/economy/oath-repeat_patrol.json\n M docs/ch1-map-quests/economy/oath-typical.json\n M docs/ch1-map-quests/economy/shadow-all_once-one-epic.json\n M docs/ch1-map-quests/economy/shadow-all_once.json\n M docs/ch1-map-quests/economy/shadow-main_only.json\n M docs/ch1-map-quests/economy/shadow-repeat_patrol.json\n M docs/ch1-map-quests/economy/shadow-typical.json\n M docs/ch1-map-quests/visual/alley-after.webp\n M docs/ch1-map-quests/visual/alley-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-after.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-after.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-collision.webp\n M docs/ch1-map-quests/visual/c1LoomRoom.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-after.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/visual/c1NorthWalk.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-after.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/visual/c1ReedKiln.webp\n M docs/ch1-map-quests/visual/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/visual/canal-after.webp\n M docs/ch1-map-quests/visual/canal-collision.webp\n M docs/ch1-map-quests/visual/canal.webp\n M docs/ch1-map-quests/visual/chapel-after.webp\n M docs/ch1-map-quests/visual/echo-after.webp\n M docs/ch1-map-quests/visual/echo-collision.webp\n M docs/ch1-map-quests/visual/echo.webp\n M docs/ch1-map-quests/visual/grove-after.webp\n M docs/ch1-map-quests/visual/grove-collision.webp\n M docs/ch1-map-quests/visual/grove.webp\n M docs/ch1-map-quests/visual/guestroom-after.webp\n M docs/ch1-map-quests/visual/hall-after.webp\n M docs/ch1-map-quests/visual/hall-collision.webp\n M docs/ch1-map-quests/visual/hall.webp\n M docs/ch1-map-quests/visual/millpath-after.webp\n M docs/ch1-map-quests/visual/millpath-collision.webp\n M docs/ch1-map-quests/visual/millpath.webp\n M docs/ch1-map-quests/visual/road-after.webp\n M docs/ch1-map-quests/visual/road.webp\n M docs/ch1-map-quests/visual/town-collision.webp\n M docs/ch1-map-quests/visual/warehouse-after.webp\n M docs/ch1-map-quests/visual/workshop-after.webp\n M docs/ch1-map-quests/visual/workshop-collision.webp\n M docs/ch1-map-quests/visual/workshop.webp\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-map-quests-20261012.json\n?? docs/ch1-map-quests/MAP_QUALITY.json\n?? docs/ch1-map-quests/MAP_REVIEW.md\n?? docs/ch1-map-quests/PACKAGE.json\n?? docs/ch1-map-quests/SAVES.json\n?? docs/ch1-map-quests/integration/\n?? docs/ch1-map-quests/local-5174/\n?? docs/ch1-map-quests/natural-final/\n?? docs/ch1-map-quests/package/\n?? docs/ch1-map-quests/visual-review.html\n?? docs/ch1-map-quests/visual/c1Kiln-frames.webp\n?? docs/harness/evidence/c1-map-quests-20261012/016-integration.txt\n?? docs/harness/evidence/c1-map-quests-20261012/017-package-build.txt\n?? docs/harness/evidence/c1-map-quests-20261012/018-package-and-saves.txt\n?? docs/harness/evidence/c1-map-quests-20261012/019-package-and-save-recheck.txt\n?? docs/harness/evidence/c1-map-quests-20261012/020-map-quality.txt\n?? docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt"
     },
     {
       "name": "quests",
@@ -335,6 +442,22 @@
       "head_commit": "fde0a1e2624c2d77ffe955a0a56d9674708024c8",
       "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-runtime.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-interaction-v31.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/lifecycle-v14.js\n M dist/presentation-metrics-v281.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/MAP_QUALITY.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-chapter123.mjs\n M tests/browser-world-v29.mjs\n M tests/chapter-one-crafting.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter123-v30.test.mjs\n M tests/presentation-v281.test.mjs\n M tests/world-v29.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/balance_lab/simulator.mjs\n M tools/harness/check.py\n?? dist/assets/c1-map-quests/\n?? dist/chapter-one-layout.js\n?? dist/chapter-one-objectives.js\n?? docs/ch1-map-quests/\n?? docs/harness/CHAPTER_01_MAP_QUESTS.md\n?? docs/harness/evidence/c1-map-quests-20261012/\n?? source/tasks/active/c1-map-quests-20261012.json\n?? tests/browser-chapter-one-map-quests.mjs\n?? tests/chapter-one-map-quests.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T02:08:58.419368+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-map-quests/ACCEPTANCE.md\n M docs/ch1-map-quests/MOVEMENT.json\n M docs/ch1-map-quests/NAVIGATION.json\n M docs/ch1-map-quests/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-map-quests/browser/QA.json\n M docs/ch1-map-quests/browser/alley-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-after.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-touch.png\n M docs/ch1-map-quests/browser/c1DrillGallery.webp\n M docs/ch1-map-quests/browser/c1LoomRoom-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk-after.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-after.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-touch.png\n M docs/ch1-map-quests/browser/c1ReedKiln.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-touch.png\n M docs/ch1-map-quests/browser/canal-after.webp\n M docs/ch1-map-quests/browser/canal-collision.webp\n M docs/ch1-map-quests/browser/echo-after.webp\n M docs/ch1-map-quests/browser/echo-collision.webp\n M docs/ch1-map-quests/browser/echo.webp\n M docs/ch1-map-quests/browser/grove-after.webp\n M docs/ch1-map-quests/browser/grove-collision.webp\n M docs/ch1-map-quests/browser/grove.webp\n M docs/ch1-map-quests/browser/guestroom-collision.webp\n M docs/ch1-map-quests/browser/hall-after.webp\n M docs/ch1-map-quests/browser/herb-interaction.png\n M docs/ch1-map-quests/browser/millpath-after.webp\n M docs/ch1-map-quests/browser/millpath-collision.webp\n M docs/ch1-map-quests/browser/road-after.webp\n M docs/ch1-map-quests/browser/road-collision.webp\n M docs/ch1-map-quests/browser/road.webp\n M docs/ch1-map-quests/browser/town-after.webp\n M docs/ch1-map-quests/browser/town-collision.webp\n M docs/ch1-map-quests/browser/town.webp\n M docs/ch1-map-quests/browser/warehouse-after.webp\n M docs/ch1-map-quests/browser/warehouse-collision.webp\n M docs/ch1-map-quests/browser/workshop-after.webp\n M docs/ch1-map-quests/economy/ember-all_once-one-epic.json\n M docs/ch1-map-quests/economy/ember-all_once.json\n M docs/ch1-map-quests/economy/ember-main_only.json\n M docs/ch1-map-quests/economy/ember-repeat_patrol.json\n M docs/ch1-map-quests/economy/ember-typical.json\n M docs/ch1-map-quests/economy/oath-all_once-one-epic.json\n M docs/ch1-map-quests/economy/oath-all_once.json\n M docs/ch1-map-quests/economy/oath-main_only.json\n M docs/ch1-map-quests/economy/oath-repeat_patrol.json\n M docs/ch1-map-quests/economy/oath-typical.json\n M docs/ch1-map-quests/economy/shadow-all_once-one-epic.json\n M docs/ch1-map-quests/economy/shadow-all_once.json\n M docs/ch1-map-quests/economy/shadow-main_only.json\n M docs/ch1-map-quests/economy/shadow-repeat_patrol.json\n M docs/ch1-map-quests/economy/shadow-typical.json\n M docs/ch1-map-quests/visual/alley-after.webp\n M docs/ch1-map-quests/visual/alley-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-after.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-after.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-collision.webp\n M docs/ch1-map-quests/visual/c1LoomRoom.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-after.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/visual/c1NorthWalk.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-after.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/visual/c1ReedKiln.webp\n M docs/ch1-map-quests/visual/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/visual/canal-after.webp\n M docs/ch1-map-quests/visual/canal-collision.webp\n M docs/ch1-map-quests/visual/canal.webp\n M docs/ch1-map-quests/visual/chapel-after.webp\n M docs/ch1-map-quests/visual/echo-after.webp\n M docs/ch1-map-quests/visual/echo-collision.webp\n M docs/ch1-map-quests/visual/echo.webp\n M docs/ch1-map-quests/visual/grove-after.webp\n M docs/ch1-map-quests/visual/grove-collision.webp\n M docs/ch1-map-quests/visual/grove.webp\n M docs/ch1-map-quests/visual/guestroom-after.webp\n M docs/ch1-map-quests/visual/hall-after.webp\n M docs/ch1-map-quests/visual/hall-collision.webp\n M docs/ch1-map-quests/visual/hall.webp\n M docs/ch1-map-quests/visual/millpath-after.webp\n M docs/ch1-map-quests/visual/millpath-collision.webp\n M docs/ch1-map-quests/visual/millpath.webp\n M docs/ch1-map-quests/visual/road-after.webp\n M docs/ch1-map-quests/visual/road.webp\n M docs/ch1-map-quests/visual/town-collision.webp\n M docs/ch1-map-quests/visual/warehouse-after.webp\n M docs/ch1-map-quests/visual/workshop-after.webp\n M docs/ch1-map-quests/visual/workshop-collision.webp\n M docs/ch1-map-quests/visual/workshop.webp\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-map-quests-20261012.json\n?? docs/ch1-map-quests/MAP_QUALITY.json\n?? docs/ch1-map-quests/MAP_REVIEW.md\n?? docs/ch1-map-quests/PACKAGE.json\n?? docs/ch1-map-quests/SAVES.json\n?? docs/ch1-map-quests/integration/\n?? docs/ch1-map-quests/local-5174/\n?? docs/ch1-map-quests/natural-final/\n?? docs/ch1-map-quests/package/\n?? docs/ch1-map-quests/visual-review.html\n?? docs/ch1-map-quests/visual/c1Kiln-frames.webp\n?? docs/harness/evidence/c1-map-quests-20261012/016-integration.txt\n?? docs/harness/evidence/c1-map-quests-20261012/017-package-build.txt\n?? docs/harness/evidence/c1-map-quests-20261012/018-package-and-saves.txt\n?? docs/harness/evidence/c1-map-quests-20261012/019-package-and-save-recheck.txt\n?? docs/harness/evidence/c1-map-quests-20261012/020-map-quality.txt\n?? docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-13T02:08:58.500173+00:00",
+      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-map-quests/ACCEPTANCE.md\n M docs/ch1-map-quests/MOVEMENT.json\n M docs/ch1-map-quests/NAVIGATION.json\n M docs/ch1-map-quests/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-map-quests/browser/QA.json\n M docs/ch1-map-quests/browser/alley-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-after.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-touch.png\n M docs/ch1-map-quests/browser/c1DrillGallery.webp\n M docs/ch1-map-quests/browser/c1LoomRoom-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk-after.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-after.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-touch.png\n M docs/ch1-map-quests/browser/c1ReedKiln.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-touch.png\n M docs/ch1-map-quests/browser/canal-after.webp\n M docs/ch1-map-quests/browser/canal-collision.webp\n M docs/ch1-map-quests/browser/echo-after.webp\n M docs/ch1-map-quests/browser/echo-collision.webp\n M docs/ch1-map-quests/browser/echo.webp\n M docs/ch1-map-quests/browser/grove-after.webp\n M docs/ch1-map-quests/browser/grove-collision.webp\n M docs/ch1-map-quests/browser/grove.webp\n M docs/ch1-map-quests/browser/guestroom-collision.webp\n M docs/ch1-map-quests/browser/hall-after.webp\n M docs/ch1-map-quests/browser/herb-interaction.png\n M docs/ch1-map-quests/browser/millpath-after.webp\n M docs/ch1-map-quests/browser/millpath-collision.webp\n M docs/ch1-map-quests/browser/road-after.webp\n M docs/ch1-map-quests/browser/road-collision.webp\n M docs/ch1-map-quests/browser/road.webp\n M docs/ch1-map-quests/browser/town-after.webp\n M docs/ch1-map-quests/browser/town-collision.webp\n M docs/ch1-map-quests/browser/town.webp\n M docs/ch1-map-quests/browser/warehouse-after.webp\n M docs/ch1-map-quests/browser/warehouse-collision.webp\n M docs/ch1-map-quests/browser/workshop-after.webp\n M docs/ch1-map-quests/economy/ember-all_once-one-epic.json\n M docs/ch1-map-quests/economy/ember-all_once.json\n M docs/ch1-map-quests/economy/ember-main_only.json\n M docs/ch1-map-quests/economy/ember-repeat_patrol.json\n M docs/ch1-map-quests/economy/ember-typical.json\n M docs/ch1-map-quests/economy/oath-all_once-one-epic.json\n M docs/ch1-map-quests/economy/oath-all_once.json\n M docs/ch1-map-quests/economy/oath-main_only.json\n M docs/ch1-map-quests/economy/oath-repeat_patrol.json\n M docs/ch1-map-quests/economy/oath-typical.json\n M docs/ch1-map-quests/economy/shadow-all_once-one-epic.json\n M docs/ch1-map-quests/economy/shadow-all_once.json\n M docs/ch1-map-quests/economy/shadow-main_only.json\n M docs/ch1-map-quests/economy/shadow-repeat_patrol.json\n M docs/ch1-map-quests/economy/shadow-typical.json\n M docs/ch1-map-quests/visual/alley-after.webp\n M docs/ch1-map-quests/visual/alley-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-after.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-after.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-collision.webp\n M docs/ch1-map-quests/visual/c1LoomRoom.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-after.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/visual/c1NorthWalk.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-after.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/visual/c1ReedKiln.webp\n M docs/ch1-map-quests/visual/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/visual/canal-after.webp\n M docs/ch1-map-quests/visual/canal-collision.webp\n M docs/ch1-map-quests/visual/canal.webp\n M docs/ch1-map-quests/visual/chapel-after.webp\n M docs/ch1-map-quests/visual/echo-after.webp\n M docs/ch1-map-quests/visual/echo-collision.webp\n M docs/ch1-map-quests/visual/echo.webp\n M docs/ch1-map-quests/visual/grove-after.webp\n M docs/ch1-map-quests/visual/grove-collision.webp\n M docs/ch1-map-quests/visual/grove.webp\n M docs/ch1-map-quests/visual/guestroom-after.webp\n M docs/ch1-map-quests/visual/hall-after.webp\n M docs/ch1-map-quests/visual/hall-collision.webp\n M docs/ch1-map-quests/visual/hall.webp\n M docs/ch1-map-quests/visual/millpath-after.webp\n M docs/ch1-map-quests/visual/millpath-collision.webp\n M docs/ch1-map-quests/visual/millpath.webp\n M docs/ch1-map-quests/visual/road-after.webp\n M docs/ch1-map-quests/visual/road.webp\n M docs/ch1-map-quests/visual/town-collision.webp\n M docs/ch1-map-quests/visual/warehouse-after.webp\n M docs/ch1-map-quests/visual/workshop-after.webp\n M docs/ch1-map-quests/visual/workshop-collision.webp\n M docs/ch1-map-quests/visual/workshop.webp\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-map-quests-20261012.json\n?? docs/ch1-map-quests/MAP_QUALITY.json\n?? docs/ch1-map-quests/MAP_REVIEW.md\n?? docs/ch1-map-quests/PACKAGE.json\n?? docs/ch1-map-quests/SAVES.json\n?? docs/ch1-map-quests/integration/\n?? docs/ch1-map-quests/local-5174/\n?? docs/ch1-map-quests/natural-final/\n?? docs/ch1-map-quests/package/\n?? docs/ch1-map-quests/visual-review.html\n?? docs/ch1-map-quests/visual/c1Kiln-frames.webp\n?? docs/harness/evidence/c1-map-quests-20261012/016-integration.txt\n?? docs/harness/evidence/c1-map-quests-20261012/017-package-build.txt\n?? docs/harness/evidence/c1-map-quests-20261012/018-package-and-saves.txt\n?? docs/harness/evidence/c1-map-quests-20261012/019-package-and-save-recheck.txt\n?? docs/harness/evidence/c1-map-quests-20261012/020-map-quality.txt\n?? docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt"
     }
   ]
 }

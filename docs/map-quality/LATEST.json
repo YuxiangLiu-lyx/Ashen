@@ -1,1204 +1,1496 @@
 {
-  "source_fingerprint": "d8f71c5b650e621d5ee991d3e538df5fd7011be2791fc739d5c460874152a58e",
-  "reviewed_at_utc": "2026-10-12T11:25:39.761668+00:00",
-  "reviewer": "assistant visual review of actual renderer screenshots, separate from automated paths",
+  "task": "c1-map-quests-20261012",
+  "reviewer": "assistant visual inspection and reproducible runtime evidence; not human full-play observation",
+  "checked_at_utc": "2026-10-13T01:34:23.274121+00:00",
+  "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
   "reviewed_paths": [
+    "dist/assets/c1-map-quests/artisans.png",
+    "dist/assets/c1-map-quests/kiln.png",
+    "dist/assets/c1-map-quests/loom.png",
+    "dist/assets/c1-map-quests/moss-beetle.png",
+    "dist/assets/c1-map-quests/trial-construct.png",
     "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/chapter-one-expansion-save.js",
     "dist/chapter-one-expansion-world.js",
+    "dist/chapter-one-interaction-v31.js",
+    "dist/chapter-one-layout.js",
+    "dist/chapter-one-objectives.js",
     "dist/core-v14.js",
     "dist/game-v14.js",
-    "dist/visuals-v14.js",
-    "dist/world-runtime-v29.js"
+    "dist/presentation-metrics-v281.js"
   ],
   "assets": [
     {
-      "path": "dist/assets/v4/actors-world.png",
-      "sha256": "761447478e44de6979b20a60b0ec7dce32195b1f591091ecb0349c56f6ed9207"
+      "path": "dist/assets/c1-map-quests/artisans.png",
+      "sha256": "103fce6a29a5619718ff74bc3ed430516db18db1196c9a03d325d4e859f2979d"
     },
     {
-      "path": "dist/assets/v4/hero-bodies.png",
-      "sha256": "fdf7f884ba80a559ed0a2db7db5373adf93b08c4b39e97f63f761c9ec39a096e"
+      "path": "dist/assets/c1-map-quests/kiln.png",
+      "sha256": "8ea8e7b1cb9e86104fa6fde58e4c88edd487ca75c6e0d9de77e048265572eb96"
     },
     {
-      "path": "dist/assets/v4/main-portraits.png",
-      "sha256": "8e082eab354608c342467b34f601ea640f69d5826e9509e2e034533f8c5a4730"
+      "path": "dist/assets/c1-map-quests/loom.png",
+      "sha256": "7f0a6264987a5f8516c452ae42d1ce0969d52dac2760975f37e6151fdddcba84"
     },
     {
-      "path": "dist/assets/c1-voice/elyria-gentle.png",
-      "sha256": "6acd8529a1255205c170ed6654cb8804811457540a2f0947c22f7b3282fcaa9f"
+      "path": "dist/assets/c1-map-quests/moss-beetle.png",
+      "sha256": "7618616732febe3b78f468623b1174ab3a9ef86e4b7629246d9d278afe442447"
     },
     {
-      "path": "dist/assets/c1-incremental/pursuit-guard.png",
-      "sha256": "330316ae49fcccebff367ce5a7c9e0b431123273ba1763f6d68bbc89de4eb585"
-    },
-    {
-      "path": "dist/assets/c1-incremental/pursuit-elite.png",
-      "sha256": "adaedef8ea532ccf185c0d528e5ad031e11117daf0fea0a7812e300d4246b365"
-    },
-    {
-      "path": "dist/assets/c1-incremental/pursuit-officer.png",
-      "sha256": "23c883a0f17d96178d4631b26483e3dd0cffa486ead1b15130bf91e4edcbee71"
+      "path": "dist/assets/c1-map-quests/trial-construct.png",
+      "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
     }
   ],
   "maps": [
     {
-      "id": "c1TrainingYard",
-      "name": "灰烛练武庭",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard-collision.webp",
-            "sha256": "202eb3a15ec1e1a9468371fbf65a241d5a8ce56c5d3cebc227a2c4bcfc2c9849"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard-touch.png",
-            "sha256": "5d0a30531d6974037fceeb7921b29d1a711403f6bd2c53c9787af2f0e23ea77b"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard-interaction.png",
-            "sha256": "09e0bd83e522a5594f3c6423c80a4cc95a957d557e3e3352b8e0967f3a8108e1"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          },
-          {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "两块训练留白、两具草靶与工具台分区，薇蕾娜/鲁恩在场边；预警地面未被器械遮盖。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard.webp",
-            "sha256": "e790a0761732b83ebf8f0a978763a9f7748f9baea8c7623f0c6cc27c55d93306"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard-after.webp",
-            "sha256": "d455905bfdee98d5258be019b13be4420d6760ca884ea8bd9d0d7d92839440cb"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "原薇蕾娜、鲁恩、奥伦与诺恩世界像保持服装及脚锚；训练靶使用既有木人图元。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1TrainingYard.webp",
-            "sha256": "e790a0761732b83ebf8f0a978763a9f7748f9baea8c7623f0c6cc27c55d93306"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1DrillGallery",
-      "name": "旧试炼廊",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery-collision.webp",
-            "sha256": "cd06cdbc612bf34697264ac0bd718b23c992009fd2ce018c42f2de1e162d711e"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery-touch.png",
-            "sha256": "9f1f5a3899af6341ecd02786946b9fa3c918e88b9f98ff618ec83678a3d1fd00"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery-interaction.png",
-            "sha256": "204bf2710938be343788357c65d444ff8a71e443b3db5f529c241aba51e19585"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          },
-          {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "木地板上铃线及上下两条训练路线可见，三块掩体与终点书页形成试炼用途；两次失败辅助只延长预警。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery.webp",
-            "sha256": "c8114a9cac95f53df9fb72c621d4c78eaca1b335cdb4c2fe1e6732c6507a4498"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery-after.webp",
-            "sha256": "c3cf572a8550243f3439db51dedcdb04b5f0970cb2b4e99b22ad76d1df7c8c83"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "诺恩沿用原世界像，移动巡查靶沿用木人；没有新增人形占位立绘。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1DrillGallery.webp",
-            "sha256": "c8114a9cac95f53df9fb72c621d4c78eaca1b335cdb4c2fe1e6732c6507a4498"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1LoomRoom",
-      "name": "缀纹工坊",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom-collision.webp",
-            "sha256": "863532c6c9f5aee0a4a4bacf0151f51b2c3b07ab3298f64c2af8b2be1a05ad2a"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom-touch.png",
-            "sha256": "1dbd0008d3efc5d7e2a79e50d5209984e8a83698baafa325378b73cbb8df22dc"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom-interaction.png",
-            "sha256": "c78d76ecad716e9c6c333b11f8556c3b240c5a91fd9efa0151bd8bde0d1f7241"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          },
-          {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "左晶料台、中央带线轴的缀纹机、右草药台可分辨；封存样本的三瓶已移到天平前避免被桌面遮住。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom.webp",
-            "sha256": "4d754905fc1f8388d9cacb5d02fa232000abaadb630883f4316627243291d344"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom-after.webp",
-            "sha256": "af47ed201161dca86b188ec21cc89d12a46837bea573ca5d38ee7dda8abe33be"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "罗萨、赛铎复用现有风格世界像，左右岗位不挡中央机位；尚无为两人新增独立手绘立绘，不声称唯一美术设计。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1LoomRoom.webp",
-            "sha256": "4d754905fc1f8388d9cacb5d02fa232000abaadb630883f4316627243291d344"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1NorthWalk",
-      "name": "北渠检修道",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk-collision.webp",
-            "sha256": "d46340281b9690891afb3a928616556d7e68265b81d7825a2a1eff43a79d2271"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk-touch.png",
-            "sha256": "e3033da6df4c8acfcedf36d21d5d31be718d6a07fa3c9939fa54a47eaba9437a"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk-interaction.png",
-            "sha256": "012e109e60eb9b6c43d9c8959deb3bf6fe07743dedb0de40270f39d9db113852"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          },
-          {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "南北贯通水道与岸边阀门、横向木板可辨；泄压后架板与碰撞开放同步，岸边交战留白存在。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk.webp",
-            "sha256": "96c6295ea4775db7af41e1d4d0de02ffe31965481598a4d7c4eb486d5fee60f3"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk-after.webp",
-            "sha256": "30a5c53e384358d980a0acd39d9aca589927cc1bac51e5b2ae3d6f0a1507dc45"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "原鼠/蝙蝠与诺恩贴图保持物种和体型，板桥按地面绘制，角色脚锚不悬空。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1NorthWalk.webp",
-            "sha256": "96c6295ea4775db7af41e1d4d0de02ffe31965481598a4d7c4eb486d5fee60f3"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1ReedKiln",
-      "name": "苇湾废窑",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。 本图有窄屏真实触控移动及近距机关操作。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln-collision.webp",
-            "sha256": "d4063d90d4e9aa185a5526eda2bb65dbc3409a08e9d117417d33a6b03b8d7616"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln-touch.png",
-            "sha256": "22a4351d495309fcc9e1e7b8b68cbe4c14aab7bb2f179e179f8212845cdd1523"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln-interaction.png",
-            "sha256": "810393eb7708fd7f48042a865474d9af131f32d46c9cdb62c58c83c62ad81093"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "窑炉与管线、进风和排烟口连成现场；西沟有短梯，倒灌/通风后气流图可对照，巢穴在窑炉下方。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln.webp",
-            "sha256": "8d2127968af5751b122ae3b7a185513cd6e3c0a82e4763cd4c23c993d55d1a82"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln-after.webp",
-            "sha256": "0ae68b2aff08d958a000976bd0f1ff83ab04cc3df36f5347cf8cadf8c688b044"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "夜翼保留蝙蝠轮廓、朝向及翼膜细节；精英是同种异变而非单纯放大，近战/远程正式AI有独立试验。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/c1ReedKiln.webp",
-            "sha256": "8d2127968af5751b122ae3b7a185513cd6e3c0a82e4763cd4c23c993d55d1a82"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
       "id": "hall",
-      "name": "灰烛会馆",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/hall-collision.webp",
-            "sha256": "a626c568ff37f50ddce43abce5f5a34787d4e0f74a0f4952fd1b803c06f9235b"
+            "path": "docs/ch1-map-quests/visual/hall-collision.webp",
+            "sha256": "41ed71135e3e53993163c3d46f4b42c2182ec2600e9ee9e561ea3509fb835536"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原会馆布局及委托区保留；新增练武庭门框在西侧可见，训练动线与库房/外门各自清楚。",
+        "reason": "开放接待厅，中间留完整通道；书记区在北墙，休息桌椅在西南。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/hall.webp",
-            "sha256": "03aacc5802e78f0927a48bdb4c4dbc4fc3338df9f35eca82089f858a002aafcd"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/hall-after.webp",
-            "sha256": "dec0a4734a1d95d5b2d8267b9aea834d95e38cae3172f07e31a37fd085996127"
+            "path": "docs/ch1-map-quests/visual/hall.webp",
+            "sha256": "644a289b7a5b567c29f09778ba44a119e43a23602a48d1e255efb0672be26ee8"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "薇蕾娜、鲁恩、奥伦与诺恩原装束和人物图保持；接委托后使用原对话形式。",
+        "reason": "奥伦位于接待处、鲁恩在桌前、薇蕾娜留有接近空间；炉灶、书架、衣架各按用途摆放。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/hall.webp",
-            "sha256": "03aacc5802e78f0927a48bdb4c4dbc4fc3338df9f35eca82089f858a002aafcd"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/hall.webp",
+            "sha256": "644a289b7a5b567c29f09778ba44a119e43a23602a48d1e255efb0672be26ee8"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "warehouse",
-      "name": "旧库房",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/warehouse-collision.webp",
-            "sha256": "ecc7469398a2ca37578e32a9290de73b0096728a54aa63ed602da1dd83761d80"
+            "path": "docs/ch1-map-quests/visual/warehouse-collision.webp",
+            "sha256": "3ee4b54112e31789e0dd67585f0962d41d96509c79def4483863810faaf331c7"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原货架和鼠洞保留，木板搬运贴随角色，封墙后补板可見；西侧试炼廊门框可辨。",
+        "reason": "货物分布周边及中央短堆，宽通道连入口与鼠洞。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/warehouse.webp",
-            "sha256": "7e1a20920ed0be71364f105a931cd912ec496b7e10abaf5b28b9b183c846a6ab"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/warehouse-after.webp",
-            "sha256": "63d7d594c8933c364f1f79e0cefdb9998c96bcd41c26c794082b69e4210eb0d6"
+            "path": "docs/ch1-map-quests/visual/warehouse.webp",
+            "sha256": "65eeb1ae2b1a0d6d603cbdca80fe1a5febdaa38cb3f4bef0b9995a76ae68c635"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "原鼠与诺恩动作/脚锚保持；搬板不替换角色贴图或生成匿名人物。",
+        "reason": "六鼠在粮袋周围活动；鼠洞仅清场后出现任务互动，无满地灯油瓶。货箱遮挡实体会淡化。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/warehouse.webp",
-            "sha256": "7e1a20920ed0be71364f105a931cd912ec496b7e10abaf5b28b9b183c846a6ab"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/warehouse.webp",
+            "sha256": "65eeb1ae2b1a0d6d603cbdca80fe1a5febdaa38cb3f4bef0b9995a76ae68c635"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "road",
-      "name": "旧王道",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/road-collision.webp",
-            "sha256": "8df6e50d27510d2ebad60be60e8222c162d023c10b6ac5c4e867f7eff00289b0"
+            "path": "docs/ch1-map-quests/visual/road-collision.webp",
+            "sha256": "da8fc6b5bb9c93552a62e38a3165c03ebebbfe3fa7206b02bc552b12a75a29b2"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "路牌、断车、路标和避雨处依附既有道路，原四出口仍保留；跨夜有明确准备地点。",
+        "reason": "东西主路连接北岔口与南空场，树林描出区域，保持宽战斗空间。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/road.webp",
-            "sha256": "414ab597321a4a17fe3cd8b5d7794be3a02f08e9fc2e75c06b33d389f61e12d1"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/road-after.webp",
-            "sha256": "2e4150422f98d9ec68ac0a526fdb82e9185e1c9fae81b0244c284d09279643e2"
+            "path": "docs/ch1-map-quests/visual/road.webp",
+            "sha256": "8b477a831ca7d340e9ba7074028a3ded137b045009ebf4e961b8fb974f72dc5e"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "阿林与路敌沿用原角色图，不改变原阵营识别和地面比例。",
+        "reason": "阿林在车道旁，破车与帐篷/铺盖构成路边停歇点；狼和鼠不使用交互道具替代。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/road.webp",
-            "sha256": "414ab597321a4a17fe3cd8b5d7794be3a02f08e9fc2e75c06b33d389f61e12d1"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/road.webp",
+            "sha256": "8b477a831ca7d340e9ba7074028a3ded137b045009ebf4e961b8fb974f72dc5e"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "grove",
-      "name": "溪边旧径",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
           },
           {
-            "path": "docs/ch1-expansion/browser/grove-collision.webp",
-            "sha256": "b8915f606af41dc8e5cc67eb34a8bea0d26162849d6ac037bd3a1eb55341f0fa"
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "草药标记和精英位于既有林缘，废窑入口有门框；精英交战区与普通草药调查可绕行。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/grove.webp",
-            "sha256": "3ac230f4bf640241a3ca0a08f13bdf2609e292407571c5b3db99ed5e09af129c"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/grove-after.webp",
-            "sha256": "18ac5d6bd2439b6eee7933859133f2ce97670750c66c5643cc82b168361db182"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "裂齿渠鼠保持原鼠躯干与脚锚，只加贴合口部骨齿；修正了首轮脱离身体的过大白刺。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/grove.webp",
-            "sha256": "3ac230f4bf640241a3ca0a08f13bdf2609e292407571c5b3db99ed5e09af129c"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "millpath",
-      "name": "旧磨坊小径",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/millpath-collision.webp",
-            "sha256": "b679d15d7a14609eb726efb81fbf99c127aef932390322cf5166687a25d2ce28"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "沿原回水支路添加巡检节点和原机芯任务线索；两出口与原树石保持。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/millpath.webp",
-            "sha256": "cbcaf79360593bfda5c7fd3008a39111fe52c2baede25e02efc348df9ebdd8b6"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/millpath-after.webp",
-            "sha256": "e4c0237cabe9b6062b7004f7e9c0709d6085ec5ac644a61a448afd23002ede21"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "原NPC/狼与诺恩服装、体型和物种沿用；巡检阀门是场景机关，不做人形占位。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/millpath.webp",
-            "sha256": "cbcaf79360593bfda5c7fd3008a39111fe52c2baede25e02efc348df9ebdd8b6"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
-          }
-        ]
-      }
-    },
-    {
-      "id": "echo",
-      "name": "回水机房",
-      "playability": {
-        "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/echo-collision.webp",
-            "sha256": "7ebda57f8876cd2ecb6627c42978daf402fa23fd07a8a0bea10df962a931a1fd"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
-          },
-          {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "旧响石坡的守兽和原机芯位置保留，巡检不替代手取机芯；击败/刷新后原任务物仍独立。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/echo.webp",
-            "sha256": "6dbcf89bda77f1501471c479dc2b452a50704679f27d2e17ddf403f68fd9218e"
-          },
-          {
-            "path": "docs/ch1-expansion/browser/echo-after.webp",
-            "sha256": "2ca978bdd1b82a6f47d86ae7d0ec598edc08ecebf5036fb210d4ce4f4a746965"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "灰脊守兽保留狼的背线、头与脚锚，灰脊细节贴在背部；原受击/死亡身体不变。",
-        "evidence": [
-          {
-            "path": "docs/ch1-expansion/browser/echo.webp",
-            "sha256": "6dbcf89bda77f1501471c479dc2b452a50704679f27d2e17ddf403f68fd9218e"
-          },
-          {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
-          },
-          {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
-          },
-          {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "town",
-      "name": "白榆城",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/town-collision.webp",
-            "sha256": "8c18a1660ea3a0417c91aedd4de01d4f7f1893424612a810fd21a6fd443ee716"
+            "path": "docs/ch1-map-quests/visual/town-collision.webp",
+            "sha256": "9cfe1c6e1b97ff96c3f65beaf23261381743bde7f6979cbed3155adb4b35baa0"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "街镇原岗位保留，班次簿/门牌和东西灯路依附原城镇；检修道门框可见，修灯后折叠布架反馈可见。",
+        "reason": "开放广场、药铺/衣摊/井区位于不同边缘，礼拜门在北。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/town.webp",
-            "sha256": "ed080d3518dd050c2101d52ca61523d22f880bac3f50cf16b66a57faa72c3e3a"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/town-after.webp",
-            "sha256": "0f2ff18dfce2385285f1dba6cac85fe84b82b6249af06b980f4e28baf2570591"
+            "path": "docs/ch1-map-quests/visual/town.webp",
+            "sha256": "db242ad1a9a1704f5d51dee8d6b631a160b883f9826c76f56d108413e4b32f36"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "托马、多莉及老人沿用现有世界像/对白；新增交互不冒用未知人的立绘。",
+        "reason": "NPC靠服务岗位，水井真实可见且脚部碰撞/交互锚点分开；未完成托马任务是灰问号。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/town.webp",
-            "sha256": "ed080d3518dd050c2101d52ca61523d22f880bac3f50cf16b66a57faa72c3e3a"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/town.webp",
+            "sha256": "db242ad1a9a1704f5d51dee8d6b631a160b883f9826c76f56d108413e4b32f36"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
-      "id": "workshop",
-      "name": "白榆修理铺",
+      "id": "chapel",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/workshop-collision.webp",
-            "sha256": "17a850764fb0114fbd03e30a575970fe3610ca28090ad7f9ab70c8525407022b"
+            "path": "docs/ch1-map-quests/visual/chapel-collision.webp",
+            "sha256": "edcf4ee36a76d618e4aa38044e3dad8946715d61f191b1c4a1b978f21c646b12"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原修理铺增加缀纹工坊门框，绕原长凳的真实走路已通；未用隐藏传送替代拐角。",
+        "reason": "中殿保持原动作区域和侧门退路，长凳位于边缘。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/workshop.webp",
-            "sha256": "90cfe3189771322d9dd2511a567775b3f4c66573a3f20d1432b8c7692a406257"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/workshop-after.webp",
-            "sha256": "4ab232cf1aadbb3a8e42c584a3a780c0f84915527af9095b3a293b2344f6fd54"
+            "path": "docs/ch1-map-quests/visual/chapel.webp",
+            "sha256": "9215a7d757219d25e68d618793214e091073f6d875fddb1661990a9eee1ae9eb"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "铁匠与诺恩沿用原美术；新门在原场景地面，不覆盖NPC脚锚。",
+        "reason": "主祭与原刺杀人物身份/对白保留；祭台、灯具和长凳对应宗教场所。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/workshop.webp",
-            "sha256": "90cfe3189771322d9dd2511a567775b3f4c66573a3f20d1432b8c7692a406257"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/chapel.webp",
+            "sha256": "9215a7d757219d25e68d618793214e091073f6d875fddb1661990a9eee1ae9eb"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "alley",
-      "name": "北门小巷",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/alley-collision.webp",
-            "sha256": "5c41fa83aaf27eaf0f05b09d1bb4a53cf152f2f98bb65a1a2202e8201d4c5ff5"
+            "path": "docs/ch1-map-quests/visual/alley-collision.webp",
+            "sha256": "ed504a764b896f607455fe72023fce540f903a995e2ebaf233c46d5a04027084"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原北门小巷及逃离通路保留，检修道返口有门框；不会绕过原水渠追缉官。",
+        "reason": "前街连货场及北支路，房屋和石墙界定城市边缘。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/alley.webp",
-            "sha256": "0659716d81d8027786809c87aa3a24abd93fa5c9c24d6ec06798890502f819e9"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/alley-after.webp",
-            "sha256": "ff3b319d1550fe0c2cf3d7b3476bfeaecbef7020698de3ca6d0731e280845c6a"
+            "path": "docs/ch1-map-quests/visual/alley.webp",
+            "sha256": "9ad507d0476c0ce9a004acd15a4971e255052a27011d3caece5531e80709dbd6"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "护卫、艾莉娅和诺恩保持原剧情动作；圣女没有新增实战系统。",
+        "reason": "保留原追兵独立形象；货箱/木桶/木料属于卸货点，取消室外衣架。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/alley.webp",
-            "sha256": "0659716d81d8027786809c87aa3a24abd93fa5c9c24d6ec06798890502f819e9"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/alley.webp",
+            "sha256": "9ad507d0476c0ce9a004acd15a4971e255052a27011d3caece5531e80709dbd6"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "canal",
-      "name": "北门水渠",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/canal-collision.webp",
-            "sha256": "f34aa298cd6a8ae5f0c37e24646b07bbc23ddfc5b1514acf9478e32840b54ed6"
+            "path": "docs/ch1-map-quests/visual/canal-collision.webp",
+            "sha256": "0caf43d716a8738c5a52ea3510299e852a9facf9aa94862115c4c88939f76100"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原追缉官战场保留；战后需开闸、在闸后藏身，随后原离城确认；闸门有状态前后对照。",
+        "reason": "两岸两桥，东闸有绕障与战斗空场。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/canal.webp",
-            "sha256": "eeb6170fea4a20bb9f9d7e784a3acdab4db0eb93d0509f7c6605c507e7f257e3"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/canal-after.webp",
-            "sha256": "a7d174cd5c0dd8412220e9c9e93c5f8805391d2295e4aa1af0b5d1050ef862dd"
+            "path": "docs/ch1-map-quests/visual/canal.webp",
+            "sha256": "6bc9dd1ca66e9b81abf6202eb89459b9b9d3c0aa816bf9419bfbb8cd50948a3b"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "追缉官原独立图集和圣女原动作保持；收束只使用原对话框，无匿名影像或新增全屏CG。",
+        "reason": "追缉官和卫兵保留原外观；泵和绞盘有水务用途，出口不叠在货箱内。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/canal.webp",
-            "sha256": "eeb6170fea4a20bb9f9d7e784a3acdab4db0eb93d0509f7c6605c507e7f257e3"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/canal.webp",
+            "sha256": "6bc9dd1ca66e9b81abf6202eb89459b9b9d3c0aa816bf9419bfbb8cd50948a3b"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "grove",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/grove-collision.webp",
+            "sha256": "87096cae225cbd0f0b1be28d230f733a89f219d54581407e12dcd21fcee4ec17"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "两岸草甸、上游支路与两桥形成循环，河流延伸至边界。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/grove.webp",
+            "sha256": "c88f9a56622d7a7981f15050c380ddd55a155b382f13eab3c3bd067c1a7d5611"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "狼、蝠、鼠分布在林间，刻名石调查须先除掉致因精英；采集物只在接取后出现。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/grove.webp",
+            "sha256": "c88f9a56622d7a7981f15050c380ddd55a155b382f13eab3c3bd067c1a7d5611"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     },
     {
       "id": "guestroom",
-      "name": "会馆客房",
       "playability": {
         "status": "pass",
-        "reason": "正式RPG网格与目标无不可达项；现状/状态切换碰撞图已核对。",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/NAVIGATION.json",
-            "sha256": "98fe11ec1b212d63280b5b2fc71c9895893535e1e081edad876d66e14bc05d09"
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
           },
           {
-            "path": "docs/ch1-expansion/browser/QA.json",
-            "sha256": "ce2b4c54551c3dbdea4b4bd0fb8455946bf118d267d38d53499841522926a144"
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
           },
           {
-            "path": "docs/ch1-expansion/browser/guestroom-collision.webp",
-            "sha256": "3c2c2397307a956ad82409894203f74d53d15e664c9c2ee28603995d587ae160"
+            "path": "docs/ch1-map-quests/visual/guestroom-collision.webp",
+            "sha256": "9ada29a1a56816a3d66fdf8a3671718613c9a8d27d7fa5192704da7f52cf6bcb"
           },
           {
-            "path": "docs/ch1-expansion/economy/shadow-all_once.json",
-            "sha256": "0512e634e25207b440cd8eb7e665fecaac0717e1f982e94287b7ea6cfd3fd257"
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
           },
           {
-            "path": "docs/ch1-expansion/economy/ember-all_once.json",
-            "sha256": "469588b4e719ff2bdde5b5a598c1efca2aea3ccc6b47254e6afbb7a394d67fcf"
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
           },
           {
-            "path": "docs/ch1-expansion/natural/shadow-final/PLAY.json",
-            "sha256": "901194bb34776076b8dace67bbc62382e2ac66ad3a2dec5c6c022354aaf4da50"
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
           }
         ]
       },
       "scene_credibility": {
         "status": "pass",
-        "reason": "原客房与会馆连接保持，接委托后的原形式私下对话接续新准备线；未新增匿名第三人。",
+        "reason": "单一安静房间，床、炉边、水盆、行旅桌各有位置。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/guestroom.webp",
-            "sha256": "a0997bc5935ff8f1ff0c653ddb45bc7c57c81e97f38c663bbd3176c50443e2c5"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "docs/ch1-expansion/browser/guestroom-after.webp",
-            "sha256": "c8485c4b91c54d5bb2d48879558775efec4dc34982ce601328be632625b24b28"
+            "path": "docs/ch1-map-quests/visual/guestroom.webp",
+            "sha256": "cbea135e2a9298e228d1b163f1387f09c7e4788309d8930c0aa6204e7ca10a21"
           }
         ]
       },
       "character_consistency": {
         "status": "pass",
-        "reason": "已知幕后人物保留薇蕾娜/鲁恩原立绘，圣女默认柔和原图见打包UI与原图哈希保护。",
+        "reason": "床只绘制一次，脚锚和可用位置在床边；主角成人体量保持。 原资源身份和脚锚保持，新图集逐帧审阅。",
         "evidence": [
           {
-            "path": "docs/ch1-expansion/browser/guestroom.webp",
-            "sha256": "a0997bc5935ff8f1ff0c653ddb45bc7c57c81e97f38c663bbd3176c50443e2c5"
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
           },
           {
-            "path": "dist/chapter-one-expansion-art.js",
-            "sha256": "c4831f1b423c16c7766ddca50b28831f8a489a2d90ce4d9502420cef7147b6cf"
+            "path": "docs/ch1-map-quests/visual/guestroom.webp",
+            "sha256": "cbea135e2a9298e228d1b163f1387f09c7e4788309d8930c0aa6204e7ca10a21"
           },
           {
-            "path": "dist/chapter-one-expansion-world.js",
-            "sha256": "8853bb6f13e2c9d782ac230e0d48178c2bf1e65516c6a491275556765c2d70f5"
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
           },
           {
-            "path": "dist/actor-art-v281.js",
-            "sha256": "dab30c4f429895f308cf0127e98dd55d796c4b3777194c9437af8cf021ee7813"
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "millpath",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/millpath-collision.webp",
+            "sha256": "0b51da4ae772b2c57de0740e7414705fcbc3c1fd9a1518ea3bc910fcfb43f49b"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "水轮接入西北轮槽，北院与南检修场连接。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/millpath.webp",
+            "sha256": "369a5d58edb57acf522aa7c800deef637cfe52dd3717623a8ab3f21e32630d59"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "磨坊/石槽/粮箱符合生产用途；狼活动于院地，铜圈来自战斗掉落。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/millpath.webp",
+            "sha256": "369a5d58edb57acf522aa7c800deef637cfe52dd3717623a8ab3f21e32630d59"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "echo",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/echo-collision.webp",
+            "sha256": "99cd6223dde078fe5f40ef5e70ff9bdb3674a6f39abe8d048c567c8eb948f867"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "入口间、上检修廊与东侧守兽槽由宽口连接。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/echo.webp",
+            "sha256": "ed270e252a47e587be2933765a69ff5ab48818d5c0596e01f3edc510520204ab"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "泵、齿轴、阀门区分，不再同形点击桩；废墙恢复原生宽高比，守兽在机器附近。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/echo.webp",
+            "sha256": "ed270e252a47e587be2933765a69ff5ab48818d5c0596e01f3edc510520204ab"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "workshop",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/workshop-collision.webp",
+            "sha256": "441183d265af3182960f8d5a57b16ad7c7a9dd30bc6edcd05ceb22e460f524f4"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "开放工作间，工具台、壁炉和练习角分区；工坊出口可达。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/workshop.webp",
+            "sha256": "6848509cab35416b6cc9868cd5e406932320f676ecc357a928b7435b345f5932"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "洛缇在柜台前；工具卷、维修机芯与假人语义独立，储物柜使用柜形原件。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/workshop.webp",
+            "sha256": "6848509cab35416b6cc9868cd5e406932320f676ecc357a928b7435b345f5932"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrainingYard",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1TrainingYard-collision.webp",
+            "sha256": "1dbb0e37af25485baf6e6ec030936d972f51db38733304c7289efbfbbc509056"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "围栏将三片实战空场分开，连接口足够绕行。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1TrainingYard.webp",
+            "sha256": "a940fec6ddb9debb1f1dd62b92f4270d920ff2a1588c3e92f190e1c68c8bef2d"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "四只苔壳爬兽有独立六足/苔甲轮廓及动作，无可点击训练靶任务。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1TrainingYard.webp",
+            "sha256": "a940fec6ddb9debb1f1dd62b92f4270d920ff2a1588c3e92f190e1c68c8bef2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1DrillGallery",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1DrillGallery-collision.webp",
+            "sha256": "dc5ff499be99a390cf7f4e1d08ee749f8052673a495affa899459dc0a140dc5a"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "三室和宽门依次相连，入口至内室及便门可通。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1DrillGallery.webp",
+            "sha256": "66a441aca3b40586e66df5053936e4849eaa31abf58be1e43e42755042bb599f"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "独立砂岩构装体动画；内室守卫采用同种守卫设定与明确名称。废墙按原比例，不拉伸成柱。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1DrillGallery.webp",
+            "sha256": "66a441aca3b40586e66df5053936e4849eaa31abf58be1e43e42755042bb599f"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1LoomRoom",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1LoomRoom-collision.webp",
+            "sha256": "9734cdf1069246d16b16c00002eeb490a16359fc0fd8892a04aab724b34c1940"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "保持一个开阔工作间，符文柜、真织机、样本工作台分开。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1LoomRoom.webp",
+            "sha256": "f10fa6583b72c0aaa3175f52edbd5a088d62f4c2fd40149d18bdf1a09da53fac"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "罗萨与赛铎分别使用独立成人女性/灰须男性八姿态；围裙/工具轮廓一致，脚锚稳定；真实织机有经线和布。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1LoomRoom.webp",
+            "sha256": "f10fa6583b72c0aaa3175f52edbd5a088d62f4c2fd40149d18bdf1a09da53fac"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1NorthWalk",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1NorthWalk-collision.webp",
+            "sha256": "41f90749403f64d28d18320e2ca7e7ba05dee48e6145b3b8e7890cd98c013154"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "西岸台地、两座过水桥和东岸灯路形成环路。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1NorthWalk.webp",
+            "sha256": "fad91bc9f77c48ed6eee567ccbab3a7d5ea6406bc3b9b7fc8a7bd2a1824ca8fe"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "鼠啃木料/蝠占灯的目标直接靠战斗完成；保留水槽、灯和检修遗墙。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1NorthWalk.webp",
+            "sha256": "fad91bc9f77c48ed6eee567ccbab3a7d5ea6406bc3b9b7fc8a7bd2a1824ca8fe"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1ReedKiln",
+      "playability": {
+        "status": "pass",
+        "reason": "17图完整连通；入口至交互/出口实走221条（本图统计见MOVEMENT）；战斗由三职业正常键鼠、15条经济路线及独立机房往返验证，非人工时长验收。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/NAVIGATION.json",
+            "sha256": "7ec16f0898aa1ec8e2d03b43025cc21361a40a981a7dba083ae32f4760d4c969"
+          },
+          {
+            "path": "docs/ch1-map-quests/MOVEMENT.json",
+            "sha256": "d8da7f2a94da5b6a0204172a49a16a85b4a69d62fb131399b012fd36e68839a1"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1ReedKiln-collision.webp",
+            "sha256": "312b99352c54a13e4db7342567d09d1e7d176d3087bc728b3584914ad1e1e213"
+          },
+          {
+            "path": "docs/harness/evidence/c1-map-quests-20261012/016-integration.txt",
+            "sha256": "746d6c5c33999a5768bb24e12bd06da79049ff818a8ef9e846265e50908881c2"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/shadow/PLAY.json",
+            "sha256": "64e6a7e132c0a52483a502713218501ed93921092d3ca6745440ee19dc806ee0"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/oath/PLAY.json",
+            "sha256": "d37be7a2dd175cafd5674c14b493cefcecc02222898f51686de3fdba0d2589fb"
+          },
+          {
+            "path": "docs/ch1-map-quests/natural-final/ember/PLAY.json",
+            "sha256": "d347216971e0219f4705ac6aee0887554ec4b35158a44e49971c03f5f51a5161"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "三片逐渐升入窑区的空场相连，旧墙提供绕行点。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1ReedKiln.webp",
+            "sha256": "716f543af9faa0360a2f892464258c6d70e012f19b565fa43b83973f993f8f50"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "独立穹顶土砖窑替换不符场景的壁炉；窑口、残罐、芦苇可辨，夜翼在窑旁而非点击通风装置。 原资源身份和脚锚保持，新图集逐帧审阅。",
+        "evidence": [
+          {
+            "path": "docs/ch1-map-quests/MAP_REVIEW.md",
+            "sha256": "bbc7c67ccd6325c33444109b2f5131a3a939786f7209bdfbd3e5a900ef3a1e44"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1ReedKiln.webp",
+            "sha256": "716f543af9faa0360a2f892464258c6d70e012f19b565fa43b83973f993f8f50"
+          },
+          {
+            "path": "docs/ch1-map-quests/ASSETS.json",
+            "sha256": "33ad8b03f043b3d3ef3144ec315c2e43a4398c642d31d8aac6759d1d649405c0"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Artisans-frames.webp",
+            "sha256": "b2ab4cf538815aa4cace29d10b79b2c5e503bc7420d6f4f0766aae4272d63bef"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Beetle-frames.webp",
+            "sha256": "1db3d9bc1634124ca24eefb917a8f6478e23f9186035ad0f2443be6dbb2b8568"
+          },
+          {
+            "path": "docs/ch1-map-quests/visual/c1Construct-frames.webp",
+            "sha256": "df9f9070b4f9d74bfaaa45c93d0322d0ef2f9be47f9acfd5fba1aacebdad1b2d"
+          },
+          {
+            "path": "docs/ch1-map-quests/integration/chapter123/enemy-poses.webp",
+            "sha256": "dd9b67cfa26c5c936ba1f6a95360bc3a3aaf715c753f07fbb32b5ac6d20df355"
           }
         ]
       }
     }
   ],
   "limits": [
-    "Pass applies to explicitly affected 16 maps and observed functions/visuals. Original 118-map registry regression is separate.",
-    "These judgments do not certify first-time human pacing or an entirely human-observed route.",
-    "Before/after browser images show interaction state changes in this build, not pre-development images; pre-development map data and hashes are retained separately."
-  ],
-  "rule_only_revalidation": {
-    "kind": "documented_user_acceptance_only",
-    "at_utc": "2026-10-12T23:36:48.039331+00:00",
-    "previous_fingerprint": "7846647c290ad3e4607c03b51605ae317227885be587e0cff2845afbfb7ba274",
-    "evidence": {
-      "path": "docs/ch1-expansion/ELITE_DECISION_VALIDATION.json",
-      "sha256": "f02e199f452a06b972283aa87ef1e4874d937ddeb1c50e4813837b7e0f3d850e"
-    },
-    "limits": "Gameplay/rendering unchanged; existing run and visual-review dates retained."
-  }
+    "Historical 0.6 human full-route observation and pacing acceptance remain pending.",
+    "Later chapter maps unchanged; old assets and all original archives preserved."
+  ]
 }
