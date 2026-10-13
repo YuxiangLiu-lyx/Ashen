@@ -1,0 +1,28 @@
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (1.687042ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (54.933125ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (60.570959ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (5.672291ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (24.26825ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (10.878292ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (10.768458ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (14.995666ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 661.344333
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39
+    const evaluate=async expression=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);return r.result?.value;};
+                                                                                                                                                           ^
+
+Error: ReferenceError: __RETURN is not defined
+    at <anonymous>:1:1
+    at evaluate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39:156)
+    at async Object.wait (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43:98)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/docs/ch1-story-world/check-return.mjs:7:5
+
+Node.js v25.2.1
+[0, 1]

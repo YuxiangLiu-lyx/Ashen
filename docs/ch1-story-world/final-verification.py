@@ -4,7 +4,7 @@ from pathlib import Path
 import json,os,subprocess,time
 out=Path('docs/ch1-story-world/final-verification');out.mkdir(parents=True,exist_ok=True)
 py='qa-export/qa-venv/bin/python'
-jobs=[('integration', [['python3','tools/harness/check.py','--tier','integration']]),
+jobs=[('integration', [['python3','tools/harness/check.py','--tier','integration'],['node','docs/ch1-story-world/audit-saves.mjs'],['python3','tools/restore_archives.py','--all','--verify-only']]),
  ('package',[[py,'tools/build_web_play.py','--output','qa-export/c1-story-world-preview'],[py,'tests/browser-web-play.py','--build','qa-export/c1-story-world-preview','--out','docs/ch1-story-world/package']]),
  ('local',[[py,'docs/ch1-story-world/verify-local.py']])]
 def run(job):

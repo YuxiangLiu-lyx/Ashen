@@ -21,7 +21,7 @@ const submitAliases={oilDone:'oil',letterDone:'letter',herbsMira:'herbs',herbsWo
 export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
  for(const scene of ['intro','ratAccept'])DIALOGUES[scene]=DIALOGUES[scene].map(([speaker,line])=>[speaker,line.replaceAll('六只','八只')]);
  DIALOGUES.c1Conversation=[['旁白','把眼前的事记清楚。']];
- const giverMap=(g,id)=>{const giver=C1_GIVERS[id];if(giver==='saint')return g.saint?.visible?g.map:'alley';return Object.keys(MAPS).find(map=>MAPS[map].npcs.some(n=>n.id===giver))||C1_QUESTS[id]?.map;};
+ const giverMap=(g,id)=>{const giver=C1_GIVERS[id];if(giver==='saint')return g.saint?.visible||(g.chapter>=3&&g.chapter<5)?g.map:'alley';return Object.keys(MAPS).find(map=>MAPS[map].npcs.some(n=>n.id===giver))||C1_QUESTS[id]?.map;};
  const names={c1Readiness:'庭院实战',c1ExitDrill:'旧廊的试炼守卫',v12Water:'缓解旧伤的药',c1CanalPrep:'清除渠鼠，确认退路',c1CanalBreak:'闸口已清',c1RunePatrol:'沿线讨伐'};
  for(const q of Object.values(C1_QUESTS)){if(names[q.id])q.name=names[q.id];if(q.id==='copper')q.target='lotti';if(q.id==='c1Readiness')q.target='c1-moss-1';if(q.id==='c1ExitDrill')q.target='c1-trial-warden';if(q.id==='c1CanalPrep')q.target='c1-valve-rat';QUESTS[q.id]={...QUESTS[q.id],...q,giver:C1_GIVERS[q.id]||q.target,desc:C1_ACCEPT_TEXT[q.id]||q.name};}
  const P=RPG.prototype,old={};for(const k of ['ready','complete','apply','choose','npcOptions','useProp','canDoor','objective','questGoal','available','claimPacing','requestDeparture','targets','marker','ensureMap','enter','update','damage','restore'])old[k]=P[k];

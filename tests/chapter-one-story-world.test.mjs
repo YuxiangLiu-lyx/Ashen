@@ -4,6 +4,7 @@ import {RPG,MAPS} from '../dist/core-v14.js';
 import {C1_OBJECTIVES,C1_GIVERS,C1_ACCEPT_TEXT} from '../dist/chapter-one-objectives.js';
 import {C1_QUESTS,C1_MAIN,C1_SIDE} from '../dist/chapter-one-expansion-data.js';
 import {C1_LOCAL_QUESTS,C1_PEOPLE,C1_STORY_RETURN} from '../dist/chapter-one-story-world.js';
+import {routeHint} from '../dist/navigation-v14.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
 const finish=g=>{for(let i=0;g.pending&&i<80;i++)g.finishScene();g.active=true;};
 const game=()=>{const g=new RPG('shadow',null,()=>.44);finish(g);g.chapter=2;return g;};
@@ -29,7 +30,7 @@ test('investigations, rotating patrol, original rats and final chase give payabl
   if(id==='echo'){g.flags.echoCoreFound=true;g.p.items.echoCore=1;}
   if(id==='c1ClockMemory')g.flags.silverFound=true;
   if(id==='c1RunePatrol')g.c1Expansion.journey.counts[id]=8;
-  if(id==='c1CanalBreak'){g.flags.captainDefeated=true;for(const e of g.enemies){e.dead=true;e.hp=0;}g.saint.visible=true;}
+  if(id==='c1CanalBreak'){g.flags.captainDefeated=true;for(const e of g.enemies){e.dead=true;e.hp=0;}g.saint.visible=false;assert.equal(g.questGoal(id).map,'canal','briefly hidden follower still belongs to the current map');assert.equal(g.objective().map,'canal');assert.match(routeHint(g,g.objective()),/等艾莉娅/);g.saint.visible=true;assert.match(routeHint(g,g.objective()),/就在身边/);assert.doesNotMatch(routeHint(g,{map:'canal',target:'unknown'}),/小地图/);}
   assert.ok(g.c1Ready(id),id);assert.equal(g.marker(C1_GIVERS[id]),'gold?',id);
   assert.ok(g.npcOptions(C1_GIVERS[id]).some(o=>o.action===action&&o.questState==='ready'),id);
   g.choose(action);finish(g);assert.ok(Object.values(g.c1Expansion.claimLedger).some(tx=>tx.id===(id==='c1RunePatrol'?'patrol:1':'quest:'+id)),id);
