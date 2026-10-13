@@ -11,13 +11,14 @@
     "story",
     "combat"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-13T00:02:06.141794+00:00",
-  "updated_at_utc": "2026-10-13T02:08:58.539654+00:00",
+  "updated_at_utc": "2026-10-13T02:24:30.089307+00:00",
   "decisions": [
     "用户最新要求授权第一章17图布局与任务目标重做；旧0.1/0.2不恢复，第二章及原刺杀保留；三精英接受短战与原数值预算继续有效",
     "旧0.6步骤迁移为新目标证据；首次解锁与固定奖励ID保持，未接任务不计数或掉落；普通怪45秒有效活动后返图补充，精英仍180秒",
-    "仅本轮0.7地图任务整改完成；0.6人工完整观察与章节节奏待办独立保留，不运行或宣称完整release，不部署网站"
+    "仅本轮0.7地图任务整改完成；0.6人工完整观察与章节节奏待办独立保留，不运行或宣称完整release，不部署网站",
+    "本轮无剩余工作；0.6人工观察与节奏待办仍在c1-expansion-20261012，本任务不关闭或豁免该任务"
   ],
   "completed": [
     "fde0a1e真实运行基线通过：原件校验、地图审计、23表现回归及正式浏览器；WORLD.json完整保存123图/对白/任务，0.7章稿与逐图计划落盘",
@@ -25,13 +26,12 @@
     "统一接取/击杀/掉落/交付与schema2迁移通过：140项核心及30项Harness；15条真实运行经济路线通章二。影刃真实键鼠新档连续通前两章，地图表现继续细修",
     "旧0.6步骤/已访问地图/掉落种子迁移、满包、幂等与章二兼容通过；17图221条真实移动路线及四组浏览器专项通过，废窑更换独立原件并纠正废墙拉伸",
     "17图正式渲染/可达图/角色原件已逐图查看，独立三维报告通过020；新废窑与原比例废墙已复核",
-    "015 fast30、016 integration141/15经济路线/1620实战/三职业正常键鼠前两章全部通过；019离线HTTP手机与120份阶段存档通过；5174四项通过；021常用包已提升并保留原包"
+    "015 fast30、016 integration141/15经济路线/1620实战/三职业正常键鼠前两章全部通过；019离线HTTP手机与120份阶段存档通过；5174四项通过；021常用包已提升并保留原包",
+    "实现0d3b6e2、完整验收45daa21已快进推送GitHub main，ls-remote与HEAD一致；211模块/134图的常用包已更新，旧包保留，5174可玩，网站未发布"
   ],
-  "remaining": [
-    "GitHub main保存及回执"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "GitHub保存并核对远端HEAD",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration",
@@ -453,11 +453,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-13T02:08:58.500173+00:00",
-      "head_commit": "0d3b6e244f8023479dadd91d1ab0ccb7824f4a65",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T02:24:30.057275+00:00",
+      "head_commit": "45daa219a7c4f65395c50de350933d2f0a3fdd4a",
       "source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-map-quests/ACCEPTANCE.md\n M docs/ch1-map-quests/MOVEMENT.json\n M docs/ch1-map-quests/NAVIGATION.json\n M docs/ch1-map-quests/balance/ACTUAL_SNAPSHOTS.json\n M docs/ch1-map-quests/browser/QA.json\n M docs/ch1-map-quests/browser/alley-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-after.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/browser/c1DrillGallery-touch.png\n M docs/ch1-map-quests/browser/c1DrillGallery.webp\n M docs/ch1-map-quests/browser/c1LoomRoom-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk-after.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/browser/c1NorthWalk-touch.png\n M docs/ch1-map-quests/browser/c1NorthWalk.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-after.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/browser/c1ReedKiln-touch.png\n M docs/ch1-map-quests/browser/c1ReedKiln.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/browser/c1TrainingYard-touch.png\n M docs/ch1-map-quests/browser/canal-after.webp\n M docs/ch1-map-quests/browser/canal-collision.webp\n M docs/ch1-map-quests/browser/echo-after.webp\n M docs/ch1-map-quests/browser/echo-collision.webp\n M docs/ch1-map-quests/browser/echo.webp\n M docs/ch1-map-quests/browser/grove-after.webp\n M docs/ch1-map-quests/browser/grove-collision.webp\n M docs/ch1-map-quests/browser/grove.webp\n M docs/ch1-map-quests/browser/guestroom-collision.webp\n M docs/ch1-map-quests/browser/hall-after.webp\n M docs/ch1-map-quests/browser/herb-interaction.png\n M docs/ch1-map-quests/browser/millpath-after.webp\n M docs/ch1-map-quests/browser/millpath-collision.webp\n M docs/ch1-map-quests/browser/road-after.webp\n M docs/ch1-map-quests/browser/road-collision.webp\n M docs/ch1-map-quests/browser/road.webp\n M docs/ch1-map-quests/browser/town-after.webp\n M docs/ch1-map-quests/browser/town-collision.webp\n M docs/ch1-map-quests/browser/town.webp\n M docs/ch1-map-quests/browser/warehouse-after.webp\n M docs/ch1-map-quests/browser/warehouse-collision.webp\n M docs/ch1-map-quests/browser/workshop-after.webp\n M docs/ch1-map-quests/economy/ember-all_once-one-epic.json\n M docs/ch1-map-quests/economy/ember-all_once.json\n M docs/ch1-map-quests/economy/ember-main_only.json\n M docs/ch1-map-quests/economy/ember-repeat_patrol.json\n M docs/ch1-map-quests/economy/ember-typical.json\n M docs/ch1-map-quests/economy/oath-all_once-one-epic.json\n M docs/ch1-map-quests/economy/oath-all_once.json\n M docs/ch1-map-quests/economy/oath-main_only.json\n M docs/ch1-map-quests/economy/oath-repeat_patrol.json\n M docs/ch1-map-quests/economy/oath-typical.json\n M docs/ch1-map-quests/economy/shadow-all_once-one-epic.json\n M docs/ch1-map-quests/economy/shadow-all_once.json\n M docs/ch1-map-quests/economy/shadow-main_only.json\n M docs/ch1-map-quests/economy/shadow-repeat_patrol.json\n M docs/ch1-map-quests/economy/shadow-typical.json\n M docs/ch1-map-quests/visual/alley-after.webp\n M docs/ch1-map-quests/visual/alley-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-after.webp\n M docs/ch1-map-quests/visual/c1DrillGallery-collision.webp\n M docs/ch1-map-quests/visual/c1DrillGallery.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-after.webp\n M docs/ch1-map-quests/visual/c1LoomRoom-collision.webp\n M docs/ch1-map-quests/visual/c1LoomRoom.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-after.webp\n M docs/ch1-map-quests/visual/c1NorthWalk-collision.webp\n M docs/ch1-map-quests/visual/c1NorthWalk.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-after.webp\n M docs/ch1-map-quests/visual/c1ReedKiln-collision.webp\n M docs/ch1-map-quests/visual/c1ReedKiln.webp\n M docs/ch1-map-quests/visual/c1TrainingYard-collision.webp\n M docs/ch1-map-quests/visual/canal-after.webp\n M docs/ch1-map-quests/visual/canal-collision.webp\n M docs/ch1-map-quests/visual/canal.webp\n M docs/ch1-map-quests/visual/chapel-after.webp\n M docs/ch1-map-quests/visual/echo-after.webp\n M docs/ch1-map-quests/visual/echo-collision.webp\n M docs/ch1-map-quests/visual/echo.webp\n M docs/ch1-map-quests/visual/grove-after.webp\n M docs/ch1-map-quests/visual/grove-collision.webp\n M docs/ch1-map-quests/visual/grove.webp\n M docs/ch1-map-quests/visual/guestroom-after.webp\n M docs/ch1-map-quests/visual/hall-after.webp\n M docs/ch1-map-quests/visual/hall-collision.webp\n M docs/ch1-map-quests/visual/hall.webp\n M docs/ch1-map-quests/visual/millpath-after.webp\n M docs/ch1-map-quests/visual/millpath-collision.webp\n M docs/ch1-map-quests/visual/millpath.webp\n M docs/ch1-map-quests/visual/road-after.webp\n M docs/ch1-map-quests/visual/road.webp\n M docs/ch1-map-quests/visual/town-collision.webp\n M docs/ch1-map-quests/visual/warehouse-after.webp\n M docs/ch1-map-quests/visual/workshop-after.webp\n M docs/ch1-map-quests/visual/workshop-collision.webp\n M docs/ch1-map-quests/visual/workshop.webp\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-map-quests-20261012.json\n?? docs/ch1-map-quests/MAP_QUALITY.json\n?? docs/ch1-map-quests/MAP_REVIEW.md\n?? docs/ch1-map-quests/PACKAGE.json\n?? docs/ch1-map-quests/SAVES.json\n?? docs/ch1-map-quests/integration/\n?? docs/ch1-map-quests/local-5174/\n?? docs/ch1-map-quests/natural-final/\n?? docs/ch1-map-quests/package/\n?? docs/ch1-map-quests/visual-review.html\n?? docs/ch1-map-quests/visual/c1Kiln-frames.webp\n?? docs/harness/evidence/c1-map-quests-20261012/016-integration.txt\n?? docs/harness/evidence/c1-map-quests-20261012/017-package-build.txt\n?? docs/harness/evidence/c1-map-quests-20261012/018-package-and-saves.txt\n?? docs/harness/evidence/c1-map-quests-20261012/019-package-and-save-recheck.txt\n?? docs/harness/evidence/c1-map-quests-20261012/020-map-quality.txt\n?? docs/harness/evidence/c1-map-quests-20261012/021-package-promote.txt"
+      "worktree": "M .codex/progress.md\n M source/CURRENT_STATE.json\n M source/tasks/active/c1-map-quests-20261012.json\n?? docs/ch1-map-quests/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "17图与任务整改、三职业前两章、141核心/30Harness、完整集成、120档、地图三维和包入口均通过；已推送并核对main，旧0.6人工体验任务保留，未发布网站",
+  "completed_at_utc": "2026-10-13T02:24:30.231763+00:00",
+  "verified_source_fingerprint": "d084f35f548f149dd883fecc831b152a007f853637592e83453e68d5920ee967"
 }
