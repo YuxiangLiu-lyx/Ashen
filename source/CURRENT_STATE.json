@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
+  "runtime_source_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -303,7 +303,7 @@
   "narrative_rebuild": {
     "version": "0.9",
     "task_id": "c1-layer-rules-20261013",
-    "status": "0.9 implemented; final scoped integration and package verification in progress",
+    "status": "0.9 scoped implementation and verification complete; GitHub delivery pending; historical human/pacing acceptance independent",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -313,7 +313,7 @@
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "0.9",
       "script_status": "DEV_FROZEN",
-      "implementation": "0.9 implemented; final scoped checks in progress; independent historical human/pacing acceptance remains open"
+      "implementation": "0.9 implemented and scoped verification complete; chapter remains DEV_FROZEN pending independent historical human/pacing acceptance"
     },
     "chapter02": {
       "id": "V01C02",
@@ -385,8 +385,8 @@
       "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
       "limit": "This documentation task performs no runtime rollback and does not resume withdrawn reconstruction"
     },
-    "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
-    "harness_tests_passed": 30,
+    "checked_at_utc": "2026-10-13T08:57:07.526944+00:00",
+    "harness_tests_passed": 31,
     "git_receipt": "docs/ch1-layer-rules/GIT_SAVE.json",
     "previous_adopted_revision": {
       "version": "0.5",
@@ -771,11 +771,11 @@
   },
   "chapter_one_layer_rules_09": {
     "task": "c1-layer-rules-20261013",
-    "status": "implementation_complete_final_verification_in_progress",
+    "status": "scoped_verification_complete_github_delivery_pending",
     "baseline": "efdf69677de8fe3366a0fc04297c6d15f06f217a",
     "spec": "docs/harness/CHAPTER_01_LAYER_RULES.md",
     "general_settings": "docs/harness/GAME_SETTINGS.md",
-    "pending": "最终集成、包和三维门禁、GitHub保存",
+    "pending": "GitHub main保存与核对",
     "site_deployed": false,
     "implementation_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
     "save_schema": 16,
@@ -787,7 +787,22 @@
     "checks": {
       "natural_input": "3 classes chapters1–2, 21 milestones each",
       "strict_saves": "243 saves: 0.6/0.7/0.8/0.9; unchanged balances, completed quests and death state on restore",
-      "markers": "real NPC accept, incomplete, report and Vilerena story contact passed"
-    }
+      "markers": "real NPC accept, incomplete, report and Vilerena story contact passed",
+      "fast": 31,
+      "core": 164,
+      "integration": "011 completed components plus 012 exact-input continuation: all required components passed",
+      "movement": "375 actual paths across 22 maps",
+      "map_quality": "015 all three dimensions independently reviewed",
+      "package": "016 505 files byte-identical to validated preview; 140 old packaged assets preserved",
+      "snapshots": "1620 actual-runtime encounters: 1592 wins, 28 losses; no human success-rate or duration claim"
+    },
+    "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+    "map_review": "docs/ch1-layer-rules/MAP_QUALITY.json",
+    "visual_review": "docs/ch1-layer-rules/visual-review.html",
+    "package": "docs/ch1-layer-rules/PACKAGE.json",
+    "local_preview_url": "http://127.0.0.1:5174/",
+    "current_offline_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "preserved_old_build": "qa-export/release-build-before-layer-rules-20261013",
+    "git_receipt": "docs/ch1-layer-rules/GIT_SAVE.json"
   }
 }

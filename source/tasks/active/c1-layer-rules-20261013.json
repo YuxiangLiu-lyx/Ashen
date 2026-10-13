@@ -12,24 +12,30 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-13T07:19:22.801036+00:00",
-  "updated_at_utc": "2026-10-13T08:08:33.734086+00:00",
+  "updated_at_utc": "2026-10-13T08:57:08.045973+00:00",
   "decisions": [
     "新增横向路线而非机械堆图；已取得目标证据不随刷新倒扣；保留三精英预算",
     "真实刷新使告别后再返水渠有新普通巡卫，追缉官仍保持死亡；脚本需实际清场，任务交付证据不倒扣",
-    "008整体失败保留：两项旧断言和短对白脚本等待已修，运行代码未变；三职业全输入哈希相等可复用"
+    "008整体失败保留：两项旧断言和短对白脚本等待已修，运行代码未变；三职业全输入哈希相等可复用",
+    "010集成未通过：CURRENT_STATE升0.9后检测到叙事登记表仍为0.8；现同步表格和当前稿标识，原验证规则不削弱。运行与打包输入无变化，保留包/本地独立通过结果",
+    "011剩余画面来源断言仍要求墙板是独立物件；改为验证正式地面绘制器仅画一次北墙图片，仍验证准确位置和不重复绘制。其他所有索引输入严格相等，续跑失败组及未运行组，不改游戏代码",
+    "014为记录器状态字段误读使新报告未生成；015完整报告及门禁通过，失败保留。旧0.6人工节奏独立待办"
   ],
   "completed": [
     "已读取0.8采用稿/相关Skills；新0.9采用稿、通用设定、四阶段计划与真实基线落盘",
     "跨层计数/旧档嵌套schema4、三色标记、主线默认与自然门禁已接入；新增5条双向通路和2张原图",
     "跨层与刷新运行已落地；43项专项及22图初版画廊通过；15条三职业经济路线走通前两章，正在修正精英掉落统计读取最后一次而非全部事务的问题",
     "31项Harness检查通过，通用设定六类关键词能路由到规则与实际回归",
-    "三职业008正常键鼠均通前两章；009三色NPC实际接交/薇蕾娜及243份阶段存档迁移通过，23项历史保护回归通过"
+    "三职业008正常键鼠均通前两章；009三色NPC实际接交/薇蕾娜及243份阶段存档迁移通过，23项历史保护回归通过",
+    "010离线/HTTP/移动端包及5174四案例、22图对照页通过",
+    "011中31Harness、164核心、18经济路线、1620快照实战和前五浏览器组通过",
+    "012严格续跑完整集成通过，013 fast31、015地图三维22图375路线通过；016默认包505文件一致，原140打包图片及145旧原件保持"
   ],
   "remaining": [
-    "最终专项、正常键鼠、旧档审计、三维审阅、集成、构建和Git保存"
+    "最终GitHub main保存与核对"
   ],
   "blockers": [],
-  "next": "运行最终integration及离线HTTP手机、本地入口；完成三维审阅和Git保存",
+  "next": "GitHub main保存并核对SHA",
   "required_checks": [
     "fast",
     "integration",
@@ -193,6 +199,124 @@
       "output": "docs/harness/evidence/c1-layer-rules-20261013/009-updated-contracts-ui-saves.txt",
       "output_sha256": "4391affd4ee11413d3680abde903f0e175cbfcfed65b51172d7ef2ed3899f3f1",
       "timeout_seconds": 240.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-layer-rules/final-verification.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T08:08:39.696110+00:00",
+      "finished_at_utc": "2026-10-13T08:10:36.869715+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "b30678d26251b867abc54d9c843d17d0431ba52336fc4d2fa678908a7b907d18",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/010-integration.txt",
+      "output_sha256": "d45dd7871cc600159093bc33d3af169b1ab5db7aff42d569d6a27ce18c90bf0e",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-layer-rules/verify-integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T08:11:45.729386+00:00",
+      "finished_at_utc": "2026-10-13T08:16:13.466911+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "da777b1e7aa69ecc02a45e9013c188c370ce2613e0d8cbc76d80cae82eb23f40",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/011-integration.txt",
+      "output_sha256": "ad20c138e8f0d3e0637bdea271785bbddf9deabe4dfba9b8b9c3c8eb43178052",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/ch1-layer-rules/continue-integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T08:31:49.352057+00:00",
+      "finished_at_utc": "2026-10-13T08:33:10.687365+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/012-integration.txt",
+      "output_sha256": "924e779fa958a0694c78fe82d4181d56c0b693c60040f845099690ceb86248f2",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T08:44:46.655045+00:00",
+      "finished_at_utc": "2026-10-13T08:45:02.569865+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/013-fast.txt",
+      "output_sha256": "a8a323e2dfccd1834e15368c6cdcce3992ae9b278c3d06df49a39f5fd388d609",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "efdf69677de8fe3366a0fc04297c6d15f06f217a"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-13T08:50:40.472619+00:00",
+      "finished_at_utc": "2026-10-13T08:50:41.054489+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/014-map-quality.txt",
+      "output_sha256": "d0e78ac05a8cdd1fe054a99d237961afe234decb6f53543072c1451578b1fc88",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "efdf69677de8fe3366a0fc04297c6d15f06f217a"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T08:53:55.445561+00:00",
+      "finished_at_utc": "2026-10-13T08:53:55.963435+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/015-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "package-promote",
+      "command": [
+        "python3",
+        "docs/ch1-layer-rules/promote-package.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-13T08:54:29.101060+00:00",
+      "finished_at_utc": "2026-10-13T08:54:31.233133+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-layer-rules-20261013/016-package-promote.txt",
+      "output_sha256": "444c92d8375212581000216099313f6b401dfc526d3a5ac2765f76eb1ef73b52",
+      "timeout_seconds": 180.0
     }
   ],
   "stages": [
@@ -214,11 +338,19 @@
     },
     {
       "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-13T08:57:07.572936+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-layer-rules/ACCEPTANCE.md\n M docs/ch1-layer-rules/MOVEMENT.json\n M docs/ch1-layer-rules/NAVIGATION.json\n M docs/ch1-layer-rules/economy/ember-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/ember-all_once.json\n M docs/ch1-layer-rules/economy/ember-local_work.json\n M docs/ch1-layer-rules/economy/ember-main_only.json\n M docs/ch1-layer-rules/economy/ember-repeat_patrol.json\n M docs/ch1-layer-rules/economy/ember-typical.json\n M docs/ch1-layer-rules/economy/oath-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/oath-all_once.json\n M docs/ch1-layer-rules/economy/oath-local_work.json\n M docs/ch1-layer-rules/economy/oath-main_only.json\n M docs/ch1-layer-rules/economy/oath-repeat_patrol.json\n M docs/ch1-layer-rules/economy/oath-typical.json\n M docs/ch1-layer-rules/economy/shadow-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/shadow-all_once.json\n M docs/ch1-layer-rules/economy/shadow-local_work.json\n M docs/ch1-layer-rules/economy/shadow-main_only.json\n M docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\n M docs/ch1-layer-rules/economy/shadow-typical.json\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-layer-rules-20261013.json\n M tests/browser-chapter123.mjs\n?? docs/ch1-layer-rules/MAP_QUALITY.json\n?? docs/ch1-layer-rules/MAP_REVIEW.md\n?? docs/ch1-layer-rules/PACKAGE.json\n?? docs/ch1-layer-rules/PRESERVATION.json\n?? docs/ch1-layer-rules/REVIEW_NOTES.json\n?? docs/ch1-layer-rules/balance/\n?? docs/ch1-layer-rules/browser/\n?? docs/ch1-layer-rules/continue-integration.py\n?? docs/ch1-layer-rules/final-verification/\n?? docs/ch1-layer-rules/integration/\n?? docs/ch1-layer-rules/local-5174/\n?? docs/ch1-layer-rules/package/\n?? docs/ch1-layer-rules/promote-package.py\n?? docs/ch1-layer-rules/record-map-review.py\n?? docs/ch1-layer-rules/verify-integration.py\n?? docs/harness/evidence/c1-layer-rules-20261013/010-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/011-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/012-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/013-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/014-map-quality.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/015-map-quality.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/016-package-promote.txt"
+    },
+    {
+      "name": "delivery",
       "status": "in_progress",
-      "updated_at_utc": "2026-10-13T08:08:33.698635+00:00",
-      "head_commit": "b6d2171fa4789a7b8286c96f3c69f3fefb8b3177",
-      "source_fingerprint": "b30678d26251b867abc54d9c843d17d0431ba52336fc4d2fa678908a7b907d18",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/tasks/active/c1-layer-rules-20261013.json\n M tests/chapter-one-incremental.test.mjs\n M tests/world-v29.test.mjs\n?? docs/ch1-layer-rules/ACCEPTANCE.md\n?? docs/ch1-layer-rules/MOVEMENT.json\n?? docs/ch1-layer-rules/NATURAL_PROVENANCE.json\n?? docs/ch1-layer-rules/NAVIGATION.json\n?? docs/ch1-layer-rules/RECOMMENDATIONS.json\n?? docs/ch1-layer-rules/SAVES.json\n?? docs/ch1-layer-rules/audit-saves.mjs\n?? docs/ch1-layer-rules/economy/\n?? docs/ch1-layer-rules/final-verification.py\n?? docs/ch1-layer-rules/markers-attempt-008/\n?? docs/ch1-layer-rules/markers/\n?? docs/ch1-layer-rules/natural/\n?? docs/ch1-layer-rules/verification/\n?? docs/ch1-layer-rules/verify-batches.py\n?? docs/ch1-layer-rules/verify-local.py\n?? docs/ch1-layer-rules/visual-review.html\n?? docs/ch1-layer-rules/visual/\n?? docs/harness/evidence/c1-layer-rules-20261013/006-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/007-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/008-full-verification.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/009-updated-contracts-ui-saves.txt\n?? tests/browser-chapter-one-layer-rules.mjs"
+      "updated_at_utc": "2026-10-13T08:57:07.852005+00:00",
+      "head_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
+      "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M docs/ch1-layer-rules/ACCEPTANCE.md\n M docs/ch1-layer-rules/MOVEMENT.json\n M docs/ch1-layer-rules/NAVIGATION.json\n M docs/ch1-layer-rules/economy/ember-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/ember-all_once.json\n M docs/ch1-layer-rules/economy/ember-local_work.json\n M docs/ch1-layer-rules/economy/ember-main_only.json\n M docs/ch1-layer-rules/economy/ember-repeat_patrol.json\n M docs/ch1-layer-rules/economy/ember-typical.json\n M docs/ch1-layer-rules/economy/oath-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/oath-all_once.json\n M docs/ch1-layer-rules/economy/oath-local_work.json\n M docs/ch1-layer-rules/economy/oath-main_only.json\n M docs/ch1-layer-rules/economy/oath-repeat_patrol.json\n M docs/ch1-layer-rules/economy/oath-typical.json\n M docs/ch1-layer-rules/economy/shadow-all_once-one-epic.json\n M docs/ch1-layer-rules/economy/shadow-all_once.json\n M docs/ch1-layer-rules/economy/shadow-local_work.json\n M docs/ch1-layer-rules/economy/shadow-main_only.json\n M docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\n M docs/ch1-layer-rules/economy/shadow-typical.json\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/tasks/active/c1-layer-rules-20261013.json\n M tests/browser-chapter123.mjs\n?? docs/ch1-layer-rules/MAP_QUALITY.json\n?? docs/ch1-layer-rules/MAP_REVIEW.md\n?? docs/ch1-layer-rules/PACKAGE.json\n?? docs/ch1-layer-rules/PRESERVATION.json\n?? docs/ch1-layer-rules/REVIEW_NOTES.json\n?? docs/ch1-layer-rules/balance/\n?? docs/ch1-layer-rules/browser/\n?? docs/ch1-layer-rules/continue-integration.py\n?? docs/ch1-layer-rules/final-verification/\n?? docs/ch1-layer-rules/integration/\n?? docs/ch1-layer-rules/local-5174/\n?? docs/ch1-layer-rules/package/\n?? docs/ch1-layer-rules/promote-package.py\n?? docs/ch1-layer-rules/record-map-review.py\n?? docs/ch1-layer-rules/verify-integration.py\n?? docs/harness/evidence/c1-layer-rules-20261013/010-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/011-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/012-integration.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/013-fast.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/014-map-quality.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/015-map-quality.txt\n?? docs/harness/evidence/c1-layer-rules-20261013/016-package-promote.txt"
     }
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "name": "integration",
+  "commands": [
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter-one-expansion.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "docs/ch1-layer-rules/audit-saves.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "tools/restore_archives.py",
+        "--all",
+        "--verify-only"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0,
+  "seconds": 81.26123881340027,
+  "log": "docs/ch1-layer-rules/final-verification/integration-continuation.log",
+  "reused_successful_components_from": "docs/harness/evidence/c1-layer-rules-20261013/011-integration.txt",
+  "only_source_change": [
+    "tests/browser-chapter123.mjs"
+  ],
+  "reuse_scope": "31 Harness, runtime audit, 164 core including 18 campaigns, 1620 snapshot encounters and first five browser groups completed before 011 final renderer assertion; failed group rerun here"
+}

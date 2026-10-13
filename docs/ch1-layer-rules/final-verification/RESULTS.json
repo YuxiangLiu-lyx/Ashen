@@ -1,0 +1,88 @@
+[
+  {
+    "name": "integration",
+    "commands": [
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter123.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-chapter-one-expansion.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/ch1-layer-rules/audit-saves.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "python3",
+          "tools/restore_archives.py",
+          "--all",
+          "--verify-only"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 81.26123881340027,
+    "log": "docs/ch1-layer-rules/final-verification/integration-continuation.log",
+    "reused_successful_components_from": "docs/harness/evidence/c1-layer-rules-20261013/011-integration.txt",
+    "only_source_change": [
+      "tests/browser-chapter123.mjs"
+    ],
+    "reuse_scope": "31 Harness, runtime audit, 164 core including 18 campaigns, 1620 snapshot encounters and first five browser groups completed before 011 final renderer assertion; failed group rerun here"
+  },
+  {
+    "name": "package",
+    "commands": [
+      {
+        "command": [
+          "qa-export/qa-venv/bin/python",
+          "tools/build_web_play.py",
+          "--output",
+          "qa-export/c1-layer-rules-preview"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "qa-export/qa-venv/bin/python",
+          "tests/browser-web-play.py",
+          "--build",
+          "qa-export/c1-layer-rules-preview",
+          "--out",
+          "docs/ch1-layer-rules/package"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 117.07637691497803,
+    "log": "docs/ch1-layer-rules/final-verification/package.log"
+  },
+  {
+    "name": "local",
+    "commands": [
+      {
+        "command": [
+          "qa-export/qa-venv/bin/python",
+          "docs/ch1-layer-rules/verify-local.py"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "exit_code": 0,
+    "seconds": 35.45071005821228,
+    "log": "docs/ch1-layer-rules/final-verification/local.log"
+  }
+]

@@ -2,7 +2,7 @@
 
 > 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。
 
-> 当前采用0.8（DEV_FROZEN）：[自然场景与逐个任务交接](CHAPTER_01_STORY_WORLD.md)，任务c1-story-world-20261012。下述0.7为上一稿：[地图与任务全面优化](CHAPTER_01_MAP_QUESTS.md)。用户新要求替代下述0.6多步骤互动/几何保护；保留原刺杀、人物知识和成长预算。下文作为0.6主线与对白来源记录。
+> 历史0.8基线（DEV_FROZEN）：[自然场景与逐个任务交接](CHAPTER_01_STORY_WORLD.md)，任务c1-story-world-20261012。下述0.7为上一稿：[地图与任务全面优化](CHAPTER_01_MAP_QUESTS.md)。用户新要求替代下述0.6多步骤互动/几何保护；保留原刺杀、人物知识和成长预算。下文作为0.6主线与对白来源记录。
 - 文学章节 V01C01，稿件0.6，状态DEV_FROZEN（SCRIPT_READY后采用）。
 - 2026-10-12采用用户《第一章流程扩充与成长系统》；任务c1-expansion-20261012。
 - [完整扩充规格、唯一奖励表、地图和验收](CHAPTER_01_EXPANSION.md)。[0.5原稿](../ch1-expansion/CHAPTER_01_BASELINE_0_5.md)保留原文与哈希。

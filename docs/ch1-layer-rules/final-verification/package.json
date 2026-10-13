@@ -1,0 +1,28 @@
+{
+  "name": "package",
+  "commands": [
+    {
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/c1-layer-rules-preview"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "qa-export/qa-venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/c1-layer-rules-preview",
+        "--out",
+        "docs/ch1-layer-rules/package"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "exit_code": 0,
+  "seconds": 117.07637691497803,
+  "log": "docs/ch1-layer-rules/final-verification/package.log"
+}

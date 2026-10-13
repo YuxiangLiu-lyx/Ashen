@@ -82,9 +82,9 @@
 
 当前开发内容请运行本仓库的 `dist/`。下方在线试玩链接固定在历史V28.1，不会随main更新。
 
-第一章0.6可玩开发包：`qa-export/c1-expansion-preview/Ashen-V28.1-Play.html`，源5f05e5f，离线/HTTP/手机横屏检查通过。它尚待人类完整流程观察与节奏验收；[证据及限制](docs/ch1-expansion/ACCEPTANCE.md)。本地0.5默认包继续保留，开发包不覆盖个人存档或旧构建。
+第一章0.6可玩开发包：`qa-export/c1-expansion-preview/Ashen-V28.1-Play.html`，源5f05e5f，离线/HTTP/手机横屏检查通过。它尚待人类完整流程观察与节奏验收；[证据及限制](docs/ch1-expansion/ACCEPTANCE.md)。该0.6包作为历史保留，当前常用入口采用下述0.9包；个人存档与旧构建保留。
 
-本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。当前默认包为2026-10-12的第一章0.5对白与柔和立绘版（源8cd49f8，以同目录清单为准）；旧分镜包保存在 `qa-export/release-build-before-dialogue-20261011/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
+本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。当前默认包为2026-10-13的第一章0.9分层任务与通用规则版（源d9913f7，以同目录清单为准）；上一版0.8包保存在 `qa-export/release-build-before-layer-rules-20261013/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
 
 需要 Git 和 Python 3.9+；不需要安装第三方 Python 包。
 
