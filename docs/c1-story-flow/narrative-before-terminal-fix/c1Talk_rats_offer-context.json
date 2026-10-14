@@ -1,0 +1,259 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1Talk_rats_offer",
+    "actors": [
+      "oren",
+      "noen"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "oren": {
+      "name": "奥伦",
+      "base": "会馆管事，关心粮食、灯油与日常开销。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "scene:intro",
+        "scene:ratAccept",
+        "c1-story-flow",
+        "scene:contract",
+        "runtime-c1-actions"
+      ],
+      "profile": "source/narrative/characters/oren.json"
+    },
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "处理库房问题，听取委托。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    }
+  },
+  "knowledge": {
+    "oren": {},
+    "noen": {},
+    "player": {}
+  },
+  "facts": {
+    "F-C1-FLOW-C1TALK_RATS_OFFER": {
+      "id": "F-C1-FLOW-C1TALK_RATS_OFFER",
+      "summary": "奥伦：粮车明天就到，库房这几袋粮食却先喂了老鼠。昨夜我数到八只，北墙后头还有动静。；诺恩：我进去清理。你堵过的地方在哪儿？；奥伦：最里头那块墙板。清掉八只灰鼠后，替我看看板子下面，得把它们钻进来的口子找出来。钥匙给你，别连粮袋一块儿划破了。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "flow:c1Talk_rats_offer"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1Talk_rats_offer",
+    "position": "before",
+    "at": "R01:intro",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "revision": "1.1",
+      "status": "IMPLEMENTED",
+      "implementation": "任务交代与真实离场私谈已接入；技术证据及真人待验见docs/c1-story-flow/ACCEPTANCE.md。"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1Talk_rats_offer",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "oren",
+        "fact": "F-C1-FLOW-C1TALK_RATS_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-C1-FLOW-C1TALK_RATS_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-FLOW-C1TALK_RATS_OFFER",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "flow:c1Talk_rats_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_rats_offer"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ratAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ratAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_STORY_FLOW.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/oren.json",
+    "source/narrative/characters/noen.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "ed08a46441f7ab749cc9544a13185ce70ba0d212f4e6f5e2a0d9d4d21e6ec42d"
+}

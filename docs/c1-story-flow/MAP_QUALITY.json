@@ -1,0 +1,110 @@
+{
+  "schema": 1,
+  "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+  "reviewer": "Codex实际查看会馆全图、碰撞图、行走与对话截图以及原立绘/行走原图；技术与真人审美分开",
+  "reviewed_paths": [
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-private-staging.js",
+    "dist/chapter-one-story-world.js",
+    "dist/cinematics-v14.js",
+    "dist/game-v14.js",
+    "dist/style-v14.css"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/v5/npc-portraits-v5.png",
+      "sha256": "4390e0e06d96716f638440b8dee1f22aed8d042074fa6b3e4af2a1382a0ca140"
+    },
+    {
+      "path": "dist/assets/v6/vilerena-portrait-v6.png",
+      "sha256": "d5e086c22544cdc1f9343333d82045f2569a92b4341e3e7a7f0cc9dcd7d6bedc"
+    },
+    {
+      "path": "dist/assets/v6/vilerena-world-v6.png",
+      "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+    },
+    {
+      "path": "dist/assets/v4/actors-world.png",
+      "sha256": "761447478e44de6979b20a60b0ec7dce32195b1f591091ecb0349c56f6ed9207"
+    },
+    {
+      "path": "dist/assets/v5/npc-directions-v5.png",
+      "sha256": "346b155d78646ebb36ebedeb9400de09b8e285f599e9a1e7515c7e41eec5d401"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "真实stageNavigation逐帧验证鲁恩绕过家具；会馆几何保持，真实离场和读档私谈不改玩家到达地图/位置。目的地庭院无几何改动；三职业正常路线已到post，原终端phase断言另行核验。",
+        "evidence": [
+          {
+            "path": "docs/c1-story-flow/browser-003/hall-collision.png",
+            "sha256": "b64df2f5f88ed6a9c82226f14d8de7ad1e378e2de707f357c94d941a91fd542d"
+          },
+          {
+            "path": "docs/harness/evidence/c1-story-flow-20261014/017-story-regression.txt",
+            "sha256": "26947cb688f2966ee58633bf614ab616fc606b16d117a2840306c9731d37f770"
+          },
+          {
+            "path": "docs/c1-story-flow/NORMAL_INPUT_CHAIN.json",
+            "sha256": "d55db1fbce2d3851c59c747988e42e97dbcde009140ab316be2d945dc83738ae"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际查看桌、书架、炉火、衣架和出口，鲁恩从文书桌前走向薇蕾娜，只有两名在场演员；背景在桌面与手机正常显示，没有黑幕。见MAP_REVIEW.md具体判断。",
+        "evidence": [
+          {
+            "path": "docs/c1-story-flow/browser-003/hall.png",
+            "sha256": "3fc28f8f9bfbadc5767663b0b9caeedeeffc0c1eeb6051102f9eca65733693dc"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-walk.png",
+            "sha256": "62111ae0b2314360b41fe2869ef1e82fed69c4cf5265aeb9fe0955fd6221ec07"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-vilerena.png",
+            "sha256": "c44cfe9a5907fceb85352cd48d1b7cec364a04456f702b1d75e07fb1efe230bd"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-rune-844.png",
+            "sha256": "e5505e95f3cdcb030177a0c7081e6cb57c9f6fe03437b8cae9eb5825c61b88f6"
+          },
+          {
+            "path": "docs/c1-story-flow/MAP_REVIEW.md",
+            "sha256": "838e1b43a0baf64ce38a13bc95901fced90a19384449268c675268225de2d5bb"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际对照原NPC立绘第二格及薇蕾娜立绘/行走原图；本轮保持原书记官与黑紫裙角色映射、尺寸和脚锚。行走停下朝向彼此，未穿桌、重叠或新增主角/匿名人影。原世界图细节未重画，真人观感待验。",
+        "evidence": [
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-arrival.png",
+            "sha256": "a258dddab9ebf7536e66264d50bbc3c13654142e5fdfd9ad6e16c899aff453e8"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-vilerena.png",
+            "sha256": "c44cfe9a5907fceb85352cd48d1b7cec364a04456f702b1d75e07fb1efe230bd"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/meeting-rune-390.png",
+            "sha256": "072cb03ab5785c14b1a9e23d8b578ef0a1136331aa5423530185afddf7e79f6a"
+          },
+          {
+            "path": "docs/c1-story-flow/browser-003/QA.json",
+            "sha256": "288e2958c4e31aff1910e1004f1f5465ac4df2d981eb9dff481abdb1419dac4b"
+          },
+          {
+            "path": "docs/c1-story-flow/MAP_REVIEW.md",
+            "sha256": "838e1b43a0baf64ce38a13bc95901fced90a19384449268c675268225de2d5bb"
+          }
+        ]
+      }
+    }
+  ]
+}

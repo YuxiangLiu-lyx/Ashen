@@ -1,0 +1,4 @@
+RUN integration ['python3', 'tools/harness/check.py', '--tier', 'integration']
+RUN package ['.venv/bin/python', 'tools/build_web_play.py', '--output', 'qa-export/c1-story-flow-preview']
+RUN package ['.venv/bin/python', 'tests/browser-web-play.py', '--build', 'qa-export/c1-story-flow-preview', '--out', 'docs/c1-story-flow/package']
+[{"name": "integration", "steps": [{"command": ["python3", "tools/harness/check.py", "--tier", "integration"], "exit_code": 0}], "passed": true}, {"name": "package", "steps": [{"command": [".venv/bin/python", "tools/build_web_play.py", "--output", "qa-export/c1-story-flow-preview"], "exit_code": 0}, {"command": [".venv/bin/python", "tests/browser-web-play.py", "--build", "qa-export/c1-story-flow-preview", "--out", "docs/c1-story-flow/package"], "exit_code": 1}], "passed": false}]

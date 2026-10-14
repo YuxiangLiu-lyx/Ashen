@@ -11,6 +11,7 @@ src['sources']['runtime-c1-trigger']={'path':'dist/chapter-one-expansion-quests.
 book['plan']={'path':'docs/harness/CHAPTER_01_STORY_FLOW.md','revision':'1.1','status':'IMPLEMENTED','implementation':'任务交代与真实离场私谈已接入；技术证据及真人待验见docs/c1-story-flow/ACCEPTANCE.md。'}
 book['facts']=[f for f in book['facts'] if not f['id'].startswith('F-C1-FLOW-')]
 book['events']=[e for e in book['events'] if not e.get('c1_flow_revision')]
+for e in book['events']:e['grants']=[g for g in e['grants'] if not g['fact'].startswith('F-C1-FLOW-')]
 for n,(scene,rows) in enumerate(script['scenes'].items()):
  if scene in ['contract','c1HiddenPairArrangement']:continue
  sid='flow:'+scene;fact='F-C1-FLOW-'+scene.upper();actors=list(dict.fromkeys(names[s] for s,t in rows if s!='旁白'))
@@ -43,5 +44,6 @@ book['facts'].append({'id':'F-C1-FLOW-IDENLOCAL','summary':script['local_talks']
 for e in book['events']:
  if e['scene']=='c1:localTalk:c1iden':e['grants']=[{'actor':a,'fact':'F-C1-FLOW-IDENLOCAL','mode':'knows'} for a in ['iden','noen','player']]
 for i,e in enumerate(book['events'],1):e['order']=i
+book['gaps']=list(dict.fromkeys(book['gaps']))
 write('source/narrative/conflicts.json',conflicts);write('source/narrative/chapters/R01.json',book);write('source/narrative/sources.json',src)
 print('Registered',len(script['scenes']),'authored scenes; retained original private-knowledge grants.')

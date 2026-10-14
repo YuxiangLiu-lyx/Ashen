@@ -1,0 +1,110 @@
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (48.513625ms)
+✖ all reports defer rewards to completion and pay exactly once across import and retries (8.471583ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.571042ms)
+✖ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (4.553084ms)
+✖ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.551959ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (39.293083ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.945041ms)
+✔ all original scenes outside the requested contract stay byte identical and all quest numeric budgets remain intact (4.708083ms)
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (24.020416ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.298042ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (9.761208ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (22.307375ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (50.698417ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (893.641792ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (10.066458ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (47.793292ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (627.123125ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.924792ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.48475ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (2.917208ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.262625ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.525417ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (21.178166ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (9.795291ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (2.777ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (7.857583ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (3.564542ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (3.869083ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (3.817459ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (19.330958ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.257042ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.614916ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (5.283375ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (2.306875ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (3.174458ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.355833ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (5.678667ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (3.508584ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (2.832458ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (1.881041ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (10.482791ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (60.355625ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (4.8305ms)
+✔ elite migration preserves living health ratio, off-map deaths, and all settled rewards (5.172083ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (0.725042ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (0.498667ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (4.286041ms)
+ℹ tests 47
+ℹ suites 0
+ℹ pass 44
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1846.834083
+
+✖ failing tests:
+
+test at tests/c1-story-flow.test.mjs:36:1
+✖ all reports defer rewards to completion and pay exactly once across import and retries (8.471583ms)
+  AssertionError [ERR_ASSERTION]: v12NorthDelivery
+  
+  40 !== 50
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:39:98)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 50,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/c1-story-flow.test.mjs:47:1
+✖ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (4.553084ms)
+  TypeError: Cannot read properties of null (reading 'id')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:50:79)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/c1-story-flow.test.mjs:55:1
+✖ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.551959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:57:275)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

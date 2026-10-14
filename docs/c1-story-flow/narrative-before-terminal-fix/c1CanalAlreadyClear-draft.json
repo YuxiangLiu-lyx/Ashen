@@ -1,0 +1,84 @@
+{
+  "chapter": "R01",
+  "scene": "c1CanalAlreadyClear",
+  "actors": [
+    "noen",
+    "elyria"
+  ],
+  "scope": {
+    "files": [
+      "dist/chapter-one-quest-dialogues.js",
+      "dist/chapter-one-dialogues-v31.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_STORY_FLOW.md"
+    ],
+    "dynamic_check_label": "story-regression"
+  },
+  "brief": {
+    "information": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。",
+    "purposes": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。",
+    "outcome": "我会自己走。到了安全的地方，你必须把为什么抓我说清楚。",
+    "causality": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。",
+    "emotional_basis": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。",
+    "gameplay_handoff": "进度场不提交奖励；真实动作/任务/flags决定可用窗口。"
+  },
+  "lines": [
+    {
+      "speaker": "noen",
+      "text": "闸口已经没有追兵了，先沿东边出去。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1CANALALREADYCLEAR",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "elyria",
+      "text": "我会自己走。到了安全的地方，你必须把为什么抓我说清楚。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1CANALALREADYCLEAR",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "逐句通读本场2行。开句“闸口已经没有追兵了，先沿东边出去。”提出具体处境，末句“我会自己走。到了安全的地方，你必须把为什么抓我说清楚。”完成当前交代；问答有承接，保留有依据的短答与停顿。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。 精确物件、地点和对象与C1_OBJECTIVES/实际调用者核对。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "进度场不提交奖励；真实动作/任务/flags决定可用窗口。 原任务ID、前置、数值和原非contract静态场景经过基线比对；原pending.lines继续使用原文本。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "本场只提供本地请求/进展/回报，获知者限定在场的noen,elyria及玩家；没有开门内幕、上层主使或圣女后续认知。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本地工作和生活处境不扩成全知阴谋；样本只作现场比对，尚未确定的远因不在这里揭露。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "仅在闸口已清的存档/路线使用，诺恩不再声称前面有活追兵；艾莉娅仍要求说清绑架缘由。 关系变化限本场关心、担忧、求助或谢意，没有无经历的信任/恋爱跃升。"
+    },
+    "reviewer": "Codex执行编辑；已读取采用章稿、角色档案、调用者及本场全文。此为编辑判断，不冒充真人阅读/乐趣实测。2026-10-14"
+  },
+  "at": "canalStart"
+}

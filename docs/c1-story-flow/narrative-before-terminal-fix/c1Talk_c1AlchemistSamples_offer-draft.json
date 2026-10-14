@@ -1,0 +1,107 @@
+{
+  "chapter": "R01",
+  "scene": "c1Talk_c1AlchemistSamples_offer",
+  "actors": [
+    "saido",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/chapter-one-quest-dialogues.js",
+      "dist/chapter-one-dialogues-v31.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_STORY_FLOW.md"
+    ],
+    "dynamic_check_label": "story-regression"
+  },
+  "brief": {
+    "information": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。",
+    "purposes": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。",
+    "outcome": "现在不能。我只能先查它们身上沾了什么，没证据的事不猜。",
+    "causality": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。",
+    "emotional_basis": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。",
+    "gameplay_handoff": "最终页才接受，重载仍停在原页；未接受不计新目标。"
+  },
+  "lines": [
+    {
+      "speaker": "saido",
+      "text": "溪林、机房和废窑都有人报过异常，光听描述分不清是不是同一回事。我得把样本放在一起看。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "要哪几种？",
+      "claims": [],
+      "no_fact_reason": "本句是现场可见的走位/表情，或人物的询问、判断与回应；没有将未发生的计划或幕后秘密断言为已知事实。"
+    },
+    {
+      "speaker": "saido",
+      "text": "裂齿渠鼠的下颌、灰脊守兽的腱束、苇窑夜翼的翼膜，各一份。若已经留了样本，直接拿来，不必再去找一头。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "凑齐交给你。你能查出是谁做的吗？",
+      "claims": [],
+      "no_fact_reason": "本句是现场可见的走位/表情，或人物的询问、判断与回应；没有将未发生的计划或幕后秘密断言为已知事实。"
+    },
+    {
+      "speaker": "saido",
+      "text": "现在不能。我只能先查它们身上沾了什么，没证据的事不猜。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "逐句通读本场5行。开句“溪林、机房和废窑都有人报过异常，光听描述分不清是不是同一回事。我得把样本放在一起看。”提出具体处境，末句“现在不能。我只能先查它们身上沾了什么，没证据的事不猜。”完成当前交代；问答有承接，保留有依据的短答与停顿。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。 精确物件、地点和对象与C1_OBJECTIVES/实际调用者核对。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "最终页才接受，重载仍停在原页；未接受不计新目标。 原任务ID、前置、数值和原非contract静态场景经过基线比对；原pending.lines继续使用原文本。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "本场只提供本地请求/进展/回报，获知者限定在场的saido,noen及玩家；没有开门内幕、上层主使或圣女后续认知。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本地工作和生活处境不扩成全知阴谋；样本只作现场比对，尚未确定的远因不在这里揭露。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "赛铎明确光听描述不够，拒绝没证据猜主使；诺恩追问结论并确认边界，旧样本可用，不要求再杀一头。 关系变化限本场关心、担忧、求助或谢意，没有无经历的信任/恋爱跃升。"
+    },
+    "reviewer": "Codex执行编辑；已读取采用章稿、角色档案、调用者及本场全文。此为编辑判断，不冒充真人阅读/乐趣实测。2026-10-14"
+  },
+  "at": "contract"
+}

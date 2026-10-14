@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+  "integration_reused_receipt": {
+    "label": "integration",
+    "command": [
+      "python3",
+      "docs/c1-story-flow/final_integration.py"
+    ],
+    "exit_code": 1,
+    "started_at_utc": "2026-10-14T17:21:56.814169+00:00",
+    "finished_at_utc": "2026-10-14T17:28:39.868296+00:00",
+    "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+    "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+    "sources_changed_during_check": false,
+    "output": "docs/harness/evidence/c1-story-flow-20261014/018-integration.txt",
+    "output_sha256": "52f37a1720ba2946cd12e5d5701c56afe36c73e39beed6f2c4c3823b53490483",
+    "timeout_seconds": 1700.0
+  },
+  "integration_log": {
+    "path": "docs/c1-story-flow/final-checks/integration.txt",
+    "sha256": "79f22b719103a3cf73f57585505a558d5c644748ccc89207deeb270195ac0edb"
+  },
+  "package_browser": {
+    "command": [
+      ".venv/bin/python",
+      "tests/browser-web-play.py",
+      "--build",
+      "qa-export/c1-story-flow-preview",
+      "--out",
+      "docs/c1-story-flow/package-002"
+    ],
+    "exit_code": 0
+  },
+  "limits": [
+    "Original combined command exit 1 remains recorded; package failed before Chrome launch, now retested with installed Chrome."
+  ]
+}

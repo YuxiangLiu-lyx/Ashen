@@ -1,0 +1,101 @@
+{
+  "chapter": "R01",
+  "scene": "c1Talk_c1Readiness_report",
+  "actors": [
+    "noen",
+    "rune"
+  ],
+  "scope": {
+    "files": [
+      "dist/chapter-one-quest-dialogues.js",
+      "dist/chapter-one-dialogues-v31.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_STORY_FLOW.md"
+    ],
+    "dynamic_check_label": "story-regression"
+  },
+  "brief": {
+    "information": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。",
+    "purposes": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。",
+    "outcome": "从庭院东南的阶梯下去，地下接待室就是。他知道薇蕾娜的安排，会先告诉你哪几处有危险。",
+    "causality": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。",
+    "emotional_basis": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。",
+    "gameplay_handoff": "目标达标后才展示，最终页提交一次，重载或重复调用不重复支付。"
+  },
+  "lines": [
+    {
+      "speaker": "noen",
+      "text": "后院那八只处理了。它们冲起来不容易转向，绕开正面就能找到空当。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1READINESS_REPORT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "rune",
+      "text": "知道找空当就好。地下的旧哨兵还有盾，别照着甲壳兽的办法生搬。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1READINESS_REPORT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "伊登在什么地方？",
+      "claims": [],
+      "no_fact_reason": "本句是现场可见的走位/表情，或人物的询问、判断与回应；没有将未发生的计划或幕后秘密断言为已知事实。"
+    },
+    {
+      "speaker": "rune",
+      "text": "从庭院东南的阶梯下去，地下接待室就是。他知道薇蕾娜的安排，会先告诉你哪几处有危险。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1READINESS_REPORT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "逐句通读本场4行。开句“后院那八只处理了。它们冲起来不容易转向，绕开正面就能找到空当。”提出具体处境，末句“从庭院东南的阶梯下去，地下接待室就是。他知道薇蕾娜的安排，会先告诉你哪几处有危险。”完成当前交代；问答有承接，保留有依据的短答与停顿。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。 精确物件、地点和对象与C1_OBJECTIVES/实际调用者核对。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "目标达标后才展示，最终页提交一次，重载或重复调用不重复支付。 原任务ID、前置、数值和原非contract静态场景经过基线比对；原pending.lines继续使用原文本。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "本场只提供本地请求/进展/回报，获知者限定在场的noen,rune及玩家；没有开门内幕、上层主使或圣女后续认知。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本地工作和生活处境不扩成全知阴谋；样本只作现场比对，尚未确定的远因不在这里揭露。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "鲁恩先承接薇蕾娜的担心，再交代甲壳冲撞与围堵；诺恩会问试炼目的，并在回报时解释自己的判断。没有把试炼写成治伤。 关系变化限本场关心、担忧、求助或谢意，没有无经历的信任/恋爱跃升。"
+    },
+    "reviewer": "Codex执行编辑；已读取采用章稿、角色档案、调用者及本场全文。此为编辑判断，不冒充真人阅读/乐趣实测。2026-10-14"
+  },
+  "at": "contract"
+}

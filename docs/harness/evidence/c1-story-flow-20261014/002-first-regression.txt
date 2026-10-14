@@ -1,0 +1,87 @@
+✖ chapter-two completion pays once through the backstage scene, retries and reloads (8.092333ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (10.425291ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (0.803125ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (176.346458ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (30.03025ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (2.148958ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (8.411458ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.277375ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (2.359916ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.68525ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.557958ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (12.804042ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (16.250584ms)
+✖ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (5.368125ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (7.791666ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (3.792209ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (4.2965ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (3.55575ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (16.742083ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.280875ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.65ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (5.686625ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.600708ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (2.558666ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.34975ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (6.733334ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (2.72975ms)
+✖ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (1.074417ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (2.742167ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (9.909125ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (58.852041ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (4.800167ms)
+✔ elite migration preserves living health ratio, off-map deaths, and all settled rewards (4.3015ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (0.614959ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (0.496375ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (4.424584ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 33
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 368.764375
+
+✖ failing tests:
+
+test at tests/ch12-bugs.test.mjs:6:1
+✖ chapter-two completion pays once through the backstage scene, retries and reloads (8.092333ms)
+  TypeError: Cannot read properties of null (reading 'id')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/ch12-bugs.test.mjs:10:133)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+
+test at tests/chapter-one-story-world.test.mjs:18:1
+✖ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (5.368125ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.c1Expansion.worldChanges.drillDoor)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-story-world.test.mjs:18:612)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/rpg-experience.test.mjs:67:1
+✖ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (1.074417ms)
+  TypeError: Cannot read properties of null (reading 'id')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/rpg-experience.test.mjs:69:69)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

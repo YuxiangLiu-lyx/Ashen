@@ -1,0 +1,66 @@
+{
+  "status": "technical_passed",
+  "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+  "runtime_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+  "required_checks": {
+    "fast": {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:39:01.068807+00:00",
+      "finished_at_utc": "2026-10-14T17:39:44.667565+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/023-fast.txt",
+      "output_sha256": "5547b66f91b4bbe8b935c9489414c5f2ac8adccae37cddf782e86eef88fcfc98",
+      "timeout_seconds": 180.0
+    },
+    "narrative": {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:39:44.740814+00:00",
+      "finished_at_utc": "2026-10-14T17:40:28.199011+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/024-narrative.txt",
+      "output_sha256": "16082e18a20a6bec1ac5a54ff84d01033cfaf79c0e68f750b79d01de37a05b49",
+      "timeout_seconds": 180.0
+    },
+    "integration": {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/complete_integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:29:58.481777+00:00",
+      "finished_at_utc": "2026-10-14T17:31:27.970983+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/019-integration.txt",
+      "output_sha256": "7d2aa5d1a5491bcbafa2d592a368b28df88c6bc223d23fb5da2cdfce6c45758e",
+      "timeout_seconds": 700.0
+    }
+  },
+  "scene_reviews": 78,
+  "map_quality": "passed",
+  "normal_input": "NORMAL_INPUT_CHAIN.json; original terminal assertion failure preserved; phase6 actual saves verified",
+  "local_server": "LOCAL_SERVER.json",
+  "default_build": "DEFAULT_BUILD.json",
+  "human_status": "pending",
+  "remote_sync": "See GIT_SAVE.json after push verification"
+}

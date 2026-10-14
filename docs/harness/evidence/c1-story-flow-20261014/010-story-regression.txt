@@ -1,0 +1,40 @@
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (43.877709ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (28.698042ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.268166ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (9.672084ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.645417ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (34.425792ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.7165ms)
+✔ all original scenes outside the requested contract stay byte identical and all quest numeric budgets remain intact (4.375416ms)
+✖ Iden local conversation uses the actual foyer menu and persists without inventing an injury (3.199708ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 260.919625
+
+✖ failing tests:
+
+test at tests/c1-story-flow.test.mjs:75:1
+✖ Iden local conversation uses the actual foyer menu and persists without inventing an injury (3.199708ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.npcOptions('c1iden').some(o=>o[1]==='c1:localTalk:c1iden'))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:76:38)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

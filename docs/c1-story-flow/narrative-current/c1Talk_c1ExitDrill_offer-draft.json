@@ -1,0 +1,112 @@
+{
+  "chapter": "R01",
+  "scene": "c1Talk_c1ExitDrill_offer",
+  "actors": [
+    "iden",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/chapter-one-quest-dialogues.js",
+      "dist/chapter-one-dialogues-v31.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_STORY_FLOW.md"
+    ],
+    "dynamic_check_label": "story-regression"
+  },
+  "brief": {
+    "information": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。",
+    "purposes": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。",
+    "outcome": "对，内室看守也得停下。别一口气把整间屋子都惊动了。等你把路清出来，我带维修班进去，也能腾出人手安排你出行。",
+    "causality": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。",
+    "emotional_basis": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。",
+    "gameplay_handoff": "最终页才接受，重载仍停在原页；未接受不计新目标。"
+  },
+  "lines": [
+    {
+      "speaker": "iden",
+      "text": "你就是诺恩？薇蕾娜托人来说过。这里原是练队形的地方，现在哨兵认错口令，维修班都不敢往里走。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "哪些还在运转？",
+      "claims": [],
+      "no_fact_reason": "本句是现场可见的走位/表情，或人物的询问、判断与回应；没有将未发生的计划或幕后秘密断言为已知事实。"
+    },
+    {
+      "speaker": "iden",
+      "text": "一层八具旧哨兵，内室还有一个看守。二层八只啃线鼠把走线咬得乱七八糟，哨兵也受它们影响。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "我先走一层，再从东厅侧阶下去。处理完两层，回来找你。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "iden",
+      "text": "对，内室看守也得停下。别一口气把整间屋子都惊动了。等你把路清出来，我带维修班进去，也能腾出人手安排你出行。",
+      "claims": [
+        {
+          "fact": "F-C1-FLOW-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "逐句通读本场5行。开句“你就是诺恩？薇蕾娜托人来说过。这里原是练队形的地方，现在哨兵认错口令，维修班都不敢往里走。”提出具体处境，末句“对，内室看守也得停下。别一口气把整间屋子都惊动了。等你把路清出来，我带维修班进去，也能腾出人手安排你出行。”完成当前交代；问答有承接，保留有依据的短答与停顿。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。 精确物件、地点和对象与C1_OBJECTIVES/实际调用者核对。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "最终页才接受，重载仍停在原页；未接受不计新目标。 原任务ID、前置、数值和原非contract静态场景经过基线比对；原pending.lines继续使用原文本。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "本场只提供本地请求/进展/回报，获知者限定在场的iden,noen及玩家；没有开门内幕、上层主使或圣女后续认知。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本地工作和生活处境不扩成全知阴谋；样本只作现场比对，尚未确定的远因不在这里揭露。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "伊登负责维修班安全，解释哨兵、鼠群和两层通路；诺恩复述路线，清路同时检验应变。回报引向阿林，不凭空派发下一项。 关系变化限本场关心、担忧、求助或谢意，没有无经历的信任/恋爱跃升。"
+    },
+    "reviewer": "Codex执行编辑；已读取采用章稿、角色档案、调用者及本场全文。此为编辑判断，不冒充真人阅读/乐趣实测。2026-10-14"
+  },
+  "at": "contract"
+}

@@ -1,0 +1,1152 @@
+{
+  "schema": 1,
+  "id": "c1-story-flow-20261014",
+  "goal": "第一章任务背景与自然交接全面优化；薇蕾娜因担心安排能力试炼；诺恩离场后真实会馆私谈，兼容旧档",
+  "acceptance": [
+    "逐项覆盖第一章主支线接取进展回报；不再以男主受伤推动试炼；真实离场和会面演出无黑幕；新旧档一次结算、输入连续路线、浏览器截图和叙事审查通过；默认试玩同步并保存GitHub"
+  ],
+  "baseline_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "lab"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T16:39:08.423344+00:00",
+  "updated_at_utc": "2026-10-14T17:41:48.116890+00:00",
+  "decisions": [
+    "只优化第一章；保留既定任务目标、奖励与主线结果，当前新授权替代原黑幕私谈表现与虚构肩伤；分审计章稿、任务对白、离场私谈、回归交付四阶段。",
+    "采用1.1章稿，完整对白后接受/结算；保持目标奖励；新私谈延至真实离开会馆，旧尾段仍按原事务接续。",
+    "014旧经济驱动重复交北门已修正；015正常输入最终phase断言失配，保留原失败并用016核验未修改原档；018包浏览器缺Chrome路径，019只补跑包浏览器，原当前integration退出0证据复用并验指纹。"
+  ],
+  "completed": [
+    "已读完整采用稿与R01事件、三名关键人物档案，提取全部最终对白及31项任务基线；确认肩伤来自动态任务覆盖，私谈当前在contract提交前黑幕尾段。",
+    "75场任务接取、进展与回报已接入；委托改为无伤试炼动机，真实离场后会馆私谈与旧尾段接续实现。全部31任务交接已核对，保留数值奖励。",
+    "208核心、62Harness、18经济路线和完整integration通过；三职业正常键鼠通至post/phase6，原驱动仅末端误期望5的失败保留，三份原档已独立核验。75场561页三视口、78场编辑审查、三维、离线HTTP手机包和5174全部229模块/7样式一致；默认包已提升并保留旧包。",
+    "78场上下文、精确稿与七维编辑判断已通过官方task接口挂接；023 fast、024 narrative、025三维门禁均在最终指纹通过；247MB集成JSON逐字节归档核验，原件保留。"
+  ],
+  "remaining": [
+    "提交验收与任务记录，推送GitHub main并核验远端，保存最终回执"
+  ],
+  "blockers": [],
+  "next": "保存并核验GitHub main",
+  "required_checks": [
+    "fast",
+    "narrative",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T16:40:46.768883+00:00",
+      "finished_at_utc": "2026-10-14T16:41:29.511979+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "3375b1bbec97c8361b8a927ad556b8a3288188414bfc1511c5424a31f5af4fa2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/001-baseline.txt",
+      "output_sha256": "aeaea367b36db356df490f63ce1afd7e36bd53e4e7d5ac2e4dccec64c430bb36",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "first-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T16:50:21.639938+00:00",
+      "finished_at_utc": "2026-10-14T16:50:22.063014+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "2b5c394dbfa5e1de52f0b52dc7e705a8267a872ef28e9e69427c3853a13e55b9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/002-first-regression.txt",
+      "output_sha256": "430aa86657032402ab70f358040d3dc434acda70dc1d9cff847a71342542a9c0",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "previous-ch12-regression",
+      "command": [
+        "node",
+        "--test",
+        "/tmp/ashen-story-baseline-cc2/tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T16:51:29.971628+00:00",
+      "finished_at_utc": "2026-10-14T16:51:30.192059+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "2b5c394dbfa5e1de52f0b52dc7e705a8267a872ef28e9e69427c3853a13e55b9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/003-previous-ch12-regression.txt",
+      "output_sha256": "b4c537c0d30a4e8a3f420be9b174fd58587976f1f978dbfdd8b98f39d3880d17",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T16:54:05.539465+00:00",
+      "finished_at_utc": "2026-10-14T16:54:07.458693+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "babb4968a8b03978544ce375b6873f34df44687dae1091234502238fe34f80c1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/004-story-regression.txt",
+      "output_sha256": "4aad7f7497cd7d2eb519297da1b08106f69c8d80a4a26ad4e632108978e35dd2",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T16:56:45.438826+00:00",
+      "finished_at_utc": "2026-10-14T16:56:47.399175+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "18234d822b58f7217b117ae3b24e5e49ee133d448ae33bbec7e7311f6514d882",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/005-story-regression.txt",
+      "output_sha256": "7d28638f6d8b41de48fca7cbb1dcd8a46bd9df06e49e8d7c68ed9263900a992e",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:01:48.846869+00:00",
+      "finished_at_utc": "2026-10-14T17:01:50.985603+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "a788e225329810189fa5f1bd3f4080dc4c7e8b39deb31b05325b691b444092a8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/006-story-regression.txt",
+      "output_sha256": "d04f182c0ccfd290774ca722249d18d2d93a51a0731a798df7eb4313a7ee32a6",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "scene-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-story-flow.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:02:51.084892+00:00",
+      "finished_at_utc": "2026-10-14T17:03:00.300634+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "d92f1677f3a387f51b7961bc0850d0a11386913c69f0ed2b8cb2b895ffadc856",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/007-scene-browser.txt",
+      "output_sha256": "605054e95fc09fc5a269a5b03368f4047435161e86bff1fa30bb4db803b1e4c7",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "scene-browser",
+      "command": [
+        "env",
+        "ASHEN_FLOW_OUTPUT=docs/c1-story-flow/browser-002",
+        "node",
+        "tests/browser-c1-story-flow.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:03:39.448532+00:00",
+      "finished_at_utc": "2026-10-14T17:03:51.545988+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "78b04158aff785beab1138832ab5b6d3c9e6d6fe381f26a86fb71ab82efc7d51",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/008-scene-browser.txt",
+      "output_sha256": "7fcc7e3604b6fc5bcd37ef556b05d02ac656f94853bc14441f610c9f406a6d25",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "scene-browser",
+      "command": [
+        "env",
+        "ASHEN_FLOW_OUTPUT=docs/c1-story-flow/browser-003",
+        "node",
+        "tests/browser-c1-story-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:04:39.455172+00:00",
+      "finished_at_utc": "2026-10-14T17:05:05.881207+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "bfb60a9234cc858b4d36f3b3af1753f859eecdd134d03e6c091f9b72c611c3f2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/009-scene-browser.txt",
+      "output_sha256": "61d0c1214257f1673640c4ac5dca7fc9bafac8325f0cb3efc3a6d2b121014577",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:05:47.623790+00:00",
+      "finished_at_utc": "2026-10-14T17:05:47.938736+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "1d6328baeac20550724c22450dab8c232b0dcc705c01cdeae6157b35e8456b6b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/010-story-regression.txt",
+      "output_sha256": "be564522495d59fc5f036508603507260eb7a08abd8eb0a3453abc2782bfc551",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:06:21.562081+00:00",
+      "finished_at_utc": "2026-10-14T17:06:21.878616+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "3d7033f872baffdd1cff468456f4c657600772d75283446e681b486ace530986",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/011-story-regression.txt",
+      "output_sha256": "22d0e001ae469be9c9adf2c42912abdd46075d77d779ad094dabbebc80bfeb26",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "core",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:06:21.950985+00:00",
+      "finished_at_utc": "2026-10-14T17:07:05.325684+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "3d7033f872baffdd1cff468456f4c657600772d75283446e681b486ace530986",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/012-core.txt",
+      "output_sha256": "77f7b44fa5b931e4bd293f61aa1faf83ca1803ef377a22b421e1323c95b2af5a",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "env",
+        "ASHEN_QA_OUTPUT=docs/c1-story-flow/integration/presentation",
+        "ASHEN_LAB_QA_OUTPUT=docs/c1-story-flow/integration/lab",
+        "ASHEN_WORLD_OUTPUT=docs/c1-story-flow/integration/world",
+        "ASHEN_CAPTURE_OUTPUT=docs/c1-story-flow/integration/chapters",
+        "ASHEN_C1_OUTPUT=docs/c1-story-flow/integration/expansion",
+        "ASHEN_C1_BALANCE=docs/c1-story-flow/integration/balance",
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:08:27.677817+00:00",
+      "finished_at_utc": "2026-10-14T17:08:28.323329+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "b5cd807ca2857a359adbd49e8357933425001bf00d1fd75f2edd9ea7383ff928",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/013-integration.txt",
+      "output_sha256": "c28a58b9859888a7f339b65c283f81e5c537666330b76bb54f6ec30afa6d68bd",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "env",
+        "ASHEN_QA_OUTPUT=docs/c1-story-flow/integration-002/presentation",
+        "ASHEN_LAB_QA_OUTPUT=docs/c1-story-flow/integration-002/lab",
+        "ASHEN_WORLD_OUTPUT=docs/c1-story-flow/integration-002/world",
+        "ASHEN_CAPTURE_OUTPUT=docs/c1-story-flow/integration-002/chapters",
+        "ASHEN_C1_OUTPUT=docs/c1-story-flow/integration-002/expansion",
+        "ASHEN_C1_BALANCE=docs/c1-story-flow/integration-002/balance",
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:09:28.444297+00:00",
+      "finished_at_utc": "2026-10-14T17:10:30.062215+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "7cb51249d1d4a2b962b1f8497a58bdce7411834c0fe42f0cbb11d36b15a7d8ec",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/014-integration.txt",
+      "output_sha256": "9a389cc3f045a8b41d05da016d6b086990e1130f2f31184f853534fab6363954",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/run_verification.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:12:40.570064+00:00",
+      "finished_at_utc": "2026-10-14T17:19:57.271983+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "ed08a46441f7ab749cc9544a13185ce70ba0d212f4e6f5e2a0d9d4d21e6ec42d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/015-integration.txt",
+      "output_sha256": "1966990a092258bbe2eeb7b4e86084b099668827bdaebdad8f1fd967fcd84716",
+      "timeout_seconds": 1900.0
+    },
+    {
+      "label": "normal-terminal",
+      "command": [
+        "node",
+        "docs/c1-story-flow/verify_normal_end.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:21:12.125382+00:00",
+      "finished_at_utc": "2026-10-14T17:21:12.332058+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/016-normal-terminal.txt",
+      "output_sha256": "7b2ae6e2baba8d726a919d28260683c31ffcb12a336d6a85e0e85573a8ab1d58",
+      "timeout_seconds": 60.0
+    },
+    {
+      "label": "story-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:21:12.409117+00:00",
+      "finished_at_utc": "2026-10-14T17:21:14.346003+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/017-story-regression.txt",
+      "output_sha256": "26947cb688f2966ee58633bf614ab616fc606b16d117a2840306c9731d37f770",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/final_integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T17:21:56.814169+00:00",
+      "finished_at_utc": "2026-10-14T17:28:39.868296+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/018-integration.txt",
+      "output_sha256": "52f37a1720ba2946cd12e5d5701c56afe36c73e39beed6f2c4c3823b53490483",
+      "timeout_seconds": 1700.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/complete_integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:29:58.481777+00:00",
+      "finished_at_utc": "2026-10-14T17:31:27.970983+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/019-integration.txt",
+      "output_sha256": "7d2aa5d1a5491bcbafa2d592a368b28df88c6bc223d23fb5da2cdfce6c45758e",
+      "timeout_seconds": 700.0
+    },
+    {
+      "label": "current-server",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:31:28.049371+00:00",
+      "finished_at_utc": "2026-10-14T17:31:28.249828+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/020-current-server.txt",
+      "output_sha256": "85c257744080182779f0952a5152de190ca0d6db5d4a53ded7f71b7c522aaad8",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "evidence-archive",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:31:28.324287+00:00",
+      "finished_at_utc": "2026-10-14T17:31:30.235580+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/021-evidence-archive.txt",
+      "output_sha256": "23cb09187578d656bb7ba8104a2b3e63ade71f412adbb0d4deee6338e8c50120",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "default-build",
+      "command": [
+        "python3",
+        "docs/c1-story-flow/promote.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:32:20.377618+00:00",
+      "finished_at_utc": "2026-10-14T17:32:20.912141+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/022-default-build.txt",
+      "output_sha256": "6717e7e3f26a96e53e77f35d984fb6bcf5271f99c2544d74d8ca2b874f954978",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:39:01.068807+00:00",
+      "finished_at_utc": "2026-10-14T17:39:44.667565+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/023-fast.txt",
+      "output_sha256": "5547b66f91b4bbe8b935c9489414c5f2ac8adccae37cddf782e86eef88fcfc98",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:39:44.740814+00:00",
+      "finished_at_utc": "2026-10-14T17:40:28.199011+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/024-narrative.txt",
+      "output_sha256": "16082e18a20a6bec1ac5a54ff84d01033cfaf79c0e68f750b79d01de37a05b49",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "cc2c51c"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T17:40:28.270719+00:00",
+      "finished_at_utc": "2026-10-14T17:40:28.437732+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-story-flow-20261014/025-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 60.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T16:42:05.686918+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "d3686c29432fd39055f2a6fa425105d9052d074e3d7726bfd17160ad7c012eb0",
+      "worktree": "M .codex/progress.md\n?? docs/c1-story-flow/\n?? docs/harness/CHAPTER_01_STORY_FLOW.md\n?? docs/harness/evidence/c1-story-flow-20261014/\n?? source/tasks/active/c1-story-flow-20261014.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T17:01:48.611197+00:00",
+      "head_commit": "cc2c51c7d8877b026e45055974a8b7129ce01968",
+      "source_fingerprint": "a788e225329810189fa5f1bd3f4080dc4c7e8b39deb31b05325b691b444092a8",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-objectives.js\n M dist/chapter-one-story-world.js\n M dist/cinematics-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/ch1-layer-rules/NAVIGATION.json\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/iden.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/oren.json\n M source/narrative/characters/rune.json\n M source/narrative/characters/vilerena.json\n M source/narrative/conflicts.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M tests/browser-chapter-one-incremental.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/ch12-bugs.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/rpg-experience.test.mjs\n M tools/harness/check.py\n?? dist/chapter-one-private-staging.js\n?? dist/chapter-one-quest-dialogues.js\n?? docs/c1-story-flow/\n?? docs/harness/CHAPTER_01_STORY_FLOW.md\n?? docs/harness/evidence/c1-story-flow-20261014/\n?? source/tasks/active/c1-story-flow-20261014.json\n?? tests/c1-story-flow.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T17:41:48.060907+00:00",
+      "head_commit": "70fe0e0c9bbf94620cc9b8df8d53624ea38e0de2",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "worktree": "M .codex/progress.md\nM  .gitignore\nM  BACKUP_STATUS.md\nM  README.md\nA  archives/c1-story-flow-evidence/evidence.tar.gz.part001\nA  archives/c1-story-flow-evidence/manifest.json\nA  docs/c1-story-flow/ACCEPTANCE.md\nA  docs/c1-story-flow/DEFAULT_BUILD.json\nA  docs/c1-story-flow/FINAL_INTEGRATION.json\nA  docs/c1-story-flow/HUMAN_OBSERVATION.md\nA  docs/c1-story-flow/LOCAL_SERVER.json\nA  docs/c1-story-flow/MAP_QUALITY.json\nA  docs/c1-story-flow/MAP_REVIEW.md\nA  docs/c1-story-flow/MOVEMENT.json\nAM docs/c1-story-flow/NARRATIVE_ATTACHMENTS.txt\nA  docs/c1-story-flow/NAVIGATION.json\nA  docs/c1-story-flow/NORMAL_INPUT_CHAIN.json\nA  docs/c1-story-flow/REPRODUCE.md\nA  docs/c1-story-flow/RESTORE_EVIDENCE.py\nM  docs/c1-story-flow/SCRIPT.json\nA  docs/c1-story-flow/attach_reviews.py\nA  docs/c1-story-flow/browser-002/QA.json\nA  docs/c1-story-flow/browser-002/back-to-yard.png\nA  docs/c1-story-flow/browser-002/hall-cells.json\nA  docs/c1-story-flow/browser-002/hall-collision.png\nA  docs/c1-story-flow/browser-002/hall.png\nA  docs/c1-story-flow/browser-002/meeting-arrival.png\nA  docs/c1-story-flow/browser-002/meeting-vilerena.png\nA  docs/c1-story-flow/browser-002/meeting-walk.png\nA  docs/c1-story-flow/browser-003/QA.json\nA  docs/c1-story-flow/browser-003/back-to-yard.png\nA  docs/c1-story-flow/browser-003/hall-cells.json\nA  docs/c1-story-flow/browser-003/hall-collision.png\nA  docs/c1-story-flow/browser-003/hall.png\nA  docs/c1-story-flow/browser-003/herbs-1440.png\nA  docs/c1-story-flow/browser-003/herbs-390.png\nA  docs/c1-story-flow/browser-003/herbs-844.png\nA  docs/c1-story-flow/browser-003/meeting-arrival.png\nA  docs/c1-story-flow/browser-003/meeting-rune-1440.png\nA  docs/c1-story-flow/browser-003/meeting-rune-390.png\nA  docs/c1-story-flow/browser-003/meeting-rune-844.png\nA  docs/c1-story-flow/browser-003/meeting-vilerena.png\nA  docs/c1-story-flow/browser-003/meeting-walk.png\nA  docs/c1-story-flow/browser-003/trial-1440.png\nA  docs/c1-story-flow/browser-003/trial-390.png\nA  docs/c1-story-flow/browser-003/trial-844.png\nA  docs/c1-story-flow/browser/QA.json\nA  docs/c1-story-flow/browser/hall-cells.json\nA  docs/c1-story-flow/browser/hall-collision.png\nA  docs/c1-story-flow/browser/hall.png\nA  docs/c1-story-flow/browser/meeting-arrival.png\nA  docs/c1-story-flow/browser/meeting-vilerena.png\nA  docs/c1-story-flow/browser/meeting-walk.png\nA  docs/c1-story-flow/check-recommendations.json\nA  docs/c1-story-flow/complete_integration.py\nA  docs/c1-story-flow/final-checks/RESULTS.json\nA  docs/c1-story-flow/final-checks/integration.txt\nA  docs/c1-story-flow/final-checks/package.txt\nA  docs/c1-story-flow/final_integration.py\nA  docs/c1-story-flow/integration-003/chapters/alley.png\nA  docs/c1-story-flow/integration-003/chapters/alley.webp\nA  docs/c1-story-flow/integration-003/chapters/bridge.png\nA  docs/c1-story-flow/integration-003/chapters/bridge.webp\nA  docs/c1-story-flow/integration-003/chapters/bridgecellar.png\nA  docs/c1-story-flow/integration-003/chapters/bridgecellar.webp\nA  docs/c1-story-flow/integration-003/chapters/canal.png\nA  docs/c1-story-flow/integration-003/chapters/canal.webp\nA  docs/c1-story-flow/integration-003/chapters/chamber.png\nA  docs/c1-story-flow/integration-003/chapters/chamber.webp\nA  docs/c1-story-flow/integration-003/chapters/chapel.png\nA  docs/c1-story-flow/integration-003/chapters/chapel.webp\nA  docs/c1-story-flow/integration-003/chapters/chapterHell.webp\nA  docs/c1-story-flow/integration-003/chapters/chapterHellMaterials.webp\nA  docs/c1-story-flow/integration-003/chapters/chapterObjects.webp\nA  docs/c1-story-flow/integration-003/chapters/chapterUtilities.webp\nA  docs/c1-story-flow/integration-003/chapters/click-guest-basin.webp\nA  docs/c1-story-flow/integration-003/chapters/click-townbook.webp\nA  docs/c1-story-flow/integration-003/chapters/click-v9-bridge-water.webp\nA  docs/c1-story-flow/integration-003/chapters/click-v9-post-wedge.webp\nA  docs/c1-story-flow/integration-003/chapters/click-v9-toll-scale.webp\nA  docs/c1-story-flow/integration-003/chapters/click-v9-warden-chain.webp\nA  docs/c1-story-flow/integration-003/chapters/echo.png\nA  docs/c1-story-flow/integration-003/chapters/echo.webp\nA  docs/c1-story-flow/integration-003/chapters/enemy-poses.png\nA  docs/c1-story-flow/integration-003/chapters/enemy-poses.webp\nA  docs/c1-story-flow/integration-003/chapters/exile.png\nA  docs/c1-story-flow/integration-003/chapters/exile.webp\nA  docs/c1-story-flow/integration-003/chapters/grove.png\nA  docs/c1-story-flow/integration-003/chapters/grove.webp\nA  docs/c1-story-flow/integration-003/chapters/guard-frames.png\nA  docs/c1-story-flow/integration-003/chapters/guestroom.webp\nA  docs/c1-story-flow/integration-003/chapters/hall.png\nA  docs/c1-story-flow/integration-003/chapters/hall.webp\nA  docs/c1-story-flow/integration-003/chapters/hellApproach.png\nA  docs/c1-story-flow/integration-003/chapters/hellApproach.webp\nA  docs/c1-story-flow/integration-003/chapters/hellArena.png\nA  docs/c1-story-flow/integration-003/chapters/hellArena.webp\nA  docs/c1-story-flow/integration-003/chapters/hellCamp.png\nA  docs/c1-story-flow/integration-003/chapters/hellCamp.webp\nA  docs/c1-story-flow/integration-003/chapters/hellFerry.png\nA  docs/c1-story-flow/integration-003/chapters/hellFerry.webp\nA  docs/c1-story-flow/integration-003/chapters/hellGate.png\nA  docs/c1-story-flow/integration-003/chapters/hellGate.webp\nA  docs/c1-story-flow/integration-003/chapters/hellGrotto.png\nA  docs/c1-story-flow/integration-003/chapters/hellGrotto.webp\nA  docs/c1-story-flow/integration-003/chapters/hellMine.png\nA  docs/c1-story-flow/integration-003/chapters/hellMine.webp\nA  docs/c1-story-flow/integration-003/chapters/hellPass.png\nA  docs/c1-story-flow/integration-003/chapters/hellPass.webp\nA  docs/c1-story-flow/integration-003/chapters/hellQuarry.png\nA  docs/c1-story-flow/integration-003/chapters/hellQuarry.webp\nA  docs/c1-story-flow/integration-003/chapters/hellRift.png\nA  docs/c1-story-flow/integration-003/chapters/hellRift.webp\nA  docs/c1-story-flow/integration-003/chapters/hellSluice.png\nA  docs/c1-story-flow/integration-003/chapters/hellSluice.webp\nA  docs/c1-story-flow/integration-003/chapters/hellTomb.png\nA  docs/c1-story-flow/integration-003/chapters/hellTomb.webp\nA  docs/c1-story-flow/integration-003/chapters/hellWall.png\nA  docs/c1-story-flow/integration-003/chapters/hellWall.webp\nA  docs/c1-story-flow/integration-003/chapters/hellWorkshop.png\nA  docs/c1-story-flow/integration-003/chapters/hellWorkshop.webp\nA  docs/c1-story-flow/integration-003/chapters/inn.png\nA  docs/c1-story-flow/integration-003/chapters/inn.webp\nA  docs/c1-story-flow/integration-003/chapters/manor.png\nA  docs/c1-story-flow/integration-003/chapters/manor.webp\nA  docs/c1-story-flow/integration-003/chapters/millpath.png\nA  docs/c1-story-flow/integration-003/chapters/millpath.webp\nA  docs/c1-story-flow/integration-003/chapters/post.png\nA  docs/c1-story-flow/integration-003/chapters/post.webp\nA  docs/c1-story-flow/integration-003/chapters/road.png\nA  docs/c1-story-flow/integration-003/chapters/road.webp\nA  docs/c1-story-flow/integration-003/chapters/scene-ch2TargetBefore.webp\nA  docs/c1-story-flow/integration-003/chapters/scene-ch3Treatment.webp\nA  docs/c1-story-flow/integration-003/chapters/spillway.png\nA  docs/c1-story-flow/integration-003/chapters/spillway.webp\nA  docs/c1-story-flow/integration-003/chapters/town.png\nA  docs/c1-story-flow/integration-003/chapters/town.webp\nA  docs/c1-story-flow/integration-003/chapters/warehouse.png\nA  docs/c1-story-flow/integration-003/chapters/warehouse.webp\nA  docs/c1-story-flow/integration-003/chapters/water-interaction.png\nA  docs/c1-story-flow/integration-003/chapters/wellcrypt.png\nA  docs/c1-story-flow/integration-003/chapters/wellcrypt.webp\nA  docs/c1-story-flow/integration-003/chapters/workshop.png\nA  docs/c1-story-flow/integration-003/chapters/workshop.webp\nA  docs/c1-story-flow/integration-003/expansion/alley-after.webp\nA  docs/c1-story-flow/integration-003/expansion/alley-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/alley.webp\nA  docs/c1-story-flow/integration-003/expansion/c1DrillGallery-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1DrillGallery-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1DrillGallery-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1DrillGallery.webp\nA  docs/c1-story-flow/integration-003/expansion/c1KilnCourt-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1KilnCourt-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1KilnCourt-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1KilnCourt.webp\nA  docs/c1-story-flow/integration-003/expansion/c1LoomRoom-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1LoomRoom-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1LoomRoom-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1LoomRoom.webp\nA  docs/c1-story-flow/integration-003/expansion/c1NorthWalk-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1NorthWalk-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1NorthWalk-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1NorthWalk.webp\nA  docs/c1-story-flow/integration-003/expansion/c1ReedKiln-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1ReedKiln-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1ReedKiln-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1ReedKiln.webp\nA  docs/c1-story-flow/integration-003/expansion/c1RiversideCamp-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1RiversideCamp-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1RiversideCamp-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1RiversideCamp.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrainingYard-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrainingYard-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrainingYard-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1TrainingYard.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialCrypt-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialCrypt-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialCrypt-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1TrialCrypt.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialFoyer-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialFoyer-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialFoyer-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1TrialFoyer.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialVault-after.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialVault-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/c1TrialVault-touch.png\nA  docs/c1-story-flow/integration-003/expansion/c1TrialVault.webp\nA  docs/c1-story-flow/integration-003/expansion/c1blake-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1blake-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1blake-report.png\nA  docs/c1-story-flow/integration-003/expansion/c1eve-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1eve-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1eve-report.png\nA  docs/c1-story-flow/integration-003/expansion/c1hesha-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1hesha-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1hesha-report.png\nA  docs/c1-story-flow/integration-003/expansion/c1iden-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1iden-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1iden-report.png\nA  docs/c1-story-flow/integration-003/expansion/c1mada-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1mada-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1mada-report.png\nA  docs/c1-story-flow/integration-003/expansion/c1venn-menu.png\nA  docs/c1-story-flow/integration-003/expansion/c1venn-ready.webp\nA  docs/c1-story-flow/integration-003/expansion/c1venn-report.png\nA  docs/c1-story-flow/integration-003/expansion/canal-after.webp\nA  docs/c1-story-flow/integration-003/expansion/canal-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/canal.webp\nA  docs/c1-story-flow/integration-003/expansion/chapel-after.webp\nA  docs/c1-story-flow/integration-003/expansion/chapel-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/chapel.webp\nA  docs/c1-story-flow/integration-003/expansion/echo-after.webp\nA  docs/c1-story-flow/integration-003/expansion/echo-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/echo.webp\nA  docs/c1-story-flow/integration-003/expansion/grove-after.webp\nA  docs/c1-story-flow/integration-003/expansion/grove-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/grove.webp\nA  docs/c1-story-flow/integration-003/expansion/guestroom-after.webp\nA  docs/c1-story-flow/integration-003/expansion/guestroom-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/guestroom.webp\nA  docs/c1-story-flow/integration-003/expansion/hall-after.webp\nA  docs/c1-story-flow/integration-003/expansion/hall-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/hall.webp\nA  docs/c1-story-flow/integration-003/expansion/herb-interaction.png\nA  docs/c1-story-flow/integration-003/expansion/loom-1440.png\nA  docs/c1-story-flow/integration-003/expansion/loom-390.png\nA  docs/c1-story-flow/integration-003/expansion/loom-844.png\nA  docs/c1-story-flow/integration-003/expansion/millpath-after.webp\nA  docs/c1-story-flow/integration-003/expansion/millpath-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/millpath.webp\nA  docs/c1-story-flow/integration-003/expansion/road-after.webp\nA  docs/c1-story-flow/integration-003/expansion/road-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/road.webp\nA  docs/c1-story-flow/integration-003/expansion/town-after.webp\nA  docs/c1-story-flow/integration-003/expansion/town-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/town.webp\nA  docs/c1-story-flow/integration-003/expansion/warehouse-after.webp\nA  docs/c1-story-flow/integration-003/expansion/warehouse-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/warehouse.webp\nA  docs/c1-story-flow/integration-003/expansion/workshop-after.webp\nA  docs/c1-story-flow/integration-003/expansion/workshop-collision.webp\nA  docs/c1-story-flow/integration-003/expansion/workshop.webp\nA  docs/c1-story-flow/integration-003/presentation/01-title.png\nA  docs/c1-story-flow/integration-003/presentation/02-hall-ember.png\nA  docs/c1-story-flow/integration-003/presentation/02-hall-oath.png\nA  docs/c1-story-flow/integration-003/presentation/02-hall-shadow.png\nA  docs/c1-story-flow/integration-003/presentation/03-ch8-guesthouse.png\nA  docs/c1-story-flow/integration-003/presentation/04-v25C8After.png\nA  docs/c1-story-flow/integration-003/presentation/04-v25C8Bind.png\nA  docs/c1-story-flow/integration-003/presentation/04-v25C8Dawn.png\nA  docs/c1-story-flow/integration-003/presentation/04-v25C8Sanctuary.png\nA  docs/c1-story-flow/integration-003/presentation/05-presentation-gallery.png\nA  docs/c1-story-flow/integration-003/world/echo.png\nA  docs/c1-story-flow/integration-003/world/journey-clear.png\nA  docs/c1-story-flow/integration-003/world/journey-road.png\nA  docs/c1-story-flow/integration-003/world/journey-valve.png\nA  docs/c1-story-flow/integration-003/world/millpath.png\nA  docs/c1-story-flow/integration-003/world/road.png\nA  docs/c1-story-flow/integration-003/world/workshop-completed.png\nA  docs/c1-story-flow/integration-003/world/workshop.png\nA  docs/c1-story-flow/integration-final/chapters/alley.png\nA  docs/c1-story-flow/integration-final/chapters/alley.webp\nA  docs/c1-story-flow/integration-final/chapters/bridge.png\nA  docs/c1-story-flow/integration-final/chapters/bridge.webp\nA  docs/c1-story-flow/integration-final/chapters/bridgecellar.png\nA  docs/c1-story-flow/integration-final/chapters/bridgecellar.webp\nA  docs/c1-story-flow/integration-final/chapters/canal.png\nA  docs/c1-story-flow/integration-final/chapters/canal.webp\nA  docs/c1-story-flow/integration-final/chapters/chamber.png\nA  docs/c1-story-flow/integration-final/chapters/chamber.webp\nA  docs/c1-story-flow/integration-final/chapters/chapel.png\nA  docs/c1-story-flow/integration-final/chapters/chapel.webp\nA  docs/c1-story-flow/integration-final/chapters/chapterHell.webp\nA  docs/c1-story-flow/integration-final/chapters/chapterHellMaterials.webp\nA  docs/c1-story-flow/integration-final/chapters/chapterObjects.webp\nA  docs/c1-story-flow/integration-final/chapters/chapterUtilities.webp\nA  docs/c1-story-flow/integration-final/chapters/click-guest-basin.webp\nA  docs/c1-story-flow/integration-final/chapters/click-townbook.webp\nA  docs/c1-story-flow/integration-final/chapters/click-v9-bridge-water.webp\nA  docs/c1-story-flow/integration-final/chapters/click-v9-post-wedge.webp\nA  docs/c1-story-flow/integration-final/chapters/click-v9-toll-scale.webp\nA  docs/c1-story-flow/integration-final/chapters/click-v9-warden-chain.webp\nA  docs/c1-story-flow/integration-final/chapters/echo.png\nA  docs/c1-story-flow/integration-final/chapters/echo.webp\nA  docs/c1-story-flow/integration-final/chapters/enemy-poses.png\nA  docs/c1-story-flow/integration-final/chapters/enemy-poses.webp\nA  docs/c1-story-flow/integration-final/chapters/exile.png\nA  docs/c1-story-flow/integration-final/chapters/exile.webp\nA  docs/c1-story-flow/integration-final/chapters/grove.png\nA  docs/c1-story-flow/integration-final/chapters/grove.webp\nA  docs/c1-story-flow/integration-final/chapters/guard-frames.png\nA  docs/c1-story-flow/integration-final/chapters/guestroom.webp\nA  docs/c1-story-flow/integration-final/chapters/hall.png\nA  docs/c1-story-flow/integration-final/chapters/hall.webp\nA  docs/c1-story-flow/integration-final/chapters/hellApproach.png\nA  docs/c1-story-flow/integration-final/chapters/hellApproach.webp\nA  docs/c1-story-flow/integration-final/chapters/hellArena.png\nA  docs/c1-story-flow/integration-final/chapters/hellArena.webp\nA  docs/c1-story-flow/integration-final/chapters/hellCamp.png\nA  docs/c1-story-flow/integration-final/chapters/hellCamp.webp\nA  docs/c1-story-flow/integration-final/chapters/hellFerry.png\nA  docs/c1-story-flow/integration-final/chapters/hellFerry.webp\nA  docs/c1-story-flow/integration-final/chapters/hellGate.png\nA  docs/c1-story-flow/integration-final/chapters/hellGate.webp\nA  docs/c1-story-flow/integration-final/chapters/hellGrotto.png\nA  docs/c1-story-flow/integration-final/chapters/hellGrotto.webp\nA  docs/c1-story-flow/integration-final/chapters/hellMine.png\nA  docs/c1-story-flow/integration-final/chapters/hellMine.webp\nA  docs/c1-story-flow/integration-final/chapters/hellPass.png\nA  docs/c1-story-flow/integration-final/chapters/hellPass.webp\nA  docs/c1-story-flow/integration-final/chapters/hellQuarry.png\nA  docs/c1-story-flow/integration-final/chapters/hellQuarry.webp\nA  docs/c1-story-flow/integration-final/chapters/hellRift.png\nA  docs/c1-story-flow/integration-final/chapters/hellRift.webp\nA  docs/c1-story-flow/integration-final/chapters/hellSluice.png\nA  docs/c1-story-flow/integration-final/chapters/hellSluice.webp\nA  docs/c1-story-flow/integration-final/chapters/hellTomb.png\nA  docs/c1-story-flow/integration-final/chapters/hellTomb.webp\nA  docs/c1-story-flow/integration-final/chapters/hellWall.png\nA  docs/c1-story-flow/integration-final/chapters/hellWall.webp\nA  docs/c1-story-flow/integration-final/chapters/hellWorkshop.png\nA  docs/c1-story-flow/integration-final/chapters/hellWorkshop.webp\nA  docs/c1-story-flow/integration-final/chapters/inn.png\nA  docs/c1-story-flow/integration-final/chapters/inn.webp\nA  docs/c1-story-flow/integration-final/chapters/manor.png\nA  docs/c1-story-flow/integration-final/chapters/manor.webp\nA  docs/c1-story-flow/integration-final/chapters/millpath.png\nA  docs/c1-story-flow/integration-final/chapters/millpath.webp\nA  docs/c1-story-flow/integration-final/chapters/post.png\nA  docs/c1-story-flow/integration-final/chapters/post.webp\nA  docs/c1-story-flow/integration-final/chapters/road.png\nA  docs/c1-story-flow/integration-final/chapters/road.webp\nA  docs/c1-story-flow/integration-final/chapters/scene-ch2TargetBefore.webp\nA  docs/c1-story-flow/integration-final/chapters/scene-ch3Treatment.webp\nA  docs/c1-story-flow/integration-final/chapters/spillway.png\nA  docs/c1-story-flow/integration-final/chapters/spillway.webp\nA  docs/c1-story-flow/integration-final/chapters/town.png\nA  docs/c1-story-flow/integration-final/chapters/town.webp\nA  docs/c1-story-flow/integration-final/chapters/warehouse.png\nA  docs/c1-story-flow/integration-final/chapters/warehouse.webp\nA  docs/c1-story-flow/integration-final/chapters/water-interaction.png\nA  docs/c1-story-flow/integration-final/chapters/wellcrypt.png\nA  docs/c1-story-flow/integration-final/chapters/wellcrypt.webp\nA  docs/c1-story-flow/integration-final/chapters/workshop.png\nA  docs/c1-story-flow/integration-final/chapters/workshop.webp\nA  docs/c1-story-flow/integration-final/expansion/alley-after.webp\nA  docs/c1-story-flow/integration-final/expansion/alley-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/alley.webp\nA  docs/c1-story-flow/integration-final/expansion/c1DrillGallery-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1DrillGallery-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1DrillGallery-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1DrillGallery.webp\nA  docs/c1-story-flow/integration-final/expansion/c1KilnCourt-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1KilnCourt-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1KilnCourt-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1KilnCourt.webp\nA  docs/c1-story-flow/integration-final/expansion/c1LoomRoom-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1LoomRoom-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1LoomRoom-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1LoomRoom.webp\nA  docs/c1-story-flow/integration-final/expansion/c1NorthWalk-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1NorthWalk-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1NorthWalk-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1NorthWalk.webp\nA  docs/c1-story-flow/integration-final/expansion/c1ReedKiln-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1ReedKiln-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1ReedKiln-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1ReedKiln.webp\nA  docs/c1-story-flow/integration-final/expansion/c1RiversideCamp-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1RiversideCamp-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1RiversideCamp-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1RiversideCamp.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrainingYard-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrainingYard-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrainingYard-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1TrainingYard.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialCrypt-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialCrypt-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialCrypt-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1TrialCrypt.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialFoyer-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialFoyer-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialFoyer-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1TrialFoyer.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialVault-after.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialVault-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/c1TrialVault-touch.png\nA  docs/c1-story-flow/integration-final/expansion/c1TrialVault.webp\nA  docs/c1-story-flow/integration-final/expansion/c1blake-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1blake-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1blake-report.png\nA  docs/c1-story-flow/integration-final/expansion/c1eve-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1eve-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1eve-report.png\nA  docs/c1-story-flow/integration-final/expansion/c1hesha-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1hesha-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1hesha-report.png\nA  docs/c1-story-flow/integration-final/expansion/c1iden-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1iden-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1iden-report.png\nA  docs/c1-story-flow/integration-final/expansion/c1mada-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1mada-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1mada-report.png\nA  docs/c1-story-flow/integration-final/expansion/c1venn-menu.png\nA  docs/c1-story-flow/integration-final/expansion/c1venn-ready.webp\nA  docs/c1-story-flow/integration-final/expansion/c1venn-report.png\nA  docs/c1-story-flow/integration-final/expansion/canal-after.webp\nA  docs/c1-story-flow/integration-final/expansion/canal-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/canal.webp\nA  docs/c1-story-flow/integration-final/expansion/chapel-after.webp\nA  docs/c1-story-flow/integration-final/expansion/chapel-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/chapel.webp\nA  docs/c1-story-flow/integration-final/expansion/echo-after.webp\nA  docs/c1-story-flow/integration-final/expansion/echo-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/echo.webp\nA  docs/c1-story-flow/integration-final/expansion/grove-after.webp\nA  docs/c1-story-flow/integration-final/expansion/grove-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/grove.webp\nA  docs/c1-story-flow/integration-final/expansion/guestroom-after.webp\nA  docs/c1-story-flow/integration-final/expansion/guestroom-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/guestroom.webp\nA  docs/c1-story-flow/integration-final/expansion/hall-after.webp\nA  docs/c1-story-flow/integration-final/expansion/hall-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/hall.webp\nA  docs/c1-story-flow/integration-final/expansion/herb-interaction.png\nA  docs/c1-story-flow/integration-final/expansion/loom-1440.png\nA  docs/c1-story-flow/integration-final/expansion/loom-390.png\nA  docs/c1-story-flow/integration-final/expansion/loom-844.png\nA  docs/c1-story-flow/integration-final/expansion/millpath-after.webp\nA  docs/c1-story-flow/integration-final/expansion/millpath-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/millpath.webp\nA  docs/c1-story-flow/integration-final/expansion/road-after.webp\nA  docs/c1-story-flow/integration-final/expansion/road-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/road.webp\nA  docs/c1-story-flow/integration-final/expansion/town-after.webp\nA  docs/c1-story-flow/integration-final/expansion/town-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/town.webp\nA  docs/c1-story-flow/integration-final/expansion/warehouse-after.webp\nA  docs/c1-story-flow/integration-final/expansion/warehouse-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/warehouse.webp\nA  docs/c1-story-flow/integration-final/expansion/workshop-after.webp\nA  docs/c1-story-flow/integration-final/expansion/workshop-collision.webp\nA  docs/c1-story-flow/integration-final/expansion/workshop.webp\nA  docs/c1-story-flow/integration-final/presentation/01-title.png\nA  docs/c1-story-flow/integration-final/presentation/02-hall-ember.png\nA  docs/c1-story-flow/integration-final/presentation/02-hall-oath.png\nA  docs/c1-story-flow/integration-final/presentation/02-hall-shadow.png\nA  docs/c1-story-flow/integration-final/presentation/03-ch8-guesthouse.png\nA  docs/c1-story-flow/integration-final/presentation/04-v25C8After.png\nA  docs/c1-story-flow/integration-final/presentation/04-v25C8Bind.png\nA  docs/c1-story-flow/integration-final/presentation/04-v25C8Dawn.png\nA  docs/c1-story-flow/integration-final/presentation/04-v25C8Sanctuary.png\nA  docs/c1-story-flow/integration-final/presentation/05-presentation-gallery.png\nA  docs/c1-story-flow/integration-final/world/echo.png\nA  docs/c1-story-flow/integration-final/world/journey-clear.png\nA  docs/c1-story-flow/integration-final/world/journey-road.png\nA  docs/c1-story-flow/integration-final/world/journey-valve.png\nA  docs/c1-story-flow/integration-final/world/millpath.png\nA  docs/c1-story-flow/integration-final/world/road.png\nA  docs/c1-story-flow/integration-final/world/workshop-completed.png\nA  docs/c1-story-flow/integration-final/world/workshop.png\nA  docs/c1-story-flow/narrative-audit-before-review.json\nA  docs/c1-story-flow/narrative-audit-corrected.json\nA  docs/c1-story-flow/narrative-audit-initial.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/INDEX.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1-localTalk-c1iden-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1-localTalk-c1iden-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1-localTalk-c1iden-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1CanalAlreadyClear-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1CanalAlreadyClear-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1CanalAlreadyClear-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HerbsToLena-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HerbsToLena-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HerbsToLena-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HiddenPairArrangement-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HiddenPairArrangement-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1HiddenPairArrangement-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolGrove-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolGrove-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolGrove-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolProgress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolProgress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolProgress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolReturn-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolReturn-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolReturn-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolRoad-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolRoad-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1PatrolRoad-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1AlchemistSamples_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHerbs_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CampHunt_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalBreak_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CanalPrep_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ClockMemory_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CryptRepair_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CryptRepair_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1CryptRepair_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1ExitDrill_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1KilnRoost_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1LoomBrief_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1Readiness_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneKiln_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1RuneWear_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1TrialSalvage_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1VaultWatch_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1VaultWatch_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_c1VaultWatch_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_copper_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_echo_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_herbs_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_lantern_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_letter_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_oil_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_rats_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12CourierRoad_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12NorthDelivery_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_offer-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_offer-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_offer-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_progress-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_progress-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_progress-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_report-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_report-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1Talk_v12Water_report-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1TrainingReason-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1TrainingReason-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/c1TrainingReason-review.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/contract-context.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/contract-draft.json\nA  docs/c1-story-flow/narrative-before-terminal-fix/contract-review.json\nA  docs/c1-story-flow/narrative-current/INDEX.json\nA  docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-context.json\nA  docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-draft.json\nA  docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-review.json\nA  docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-context.json\nA  docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-draft.json\nA  docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-review.json\nA  docs/c1-story-flow/narrative-current/c1HerbsToLena-context.json\nA  docs/c1-story-flow/narrative-current/c1HerbsToLena-draft.json\nA  docs/c1-story-flow/narrative-current/c1HerbsToLena-review.json\nA  docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-context.json\nA  docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-draft.json\nA  docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-review.json\nA  docs/c1-story-flow/narrative-current/c1PatrolGrove-context.json\nA  docs/c1-story-flow/narrative-current/c1PatrolGrove-draft.json\nA  docs/c1-story-flow/narrative-current/c1PatrolGrove-review.json\nA  docs/c1-story-flow/narrative-current/c1PatrolProgress-context.json\nA  docs/c1-story-flow/narrative-current/c1PatrolProgress-draft.json\nA  docs/c1-story-flow/narrative-current/c1PatrolProgress-review.json\nA  docs/c1-story-flow/narrative-current/c1PatrolReturn-context.json\nA  docs/c1-story-flow/narrative-current/c1PatrolReturn-draft.json\nA  docs/c1-story-flow/narrative-current/c1PatrolReturn-review.json\nA  docs/c1-story-flow/narrative-current/c1PatrolRoad-context.json\nA  docs/c1-story-flow/narrative-current/c1PatrolRoad-draft.json\nA  docs/c1-story-flow/narrative-current/c1PatrolRoad-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_copper_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_echo_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_herbs_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_lantern_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_letter_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_oil_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_rats_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-review.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-context.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-draft.json\nA  docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-review.json\nA  docs/c1-story-flow/narrative-current/c1TrainingReason-context.json\nA  docs/c1-story-flow/narrative-current/c1TrainingReason-draft.json\nA  docs/c1-story-flow/narrative-current/c1TrainingReason-review.json\nA  docs/c1-story-flow/narrative-current/contract-context.json\nA  docs/c1-story-flow/narrative-current/contract-draft.json\nA  docs/c1-story-flow/narrative-current/contract-review.json\nA  docs/c1-story-flow/narrative-generation-current.json\nA  docs/c1-story-flow/narrative-generation-final.json\nA  docs/c1-story-flow/narrative-generation.json\nA  docs/c1-story-flow/narrative-initial/INDEX.json\nA  docs/c1-story-flow/narrative-initial/c1-localTalk-c1iden-context.json\nA  docs/c1-story-flow/narrative-initial/c1-localTalk-c1iden-draft.json\nA  docs/c1-story-flow/narrative-initial/c1-localTalk-c1iden-review.json\nA  docs/c1-story-flow/narrative-initial/c1CanalAlreadyClear-context.json\nA  docs/c1-story-flow/narrative-initial/c1CanalAlreadyClear-draft.json\nA  docs/c1-story-flow/narrative-initial/c1CanalAlreadyClear-review.json\nA  docs/c1-story-flow/narrative-initial/c1HerbsToLena-context.json\nA  docs/c1-story-flow/narrative-initial/c1HerbsToLena-draft.json\nA  docs/c1-story-flow/narrative-initial/c1HerbsToLena-review.json\nA  docs/c1-story-flow/narrative-initial/c1HiddenPairArrangement-context.json\nA  docs/c1-story-flow/narrative-initial/c1HiddenPairArrangement-draft.json\nA  docs/c1-story-flow/narrative-initial/c1HiddenPairArrangement-review.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolGrove-context.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolGrove-draft.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolGrove-review.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolProgress-context.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolProgress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolProgress-review.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolReturn-context.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolReturn-draft.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolReturn-review.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolRoad-context.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolRoad-draft.json\nA  docs/c1-story-flow/narrative-initial/c1PatrolRoad-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1AlchemistSamples_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHerbs_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CampHunt_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalBreak_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CanalPrep_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ClockMemory_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CryptRepair_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CryptRepair_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1CryptRepair_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1ExitDrill_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1KilnRoost_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1LoomBrief_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1Readiness_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneKiln_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1RuneWear_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1TrialSalvage_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1VaultWatch_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1VaultWatch_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_c1VaultWatch_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_copper_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_echo_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_herbs_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_lantern_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_letter_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_oil_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_rats_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12CourierRoad_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12NorthDelivery_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_offer-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_offer-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_offer-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_progress-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_progress-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_progress-review.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_report-context.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_report-draft.json\nA  docs/c1-story-flow/narrative-initial/c1Talk_v12Water_report-review.json\nA  docs/c1-story-flow/narrative-initial/c1TrainingReason-context.json\nA  docs/c1-story-flow/narrative-initial/c1TrainingReason-draft.json\nA  docs/c1-story-flow/narrative-initial/c1TrainingReason-review.json\nA  docs/c1-story-flow/narrative-initial/contract-context.json\nA  docs/c1-story-flow/narrative-initial/contract-draft.json\nA  docs/c1-story-flow/narrative-initial/contract-review.json\nA  docs/c1-story-flow/natural-001/ember/01-hall-save.json\nA  docs/c1-story-flow/natural-001/ember/01-hall.png\nA  docs/c1-story-flow/natural-001/ember/02-warehouse-save.json\nA  docs/c1-story-flow/natural-001/ember/02-warehouse.png\nA  docs/c1-story-flow/natural-001/ember/03-rats-save.json\nA  docs/c1-story-flow/natural-001/ember/03-rats.png\nA  docs/c1-story-flow/natural-001/ember/04-commission-save.json\nA  docs/c1-story-flow/natural-001/ember/04-commission.png\nA  docs/c1-story-flow/natural-001/ember/04b-outfit-save.json\nA  docs/c1-story-flow/natural-001/ember/04b-outfit.png\nA  docs/c1-story-flow/natural-001/ember/04c-private-meeting.png\nA  docs/c1-story-flow/natural-001/ember/05-readiness-save.json\nA  docs/c1-story-flow/natural-001/ember/05-readiness.png\nA  docs/c1-story-flow/natural-001/ember/06a-crypt-save.json\nA  docs/c1-story-flow/natural-001/ember/06a-crypt.png\nA  docs/c1-story-flow/natural-001/ember/06b-rest-save.json\nA  docs/c1-story-flow/natural-001/ember/06b-rest.png\nA  docs/c1-story-flow/natural-001/ember/06c-drill-save.json\nA  docs/c1-story-flow/natural-001/ember/06c-drill.png\nA  docs/c1-story-flow/natural-001/ember/07-morning-save.json\nA  docs/c1-story-flow/natural-001/ember/07-morning.png\nA  docs/c1-story-flow/natural-001/ember/08-loom-save.json\nA  docs/c1-story-flow/natural-001/ember/08-loom.png\nA  docs/c1-story-flow/natural-001/ember/09-north-save.json\nA  docs/c1-story-flow/natural-001/ember/09-north.png\nA  docs/c1-story-flow/natural-001/ember/10-chapel-save.json\nA  docs/c1-story-flow/natural-001/ember/10-chapel.png\nA  docs/c1-story-flow/natural-001/ember/11-alley-save.json\nA  docs/c1-story-flow/natural-001/ember/11-alley.png\nA  docs/c1-story-flow/natural-001/ember/12-captain-entry-save.json\nA  docs/c1-story-flow/natural-001/ember/12-captain-entry.png\nA  docs/c1-story-flow/natural-001/ember/13-captain-save.json\nA  docs/c1-story-flow/natural-001/ember/13-captain.png\nA  docs/c1-story-flow/natural-001/ember/14-departure-save.json\nA  docs/c1-story-flow/natural-001/ember/14-departure.png\nA  docs/c1-story-flow/natural-001/ember/15-post-save.json\nA  docs/c1-story-flow/natural-001/ember/15-post.png\nA  docs/c1-story-flow/natural-001/ember/FAILURE.json\nA  docs/c1-story-flow/natural-001/ember/PROGRESS.json\nA  docs/c1-story-flow/natural-001/ember/failure-save.json\nA  docs/c1-story-flow/natural-001/ember/failure.png\nA  docs/c1-story-flow/natural-001/oath/01-hall-save.json\nA  docs/c1-story-flow/natural-001/oath/01-hall.png\nA  docs/c1-story-flow/natural-001/oath/02-warehouse-save.json\nA  docs/c1-story-flow/natural-001/oath/02-warehouse.png\nA  docs/c1-story-flow/natural-001/oath/03-rats-save.json\nA  docs/c1-story-flow/natural-001/oath/03-rats.png\nA  docs/c1-story-flow/natural-001/oath/04-commission-save.json\nA  docs/c1-story-flow/natural-001/oath/04-commission.png\nA  docs/c1-story-flow/natural-001/oath/04b-outfit-save.json\nA  docs/c1-story-flow/natural-001/oath/04b-outfit.png\nA  docs/c1-story-flow/natural-001/oath/04c-private-meeting.png\nA  docs/c1-story-flow/natural-001/oath/05-readiness-save.json\nA  docs/c1-story-flow/natural-001/oath/05-readiness.png\nA  docs/c1-story-flow/natural-001/oath/06a-crypt-save.json\nA  docs/c1-story-flow/natural-001/oath/06a-crypt.png\nA  docs/c1-story-flow/natural-001/oath/06b-rest-save.json\nA  docs/c1-story-flow/natural-001/oath/06b-rest.png\nA  docs/c1-story-flow/natural-001/oath/06c-drill-save.json\nA  docs/c1-story-flow/natural-001/oath/06c-drill.png\nA  docs/c1-story-flow/natural-001/oath/07-morning-save.json\nA  docs/c1-story-flow/natural-001/oath/07-morning.png\nA  docs/c1-story-flow/natural-001/oath/08-loom-save.json\nA  docs/c1-story-flow/natural-001/oath/08-loom.png\nA  docs/c1-story-flow/natural-001/oath/09-north-save.json\nA  docs/c1-story-flow/natural-001/oath/09-north.png\nA  docs/c1-story-flow/natural-001/oath/10-chapel-save.json\nA  docs/c1-story-flow/natural-001/oath/10-chapel.png\nA  docs/c1-story-flow/natural-001/oath/11-alley-save.json\nA  docs/c1-story-flow/natural-001/oath/11-alley.png\nA  docs/c1-story-flow/natural-001/oath/12-captain-entry-save.json\nA  docs/c1-story-flow/natural-001/oath/12-captain-entry.png\nA  docs/c1-story-flow/natural-001/oath/13-captain-save.json\nA  docs/c1-story-flow/natural-001/oath/13-captain.png\nA  docs/c1-story-flow/natural-001/oath/14-departure-save.json\nA  docs/c1-story-flow/natural-001/oath/14-departure.png\nA  docs/c1-story-flow/natural-001/oath/15-post-save.json\nA  docs/c1-story-flow/natural-001/oath/15-post.png\nA  docs/c1-story-flow/natural-001/oath/FAILURE.json\nA  docs/c1-story-flow/natural-001/oath/PROGRESS.json\nA  docs/c1-story-flow/natural-001/oath/failure-save.json\nA  docs/c1-story-flow/natural-001/oath/failure.png\nA  docs/c1-story-flow/natural-001/shadow/01-hall-save.json\nA  docs/c1-story-flow/natural-001/shadow/01-hall.png\nA  docs/c1-story-flow/natural-001/shadow/02-warehouse-save.json\nA  docs/c1-story-flow/natural-001/shadow/02-warehouse.png\nA  docs/c1-story-flow/natural-001/shadow/03-rats-save.json\nA  docs/c1-story-flow/natural-001/shadow/03-rats.png\nA  docs/c1-story-flow/natural-001/shadow/04-commission-save.json\nA  docs/c1-story-flow/natural-001/shadow/04-commission.png\nA  docs/c1-story-flow/natural-001/shadow/04b-outfit-save.json\nA  docs/c1-story-flow/natural-001/shadow/04b-outfit.png\nA  docs/c1-story-flow/natural-001/shadow/04c-private-meeting.png\nA  docs/c1-story-flow/natural-001/shadow/05-readiness-save.json\nA  docs/c1-story-flow/natural-001/shadow/05-readiness.png\nA  docs/c1-story-flow/natural-001/shadow/06a-crypt-save.json\nA  docs/c1-story-flow/natural-001/shadow/06a-crypt.png\nA  docs/c1-story-flow/natural-001/shadow/06b-rest-save.json\nA  docs/c1-story-flow/natural-001/shadow/06b-rest.png\nA  docs/c1-story-flow/natural-001/shadow/06c-drill-save.json\nA  docs/c1-story-flow/natural-001/shadow/06c-drill.png\nA  docs/c1-story-flow/natural-001/shadow/07-morning-save.json\nA  docs/c1-story-flow/natural-001/shadow/07-morning.png\nA  docs/c1-story-flow/natural-001/shadow/08-loom-save.json\nA  docs/c1-story-flow/natural-001/shadow/08-loom.png\nA  docs/c1-story-flow/natural-001/shadow/09-north-save.json\nA  docs/c1-story-flow/natural-001/shadow/09-north.png\nA  docs/c1-story-flow/natural-001/shadow/10-chapel-save.json\nA  docs/c1-story-flow/natural-001/shadow/10-chapel.png\nA  docs/c1-story-flow/natural-001/shadow/11-alley-save.json\nA  docs/c1-story-flow/natural-001/shadow/11-alley.png\nA  docs/c1-story-flow/natural-001/shadow/12-captain-entry-save.json\nA  docs/c1-story-flow/natural-001/shadow/12-captain-entry.png\nA  docs/c1-story-flow/natural-001/shadow/13-captain-save.json\nA  docs/c1-story-flow/natural-001/shadow/13-captain.png\nA  docs/c1-story-flow/natural-001/shadow/14-departure-save.json\nA  docs/c1-story-flow/natural-001/shadow/14-departure.png\nA  docs/c1-story-flow/natural-001/shadow/15-post-save.json\nA  docs/c1-story-flow/natural-001/shadow/15-post.png\nA  docs/c1-story-flow/natural-001/shadow/FAILURE.json\nA  docs/c1-story-flow/natural-001/shadow/PROGRESS.json\nA  docs/c1-story-flow/natural-001/shadow/failure-save.json\nA  docs/c1-story-flow/natural-001/shadow/failure.png\nA  docs/c1-story-flow/package-002/WEB_QA.json\nA  docs/c1-story-flow/package-002/http-site-chapter8.png\nA  docs/c1-story-flow/package-002/http-site-game.png\nA  docs/c1-story-flow/package-002/http-site-known-backstage.png\nA  docs/c1-story-flow/package-002/http-site-title.png\nA  docs/c1-story-flow/package-002/mobile-landscape.png\nA  docs/c1-story-flow/package-002/offline-file-chapter8.png\nA  docs/c1-story-flow/package-002/offline-file-game.png\nA  docs/c1-story-flow/package-002/offline-file-known-backstage.png\nA  docs/c1-story-flow/package-002/offline-file-title.png\nA  docs/c1-story-flow/promote.py\nM  docs/c1-story-flow/register_narrative.py\nA  docs/c1-story-flow/run_verification.py\nA  docs/c1-story-flow/verification/RESULTS.json\nA  docs/c1-story-flow/verification/integration.txt\nA  docs/c1-story-flow/verification/normal-input.txt\nA  docs/c1-story-flow/verify_local.py\nA  docs/c1-story-flow/verify_normal_end.mjs\nM  docs/map-quality/LATEST.json\nM  docs/rpg-experience/ACCEPTANCE.md\nM  source/CURRENT_STATE.json\n?? docs/c1-story-flow/check-recommendations-final.json\n?? docs/harness/evidence/c1-story-flow-20261014/\n?? source/tasks/active/c1-story-flow-20261014.json"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-context.json",
+      "context_sha256": "f6c6a5933511ffabfab3bf60d8156261eaf4bea34872020103e5aa4042f9c490",
+      "draft": "docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-draft.json",
+      "draft_sha256": "fb0e9c5e50b6905dbfe126c6faab0bc0e15c2f29ac9e74e22e345124bbb5cbe4",
+      "review": "docs/c1-story-flow/narrative-current/c1CanalAlreadyClear-review.json",
+      "review_sha256": "6739226cb86e1ad5499231a21ea9434a0c4c6fe5d465ac428d0d1b2b2073d2ae"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1TrainingReason-context.json",
+      "context_sha256": "4820084e02848abd53f280d6ce32fede6ec8750430aafdc1d4af1f8be13c8bad",
+      "draft": "docs/c1-story-flow/narrative-current/c1TrainingReason-draft.json",
+      "draft_sha256": "0af3928c8acc16a854a4d981480e69ab4cd6240155e21b2a1051f03a0429a4a9",
+      "review": "docs/c1-story-flow/narrative-current/c1TrainingReason-review.json",
+      "review_sha256": "a052343359a8dc4502049fb613966224ab25de511fb5a0b5b527e766ac5ce3c9"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1HerbsToLena-context.json",
+      "context_sha256": "aa197f9966c61822bd1fa98ab128fa09ed2572aaaa4560e4e12436a9f0266056",
+      "draft": "docs/c1-story-flow/narrative-current/c1HerbsToLena-draft.json",
+      "draft_sha256": "900c5b1201192f726d72253392f8e489f0df5462029d8e781d4c49ca6265f97a",
+      "review": "docs/c1-story-flow/narrative-current/c1HerbsToLena-review.json",
+      "review_sha256": "ec677fb4a6a08ab0d600c22d6329e2425b5f7123140f0d00104207e666593217"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1PatrolRoad-context.json",
+      "context_sha256": "53f10ea584661e99e20c8ef97ac7f6d6de9b0edbce2bfed756d9b63364ea9df7",
+      "draft": "docs/c1-story-flow/narrative-current/c1PatrolRoad-draft.json",
+      "draft_sha256": "018c4ef6592f61309b5df3b6472f0e4f14562cc24cabe447078695724f69dbb7",
+      "review": "docs/c1-story-flow/narrative-current/c1PatrolRoad-review.json",
+      "review_sha256": "5887e47bc7aedbfa462d74f5ebeb57936623c63b0612bc98da84395fa9ab3b0b"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1PatrolGrove-context.json",
+      "context_sha256": "772f3cea27ec3516022c090852db0a8b2e91fefce90be9643cfa3315e714b507",
+      "draft": "docs/c1-story-flow/narrative-current/c1PatrolGrove-draft.json",
+      "draft_sha256": "805c82df577e5761f11f8ba78a6de30a7bb20651dc507e7aa91229a0733e4b55",
+      "review": "docs/c1-story-flow/narrative-current/c1PatrolGrove-review.json",
+      "review_sha256": "af04ea22f71ce596da0d5bb80c4ae407fd058e7933393d3e3041c0203938d357"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1PatrolProgress-context.json",
+      "context_sha256": "acaf86f46114777c06c7868ed71d465aedc1b34773f30ed7fb0e99a7a244e99e",
+      "draft": "docs/c1-story-flow/narrative-current/c1PatrolProgress-draft.json",
+      "draft_sha256": "8fde9673dbd9dade8d23f99de6f2a4f2dab227b5957b3bb8fdf44400cd4e36d9",
+      "review": "docs/c1-story-flow/narrative-current/c1PatrolProgress-review.json",
+      "review_sha256": "ea6dd211bb9ba40c0ec70f3a158f7689fd6847976c471c5a0d40080029655157"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1PatrolReturn-context.json",
+      "context_sha256": "d04b5e5cce05548251c2783c783e6b2387730bcf18bf2be6cfc02d53dcb8b766",
+      "draft": "docs/c1-story-flow/narrative-current/c1PatrolReturn-draft.json",
+      "draft_sha256": "86f22647cb10736443157c7952c74423c5677899399b7254a5ccce0b847968b3",
+      "review": "docs/c1-story-flow/narrative-current/c1PatrolReturn-review.json",
+      "review_sha256": "5e6e91592717fce50630a17d0468f8c3466d619d865aebf5515eb3d1d629b748"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_rats_offer-context.json",
+      "context_sha256": "ad2cae51ef8fe4aa081908438127d038209a651506ede0489b6d7e0e015754dd",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_rats_offer-draft.json",
+      "draft_sha256": "e8c314835ce6bb1e46e9e197e75be047ce813cfad18ebfad8989359640054a0d",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_rats_offer-review.json",
+      "review_sha256": "f5df47a1ae356621d9ad219b2ec35e9da87ab2f47c00590fe38d324c5d1c0b6a"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_rats_progress-context.json",
+      "context_sha256": "bd1559f7512a8edaeed27e6c8e83d4ca95e00bdc57ae4fbe7cac4fd1b1b74d48",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_rats_progress-draft.json",
+      "draft_sha256": "90f0b3db42169673b26fa809797e13eaf533080b262aa8d30a1bb3cd25455039",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_rats_progress-review.json",
+      "review_sha256": "2099b341e7c6b328a463e42c2e466294930943354e8186c102ad9ac3a3a4ac73"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-context.json",
+      "context_sha256": "393f4d16e9e052f19e27b68d2aab2c3c7f3976a406d96986a0caf0f651734c6b",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-draft.json",
+      "draft_sha256": "91bec0d8dde4b542fb6c0867831c8fc239c75fd4f45cb1ef75ff3813f7bbbee6",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_offer-review.json",
+      "review_sha256": "176ee5e2d8277678653847ac4f144a6262ee071845b565570ba0f598a7404a24"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-context.json",
+      "context_sha256": "0d448cd0a9a807ab71449ba08fc832e2f73e306a4baedceb10d246171462dbb2",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-draft.json",
+      "draft_sha256": "99c7ab3fd2b461f6aac49a212237f1d50269835259367e45796c924575b89976",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_progress-review.json",
+      "review_sha256": "291b335bf87ef8a6046d42b7cbf231bde271934867ea524cf8576b9740ae9363"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-context.json",
+      "context_sha256": "b7e12a1f8005e841473c05f199479be3a5fc8d298374013d01aee59fd05da32a",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-draft.json",
+      "draft_sha256": "cb29cae3c64b30e79194539aeab32295ff6bcbbfee511615e27455891f0227ba",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1Readiness_report-review.json",
+      "review_sha256": "6e7ee44f03bb4c56f248c3e167312d2b28417d7df40ab1ee5b90412f82a18a81"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-context.json",
+      "context_sha256": "15747beeed6e72aeb07ebd89b6b9c0018f859ba2e4bd201ecb8ddb48eafccd45",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-draft.json",
+      "draft_sha256": "55b9d0f765d09eb11774c24686c477a62c7fa1e8b3897fe0b3bef02800e8ab6b",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_offer-review.json",
+      "review_sha256": "1763217b04fd3c0e353ed9138e4d463f8e6ca3e4d308210a9f4b9b16731f3d39"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-context.json",
+      "context_sha256": "a7086854fe7bba611f3d7a98f42b8fdb82e789780f1187b04c41d44e1b2fb1c3",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-draft.json",
+      "draft_sha256": "5b757e7ba31408b07dc84cf0c1c9164891e66a1a23196bacbef7e9bf3923aafd",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_progress-review.json",
+      "review_sha256": "4d0040bbb5d2733f25d71f507e9384b56b34a6e07eaf71add3530535f974e730"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-context.json",
+      "context_sha256": "ad36bf75251823a6eafd531825e4c846fadceab95b73659a13545c74b88758ff",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-draft.json",
+      "draft_sha256": "2835d460c6f3a3bcb387082fa8cb1193f0c635bd0a030786147f30be0565d060",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1ExitDrill_report-review.json",
+      "review_sha256": "e2b48494014abaf1da75c2aa99d5450dfd54ebfb882d8456e8f73f83e95da9d8"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-context.json",
+      "context_sha256": "766308ced914133e8c82836360f273897f4402ff33b0e43d29e63357ec9b11a6",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-draft.json",
+      "draft_sha256": "9285a63997704d7bfeef4ed1b33294666ee01cf0cafdd2ebce42199b2b35e744",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_offer-review.json",
+      "review_sha256": "b38e5a3fe3ce0cb1d2e56cb226eb538ed5f7017e89be8bad3608cba2a73568a9"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-context.json",
+      "context_sha256": "e5e4f245507d557bd7a562566604387cbb58c9c22f240e86b232db4eb62573bf",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-draft.json",
+      "draft_sha256": "f29e0b4a3b81f23d66cef3f1ad307d3a344336a64580c7e999f0a4689ffc47f5",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_progress-review.json",
+      "review_sha256": "88646337fa482c1597704ff11eff1bce03803a7fae139ab1eff895ddd8fe3c57"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-context.json",
+      "context_sha256": "50407d3306ad2b90f26026a4b6cb9c88e542791b92190f40f8d79a341924e244",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-draft.json",
+      "draft_sha256": "37314af4c8cbb642353d04994a70f079ddfbc8bf4daee011894898413724663d",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12CourierRoad_report-review.json",
+      "review_sha256": "09255a31341149b82caf345d2e86cf4e81835db50c22197bd68959194d096020"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-context.json",
+      "context_sha256": "abde92bf7c68c9c83ed99d1c9b7dd8087c57ad864d79168afd8af4af11e7341f",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-draft.json",
+      "draft_sha256": "bf6a2f8266cf5c4e1baeb7c7598018f4a7dfff6cd5d65b15eb52c61396fe8a54",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_offer-review.json",
+      "review_sha256": "a9b4d49adfa674f8a0149b67716219505f64d1ea585129df424973ccdd4d08f7"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-context.json",
+      "context_sha256": "d5e8c8e7e6c83abf7246ae91d386f8204603e594953530d7aef70946a7ff7246",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-draft.json",
+      "draft_sha256": "cef419c2d0462b131ee0115ae16a918c98a75ac341d217fa30f74557b78d2090",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_progress-review.json",
+      "review_sha256": "e71ca252598e98c4327f11da494dea42d28033104b7d464e54844956fa0bd735"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-context.json",
+      "context_sha256": "8b2fd0e8146fa76e46e4e70e214d9b5a0c5d13f8350b4df748fb0bffe2d6cdcd",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-draft.json",
+      "draft_sha256": "a8e6b9c471b283638d90d697b804c684eabaf58423a8a6d684f7952efd546412",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1LoomBrief_report-review.json",
+      "review_sha256": "c59c4b4bdaea016a79c03fa78ad99cce1fb47a7472f38e425c364a48a5d2bbf9"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-context.json",
+      "context_sha256": "ee272898125de65657b0feed973139d5bbca08a1e4633b369a05b44ae79a8dc7",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-draft.json",
+      "draft_sha256": "db2ac603c64110bb96ee58f6b214bdf46df0a2fa781a6a9e5ae45065098a8bf1",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_offer-review.json",
+      "review_sha256": "c67f0eed618aa7ffca287c5ddd6effe3d87285bc88d6bb378bd8546c29f34bd4"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-context.json",
+      "context_sha256": "b3bce8e724ca0093f30c0c13e6cdf86c5f1137474727c264ecc7dcce1a3ef544",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-draft.json",
+      "draft_sha256": "a72768c836eed00fbfba38c6bebb888adf9b1dc5e4c009336f43230a4bbcdf29",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12NorthDelivery_progress-review.json",
+      "review_sha256": "3e64812065a0b01fb2f6d605cf6eceb7e4648b3fbaf7a3f190dbf5a6509a065d"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-context.json",
+      "context_sha256": "6dd38a00fc9d919dd2f11702571193b29c1acad2d04825be9eae3d3d388ef3d5",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-draft.json",
+      "draft_sha256": "e95396692591f9c050f6315baccec139f74b8677a71259940fb6fa1b7f1ac00a",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_offer-review.json",
+      "review_sha256": "9c0d6ad3b52d3755b75101114b3793354c7bb73e092b96b48971c5208548a612"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-context.json",
+      "context_sha256": "096c45c403cda2fd1d023753c1a8dc453bb956d22bbe402a81f13dda7505f183",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-draft.json",
+      "draft_sha256": "edd8adfbb793931316f7676358ad339d13d8a9062ee24162d5c9c94eb3c41c82",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_progress-review.json",
+      "review_sha256": "df701e328735e671ebd3d05cfedfc15ec130b5d76b0fc83d88332b08e9b44c5a"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-context.json",
+      "context_sha256": "cba33775628b07e544d1689946286f9d5da19a09c854db5aaa1b0487893dd643",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-draft.json",
+      "draft_sha256": "c84251d315f47a01cd3ac7554b36017787644cbc2b39927a0417e73066b137aa",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalPrep_report-review.json",
+      "review_sha256": "2ab24d620b85cef431aec97c3791e33ee519baf2494a65200deffb6d043b3718"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-context.json",
+      "context_sha256": "b8851323fb83b21340511b4ac43ac1aa04db3c24506216f0401b2af8221f23a0",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-draft.json",
+      "draft_sha256": "f5d476ee5e66688028f289c103c3fe54b706fc100cb26662ada2ac072324ac92",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_offer-review.json",
+      "review_sha256": "7faed82fe738185ac80d67c4ae7c990b9063e3a318c3a16049d39171b1bbca01"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-context.json",
+      "context_sha256": "846384c6190b67bd3e893601c901a04436752049a18e4932c1d6124f5345315e",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-draft.json",
+      "draft_sha256": "afe08fc53e6ae89ac4c08de0c87d55ca9f4a62505c2b36352adf66a35106877e",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_progress-review.json",
+      "review_sha256": "2f1c2b79eaef858befd4dc2b2f9225123d3c5639dfb9f9cb86c60ce364d9f6ab"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-context.json",
+      "context_sha256": "c64e3ce9c4a2ac5eaa106c6e37b95fcad802297a81252a2278b0b06a2759184a",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-draft.json",
+      "draft_sha256": "c5641d937f825dcd1baacaa08189cbc151db71741a129e40be87e7c782cf85aa",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CanalBreak_report-review.json",
+      "review_sha256": "675fc03acda33f3da130be13c11e6bb2073edb30a798efdcc694a0ef7f082cba"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_oil_offer-context.json",
+      "context_sha256": "f1f1dbf2c4db427ab833c37861cdfdac8af7b7477aaba1cb6975575d9da45a4e",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_oil_offer-draft.json",
+      "draft_sha256": "5dae0facc15cabe374288ca3792b65cd8c84b545964090736d4610e939e23817",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_oil_offer-review.json",
+      "review_sha256": "b7090378627fca1e0b71f96dc4bdbae84bc5e5f38dec38e44e21828965f3713f"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_oil_progress-context.json",
+      "context_sha256": "9abd7dfae4831c0dc9056317a51d39348007127719e58094af660f6aa76a34b3",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_oil_progress-draft.json",
+      "draft_sha256": "a3efc2a58707af2829271930dfdfae97d71d4abc8e655d3555779ff3446cb116",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_oil_progress-review.json",
+      "review_sha256": "02cbf40e1600c5ce312761550d2399868d6d6727d5919f70f9611c8a71c9cf4a"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_oil_report-context.json",
+      "context_sha256": "f621cf4d5e18b9a6dd326e807409d26bb4f7d579e010634ef319a29c764ecd48",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_oil_report-draft.json",
+      "draft_sha256": "00289c7ca33aa100638a11ae1d6baf453adadd68ae4779456659905be4a32517",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_oil_report-review.json",
+      "review_sha256": "3114f026ccc5ba5485dbec0f4ff7e801d6db889de8d0149640172fb72f31bbf9"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-context.json",
+      "context_sha256": "8b564da177496aec787fda41ebe06ffbc518224104aafa3ac20dd2ae2cde2407",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-draft.json",
+      "draft_sha256": "148b508c6d667800a1c98eb8280d0d21ef2068eb64a5db677366581ae01768e7",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_offer-review.json",
+      "review_sha256": "36da81953552eb5e84a9773336a91eaf4b8d607317641607c6bf3122c68688e3"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-context.json",
+      "context_sha256": "620dd7c653f77d0cf300c051ed466a6dc139991e5d5b9d40ac87ce63fea5429e",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-draft.json",
+      "draft_sha256": "451a69c35d535aeae198b5921423812712755148bd9f1d0cb1b65023b702c225",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_progress-review.json",
+      "review_sha256": "9148ebd92d41489a162d19c9b641b446e875000e0139bc092a3286ed1151a671"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-context.json",
+      "context_sha256": "ee3ef926ef5b048350f3f8da3a533c5b513f38ef9ebfb7727263cf7788c2dded",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-draft.json",
+      "draft_sha256": "148d8cd2c23f90b5be22bdf28d571dc8a2eae1ce54c425d2c9755f6dda68f6de",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_v12Water_report-review.json",
+      "review_sha256": "c17d90eb71de5bab699255714d9275bae68ef7c90ae37a9ff6e42fef476693bd"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_letter_offer-context.json",
+      "context_sha256": "fb72d46ce9b51dfa06f70be8f44132cba6c3ff89f08fe69615a5b5cf3aa232f1",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_letter_offer-draft.json",
+      "draft_sha256": "99c1208acd053df1607844173a4ce3aae80eaebd9899bdc9b34de8f5bd583402",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_letter_offer-review.json",
+      "review_sha256": "012517a8ea838593c2332a650153cde74cfaec25a1c7a20a2618fd0e28573fac"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_letter_progress-context.json",
+      "context_sha256": "c4d7103148085232225ae64dc6635431b39d7424b0f2613a6473a754b06e23ad",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_letter_progress-draft.json",
+      "draft_sha256": "fbddb6fcb807eb698e282acd2b6e673d7416c9b1780b30f78c5ad7cea6b04d20",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_letter_progress-review.json",
+      "review_sha256": "3180b88ebdcf54a00d389220dea2656e8532f9934d11a5df181dcf7439eca2c3"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_letter_report-context.json",
+      "context_sha256": "752ffc8984c3076818c8d86462fff360d7849740784a970470d055b4418d49b7",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_letter_report-draft.json",
+      "draft_sha256": "84656697b77d3c990c78f1b526dffd94679f263e5586c00d426378c133370f2a",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_letter_report-review.json",
+      "review_sha256": "efdf21a30222555ab36b2126a5719f568272c5391244aa53f03f6e8073ab3baf"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-context.json",
+      "context_sha256": "1373031b1ca41b2f3ca920d561289abe7a296b72d2c448cb8cfb51cbc4b7129f",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-draft.json",
+      "draft_sha256": "8f3f173c3b22810f5d0290f70d7ba2419031c34458eeb5ab28faba7bd99be396",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_herbs_offer-review.json",
+      "review_sha256": "f1c9efb9af8555638c1ebbcd27b873be28e4d3b21653aacb61784433dd6aafd4"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-context.json",
+      "context_sha256": "af820dfa10e449eb52785172fe9c930b063896cdea5074d1c0215f5599a1bcd0",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-draft.json",
+      "draft_sha256": "94037e1f2ccd91cf874f3b44471a162d131cd38f04325a0a4c421a832994e9a3",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_herbs_progress-review.json",
+      "review_sha256": "d3a59c77605a4333fc5fd1fd0560adf33709ad4c40eb4b41d788f6ae90263485"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_herbs_report-context.json",
+      "context_sha256": "7742be02e42d16c403d905f523dcb625c87dfd5889086c654265f201059452d5",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_herbs_report-draft.json",
+      "draft_sha256": "21d7f0df6da65d8700148b68f8b6c811893258c4cb366f07e6b2c0b0c1adf811",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_herbs_report-review.json",
+      "review_sha256": "6d463c6eef638b7f786202d24d59b84a93c342ee873d233782aa6e33287068c1"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-context.json",
+      "context_sha256": "385b9759f3e9056172d997375a6fd970248ca44789b08dc1fc800b30cb1f623a",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-draft.json",
+      "draft_sha256": "6a538f8cee85b32fa8817e0322f2efc81d2fb6efa279194b8891dee6934b402c",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_lantern_offer-review.json",
+      "review_sha256": "20b6c7256694e65e254a5c48b376289245b5551273f08fbaa7cf59b090ec3835"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-context.json",
+      "context_sha256": "0c885ffc83b5a11704126d80f42e5580280216b038d131788a0be6cf4cc2d0a8",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-draft.json",
+      "draft_sha256": "05ff09b82269810b872cbbf80d4d8108b5785bcfcbce221f835e08aa282272cb",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_lantern_progress-review.json",
+      "review_sha256": "10d9fe89a2a0e281568704f45f28d1a622dc13f185522a67871147c4e8bd748b"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_lantern_report-context.json",
+      "context_sha256": "0cb5d0ac5c86a66450089e020684925660c3329ed71680b6e5a0c3911a66d51f",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_lantern_report-draft.json",
+      "draft_sha256": "3fe256c6302cfcc004c882e51b71ddd01d24974886dc7888cc24fa7a0530c4d2",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_lantern_report-review.json",
+      "review_sha256": "7ac9e1b5fe6e4de1474f8edd1ea8b689095531fade9cbf4ab13158788f1e6c89"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_copper_offer-context.json",
+      "context_sha256": "ca5a072a6a148b85b7b967194d0eb151c6be4bc5c4be640029df065dd5f826fd",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_copper_offer-draft.json",
+      "draft_sha256": "bed66921d0b61b986a5aea5a608b0f98fb2e9108572695b82c8c0ae035f082d9",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_copper_offer-review.json",
+      "review_sha256": "b45fd8cca801a7fe7bddc40222b055547cc7656c777f1c56c1d66781cb7f51aa"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_copper_progress-context.json",
+      "context_sha256": "e2783f7589c155937de4c5c4857bc0b94e76385df0da083f02d88177d8cca9f3",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_copper_progress-draft.json",
+      "draft_sha256": "e7f0f78232d234236f81d3b60e6b94c9fa350a831b15bee0689f64ababae9395",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_copper_progress-review.json",
+      "review_sha256": "84334a49a43d50b2e321271a6a2e02d5229a46b689059cc202a9ea9d243c8092"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_copper_report-context.json",
+      "context_sha256": "7f9229d4dee4f9e14c49530f2d9191ad1157e258feb84dc874dff372504c23e2",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_copper_report-draft.json",
+      "draft_sha256": "55c550c757e7a0ec509ea33812a817be09968c71afb7626ff64b088e22ab771e",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_copper_report-review.json",
+      "review_sha256": "40d6c6371cedf9dcd5a7980f767e5b240aa3ddd9e7cf5b3ef1977bd343b0b02e"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_echo_offer-context.json",
+      "context_sha256": "e56652ad93da6bfa616cfe1180479d21762de32cd3a8de23050752a9c7ced241",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_echo_offer-draft.json",
+      "draft_sha256": "f91f525f31e7bc85f561664731754b30cf821d5289ae7cd25d9741f08fc2de32",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_echo_offer-review.json",
+      "review_sha256": "3cc49f03c3fdb37a06be4c9fa3d83d0d9abb2cbdbd7e1cd88cf8eedeca4652b5"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_echo_progress-context.json",
+      "context_sha256": "4aef9691404f02a4c45095ec20f980556cd58b8d6c14fbe43fce231cf3bc9475",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_echo_progress-draft.json",
+      "draft_sha256": "71f673c3fbac59ad6f7ec0cd828ba6db463ac7dbac5afc71e4e28e99e051e707",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_echo_progress-review.json",
+      "review_sha256": "f82bcef968af11ec51167a1788cf382fba7e66d57f6938a8b25c794a98445729"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_echo_report-context.json",
+      "context_sha256": "d8d25a2c5dc8be7371119766763b08460e65a273ef5bb4f3664d409782c35d25",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_echo_report-draft.json",
+      "draft_sha256": "8c498538687b1187b9a4edf3f6d72b81d7ab052b130b990eb2107c1deab38c90",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_echo_report-review.json",
+      "review_sha256": "c37e4881debf6401a0e153efd164113f8a5c580578fa24aeba019c009aa1af07"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-context.json",
+      "context_sha256": "ec0d61fb1cbd3b5470684b2db6d8b4a06c7d0c41680a436fcfaeca5c8726dddb",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-draft.json",
+      "draft_sha256": "e6e442d5c4e8988edbe4593fa786ec0ec1be95f802dcafcb01b8f2a7fa590052",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_offer-review.json",
+      "review_sha256": "37d6da139c77c88331f84824265a7987ff73f9ccd0b136de89af76962bc4e269"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-context.json",
+      "context_sha256": "c31662a409d773fe9d4e51b7c471f3bca60a3c7da6b1be002a7a5b42e41050b2",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-draft.json",
+      "draft_sha256": "5ec330e8f20a9e4c105dd6a1283f069277e2fbce0dc32722ffa1700dbcf67d84",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1ClockMemory_progress-review.json",
+      "review_sha256": "26fa52066cc8e41c5db5f6e7acce65919b9765d55cb38b1a0fdfbfef7af5692e"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-context.json",
+      "context_sha256": "f087ecd10a1f9e07c6a734dd932f50e1e52240661ac68104245f9cd6497a1134",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-draft.json",
+      "draft_sha256": "7b1c8cd47975fe3095e45038c8cb48f3aca2b342cee60ea16fe4ca8abd017667",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_offer-review.json",
+      "review_sha256": "eec2c7198b7f18d892ec03f274e38548b8425ad15e3c4d1230518f379b7cc390"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-context.json",
+      "context_sha256": "a63b059384d7a410e052d98e6a9e1f08733147892622b3fdaf391b5d1e21d6b9",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-draft.json",
+      "draft_sha256": "3db4696d1e7667be5f5c94cd1653131a65b9f06a038336efde7bbed0505ab897",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_progress-review.json",
+      "review_sha256": "126787258b4b1b1c471a518e00f7286aed684e0466c4a78e7f8d92cd48cef5fc"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-context.json",
+      "context_sha256": "2d3df81ac050f89a9ad16f6f8090ea52edd81128512a73e250323244ab2e62bd",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-draft.json",
+      "draft_sha256": "5dac8266362e240bbcffc9896d5e1e399d133b66308f008726f928f39e20827a",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneWear_report-review.json",
+      "review_sha256": "829166bbb3382f899a84493eeb1aa8ab4a11cc4a91a686c9b9165db7f83f1b26"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-context.json",
+      "context_sha256": "b87a6c03b45154e8fa5d2ae48664361f322c892c545c9bef6d72426cb4f17459",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-draft.json",
+      "draft_sha256": "506bc8bd4e0f549a7d9eae6ce5d0ec80eaf68ae9b07d0c6c54a27e6cad5b0605",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_offer-review.json",
+      "review_sha256": "bcc6fcccaa3ee82fee1ce644bccedb549860e755e6688d2d951ec6206d1588cd"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-context.json",
+      "context_sha256": "ac7c9cbadcbf2968423bd964a00822e99ed32b0d3168e1a2c83090728d3f25e8",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-draft.json",
+      "draft_sha256": "a3a68f83820fdccfb3f2b6a4fb3449b2eeb942fd6f2fd5d8d3ab892e664fa85e",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_progress-review.json",
+      "review_sha256": "03ea9a23d401a5f1b55121b55ab337d9a25f615c5b4a34e6d37c4acc86bbd09c"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-context.json",
+      "context_sha256": "b29be873065aaac46a5e4b0970dbdb8d9a05a1ee0b0c60ac552251523355867a",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-draft.json",
+      "draft_sha256": "d52c2bd79924cd36a75c9fd66fa0c3c86c0afa2511b25cf2c4060ab97a37d75a",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1RuneKiln_report-review.json",
+      "review_sha256": "07aa222519b86011af5a874c4f1dfeb004fa41263ec3aa2c315ea5c30180bd92"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-context.json",
+      "context_sha256": "8ae007951d0101ef38993f2398a5af21e1008da37fd3f208823126e48b81e0cb",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-draft.json",
+      "draft_sha256": "c22817b36aa81a12c1c609efcf94a018e4f81b63ddcc1f5b443f77adbefb4c38",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_offer-review.json",
+      "review_sha256": "3754c37cb465854f85bfd82d9e5833e3dbb41b5a11ea371ee6a62d7a5b0869e5"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-context.json",
+      "context_sha256": "ec2d398d57063de4fff1b37deb3ec69fa62658f34b7cdb5662828d595f227898",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-draft.json",
+      "draft_sha256": "73bb7db4ca4d4c7ef80e9b7ccf8d446aca9fef1de94034f5d607bb601f7a51c6",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_progress-review.json",
+      "review_sha256": "ad1da0c84c357267dcc08508745c3567a57fee65e501ba9650d80f7fa49ab299"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-context.json",
+      "context_sha256": "2692753e9a1da1ca4092fd1a6cb3024c63b3cec239b1a8511bb1d99c9d504369",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-draft.json",
+      "draft_sha256": "6d6524ce3eb24466be6e5c92fc0e3510108d3207c111c0d7c33fac21dc418727",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1AlchemistSamples_report-review.json",
+      "review_sha256": "f01e4037fa918fa4c97fd95552b85e029ff67ca470d3fb5dfaa71ef5a832944e"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-context.json",
+      "context_sha256": "49246ddc6a31d2a64e4225836da062e83d5174aeee24838a78682de964a93c26",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-draft.json",
+      "draft_sha256": "452a3fba838463394b93abbd9e65e6e431d6cc8b9fd091acf91723fe9c0be07f",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_offer-review.json",
+      "review_sha256": "62fa585752d29ad0a391630cd5e26dacea96ab952ac4f29f8faed5717da5dfd3"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-context.json",
+      "context_sha256": "132371dc397c1e5d725bae43e93f5d256680d7c5872e450b9f8e0a71637bbc06",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-draft.json",
+      "draft_sha256": "2c8250fa0a82a4072784620e3e3e08aa7d47c722997da71efb18d63d1eb1835a",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_progress-review.json",
+      "review_sha256": "314eca01b8cbe6ef1c8377c167a8cb407730d9b3f31b834dceb74dd6fdff4113"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-context.json",
+      "context_sha256": "bfa1a9f1ad2ccc8b644dffea4f530a27636189d04249b3caab5663fcb24fba1e",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-draft.json",
+      "draft_sha256": "b2cae6b50408ce45820683c2d95cdb493f65b16c8e9032edd2763685bbaf54a6",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHunt_report-review.json",
+      "review_sha256": "c16c26033a704ce6116738ae04317892506b3f1338277af180ffccabec24ae48"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-context.json",
+      "context_sha256": "29090709e7079a5dc989104ff722dd6f17580e24c92160756d107e59705966e4",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-draft.json",
+      "draft_sha256": "e527675157f5976d02074d57b54469de22af0a1ada441587fc5dc21a54def7bf",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_offer-review.json",
+      "review_sha256": "b566f17be781646d1319b67064872411453b293ce92c9849882fa0f2e4bae978"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-context.json",
+      "context_sha256": "6da01b9fd1d71c82e439b611b5a4821d7ca664601b7ee2b033d543506599b301",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-draft.json",
+      "draft_sha256": "cb62d7c9ca031a5dcbbd0ad5b444cbd78895d8c1141affa9d2001c2c3dd8c3de",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_progress-review.json",
+      "review_sha256": "dd3d465b63f4f21bb37fdfd2d5050e4686ad6695e1052e6e70a8af3471675e7e"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-context.json",
+      "context_sha256": "7622ee9051c6d8d656389884fe928fa414a7b171a5b9363b10939228cd27f450",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-draft.json",
+      "draft_sha256": "46406bb8c3e453dade2036d8535fab2ab11e4910518b19e4db569885afbaaafe",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CampHerbs_report-review.json",
+      "review_sha256": "1f3721f48dc8cd0c4df2755a6f73874cd8bcc5c776920c523d7a8969e0763ae8"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-context.json",
+      "context_sha256": "7b05f6d4b52b6bed81dc95f853f7abb0cd6aaa1dc3cb6ad7486973c6839fea1d",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-draft.json",
+      "draft_sha256": "1c7ce479bb32e1ef10e85f4cdcbcae275ac9a80f8eb9db0b23100e2e14986a9b",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_offer-review.json",
+      "review_sha256": "5c7f89e2b83663e78996b88e6c9da987a24d5e6412a6660ca24f940e4d787924"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-context.json",
+      "context_sha256": "7f98d05095519de4d20f470fa41adab8d4ccc65e8be0891c34c1422a9e899cc1",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-draft.json",
+      "draft_sha256": "c49a65b04cc9daebea1f1d09ae1432fea8b60044bdf51eceb949302447cc8641",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_progress-review.json",
+      "review_sha256": "c8164c2613126377cf40e8c279ae274c7b1fff016595e92ced46c2658f955f82"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-context.json",
+      "context_sha256": "04aa47ab1c163985c6337164c864756ba906ef0d5ce2c2507fa82fbce9ad8746",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-draft.json",
+      "draft_sha256": "5fa3e363674b8788357c3f241e7d4fce31d1b7f444a76524817b5858a8133fca",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1KilnRoost_report-review.json",
+      "review_sha256": "98c52360387094bb71c4e9f10298f9f04e0e22a91d035ab0a5fc0399884b4426"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-context.json",
+      "context_sha256": "1a3942a21cb90b9a48f62ad59a686a32ee2c5aa87666ef7b197e40ee45c52735",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-draft.json",
+      "draft_sha256": "aefe9ab6aad5707f4ff39245d17165df8fe74a04c3d4f5578f966ca7b505ff26",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_offer-review.json",
+      "review_sha256": "09afa12a2384475aaa4ff298dcd35b3d1075162fc441043cbce333caa7b48a37"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-context.json",
+      "context_sha256": "fe39b4ea52815663b2743f932ef33afeb78b84136d6416d417128d58c03c0c20",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-draft.json",
+      "draft_sha256": "ee3fa9d7e290e71d41a4aa6281dc6991d22554b47e144e30918eda6c9203ca9c",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_progress-review.json",
+      "review_sha256": "dee923f273de37918164435f6e3ea9a9a7c3d8d1c1ba82775ba2d997a58cb26f"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-context.json",
+      "context_sha256": "5146e65eeb7aecbf963ae3384eb5252c2d7cf6da95e7eda4ea603932417b3562",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-draft.json",
+      "draft_sha256": "4b702fb051e6f814e0fe63b4fd589b035aebe93327c0b2c809590a8b84f0e9f5",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1TrialSalvage_report-review.json",
+      "review_sha256": "ab4f307fa9809d462684a6ce018ad8c9e8c39a812a3586a665a8b08345494921"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-context.json",
+      "context_sha256": "cd837c36af24548fb3c57bca0f9e800c53164d8fc177ccf649993a9b23b91fdc",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-draft.json",
+      "draft_sha256": "2a1c22ded5e791477880b555369f602c6e197aa03b5aa467fbc16488b2b5cac9",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1CryptRepair_progress-review.json",
+      "review_sha256": "836f70c1bba375f7b2338cd9d273b5468e5c42f696389b071e1efbcb14f9b8ce"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-context.json",
+      "context_sha256": "5953e51e8d9d68bfc808611e3f95a3550237620cf9775904ee5f397dec9b5dc5",
+      "draft": "docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-draft.json",
+      "draft_sha256": "4e2f84d5c1c0fcaa8fb197eaaa10c6ef4855f9f903f3c9bc35bd444e29bed070",
+      "review": "docs/c1-story-flow/narrative-current/c1Talk_c1VaultWatch_progress-review.json",
+      "review_sha256": "cbc626b184c4b53e2e00f293cc6f4449700fd5442537e8448f88903c47642a9e"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/contract-context.json",
+      "context_sha256": "341cb662e005673e82cebae9758e695eda5daf0758ba48c7e675ea4135a0820b",
+      "draft": "docs/c1-story-flow/narrative-current/contract-draft.json",
+      "draft_sha256": "d814792f5f245cc2babdada92fe6fd32a5e1cb70fbca17e8e5ee42de58894b0e",
+      "review": "docs/c1-story-flow/narrative-current/contract-review.json",
+      "review_sha256": "c9bb06597af9ff78558083d4a69d1837c9b667fc53348ea0b3b13acb3348cc2c"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-context.json",
+      "context_sha256": "046019df8f058b0c77298e829c3120af54dc5b370f0bf81fa57db559961ad2c1",
+      "draft": "docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-draft.json",
+      "draft_sha256": "47ea0313bd9e40c27c245de8d2875b58235c196c32826352d045a19b1cda1cc6",
+      "review": "docs/c1-story-flow/narrative-current/c1HiddenPairArrangement-review.json",
+      "review_sha256": "3664a6b2b7af536101faa1701459b076f33c3bafa27d2242134d62bda162fc7f"
+    },
+    {
+      "context": "docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-context.json",
+      "context_sha256": "d5e13d0445ccd70023158efa8843b64089db45414315b573ed4c4bf5b6f65c9c",
+      "draft": "docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-draft.json",
+      "draft_sha256": "9b3cf9a538c9cb0126befd20ee1eedc46ba8e175192da4740a08fad676e4d535",
+      "review": "docs/c1-story-flow/narrative-current/c1-localTalk-c1iden-review.json",
+      "review_sha256": "754a3e816e9a810325b8a6289eb87d002d273ba87635a21452b3368f4aa520d1"
+    }
+  ]
+}
