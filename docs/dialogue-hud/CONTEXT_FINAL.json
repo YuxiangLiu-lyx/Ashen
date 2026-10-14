@@ -1,0 +1,1165 @@
+{
+  "status": "budget_limited",
+  "task": "全部中文对白否定祈使专项修订、场景审查、当前敌人顶部血条、任务接取后掉落与小地图标记",
+  "basis_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "source_fingerprint": "cafc7caa23bf5d048a42743e7d902a01668b156db75c8abe9b97b2c1f2645a19",
+  "modules": [
+    "combat",
+    "gear",
+    "maps"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "narrative_context",
+      "sha256": "722c56805d934a2de2043686763a22f7f09a4ee9b75904d5ef5b30e6fb717c40",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "4. 读 [对白规范](DIALOGUE_STYLE.md) 与 [纯风格样本](DIALOGUE_STYLE_SAMPLES.md)。写清本场信息、每个人的行为目的、结果、因果与情绪依据、游戏动作和对话框交接，再生成文字。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "7. 记录完整 context、候选/已实施 draft、review，挂入 task.py；修改行数时另做 pending、staging 和存档专项。finish 检查叙事记录与来源新鲜度。仅工具维护且未改运行/章稿的任务不伪造对白审查。",
+          "truncated": false
+        },
+        {
+          "line": 22,
+          "text": "2. 实现前在本章稿记录版本、目标、进入/结束状态、逐场剧情、角色与玩家各自知道什么、地图/任务/演出交接、揭露上限及验收。缺稿就先补稿；不能边写代码边临时决定主线。使用 [章节模板](#章节模板)。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 9183
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "0c0c5cec4d92e5ae80f5e480765697580c17d0efd2132e585ccc4a51d07664d7",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        },
+        {
+          "line": 23,
+          "text": "语言差异应来自关注点、措辞、理解能力、情绪表达、交流方式与知识背景。不能只给每人分配一个口头禅。一个人对熟人、陌生人、上级、敌人会有不同态度；这些差异也会因经历变化。",
+          "truncated": false
+        },
+        {
+          "line": 47,
+          "text": "游戏适配同样必要：长对白可以分页，不可破坏 pending 行号、演出动作、说话者与一次性提交。新增行数须检查存档迁移与实际对话框；不要因为技术上的旧行数方便，就删掉必要解释。此次 Harness 升级不自动改动任何现有对白。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 5794
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        },
+        {
+          "line": 89,
+          "text": "薇蕾娜可以成熟、自信、亲昵、爱开玩笑，但不需要把所有对白写成暧昧台词。",
+          "truncated": false
+        },
+        {
+          "line": 103,
+          "text": "不要复制固定句式、对白结构、事件顺序或具体玩笑。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "combat: current constraints",
+        "gear: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "8e911de953956d179294b06bf331c01cf35a3f04cc8801f7bbfc8ade4a7799a4",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "V28 调整生成与旧档敌人生命比例、伤害倍率、经验/金币和独立1%额外掉落。实际 tier 使用玩家等级与敌人等级的最大值，三个等级一区间，19–22为第七层，23起第八层；不按章节。已有高等级玩家回旧图会进入高层池，这是既有边界，未经授权不得修掉或描述成章节限定。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2070
+    },
+    {
+      "path": "docs/harness/ECONOMY.md",
+      "reasons": [
+        "gear: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c7d5554ea345b77389e0a756f67673c7c34e04a5d62ce3991e8c289425e843fa",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "V28 1%是在原 loot 方法后追加的独立抽样，不取代普通掉落。storyTag/trialFloor/v11Add排除；bag/gear/pendingRewards 的同 ID 排重；每敌人只 roll 一次。tier=max(玩家等级,敌人等级)；生成时 v28Tier 可能与击杀时重新计算的掉落池不同。池只含重新计算层和前层，但不保证按章节封顶。满包普通 gear 会折10金，专属 ID 的处理须看 obtainGear 的真实判断。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1667
+    },
+    {
+      "path": "docs/harness/EXPLORATION.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c2f289b62054a96022553a8e802ab72ec65ff364ac10388b6c63200e032aaa7e",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "V29仅重新设计road/millpath/echo/workshop，地图与出口坐标系仍1600×1080。其他114图不据此认定已经重构。配置在configureWorld最后执行；world-runtime在表现/碰撞installer之后安装。布局/路线/地标在world-design，渲染在world-art，新对白在world-dialogues；不得在核心循环重复堆特例。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "echo任务ID、机芯物品、原XP/金、炼洗章门槛、前槽卷筒/指环二选一保持。新档击败warden只标记清场进度，清稳周围并读检修簿后亲手取后槽机芯，先取机芯才能开前槽。旧echoCoreFound/items.echoCore/echo done档免除新条件。不得给旧档补领第二份机芯、改动echoChoice或强行重播新对白。新文本用新ID，保留旧对白游标。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "验证：world-v29.test.mjs + browser-world-v29.mjs。后者在隔离档中一次建立Lv3旧短刃起点，后续真实更新、普通战斗、鼠标/键盘交互、地图门与读档；不得偷偷伤害敌人或免伤后声称正常通关。--baseline仅全景截图，--audit-only抓其他代表图，不运行任务。world_audit用真实碰撞的网格泛洪和活动半径作诊断，quiet估计不是实测游玩时间；不能用最大密度优化覆盖率。所有视觉验收另看图，错误/初稿也保留在docs/v29。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "V30第二、三章接续：chapter23-design/art-v30显式覆盖9+14图，复用原图；不改变地图几何与敌群。灰桥v9-bridge-water交互锚点由(1040,525)修到(1040,495)，ensureMap/restore对已访问旧图同步该坐标，保留领取、死亡与used。历史导航基线仍保留，测试只精确消除该条已修复诊断；其余网格/诊断逐项核对。chapter23专项/真实浏览器画廊纳入core/integration。详情docs/chapter23/ACCEPTANCE.md。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "历史前三章spatial空间",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 3302
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "5bf6b3bad81353a133db9b666a842e934b5e22e714ca4ca6a294acff2fd14fa5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用地图布局、碰撞、路径、NPC岗位、场景渲染和人物资源修改，包括小改动。读取受影响地图及其调用者；保留改前证据。三项均须单独完成，任何失败或未知均不能用其他项抵消。自动脚本只检查几何事实和证据完整性，不声称能自动判断审美。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "2. **场景可信度 scene_credibility**：实际游戏分辨率全图及局部对照，说明地理、道路/建筑用途、物件为什么在此、主次与留白、NPC岗位/停顿/活动依据。禁止随机堆物作为主要布局逻辑；每种地图保留自己的结构节奏。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "`python3 tools/harness/map_quality.py --base <任务基线>` 验证当前源码、改动覆盖和证据哈希；task.py finish 对真实地图/美术改动自动调用该校验，即使未手动声明必需检查也不能绕过。check.py --recommend 自动推荐三维检查。代码、资源或证据改变后需重新检查相关维度并更新记录。历史回执不覆盖，LATEST只是当前证据索引。",
+          "truncated": false
+        },
+        {
+          "line": 20,
+          "text": "当前0.7由用户进一步授权全面整理第一章17图，见CHAPTER_01_MAP_QUESTS.md。移除旧训练/巡检/通风点击步骤；0.6踏板等仅属旧任务历史，当前使用真实怪物击杀、掉落和采集验收。其他章节保持。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3000
+    },
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "f73a09447f5d17999d1051fd9e301f946f36f1c5168631f97ebf153b5166c33f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 地图与资产约束",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "world/各 chapter-world 配置及 scene-geometry、presentation-physics 控制真实地图/足部碰撞；visuals/art/actor-art/equipment-art 控制绘制。地图表现任务默认不改战斗或经济。118地图和封锁出口基线在 tests/fixtures/v28-navigation.json；原本锁住的出口不能改成新增问题，也不能通过更改基线掩盖回归。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "脚底排序、家具 ID、门框可通行间隙、患者搬运、坐席例外、同伴步距与真实敌人物种须保留。5张 V281衍生图使用原帧坐标；docs/v28.1/ASSET_MANIFEST.json 记录来源和哈希。原图在 archives/runtime-assets 分卷，恢复脚本拒绝覆盖已修改文件。新图必须保存字节、生成说明和角色/场景对应，不只留临时 URL。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "已有回归包含图集哈希、正式渲染器画廊、地图和章节回放；它们不是完整八章人工通关。改动资产后检查 preload/HTML/离线构建与引用完整性。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "2026-10-10用户要求保留已有地图和人物优化，撤下第一章新增分镜式剧情。现行范围见 [CHAPTER_01](CHAPTER_01.md)：追兵独立图集、成人比例/脚锚、地图表现和井沿交互修复保持；不新增几何或移动任务目标。0.5幕后使用原对话框和薇蕾娜/鲁恩原立绘，新增匿名神秘人删除；圣女默认立绘改为封面柔和形象，无新场所图。旧分镜开发prompt已从现行Harness移除。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "每次实际地图/人物美术修改继续分别执行[三维验收](MAP_QUALITY.md)。当前运行以1cefe80为底稿并保留后续人物/地图局部优化，不安装已撤回的spatial重构；现场及回滚验收见[回滚记录](../rollback-v30/ACCEPTANCE.md)。这些历史现场不构成本轮恢复开发的指令。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2237
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "`presentation-physics-v281.js` 补充没有 authored box 的树干、墙体、建筑基座、门柱、水盆、床和推车；门框保持中间通行。大型敌人移动/寻路使用更大脚底半径，包括已有桌椅的足部轮廓；直线寻路与移动共用同一间距。无名运行时家具获得独立稳定 ID，入座时不会批量忽略其它对象。卡位修复包含当前同行，不挪动倒地者或搬运中的患者。原有细网格剧情寻路、坐席切换和患者搬运例外保留。入图/读档时才修复卡在障碍里的角色，常规移动不以瞬移替代寻路。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "补齐伙伴/通用 NPC 的实际行走距离，避免怪物步距被重复累计。主角、圣女、澄璃、守卫、动物和地狱敌人继续使用现有真实多帧姿态。缺少循环帧的后备 NPC 只对下肢进行四相交替接触处理，头部不整体晃动；这不是新增完整手绘行走图。",
+          "truncated": false
+        },
+        {
+          "line": 27,
+          "text": "第八章大图从活动图集注册、演出节拍、预加载和 HTML 展示四层禁用。原有对白、小立绘、任务链、场景内站位演出保留，其它章节的大图不受影响。历史 CG 留在原归档以便追溯。",
+          "truncated": false
+        },
+        {
+          "line": 38,
+          "text": "本地23项 Node 测试通过，包括所有118张地图注册/已开放出口、9个后续章节/职业检查点构造与读档、27段医疗/坐席/第八章演出路由、24件装备映射、5张图集 SHA256、碰撞和步态。地图审计以V28真实基线导出，不把原来就有的封锁出口当作新增问题。",
+          "truncated": false
+        },
+        {
+          "line": 40,
+          "text": "浏览器使用真实 HTTP、真实游戏模块和 Chrome，QA hook 只注入内存里的测试入口，不写入正式 game 模块。第八章同时断言旁白无人物立绘、具名对白保留并成功载入小立绘，防止测试把旁白误认成缺图。新增验收图由正式人物/装备/怪物渲",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 4137
+    },
+    {
+      "path": "docs/v28/COMBAT_OVERHAUL.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c4e2c4ff882a577d719da212c4f3bcc96758c832cd52da72f1b2bd64cb7ced6a",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "V28 的战斗修改遵循三个原则：普通怪的强度必须随进度明显增长；Boss 需要玩家先完成技能、属性与装备配置后再挑战；稀有掉落要有惊喜但不能让前期提前拿到后期装备。",
+          "truncated": false
+        },
+        {
+          "line": 46,
+          "text": "掉落规则：",
+          "truncated": false
+        },
+        {
+          "line": 48,
+          "text": "- 只从当前层和前一层池中抽取，不会掉落超前装备。",
+          "truncated": false
+        },
+        {
+          "line": 50,
+          "text": "- 剧情怪、试炼怪、v11Add 等脚本敌人不参与 V28 专属随机掉落。",
+          "truncated": false
+        },
+        {
+          "line": 51,
+          "text": "- 原有普通装备/技能书掉落逻辑继续保留，V28 1% 是额外的“稀有专属池”。",
+          "truncated": false
+        },
+        {
+          "line": 55,
+          "text": "V28 installer 最后安装，不改变 V27 的地图、任务、对白和章节状态机。新生成敌人即时打上 v28Tuned；旧存档第一次加载时，现存敌人按原生命比例迁移到 V28 最大生命，不会凭空把残血怪补满。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3618
+    },
+    {
+      "path": "dist/core-v14.js",
+      "reasons": [
+        "combat: task matched 敌人; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "7e76992d0f098f145ada2c2f5c34444b420a0a5948de235e4a5c186bf062a663",
+      "excerpts": [
+        {
+          "line": 158,
+          "text": " resetPoints(item){const recipe=RESET_ITEMS[item],p=this.p;if(!recipe||!(p.items[item]>0))return false;if(p.hp<=0||this.pending||this.enemies.some(e=>!e.dead)){this.say('先到没有敌人的地方，再重新整理修行。');return false;}const info=this.resetInfo(recipe.kind);if(!info.points){this.say('还没有可以退回的点数，道具已保留。');return false;}p.items[item]--;if(recipe.kind==='attributes'){p.ap+=info.points;for(const k of Object.keys(p.attrs))p.attrs[k]=0;}else{p.sp+=info.points;for(const k of Object.keys(SKILLS)){const rank=freeRank(p,k,SKILLS);if(rank)p.skills[k]=rank;else delete p.skills[k];p.skillSpent[k]=0;}p.activeSkills=p.acti",
+          "truncated": true
+        },
+        {
+          "line": 205,
+          "text": " safePoint(x,y){x=clamp(x,135,1465);y=clamp(y,155,965);if(!this.blocked(x,y))return {x,y};for(let r=20;r<=240;r+=20)for(let i=0;i<16;i++){let a=i*Math.PI/8,p={x:x+Math.cos(a)*r,y:y+Math.sin(a)*r};if(!this.blocked(p.x,p.y))return p;}for(let yy=220;yy<940;yy+=40)for(let xx=200;xx<1420;xx+=40)if(!this.blocked(xx,yy))return {x:xx,y:yy};throw new Error('地图没有可站立位置');}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 78550
+    },
+    {
+      "path": "dist/equipment-v14.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。",
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "ccec9087de19832d2a4f9ecfe24fb766d94260da500c330736745f6a56311097",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {QUALITIES,gearQuality} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {createHellRouteGearV15} from './hell-route-gear-v15.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function gearBudgetV17(cls,lv,slot,rarity){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " const power=QUALITIES[rarity]?.power||1,primary={shadow:'dex',oath:'str',ember:'wis',saint:'wis'}[cls]||'vit',late=Math.max(0,Math.min(32,lv)-6);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " return {gearGrowthVersion:17,attrs:power>1?{[primary]:Math.ceil((power-1)*(1+Math.max(0,Math.min(32,lv)-5)*.25)),...(power>=4?{vit:Math.ceil((power-2)*(1+Math.max(0,Math.min(32,lv)-5)*.12))}:{})}:{},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  atk:slot==='weapon'||slot==='offhand'?lv+power*2+Math.ceil(late*(power-1)*.33):slot==='hands'||slot==='relic'?power+Math.ceil(late*(power-1)*.1):0,",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  hp:(slot==='chest'?12+power*9:slot==='head'?power*6:slot==='feet'||slot==='relic'?power*4:0)+(late>0&&['chest','head','feet','relic'].includes(slot)?Math.ceil(late*power*(slot==='chest'?.8:.3)):0)};",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7162
+    },
+    {
+      "path": "dist/presentation-physics-v281.js",
+      "reasons": [
+        "maps: task matched 地图; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "5d8fbff6cc52412b87200a60a2f5fd9cf3b28c5a119dec7b516de1f701d4c151",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {footRadiusV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const validFootBoxV281=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function pointInFootBoxV281(x,y,b,pad=0){return validFootBoxV281(b)&&x>b[0]-pad&&x<b[0]+b[2]+pad&&y>b[1]-pad&&y<b[1]+b[3]+pad;}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function segmentFootBoxV281(a,b,box,pad=0){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " if(!validFootBoxV281(box))return false;let lo=0,hi=1;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " for(const [p,d,mn,mx]of [[a.x,b.x-a.x,box[0]-pad,box[0]+box[2]+pad],[a.y,b.y-a.y,box[1]-pad,box[1]+box[3]+pad]]){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(Math.abs(d)<1e-9){if(p<=mn||p>=mx)return false;continue;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  const u=(mn-p)/d,v=(mx-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));if(lo>=hi)return false;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6309
+    },
+    {
+      "path": "dist/balance-v14.js",
+      "reasons": [
+        "combat: task matched 敌人; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "f2a2e7ffcab9c66d8f2dc68ce40410df75ad1c4d3605cdcec74cc74589af7e67",
+      "excerpts": [
+        {
+          "line": 49,
+          "text": "  oath:{q:{cost:12,cd:5,base:2.1,str:3,vit:1.5,label:'斩击伤害',extra:'格挡后的这次斩击×1.5；每次施放最多恢复6+体质×0.5生命。普通敌人短暂震慑，首领只短暂打断且有抗性间隔。'},e:{cost:17,cd:7,label:'格挡时长',extra:'只格挡一次伤害；随后普攻×2或断誓斩×1.5，强化保留5秒。'}},",
+          "truncated": false
+        },
+        {
+          "line": 50,
+          "text": "  ember:{q:{cost:12,cd:5,base:.45,wis:1.15,label:'每次灼烧',extra:'320距离内布置火印，每0.7秒灼烧一次，持续4.2秒；敌人会立即追击来源。'},e:{cost:17,cd:7,base:2.35,wis:3,label:'火印爆炸',extra:'引爆仍在320距离内的火印，爆炸半径112；另发射8枚短程火弹，射程240。'}},",
+          "truncated": false
+        },
+        {
+          "line": 51,
+          "text": "  common:{tether:{cost:20,cd:11,base:.5,str:1.4,wis:1.4,label:'牵引伤害',extra:'作用距离210；把普通敌人拉到身前75距离，减速2秒。墙后无效，精英不被拉动。'},cleave:{cost:14,cd:5.5,base:.7,str:4,dex:.5,label:'斩击伤害',extra:'前方125距离近身横扫，可打碎木箱。持法杖时仍是近身杖击。'},firebolt:{cost:12,cd:4,base:.7,wis:4,dex:.3,label:'火矢伤害',extra:'向目标发射一枚火矢，严格最大射程350。'},crash:{cost:19,cd:8,base:2,str:2,dex:1.5,label:'重击伤害',extra:'230距离内跳向目标并重击。普通敌人震慑0.7秒；首领有打断抗性。'},frost:{cost:18,cd:9,base:.8,wis:2,dex:.5,label:'冰环伤害',extra:'令160距离内敌人减速52%；用于重新拉开距离。'},sprint:{cost:10,cd:12,label:'移速增幅',extra:'消耗法力，短时加速；没有无敌帧。敏捷提高加速效果，最高70%。'}}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6084
+    },
+    {
+      "path": "dist/chapter123-presentation-v30.js",
+      "reasons": [
+        "maps: task matched 地图; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Presentation only. Object IDs, feet, depth, collision, targets and quest state",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// remain owned by the original world/runtime. Explicit host bindings avoid drawing",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// a second pot on a well, or a second mechanism over an interactive scenery object.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {chapter123V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const art=(sheet,index,w,h)=>({sheet,index,...(w?{w,h}:{})});",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const furniture=(i,w,h)=>art('chapterFurnishings',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const settlement=(i,w,h)=>art('chapterSettlement',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const utility=(i,w,h)=>art('chapterUtilities',i,w,h);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6728
+    },
+    {
+      "path": "dist/enchantments-v14.js",
+      "reasons": [
+        "combat: V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。",
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8c03b6ff9a113b78f426d78808f63d61aedfe73b031456ab4672d13d6247217f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {ENCHANT_DEFS as DEFS,ENCHANT_RULES as RULES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export {DEFS as ENCHANT_DEFS,RULES as ENCHANT_RULES};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const rows=p=>Object.values(p.gear||{}).filter(Boolean).map(i=>({i,e:i.enchantment,d:DEFS[i.enchantment?.defId]})).filter(r=>r.d&&r.d.slots.includes(r.i.slot));",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function enchantStat(p,key){return rows(p).reduce((n,{e,d})=>n+(d.kind==='stat'&&d.stat===key?e.value:0),0);}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export function enchantDescription(e){const d=DEFS[e?.defId];return d?`${RULES.qualityNames[e.quality]} · ${d.name}：${d.display.replaceAll('{value}',e.value).replaceAll('{decimal}',(e.value/10).toFixed(1))}`:'尚无刻印';}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function skillEnchantRows(p,k){const m=new Map();for(const r of rows(p)){if(r.d.kind!=='skill'||!r.d.skills.includes(k))continue;const key=r.d.stackGroup||r.d.id;if(!m.has(key)||m.get(key).e.value<r.e.value)m.set(key,r);}return [...m.values()];}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function modifySkill(p,k,s,{range,radius,hpCap,maxHP}={}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " if(!s)return s;s={...s};let mult=1,healMult=1,shieldMult=1;const desc=[];const baseCd=s.cd;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4457
+    },
+    {
+      "path": "dist/chapter23-design-v30.js",
+      "reasons": [
+        "maps: task matched 地图; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "7fae612898b579a8bc245b1c2993f564da3816a21ae7692b76cf1525b43d412c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Complete first-three-chapter inventory, including optional rooms and cutaways.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// QA independently derives this set from the registered maps and staging, so a",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// missing entry cannot silently remove a map from both implementation and tests.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','guestroom','millpath','echo','workshop']);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const CHAPTER_TWO_MAPS_V30=Object.freeze(['post','inn','bridge','manor','spillway','exile','chamber','bridgecellar','wellcrypt']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const CHAPTER_THREE_MAPS_V30=Object.freeze(['hellGate','hellApproach','hellQuarry','hellSluice','hellWall','hellCamp','hellGrotto','hellWorkshop','hellMine','hellFerry','hellPass','hellArena','hellTomb','hellRift']);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const CHAPTER23_MAPS_V30=Object.freeze([...CHAPTER_TWO_MAPS_V30,...CHAPTER_THREE_MAPS_V30]);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const second=new Set(CHAPTER_TWO_MAPS_V30),third=new Set(CHAPTER_THREE_MAPS_V30);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4417
+    },
+    {
+      "path": "dist/combat-overhaul-v28.js",
+      "reasons": [
+        "combat: task matched 敌人; maintained entry",
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "f5b1e63f95af615b868e3563eecf936651c88643684d504c7614814b0e6e5187",
+      "excerpts": [
+        {
+          "line": 118,
+          "text": " if(g.obtainGear(item)){g.text('稀有掉落',e.x,e.y-92,'#f0c476');return true;}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 11322
+    },
+    {
+      "path": "dist/skills-v14.js",
+      "reasons": [
+        "combat: task matched 敌人; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "e4beb471a5cbd21bfc2b92a0b3379c39fb709bada2d1ced273cb409815202986",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {skillRankMultiplierV17,skillRankDurationV17,skillRankSupportV17} from './rank-scaling-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {progressionSkillNumbers} from './progression-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {arcaneBonus} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {enchantStat,modifySkill} from './enchantments-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {chapter3SkillNumbers,hellDamageFactor} from './chapter3-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// All skill numbers shown in the interface and consumed by combat share this source.",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {totalAttributes,damageModifier,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {SKILL_SPEC as spec} from './balance-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3806
+    },
+    {
+      "path": "dist/enemy-ai-v14.js",
+      "reasons": [
+        "combat: task matched 敌人; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "7c229ddb8435d214e1b8ca3298be28899aa2e935188c77c9b176eb9e6f76cf2f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {playerProjectileSourceValidV17} from './combat-input-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {experienceProfile} from './rpg-experience-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const profile=e=>({...profileForEnemy(e.type,e.id),...experienceProfile(e)});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 24452
+    }
+  ],
+  "excerpt_bytes": 18488,
+  "max_files": 20,
+  "budget_bytes": 24000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [],
+      "scene": null,
+      "actors": [],
+      "stage_candidates": [
+        {
+          "event": "R01:intro",
+          "scene": "intro",
+          "summary": "会馆日常与库房请求"
+        },
+        {
+          "event": "R01:ratDone",
+          "scene": "ratDone",
+          "summary": "回报库房后进入委托阶段"
+        },
+        {
+          "event": "R01:aside",
+          "scene": "aside",
+          "summary": "会馆核对午钟、通行纸与带人安排；诺恩不在此切镜中"
+        },
+        {
+          "event": "R01:contract",
+          "scene": "contract",
+          "summary": "保留目标、圣徽说法、封术印与封套；诺恩追问两场试炼的目的，薇蕾娜担心他带人撤离时忽略自身安全。熟人之间靠近和木屑的玩笑，接到练完留饭、出发前再见的约定；约饭是计划，未断言已经吃饭或完成试炼。"
+        },
+        {
+          "event": "R01:c1HiddenPairArrangement",
+          "scene": "c1HiddenPairArrangement",
+          "summary": "诺恩真实离开会馆后，鲁恩走到薇蕾娜身边；两人在会馆私谈，玩家看见，主角均未听到。"
+        },
+        {
+          "event": "R01:saintBrief",
+          "scene": "saintBrief",
+          "summary": "清晨礼拜厅；诺恩不在切镜中"
+        },
+        {
+          "event": "R01:watch",
+          "scene": "watch",
+          "summary": "通行纸通过门卫核验"
+        },
+        {
+          "event": "R01:assassination",
+          "scene": "assassination",
+          "summary": "原十八行刺杀、封术、挟持"
+        },
+        {
+          "event": "R01:canalStart",
+          "scene": "canalStart",
+          "summary": "圣女要求救人与活捉，追缉官挡路"
+        },
+        {
+          "event": "R01:chapterEnd",
+          "scene": "chapterEnd",
+          "summary": "以百姓为威胁换取受迫同行，承诺事毕放人"
+        },
+        {
+          "event": "R01:c1:localTalk:c1iden",
+          "scene": "c1:localTalk:c1iden",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        },
+        {
+          "event": "R01:c1:localTalk:c1hesha",
+          "scene": "c1:localTalk:c1hesha",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        }
+      ],
+      "needs": [
+        "明确单一章节",
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {},
+    "knowledge": {},
+    "facts": {},
+    "seeds": [],
+    "conflicts": [
+      {
+        "id": "DIFF-C2-EXILE",
+        "kind": "implementation_gap",
+        "status": "OPEN",
+        "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+        "sources": [
+          "runtime-knowledge",
+          "scene:darkExileV9",
+          "author-pair",
+          "c2-difference"
+        ],
+        "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+      },
+      {
+        "id": "DIFF-C2-VILERENA-DOOR",
+        "kind": "outdated_plan_detail",
+        "status": "OPEN",
+        "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ],
+        "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+      },
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "CONFIRMED",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+        "resolved": true
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "provenance": {
+      "author-pair": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+        "kind": "user_confirmed"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "c2-difference": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "exile-was-unplanned",
+        "kind": "adopted_plan"
+      },
+      "c2-plan": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "runtime-knowledge": {
+        "path": "dist/core-v14.js",
+        "anchor": "if(sceneId==='darkExileV9')",
+        "kind": "runtime"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkExileV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkExileV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      }
+    }
+  },
+  "narrative_bytes": 5356,
+  "total_context_bytes": 23844,
+  "deferred": [
+    "dist/growth-v14.js",
+    "dist/world-design-v29.js",
+    "dist/systems-runtime-v14.js",
+    "dist/world-runtime-v29.js",
+    "dist/chapter-one-expansion-gear.js",
+    "dist/combat-input-v17.js",
+    "dist/world-art-v29.js",
+    "dist/chapter-one-expansion-data.js",
+    "dist/chapter3-skills-v14.js",
+    "dist/world-v14.js",
+    "dist/progression-data-v14.js",
+    "dist/save-protection-v23.js",
+    "dist/scene-geometry-v26.js",
+    "dist/navigation-v14.js",
+    "dist/progression-runtime-v14.js",
+    "dist/chapter-one-motion-v30.js",
+    "dist/world-entry-v22.js",
+    "dist/chapter-one-expansion-combat.js",
+    "dist/chapter-one-expansion-world.js",
+    "dist/chapter-one-expansion-art.js",
+    "dist/rpg-experience-data.js",
+    "dist/rpg-experience-combat.js",
+    "dist/rpg-experience-exploration.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/chapter-one-v30.test.mjs",
+    "node --test tests/chapter123-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/rpg-experience.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-balance-lab.mjs",
+    "node tests/browser-chapter123.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-world-v29.mjs",
+    "node tools/world_audit.mjs",
+    "python3 tools/harness/check.py --tier narrative",
+    "python3 tools/harness/map_quality.py"
+  ],
+  "risks": [
+    "V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。",
+    "V28 分层由玩家/敌人等级最大值决定，不能假设按章节；刻印 proc 不递归。",
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 229
+    },
+    {
+      "name": "installChapter4",
+      "line": 230
+    },
+    {
+      "name": "installPacing",
+      "line": 232
+    },
+    {
+      "name": "installQuestService",
+      "line": 233
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 238
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 240
+    },
+    {
+      "name": "installChapter5",
+      "line": 241
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 242
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 243
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 244
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 246
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 247
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 248
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 249
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 250
+    },
+    {
+      "name": "installCityV18",
+      "line": 251
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 253
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 254
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 256
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 259
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 260
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 261
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 262
+    },
+    {
+      "name": "installSagaV25",
+      "line": 267
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 271
+    },
+    {
+      "name": "installSagaV26",
+      "line": 274
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 281
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 283
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 285
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 287
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 288
+    },
+    {
+      "name": "installChapterOneExpansion",
+      "line": 290
+    },
+    {
+      "name": "installGameSettings",
+      "line": 291
+    },
+    {
+      "name": "installChapterTwoExperience",
+      "line": 293
+    },
+    {
+      "name": "installChapterThreeCaves",
+      "line": 295
+    },
+    {
+      "name": "installChapterThreeExperience",
+      "line": 296
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

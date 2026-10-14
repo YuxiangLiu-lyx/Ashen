@@ -172,6 +172,24 @@ def can_finish(record, root=ROOT):
     return errors
 
 
+def narrative_evidence(rows, root=ROOT):
+    """Hash a complete batch before mutating the task; finish retains every gate."""
+    from narrative import safe_file
+    if not isinstance(rows,list) or not rows or len(rows)>4096:
+        raise ValueError('Expected a nonempty narrative evidence list')
+    evidence=[];seen=set()
+    for row in rows:
+        entry={}
+        for kind in ['context','draft','review']:
+            source=safe_file(row[kind],root)
+            entry[kind]=source.relative_to(root).as_posix()
+            entry[kind+'_sha256']=digest(source)
+        if entry['draft'] in seen:
+            raise ValueError('Duplicate narrative draft in batch')
+        seen.add(entry['draft']);evidence.append(entry)
+    return evidence
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='action', required=True)
@@ -200,7 +218,8 @@ def main():
             p.add_argument('--summary', required=True)
         if name == 'narrative':
             for kind in ['context', 'draft', 'review']:
-                p.add_argument('--' + kind, required=True)
+                p.add_argument('--' + kind)
+            p.add_argument('--batch', help='JSON list of context/draft/review paths; validates aggregate once')
         if name == 'experience':
             p.add_argument('--report', required=True)
     sub.add_parser('list')
@@ -232,7 +251,7 @@ def dispatch(args, parser):
                   'status': 'in_progress', 'created_at_utc': now(), 'updated_at_utc': now(),
                   'decisions': [], 'completed': [], 'remaining': args.accept,
                   'blockers': [], 'next': 'Inspect routed code and capture baseline',
-                  'required_checks': args.require or ['verification'], 'checks': []}
+                  'required_checks': args.require or ['verification'], 'checks': [], 'narrative_style_policy': 2}
         from experience import requested
         requirement = requested(args.goal)
         if requirement['scopes']:
@@ -284,14 +303,21 @@ def dispatch(args, parser):
             print('RPG evidence attached; unresolved completion checks:\n' + '\n'.join(errors))
     if args.action == 'narrative':
         from narrative import safe_file, task_errors as narrative_errors
-        evidence = {}
-        for kind in ['context', 'draft', 'review']:
-            source = safe_file(getattr(args, kind))
-            evidence[kind] = source.relative_to(ROOT).as_posix()
-            evidence[kind + '_sha256'] = digest(source)
-        reviews = record.setdefault('narrative_reviews', [])
-        reviews[:] = [r for r in reviews if r['draft'] != evidence['draft']]
-        reviews.append(evidence)
+        if args.batch:
+            if any(getattr(args,k) for k in ['context','draft','review']):
+                parser.error('Use either --batch or one context/draft/review triple')
+            rows=read_json(safe_file(args.batch).relative_to(ROOT).as_posix())
+        else:
+            if not all(getattr(args,k) for k in ['context','draft','review']):
+                parser.error('Expected --batch or all three evidence paths')
+            rows=[{k:getattr(args,k) for k in ['context','draft','review']}]
+        try:
+            additions=narrative_evidence(rows)
+        except (OSError,KeyError,ValueError) as exc:
+            parser.error(str(exc))
+        replaced={r['draft'] for r in additions}
+        reviews=record.setdefault('narrative_reviews',[])
+        reviews[:]=[r for r in reviews if r['draft'] not in replaced]+additions
         # More scenes may be attached next; finish enforces aggregate coverage.
         errors = narrative_errors(record)
         if errors:

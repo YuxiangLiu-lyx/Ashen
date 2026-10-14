@@ -101,3 +101,20 @@ python3 tools/harness/task.py run --id TASK --label narrative --timeout 180 -- p
 多场逐个挂接；同一 draft 路径重新挂接会替换旧引用，原回执文件应另名保留。finish 检查全部改动文件覆盖、基线之后的已安装场景变化、上下文/审查指纹、证据哈希，以及 draft 是否等于最终运行对白。动态 c1Conversation 需在 scope.dynamic_check_label 指向一个本任务已成功且指纹相同的 task.py run 专项（具体 action/quest/flags）；共享 ID 本身无法定位真实文本。文档/数据维护不改运行章稿时不需要编造候选对白。
 
 工具的能力边界：不是中文语义证明器；未标注暗示、双关、人格魅力需要逐场编辑。少量风险词会提示遗漏标注，不能保证发现所有泄密。后六章资料是明确不完整的起点；不允许据此自动宣称长线人物状态已全覆盖。真实路径/演出/存档测试仍由现有检查承担，不能拿文件存在或文风提示代替端到端验收。
+
+## 否定祈使专项与全文润色
+
+`node tools/harness/dialogue_corpus.mjs` 导出安装后的静态场景、旅途任务分支、圣女控制分支、本地闲聊与实际内联生产入口。它列出文本覆盖和限制，不能用注册数量证明路线可达。然后运行：
+
+```sh
+node tools/harness/dialogue_corpus.mjs > /tmp/ashen-dialogue-corpus.json
+python3 tools/harness/dialogue_style.py --runtime /tmp/ashen-dialogue-corpus.json --output /tmp/ashen-dialogue-risk.json
+```
+
+报告含句式、人物分布、场景内四行窗口的聚集和跨人物重复，排除“别人/特别/告别/要不要/不要紧”等常见误命中。它不改字、不评分、不禁止合理命令。“不用”等也可能只是陈述，必须读上下文。
+
+新稿使用 `style_policy_version: 2`；`editorial.negative_imperatives.scene_judgment` 写全场判断，`decisions` 为每个剩余候选记录 `{line: 从0起的行号, decision: "retain", reason: "此刻正在阻止的具体危险、拒绝的要求或陈述功能"}`。新改句照七维和信息边界审查，不能以统计降幅代替质量。
+
+既有全文润色另见 [流程](NARRATIVE_WORKFLOW.md)：`kind: copyedit` 只允许保全型修订。其 context 保留全文、提交哈希、人物档案、实际调用者、关系/所知及缺口；draft 包含完整 rows、逐改行判断、七维和本专项判断。task 门禁要求当前生产导出检查、真实基线检查和源指纹，原事件式写作门禁继续适用于新增内容。
+
+多场景审查可用 `task.py narrative --id <ID> --batch <JSON>` 一次挂接，JSON 为含 context/draft/review 路径的数组。先完整核验文件与去重，再聚合审查一次；finish 的全文覆盖、指纹、语义编辑及生产者检查保持。单场三个参数的用法保持兼容。

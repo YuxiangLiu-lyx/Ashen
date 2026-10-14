@@ -1,0 +1,1282 @@
+{
+  "status": "budget_limited",
+  "task": "全部当前主线支线对白专项扫描与场景修订：否定祈使句别/不要/不必/无需/不用，更新Narrative Harness；金色任务标记参考灰问号；顶部居中适中血条参考艾诺迪亚4；任务物品仅接取后掉落；取消右上角地图连接文字",
+  "basis_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+  "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+  "modules": [
+    "harness",
+    "game_settings",
+    "gear"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "narrative_context",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "4. 读 [对白规范](DIALOGUE_STYLE.md) 与 [纯风格样本](DIALOGUE_STYLE_SAMPLES.md)。写清本场信息、每个人的行为目的、结果、因果与情绪依据、游戏动作和对话框交接，再生成文字。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "7. 记录完整 context、候选/已实施 draft、review，挂入 task.py；修改行数时另做 pending、staging 和存档专项。finish 检查叙事记录与来源新鲜度。仅工具维护且未改运行/章稿的任务不伪造对白审查。",
+          "truncated": false
+        },
+        {
+          "line": 22,
+          "text": "2. 实现前在本章稿记录版本、目标、进入/结束状态、逐场剧情、角色与玩家各自知道什么、地图/任务/演出交接、揭露上限及验收。缺稿就先补稿；不能边写代码边临时决定主线。使用 [章节模板](#章节模板)。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "游戏适配同样必要：长对白可以分页，不可破坏 pending 行号、演出动作、说话者与一次性提交。新增行数须检查存档迁移与实际对话框；不要因为技术上的旧行数方便，就删掉必要解释。此次 Harness 升级不自动改动任何现有对白。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "分类：`STYLE_ONLY`。来源：用户2026-10-14需求，原文见 [USER_REQUEST](../narrative-harness/USER_REQUEST.txt)。下列全部场景、物品、时间线、人物经历及关系进展均是假设；禁止作为任何正史、事件、知识或伏笔记录的证据。即使模型复用了说话方式，也必须重新根据当前正式档案确定行为。",
+          "truncated": false
+        },
+        {
+          "line": 89,
+          "text": "薇蕾娜可以成熟、自信、亲昵、爱开玩笑，但不需要把所有对白写成暧昧台词。",
+          "truncated": false
+        },
+        {
+          "line": 103,
+          "text": "不要复制固定句式、对白结构、事件顺序或具体玩笑。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/WORKFLOW.md",
+      "reasons": [
+        "harness: current constraints"
+      ],
+      "priority": 134,
+      "category": "current_rules",
+      "sha256": "552171ec8159b3dbe2433072fb65bbdbc8e995a068e0c4b530b66150429f62d7",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --state in_progress --next \"修复后执行专项\"",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "python3 tools/harness/task.py run --id <ID> --label core --timeout 600 -- python3 tools/harness/check.py --tier core",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "python3 tools/harness/task.py checkpoint --id <ID> --stage implementation --state complete --done \"实现和专项已保存\" --remaining \"集成与GitHub保存\" --decision \"保留原存档结构\" --next \"集成验收\"",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "章节与剧情开发增加一个前置阶段：按 [NARRATIVE_WORKFLOW](NARRATIVE_WORKFLOW.md) 读取本章稿并记录采用版本，再实现。分卷分章登记在 [NARRATIVE_ARCHITECTURE](NARRATIVE_ARCHITECTURE.md)；[WORLD_VISION](WORLD_VISION.md) 是按需参考，未完善处不会自动阻塞本章。第一章与第二章需分别查询并读取，router 的一次混合任务最多选择三个模块，未命中的模块不会进入 deferred。低预算得到的摘录也不能代替整份章节稿。完整记录不等于全章改写授权；当前第一章按0.5修订执行：保留人物/地图优化；圣女默认立绘柔和，幕后只保留接委托后的薇蕾娜/鲁恩私下对话，删除新增匿名神秘人；0.3分镜要求已经撤销。",
+          "truncated": false
+        },
+        {
+          "line": 18,
+          "text": "python3 tools/harness/index.py --check",
+          "truncated": false
+        },
+        {
+          "line": 19,
+          "text": "python3 tools/harness/baseline.py --output qa-export/baseline-task-001",
+          "truncated": false
+        },
+        {
+          "line": 20,
+          "text": "python3 tools/harness/context.py --task \"修改暗影流血连招\"",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "python3 tools/harness/context.py --task \"调整第五章任务奖励\" --max-files 8",
+          "truncated": false
+        },
+        {
+          "line": 22,
+          "text": "python3 tools/harness/task.py list",
+          "truncated": false
+        },
+        {
+          "line": 23,
+          "text": "python3 tools/harness/task.py start --id shadow-combo-001 --goal \"修改暗影流血连招\" --accept \"保留Boss防御、旧档和无资源施法拒绝\" --require core",
+          "truncated": false
+        },
+        {
+          "line": 24,
+          "text": "python3 tools/harness/task.py update --id shadow-combo-001 --decision \"只修改用户授权的技能行为\" --next \"",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 5834
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+      "reasons": [
+        "game_settings: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "a0b089ae6659ad6a3b0c23f16521020df561fb02fa7f1fe6d93ddf6e827bc9a1",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "旧廊与蓄能廊增加侧阶，蓄能廊与练武庭增加旧升降井台阶，封存库与旧廊增加检修便道；河畔营地通磨坊小径，废窑通北渠检修道。通路由门闩/检修/伤势等自然理由说明，不能绕过主线入城与水渠追缉官。楼层名、门标签、路线和接取对白一致。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2280
+    },
+    {
+      "path": "docs/harness/GAME_SETTINGS.md",
+      "reasons": [
+        "game_settings: task matched 任务标记; maintained entry",
+        "game_settings: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_code",
+      "sha256": "703eeb611159e92ad41e640cd011e6e1e4e55a76d4a663a39d5d6bdb545eeb74",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "2026-10-13用户明确约定。本文件是地图、任务与引导开发的通用契约；新需求明确修改时更新版本与回归。第一章0.9为本轮实施范围，其他章节的作者剧情、布局与经济不因本文件自动重构。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "- NPC标记与对话选项共用语义：金色感叹号=可接取；灰色问号=已接但未完成；金色问号=现在可以交付，或主线已指向此人的可推进交接。找薇蕾娜时应是金问号。优先级为可交付/剧情交接、待接取、未完成；不允许金问号点开没有可执行的交接。物件不显示假任务标记，任务专用交互仅接取后开放。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "- 地图可由多块可移动空间与走廊组成，并保留开阔图。用不同楼层、横向通道和回路丰富区域联系。地图目的地用文字方位、符合场景的门/台阶/路牌图片说明，不画指路几何装饰。",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "- 一个任务可分别要求多种怪物/材料，分布于不同地图或层。普通讨伐每类约7—10个，唯一精英单独记录；进度分项显示并指向尚缺目标。只有接取后的有效击杀/采集计入，刷新不清除进度，重复死亡事件不得重复计数/领奖。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "- 普通常驻遭遇在每次真正进入地图时恢复该图配置的小怪和精英（有精英的图最多一只该精英），不受接取、完成或交付状态影响，不要求离场等计时。安全区仍安全，数量受地图固定遭遇上限约束。读取存档、ensureMap、同图重定位不算重入；剧情一次性人物和临时召唤体独立于常驻刷怪池，不能复活已结束的剧情。其他章节改造时也遵循此规则，并单独验收剧情边界。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "- 掉落概率属于内部配置和开发证据，任务说明、对白、手记、提示不向玩家显示数字爆",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 2729
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "game_settings: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "5bf6b3bad81353a133db9b666a842e934b5e22e714ca4ca6a294acff2fd14fa5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用地图布局、碰撞、路径、NPC岗位、场景渲染和人物资源修改，包括小改动。读取受影响地图及其调用者；保留改前证据。三项均须单独完成，任何失败或未知均不能用其他项抵消。自动脚本只检查几何事实和证据完整性，不声称能自动判断审美。",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "2. **场景可信度 scene_credibility**：实际游戏分辨率全图及局部对照，说明地理、道路/建筑用途、物件为什么在此、主次与留白、NPC岗位/停顿/活动依据。禁止随机堆物作为主要布局逻辑；每种地图保留自己的结构节奏。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "`python3 tools/harness/map_quality.py --base <任务基线>` 验证当前源码、改动覆盖和证据哈希；task.py finish 对真实地图/美术改动自动调用该校验，即使未手动声明必需检查也不能绕过。check.py --recommend 自动推荐三维检查。代码、资源或证据改变后需重新检查相关维度并更新记录。历史回执不覆盖，LATEST只是当前证据索引。",
+          "truncated": false
+        },
+        {
+          "line": 20,
+          "text": "当前0.7由用户进一步授权全面整理第一章17图，见CHAPTER_01_MAP_QUESTS.md。移除旧训练/巡检/通风点击步骤；0.6踏板等仅属旧任务历史，当前使用真实怪物击杀、掉落和采集验收。其他章节保持。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3000
+    },
+    {
+      "path": "docs/harness/SAVE.md",
+      "reasons": [
+        "game_settings: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "0d71bae8cdf64679673f5e8f883ae1128a49894db9366da9860648ba9103dbfa",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 存档兼容",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1276
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "gear: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "8e911de953956d179294b06bf331c01cf35a3f04cc8801f7bbfc8ade4a7799a4",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "V28 调整生成与旧档敌人生命比例、伤害倍率、经验/金币和独立1%额外掉落。实际 tier 使用玩家等级与敌人等级的最大值，三个等级一区间，19–22为第七层，23起第八层；不按章节。已有高等级玩家回旧图会进入高层池，这是既有边界，未经授权不得修掉或描述成章节限定。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2070
+    },
+    {
+      "path": "docs/harness/ECONOMY.md",
+      "reasons": [
+        "gear: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c7d5554ea345b77389e0a756f67673c7c34e04a5d62ce3991e8c289425e843fa",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "V28 1%是在原 loot 方法后追加的独立抽样，不取代普通掉落。storyTag/trialFloor/v11Add排除；bag/gear/pendingRewards 的同 ID 排重；每敌人只 roll 一次。tier=max(玩家等级,敌人等级)；生成时 v28Tier 可能与击杀时重新计算的掉落池不同。池只含重新计算层和前层，但不保证按章节封顶。满包普通 gear 会折10金，专属 ID 的处理须看 obtainGear 的真实判断。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1667
+    },
+    {
+      "path": "tools/harness/context.py",
+      "reasons": [
+        "harness: task matched Harness, harness; maintained entry"
+      ],
+      "priority": 114,
+      "category": "current_code",
+      "sha256": "c510ba32bce60037e8af0f0fa5e6e9e32a4dca8bbcf603c216cded4969453002",
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "                'action': 'python3 tools/harness/index.py; review semantic entries for moved/new modules'}",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "    if packet is not None and not re.search('地图|美术|立绘|碰撞|演出|动作|寻路',task):",
+          "truncated": false
+        },
+        {
+          "line": 103,
+          "text": "        tests = sorted(set(tests + ['python3 tools/harness/check.py --tier narrative']))",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 8093
+    },
+    {
+      "path": "tools/harness/index.py",
+      "reasons": [
+        "harness: task matched Harness, harness; maintained entry"
+      ],
+      "priority": 113,
+      "category": "current_code",
+      "sha256": "5661762fbb97bf2aa794c1ae961419163e669e985698fbc5900abab246514c05",
+      "excerpts": [
+        {
+          "line": 102,
+          "text": "            print('Missing index: run python3 tools/harness/index.py', file=sys.stderr)",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 5406
+    },
+    {
+      "path": "tools/harness/task.py",
+      "reasons": [
+        "harness: task matched Harness, harness; maintained entry"
+      ],
+      "priority": 112,
+      "category": "current_code",
+      "sha256": "2caa200cfa080347d8c9882cd1992bf4f09318770558a6f27463a04ed460668d",
+      "excerpts": [
+        {
+          "line": 108,
+          "text": "    folder = root / 'docs/harness/evidence' / record['id']",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15765
+    },
+    {
+      "path": "tools/harness/check.py",
+      "reasons": [
+        "harness: task matched Harness, harness; maintained entry"
+      ],
+      "priority": 111,
+      "category": "current_code",
+      "sha256": "f9bfc618530be002f53995fa14743b2fa0e01726baa9da4665b50ec0122ca178",
+      "excerpts": [
+        {
+          "line": 65,
+          "text": "    tests.add('python3 tools/harness/check.py --tier fast')",
+          "truncated": false
+        },
+        {
+          "line": 67,
+          "text": "        tests.add('python3 tools/harness/check.py --tier narrative')",
+          "truncated": false
+        },
+        {
+          "line": 68,
+          "text": "    if any(p.startswith('dist/rpg-experience-') or p == 'tools/harness/experience.py' for p in paths):",
+          "truncated": false
+        },
+        {
+          "line": 69,
+          "text": "        tests.add('python3 -m unittest discover -s tests/harness -p test_experience.py -v')",
+          "truncated": false
+        },
+        {
+          "line": 73,
+          "text": "        tests.add('python3 tools/harness/map_quality.py')",
+          "truncated": false
+        },
+        {
+          "line": 76,
+          "text": "        tests.add('python3 tools/harness/check.py --tier integration')",
+          "truncated": false
+        },
+        {
+          "line": 83,
+          "text": "    return path.startswith('docs/harness/') and any(word in path for word in ['NARRATIVE', 'DIALOGUE', 'CHAPTER', 'WORLD_VISION', 'STORY'])",
+          "truncated": false
+        },
+        {
+          "line": 101,
+          "text": "    commands = [[sys.executable, '-m', 'unittest', 'discover', '-s', 'tests/harness', '-v']]",
+          "truncated": false
+        },
+        {
+          "line": 104,
+          "text": "    commands.insert(0, [sys.executable, 'tools/harness/narrative.py', 'audit'] +",
+          "truncated": false
+        },
+        {
+          "line": 108,
+          "text": "        commands += [[sys.executable, 'tools/harness/runtime_audit.py'],",
+          "truncated": false
+        },
+        {
+          "line": 114,
+          "text": "        commands += [[sys.executable, 'tools/harness/chapter_quality.py'], [sys.executable, 'tools/restore_archives.py', '--all', '--verify-only'],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7607
+    },
+    {
+      "path": "source/harness/modules.json",
+      "reasons": [
+        "harness: task matched Harness, harness; maintained entry"
+      ],
+      "priority": 110,
+      "category": "current_code",
+      "sha256": "97dddf16c985c2ae460a0d34d7aec683bf64da5ea0fb3bfc2f07db39266c96f4",
+      "excerpts": [
+        {
+          "line": 16,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "        \"tools/harness/experience.py\",",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "        \"tools/harness/experience.py\",",
+          "truncated": false
+        },
+        {
+          "line": 23,
+          "text": "        \"tests/harness/test_experience.py\"",
+          "truncated": false
+        },
+        {
+          "line": 26,
+          "text": "        \"docs/harness/RPG_DESIGN.md\"",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "        \"python3 -m unittest discover -s tests/harness -p test_experience.py -v\"",
+          "truncated": false
+        },
+        {
+          "line": 48,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 49,
+          "text": "        \"docs/harness/COMBAT.md\"",
+          "truncated": false
+        },
+        {
+          "line": 70,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 71,
+          "text": "        \"docs/harness/MAP_QUALITY.md\",",
+          "truncated": false
+        },
+        {
+          "line": 72,
+          "text": "        \"docs/harness/WORLD.md\"",
+          "truncated": false
+        },
+        {
+          "line": 75,
+          "text": "        \"python3 tools/harness/map_quality.py\"",
+          "truncated": false
+        },
+        {
+          "line": 93,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 94,
+          "text": "        \"docs/harness/ECONOMY.md\"",
+          "truncated": false
+        },
+        {
+          "line": 114,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 115,
+          "text": "        \"docs/harness/ECONOMY.md\",",
+          "truncated": false
+        },
+        {
+          "line": 116,
+          "text": "        \"docs/harness/SAVE.md\"",
+          "truncated": false
+        },
+        {
+          "line": 136,
+          "text": "        \"docs/harness/RPG_DESIGN.md\",",
+          "truncated": false
+        },
+        {
+          "line": 137,
+          "text": "        \"docs/harness/NARRATIVE_WORKFLOW.md\"",
+          "truncated": false
+        },
+        {
+          "line": 154,
+          "text": "        \"任务标记\",",
+          "truncated": false
+        },
+        {
+          "line": 162,
+          "text": "        \"docs/harness/GAME_SETTINGS.md\",",
+          "truncated": false
+        },
+        {
+          "line": 173,
+          "text": "        \"docs/harness/GAME_SETTINGS.md\",",
+          "truncated": false
+        },
+        {
+          "line": 174,
+          "text": "        \"docs/harness/CHAPTER_01_LAYER_RULES.md\",",
+          "truncated": false
+        },
+        {
+          "line": 175,
+          "text": "        \"docs/harness/SAVE.md\",",
+          "truncated": false
+        },
+        {
+          "line": 176,
+          "text": "        \"docs/harness/MAP_QUALITY.md\"",
+          "truncated": false
+        },
+        {
+          "line": 180,
+          "text": "        \"python3 tools/harness/check.py --tier fast\"",
+          "truncated": false
+        },
+        {
+          "line": 191,
+          "text": "        \"精英掉落\",",
+          "truncated": false
+        },
+        {
+          "line": 200,
+          "text": "        \"第一章地图\",",
+          "truncated": false
+        },
+        {
+          "line": 201,
+          "text": "        \"概率掉落\",",
+          "truncated": false
+        },
+        {
+          "line": 204,
+          "text": "        \"地图任务优化\",",
+          "truncated": false
+        },
+        {
+          "line": 220,
+          "text": "        \"docs/harness/CHAPTER_01_LAYER_RULES.md\",",
+          "truncated": false
+        },
+        {
+          "line": 221,
+          "text": "        \"docs/harness/CHAPTER_01_STORY_WORLD.md\",",
+          "truncated": false
+        },
+        {
+          "line": 222,
+          "text": "        \"docs/harness/CHAPTER_01_MAP_QUESTS.md\",",
+          "truncated": false
+        },
+        {
+          "line": 223,
+          "text": "        \"docs/harness/CHAPTER_01_EXPANSION.md\",",
+          "truncated": false
+        },
+        {
+          "line": 249,
+          "text": "        \"docs/harness/CHAPTER_01.md\",",
+          "truncated": false
+        },
+        {
+          "line": 250,
+          "text": "        \"docs/harness/CHAPTER_01_EXPANSION.md\",",
+          "truncated": false
+        },
+        {
+          "line": 251,
+          "text": "        \"docs/harness/SAVE.md\",",
+          "truncated": false
+        },
+        {
+          "line": 252,
+          "text": "        \"docs/harness/MAP_QUALITY.md\",",
+          "truncated": false
+        },
+        {
+          "line": 253,
+          "text": "        \"docs/harness/CHAPTER_01_MAP_QUESTS.md\",",
+          "truncated": false
+        },
+        {
+          "line": 254,
+          "text": "        \"docs/harness/CHAPTER_01_STORY_WORLD.md\",",
+          "truncated": false
+        },
+        {
+          "line": 255,
+          "text": "        \"docs/harness/CHAPTER_01_LAYER_RULES.md\",",
+          "truncated": false
+        },
+        {
+          "line": 256,
+          "text": "        \"docs/harness/GAME_SETTINGS.md\"",
+          "truncated": false
+        },
+        {
+          "line": 294,
+          "text": "        \"docs/harness/SAVE.md\",",
+          "truncated": false
+        },
+        {
+          "line": 295,
+          "text": "        \"docs/harness/COMBAT.md\"",
+          "truncated": false
+        },
+        {
+          "line": 301,
+          "text": "      \"risk\": \"测试会话与正式档隔离；跳过走真实状态机，保留剧情",
+          "truncated": true
+        },
+        {
+          "line": 327,
+          "text": "  ",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 31694
+    },
+    {
+      "path": "dist/game-settings-v31.js",
+      "reasons": [
+        "game_settings: task matched 任务标记; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "a5954010914fa95b3ca7538266f50ff1f878bf35f70301be148fb4805fd02564",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Persistent design contract: docs/harness/GAME_SETTINGS.md.",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1243
+    },
+    {
+      "path": "dist/equipment-v14.js",
+      "reasons": [
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "ccec9087de19832d2a4f9ecfe24fb766d94260da500c330736745f6a56311097",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {QUALITIES,gearQuality} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {createHellRouteGearV15} from './hell-route-gear-v15.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function gearBudgetV17(cls,lv,slot,rarity){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " const power=QUALITIES[rarity]?.power||1,primary={shadow:'dex',oath:'str',ember:'wis',saint:'wis'}[cls]||'vit',late=Math.max(0,Math.min(32,lv)-6);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " return {gearGrowthVersion:17,attrs:power>1?{[primary]:Math.ceil((power-1)*(1+Math.max(0,Math.min(32,lv)-5)*.25)),...(power>=4?{vit:Math.ceil((power-2)*(1+Math.max(0,Math.min(32,lv)-5)*.12))}:{})}:{},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  atk:slot==='weapon'||slot==='offhand'?lv+power*2+Math.ceil(late*(power-1)*.33):slot==='hands'||slot==='relic'?power+Math.ceil(late*(power-1)*.1):0,",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  hp:(slot==='chest'?12+power*9:slot==='head'?power*6:slot==='feet'||slot==='relic'?power*4:0)+(late>0&&['chest','head','feet','relic'].includes(slot)?Math.ceil(late*power*(slot==='chest'?.8:.3)):0)};",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7162
+    },
+    {
+      "path": "dist/quest-service-v14.js",
+      "reasons": [
+        "game_settings: task matched 任务标记; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "833f0821212d3f879f290a708df613b9efae3709629d7eedf64f62a195c5deb6",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {questMarkerForOptions} from './game-settings-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {MAPS,QUESTS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {FAREWELL_IDS} from './mechanisms-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7022
+    },
+    {
+      "path": "dist/chapter-one-objectives.js",
+      "reasons": [
+        "game_settings: task matched 任务标记; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "95c04c4db764b1c738d64cd04bbbd17bafed1452c6980b04f98f91fdbae3cd49",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {C1_STORY_ACCEPT,C1_PEOPLE} from './chapter-one-story-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// Authored quest objectives; presentation, credit and completion read this table.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const C1_OBJECTIVES={",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " rats:{kind:'kill',map:'warehouse',count:8,types:['rat'],name:'库房灰鼠',inspect:'crack'},",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " c1Readiness:{kind:'kill',map:'c1TrainingYard',count:8,prefix:'c1-moss-',name:'苔壳爬兽'},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " c1ExitDrill:{kind:'kill',map:'c1DrillGallery',count:8,prefix:'c1-sentry-',cause:'c1-trial-warden',name:'旧廊哨兵'},",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " v12CourierRoad:{kind:'kill',map:'road',count:8,types:['wolf','rat'],name:'袭路野兽'},",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " c1CanalPrep:{kind:'kill',map:'c1NorthWalk',count:8,types:['rat'],name:'啃木渠鼠'},",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6861
+    },
+    {
+      "path": "dist/enchantments-v14.js",
+      "reasons": [
+        "gear: task matched 掉落; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8c03b6ff9a113b78f426d78808f63d61aedfe73b031456ab4672d13d6247217f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {ENCHANT_DEFS as DEFS,ENCHANT_RULES as RULES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export {DEFS as ENCHANT_DEFS,RULES as ENCHANT_RULES};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const rows=p=>Object.values(p.gear||{}).filter(Boolean).map(i=>({i,e:i.enchantment,d:DEFS[i.enchantment?.defId]})).filter(r=>r.d&&r.d.slots.includes(r.i.slot));",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function enchantStat(p,key){return rows(p).reduce((n,{e,d})=>n+(d.kind==='stat'&&d.stat===key?e.value:0),0);}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export function enchantDescription(e){const d=DEFS[e?.defId];return d?`${RULES.qualityNames[e.quality]} · ${d.name}：${d.display.replaceAll('{value}',e.value).replaceAll('{decimal}',(e.value/10).toFixed(1))}`:'尚无刻印';}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function skillEnchantRows(p,k){const m=new Map();for(const r of rows(p)){if(r.d.kind!=='skill'||!r.d.skills.includes(k))continue;const key=r.d.stackGroup||r.d.id;if(!m.has(key)||m.get(key).e.value<r.e.value)m.set(key,r);}return [...m.values()];}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function modifySkill(p,k,s,{range,radius,hpCap,maxHP}={}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " if(!s)return s;s={...s};let mult=1,healMult=1,shieldMult=1;const desc=[];const baseCd=s.cd;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4457
+    }
+  ],
+  "excerpt_bytes": 14786,
+  "max_files": 20,
+  "budget_bytes": 24000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [],
+      "scene": null,
+      "actors": [],
+      "stage_candidates": [
+        {
+          "event": "R01:intro",
+          "scene": "intro",
+          "summary": "会馆日常与库房请求"
+        },
+        {
+          "event": "R01:ratDone",
+          "scene": "ratDone",
+          "summary": "回报库房后进入委托阶段"
+        },
+        {
+          "event": "R01:aside",
+          "scene": "aside",
+          "summary": "会馆核对午钟、通行纸与带人安排；诺恩不在此切镜中"
+        },
+        {
+          "event": "R01:contract",
+          "scene": "contract",
+          "summary": "保留目标、圣徽说法、封术印与封套；诺恩追问两场试炼的目的，薇蕾娜担心他带人撤离时忽略自身安全。熟人之间靠近和木屑的玩笑，接到练完留饭、出发前再见的约定；约饭是计划，未断言已经吃饭或完成试炼。"
+        },
+        {
+          "event": "R01:c1HiddenPairArrangement",
+          "scene": "c1HiddenPairArrangement",
+          "summary": "诺恩真实离开会馆后，鲁恩走到薇蕾娜身边；两人在会馆私谈，玩家看见，主角均未听到。"
+        },
+        {
+          "event": "R01:saintBrief",
+          "scene": "saintBrief",
+          "summary": "清晨礼拜厅；诺恩不在切镜中"
+        },
+        {
+          "event": "R01:watch",
+          "scene": "watch",
+          "summary": "通行纸通过门卫核验"
+        },
+        {
+          "event": "R01:assassination",
+          "scene": "assassination",
+          "summary": "原十八行刺杀、封术、挟持"
+        },
+        {
+          "event": "R01:canalStart",
+          "scene": "canalStart",
+          "summary": "圣女要求救人与活捉，追缉官挡路"
+        },
+        {
+          "event": "R01:chapterEnd",
+          "scene": "chapterEnd",
+          "summary": "以百姓为威胁换取受迫同行，承诺事毕放人"
+        },
+        {
+          "event": "R01:c1:localTalk:c1iden",
+          "scene": "c1:localTalk:c1iden",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        },
+        {
+          "event": "R01:c1:localTalk:c1hesha",
+          "scene": "c1:localTalk:c1hesha",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        }
+      ],
+      "needs": [
+        "明确单一章节",
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {},
+    "knowledge": {},
+    "facts": {},
+    "seeds": [],
+    "conflicts": [
+      {
+        "id": "DIFF-C2-EXILE",
+        "kind": "implementation_gap",
+        "status": "OPEN",
+        "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+        "sources": [
+          "runtime-knowledge",
+          "scene:darkExileV9",
+          "author-pair",
+          "c2-difference"
+        ],
+        "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+      },
+      {
+        "id": "DIFF-C2-VILERENA-DOOR",
+        "kind": "outdated_plan_detail",
+        "status": "OPEN",
+        "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ],
+        "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+      },
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "CONFIRMED",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+        "resolved": true
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "provenance": {
+      "author-pair": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+        "kind": "user_confirmed"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "c2-difference": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "exile-was-unplanned",
+        "kind": "adopted_plan"
+      },
+      "c2-plan": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "runtime-knowledge": {
+        "path": "dist/core-v14.js",
+        "anchor": "if(sceneId==='darkExileV9')",
+        "kind": "runtime"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkExileV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkExileV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      }
+    }
+  },
+  "narrative_bytes": 5356,
+  "total_context_bytes": 20142,
+  "deferred": [
+    "dist/chapter-one-expansion-combat.js",
+    "dist/combat-overhaul-v28.js",
+    "dist/growth-v14.js",
+    "dist/systems-runtime-v14.js",
+    "dist/chapter-one-expansion-gear.js",
+    "dist/chapter-one-expansion-data.js",
+    "dist/save-protection-v23.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/chapter-one-layer-rules.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "过期检测必须失败；检查结果来自子进程退出码和带哈希日志。",
+    "语义标记必须对应现在可执行的选项；常驻刷新与任务证据分离；读档和同图移动不得刷新，剧情一次性事件不得重演。",
+    "V28 分层由玩家/敌人等级最大值决定，不能假设按章节；刻印 proc 不递归。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 228
+    },
+    {
+      "name": "installChapter4",
+      "line": 229
+    },
+    {
+      "name": "installPacing",
+      "line": 231
+    },
+    {
+      "name": "installQuestService",
+      "line": 232
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 237
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 239
+    },
+    {
+      "name": "installChapter5",
+      "line": 240
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 241
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 242
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 243
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 245
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 246
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 247
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 248
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 249
+    },
+    {
+      "name": "installCityV18",
+      "line": 250
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 252
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 253
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 255
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 258
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 259
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 260
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 261
+    },
+    {
+      "name": "installSagaV25",
+      "line": 266
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 270
+    },
+    {
+      "name": "installSagaV26",
+      "line": 273
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 280
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 282
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 284
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 286
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 287
+    },
+    {
+      "name": "installChapterOneExpansion",
+      "line": 289
+    },
+    {
+      "name": "installGameSettings",
+      "line": 290
+    },
+    {
+      "name": "installChapterTwoExperience",
+      "line": 292
+    },
+    {
+      "name": "installChapterThreeCaves",
+      "line": 294
+    },
+    {
+      "name": "installChapterThreeExperience",
+      "line": 295
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

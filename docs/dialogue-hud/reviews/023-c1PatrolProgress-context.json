@@ -1,0 +1,130 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1PatrolProgress",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "5e0bd7f1401b47ccf781c3c249d7376c735373fc0eb14e733ce6076a4630a91a",
+  "before": [
+    [
+      "罗萨",
+      "先把这趟运料路线照看完。清够八只挡路野兽就回来，别为了追一只跑到别的山头去。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "rosa",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/rosa.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "罗萨关心运料队何时能走，明确沿路八只与回报；仍不扩展成跨山追猎。",
+    "relationship": {
+      "participants": [
+        "罗萨"
+      ],
+      "judgment": "罗萨关心运料队何时能走，明确沿路八只与回报；仍不扩展成跨山追猎。",
+      "profiles": [
+        {
+          "id": "rosa",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/rosa.json",
+          "coverage": "partial"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "5e0bd7f1401b47ccf781c3c249d7376c735373fc0eb14e733ce6076a4630a91a",
+      "registered_event": {
+        "id": "R01:c1PatrolProgress",
+        "scene": "c1PatrolProgress",
+        "order": 36,
+        "summary": "罗萨：先把这趟运料路线照看完。清够八只挡路野兽就回来，别为了追一只跑到别的山头去。",
+        "participants": [
+          "rosa"
+        ],
+        "sources": [
+          "flow:c1PatrolProgress",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "rosa",
+            "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "罗萨关心运料队何时能走，明确沿路八只与回报；仍不扩展成跨山追猎。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1PatrolProgress",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1PatrolProgress",
+        "scene": "c1PatrolProgress",
+        "order": 36,
+        "summary": "罗萨：先把这趟运料路线照看完。清够八只挡路野兽就回来，别为了追一只跑到别的山头去。",
+        "participants": [
+          "rosa"
+        ],
+        "sources": [
+          "flow:c1PatrolProgress",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "rosa",
+            "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "kind": "copyedit_context",
+  "scene": "inline:ch3:rest",
+  "chapter": "R03",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": false,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "aacfd3a7fa95babf53d719293227faeb76922ed716beaa242b39bd764a1928f0",
+  "before": [
+    [
+      "莫里斯",
+      "先歇一会儿。黑灰已经封住，他的伤暂时不会再恶化。你自己也该用药了，别硬撑着。"
+    ]
+  ],
+  "producer": "production:ch3:rest",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "morris",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/morris.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "寻药阶段医生已封住黑灰，诺恩仍未醒；关心圣女改为检查与处理她的伤，原恢复效果不变。",
+    "relationship": {
+      "participants": [
+        "莫里斯"
+      ],
+      "judgment": "寻药阶段医生已封住黑灰，诺恩仍未醒；关心圣女改为检查与处理她的伤，原恢复效果不变。",
+      "profiles": [
+        {
+          "id": "morris",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/morris.json",
+          "coverage": "partial"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "aacfd3a7fa95babf53d719293227faeb76922ed716beaa242b39bd764a1928f0",
+      "registered_event": null,
+      "chapter_coverage": "dynamic_provider_only"
+    },
+    "retained_outcome": "寻药阶段医生已封住黑灰，诺恩仍未醒；关心圣女改为检查与处理她的伤，原恢复效果不变。",
+    "caller": {
+      "provider": "production:ch3:rest",
+      "key": "inline:ch3:rest",
+      "producer_fixture": {
+        "source": "production:ch3:rest",
+        "action": "ch3:rest",
+        "map": "hellCamp",
+        "cls": "saint",
+        "flags": {},
+        "stage": "medicine"
+      },
+      "event": null
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

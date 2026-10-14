@@ -1,0 +1,188 @@
+dist/city-runtime-v18.js:68: if(key==='bread'){g.addItem('hpLarge',1);g.addItem('mpLarge',1);}
+dist/city-runtime-v18.js:69: if(key==='chime')g.addItem('ch5LampCore',2);
+dist/city-runtime-v18.js:70: if(key==='mint')g.addItem('hpLarge',2);
+dist/city-runtime-v18.js:71: const random=[['mpLarge',1],['ch5GoldSand',2],['ch5LampCore',1]][q.roll];g.addItem(...random);
+dist/discovery-runtime-v19.js:24: if(id==='market')base.items.hpLarge=2;
+dist/discovery-runtime-v19.js:26: if(id==='basket'){base.items.hpLarge=1;base.items.mpLarge=1;}
+dist/discovery-runtime-v19.js:28: const add=(k,n)=>base.items[k]=(base.items[k]||0)+n;
+dist/discovery-runtime-v19.js:63: if(p.gear&&g.p.bag.length>=60||Object.entries(p.items).some(([k,n])=>(g.p.items[k]||0)+n>100000)||g.p.gold+p.gold>10000000){syncProps(g);g.say('这份东西先替你留在原处。整理好 [... omitted end of long line]
+dist/discovery-runtime-v19.js:66: q.claimed=true;if(p.gear)g.p.bag.push(copy(p.gear));g.p.gold+=p.gold;for(const [k,n]of Object.entries(p.items))g.p.items[k]=(g.p.items[k]||0)+n;
+dist/progression-runtime-v14.js:80:  if(!this.flags.ch5CareerGift){this.flags.ch5CareerGift=true;this.addItem('attributeReset');this.addItem('skillReset');}
+dist/progression-runtime-v14.js:99:  cleanBindings(p,SKILLS);const hp=['hpGrand','hpLarge','hpMedium','hp'].find(id=>p.items[id]>0)||'hp',mp=['mpGrand','mpLarge','mpMedium','mp'].find(id=>p.items [... omitted end of long line]
+dist/chapter-runtime-v14.js:9: items.pumpPole={name:'蓝布包的连杆',desc:'灰石旅店水泵的铁连杆，带回给塞琳。',category:'quest'};
+dist/chapter-runtime-v14.js:18: if(a==='ch2_terms'){if(g.chapter!==6)return true;g.chapter=7;g.quests.relay='done';g.quests.breakout='active';g.gainXP(35);g.addItem('mp');return true;}
+dist/chapter-runtime-v14.js:27: if(a==='pump_take'){if(g.flags.pumpTool)return true;g.flags.pumpTool=true;g.addItem('pumpPole');g.props.find(p=>p.id==='bridge-tools').used=true;return true;}
+dist/chapter-runtime-v14.js:29: if(a==='pump_fixed'){if(!g.flags.pumpTool||g.chapter>=8)return true;g.flags.pumpFixed=true;g.p.items.pumpPole=0;g.quests.pump=g.quests.pump||'active';scene(g,' [... omitted end of long line]
+dist/chapter-runtime-v14.js:49: case 'ch2-cache':p.used=true;g.addItem('mp');g.addItem('hp');break;
+dist/chapter-runtime-v14.js:58:export function takePumpReward(g,choice){if(!['medicine','wrap'].includes(choice)||!g.flags.pumpFixed||g.flags.pumpChoice||g.map!=='inn'||g.chapter>=8)return fa [... omitted end of long line]
+dist/memory-runtime-v14.js:60: P.handleHellDeath=function(e){if(this.memoryV13?.active){if(e.id==='v13MemoryBloodDemon'){this.memoryV13.battleResult={hp:this.p.hp,maxHP:stats(this.p).hp,poti [... omitted end of long line]
+dist/memory-runtime-v14.js:62: P.potion=function(id){if(!this.memoryV13?.active)return old.potion.call(this,id);const kind=id==='hpGrand'?'hp':id==='mpGrand'?'mp':null,p=this.p,key=kind==='h [... omitted end of long line]
+dist/chapter5-runtime-v14.js:22:const pay=(g,cost)=>{for(const [key,n]of Object.entries(cost))if((key==='gold'?g.p.gold:g.p.items[key]||0)<n){g.say('还缺'+(key==='gold'?'金币':ITEMS[key]?.name||ke [... omitted end of long line]
+dist/chapter5-runtime-v14.js:25:const sideReady=(g,id)=>{const q=CH5_QUESTS[id],s=h(g).quests[id];return !!q&&!!s&&!s.claimed&&(s.kills||0)>=(q.kills||0)&&Object.entries(q.required).every(([k, [... omitted end of long line]
+dist/chapter5-runtime-v14.js:48:export function validateChapter5Save(s){if(!s.ch5)return;const a=s.ch5;if(a.schema!==1||!Number.isInteger(a.seed)||a.seed<0||a.seed>4294967295||!a.claims||!a.vi [... omitted end of long line]
+dist/chapter5-runtime-v14.js:74: P.questGoal=function(id){const q=CH5_QUESTS[id];if(!q)return old.questGoal.call(this,id);if(this.quests[id]==='done')return {text:'已完成',map:null,completed:true [... omitted end of long line]
+dist/chapter5-runtime-v14.js:107:  else if(a==='city-seen'){this.flags.ch5CitySeen=true;s.claims.city=true;s.stage='city';this.chapter=27;once(this,'city-welcome',()=>{this.p.gold+=80;this.addI [... omitted end of long line]
+dist/chapter5-runtime-v14.js:113: P.claimChapter5Quest=function(id){const q=CH5_QUESTS[id],s=h(this).quests[id];if(!q||!s||!sideReady(this,id))return false;s.claimed=true;this.quests[id]='done' [... omitted end of long line]
+dist/chapter5-runtime-v14.js:114:  if(id==='ch5ForgeWork'){h(this).claims.freeCraft=true;this.addItem('ch5GoldSand',6);this.addItem('ch5LampCore',3);this.say('格蕾娜免去下一件职业装备的金币工费。材料已经放在行囊里。');} [... omitted end of long line]
+dist/chapter5-runtime-v14.js:115:  if(id==='ch5DewWork'){this.addItem('hpGrand',2);this.addItem('mpGrand',2);this.addItem('ch5LampCore',3);}
+dist/chapter5-runtime-v14.js:116:  if(id==='ch5Names'){const pool=this.chapter5BookPool();if(pool.length)this.addItem(pool[Math.floor(roll(this)*pool.length)]);else this.addItem('ch5LampCore',6 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:121:  if(a==='gather'||a==='water'){if(p.used){this.say('容器还没积满，过一阵再来看看。');return;}p.used=true;const key=a==='water'?'ch5Dew':p.resource;this.addItem(key,a==='water [... omitted end of long line]
+dist/chapter5-runtime-v14.js:122:  if(a==='letter'){if(once(this,'road-letter',()=>this.addItem('ch5LampCore',2)))return talk(this,'ch5RoadLetter');return this.say('信已妥善收好。');}
+dist/chapter5-runtime-v14.js:124:  if(a==='quarry-cache'){if(once(this,'quarry-cache',()=>{this.addItem('counterBrandBook');this.addItem('ch5GoldSand',3);}))return talk(this,'ch5QuarryCache');r [... omitted end of long line]
+dist/chapter5-runtime-v14.js:125:  if(a==='supplies'){once(this,'forge-supplies',()=>{this.addItem('ch5GoldSand',2);this.addItem('ch5LampCore');});return;}
+dist/chapter5-runtime-v14.js:126:  if(a==='font'){once(this,'fountain',()=>{this.addItem('ch5Dew',2);this.gainXP(90);});this.say('泉水映着灯，却没有映出人的脸。');return;}
+dist/chapter5-runtime-v14.js:137: P.handleHellDeath=function(e){if(!is5(this.map))return old.handleHellDeath.call(this,e);if(e.ch5Boss){if(!this.flags.ch5CityUnlocked){this.chapter5Setback();re [... omitted end of long line]
+dist/chapter5-runtime-v14.js:140:   if(id==='ch5Names'&&['ch5Training','ch5Quarry'].includes(this.map)&&(this.p.items.ch5CourierPage||0)<4){v.misses++;if(roll(this)<.35||v.misses>=5){v.misses=0 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:141:  if(roll(this)<(e.elite?1:.42))this.addItem('ch5GoldSand',e.elite?2:1);if(roll(this)<(e.elite?.8:.27))this.addItem('ch5LampCore');this.dropCombatLoot(e);this.s [... omitted end of long line]
+dist/chapter5-runtime-v14.js:151:  if(action==='alchemy'){if(this.map!=='ch5Reservoir')return false;const r=CH5_ALCHEMY.find(v=>v.id===arg);if(!r||!pay(this,r.cost))return false;this.addItem(r. [... omitted end of long line]
+dist/chapter5-runtime-v14.js:158:  if(action==='book-claim'){if(this.map!=='ch5Forge'||!s.bookOffer?.items.includes(arg))return false;s.bookOffer=null;this.addItem(arg);this.saveEvent();open(th [... omitted end of long line]
+dist/chapter5-runtime-v14.js:161:  if(action==='arcade-answer'){const a=s.arcade,n=Number(arg);if(this.map!=='ch5Arcade'||a?.phase!=='guess'||!Number.isInteger(n)||n<0||n>2)return false;a.answe [... omitted end of long line]
+dist/chapter5-runtime-v14.js:162:  if(action==='prize'){if(this.map!=='ch5Arcade')return false;const choices={potions:{cost:2,reward:()=>{this.addItem('hpGrand');this.addItem('mpGrand');}},book [... omitted end of long line]
+dist/chapter-one-expansion-combat.js:20:   if(!h.firstPartGranted){h.firstPartGranted=true;c1State(this).samples[cfg.part]=true;items.push(cfg.part);}
+dist/chapter-one-expansion-combat.js:21:   if(result>=0){const item=c1Item(this.p.cls,cfg.pool[result],'c1-loot-'+e.id+'-'+e.c1Generation);this.c1Deliver(item);items.push(item.id);}
+dist/world-runtime-v29.js:43:  if(g.flags.echoCoreFound||g.quests.echo==='done'||(g.p.items.echoCore||0)>0){g.flags.echoCoreFound=true;if(g.quests.echo==='done'||g.flags.echoCoreFound)g.fla [... omitted end of long line]
+dist/world-runtime-v29.js:88:   this.flags.echoCoreFound=true;p.used=true;this.addItem('echoCore');if(!this.quests.echo)this.quests.echo='active';this.flags.tracked='echo';
+dist/pacing-runtime-v14.js:64:  h.claimed=true;h.status='done';this.quests[id]='done';for(const goal of q.goals)if(goal.questOnly&&goal.item)this.p.items[goal.item]=Math.max(0,(this.p.items[ [... omitted end of long line]
+dist/pacing-runtime-v14.js:65:  for(const f of q.flagsOnClaim||[])this.flags[f]=true;this.p.gold+=q.reward.gold||0;if(q.reward.xp)this.gainXP(q.reward.xp);for(const [item,n]of Object.entries [... omitted end of long line]
+dist/pacing-runtime-v14.js:71:    if(o.kind==='kill')mark(this,q,i);else{h.misses[i]++;if(h.misses[i]>=o.pity||random(this)<o.rate){h.misses[i]=0;this.addItem(o.item);mark(this,q,i);}}
+dist/chapter3-runtime-v14.js:33:const bookKnown=(g,id)=>{const p=g.p;return !!p.skills[ITEMS[id]?.skill]||(g.p.items[id]||0)>0;};
+dist/chapter3-runtime-v14.js:61:function pay(g,cost){for(const [k,v] of Object.entries(cost))if((k==='gold'?g.p.gold:g.p.items[k]||0)<v){g.say('材料不足：'+(k==='gold'?'金币':ITEMS[k]?.name||k));retu [... omitted end of long line]
+dist/chapter3-runtime-v14.js:62:function item(g,id,n=1){if(n>0)g.addItem(id,n);}
+dist/chapter3-runtime-v14.js:78: P.enter=function(id,x,y){if(this.ch3){this.ch3.pulses=[];this.ch3.lantern=null;}const prev=isHell(id)&&!!this.states[id];old.enter.call(this,id,x,y);if(this.ma [... omitted end of long line]
+dist/chapter3-runtime-v14.js:79: P.canDoor=function(d){if(isHell(this.map)){const h=ch(this);if(h.stage==='boss')return '狱卒把锁链甩在出口前，必须先击败它。';if(h.stage==='ambush'||h.stage==='defense')return ' [... omitted end of long line]
+dist/chapter3-runtime-v14.js:88: case 'lampLoan':if(!this.p.items.borrowedLamp)item(this,'borrowedLamp');break;
+dist/chapter3-runtime-v14.js:95: case 'machineReturn':if(this.p.items.copperSpring&&!this.flags.ch3MachineFixed){this.p.items.copperSpring--;this.flags.ch3MachineFixed=true;this.complete('ch3M [... omitted end of long line]
+dist/chapter3-runtime-v14.js:99: case 'ferryReturn':if(this.p.items.wickFrame&&!this.flags.ch3FerryLampFixed){this.p.items.wickFrame--;this.flags.ch3FerryLampFixed=true;this.flags.ch3TombOpen= [... omitted end of long line]
+dist/chapter3-runtime-v14.js:108: P.objective=function(){if(!isHell(this.map))return old.objective.call(this);const h=ch(this);if(['arrival','road'].includes(h.stage))return {text:'沿灰烬渡口东北的岩脊，去 [... omitted end of long line]
+dist/chapter3-runtime-v14.js:109: P.ready=function(id){if(id==='ch3Machine')return this.quests[id]==='active'&&this.p.items.copperSpring>0;if(id==='ch3Ferry')return this.quests[id]==='active'&& [... omitted end of long line]
+dist/chapter3-runtime-v14.js:111: P.npcOptions=function(id){if(!isHell(this.map))return old.npcOptions.call(this,id);const h=ch(this),a=(label,action)=>({label,action});if(id==='doctor')return  [... omitted end of long line]
+dist/chapter3-runtime-v14.js:113: case 'doctorTalk':if(h.stage==='medicine'&&this.p.items.saltMoss&&this.p.items.milkCrystal){this.p.items.saltMoss--;this.p.items.milkCrystal--;h.stage='treatme [... omitted end of long line]
+dist/chapter3-runtime-v14.js:115: case 'returnLamp':if(h.stage==='medicine'&&!this.p.items.milkCrystal){this.say('矿道里的凝晶还没取到，先留着灯。');return;}this.p.items.borrowedLamp=0;this.hellTalk('芮妲','放架子上 [... omitted end of long line]
+dist/chapter4-runtime-v14.js:23:const pay=(g,cost)=>{for(const [k,n]of Object.entries(cost))if((k==='gold'?g.p.gold:g.p.items[k]||0)<n){g.say('还缺'+(k==='gold'?'金币':ITEMS[k]?.name||k)+'。');retu [... omitted end of long line]
+dist/chapter4-runtime-v14.js:64:  else if(a==='smith'){claim(this,'smith',()=>{this.flags.ch4EnchantUnlocked=true;this.addItem('ashGlass',3);this.addItem('soulAsh',2);});open(this,'enchant');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:75:  if(type){const first=!this.flags[bossFlag[type]],r=V11_BOSS_REWARDS[type],win=first?r.first:r.repeat;h.pendingBossAfter={type,first:!h.claims['after:'+type]}; [... omitted end of long line]
+dist/chapter4-runtime-v14.js:80:  if(deepMap&&rand(this)<(e.elite?1:.27))this.addItem('ashGlass',e.elite?2:1);
+dist/chapter4-runtime-v14.js:81:  if(rand(this)<.25)this.addItem(deepMap?'soulAsh':e.type==='hellGuard'?'cinderIron':'soulAsh');
+dist/chapter4-runtime-v14.js:90:  if(p.refresh){if(!p.used){p.used=true;this.addItem(a==='v11-deep-ore'?'ashGlass':'cinderIron',1+Math.floor(rand(this)*2));this.saveEvent();}return;}
+dist/chapter4-runtime-v14.js:92:  if(a==='v11-quarry-winch'){claim(this,key,()=>{this.addItem('hp',2);this.addItem('mp',2);this.gainXP(100);});this.hellTalk('诺恩','绞盘下面压着几瓶药，还没漏，可以带走。');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:93:  else if(a==='v11-sluice-pump'){claim(this,key,()=>{this.addItem('emberLanceBook');this.addItem('cinderIron',3);this.gainXP(90);});this.hellTalk('诺恩','泵壳里藏着一份练 [... omitted end of long line]
+dist/chapter4-runtime-v14.js:94:  else if(a==='v11-cloister-font'){claim(this,key,()=>{this.addItem('skillReset');this.addItem('ashGlass',4);});this.hellTalk('艾莉娅','盆底放着几支封好的药管。那支已经裂了，先别碰。');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:95:  else claim(this,key,()=>{this.addItem('hp',3);this.addItem('mp',2);this.p.gold+=15;});this.saveEvent();};
+dist/chapter4-runtime-v14.js:99:  if(a==='roadReward'){if(!h.roadReward||!['boneBreakBook','emberLanceBook','ashWardBook'].includes(arg))return false;h.roadReward=false;this.addItem(arg);this. [... omitted end of long line]
+dist/chapter4-runtime-v14.js:101:  if(a==='buy'){const row=V11_ECONOMY.shop[Number(arg)];if(!row||!pay(this,{gold:row.price}))return false;this.addItem(row.item,row.bundle);this.saveEvent();ope [... omitted end of long line]
+dist/saga-runtime-v25.js:24:  if(spec.random){if(rng()<.18)r.items.mercenaryBook=(r.items.mercenaryBook||0)+1;else {const id=rng()<.5?'hpGrand':'mpGrand';r.items[id]=(r.items[id]||0)+1;}}
+dist/saga-runtime-v25.js:32:  if(r.ticket)g.grantRecruitTicketV18?.('v25:'+key);g.p.gold+=r.gold;g.p.ap+=r.ap;g.p.sp+=r.sp;for(const[id,n]of Object.entries(r.items))g.addItem(id,n);
+dist/saga-runtime-v25.js:38:  if(effect==='disguise'){s.disguise=true;for(const id of ['v25Bark','v25ReedDye','v25RiverClay'])g.p.items[id]=Math.max(0,(g.p.items[id]||0)-1);}
+dist/saga-runtime-v25.js:43:  if(effect.startsWith('training:')){const id=effect.slice(9);if(!s.training.includes(id)){s.training.push(id);g.addItem('v25SpiritShard',1);}}
+dist/saga-runtime-v25.js:80: P.sagaSpiritInfoV25=function(){const s=state(this),sp=s.spirit,weapon=this.p.gear?.weapon||this.p.gear?.offhand;return {unlocked:sp.unlocked,name:'澄璃',level:sp [... omitted end of long line]
+dist/saga-runtime-v25.js:83: P.sagaSpiritPracticeV25=function(){const s=state(this),sp=s.spirit,key=s.training.find(id=>!sp.practiceClaims.includes(id)),cost=sp.level*160;if(!sp.unlocked|| [... omitted end of long line]
+dist/saga-runtime-v25.js:103:  if(spec.requireClear!==false&&(spec.enemyIds||[]).some(eid=>!t.defeated.includes(eid))){this.say('得先把附近的危险清理掉。');return false;}t.collected.push(id);o.used=tru [... omitted end of long line]
+dist/chapter-one-expansion-ui.js:17:  body=`<p>核心稳定基础，符文只浮动一项。无失败率，无额外随机附魔。工费含胚料。</p><h3>1 · 配方</h3><div class="row">${Object.values(C1_RECIPES).map(r=>button(r.name,'recipe:'+r.id)).join('')}</di [... omitted end of long line]
+dist/chapter-one-expansion-ui.js:24:  title='罗萨的符文柜';body=`<p>首章只售T1。更多核心来自渠鼠符片、废窑蝠群与可重复沿线讨伐；不需要精英材料。</p><p>当前${g.p.gold}金</p><div class="mechanism-choices">${Object.values(C1_RUNES).map(r=>`<arti [... omitted end of long line]
+dist/chapter-one-expansion-ui.js:44: if(verb==='sellRune'){if(C1_RUNES[id]&&g.c1AtService('rosa')&&g.p.items[id]>0){g.p.items[id]--;g.p.gold+=Math.floor(C1_RUNES[id].price/4);g.saveEvent();}return [... omitted end of long line]
+dist/chapter-one-expansion-ui.js:45: if(verb==='exchangePreview'){const selected=[];for(const key of Object.keys(C1_CORES))for(let n=0;n<(g.p.items[key]||0)&&selected.length<3;n++)selected.push(ke [... omitted end of long line]
+dist/chapter-one-expansion-save.js:39: for(const [key,tx]of Object.entries(h.claimLedger))if(!object(tx)||Object.keys(tx).some(k=>!['id','status','xp','gold','items','draw','legacy'].includes(k))||t [... omitted end of long line]
+dist/saga-runtime-v26.js:22: function prepReward(g,c,t){const s=state(g),key=rewardKey(c,t);if(s.rewards[key])return;const rng=seededSagaV25(hashSagaV25('v26|'+key+'|'+g.p.cls+'|'+(g.ch5?. [... omitted end of long line]
+dist/saga-runtime-v26.js:23: function grant(g,c,t){const r=state(g).rewards[rewardKey(c,t)];if(!r||r.claimed)return false;r.claimed=true;g.p.gold+=r.gold;g.p.ap+=r.ap;g.p.sp+=r.sp;for(cons [... omitted end of long line]
+dist/saga-runtime-v26.js:47: P.handleHellDeath=function(e){if(!e.sagaV26)return old.handleHellDeath.call(this,e);e.respawn=9999999;clearEnemyCombatV9(e,this);const a=state(this).active,t=s [... omitted end of long line]
+dist/chapter4-runtime-v14.js:23:const pay=(g,cost)=>{for(const [k,n]of Object.entries(cost))if((k==='gold'?g.p.gold:g.p.items[k]||0)<n){g.say('还缺'+(k==='gold'?'金币':ITEMS[k]?.name||k)+'。');retu [... omitted end of long line]
+dist/chapter4-runtime-v14.js:64:  else if(a==='smith'){claim(this,'smith',()=>{this.flags.ch4EnchantUnlocked=true;this.addItem('ashGlass',3);this.addItem('soulAsh',2);});open(this,'enchant');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:75:  if(type){const first=!this.flags[bossFlag[type]],r=V11_BOSS_REWARDS[type],win=first?r.first:r.repeat;h.pendingBossAfter={type,first:!h.claims['after:'+type]}; [... omitted end of long line]
+dist/chapter4-runtime-v14.js:80:  if(deepMap&&rand(this)<(e.elite?1:.27))this.addItem('ashGlass',e.elite?2:1);
+dist/chapter4-runtime-v14.js:81:  if(rand(this)<.25)this.addItem(deepMap?'soulAsh':e.type==='hellGuard'?'cinderIron':'soulAsh');
+dist/chapter4-runtime-v14.js:90:  if(p.refresh){if(!p.used){p.used=true;this.addItem(a==='v11-deep-ore'?'ashGlass':'cinderIron',1+Math.floor(rand(this)*2));this.saveEvent();}return;}
+dist/chapter4-runtime-v14.js:92:  if(a==='v11-quarry-winch'){claim(this,key,()=>{this.addItem('hp',2);this.addItem('mp',2);this.gainXP(100);});this.hellTalk('诺恩','绞盘下面压着几瓶药，还没漏，可以带走。');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:93:  else if(a==='v11-sluice-pump'){claim(this,key,()=>{this.addItem('emberLanceBook');this.addItem('cinderIron',3);this.gainXP(90);});this.hellTalk('诺恩','泵壳里藏着一份练 [... omitted end of long line]
+dist/chapter4-runtime-v14.js:94:  else if(a==='v11-cloister-font'){claim(this,key,()=>{this.addItem('skillReset');this.addItem('ashGlass',4);});this.hellTalk('艾莉娅','盆底放着几支封好的药管。那支已经裂了，先别碰。');} [... omitted end of long line]
+dist/chapter4-runtime-v14.js:95:  else claim(this,key,()=>{this.addItem('hp',3);this.addItem('mp',2);this.p.gold+=15;});this.saveEvent();};
+dist/chapter4-runtime-v14.js:99:  if(a==='roadReward'){if(!h.roadReward||!['boneBreakBook','emberLanceBook','ashWardBook'].includes(arg))return false;h.roadReward=false;this.addItem(arg);this. [... omitted end of long line]
+dist/chapter4-runtime-v14.js:101:  if(a==='buy'){const row=V11_ECONOMY.shop[Number(arg)];if(!row||!pay(this,{gold:row.price}))return false;this.addItem(row.item,row.bundle);this.saveEvent();ope [... omitted end of long line]
+dist/chapter-runtime-v14.js:9: items.pumpPole={name:'蓝布包的连杆',desc:'灰石旅店水泵的铁连杆，带回给塞琳。',category:'quest'};
+dist/chapter-runtime-v14.js:18: if(a==='ch2_terms'){if(g.chapter!==6)return true;g.chapter=7;g.quests.relay='done';g.quests.breakout='active';g.gainXP(35);g.addItem('mp');return true;}
+dist/chapter-runtime-v14.js:27: if(a==='pump_take'){if(g.flags.pumpTool)return true;g.flags.pumpTool=true;g.addItem('pumpPole');g.props.find(p=>p.id==='bridge-tools').used=true;return true;}
+dist/chapter-runtime-v14.js:29: if(a==='pump_fixed'){if(!g.flags.pumpTool||g.chapter>=8)return true;g.flags.pumpFixed=true;g.p.items.pumpPole=0;g.quests.pump=g.quests.pump||'active';scene(g,' [... omitted end of long line]
+dist/chapter-runtime-v14.js:49: case 'ch2-cache':p.used=true;g.addItem('mp');g.addItem('hp');break;
+dist/chapter-runtime-v14.js:58:export function takePumpReward(g,choice){if(!['medicine','wrap'].includes(choice)||!g.flags.pumpFixed||g.flags.pumpChoice||g.map!=='inn'||g.chapter>=8)return fa [... omitted end of long line]
+dist/systems-runtime-v14.js:46: P.potion=function(id){const v=POTIONS[id],p=this.p;if(!v||p.hp<=0)return false;if(p.cd[potionCDKey(id)]>0){this.say('药水还在冷却。');return false;}if(!(p.items[id]>0 [... omitted end of long line]
+dist/systems-runtime-v14.js:48: P.buyPotion=function(id){const v=POTIONS[id];if(!v||!this.potionStock().includes(id)||this.p.gold<v.cost||this.enemies.some(e=>!e.dead)||!MAPS[this.map].safe)r [... omitted end of long line]
+dist/systems-runtime-v14.js:54: P.dropCombatLoot=function(e){if(e.v13Loot||sceneActive(this)||e.trialFloor||e.storyTag||e.v11Add)return;e.v13Loot=true;const kind=e.isBoss||e.type==='captain'| [... omitted end of long line]
+dist/systems-runtime-v14.js:60: P.apply=function(action){const id=typeof action==='string'?action:action?.id;const result=old.apply.call(this,action);if(['herbsMira','herbsWoman'].includes(id [... omitted end of long line]
+dist/systems-runtime-v14.js:65: P.finishTrialV13=function(e){const t=state(this).trial,n=e.trialFloor,f=TRIAL_FLOORS[n-1];if(!f||t.active!==n)return false;t.active=0;this.bullets=[];this.zone [... omitted end of long line]
+dist/chapter4-ui-v14.js:11: if(kind==='shop')return shell('薇塔的药箱',`<p>金币 <b>${p.gold}</b>　疗伤药 ${p.items.hp||0}　清醒药 ${p.items.mp||0}</p><div class="teaching-grid">${V11_ECONOMY.shop.map((s [... omitted end of long line]
+dist/chapter4-ui-v14.js:14: const price=enchantPrice(g),enough=Object.entries(price).every(([k,n])=>(k==='gold'?p.gold:p.items[k]||0)>=n),cost=Object.entries(price).filter(([,n])=>n).map( [... omitted end of long line]
+dist/chapter4-ui-v14.js:15: return shell('赫伦的刻魂锻台',`<p>每件装备可以留下一道刻印。重新刻印会给出新结果，可采用它，或保留旧刻印；原本的装备属性和独特特性保留。</p><div class="summary"><span>金币 <b>${p.gold}</b></span><span>烬晶砂 <b>${p.items.a [... omitted end of long line]
+dist/chapter3-ui-v14.js:12: if(kind==='forge'){title='芮妲的余温工坊';body=`<p>制作所得放入行囊，不会自动装备。主线的白盐苔与凝晶不作锻造材料。</p><div class="mechanism-choices">${CH3_RECIPES.map(r=>{const id=r.output||r.outpu [... omitted end of long line]
+dist/chapter3-ui-v14.js:18: return `<div class="modal"><section class="panel hell-panel"><header class="panel-head"><h2>${title}</h2><button data-act="resume">返回 ×</button></header><div c [... omitted end of long line]
+dist/chapter-one-expansion-gear.js:30:  const fee=useCoupon&&this.p.items.c1FeeCoupon>0?0:r.fee;
+dist/chapter-one-expansion-gear.js:31:  if(!(this.p.items[r.core]>0)||!(this.p.items[runeId]>0)||this.p.gold<fee)return false;
+dist/chapter-one-expansion-gear.js:34:   this.p.items[r.core]--;this.p.items[runeId]--;this.p.gold-=fee;if(!fee)this.p.items.c1FeeCoupon--;
+dist/chapter-one-expansion-gear.js:39: P.c1BuyRune=function(id){const r=C1_RUNES[id];if(!r||!this.c1AtService('rosa')||this.p.gold<r.price)return false;this.p.gold-=r.price;this.addItem(id);c1State( [... omitted end of long line]
+dist/chapter-one-expansion-gear.js:40: P.c1Exchange=function(target,selected){if(!C1_CORES[target]||!this.c1AtService('rosa')||!Array.isArray(selected)||selected.length!==3||selected.some(id=>!C1_CO [... omitted end of long line]
+dist/chapter-one-expansion-gear.js:41: P.c1FreeMaterials=function(core,rune){if(!C1_CORES[core]||!C1_RUNES[rune]||!this.c1AtService('loom'))return false;const h=c1State(this);if(this.quests.c1LoomBr [... omitted end of long line]
+dist/chapter-one-expansion-gear.js:42: P.c1RandomCore=function(){const id=c1CoreAt(c1Random(this,'materialSeed'));this.addItem(id);return id;};
+dist/quest-service-v14.js:23: if(a==='ch3:doctorTalk')return g.ch3?.stage==='medicine'?(g.p.items.saltMoss&&g.p.items.milkCrystal?'ready':'waiting'):g.ch3?.stage==='doctor'?'advance':'daily [... omitted end of long line]
+dist/quest-service-v14.js:24: if(a==='ch3:borrow')return g.ch3?.stage==='medicine'&&!g.p.items.borrowedLamp&&!g.p.items.milkCrystal?'advance':'service';
+dist/quest-service-v14.js:49: return goal(ready?'回去见'+(names[q.giver]||q.giver):id==='oil'?'在旧库房寻找备用灯油':id==='letter'?'在王道东侧弯道找回信件':`采集银叶草 ${Math.min(3,g.p.items.herb||0)}/3`,ready?q.map:id [... omitted end of long line]
+dist/chapter3-runtime-v14.js:33:const bookKnown=(g,id)=>{const p=g.p;return !!p.skills[ITEMS[id]?.skill]||(g.p.items[id]||0)>0;};
+dist/chapter3-runtime-v14.js:61:function pay(g,cost){for(const [k,v] of Object.entries(cost))if((k==='gold'?g.p.gold:g.p.items[k]||0)<v){g.say('材料不足：'+(k==='gold'?'金币':ITEMS[k]?.name||k));retu [... omitted end of long line]
+dist/chapter3-runtime-v14.js:62:function item(g,id,n=1){if(n>0)g.addItem(id,n);}
+dist/chapter3-runtime-v14.js:78: P.enter=function(id,x,y){if(this.ch3){this.ch3.pulses=[];this.ch3.lantern=null;}const prev=isHell(id)&&!!this.states[id];old.enter.call(this,id,x,y);if(this.ma [... omitted end of long line]
+dist/chapter3-runtime-v14.js:79: P.canDoor=function(d){if(isHell(this.map)){const h=ch(this);if(h.stage==='boss')return '狱卒把锁链甩在出口前，必须先击败它。';if(h.stage==='ambush'||h.stage==='defense')return ' [... omitted end of long line]
+dist/chapter3-runtime-v14.js:88: case 'lampLoan':if(!this.p.items.borrowedLamp)item(this,'borrowedLamp');break;
+dist/chapter3-runtime-v14.js:95: case 'machineReturn':if(this.p.items.copperSpring&&!this.flags.ch3MachineFixed){this.p.items.copperSpring--;this.flags.ch3MachineFixed=true;this.complete('ch3M [... omitted end of long line]
+dist/chapter3-runtime-v14.js:99: case 'ferryReturn':if(this.p.items.wickFrame&&!this.flags.ch3FerryLampFixed){this.p.items.wickFrame--;this.flags.ch3FerryLampFixed=true;this.flags.ch3TombOpen= [... omitted end of long line]
+dist/chapter3-runtime-v14.js:108: P.objective=function(){if(!isHell(this.map))return old.objective.call(this);const h=ch(this);if(['arrival','road'].includes(h.stage))return {text:'沿灰烬渡口东北的岩脊，去 [... omitted end of long line]
+dist/chapter3-runtime-v14.js:109: P.ready=function(id){if(id==='ch3Machine')return this.quests[id]==='active'&&this.p.items.copperSpring>0;if(id==='ch3Ferry')return this.quests[id]==='active'&& [... omitted end of long line]
+dist/chapter3-runtime-v14.js:111: P.npcOptions=function(id){if(!isHell(this.map))return old.npcOptions.call(this,id);const h=ch(this),a=(label,action)=>({label,action});if(id==='doctor')return  [... omitted end of long line]
+dist/chapter3-runtime-v14.js:113: case 'doctorTalk':if(h.stage==='medicine'&&this.p.items.saltMoss&&this.p.items.milkCrystal){this.p.items.saltMoss--;this.p.items.milkCrystal--;h.stage='treatme [... omitted end of long line]
+dist/chapter3-runtime-v14.js:115: case 'returnLamp':if(h.stage==='medicine'&&!this.p.items.milkCrystal){this.say('矿道里的凝晶还没取到，先留着灯。');return;}this.p.items.borrowedLamp=0;this.hellTalk('芮妲','放架子上 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:22:const pay=(g,cost)=>{for(const [key,n]of Object.entries(cost))if((key==='gold'?g.p.gold:g.p.items[key]||0)<n){g.say('还缺'+(key==='gold'?'金币':ITEMS[key]?.name||ke [... omitted end of long line]
+dist/chapter5-runtime-v14.js:25:const sideReady=(g,id)=>{const q=CH5_QUESTS[id],s=h(g).quests[id];return !!q&&!!s&&!s.claimed&&(s.kills||0)>=(q.kills||0)&&Object.entries(q.required).every(([k, [... omitted end of long line]
+dist/chapter5-runtime-v14.js:48:export function validateChapter5Save(s){if(!s.ch5)return;const a=s.ch5;if(a.schema!==1||!Number.isInteger(a.seed)||a.seed<0||a.seed>4294967295||!a.claims||!a.vi [... omitted end of long line]
+dist/chapter5-runtime-v14.js:74: P.questGoal=function(id){const q=CH5_QUESTS[id];if(!q)return old.questGoal.call(this,id);if(this.quests[id]==='done')return {text:'已完成',map:null,completed:true [... omitted end of long line]
+dist/chapter5-runtime-v14.js:107:  else if(a==='city-seen'){this.flags.ch5CitySeen=true;s.claims.city=true;s.stage='city';this.chapter=27;once(this,'city-welcome',()=>{this.p.gold+=80;this.addI [... omitted end of long line]
+dist/chapter5-runtime-v14.js:113: P.claimChapter5Quest=function(id){const q=CH5_QUESTS[id],s=h(this).quests[id];if(!q||!s||!sideReady(this,id))return false;s.claimed=true;this.quests[id]='done' [... omitted end of long line]
+dist/chapter5-runtime-v14.js:114:  if(id==='ch5ForgeWork'){h(this).claims.freeCraft=true;this.addItem('ch5GoldSand',6);this.addItem('ch5LampCore',3);this.say('格蕾娜免去下一件职业装备的金币工费。材料已经放在行囊里。');} [... omitted end of long line]
+dist/chapter5-runtime-v14.js:115:  if(id==='ch5DewWork'){this.addItem('hpGrand',2);this.addItem('mpGrand',2);this.addItem('ch5LampCore',3);}
+dist/chapter5-runtime-v14.js:116:  if(id==='ch5Names'){const pool=this.chapter5BookPool();if(pool.length)this.addItem(pool[Math.floor(roll(this)*pool.length)]);else this.addItem('ch5LampCore',6 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:121:  if(a==='gather'||a==='water'){if(p.used){this.say('容器还没积满，过一阵再来看看。');return;}p.used=true;const key=a==='water'?'ch5Dew':p.resource;this.addItem(key,a==='water [... omitted end of long line]
+dist/chapter5-runtime-v14.js:122:  if(a==='letter'){if(once(this,'road-letter',()=>this.addItem('ch5LampCore',2)))return talk(this,'ch5RoadLetter');return this.say('信已妥善收好。');}
+dist/chapter5-runtime-v14.js:124:  if(a==='quarry-cache'){if(once(this,'quarry-cache',()=>{this.addItem('counterBrandBook');this.addItem('ch5GoldSand',3);}))return talk(this,'ch5QuarryCache');r [... omitted end of long line]
+dist/chapter5-runtime-v14.js:125:  if(a==='supplies'){once(this,'forge-supplies',()=>{this.addItem('ch5GoldSand',2);this.addItem('ch5LampCore');});return;}
+dist/chapter5-runtime-v14.js:126:  if(a==='font'){once(this,'fountain',()=>{this.addItem('ch5Dew',2);this.gainXP(90);});this.say('泉水映着灯，却没有映出人的脸。');return;}
+dist/chapter5-runtime-v14.js:137: P.handleHellDeath=function(e){if(!is5(this.map))return old.handleHellDeath.call(this,e);if(e.ch5Boss){if(!this.flags.ch5CityUnlocked){this.chapter5Setback();re [... omitted end of long line]
+dist/chapter5-runtime-v14.js:140:   if(id==='ch5Names'&&['ch5Training','ch5Quarry'].includes(this.map)&&(this.p.items.ch5CourierPage||0)<4){v.misses++;if(roll(this)<.35||v.misses>=5){v.misses=0 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:141:  if(roll(this)<(e.elite?1:.42))this.addItem('ch5GoldSand',e.elite?2:1);if(roll(this)<(e.elite?.8:.27))this.addItem('ch5LampCore');this.dropCombatLoot(e);this.s [... omitted end of long line]
+dist/chapter5-runtime-v14.js:151:  if(action==='alchemy'){if(this.map!=='ch5Reservoir')return false;const r=CH5_ALCHEMY.find(v=>v.id===arg);if(!r||!pay(this,r.cost))return false;this.addItem(r. [... omitted end of long line]
+dist/chapter5-runtime-v14.js:158:  if(action==='book-claim'){if(this.map!=='ch5Forge'||!s.bookOffer?.items.includes(arg))return false;s.bookOffer=null;this.addItem(arg);this.saveEvent();open(th [... omitted end of long line]
+dist/chapter5-runtime-v14.js:161:  if(action==='arcade-answer'){const a=s.arcade,n=Number(arg);if(this.map!=='ch5Arcade'||a?.phase!=='guess'||!Number.isInteger(n)||n<0||n>2)return false;a.answe [... omitted end of long line]
+dist/chapter5-runtime-v14.js:162:  if(action==='prize'){if(this.map!=='ch5Arcade')return false;const choices={potions:{cost:2,reward:()=>{this.addItem('hpGrand');this.addItem('mpGrand');}},book [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:40: P.c1AddCount=function(id,o){const j=c1State(this).journey;if(o.id){j.parts[id]||={};j.parts[id][o.id]=Math.min(o.count,this.c1Count(id,o.id)+1);}else j.counts[ [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:68:   if(id==='oil'){this.p.items.oil=Math.max(0,(this.p.items.oil||0)-5);this.addItem('hp',2);h.worldChanges.lampFixed=true;}
+dist/chapter-one-expansion-quests.js:69:   if(id==='v12Water')this.addItem('hp');
+dist/chapter-one-expansion-quests.js:70:   if(id==='letter'){this.p.items.letter=Math.max(0,(this.p.items.letter||0)-1);this.addItem('sprintBook');}
+dist/chapter-one-expansion-quests.js:71:   if(id==='herbs'){this.p.items.herb=Math.max(0,(this.p.items.herb||0)-3);this.flags.herbChoice=choice==='woman'?'woman':'mira';if(choice==='woman'){this.addIt [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:72:   if(id==='copper'){this.flags.practiceCopper=false;this.flags.practiceCopperTaken=true;this.flags.practiceNote=true;this.flags.practiceComplete=true;this.flag [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:73:   if(id==='lantern'){this.flags.lanternRoute=this.chapter<3?'before':'after';const item=normalizeGear({...STORY.quest.reward},this.p.cls);item.instanceId=item. [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:74:   if(id==='echo')this.p.items.echoCore=Math.max(0,(this.p.items.echoCore||0)-1);
+dist/chapter-one-expansion-quests.js:77:   if(id==='c1VaultWatch'){this.addItem('hp',2);items.push('hp','hp');}
+dist/chapter-one-expansion-quests.js:84:   if(id==='c1AlchemistSamples'){for(const k of Object.keys(C1_PARTS))h.samples[k]=false;h.samples.delivered=true;for(const template of ['c1StableChest','c1Filt [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:86:   if(['c1RuneWear','c1RuneKiln','c1RunePatrol'].includes(id))items.push(this.c1RandomCore());if(id==='v12CourierRoad')this.addItem('mp');
+dist/chapter-one-expansion-quests.js:219:  if(EXPERIENCE_CACHES[id]){if(this.transition||this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<260&&this.clearLine(e,this.p,false)))return  [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:40: P.c1AddCount=function(id,o){const j=c1State(this).journey;if(o.id){j.parts[id]||={};j.parts[id][o.id]=Math.min(o.count,this.c1Count(id,o.id)+1);}else j.counts[ [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:68:   if(id==='oil'){this.p.items.oil=Math.max(0,(this.p.items.oil||0)-5);this.addItem('hp',2);h.worldChanges.lampFixed=true;}
+dist/chapter-one-expansion-quests.js:69:   if(id==='v12Water')this.addItem('hp');
+dist/chapter-one-expansion-quests.js:70:   if(id==='letter'){this.p.items.letter=Math.max(0,(this.p.items.letter||0)-1);this.addItem('sprintBook');}
+dist/chapter-one-expansion-quests.js:71:   if(id==='herbs'){this.p.items.herb=Math.max(0,(this.p.items.herb||0)-3);this.flags.herbChoice=choice==='woman'?'woman':'mira';if(choice==='woman'){this.addIt [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:72:   if(id==='copper'){this.flags.practiceCopper=false;this.flags.practiceCopperTaken=true;this.flags.practiceNote=true;this.flags.practiceComplete=true;this.flag [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:73:   if(id==='lantern'){this.flags.lanternRoute=this.chapter<3?'before':'after';const item=normalizeGear({...STORY.quest.reward},this.p.cls);item.instanceId=item. [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:74:   if(id==='echo')this.p.items.echoCore=Math.max(0,(this.p.items.echoCore||0)-1);
+dist/chapter-one-expansion-quests.js:77:   if(id==='c1VaultWatch'){this.addItem('hp',2);items.push('hp','hp');}
+dist/chapter-one-expansion-quests.js:84:   if(id==='c1AlchemistSamples'){for(const k of Object.keys(C1_PARTS))h.samples[k]=false;h.samples.delivered=true;for(const template of ['c1StableChest','c1Filt [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:86:   if(['c1RuneWear','c1RuneKiln','c1RunePatrol'].includes(id))items.push(this.c1RandomCore());if(id==='v12CourierRoad')this.addItem('mp');
+dist/chapter-one-expansion-quests.js:219:  if(EXPERIENCE_CACHES[id]){if(this.transition||this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<260&&this.clearLine(e,this.p,false)))return  [... omitted end of long line]
+dist/chapter5-ui-v14.js:7:const enough=(g,cost)=>Object.entries(cost).every(([id,n])=>(id==='gold'?g.p.gold:g.p.items[id]||0)>=n);
+dist/chapter5-ui-v14.js:10: const shell=(title,body)=>`<div class="modal"><section class="panel ch5-facility"><header class="panel-head"><div><small>阙灯城 · 灯火下的片刻</small><h2>${title}</h2>< [... omitted end of long line]
+dist/chapter5-ui-v14.js:13: if(kind==='shop')return shell(g.sagaV25?.started&&/^ch[678]/.test(g.map)?'行路补给':'回廊药品与行路物资',`<p>疗伤药与清醒药各自冷却7秒。${g.sagaV25?.started&&/^ch[678]/.test(g.map)?'补齐行 [... omitted end of long line]
+dist/chapter5-ui-v14.js:15: if(kind==='books'){const offer=h.bookOffer;return shell('工坊练习册',`<p>格蕾娜从旧抄本里挑出三份，再由你选一份。只出现你还没学过、也没带在行囊里的技法；三份候选不足时显示实际数量。</p>${offer?`<div class="teaching-gri [... omitted end of long line]
+dist/chapter5-ui-v14.js:21: if(kind==='prizes')return shell('回铃兑奖柜',`<p>手里有 <b>${p.items.ch5PrizeCoin||0}</b> 枚铜券。</p><div class="teaching-grid"><article class="teaching-card"><h3>行路药品</h [... omitted end of long line]

@@ -468,6 +468,12 @@ def audit(root=ROOT, live=False):
 
 
 def review(draft, root=ROOT):
+    if draft.get('kind')=='copyedit':
+        from narrative_copyedit import review as copyedit_review
+        result=copyedit_review(draft,root)
+        provenance=audit(root)['errors']
+        if provenance:result['errors']+=provenance;result['status']='failed'
+        return result
     report=audit(root)
     errors=list(report['errors']);warnings=[]
     def err(code,where,message):errors.append({'code':code,'where':where,'message':message})
@@ -516,6 +522,17 @@ def review(draft, root=ROOT):
             warnings.append({'code':'STYLE_ABSTRACTION','line':i,'advice':'核对人物此刻的交流目的；若只是作者总结，换成他要说明的具体问题。有充分身份情境依据可保留。'})
         if re.fullmatch(r'[你我可是对不起知道别说了够不知道、，。！!？?…\s]{1,14}',text):
             warnings.append({'code':'STYLE_PAUSE','line':i,'advice':'核对停顿/短答是否有情绪或无需解释的依据；不要机械缩短或补长。'})
+    from dialogue_style import scene_risks
+    negative=scene_risks(draft['lines'])
+    if negative['candidates']:
+        warnings.append({'code':'NEGATIVE_IMPERATIVE_SCENE','scene':draft['scene'],'risk':negative})
+    if draft.get('style_policy_version',1)>=2:
+        specific=draft['editorial'].get('negative_imperatives',{})
+        if not specific.get('scene_judgment'):err('NEGATIVE_IMPERATIVE_REVIEW','editorial','Judge whole-scene purpose, relationship and repetition')
+        decisions=specific.get('decisions',[])
+        if {r.get('line') for r in decisions}!={r['line'] for r in negative['candidates']} or len(decisions)!=len(negative['candidates']):
+            err('NEGATIVE_IMPERATIVE_REVIEW','lines','Review each remaining candidate; counts do not decide quality')
+        if any(r.get('decision')!='retain' or not r.get('reason') for r in decisions):err('NEGATIVE_IMPERATIVE_REVIEW','reason','Explain actual warning, refusal or statement')
     supplied=draft['editorial']
     if not supplied.get('reviewer'):err('EDITORIAL_REVIEWER','editorial','Record agent/editor identity and contextual judgment')
     for dimension in DIMENSIONS:
@@ -565,6 +582,20 @@ def task_errors(record,root=ROOT):
             current=fingerprint(inventory(root))
             if context['source_fingerprint']!=current:errors.append('Narrative context predates current sources')
             if result.get('source_fingerprint')!=current:errors.append('Narrative review predates current sources')
+            if draft.get('kind')=='copyedit':
+                if record.get('narrative_mode')!='copyedit':errors.append('Task has not declared preservation-only copyediting')
+                if context.get('baseline_commit')!=record['baseline_commit']:errors.append('Copyedit context uses another task baseline')
+                if result.get('status')!='passed' or review(draft,root).get('status')!='passed':errors.append('Copyedit review failed: '+draft['scene'])
+                if result.get('draft_sha256')!=hashlib.sha256(encoded(draft)).hexdigest():errors.append('Copyedit review belongs to another draft')
+                if context.get('static') and runtime['scenes'].get(draft['scene'],{}).get('sha256')!=__import__('narrative_copyedit').row_hash(draft['rows']):errors.append('Copyedit installed scene mismatch')
+                checks=[c for c in record.get('checks',[]) if c['label']==draft.get('scope',{}).get('dynamic_check_label')]
+                if not checks or checks[-1]['exit_code']!=0 or checks[-1]['source_fingerprint']!=current or checks[-1]['sources_changed_during_check']:errors.append('Copyedit needs current installed corpus/producer check')
+                if not context.get('static'):
+                    baselines=[c for c in record.get('checks',[]) if c['label']==context.get('baseline_check_label')]
+                    if not baselines or baselines[-1]['exit_code']!=0:errors.append('Dynamic copyedit lacks baseline provenance check')
+                covered_files.update(draft.get('scope',{}).get('files',[]));covered_scenes.add(draft['scene'])
+                continue
+            if draft.get('style_policy_version',1)<record.get('narrative_style_policy',1):errors.append('New dialogue review requires current scene-level style policy')
             if not context['ready_to_write']:errors.append('Narrative context has unresolved stage/coverage')
             if result.get('status')!='passed' or review(draft,root).get('status')!='passed':errors.append('Narrative review failed')
             if result.get('draft_sha256')!=hashlib.sha256(encoded(draft)).hexdigest():errors.append('Narrative review belongs to another draft')

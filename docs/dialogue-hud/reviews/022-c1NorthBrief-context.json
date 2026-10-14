@@ -1,0 +1,167 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1NorthBrief",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "553fb597e8ad99624ad1bc362bec4f40ac31d83c6f0db375100dfd004a0939c4",
+  "before": [
+    [
+      "托马",
+      "鲁恩的封套？给我。嗯，班次对得上，我把你的名字记进去了。"
+    ],
+    [
+      "诺恩",
+      "礼拜厅还是从正门进？"
+    ],
+    [
+      "托马",
+      "午钟后正门就落闩。你走北侧前厅，把维护班的来意告诉值守的人，别跟着礼拜的人往中间挤。"
+    ],
+    [
+      "诺恩",
+      "北渠的检修道能走吗？"
+    ],
+    [
+      "托马",
+      "还不能。渠鼠把支木啃空了，我正等人清理。你若能帮忙，听我把坏木料的位置说清楚再去，别踩上去才发现下面是空的。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "toma",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/toma.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "托马核封套后交代维护入口与坏支木；位置、午钟关门、后续清渠任务原封保留，解释为什么需要清理。",
+    "relationship": {
+      "participants": [
+        "托马",
+        "诺恩"
+      ],
+      "judgment": "托马核封套后交代维护入口与坏支木；位置、午钟关门、后续清渠任务原封保留，解释为什么需要清理。",
+      "profiles": [
+        {
+          "id": "toma",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/toma.json",
+          "coverage": "partial"
+        },
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "553fb597e8ad99624ad1bc362bec4f40ac31d83c6f0db375100dfd004a0939c4",
+      "registered_event": {
+        "id": "R01:c1NorthBrief",
+        "scene": "c1NorthBrief",
+        "order": 29,
+        "summary": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1NorthBrief",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "托马核封套后交代维护入口与坏支木；位置、午钟关门、后续清渠任务原封保留，解释为什么需要清理。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1NorthBrief",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1NorthBrief",
+        "scene": "c1NorthBrief",
+        "order": 29,
+        "summary": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1NorthBrief",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

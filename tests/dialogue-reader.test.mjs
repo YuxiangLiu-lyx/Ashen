@@ -1,3 +1,4 @@
+import {copyedited} from './fixtures/dialogue-copyedit-contract.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -58,7 +59,7 @@ test('exact inline old dialogue text and new authored cursors survive import unc
   for(let line=0;line<DIALOGUES[id].length;line++){g.beginScene(id);g.pending.line=line;g.pending.phase='dialogue';assert.equal(resume(g).pending.line,line);}
  }
 });
-test('only four adopted scenes changed; protected commission facts/staging rows and all later chapter text remain exact',()=>{
- for(const [id,old]of Object.entries(baseline.scenes))assert.deepEqual(DIALOGUES[id]||C1_HIDDEN[id],script[id]||old.text,id);
+test('four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact',()=>{
+ for(const [id,old]of Object.entries(baseline.scenes))assert.deepEqual(DIALOGUES[id]||C1_HIDDEN[id],copyedited(id,script[id]||old.text),id);
  assert.deepEqual(DIALOGUES.contract.slice(3,19),baseline.scenes.contract.text.slice(3,19));
 });

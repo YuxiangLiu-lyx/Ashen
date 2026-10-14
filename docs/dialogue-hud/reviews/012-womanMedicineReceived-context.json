@@ -1,0 +1,91 @@
+{
+  "kind": "copyedit_context",
+  "scene": "womanMedicineReceived",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "998adfced8be83fb2a4266372ecc1bf02fe830646d5bd35af643939a45067f72",
+  "before": [
+    [
+      "蕾娜",
+      "药熬上了。他刚醒来，说已经没那么难受，喝完又睡着了。"
+    ],
+    [
+      "诺恩",
+      "别一次喝太多。"
+    ],
+    [
+      "蕾娜",
+      "米拉也叮嘱过，我喂得慢。剩下的还温在锅边，等他醒了再喝。"
+    ],
+    [
+      "诺恩",
+      "能睡着就好，药凉了记得再温一温。"
+    ],
+    [
+      "蕾娜",
+      "对了，笔记收好了吗？那纸不禁水，我爹以前出门，都要拿衣服包着。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "lena",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/lena.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "弟弟喝药后睡下，诺恩实际询问用量；蕾娜说米拉叮嘱过、自己喂得慢，问答因果更连贯。",
+    "relationship": {
+      "participants": [
+        "蕾娜",
+        "诺恩"
+      ],
+      "judgment": "弟弟喝药后睡下，诺恩实际询问用量；蕾娜说米拉叮嘱过、自己喂得慢，问答因果更连贯。",
+      "profiles": [
+        {
+          "id": "lena",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/lena.json",
+          "coverage": "partial"
+        },
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "998adfced8be83fb2a4266372ecc1bf02fe830646d5bd35af643939a45067f72",
+      "registered_event": null,
+      "chapter_coverage": "dynamic_provider_only"
+    },
+    "retained_outcome": "弟弟喝药后睡下，诺恩实际询问用量；蕾娜说米拉叮嘱过、自己喂得慢，问答因果更连贯。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "womanMedicineReceived",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": null
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ambient_steward_beforeAssassination",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "127c0d83ec8524f9ac20cdc7251c9569eb588d6406e1dfd39bbaba993d689cf7",
+  "before": [
+    [
+      "奥伦",
+      "出去把门带上。今早买蛋的人又回来晚了，说白榆城查得紧，一筐鸡蛋给翻了三遍。"
+    ],
+    [
+      "诺恩",
+      "查什么？"
+    ],
+    [
+      "奥伦",
+      "我哪知道。查完倒是一个没少，就是把上头那层稻草弄得满地都是。"
+    ],
+    [
+      "诺恩",
+      "晚饭留一份。"
+    ],
+    [
+      "奥伦",
+      "哪回饿着你了？晚了就自己热一热，可别又端起凉汤就喝。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "oren",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/oren.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "会馆管事答应留晚饭，通过炉边温汤回应诺恩，不加责备他又喝凉汤的尾巴。",
+    "relationship": {
+      "participants": [
+        "奥伦",
+        "诺恩"
+      ],
+      "judgment": "会馆管事答应留晚饭，通过炉边温汤回应诺恩，不加责备他又喝凉汤的尾巴。",
+      "profiles": [
+        {
+          "id": "oren",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/oren.json",
+          "coverage": "partial"
+        },
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "127c0d83ec8524f9ac20cdc7251c9569eb588d6406e1dfd39bbaba993d689cf7",
+      "registered_event": null,
+      "chapter_coverage": "dynamic_provider_only"
+    },
+    "retained_outcome": "会馆管事答应留晚饭，通过炉边温汤回应诺恩，不加责备他又喝凉汤的尾巴。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "ambient_steward_beforeAssassination",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": null
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

@@ -1,0 +1,169 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1AlchemistSamples_offer",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "3e8d9f8109cd08aabef54f087e1b83c9d90f16740d3a5806f70a5c49c7110c21",
+  "before": [
+    [
+      "赛铎",
+      "溪林、机房和废窑都有人报过异常，光听描述分不清是不是同一回事。我得把样本放在一起看。"
+    ],
+    [
+      "诺恩",
+      "要哪几种？"
+    ],
+    [
+      "赛铎",
+      "裂齿渠鼠的下颌、灰脊守兽的腱束、苇窑夜翼的翼膜，各一份。若已经留了样本，直接拿来，不必再去找一头。"
+    ],
+    [
+      "诺恩",
+      "凑齐交给你。你能查出是谁做的吗？"
+    ],
+    [
+      "赛铎",
+      "现在不能。我只能先查它们身上沾了什么，没证据的事不猜。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "saido",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/saido.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "赛铎需要三地样本比较沉积；明确接受委托后取样、旧样本可检验，保留无法凭样本猜出幕后人。",
+    "relationship": {
+      "participants": [
+        "赛铎",
+        "诺恩"
+      ],
+      "judgment": "赛铎需要三地样本比较沉积；明确接受委托后取样、旧样本可检验，保留无法凭样本猜出幕后人。",
+      "profiles": [
+        {
+          "id": "saido",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/saido.json",
+          "coverage": "partial"
+        },
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "3e8d9f8109cd08aabef54f087e1b83c9d90f16740d3a5806f70a5c49c7110c21",
+      "registered_event": {
+        "id": "R01:c1Talk_c1AlchemistSamples_offer",
+        "scene": "c1Talk_c1AlchemistSamples_offer",
+        "order": 89,
+        "summary": "赛铎：溪林、机房和废窑都有人报过异常，光听描述分不清是不是同一回事。我得把样本放在一起看。；诺恩：要哪几种？；赛铎：裂齿渠鼠的下颌、灰脊守兽的腱束、苇窑夜翼的翼膜，各一份。若已经留了样本，直接拿来，不必再去找一头。；诺恩：凑齐交给你。你能查出是谁做的吗？；赛铎：现在不能。我只能先查它们身上沾了什么，没证据的事不猜。",
+        "participants": [
+          "saido",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1AlchemistSamples_offer",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "saido",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "赛铎需要三地样本比较沉积；明确接受委托后取样、旧样本可检验，保留无法凭样本猜出幕后人。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1Talk_c1AlchemistSamples_offer",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1AlchemistSamples_offer",
+        "scene": "c1Talk_c1AlchemistSamples_offer",
+        "order": 89,
+        "summary": "赛铎：溪林、机房和废窑都有人报过异常，光听描述分不清是不是同一回事。我得把样本放在一起看。；诺恩：要哪几种？；赛铎：裂齿渠鼠的下颌、灰脊守兽的腱束、苇窑夜翼的翼膜，各一份。若已经留了样本，直接拿来，不必再去找一头。；诺恩：凑齐交给你。你能查出是谁做的吗？；赛铎：现在不能。我只能先查它们身上沾了什么，没证据的事不猜。",
+        "participants": [
+          "saido",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1AlchemistSamples_offer",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "saido",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1ALCHEMISTSAMPLES_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

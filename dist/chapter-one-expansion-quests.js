@@ -191,7 +191,7 @@ if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id===
    return {...base,text:(o.kind==='drop'?'收集 ':'清理 ')+summary+(needsCause?'；处理'+causeNames[o.cause]:''),map,target:live?.id,area:true};
   }
   if(id==='c1LoomBrief')return {...base,text:'在缀纹机比较装备，领取试作材料',map:'c1LoomRoom',target:'c1-loom'};
-  if(id==='c1AlchemistSamples'){const h=c1State(this),missing=Object.entries(C1_PARTS).filter(([k])=>!h.samples[k]);return {...base,text:'收集精英首杀样本：'+missing.map(([,n])=>n).join('、'),map:missing[0]?.[0]==='c1PartJaw'?'grove':missing[0]?.[0]==='c1PartTendon'?'echo':'c1ReedKiln',target:missing[0]?.[0]==='c1PartJaw'?'c1-elite-rat':missing[0]?.[0]==='c1PartTendon'?'echo-warden':'c1-elite-bat'};}
+  if(id==='c1AlchemistSamples'){const h=c1State(this),missing=Object.entries(C1_PARTS).filter(([k])=>!h.samples[k]);return {...base,text:'收集精英样本：'+missing.map(([,n])=>n).join('、'),map:missing[0]?.[0]==='c1PartJaw'?'grove':missing[0]?.[0]==='c1PartTendon'?'echo':'c1ReedKiln',target:missing[0]?.[0]==='c1PartJaw'?'c1-elite-rat':missing[0]?.[0]==='c1PartTendon'?'echo-warden':'c1-elite-bat'};}
   if(id==='c1CanalBreak')return {...base,text:'击败追缉官，清除闸口追兵',map:'canal',target:'captain'};
   return {...base,text:q.name,map:q.map,target:q.target};
  };

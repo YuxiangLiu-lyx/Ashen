@@ -118,11 +118,11 @@ export function installChapter3(RPG,{stats,loot,skillNumbers}){
  case 'ferryChoice':open(this,'ferry');break;
  case 'openForge':open(this,'forge');break;
  case 'openDraw':open(this,'draw');break;
- case 'rest':if(h.stage==='medicine'){this.hellTalk('莫里斯','先歇一会儿。黑灰已经封住，他的伤暂时不会再恶化。你自己也该用药了，别硬撑着。');this.p.hp=Math.max(this.p.hp,stats(this.p).hp*.7);this.p.mp=Math.max(this.p.mp,stats(this.p).mp*.5);}else if(pay(this,{gold:15})){this.p.hp=stats(this.p).hp;this.p.mp=stats(this.p).mp;this.say('绷带换好了。生命与法力已恢复。');}break;
+ case 'rest':if(h.stage==='medicine'){this.hellTalk('莫里斯','先在这里歇一会儿。黑灰已经封住，他的伤暂时不会再恶化。我也看看你的伤，处理好了，你才有力气继续找药。');this.p.hp=Math.max(this.p.hp,stats(this.p).hp*.7);this.p.mp=Math.max(this.p.mp,stats(this.p).mp*.5);}else if(pay(this,{gold:15})){this.p.hp=stats(this.p).hp;this.p.mp=stats(this.p).mp;this.say('绷带换好了。生命与法力已恢复。');}break;
  case 'buyHp':if(pay(this,{gold:14}))item(this,'hp');break;
  case 'buyMp':if(pay(this,{gold:14}))item(this,'mp');break;
  case 'doctorIdle':this.hellTalk('莫里斯','起初我只是帮人挑挑脚上的刺，后来不管伤成什么样，都往我这里送。我说自己不是外科医师，他们倒反问我：不来找你，还能找谁？');break;
- case 'mechanistIdle':this.hellTalk('芮妲',this.p.cls==='saint'?'把灯放低些，照着脚下，别让光晃了眼，反而看不清路。等你把他救醒了，记得叫他替我搬两趟铁。':'昨晚去捡轮轴，半路听见背后也有轮子响。我还当是谁跟来了，回头才看见自己的车——忘拴了。你想笑就笑吧，我自己都觉得丢人。');break;
+ case 'mechanistIdle':this.hellTalk('芮妲',this.p.cls==='saint'?'灯放低些就能照清脚下，举得太高，反倒晃眼。等你把他救醒了，记得叫他替我搬两趟铁。':'昨晚去捡轮轴，半路听见背后也有轮子响。我还当是谁跟来了，回头才看见自己的车——忘拴了。你想笑就笑吧，我自己都觉得丢人。');break;
  case 'ferrymanIdle':this.hellTalk('乌洛','我也说不清。潮水退了，滩上常会留下鞋，有成双的，也有单只的。我都捡到高处放着，说不定还会有人来找。');break;
  case 'drawkeeperIdle':this.hellTalk('伊芙','这机器转起来会发热，我在旁边取暖，也帮人看着铜页。你要试的话，先卷好袖口，上一个人差点把半件外套都卷进去了。');break;
  case 'saintIdle':this.hellTalk('艾莉娅','绷带别乱扯，伤口刚才还在渗血。我照看你的伤，可没有答应一直跟着你。等找到出路，该说清楚的事还是要说。');break;

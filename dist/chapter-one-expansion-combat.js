@@ -17,7 +17,7 @@ export function installC1Combat(RPG,{stats,MAPS}){
   const cfg=C1_ELITES[e.id];if(!cfg||this.map!==cfg.map)return false;e.hp=0;const h=c1Encounter(this,e.id),key='elite:'+e.id+':'+e.c1Generation;
   const tx=this.c1Transaction(key,()=>{
    const result=c1DropIndex(c1Random(this)),items=[];h.lootResult=result;h.killSequence++;h.lastKill=this.time;h.leftAfterKill=false;h.outsideActiveSeconds=0;
-   if(!h.firstPartGranted){h.firstPartGranted=true;c1State(this).samples[cfg.part]=true;items.push(cfg.part);}
+   if(this.quests.c1AlchemistSamples==='active'&&!h.firstPartGranted){h.firstPartGranted=true;c1State(this).samples[cfg.part]=true;items.push(cfg.part);}
    if(result>=0){const item=c1Item(this.p.cls,cfg.pool[result],'c1-loot-'+e.id+'-'+e.c1Generation);this.c1Deliver(item);items.push(item.id);}
    this.gainXP(35);this.p.gold+=12;e.v13Loot=true;e.v28LootRolled=true;e.c1Settled=true;
    if(e.id==='echo-warden'){this.flags.echoWardenDefeated=true;this.worldCueV29?.('warden-cleared','灰脊守兽退倒。后槽露出来了，原机芯仍要亲手卸下。');}

@@ -1,0 +1,1296 @@
+{
+  "schema": 1,
+  "id": "dialogue-hud-20261014",
+  "goal": "全部运行主支线对白否定祈使专项：场景扫描修订及Harness规范和风险审查；柔和金色任务标记、顶部居中适长血条、任务物品接取后获取、移除地图连接文字",
+  "acceptance": [
+    "全部静态及动态对白覆盖有分布与原修对照；合理警告保留且不机械替换；逐场人物知识和七维审查；未接任务不掉专属物品且接后可完成、旧档保留；三视口UI、完整集成、默认包及Git同步"
+  ],
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "modules": [
+    "game_settings",
+    "maps",
+    "story"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T19:53:43.926608+00:00",
+  "updated_at_utc": "2026-10-14T20:59:47.835842+00:00",
+  "decisions": [
+    "顶部血条优先选中目标，否则当前交战者；保持战斗规则；金问号沿用灰问号轮廓并降低亮度/色差，原图保留。",
+    "既有全文润色独立记录前后保全审查，不将后五章缺失知识资料伪装成完整正史；新增剧情仍执行原事件门禁。"
+  ],
+  "completed": [
+    "基线609场5233条静态对白已保存，风险初筛393场661行；动态调用者另行补全。原金色图高亮显著、首章小地图实际画出口列表；精英样本和泵杆存在接前获取。确认血条为普通怪/Boss当前敌人。",
+    "静态609场及动态107个文本变体已采集；人工拟定并接入111场167条修订，保持行号/说话人，精确旧全文迁移已接入。顶部敌人条和柔和任务标记、真实小地图及两处任务物品门禁已实现。",
+    "111场167行修订及99静态/12动态精确安装完成；三视口真实鼠标/触摸目标血条通过，修复横屏菜单重叠。9项专门回归通过，涵盖任务接前/接后/完成及旧档。完整对白分布、原修对照与逐场保留理由已落盘。"
+  ],
+  "remaining": [
+    "最终叙事证据挂接、完整集成、默认试玩包和GitHub保存"
+  ],
+  "blockers": [],
+  "next": "冻结运行输入，完成最终检查与包核验",
+  "required_checks": [
+    "fast",
+    "narrative",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline-ui",
+      "command": [
+        "node",
+        "docs/dialogue-hud/capture-ui.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:13:48.297175+00:00",
+      "finished_at_utc": "2026-10-14T20:13:49.454060+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "dd5636ca63a54fa63c9c078732f6f3e0bc924e7e62d2835aacc542172f8a2158",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/001-baseline-ui.txt",
+      "output_sha256": "5f8de782ea9741defe087ca2be8740565d6efe2a98e399faa43774cddc56dc80",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "baseline-ui",
+      "command": [
+        "node",
+        "docs/dialogue-hud/capture-ui.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:17:04.189922+00:00",
+      "finished_at_utc": "2026-10-14T20:17:16.764153+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "dd5636ca63a54fa63c9c078732f6f3e0bc924e7e62d2835aacc542172f8a2158",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/002-baseline-ui.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "ui-preview",
+      "command": [
+        "node",
+        "docs/dialogue-hud/capture-ui.mjs",
+        "docs/dialogue-hud/ui-preview"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:19:29.149887+00:00",
+      "finished_at_utc": "2026-10-14T20:19:41.663481+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "3e038a376d4cd7dd831fe89b6ba14fb4d59e97a000f1832569ff6af71bfe6c53",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/003-ui-preview.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "feature-preview",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:36:23.272348+00:00",
+      "finished_at_utc": "2026-10-14T20:36:23.725957+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "4371e42541f0be8e079452525db1b04389a804b43fcdfd11792353b5fe7e4614",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/004-feature-preview.txt",
+      "output_sha256": "0e4980551f28883bb07185b07b46d8173cd25c80cfcf2af51446cc80ed613c35",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "baseline-provenance",
+      "command": [
+        "node",
+        "docs/dialogue-hud/check-baseline.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:36:39.882878+00:00",
+      "finished_at_utc": "2026-10-14T20:36:40.168534+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "4371e42541f0be8e079452525db1b04389a804b43fcdfd11792353b5fe7e4614",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/005-baseline-provenance.txt",
+      "output_sha256": "26f3e222cc5475f4ce8614f24c7f39910417895b85a951bfddc815f31420ff3f",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "core-preview",
+      "command": [
+        "node",
+        "--test",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-chapter-three.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-crafting.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:37:13.190487+00:00",
+      "finished_at_utc": "2026-10-14T20:37:15.875336+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "4371e42541f0be8e079452525db1b04389a804b43fcdfd11792353b5fe7e4614",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/006-core-preview.txt",
+      "output_sha256": "c544631a716e616f6ee470046e72ea97f45614c4eb1304d891e4f51f8c3c505c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "ui-current",
+      "command": [
+        "node",
+        "docs/dialogue-hud/capture-ui.mjs",
+        "docs/dialogue-hud/ui-current"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:42:30.238849+00:00",
+      "finished_at_utc": "2026-10-14T20:42:43.425167+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "967ea0c693a8e8d3f9cb06a0821e90107f08da6a881ac1bf50a13b6d7c82325b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/007-ui-current.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "focused",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-elites.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:47:01.519677+00:00",
+      "finished_at_utc": "2026-10-14T20:47:03.852573+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "d547128d8e8febfc905bc8e92263a43f5de3bd7f004bf978daaa804105055713",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/008-focused.txt",
+      "output_sha256": "04e9498d1881ac6483ff383723888d54152dcf6b62f22cd6a3fddbd8aa5bd7d2",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "hud-input",
+      "command": [
+        "env",
+        "ASHEN_HUD_OUTPUT=docs/dialogue-hud/browser-final",
+        "node",
+        "tests/browser-dialogue-hud.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:47:19.646122+00:00",
+      "finished_at_utc": "2026-10-14T20:47:26.236000+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "d547128d8e8febfc905bc8e92263a43f5de3bd7f004bf978daaa804105055713",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/009-hud-input.txt",
+      "output_sha256": "c5f25be9ab32abbe8466207cbeeb03f965190cdecbcd250f5c7facd8fa19feb4",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "hud-input",
+      "command": [
+        "env",
+        "ASHEN_HUD_OUTPUT=docs/dialogue-hud/browser-final",
+        "node",
+        "tests/browser-dialogue-hud.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:47:52.864292+00:00",
+      "finished_at_utc": "2026-10-14T20:47:59.190549+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "e8a182256eadf6431e152f9aa02e11d89ac167a10fc3b8b71f86163d5b3d0d5d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/010-hud-input.txt",
+      "output_sha256": "c5f25be9ab32abbe8466207cbeeb03f965190cdecbcd250f5c7facd8fa19feb4",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "hud-input",
+      "command": [
+        "env",
+        "ASHEN_HUD_OUTPUT=docs/dialogue-hud/browser-final",
+        "node",
+        "tests/browser-dialogue-hud.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:48:25.762796+00:00",
+      "finished_at_utc": "2026-10-14T20:48:32.111257+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "540cab27367e0bbeb43bcbdade64bbfc5140f0bb46db6f944843eb9d4eb03b53",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/011-hud-input.txt",
+      "output_sha256": "e25f63acc99336e4e2263f9e4c43e58c7cc384d4d2533b9a5a2c4da93b3b3b4e",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "hud-input",
+      "command": [
+        "env",
+        "ASHEN_HUD_OUTPUT=docs/dialogue-hud/browser-final",
+        "node",
+        "tests/browser-dialogue-hud.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:50:00.101415+00:00",
+      "finished_at_utc": "2026-10-14T20:50:13.018657+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "11d6afee9eb25fdd1729109e32d6b70c909b82eb7efe4fc30963194d2365fd00",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/012-hud-input.txt",
+      "output_sha256": "5ed8acb21c7ad07f3387ac3d716bc57dda2f528f61491946d2f13b4160614622",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:50:46.795316+00:00",
+      "finished_at_utc": "2026-10-14T20:50:47.240753+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "90361dc3213b2ad969040247de1010d6575fc8632614f0d73ad5de3e17d02d5c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/013-producer-current.txt",
+      "output_sha256": "b5989ac7bf1fab02dfd9779a056bab332a3432ad433f2f8ed4bfbfec9c158af9",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "harness-focused",
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests/harness",
+        "-p",
+        "test_dialogue_style.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:50:56.083152+00:00",
+      "finished_at_utc": "2026-10-14T20:50:56.300849+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "90361dc3213b2ad969040247de1010d6575fc8632614f0d73ad5de3e17d02d5c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/014-harness-focused.txt",
+      "output_sha256": "969aec26d77bc04053c92c903de67bf5dd572de10db46caf1611f6093c822d7d",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:51:13.810505+00:00",
+      "finished_at_utc": "2026-10-14T20:51:14.263951+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "3be8bf5950e58a11d7b6beee53e45655094be934e7036c50f53e09806a09b8df",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/015-producer-current.txt",
+      "output_sha256": "65fe1b0cfb8b30908b61f8e23f5c36b80b9bf111f8df33699fe979c7650f1ea2",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:55:53.256094+00:00",
+      "finished_at_utc": "2026-10-14T20:55:53.950660+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "4e289a60c67da6e0a70fb918c8f410b4b802ff4a5a4822de60c6fd6d4b36bbfb",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/016-producer-current.txt",
+      "output_sha256": "2489dd71b74e6869410f63f3b2365396009b1b03b8a15737f7a7b67d44a42d99",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T20:56:16.346816+00:00",
+      "finished_at_utc": "2026-10-14T20:56:17.152564+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "830939a17154bc515838fa921294665b25d750297f2240414d423020f6f48a7d",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/017-producer-current.txt",
+      "output_sha256": "119c354be72734d0f1c019524aa0c1a2ddaa86c2d8314984e4cd616706f85813",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:56:41.252894+00:00",
+      "finished_at_utc": "2026-10-14T20:56:42.492250+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "82016f3fe4d3df7ce968217f78a6920fa52d8fbc24e94952d6dd20b293a3cbc0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/018-producer-current.txt",
+      "output_sha256": "c6e6aea00749c921658677708ae478a898da558721c4a0684b4f1864cd3b74b3",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T20:59:20.206938+00:00",
+      "finished_at_utc": "2026-10-14T20:59:21.446019+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/019-producer-current.txt",
+      "output_sha256": "27d9327221410649b8e779b6dd4e5ac1bcf852d5c6be2968956c711388e747d3",
+      "timeout_seconds": 180.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T20:19:28.947044+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "3e038a376d4cd7dd831fe89b6ba14fb4d59e97a000f1832569ff6af71bfe6c53",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-runtime-v14.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/harness/DIALOGUE_STYLE.md\n?? dist/combat-target-ui.js\n?? docs/dialogue-hud/\n?? docs/harness/evidence/dialogue-hud-20261014/\n?? source/tasks/active/dialogue-hud-20261014.json\n?? tools/harness/dialogue_style.py"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T20:54:41.140801+00:00",
+      "head_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+      "source_fingerprint": "cafc7caa23bf5d048a42743e7d902a01668b156db75c8abe9b97b2c1f2645a19",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-runtime-v14.js\n M dist/chapter3-runtime-v14.js\n M dist/chapter4-runtime-v14.js\n M dist/core-v14.js\n M dist/dialogue-save-migration-v26.js\n M dist/game-v14.js\n M dist/style-v14.css\n M docs/harness/DIALOGUE_STYLE.md\n M docs/harness/NARRATIVE_HARNESS.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/dialogue-reader.test.mjs\n M tools/harness/check.py\n M tools/harness/narrative.py\n M tools/harness/task.py\n?? dist/combat-target-ui.js\n?? dist/dialogue-copyedits-data.js\n?? dist/dialogue-copyedits-runtime.js\n?? docs/dialogue-hud/\n?? docs/harness/evidence/dialogue-hud-20261014/\n?? source/tasks/active/dialogue-hud-20261014.json\n?? tests/browser-dialogue-hud.mjs\n?? tests/dialogue-hud.test.mjs\n?? tests/fixtures/dialogue-copyedit-contract.mjs\n?? tests/harness/test_dialogue_style.py\n?? tools/harness/dialogue_corpus.mjs\n?? tools/harness/dialogue_style.py\n?? tools/harness/narrative_copyedit.py"
+    }
+  ],
+  "narrative_mode": "copyedit",
+  "narrative_style_policy": 2,
+  "narrative_reviews": [
+    {
+      "context": "docs/dialogue-hud/reviews/001-ratDone-context.json",
+      "context_sha256": "9a43d513a4bee862f1a2a0a57a4389222c5676091a186255a8f83b9d5a778fe9",
+      "draft": "docs/dialogue-hud/reviews/001-ratDone-draft.json",
+      "draft_sha256": "2f03c8d7fbce504ae9e1880d49c8a7a8297ae33dbc14d35af728f65675b07562",
+      "review": "docs/dialogue-hud/reviews/001-ratDone-review.json",
+      "review_sha256": "28a032297bb0ca81ed323ab67b108cf338e3aaf584f57811516664ae13ca4a7e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/002-courierDone-context.json",
+      "context_sha256": "d18889a5823c91e2fef2adeb31864dd31ef27b0009d9068b38f509317ba9806d",
+      "draft": "docs/dialogue-hud/reviews/002-courierDone-draft.json",
+      "draft_sha256": "4cb21af11e0f13139526ef0dc604d393740136642a40ac397d1a2e883bdd1ce9",
+      "review": "docs/dialogue-hud/reviews/002-courierDone-review.json",
+      "review_sha256": "b1ebc769ec444c3ef7120489d7aaa644a262853d24103cbf48f8fd9bedb1b3a3"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/003-oldReturn-context.json",
+      "context_sha256": "b0c16d9845339327b9a5b01150b5d61efd0914206c5824388f319eae6f409ae3",
+      "draft": "docs/dialogue-hud/reviews/003-oldReturn-draft.json",
+      "draft_sha256": "3ac23307b194c359b937089a1e0ca5fb4f82ee5d859ac0e289acbe1973004b86",
+      "review": "docs/dialogue-hud/reviews/003-oldReturn-review.json",
+      "review_sha256": "22fa13b4c6537d3547cfc88f5e1bf2a92dfdb1db9f0ed9c952749a0438b191bf"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/004-ambient_steward_beforeAssassination-context.json",
+      "context_sha256": "a54a36cbb8cfd757eeafe6edb7e11d99967cc14929c27fd1b74f6ff1bd90565f",
+      "draft": "docs/dialogue-hud/reviews/004-ambient_steward_beforeAssassination-draft.json",
+      "draft_sha256": "3ead3e4aa3de3916af4b633a480ae4f8c45256b1a2b90811365a9fde18284db7",
+      "review": "docs/dialogue-hud/reviews/004-ambient_steward_beforeAssassination-review.json",
+      "review_sha256": "6e3e889e92a57ccae161d320e2355d5e40fcbc0eaf1d5ba8c9e6fffb92127cf9"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/005-ambient_sister_beforeAssassination-context.json",
+      "context_sha256": "60fdbe84ffce3d7906663e8330303a67392433170b65792a22460e9a76248f36",
+      "draft": "docs/dialogue-hud/reviews/005-ambient_sister_beforeAssassination-draft.json",
+      "draft_sha256": "9b7987b320d13e8234047841835c30228064a83e089f2a14aa823b32544b1f32",
+      "review": "docs/dialogue-hud/reviews/005-ambient_sister_beforeAssassination-review.json",
+      "review_sha256": "097e2297f6562e24b02e250561713c5232058975b5a937f71145f5eba45d5b5d"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/006-ambient_sister_afterAssassination-context.json",
+      "context_sha256": "9c4c09635d491994ac85c0e95df91872f927044a7f307cb27719cdbdc172f3cc",
+      "draft": "docs/dialogue-hud/reviews/006-ambient_sister_afterAssassination-draft.json",
+      "draft_sha256": "9fd1e9b2e4a00c549d02d5cd18df0639f3d9bdd29d1ff33da40bc4ce86af5504",
+      "review": "docs/dialogue-hud/reviews/006-ambient_sister_afterAssassination-review.json",
+      "review_sha256": "f13eef6928126878295c6485d4977ad88c3902aaac641e16b6fff2604d1897b7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/007-ambient_dolly_beforeAssassination-context.json",
+      "context_sha256": "b6a6fa9252733cdcdbf0152074f6710f00b4137b2f8f529db21b3b3dd0578d93",
+      "draft": "docs/dialogue-hud/reviews/007-ambient_dolly_beforeAssassination-draft.json",
+      "draft_sha256": "e038e2f7ad515e8263f9072288c43639ecdb00555bc8456aef46128f83a115f3",
+      "review": "docs/dialogue-hud/reviews/007-ambient_dolly_beforeAssassination-review.json",
+      "review_sha256": "f903b085a38ecc316fcb45110e1137fe9c24146ca2c32cac6cfad59a4446376c"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/008-lanternWatchBefore-context.json",
+      "context_sha256": "96d681c47b0b415faec2dea693509a595fd66f35611406e37d55c9992f8c2bf2",
+      "draft": "docs/dialogue-hud/reviews/008-lanternWatchBefore-draft.json",
+      "draft_sha256": "01406bcaf44b131a05f783dd33f057b579636706401734ce2614c84228bc9351",
+      "review": "docs/dialogue-hud/reviews/008-lanternWatchBefore-review.json",
+      "review_sha256": "43baa27c1746447754767d75f6f98bfb90755f9fc470b3a6f262a80900652c1c"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/009-lanternStale-context.json",
+      "context_sha256": "d8e0feb84897af5ed55fe4290d6b2e50cbc176e2c6af16602b768dbd17303c13",
+      "draft": "docs/dialogue-hud/reviews/009-lanternStale-draft.json",
+      "draft_sha256": "9db28c55406339cd7bfe6901797265b483a5fc60c8057d1d9596421e69e8ac7a",
+      "review": "docs/dialogue-hud/reviews/009-lanternStale-review.json",
+      "review_sha256": "c6cef9057692760456f15a34e8babdca6c149216a061b04a3fca949bcfd27bd6"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/010-lanternReturnBefore-context.json",
+      "context_sha256": "6ace47b33377aae7775fd6d444e3effa751d57c6381a086e8dde3f5611d7dbce",
+      "draft": "docs/dialogue-hud/reviews/010-lanternReturnBefore-draft.json",
+      "draft_sha256": "a8f0624c7248ed8212de84f83ca68c2d921b57a042e0ab449739cde022bef640",
+      "review": "docs/dialogue-hud/reviews/010-lanternReturnBefore-review.json",
+      "review_sha256": "ac8fd891829dff41d5864c28ed575bb59f8895bc7d206ae75665a45ed308a5d4"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/011-saintSealTalk-context.json",
+      "context_sha256": "8471e78202461508bae040f3b271d5ee91d58efa56862cd938659e70c034d0f9",
+      "draft": "docs/dialogue-hud/reviews/011-saintSealTalk-draft.json",
+      "draft_sha256": "a036b38abe2d6f686c12cece80a79d36d74b7a1410ae891e7b6c5a36e0b655c7",
+      "review": "docs/dialogue-hud/reviews/011-saintSealTalk-review.json",
+      "review_sha256": "2c3ff8f94ba41b671f03c09012e56b45480c2dc57b0e7f48fbb4a1a26e93eb01"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/012-womanMedicineReceived-context.json",
+      "context_sha256": "bc52f3eebf40dbfe1328d0ed284ee29556046cbea555fc32066b5a8524753610",
+      "draft": "docs/dialogue-hud/reviews/012-womanMedicineReceived-draft.json",
+      "draft_sha256": "f8799438a8704d6c6e3be84ec0db13e680fda9c5d71034e76316b5381350043f",
+      "review": "docs/dialogue-hud/reviews/012-womanMedicineReceived-review.json",
+      "review_sha256": "5fc3031121c63792f456ae6fce581b1ad533b23c440e6223c418679fe610424a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/013-sisterBeforeDeparture-context.json",
+      "context_sha256": "9b0329aec112fe50c2c7a386b75a93ddc341232d8eb769f21f6fa621aedf570c",
+      "draft": "docs/dialogue-hud/reviews/013-sisterBeforeDeparture-draft.json",
+      "draft_sha256": "364b3ba02624c51d782148138c48c480f36cf6b201a016dfcdb5f75b93187e52",
+      "review": "docs/dialogue-hud/reviews/013-sisterBeforeDeparture-review.json",
+      "review_sha256": "a8e9863de3aa5f7f0b87ed32312b6c8cef7a20fc7521c3fa9c9d7ae05e165a5a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/014-sisterAfterEscape-context.json",
+      "context_sha256": "b0df10d40a08d1bd2676e54d9351e419b2cac1c5e121909db8aa623cc2e1cf70",
+      "draft": "docs/dialogue-hud/reviews/014-sisterAfterEscape-draft.json",
+      "draft_sha256": "5a58576390d1e248cd61945bf6255c28471cea488eda50ab3c7278dbc28b6766",
+      "review": "docs/dialogue-hud/reviews/014-sisterAfterEscape-review.json",
+      "review_sha256": "1b1dc50a72a580e74774cfdbe55c51e98b56f86a6d6fd508cb7336731f41cbab"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/015-farewellSteward-context.json",
+      "context_sha256": "3847e89f7b370f62ac4d6550f3b1123687842f52961cb4a00fac43b005907f7d",
+      "draft": "docs/dialogue-hud/reviews/015-farewellSteward-draft.json",
+      "draft_sha256": "36e441960ad18585c6ed5667996b27c7f6454a915e9c452b1b2761af93e57d28",
+      "review": "docs/dialogue-hud/reviews/015-farewellSteward-review.json",
+      "review_sha256": "25f3564a899d2f95fada25e5df2f6640136d2f1f0181e37b01fd21127fcc70d4"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/016-farewellSister-context.json",
+      "context_sha256": "dcc84a621c7b04dea440da4deb78b1c02f2e8ad0e2ae4d75e101bf6ad6f0f5a6",
+      "draft": "docs/dialogue-hud/reviews/016-farewellSister-draft.json",
+      "draft_sha256": "28e77a5f319aee8829dbeb788268781ccc55c78249836f8f668a774b2841f391",
+      "review": "docs/dialogue-hud/reviews/016-farewellSister-review.json",
+      "review_sha256": "a07322177d9fae9883c9cfaf565d3403a7659889dee8c34f7f51e9e3ee6269c2"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/017-farewellDolly-context.json",
+      "context_sha256": "2960de8430390cd5751e85be6554844a650c5fd9e73961dc4f2ca522899a40a9",
+      "draft": "docs/dialogue-hud/reviews/017-farewellDolly-draft.json",
+      "draft_sha256": "7054e5cdcfdfb85d01b81821f1a8a7820a1abb52055008de1d9757caf74d60c9",
+      "review": "docs/dialogue-hud/reviews/017-farewellDolly-review.json",
+      "review_sha256": "d3d8b28fdf03bbb528cacbc462d7c1339d220005c12bbd5abe353dae13731889"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/018-farewellLottieUnfinished-context.json",
+      "context_sha256": "f52e137d0656dddc5e7ace3ec1e8c0629b424c6bd8ccbd9645c371b8e45bf6bc",
+      "draft": "docs/dialogue-hud/reviews/018-farewellLottieUnfinished-draft.json",
+      "draft_sha256": "8a5565c9cfb527a08d127109c2e03b640aaf888f02b55796b48b4ae1abfb0b52",
+      "review": "docs/dialogue-hud/reviews/018-farewellLottieUnfinished-review.json",
+      "review_sha256": "5e1097ca578fec617d7def30b207c0c3802159b6febd7d43ba2560ae3ec8e6b3"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/019-ch1SisterBoots-context.json",
+      "context_sha256": "5b0ae2396b6b8cfd85e5396aeffdfc1fcb62d9ded3654fe92677979ff0a0ed85",
+      "draft": "docs/dialogue-hud/reviews/019-ch1SisterBoots-draft.json",
+      "draft_sha256": "2fa01a69e4182641bf472396e58a32017f1cd3628f231fc8e3e2986272d05b26",
+      "review": "docs/dialogue-hud/reviews/019-ch1SisterBoots-review.json",
+      "review_sha256": "13d03eae76d7e92d7bf3aab491f656db326c3894588c3c0b58abb77580f1dfee"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/020-ch2Arrival-context.json",
+      "context_sha256": "bdc31b58253618c65b3ca08853dc4ff6055b0464f8adbd6f45a65f9c98583a98",
+      "draft": "docs/dialogue-hud/reviews/020-ch2Arrival-draft.json",
+      "draft_sha256": "35d0d18575b91a150390b07c175afd77de38a51c46382270a9723cdb44d6bff2",
+      "review": "docs/dialogue-hud/reviews/020-ch2Arrival-review.json",
+      "review_sha256": "8d274d4aff50a00fa9bd4f1146231dbbbb6cfb02f00f255468091f8115ab31e7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/021-saintPostIdle-context.json",
+      "context_sha256": "131d390d4f5116f0242820bc521ebcfd64164e282df0024a0c467a0e788c93fa",
+      "draft": "docs/dialogue-hud/reviews/021-saintPostIdle-draft.json",
+      "draft_sha256": "887a1a5d955d7f8afdaaa394b2322e98401dc012ac9b9aaec122ec18e4f59175",
+      "review": "docs/dialogue-hud/reviews/021-saintPostIdle-review.json",
+      "review_sha256": "db41bf6e5e700e22ef79d925af5c5f4490c1195ab29d355279d4a05fa4e696d7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/022-c1NorthBrief-context.json",
+      "context_sha256": "eb52351d9a2e1d7582d936c424c2870e7ed8ffcfe64cc5362ef29df819dd7fc6",
+      "draft": "docs/dialogue-hud/reviews/022-c1NorthBrief-draft.json",
+      "draft_sha256": "e3bf631ed1e2d7ecd6d74e3284d75f51f1f513467ff9dbe28ad3de58a9ce5295",
+      "review": "docs/dialogue-hud/reviews/022-c1NorthBrief-review.json",
+      "review_sha256": "45083116e1a9ffb087a831e060630e452dea8048d9155f80daf43addfc051110"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/023-c1PatrolProgress-context.json",
+      "context_sha256": "b38504d66569250c17703bc8ac7124023c8a978533e265b5b116fccefd9fd2bf",
+      "draft": "docs/dialogue-hud/reviews/023-c1PatrolProgress-draft.json",
+      "draft_sha256": "2aa579024ffbdba21bc8062f4ab7a597341b424b3f2d2e4d1ab1096729698c76",
+      "review": "docs/dialogue-hud/reviews/023-c1PatrolProgress-review.json",
+      "review_sha256": "209f0131fdc87da0c85649025c90257aa6c046489f886cb1c60e15f85799e13f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/024-c1Talk_c1Readiness_report-context.json",
+      "context_sha256": "07f97bcebcb1831f6af8018b5ac690f5f05fb4f5b08dc5949cfc02c90399bd58",
+      "draft": "docs/dialogue-hud/reviews/024-c1Talk_c1Readiness_report-draft.json",
+      "draft_sha256": "610bfe8a13d1cae5842a4929a8fba79b08d2e5e504a3de01ac8a438d6d69d037",
+      "review": "docs/dialogue-hud/reviews/024-c1Talk_c1Readiness_report-review.json",
+      "review_sha256": "b5758919dd50d3a2e698abd8c33b5d5579a4d9133416d0e2b8766cce03d2d033"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/025-c1Talk_c1LoomBrief_offer-context.json",
+      "context_sha256": "9b16d327706a0190df5890f19c86bcab24370a33155435d2840511232341dfd8",
+      "draft": "docs/dialogue-hud/reviews/025-c1Talk_c1LoomBrief_offer-draft.json",
+      "draft_sha256": "ddeb6bb64c91fcf8f2638f83426690fca12f1f70003645bb1bf5a1769e517ae1",
+      "review": "docs/dialogue-hud/reviews/025-c1Talk_c1LoomBrief_offer-review.json",
+      "review_sha256": "6e1ca52126d8943f8580d7cd44392bbf1a83dbf0ee5fb42facac43a2283f35ec"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/026-c1Talk_c1LoomBrief_progress-context.json",
+      "context_sha256": "a9f93dc11813c01e651f6dc0555dbbc0006aa8fdf3a215e32e272411fbbb5c6f",
+      "draft": "docs/dialogue-hud/reviews/026-c1Talk_c1LoomBrief_progress-draft.json",
+      "draft_sha256": "37682a0569eb666151546f3632d656d94525df0c7fb4af0f856a99f454a59f68",
+      "review": "docs/dialogue-hud/reviews/026-c1Talk_c1LoomBrief_progress-review.json",
+      "review_sha256": "182d9a24ea6e64ca3e09395e388c8f00d31b8c1b628bef46aaeadec0bfb146cc"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/027-c1Talk_c1CanalPrep_report-context.json",
+      "context_sha256": "624257de42f4ff8faf4db86728694402b5103f1ff18f23d253b8061c495919bf",
+      "draft": "docs/dialogue-hud/reviews/027-c1Talk_c1CanalPrep_report-draft.json",
+      "draft_sha256": "64746bfc45d145ed38affccb62143982d2dce1fbbdad7786fc6eeebef95a80b6",
+      "review": "docs/dialogue-hud/reviews/027-c1Talk_c1CanalPrep_report-review.json",
+      "review_sha256": "ba5c1b84bae6e8581f7ddf332dc1d859a36eb804321a338399188c23a34d7f1a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/028-c1Talk_v12Water_report-context.json",
+      "context_sha256": "1f290ab1338d1b39f6dba4392f0f33c08b1b261f70b844072b70e376c839a30d",
+      "draft": "docs/dialogue-hud/reviews/028-c1Talk_v12Water_report-draft.json",
+      "draft_sha256": "9d970648c64c9fcd8efd0cda4c0780743b8c3dc36822c483b7de75ed6667b1ec",
+      "review": "docs/dialogue-hud/reviews/028-c1Talk_v12Water_report-review.json",
+      "review_sha256": "1056451b05df5f7c4c254594e986aa746f53fb3904b28c2092f7e53bcd1a0112"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/029-c1Talk_c1ClockMemory_offer-context.json",
+      "context_sha256": "5f53488730471e22be19d439c26248612daeca5efa73bb1d8d8497ee4f043d4f",
+      "draft": "docs/dialogue-hud/reviews/029-c1Talk_c1ClockMemory_offer-draft.json",
+      "draft_sha256": "2a8c4d7fc3c75212eda0498bf1a8a6bb2e98f943a02ec2ea053a4bc3e615946a",
+      "review": "docs/dialogue-hud/reviews/029-c1Talk_c1ClockMemory_offer-review.json",
+      "review_sha256": "042492b04cd8c4311e5bc04e27285f0dce989c9f225c6e0866bab918fa90198e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/030-c1Talk_c1AlchemistSamples_offer-context.json",
+      "context_sha256": "bce8f1d370426b314e10ae26579898b1b1526c730c8f73fc92d0de8239097b15",
+      "draft": "docs/dialogue-hud/reviews/030-c1Talk_c1AlchemistSamples_offer-draft.json",
+      "draft_sha256": "6bf851daf99c56a44680c159836e4ebf87c14f3cecf941fdf5840cfb3f5c407b",
+      "review": "docs/dialogue-hud/reviews/030-c1Talk_c1AlchemistSamples_offer-review.json",
+      "review_sha256": "f55377fa448e835ef436085763c82349de701cde818268684c07420c9e32b05b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/031-c1HiddenPairArrangement-context.json",
+      "context_sha256": "e5502e9ea5f2bad0847c1503d32ef44a7d0f4a4837c60c4d5b7fff8805bfd2a2",
+      "draft": "docs/dialogue-hud/reviews/031-c1HiddenPairArrangement-draft.json",
+      "draft_sha256": "572fe01d1dd64853a38cedb9ce61581aa256c3562f2b9e1a87156331f9953b58",
+      "review": "docs/dialogue-hud/reviews/031-c1HiddenPairArrangement-review.json",
+      "review_sha256": "afa3794bc7585a1147564058476fb7e616cd22b598bca207cd47f5cd35c43158"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/032-ch3DoctorIdleSaint-context.json",
+      "context_sha256": "e40a80a6a1e96c8ee75e31b22116821a1ac7f2c8fc49e7b1174dd8fc84e11591",
+      "draft": "docs/dialogue-hud/reviews/032-ch3DoctorIdleSaint-draft.json",
+      "draft_sha256": "796e7314c092a4c14e64ff850e70de0cbecd8cd366f6db76f91e1c1c27811318",
+      "review": "docs/dialogue-hud/reviews/032-ch3DoctorIdleSaint-review.json",
+      "review_sha256": "6238e0fb3eadc30c981394dcc926817600bff3a4e96736c6cc7f2a136df1e61d"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/033-ch3DoctorIdleHero-context.json",
+      "context_sha256": "8a5090abe27d4241d5e7a3de1899377eba6bab09a324dbd985ce97a0967a30ef",
+      "draft": "docs/dialogue-hud/reviews/033-ch3DoctorIdleHero-draft.json",
+      "draft_sha256": "fc8b58df5105e885f4a28d4d5310cc2d7e84d9bd07dfb7f88cb01262d471099a",
+      "review": "docs/dialogue-hud/reviews/033-ch3DoctorIdleHero-review.json",
+      "review_sha256": "79325d6cb82030bdc70d9caaaa79718c0425894b3dc1de0dc5888cbddc141339"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/034-ch3SaintAfterRecovery-context.json",
+      "context_sha256": "56c2658e7a4a4c26c4cb988dbf22e6ec42311e5f060ffb81ce0c12add8ecf0a9",
+      "draft": "docs/dialogue-hud/reviews/034-ch3SaintAfterRecovery-draft.json",
+      "draft_sha256": "cbea8c152ae30763e7686febbf6f6dcb12c3b5d61bc7367dce66c2f102c81f6c",
+      "review": "docs/dialogue-hud/reviews/034-ch3SaintAfterRecovery-review.json",
+      "review_sha256": "9bbc83761b4fa3b744c2623dae815313c4743152e63166ff22b782e98c0b891e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/035-ch3TeachingIntro-context.json",
+      "context_sha256": "ddb6aa5333852289d2c227022f62218ce6c6e642b2ca6ce31cfc9948aa86efcd",
+      "draft": "docs/dialogue-hud/reviews/035-ch3TeachingIntro-draft.json",
+      "draft_sha256": "137d775cb95563009a690f510f50d490a67f60c1f0a54e0ac565cee781b00e8e",
+      "review": "docs/dialogue-hud/reviews/035-ch3TeachingIntro-review.json",
+      "review_sha256": "8bb5891d90fbe5f717a0358c7066545813780f77f19763b06c4efe246781e16b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/036-ch3TeachingPractice-context.json",
+      "context_sha256": "875b6c74d895291d191846bbf985dbd863528d6cc7afdff92ddcd292796104c4",
+      "draft": "docs/dialogue-hud/reviews/036-ch3TeachingPractice-draft.json",
+      "draft_sha256": "3361f626630aed88f95ef9a420dde0f270f4347c6578e226e42741274318b629",
+      "review": "docs/dialogue-hud/reviews/036-ch3TeachingPractice-review.json",
+      "review_sha256": "a3adaaf29d64b667b691081081400baf752b5df1466bbc521c245bade4791983"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/037-ch3TeachingRepeat-context.json",
+      "context_sha256": "50e247d5dacf951427ad85f2734a70d7dc7511693026198e95c522c30eec1016",
+      "draft": "docs/dialogue-hud/reviews/037-ch3TeachingRepeat-draft.json",
+      "draft_sha256": "790ef601c3f310c5580793a85ef7dec65af138384bf005a4d89db6f12967c696",
+      "review": "docs/dialogue-hud/reviews/037-ch3TeachingRepeat-review.json",
+      "review_sha256": "10abdba1b1f620f426f75f62326adc2a63d85b00faa33ffe9bde0387c3d170a3"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/038-ch3Pass-context.json",
+      "context_sha256": "6afad9444417fb3c0fcfac1817b3cf4c4d8076e66a9ac3d012d8a21ff1664a5d",
+      "draft": "docs/dialogue-hud/reviews/038-ch3Pass-draft.json",
+      "draft_sha256": "aabfddc7dc5c4e78876a808dca87802a7ecd8fd8cdcaddc780dd13818f031d05",
+      "review": "docs/dialogue-hud/reviews/038-ch3Pass-review.json",
+      "review_sha256": "efa9d862f87c4cd5f15122160aeb09eecf9883754adea6099db26f8c6d1e0f4a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/039-ch3ArenaBefore-context.json",
+      "context_sha256": "4e71857e9589d5482ddfe35df09927ab40873126579180a6e8a456418c4da96c",
+      "draft": "docs/dialogue-hud/reviews/039-ch3ArenaBefore-draft.json",
+      "draft_sha256": "1b46328217baa1e2a59b8c900c81d68403736b11ce2610a0e95d4025b1cbe996",
+      "review": "docs/dialogue-hud/reviews/039-ch3ArenaBefore-review.json",
+      "review_sha256": "50520508f72c2bbabe5e31c619eaae658f99332b9a44e73ce563d8fa8074bd95"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/040-ch3MachineFirstUse-context.json",
+      "context_sha256": "6868759cc84426b16187b84484cd53f17b73e7e809915be0330f749678e9fbdb",
+      "draft": "docs/dialogue-hud/reviews/040-ch3MachineFirstUse-draft.json",
+      "draft_sha256": "de1d52fd3a51f95947303e1c77639a160e538b55b0fe90cc3d7392f6ccb1da1c",
+      "review": "docs/dialogue-hud/reviews/040-ch3MachineFirstUse-review.json",
+      "review_sha256": "10010506795c8020d3f16bbc4db6a3c33e022704654883e380aed47d79fb2eb9"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/041-ch3CampFarewell-context.json",
+      "context_sha256": "8a2e337b7c8885069136e4b965c429326ca32b3bcb6d5cbbb0e5a9537c05caa2",
+      "draft": "docs/dialogue-hud/reviews/041-ch3CampFarewell-draft.json",
+      "draft_sha256": "a646030561128cb3fd62c1afafc8e1df89b8fc2551b4b1e6a9bacd22e8d24c71",
+      "review": "docs/dialogue-hud/reviews/041-ch3CampFarewell-review.json",
+      "review_sha256": "8ab959673bbc9544081c0074c45ff4309f1287f90c80581ffcfe016580889c61"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/042-ch4CampWelcome-context.json",
+      "context_sha256": "6e8fba26800ecaffe4c0b0c77c20931349e59d536a865acc21b5b4146ef6cd5d",
+      "draft": "docs/dialogue-hud/reviews/042-ch4CampWelcome-draft.json",
+      "draft_sha256": "6030b1982953e84f27e6e97b5d9823a54cca95f4edfd977593269e97608d6c40",
+      "review": "docs/dialogue-hud/reviews/042-ch4CampWelcome-review.json",
+      "review_sha256": "c28d7fdb799707e46da5660e9c9301ccc3d753d8765ceaf054f1828a70e9d98f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/043-ch4Boss3After-context.json",
+      "context_sha256": "a6c53dbfcb886c71e05bfd2f1a86ddc1efb268c285875119deaf220495726e95",
+      "draft": "docs/dialogue-hud/reviews/043-ch4Boss3After-draft.json",
+      "draft_sha256": "aa1cd632fdb298afbb4aed0365164acc8aab52626938fefb3bfded49d5b1c709",
+      "review": "docs/dialogue-hud/reviews/043-ch4Boss3After-review.json",
+      "review_sha256": "564bf79df8f071a772af0760f325903f5817126710daa0f5d0782b03400c59b1"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/044-ch4V13PrivateAfter-context.json",
+      "context_sha256": "96434f5d201e99a88295a8378f9d791b07e71db031f6a17db200a8d643b620af",
+      "draft": "docs/dialogue-hud/reviews/044-ch4V13PrivateAfter-draft.json",
+      "draft_sha256": "df144546b554356c84eb5aa2ccfffcca25a4a0ae794a77bc2a40d0f75070a957",
+      "review": "docs/dialogue-hud/reviews/044-ch4V13PrivateAfter-review.json",
+      "review_sha256": "e7c730fcea9268373fddefe48f1c74924e939ebd7b20d556eb0919148331baf7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/045-ch5CareerTeach-context.json",
+      "context_sha256": "6e9f4257ba7fdaa443b68ec124d827f5685955b7cc474332a114c885fa7ceb4b",
+      "draft": "docs/dialogue-hud/reviews/045-ch5CareerTeach-draft.json",
+      "draft_sha256": "3704e4983df765879ecc6667c6f039c4728c74e1990e2468bdd20685c9185067",
+      "review": "docs/dialogue-hud/reviews/045-ch5CareerTeach-review.json",
+      "review_sha256": "4e3d3c4c6c503613eba3b14fd16984c595e9193e8955ff692e8a1ba3c1d6fc3e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/046-ch5MentorAfter-context.json",
+      "context_sha256": "d45c91b1a73903370093bfc8d77482dad9a828d6242d6cc8cbde4c5c266cd9d0",
+      "draft": "docs/dialogue-hud/reviews/046-ch5MentorAfter-draft.json",
+      "draft_sha256": "1313ed7a105bcc662ebd13d60c3cac078f310d6feda5823cb106e3732d13de26",
+      "review": "docs/dialogue-hud/reviews/046-ch5MentorAfter-review.json",
+      "review_sha256": "dbdf022212faf16f71b72c6c558b308f6f5dac565738c6420610eb9f66a76015"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/047-ch5CityArrival-context.json",
+      "context_sha256": "1b72584dd90a54b6660112eb68feff618d8479ee7bb291bdbdb7d30b950e51db",
+      "draft": "docs/dialogue-hud/reviews/047-ch5CityArrival-draft.json",
+      "draft_sha256": "d7334e235c538fcc4c58f91f0e54a66db3befb065fc22d4222e0232c057c2ec6",
+      "review": "docs/dialogue-hud/reviews/047-ch5CityArrival-review.json",
+      "review_sha256": "6a9fac53751f7131901e1fd175b89f317802b81fc512c8a5754283e3bf507de4"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/048-ch5SmithReturn-context.json",
+      "context_sha256": "b396ba29f54da8233fe7ac280eaf302e770a1c9db33fa52714cadb1112f2d9eb",
+      "draft": "docs/dialogue-hud/reviews/048-ch5SmithReturn-draft.json",
+      "draft_sha256": "61a36bd3b9bc55c9c490d38bc64bc9ed960e71555a010fb96a577c1058b61eb8",
+      "review": "docs/dialogue-hud/reviews/048-ch5SmithReturn-review.json",
+      "review_sha256": "8e2e44802bed48e57db12e5ad0002266f4c9eb534b63c46670ac297ed8eb878b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/049-ch5SetCrafted-context.json",
+      "context_sha256": "43eb489d6885914317248ee6ed14f107e0420360f1fa2a2d8433b6c70c028851",
+      "draft": "docs/dialogue-hud/reviews/049-ch5SetCrafted-draft.json",
+      "draft_sha256": "72038a83b5901f2616ba28c562d1a8d9d9eea25b7b12f9124907da0884e70776",
+      "review": "docs/dialogue-hud/reviews/049-ch5SetCrafted-review.json",
+      "review_sha256": "f41e97687d0080e8626c0d1b0c8926b86a477ca148ffbc7ce2f19f3134d3446c"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/050-ch5SmithDaily-context.json",
+      "context_sha256": "8e21ab52b322d65b8910e2375d9f44b88506f80a90b4cf5e063ca7eda3eecdae",
+      "draft": "docs/dialogue-hud/reviews/050-ch5SmithDaily-draft.json",
+      "draft_sha256": "126c165bd9d72bcb74649cf142f71532a01df049644dee95070f8bd8d922d98e",
+      "review": "docs/dialogue-hud/reviews/050-ch5SmithDaily-review.json",
+      "review_sha256": "62388b1a767a6ab2cd9b253560faead8dc7546c6bb586a1d93ff6f851a732c90"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/051-ch5RecruiterContract-context.json",
+      "context_sha256": "2a1e43f9ca7b76d1b419382cb13fdf97bb4ab7cbcd0a37600abeba0b17ab76ca",
+      "draft": "docs/dialogue-hud/reviews/051-ch5RecruiterContract-draft.json",
+      "draft_sha256": "7be22376b7ece63022a5aafe10268a193e43ec6660b375b4f87da8ef433b15b4",
+      "review": "docs/dialogue-hud/reviews/051-ch5RecruiterContract-review.json",
+      "review_sha256": "939bbe9b6cffc86ebdf006bdcb1c58421274e9af99d27973695981bb2d65ec30"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/052-ch5TavernFirst-context.json",
+      "context_sha256": "102826434b9a10519fa0909d99791c788ca21615ff43a91062034f102eb4a44f",
+      "draft": "docs/dialogue-hud/reviews/052-ch5TavernFirst-draft.json",
+      "draft_sha256": "74ef1e148014918494f3f914110464c22276e285fc1c46b29c0287975df9f67a",
+      "review": "docs/dialogue-hud/reviews/052-ch5TavernFirst-review.json",
+      "review_sha256": "dd86ebf1204debe12d8401f13004b13dc87b53b64aa7dbf3fa0420feab2b03e8"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/053-ch5BarkeepDaily-context.json",
+      "context_sha256": "56e63097d53864db77f277a92b984c73e3d308b8cbdc92b04d9a4ec2786d2751",
+      "draft": "docs/dialogue-hud/reviews/053-ch5BarkeepDaily-draft.json",
+      "draft_sha256": "bfccf6635b4d9eb7d474e3dcd7b04a672edb625d7a8c758865371488c8a0066b",
+      "review": "docs/dialogue-hud/reviews/053-ch5BarkeepDaily-review.json",
+      "review_sha256": "49b6467a5c2dc48ccc062155ca565bdc2bef4127b5333fa1ef9dc653409698ee"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/054-ch5CityFarewell-context.json",
+      "context_sha256": "53f5e45cf8d1f4595ba07ff3b7c851d773334947d5a6ed6a98e8ec6080617270",
+      "draft": "docs/dialogue-hud/reviews/054-ch5CityFarewell-draft.json",
+      "draft_sha256": "30ec76b94a88d73e5ba985b884b973014fd24ee8898db90f4c27ab513d3ef7d7",
+      "review": "docs/dialogue-hud/reviews/054-ch5CityFarewell-review.json",
+      "review_sha256": "23adcfebda7056d9e42d2c35517f2417df5d4936ae3e801c441964d212a76121"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/055-c5-saint-after-job-context.json",
+      "context_sha256": "9fea89ea2b0b5272f250c81d747d545766c2639efe3e2e84584cb1903a4954c5",
+      "draft": "docs/dialogue-hud/reviews/055-c5-saint-after-job-draft.json",
+      "draft_sha256": "31684789ec02eb855a64f587924a3d521f523a20022ec44332340d8b61e2e6c6",
+      "review": "docs/dialogue-hud/reviews/055-c5-saint-after-job-review.json",
+      "review_sha256": "7c47f1038144a3bde64f8c22c10cd66622cb2bd2af7f16b8c96aee19ea126c0e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/056-c5-saint-after-treasure-context.json",
+      "context_sha256": "38b4c10648ad5da3fc85fd7d934692b1a3a28b66019a3044a05a5bf7fcecb34c",
+      "draft": "docs/dialogue-hud/reviews/056-c5-saint-after-treasure-draft.json",
+      "draft_sha256": "6fec5f918960c4cba3c5698f954d586dacdc3c2fd76dfa5229f043c91f3c1018",
+      "review": "docs/dialogue-hud/reviews/056-c5-saint-after-treasure-review.json",
+      "review_sha256": "c3e7227a11741c10359637480990dd9cf8996d5926a7fec31e58c110e130e86c"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/057-c5-saint-night-talk-context.json",
+      "context_sha256": "343ce1f070fb6ea882459addf5a19d51957f00ff983385332e5cd5039c17e76e",
+      "draft": "docs/dialogue-hud/reviews/057-c5-saint-night-talk-draft.json",
+      "draft_sha256": "2c27f0934a10680d4575134e7c716b164eb40e4969a5023471391f1439c9f1d8",
+      "review": "docs/dialogue-hud/reviews/057-c5-saint-night-talk-review.json",
+      "review_sha256": "065c76a3d1e7a4868e42356d2da69bbaf0fd3e63634cbd151c1150f599d93758"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/058-v24MomentLampA-context.json",
+      "context_sha256": "c2e5e62d917ba09946f3b62fc81b9b7331a1e8db7111d419fdd3b9d4bba2b9bc",
+      "draft": "docs/dialogue-hud/reviews/058-v24MomentLampA-draft.json",
+      "draft_sha256": "d470b2063ea06344b0657ea8aca6c2c13144d96cbf5c08c1cbcc79814b0e3db8",
+      "review": "docs/dialogue-hud/reviews/058-v24MomentLampA-review.json",
+      "review_sha256": "80723f920f769a596fb694b3305556c4cdfe1822e5de792328a806f3b415c7db"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/059-c3BrewMedicine-context.json",
+      "context_sha256": "7a89351fbea1e820fa0a15c4cb3d048d24e7ce4d31ec99a5dc280fb3765d2fce",
+      "draft": "docs/dialogue-hud/reviews/059-c3BrewMedicine-draft.json",
+      "draft_sha256": "e86f19f83dd326b3be3ea2077df33fe622f01dc53523ba496a50b2bb4f8cb571",
+      "review": "docs/dialogue-hud/reviews/059-c3BrewMedicine-review.json",
+      "review_sha256": "33301eb828b9f0cc245e49dcc65e7ed03f469806d9925d8fc6ccb98287c9192e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/060-c6v25Disguise-context.json",
+      "context_sha256": "a16b7361a24e60144141cd7cf4ec8036a4b68074300b5157aaa3c3f85cdd3811",
+      "draft": "docs/dialogue-hud/reviews/060-c6v25Disguise-draft.json",
+      "draft_sha256": "c73c7d34e0372f820674ab0ea9c09812674c590376f8edda7e2441caec7af02e",
+      "review": "docs/dialogue-hud/reviews/060-c6v25Disguise-review.json",
+      "review_sha256": "9a785434b664e38efe3d88f2bfab47fb7a671380c8e09fe09ee6cfbb939e40d4"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/061-c6v25Village-context.json",
+      "context_sha256": "a3f1c5b360f6057c06caa1374c2e8cdc84f21afc407fc12933e7c2d4d27d406f",
+      "draft": "docs/dialogue-hud/reviews/061-c6v25Village-draft.json",
+      "draft_sha256": "650dc08928e7b9a328bd832078d364884c7ff6103a3b8a929b5c3f4009efeb3e",
+      "review": "docs/dialogue-hud/reviews/061-c6v25Village-review.json",
+      "review_sha256": "69ecdd0be0f123cbbd2d5c8d3a7cbab7edd96d4c8b109fae92f863de4c1370a1"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/062-c6v25Departure-context.json",
+      "context_sha256": "51478d404ef92c11eb33aab703768b1bda33eb6c2e6dd6a3ce95ca36f22c8e9f",
+      "draft": "docs/dialogue-hud/reviews/062-c6v25Departure-draft.json",
+      "draft_sha256": "7f0b7f9413532b8161e6f31af9871660a3943e9d8784a0dee41028548add4a9a",
+      "review": "docs/dialogue-hud/reviews/062-c6v25Departure-review.json",
+      "review_sha256": "1ce63a360239636d3549494c38579325d3d472203019eb76c90e5c4152b44c2c"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/063-c6v26BorrowedRoofIntro-context.json",
+      "context_sha256": "5dba31fdc42193516bdb402dc66f543eaaf6b1c931187e6ff6b46d29fc16e06e",
+      "draft": "docs/dialogue-hud/reviews/063-c6v26BorrowedRoofIntro-draft.json",
+      "draft_sha256": "9d582753fd084f588e07989c1b9e954b4f623611c5138696586e513eb8169b3d",
+      "review": "docs/dialogue-hud/reviews/063-c6v26BorrowedRoofIntro-review.json",
+      "review_sha256": "4eafbaca47c9cf73fbb496f75c3b410693cff53a84448c955afa6f66939e648b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/064-c6v26BorrowedRoofHerbs-context.json",
+      "context_sha256": "24a8bce67c21021f1194e44c4e9bd183f7195d493b579086ac043c4641f86b5b",
+      "draft": "docs/dialogue-hud/reviews/064-c6v26BorrowedRoofHerbs-draft.json",
+      "draft_sha256": "589881fe296cef05dc86c85e4548b219662fd76fc4b25ceae3635d7911cc7923",
+      "review": "docs/dialogue-hud/reviews/064-c6v26BorrowedRoofHerbs-review.json",
+      "review_sha256": "2fbdeefb96be002ecaaf1e9677507520192c5b728d971f3b5b605a60578b4bd7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/065-c6v26BorrowedRoofComplete-context.json",
+      "context_sha256": "b1dd1c0af23271b467133cc8af87d8884cda4cebcbfda1f35cbe3f8b6d9cae3c",
+      "draft": "docs/dialogue-hud/reviews/065-c6v26BorrowedRoofComplete-draft.json",
+      "draft_sha256": "45122a84567b80abe186495b1c5516c510f4af4236d1fc3b5a48bccf0c3e3aae",
+      "review": "docs/dialogue-hud/reviews/065-c6v26BorrowedRoofComplete-review.json",
+      "review_sha256": "652962e23d66da375bfebcae7d060ea5855863e6530e880c8345bc9344447ec7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/066-c6v26LastWagonIntro-context.json",
+      "context_sha256": "9495f51055dc5fe80229adb15b6df21793f316e1b3dfd9a72cb77308e7d0cc15",
+      "draft": "docs/dialogue-hud/reviews/066-c6v26LastWagonIntro-draft.json",
+      "draft_sha256": "e03912155ce98210f4ee521cb30fc69353b953898f47619abb2e85e45d258136",
+      "review": "docs/dialogue-hud/reviews/066-c6v26LastWagonIntro-review.json",
+      "review_sha256": "cd89d2de9c23fb157e9e2c49637bbce19147be3c309d35d0736c17a49882b439"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/067-c6v26LastWagonBelongings-context.json",
+      "context_sha256": "032caed6b9201ca454ecee72c1de4653e26d117604c22e7e495554e7c08b02a4",
+      "draft": "docs/dialogue-hud/reviews/067-c6v26LastWagonBelongings-draft.json",
+      "draft_sha256": "4ee547da734c6b99e93a7c8a33f04d61ee124905d1a0cffd30ed311bf16b67b6",
+      "review": "docs/dialogue-hud/reviews/067-c6v26LastWagonBelongings-review.json",
+      "review_sha256": "ea2e15a04b77a31fece0b28be24344db3edb8514a88c803b6adee507c6c3d5b1"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/068-c6v26LastFerryTools-context.json",
+      "context_sha256": "87b5b6f4b05a317aa9716ed2ab4ee3dc3c69601db708bbd312e5338f30a2803d",
+      "draft": "docs/dialogue-hud/reviews/068-c6v26LastFerryTools-draft.json",
+      "draft_sha256": "207d6e8307f778f80318bbb0c97439f335f93c2451b69486ca90d74a905e8a68",
+      "review": "docs/dialogue-hud/reviews/068-c6v26LastFerryTools-review.json",
+      "review_sha256": "557f142b1037e4873d405cdc776c00bfb194f63f40b112ee9fa2465274c5607a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/069-c6v26LastFerryComplete-context.json",
+      "context_sha256": "6f2a94c6c81fa05e2c2430f7dc06f5094276f0978cb783d57884f582aee4a285",
+      "draft": "docs/dialogue-hud/reviews/069-c6v26LastFerryComplete-draft.json",
+      "draft_sha256": "2161df0fbdae164acd1e3442fc3f594807a42c4c72b33bddc4d9347a3e15d5b8",
+      "review": "docs/dialogue-hud/reviews/069-c6v26LastFerryComplete-review.json",
+      "review_sha256": "244cb6d53c9642ad6983cd18942232275e54bd9982895c7e09679432f41e68e0"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/070-c7v25OdricFarewell-context.json",
+      "context_sha256": "7e55a8f234709dd303a831792fad79902a8e81839294bc8858643b781971d5d9",
+      "draft": "docs/dialogue-hud/reviews/070-c7v25OdricFarewell-draft.json",
+      "draft_sha256": "657f3a2644fb43936e1643925a8dc029150f3847fd7e89fa593709c11c370ed5",
+      "review": "docs/dialogue-hud/reviews/070-c7v25OdricFarewell-review.json",
+      "review_sha256": "3f453717f1389f40cb9dce55ba5e283c9b9869fe083568b2d8917c7efa62aec0"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/071-c7v25MarthaFarewell-context.json",
+      "context_sha256": "8deb7f73c4ce0777df0b0a93c2959638f7767281d53784562194537dc543927e",
+      "draft": "docs/dialogue-hud/reviews/071-c7v25MarthaFarewell-draft.json",
+      "draft_sha256": "972c89798d403f70ea83653e9ed91eadb9b7b67a7811b20562e168606c29d471",
+      "review": "docs/dialogue-hud/reviews/071-c7v25MarthaFarewell-review.json",
+      "review_sha256": "85a82e26638882a66cabbd5aaa69eb1560b28cea23033d52f18ee42250f43849"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/072-c7v26SecondWagonComplete-context.json",
+      "context_sha256": "fd202db3064d3bfec6ab131ee594f4b3af49f1c9052c2199650189129cb2a6c7",
+      "draft": "docs/dialogue-hud/reviews/072-c7v26SecondWagonComplete-draft.json",
+      "draft_sha256": "adaf31032cdc02402d2ba6574587930ca35c932b9ba555918996364c82f2e1b5",
+      "review": "docs/dialogue-hud/reviews/072-c7v26SecondWagonComplete-review.json",
+      "review_sha256": "6f8ef1767f5e7019c174e48527ad8d5bd0487cdce8335813a70e770bc6d5974a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/073-c7v26MedicineRoundsComplete-context.json",
+      "context_sha256": "07c66f827594b19ec5bea735d62d17e1b9c17656e3a9c3692db8c1083faf3319",
+      "draft": "docs/dialogue-hud/reviews/073-c7v26MedicineRoundsComplete-draft.json",
+      "draft_sha256": "00a69b1bac70dd5d27a5e750da558c0b9c30bd2458533b171e464a57f22b13f4",
+      "review": "docs/dialogue-hud/reviews/073-c7v26MedicineRoundsComplete-review.json",
+      "review_sha256": "61789a8572f67ca6caed128c68412c1d5befc39c9f908b469f9c28f39700ca4f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/074-v25C8Lodging-context.json",
+      "context_sha256": "eacda6ae1b612245fd471a57383828663ebf462e6579dfd86be6ac2280d21686",
+      "draft": "docs/dialogue-hud/reviews/074-v25C8Lodging-draft.json",
+      "draft_sha256": "9737fe0d682c50cff8c4ea045247429a0bd06f66c23238004ef3923b7a943251",
+      "review": "docs/dialogue-hud/reviews/074-v25C8Lodging-review.json",
+      "review_sha256": "906d09d06809e413aa34ec631e2c5ba7bf989b431fde5f5fb6a0eb80dc85f40e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/075-v25C8Recovery-context.json",
+      "context_sha256": "7b84acf515ff03c294b50d7cd350926afbce6d7cb7a92ea4fe3c3ff8fc33aea1",
+      "draft": "docs/dialogue-hud/reviews/075-v25C8Recovery-draft.json",
+      "draft_sha256": "2cdb6b787d56d8af56f21bcedf35026f6e68b48626928f191e183a295046c5d4",
+      "review": "docs/dialogue-hud/reviews/075-v25C8Recovery-review.json",
+      "review_sha256": "e390231e4eacb88bf89128ca1dcabee3ed09889ffd9f0e136416037b60bbdc7f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/076-v25C8Table-context.json",
+      "context_sha256": "1c31c6ec21292492273161697a5a7112ef40d5e918b5536a0cf915340dc9226d",
+      "draft": "docs/dialogue-hud/reviews/076-v25C8Table-draft.json",
+      "draft_sha256": "4e8abc4fc32d1af23d30cf125f6b06008fdcd79c2e8f74900d7f3383fda83979",
+      "review": "docs/dialogue-hud/reviews/076-v25C8Table-review.json",
+      "review_sha256": "65495959db38f4e8df376deddc6844b6794d29d8282d40ada6dfffdc17dbff41"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/077-v25C8After-context.json",
+      "context_sha256": "9e2e03da50080a4bafa2c7416ef192997ec16d8b37f44211755653dc052fcaeb",
+      "draft": "docs/dialogue-hud/reviews/077-v25C8After-draft.json",
+      "draft_sha256": "0fb0bd4c866e17c60dfa36ec9fc77255801c4b780306ef7cf752a75363517966",
+      "review": "docs/dialogue-hud/reviews/077-v25C8After-review.json",
+      "review_sha256": "1f0de687d8d6f5ff54d1d85d5e0373cf34045a6180c6582adcfbe8cf3eb15fc6"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/078-v25C8Farewell-context.json",
+      "context_sha256": "3acda6da94f67c355b106b74f3b31efb0b36120b698d2f17f13f74a791cf36fc",
+      "draft": "docs/dialogue-hud/reviews/078-v25C8Farewell-draft.json",
+      "draft_sha256": "d92fe38250a0ca0ee719606559e0879fcecf33df2bebb8f0fbc280a95529ebcf",
+      "review": "docs/dialogue-hud/reviews/078-v25C8Farewell-review.json",
+      "review_sha256": "b0dd2b796db3a3f1729aa682b6320e320d4b47590f72dba7cce8a047040dc549"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/079-v25C8SpiritCompanions-context.json",
+      "context_sha256": "14ea26ac39bcc4fcd054e87d44eb2e821f2ae928bc54a5efcaa2b2f2b0bf7b54",
+      "draft": "docs/dialogue-hud/reviews/079-v25C8SpiritCompanions-draft.json",
+      "draft_sha256": "e380a13521b133093a5f3a8c41a0da579884893001b3e7c3d7836513d919df74",
+      "review": "docs/dialogue-hud/reviews/079-v25C8SpiritCompanions-review.json",
+      "review_sha256": "632a08da09a6ed982118e190d7b67bdbab496783dbde3a69bccbaf6f5b15f82e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/080-c8v26WindowReady-context.json",
+      "context_sha256": "3d0977e827b04035907b7e75b25345e669d290d1e5f09cb1541647b88aac1414",
+      "draft": "docs/dialogue-hud/reviews/080-c8v26WindowReady-draft.json",
+      "draft_sha256": "298cdbdf54b58ac84e303a1d6510b3667ebfa2655487dc9c11492800933e6681",
+      "review": "docs/dialogue-hud/reviews/080-c8v26WindowReady-review.json",
+      "review_sha256": "6813726a7f83bc82f83f268db5aa2b793863634a401a54d2f546348ff1737852"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/081-c8v26NotesWarmCup-context.json",
+      "context_sha256": "4a6cdbe511662029e443544ee1586f6119d751bce85ef564bf564d87cd1450c1",
+      "draft": "docs/dialogue-hud/reviews/081-c8v26NotesWarmCup-draft.json",
+      "draft_sha256": "0399d13cbc9b46b9e78e0521794da8a9f5fdcd1c8c57944c5506be11922d093b",
+      "review": "docs/dialogue-hud/reviews/081-c8v26NotesWarmCup-review.json",
+      "review_sha256": "28aa881f5ccae7b14142e65e99c3f274f638523807dfd45106a4f6f24a7dbad7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/082-c8v26BreakfastList-context.json",
+      "context_sha256": "b0b590118cac3306d61c28867ae8e87947b682ee5f7a17510fee125b09e30d49",
+      "draft": "docs/dialogue-hud/reviews/082-c8v26BreakfastList-draft.json",
+      "draft_sha256": "04169efa450b9be944f3ea98e844131ca635f17c6dcb379d100616d0b7dae8a8",
+      "review": "docs/dialogue-hud/reviews/082-c8v26BreakfastList-review.json",
+      "review_sha256": "f20a9af858ffd7894e24dd3c3f4721b69f141cbde4dfe99a0a7f5f1929d538c5"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/083-c8v26BreakfastDough-context.json",
+      "context_sha256": "2fbe31be03922677dd84ccf3f01b17363f8a3aa0ff96b7765433566c587e98ce",
+      "draft": "docs/dialogue-hud/reviews/083-c8v26BreakfastDough-draft.json",
+      "draft_sha256": "cda335ee45851bd55a214b32247cbc3e47ca1ce2f09f36aab4d348d84049cb54",
+      "review": "docs/dialogue-hud/reviews/083-c8v26BreakfastDough-review.json",
+      "review_sha256": "dd3fb01915b33ce8e4842aad4352619bd9bf59bdb115a69ae0706dbbe1a1284b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/084-v17BondMilestonedrink-context.json",
+      "context_sha256": "fe8c7f75ff7ab343d3f1a36c2bd12d64b5c088a5860fe5e815ca1a3bf6821385",
+      "draft": "docs/dialogue-hud/reviews/084-v17BondMilestonedrink-draft.json",
+      "draft_sha256": "fa6db4a019962b7279a72604ea45349fd7392ca27b6e270f2f14db85480014b9",
+      "review": "docs/dialogue-hud/reviews/084-v17BondMilestonedrink-review.json",
+      "review_sha256": "27c29d3b325443b66c03031efd7c20ba958c38a491272530943ab065a2432f9a"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/085-v17BondMilestonegame-context.json",
+      "context_sha256": "95343aadb5054fd233af6b65fce8ea682ff380cf38a79c6cf74a4b61b238e19d",
+      "draft": "docs/dialogue-hud/reviews/085-v17BondMilestonegame-draft.json",
+      "draft_sha256": "264bf70593e830d8f725680bf5aee473f0a539b70749623c1442a1078a17487b",
+      "review": "docs/dialogue-hud/reviews/085-v17BondMilestonegame-review.json",
+      "review_sha256": "9e9d71ebb5826558dedbf61c0a70990b938d1facd13e7902b48f1efa39ca2d34"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/086-v17BondMilestonepractice-context.json",
+      "context_sha256": "c151dd4cd7c2a7987cd66e754e7d466ac618d4c8957ea6e0b4075dd5ce11034c",
+      "draft": "docs/dialogue-hud/reviews/086-v17BondMilestonepractice-draft.json",
+      "draft_sha256": "638e07e5443eb01c07e3993106b81b9752bf7e72714b705f56ef633b368fd8ad",
+      "review": "docs/dialogue-hud/reviews/086-v17BondMilestonepractice-review.json",
+      "review_sha256": "aca8990665cfdd838e815b77b8b3562d5482aa1b28c1af44ee47041b89ab8d33"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/087-v17BondDrinkWine-context.json",
+      "context_sha256": "f5600dddfd29fd68e1a6c189f293f553ae9f72f759aa4d45ba75a5f03bbe0fe9",
+      "draft": "docs/dialogue-hud/reviews/087-v17BondDrinkWine-draft.json",
+      "draft_sha256": "b425d2b5bf7db8c61c4bffbd79063d840e0c4e5795f5b1e83af7492c9359e8cf",
+      "review": "docs/dialogue-hud/reviews/087-v17BondDrinkWine-review.json",
+      "review_sha256": "ed427878e645886f205edda08b44b91b7743b32a7881722f4ed81fc9c81f3e4f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/088-v17BondDrinkQuiet1-context.json",
+      "context_sha256": "4bd516be03eef20bc7c0052ef803425a114a3f617133968a89d43e6e1c6cceb0",
+      "draft": "docs/dialogue-hud/reviews/088-v17BondDrinkQuiet1-draft.json",
+      "draft_sha256": "4e65a005b1baa7b63efc5a43b18d7b7838b8efa75f812691abee4bdd83cfb059",
+      "review": "docs/dialogue-hud/reviews/088-v17BondDrinkQuiet1-review.json",
+      "review_sha256": "a54aa347ad67a2308356b09e172085099cc0d559471e556e52af4acf6b250a67"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/089-v18CityBreadAfter-context.json",
+      "context_sha256": "8c7648285f3a4b39114009fc35f211f350d9b015c2d12bc6b298ec831e29ba32",
+      "draft": "docs/dialogue-hud/reviews/089-v18CityBreadAfter-draft.json",
+      "draft_sha256": "dc9b1f268f1b0a6eb80106f9e13f04ca7a1a627a656a9c749cc088acdc50c9a6",
+      "review": "docs/dialogue-hud/reviews/089-v18CityBreadAfter-review.json",
+      "review_sha256": "c318ecf7641c37b6ae581032745afdc686b5de7edf42268cd1c527ddccfaa26e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/090-v18CityChimeStart-context.json",
+      "context_sha256": "91e4ae78b49b44a59410340d36e7015dc3df576342eeba05f9e58c89420b7226",
+      "draft": "docs/dialogue-hud/reviews/090-v18CityChimeStart-draft.json",
+      "draft_sha256": "3225efd283c0ce7207159a4b4862f4901ffadceae2e9f0c094de28f61e6a79ec",
+      "review": "docs/dialogue-hud/reviews/090-v18CityChimeStart-review.json",
+      "review_sha256": "b138a698729f0d127ef2dd52558a48549f823c3f8128d1147adeb0c16f441bb2"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/091-v18CityChimeClear-context.json",
+      "context_sha256": "469938f134a836e57fd50e72e14eb80551115265be55ca24cd7a2b2043080121",
+      "draft": "docs/dialogue-hud/reviews/091-v18CityChimeClear-draft.json",
+      "draft_sha256": "99c6e194bb44e5c850d0983e5e3ba140cc5737abbde222fab5ce9f6602d77bcf",
+      "review": "docs/dialogue-hud/reviews/091-v18CityChimeClear-review.json",
+      "review_sha256": "7a9982c0dc2ce5375b1d2eb97b350b9b8ffbedc5271c799d4c69d0ee427d36f2"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/092-v18CityMintLeaves-context.json",
+      "context_sha256": "d3ea06eb59b832b3859dbe11abd7010762e5385f6d5df3b2f84466359ed88032",
+      "draft": "docs/dialogue-hud/reviews/092-v18CityMintLeaves-draft.json",
+      "draft_sha256": "67d8ee45a2c4f71132a10cd826d7cb801e86c8f427881388ca7aa5bb0323d510",
+      "review": "docs/dialogue-hud/reviews/092-v18CityMintLeaves-review.json",
+      "review_sha256": "dd4dec6f7be0729cd50d429565efb68ae48645ed53e721ce2437cd26e3c5864f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/093-v19DiscoveryNightBasket-context.json",
+      "context_sha256": "cc38a09b247c69cfb5bb6c7f81ad3467a27bcde205c6a5dd483d7ceac8e30485",
+      "draft": "docs/dialogue-hud/reviews/093-v19DiscoveryNightBasket-draft.json",
+      "draft_sha256": "1e4dabf90f0837239d9bc78e44a0215116eba475ed9e1060dd27745c9bca5031",
+      "review": "docs/dialogue-hud/reviews/093-v19DiscoveryNightBasket-review.json",
+      "review_sha256": "3bacb00c5e9a508de2a678332ec38c0d11a334c0c8932daad5044ab39357387d"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/094-v18SaintCareA-context.json",
+      "context_sha256": "02cb153df879f89474af946f21ddf8a789ba362fe42dc6775f9131c1c29f2cec",
+      "draft": "docs/dialogue-hud/reviews/094-v18SaintCareA-draft.json",
+      "draft_sha256": "cbd2770951dd97e8d2f2f7d9c0e8088ffa935ab5b38993475393958650a24238",
+      "review": "docs/dialogue-hud/reviews/094-v18SaintCareA-review.json",
+      "review_sha256": "862af4c4d74e7a24b6e8913a20e17d455cb694cecca83ba65c47de09b23fb0bf"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/095-v18SaintCareB-context.json",
+      "context_sha256": "fd007fde60bd0eefcd120afdec081e12a85c0ad75c99278e022548569f4c94d6",
+      "draft": "docs/dialogue-hud/reviews/095-v18SaintCareB-draft.json",
+      "draft_sha256": "6df930157897af212030468e4efe75028c3db77a03c10d9e148e6da62b8384ea",
+      "review": "docs/dialogue-hud/reviews/095-v18SaintCareB-review.json",
+      "review_sha256": "3e01514a1d1a49003d09e928608230e0083d63e80b8c5445787e8d7b7ec21100"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/096-v20RomanceTavernA-context.json",
+      "context_sha256": "ee0987938f08338dc756533d87df47ebc90f524ebb5f37b32c342d6626b07e7d",
+      "draft": "docs/dialogue-hud/reviews/096-v20RomanceTavernA-draft.json",
+      "draft_sha256": "ff94f3a2f4f35e7c8d5c9ac3414ea9803f29c9ee9c922af8e5ea410c1e7f8fcc",
+      "review": "docs/dialogue-hud/reviews/096-v20RomanceTavernA-review.json",
+      "review_sha256": "bf90b4f78495c81847793dc63e0bdb99f2a7496d1ebf6f0ec41ab9e4eb225a14"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/097-v20RomanceTavernC-context.json",
+      "context_sha256": "2db017765029d3325529547a2468312d179a2a646ed295d1f6a13136ca9f9a8b",
+      "draft": "docs/dialogue-hud/reviews/097-v20RomanceTavernC-draft.json",
+      "draft_sha256": "5bb4256e0c13eeb0b48c2813fd097ba021f43f360bfcfc2ca5715a562b500c49",
+      "review": "docs/dialogue-hud/reviews/097-v20RomanceTavernC-review.json",
+      "review_sha256": "5cc1d5c2d16b83a69332d5008ca288063511cbab09cb817d383d07e92b16cb9b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/098-v20RomanceStarsC-context.json",
+      "context_sha256": "362b98be10284ac4ad1102b62f7fbd0d49ab1b8046fa6a5d8efc40fcac993339",
+      "draft": "docs/dialogue-hud/reviews/098-v20RomanceStarsC-draft.json",
+      "draft_sha256": "776ac7ae40db51be0eaaf4bd7e26e06507a3647552f89b9fd7fbfe924cd9bd85",
+      "review": "docs/dialogue-hud/reviews/098-v20RomanceStarsC-review.json",
+      "review_sha256": "63c668cc87971f3ebadd1199bd20cd75c1f8d1486460060ba511ab773408e983"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/099-v22CityArrival-context.json",
+      "context_sha256": "686859856b846b34023916f7e96abb2740d37d3f7bbd9b242240bed978a003c3",
+      "draft": "docs/dialogue-hud/reviews/099-v22CityArrival-draft.json",
+      "draft_sha256": "b31741de05b78b3b18c5b993119f412780c509604c4a2b1af75aef560f99d771",
+      "review": "docs/dialogue-hud/reviews/099-v22CityArrival-review.json",
+      "review_sha256": "489a269620a5efe749966e39c5d003f0c442258feb3f587d15cf27bd0aa0f35f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/100-pacing_v12WatchHours_accept-context.json",
+      "context_sha256": "d3ea9472548b60ebf2433c56cf260abe8db775448ad3b46e6fc7e2f8a8e6d0ed",
+      "draft": "docs/dialogue-hud/reviews/100-pacing_v12WatchHours_accept-draft.json",
+      "draft_sha256": "9a1f790d3f4ee22a45c0f5253c5e1674616deac6620f3fa418f8e2bb2bc5352c",
+      "review": "docs/dialogue-hud/reviews/100-pacing_v12WatchHours_accept-review.json",
+      "review_sha256": "5e414dbd90cc01e360dc7365729a08a3c0f5a8b1bb1a0c00601225190e1dbe3f"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/101-pacing_v12LoanedLamp_accept-context.json",
+      "context_sha256": "692519f1628b0abf938ca02615f672b3fc3e44f43f1e0aa0f24a8f4108809781",
+      "draft": "docs/dialogue-hud/reviews/101-pacing_v12LoanedLamp_accept-draft.json",
+      "draft_sha256": "63b3a6a27622cb0a032aee97cb1f43afd26fd94dc4f92801565eb30075401da6",
+      "review": "docs/dialogue-hud/reviews/101-pacing_v12LoanedLamp_accept-review.json",
+      "review_sha256": "24ba77f6f701c2a938ccd8a5ef58ed1d9dc7138ab9556a552af88bea3e7ef2be"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/102-pacing_v12LoanedLamp_complete-context.json",
+      "context_sha256": "0ff1bd4e3e04349dace725cbdfbe7cdfddc1e16c73e6d9dfdd8006c8bd7f9713",
+      "draft": "docs/dialogue-hud/reviews/102-pacing_v12LoanedLamp_complete-draft.json",
+      "draft_sha256": "e4d87321267f951543617a2537023c34cff7b51c7bd1c11159c2201c34aac9d4",
+      "review": "docs/dialogue-hud/reviews/102-pacing_v12LoanedLamp_complete-review.json",
+      "review_sha256": "474fc5aafe156f2764e9dde5fe6464aa85ed9cfe1bf307c79a1ddf27c8aea55e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/103-pacing_v12WarmHerbs_accept-context.json",
+      "context_sha256": "01d02c8f45907a750d4c265358f249a3f2c93124db358412a050f648ab5944d9",
+      "draft": "docs/dialogue-hud/reviews/103-pacing_v12WarmHerbs_accept-draft.json",
+      "draft_sha256": "24e950d14ac778a11408b76aa6372f5137ad2389f1dda7138941b8b5381f63d6",
+      "review": "docs/dialogue-hud/reviews/103-pacing_v12WarmHerbs_accept-review.json",
+      "review_sha256": "de039747dc74e11e2ef7fcb20be94b86ac6ee3088ae47446acc8f474febc2231"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/104-pacing_v12WarmHerbs_complete-context.json",
+      "context_sha256": "a8c183d02fe4c8c80aa00135eb239989bb964ab161b6895cc28fde546eb2d776",
+      "draft": "docs/dialogue-hud/reviews/104-pacing_v12WarmHerbs_complete-draft.json",
+      "draft_sha256": "1cf23d68f06214769c6ffa214b01783b436dba4db4c892deb2c44e97ad88a1ee",
+      "review": "docs/dialogue-hud/reviews/104-pacing_v12WarmHerbs_complete-review.json",
+      "review_sha256": "8a6107525047762228daf3be1b92904fc4d1f86db19b02ac3c016f4049d1af1e"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/105-pacing_v12LampShields_recovered-context.json",
+      "context_sha256": "aa7160c1ee4f237e541d9d8d69889a4225f88a540aa16454d6c8d537b698319c",
+      "draft": "docs/dialogue-hud/reviews/105-pacing_v12LampShields_recovered-draft.json",
+      "draft_sha256": "37e937216a7b4cc45e4f902d389fccbc917bb52405ad63c57deff76d3cf734e5",
+      "review": "docs/dialogue-hud/reviews/105-pacing_v12LampShields_recovered-review.json",
+      "review_sha256": "f3c14ab85e8c788c3e53188f0c38a4b76fdff498b5ae7a9b679c67657c057185"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/106-local_c1blake-context.json",
+      "context_sha256": "9f57ea3f22f8c4702f11b5bbfc346484ee6f1019f64b5a042e0a51bce0cd675e",
+      "draft": "docs/dialogue-hud/reviews/106-local_c1blake-draft.json",
+      "draft_sha256": "764dc24bec5221dbf32b787a3faa6d68a2bdadb00a3f44e2df835d6ca4e801e0",
+      "review": "docs/dialogue-hud/reviews/106-local_c1blake-review.json",
+      "review_sha256": "54a0b0649ef057e8fe781b367a8406e376d68c055c5d977b1bb112f02520c7fa"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/107-inline_ch3_rest-context.json",
+      "context_sha256": "b00d36e21975b9e4e0243f7a78907e71c0ab464f730b30d9f89658b0331f7a9a",
+      "draft": "docs/dialogue-hud/reviews/107-inline_ch3_rest-draft.json",
+      "draft_sha256": "6adc993d2bccb0b92198d45674dde02ca80a508749f6ca9ef4904a62a2ba6366",
+      "review": "docs/dialogue-hud/reviews/107-inline_ch3_rest-review.json",
+      "review_sha256": "bf50b37a4e9b5029bda11c10b1eeb0e8a8e201bb5e3fe07ecdd4042fc92555fa"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/108-inline_ch3_mechanistIdle_saint-context.json",
+      "context_sha256": "5affdda89f7ed6a83332bedf34bbe052bfb4a42629c9eef65a0f67f99f14f844",
+      "draft": "docs/dialogue-hud/reviews/108-inline_ch3_mechanistIdle_saint-draft.json",
+      "draft_sha256": "d7b6a9f51b9f3d8141482b80486d95eee59a9f69607ddd66187196a1ab7f24a5",
+      "review": "docs/dialogue-hud/reviews/108-inline_ch3_mechanistIdle_saint-review.json",
+      "review_sha256": "bc8a659524ee1d873f5b838c600fe99ec152696b003efb6315dbd0766b4c96c7"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/109-inline_ch4_directions-context.json",
+      "context_sha256": "78df969ffb248b6530039725e571f1e2539bc62cb7df3319c032afa9a3fed1b2",
+      "draft": "docs/dialogue-hud/reviews/109-inline_ch4_directions-draft.json",
+      "draft_sha256": "c5aab6d151ba5143bb6737d1b93051afa62d88c4664c1094efd1c403e88ccf36",
+      "review": "docs/dialogue-hud/reviews/109-inline_ch4_directions-review.json",
+      "review_sha256": "3b23cb75d4f71c5d028b8db23fcd7362d23b86097b2e3640fb903667e70cd2aa"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/110-inline_ch4_merchantTalk-context.json",
+      "context_sha256": "8a20762b79481c11105ffe4da175e506a31b95c2cb39e9c72c1c4abcc73e55fe",
+      "draft": "docs/dialogue-hud/reviews/110-inline_ch4_merchantTalk-draft.json",
+      "draft_sha256": "82c25d01495bb48f4d1afd92b985e68caa20d98b7d5693ef8262fa39281f3ac3",
+      "review": "docs/dialogue-hud/reviews/110-inline_ch4_merchantTalk-review.json",
+      "review_sha256": "56c57288ef286210e5f6ae9b287911fc99f98423a22bd1b60670901717353f3b"
+    },
+    {
+      "context": "docs/dialogue-hud/reviews/111-spoken_dist_core-v14_js_3-context.json",
+      "context_sha256": "2f3c7c1c8808dd9b7ed451eea527a5f73f154768ad7315f88e15b6ca97b08704",
+      "draft": "docs/dialogue-hud/reviews/111-spoken_dist_core-v14_js_3-draft.json",
+      "draft_sha256": "96eb8adbe2a8a180b21336ea0c998e4ceff583c75a88280346a5a554cb5a996c",
+      "review": "docs/dialogue-hud/reviews/111-spoken_dist_core-v14_js_3-review.json",
+      "review_sha256": "c963e9d3967e4ea922babb880dca003a91ddfb1522003d0680b6846a0bdd1288"
+    }
+  ]
+}

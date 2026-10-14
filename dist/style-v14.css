@@ -54,3 +54,13 @@
 
 /* Read-back controls share the existing story card on desktop and touch. */
 .dialogue-bottom{flex-wrap:wrap;gap:8px}.dialogue-reading-hint{margin-right:auto;font-size:12px;color:#bbc8c8}.dialogue-bottom button:disabled{opacity:.38;cursor:default}.dialogue-bottom button{min-height:42px}.dialogue-bottom button:focus-visible{outline:2px solid #f0d591;outline-offset:2px}@media(max-width:600px){.dialogue-reading-hint{flex-basis:100%;font-size:11px}.dialogue-bottom{gap:5px}.dialogue-bottom button{padding:8px 12px}}
+
+/* Current enemy health: one clear top-centre target, ordinary enemies and bosses. */
+.bossbar{box-sizing:border-box;top:max(10px,env(safe-area-inset-top));width:clamp(220px,28vw,360px);padding:5px 10px 7px;background:linear-gradient(180deg,#151b20e8,#151b20a6);border:1px solid #a4926c80;border-radius:3px;box-shadow:0 2px 7px #0005;pointer-events:none}
+.target-title{display:flex;justify-content:center;gap:10px;line-height:20px;color:#e5dcc6;font-size:13px}.target-title span:first-child{overflow:hidden;white-space:nowrap;text-overflow:ellipsis}#targetlevel{color:#bcb5a4;white-space:nowrap}
+.bossbar .bar{position:relative;height:12px;margin-top:3px;border:1px solid #958064;background:#231b1c;border-radius:6px;box-shadow:inset 0 1px 3px #0008;overflow:hidden}.bossbar .bar i{background:linear-gradient(180deg,#c98378,#a6554d 45%,#703b39);border-radius:5px;box-shadow:inset 0 1px #efb4a475}.bossbar #targethp{position:absolute;inset:0;font-size:9px;line-height:12px;color:#f7e6da;text-shadow:0 1px 2px #170b0a}
+.boss-tell{font-size:12px;line-height:17px;margin:4px 0 0}.boss-cast{height:3px;margin-top:4px}.bossbar [hidden]{display:none!important}
+@media(max-width:700px) and (orientation:portrait){.bossbar{top:max(8px,env(safe-area-inset-top));width:min(272px,72vw)}.status{top:126px}.top-nav{top:86px;max-width:none;left:10px;right:10px;flex-wrap:nowrap;justify-content:flex-end}.minimap-box{top:140px}.location-banner{top:224px}.tracker{top:270px}}
+@media(max-height:520px) and (orientation:landscape){.bossbar{top:6px;width:230px;padding:3px 8px 5px}.target-title{line-height:16px;font-size:12px}.bossbar .bar{height:10px}.bossbar #targethp{line-height:10px}.boss-tell{font-size:11px;line-height:14px}}
+
+@media(max-height:520px) and (orientation:landscape){.hud .top-nav{max-width:calc((100vw - 250px)/2 - 24px);flex-wrap:wrap}}

@@ -1,3 +1,4 @@
+import {DIALOGUE_COPYEDITS} from './dialogue-copyedits-data.js';
 import {CHENGLI_REWRITE_V27} from './chengli-text-v27.js';
 import {DIALOGUE_MIGRATIONS_V26} from './dialogue-migrations-v26.js';
 const record=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);
@@ -7,7 +8,7 @@ const copyRows=rows=>rows.map(row=>[row[0],row[1]]);
 // Exact static text migration and guard. Other save validators still run afterwards.
 // Unregistered dynamic scenes retain their own existing validation rules.
 // Register extra chapter author pairs via the factory, or append them to the data file.
-export function createDialogueSaveMigratorV26(entries){
+export function createDialogueSaveMigratorV26(entries,{strict=true}={}){
  if(!Array.isArray(entries)||entries.length>2048)throw new Error('对白迁移登记不完整。');
  const registry=new Map();
  for(const entry of entries){
@@ -34,7 +35,7 @@ export function createDialogueSaveMigratorV26(entries){
     if(variants){
      const match=variants.find(entry=>equalRows(pending.lines,entry.before));
      if(match){if(!equalRows(pending.lines,match.after))change('pending',{...pending,lines:copyRows(match.after)});}
-     else if(!variants.some(entry=>equalRows(pending.lines,entry.after)))throw new Error('对白版本无法识别，请使用完整的已发行存档。');
+     else if(strict&&!variants.some(entry=>equalRows(pending.lines,entry.after)))throw new Error('对白版本无法识别，请使用完整的已发行存档。');
     }
    }
    if(record(value.beforeDeparture)){
@@ -59,4 +60,11 @@ const currentMigrationsV27=DIALOGUE_MIGRATIONS_V26.map(entry=>{
  if(!equalRows(entry.after,next.before))throw new Error('对白迁移基线不一致：'+entry.id);
  return {...entry,after:next.after};
 });
-export const migrateDialogueSaveV26=createDialogueSaveMigratorV26([...currentMigrationsV27,...CHENGLI_REWRITE_V27]);
+const historical=[...currentMigrationsV27,...CHENGLI_REWRITE_V27];
+const strictIds=new Set(historical.map(e=>e.id));
+const revisedAfter=e=>({...e,after:DIALOGUE_COPYEDITS.find(n=>n.id===e.id&&equalRows(n.before,e.after))?.after||e.after});
+const historicalGuard=createDialogueSaveMigratorV26([...historical.map(revisedAfter),...DIALOGUE_COPYEDITS.filter(e=>strictIds.has(e.id))]);
+// Exact known before/after pairs only. Other authored dynamic variants and older C1
+// full-text saves continue through their original validators without being guessed.
+const copyeditMigration=createDialogueSaveMigratorV26(DIALOGUE_COPYEDITS,{strict:false});
+export const migrateDialogueSaveV26=save=>historicalGuard(copyeditMigration(save));

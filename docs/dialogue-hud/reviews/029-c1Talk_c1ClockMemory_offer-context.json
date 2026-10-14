@@ -1,0 +1,169 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1ClockMemory_offer",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "b36c28209e36071c7ed0367369737e574d444112db7e3b77fa11d58b7fa74ac3",
+  "before": [
+    [
+      "修钟人的妹妹",
+      "我哥哥以前在旧桥修钟，临走前把银环和一张纸藏在溪林那块刻名石下。我赌气没去拿，一拖就过了这么多年。"
+    ],
+    [
+      "诺恩",
+      "我替你去看看。石头在什么地方？"
+    ],
+    [
+      "修钟人的妹妹",
+      "溪边林地的旧桥附近。不过卖柴的人说，裂齿渠鼠盘踞在那里。你别只顾低头找石头，先看清周围。"
+    ],
+    [
+      "诺恩",
+      "先处理它，再翻刻名石。找到什么都给你带回来。"
+    ],
+    [
+      "修钟人的妹妹",
+      "好。找不着也回来告诉我，别为了几样旧物往水里冒险。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "clock_sister",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/clock_sister.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "妹妹托取哥哥旧物，明确刻名石和渠鼠；仍要求先处理危险，找不到即可回来，没有删掉水下冒险的风险。",
+    "relationship": {
+      "participants": [
+        "修钟人的妹妹",
+        "诺恩"
+      ],
+      "judgment": "妹妹托取哥哥旧物，明确刻名石和渠鼠；仍要求先处理危险，找不到即可回来，没有删掉水下冒险的风险。",
+      "profiles": [
+        {
+          "id": "clock_sister",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/clock_sister.json",
+          "coverage": "partial"
+        },
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "b36c28209e36071c7ed0367369737e574d444112db7e3b77fa11d58b7fa74ac3",
+      "registered_event": {
+        "id": "R01:c1Talk_c1ClockMemory_offer",
+        "scene": "c1Talk_c1ClockMemory_offer",
+        "order": 81,
+        "summary": "修钟人的妹妹：我哥哥以前在旧桥修钟，临走前把银环和一张纸藏在溪林那块刻名石下。我赌气没去拿，一拖就过了这么多年。；诺恩：我替你去看看。石头在什么地方？；修钟人的妹妹：溪边林地的旧桥附近。不过卖柴的人说，裂齿渠鼠盘踞在那里。你别只顾低头找石头，先看清周围。；诺恩：先处理它，再翻刻名石。找到什么都给你带回来。；修钟人的妹妹：好。找不着也回来告诉我，别为了几样旧物往水里冒险。",
+        "participants": [
+          "clock_sister",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1ClockMemory_offer",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "clock_sister",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "妹妹托取哥哥旧物，明确刻名石和渠鼠；仍要求先处理危险，找不到即可回来，没有删掉水下冒险的风险。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1Talk_c1ClockMemory_offer",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1ClockMemory_offer",
+        "scene": "c1Talk_c1ClockMemory_offer",
+        "order": 81,
+        "summary": "修钟人的妹妹：我哥哥以前在旧桥修钟，临走前把银环和一张纸藏在溪林那块刻名石下。我赌气没去拿，一拖就过了这么多年。；诺恩：我替你去看看。石头在什么地方？；修钟人的妹妹：溪边林地的旧桥附近。不过卖柴的人说，裂齿渠鼠盘踞在那里。你别只顾低头找石头，先看清周围。；诺恩：先处理它，再翻刻名石。找到什么都给你带回来。；修钟人的妹妹：好。找不着也回来告诉我，别为了几样旧物往水里冒险。",
+        "participants": [
+          "clock_sister",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1ClockMemory_offer",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "clock_sister",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CLOCKMEMORY_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

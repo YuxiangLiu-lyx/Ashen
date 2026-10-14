@@ -1,0 +1,37 @@
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (91.492583ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (83.3435ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (14.066458ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.196542ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (11.564166ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (4.911917ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (11.29475ms)
+✖ chapter three medicine and repair props stay available until actual task acceptance (0.964791ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (6.534958ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 8
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 382.232792
+
+✖ failing tests:
+
+test at tests/dialogue-hud.test.mjs:59:1
+✖ chapter three medicine and repair props stay available until actual task acceptance (0.964791ms)
+  AssertionError [ERR_ASSERTION]: ch3-salt-moss
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/dialogue-hud.test.mjs:62:93)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

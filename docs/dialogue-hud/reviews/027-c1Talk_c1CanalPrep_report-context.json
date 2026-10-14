@@ -1,0 +1,165 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1CanalPrep_report",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "3da6e77935ba9d19f7ce97c198b75cfd66f92fd51e5a2e28c8c6d0fc01c422dd",
+  "before": [
+    [
+      "诺恩",
+      "渠鼠清完了，松动的支木就在侧门下。"
+    ],
+    [
+      "托马",
+      "正是那里。我马上让检修班换好，侧门的闩也一起检查。"
+    ],
+    [
+      "诺恩",
+      "修好我再过去。"
+    ],
+    [
+      "托马",
+      "你沿北渠过去就能看见检修班。进礼拜厅前，别忘了把其余要用的东西备齐。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "noen",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "toma",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/toma.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "托马已派人修渠，诺恩等修好再过；余下时间可补药备行装，不新增任务门禁。",
+    "relationship": {
+      "participants": [
+        "诺恩",
+        "托马"
+      ],
+      "judgment": "托马已派人修渠，诺恩等修好再过；余下时间可补药备行装，不新增任务门禁。",
+      "profiles": [
+        {
+          "id": "noen",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/noen.json",
+          "coverage": "full_for_c1_c2"
+        },
+        {
+          "id": "toma",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/toma.json",
+          "coverage": "partial"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "3da6e77935ba9d19f7ce97c198b75cfd66f92fd51e5a2e28c8c6d0fc01c422dd",
+      "registered_event": {
+        "id": "R01:c1Talk_c1CanalPrep_report",
+        "scene": "c1Talk_c1CanalPrep_report",
+        "order": 56,
+        "summary": "诺恩：渠鼠清完了，松动的支木就在侧门下。；托马：正是那里。我马上让检修班换好，侧门的闩也一起检查。；诺恩：修好我再过去。；托马：你沿北渠过去就能看见检修班。进礼拜厅前，别忘了把其余要用的东西备齐。",
+        "participants": [
+          "noen",
+          "toma"
+        ],
+        "sources": [
+          "flow:c1Talk_c1CanalPrep_report",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          },
+          {
+            "actor": "toma",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "托马已派人修渠，诺恩等修好再过；余下时间可补药备行装，不新增任务门禁。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1Talk_c1CanalPrep_report",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1CanalPrep_report",
+        "scene": "c1Talk_c1CanalPrep_report",
+        "order": 56,
+        "summary": "诺恩：渠鼠清完了，松动的支木就在侧门下。；托马：正是那里。我马上让检修班换好，侧门的闩也一起检查。；诺恩：修好我再过去。；托马：你沿北渠过去就能看见检修班。进礼拜厅前，别忘了把其余要用的东西备齐。",
+        "participants": [
+          "noen",
+          "toma"
+        ],
+        "sources": [
+          "flow:c1Talk_c1CanalPrep_report",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          },
+          {
+            "actor": "toma",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CANALPREP_REPORT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

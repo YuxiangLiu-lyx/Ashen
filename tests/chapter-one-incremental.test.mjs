@@ -1,3 +1,5 @@
+import {beforeCopyedit} from './fixtures/dialogue-copyedit-contract.mjs';
+import {DIALOGUE_COPYEDITS} from '../dist/dialogue-copyedits-data.js';
 import {C1_QUEST_DIALOGUES} from '../dist/chapter-one-quest-dialogues.js';
 import {C3_AUTHORED_CAVES,assertAuthoredCave,legacyCaves} from './c3-spatial-control.mjs';
 import test from 'node:test';
@@ -44,7 +46,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
    if(['maps','scenery'].includes(key)&&C1_MAPS.includes(id))continue; // 0.7 explicit 17-map geometry/art authorization; independently audited.
-   let value=table[id];if(['maps','scenery'].includes(key)&&C3_AUTHORED_CAVES.includes(id)){assertAuthoredCave(id);value=legacyCaves[key][id];}if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
+   let value=key==='dialogues'?beforeCopyedit(id,table[id]):table[id];if(['maps','scenery'].includes(key)&&C3_AUTHORED_CAVES.includes(id)){assertAuthoredCave(id);value=legacyCaves[key][id];}if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
    if(key==='dialogues'&&['contract','sisterIdle','sisterBeforeDeparture'].includes(id)){const prior=JSON.parse(fs.readFileSync(new URL('../docs/c1-story-flow/baseline/dialogues.json',import.meta.url)))[id],adopted=JSON.parse(fs.readFileSync(new URL('../docs/c1-care-ui/SCRIPT.json',import.meta.url))).scenes[id];assert.deepEqual(value,adopted,id+' adopted 1.2');if(id==='contract')assert.deepEqual(value.slice(3,19),prior.slice(3,19));value=prior;}
    if(key==='dialogues'&&id==='v9TollFound')value=value.map(([speaker,line],i)=>[speaker,i?line:line.replace('护符下面还压着两瓶蜡封的清醒药和一瓶疗伤药，瓶口没有渗漏。','')]); // C2 0.4: exact appended cache contents only.
    if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
@@ -59,6 +61,8 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    const guard='if(isStoryTestV25(this))n=Math.max(1,n,e.hp);',source=data.toString();
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
    let original=source.replace(guard,'');
+   for(const fragment of ["import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';\n","\ninstallDialogueCopyedits(DIALOGUES);\n"]){assert.equal(original.split(fragment).length,2);original=original.replace(fragment,'');}
+   const spoken=DIALOGUE_COPYEDITS.find(e=>e.key==='spoken:dist/core-v14.js:3');assert.equal(original.split(spoken.after[0][1]).length,2);original=original.replace(spoken.after[0][1],spoken.before[0][1]);
    // 1.0 fixes invalid overkill saves; no other original damage behavior changes.
    assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);
    original=original.replace('e.hp=Math.max(0,e.hp-n);','e.hp-=n;');
@@ -147,7 +151,7 @@ test('past-event saves do not replay tails and already viewed flags suppress dup
 });
 test('only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed',()=>{
  const expected=JSON.parse(fs.readFileSync(new URL('../docs/ch1-voice/DIALOGUE.json',import.meta.url)));
- assert.deepEqual(C1_HIDDEN.c1HiddenPairArrangement.slice(1),expected.lines.slice(1));assert.equal(C1_HIDDEN.c1HiddenPairArrangement[0][0],'旁白');assert.match(C1_HIDDEN.c1HiddenPairArrangement[0][1],/鲁恩.*走到薇蕾娜身边/);
+ assert.deepEqual(beforeCopyedit('c1HiddenPairArrangement',C1_HIDDEN.c1HiddenPairArrangement).slice(1),expected.lines.slice(1));assert.equal(C1_HIDDEN.c1HiddenPairArrangement[0][0],'旁白');assert.match(C1_HIDDEN.c1HiddenPairArrangement[0][1],/鲁恩.*走到薇蕾娜身边/);
  assert.deepEqual(expected.lines.at(-1),['鲁恩','对不起……']);
  assert.ok(expected.lines.some(([speaker,line])=>speaker==='薇蕾娜'&&line.includes('禁制')));
  assert.ok(expected.lines.some(([speaker,line])=>speaker==='薇蕾娜'&&line.includes('服从命令')));

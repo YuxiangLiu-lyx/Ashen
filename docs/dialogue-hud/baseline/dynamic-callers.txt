@@ -1,0 +1,36 @@
+dist/save-protection-v23.js:4:// These four actual production helpers intentionally create dialogue in pending.lines.
+dist/chapter-runtime-v14.js:47: case 'ch2-sign':g.beginScene('_post_sign');g.pending.lines=[['旁白','木牌指向东面的灰桥，新钉上去的布告压着一行旧字：入桥摘帽，行李开包。']];break; [... omitted end of long line]
+dist/chapter3-runtime-v14.js:72: P.beginScene=function(id,then){const s=CH3_SIDE.scenes.find(s=>s.id===id);old.beginScene.call(this,id,then);if(s?.dialogueByControlledActor)this.pend [... omitted end of long line]
+dist/chapter3-runtime-v14.js:115: case 'returnLamp':if(h.stage==='medicine'&&!this.p.items.milkCrystal){this.say('矿道里的凝晶还没取到，先留着灯。');return;}this.p.items.borrowedLamp=0;this.hellTalk( [... omitted end of long line]
+dist/chapter3-runtime-v14.js:117: case 'ferryTalk':if(this.ready('ch3Ferry'))scene(this,'ch3FerryReturn','ch3:ferryReturn');else if(this.flags.ch3FerryLampFixed)this.hellTalk('乌洛','这下 [... omitted end of long line]
+dist/chapter3-runtime-v14.js:121: case 'rest':if(h.stage==='medicine'){this.hellTalk('莫里斯','先歇一会儿。黑灰已经封住，他的伤暂时不会再恶化。你自己也该用药了，别硬撑着。');this.p.hp=Math.max(this.p.hp,stats(this.p).hp*.7); [... omitted end of long line]
+dist/chapter3-runtime-v14.js:124: case 'doctorIdle':this.hellTalk('莫里斯','起初我只是帮人挑挑脚上的刺，后来不管伤成什么样，都往我这里送。我说自己不是外科医师，他们倒反问我：不来找你，还能找谁？');break; [... omitted end of long line]
+dist/chapter3-runtime-v14.js:125: case 'mechanistIdle':this.hellTalk('芮妲',this.p.cls==='saint'?'把灯放低些，照着脚下，别让光晃了眼，反而看不清路。等你把他救醒了，记得叫他替我搬两趟铁。':'昨晚去捡轮轴，半路听见背后也有轮子响。我还当是谁跟来了，回头才看见自己的车——忘 [... omitted end of long line]
+dist/chapter3-runtime-v14.js:126: case 'ferrymanIdle':this.hellTalk('乌洛','我也说不清。潮水退了，滩上常会留下鞋，有成双的，也有单只的。我都捡到高处放着，说不定还会有人来找。');break; [... omitted end of long line]
+dist/chapter3-runtime-v14.js:127: case 'drawkeeperIdle':this.hellTalk('伊芙','这机器转起来会发热，我在旁边取暖，也帮人看着铜页。你要试的话，先卷好袖口，上一个人差点把半件外套都卷进去了。');break; [... omitted end of long line]
+dist/chapter3-runtime-v14.js:128: case 'saintIdle':this.hellTalk('艾莉娅','绷带别乱扯，伤口刚才还在渗血。我照看你的伤，可没有答应一直跟着你。等找到出路，该说清楚的事还是要说。');break; [... omitted end of long line]
+dist/chapter3-runtime-v14.js:130: P.hellTalk=function(speaker,text){this.beginScene('_hellTalk');this.pending.lines=[[speaker,text]];};
+dist/chapter3-runtime-v14.js:141: case 'ch3-tomb-clue':this.hellTalk(role(this),'铜牌刻着：上闸二刻，中闸归零，下闸一刻。检修时至少留一盏灯。');break;
+dist/dialogue-runtime-v16.js:22: // These controlled-actor rows override pending.lines after beginScene.
+dist/dialogue-runtime-v16.js:35:  const lines=migrations.get(signature(pending.id,pending.lines));
+dist/chapter4-runtime-v14.js:86: P.choose=function(a){if(!a.startsWith('v11:'))return old.choose.call(this,a);const k=a.slice(4);if(k==='smithTalk'){if(!this.flags.ch4EnchantUnlocked [... omitted end of long line]
+dist/chapter4-runtime-v14.js:92:  if(a==='v11-quarry-winch'){claim(this,key,()=>{this.addItem('hp',2);this.addItem('mp',2);this.gainXP(100);});this.hellTalk('诺恩','绞盘下面压着几瓶药，还没漏，可以带走。 [... omitted end of long line]
+dist/chapter4-runtime-v14.js:93:  else if(a==='v11-sluice-pump'){claim(this,key,()=>{this.addItem('emberLanceBook');this.addItem('cinderIron',3);this.gainXP(90);});this.hellTalk('诺恩' [... omitted end of long line]
+dist/chapter4-runtime-v14.js:94:  else if(a==='v11-cloister-font'){claim(this,key,()=>{this.addItem('skillReset');this.addItem('ashGlass',4);});this.hellTalk('艾莉娅','盆底放着几支封好的药管。那支已经裂 [... omitted end of long line]
+dist/chapter5-runtime-v14.js:27:function talk(g,id,then=null,lines=null){if(g.pending)return false;if(!DIALOGUES[id])DIALOGUES[id]=lines||[['旁白','灯火在石墙上缓缓晃动。']];g.beginScene(id,then) [... omitted end of long line]
+dist/chapter5-runtime-v14.js:92:  if(a.startsWith('quest-')){const[verb,id]=a.split(':'),q=CH5_QUESTS[id];if(!q||this.map!==q.map)return;if(verb==='quest-accept'&&this.available(id)) [... omitted end of long line]
+dist/chapter5-runtime-v14.js:96:  if(a==='music'){if(this.map==='ch5Tavern')return talk(this,'ch5TavernMusic');return this.hellTalk('艾莉娅','这首曲子我听孩子们哼过……可他们唱的后半段，好像不是这样。');} [... omitted end of long line]
+dist/dialogue-save-migration-v26.js:32:   if(record(pending)&&typeof pending.id==='string'&&pending.lines!==undefined&&pending.lines!==null){
+dist/dialogue-save-migration-v26.js:35:     const match=variants.find(entry=>equalRows(pending.lines,entry.before));
+dist/dialogue-save-migration-v26.js:36:     if(match){if(!equalRows(pending.lines,match.after))change('pending',{...pending,lines:copyRows(match.after)});}
+dist/dialogue-save-migration-v26.js:37:     else if(!variants.some(entry=>equalRows(pending.lines,entry.after)))throw new Error('对白版本无法识别，请使用完整的已发行存档。'); [... omitted end of long line]
+dist/chapter-one-care-save.js:13: if(!pending.lines&&!pending.c1Tail){
+dist/discovery-runtime-v19.js:80: if(save.pending.lines&&JSON.stringify(save.pending.lines)!==JSON.stringify(DISCOVERY_TEXT_V19[a.scene]))fail();return true;
+dist/story-test-v31.js:18:  const flow=new ChapterOneStoryFlow(g,g.pending.lines||DIALOGUES[g.pending.id]);
+dist/core-v14.js:106: constructor(cls='shadow',saved=null,rng=Math.random){this.rng=rng;this.map='hall';this.chapter=0;this.time=0;this.states={};this.flags={rats:0};this. [... omitted end of long line]
+dist/core-v14.js:107: emit(type,data={}){this.events.push({type,...data});}say(text){const match=/^(奥伦|阿林|米拉|蕾娜|托马)：(.+)$/.exec(text);if(match&&!this.pending){this.beginSc [... omitted end of long line]
+dist/core-v14.js:143: exploreProp(p){if(this.mechanismProp(p))return true;const a=p.action;if(a==='copperBench'){this.beginScene(this.flags.copperComplete?'practiceBenchAf [... omitted end of long line]
+dist/pacing-runtime-v14.js:15:function talk(g,lines,then=null){if(g.pending)return false;g.beginScene('_v12Quest',then);g.pending.lines=clone(lines?.length?lines:[['旁白','事情已经记在手记里。 [... omitted end of long line]
+dist/save-transfer-v14.js:60: const restored=new RPG(p.cls,s);if(restored.pending)new StoryFlow(restored,restored.pending.lines||DIALOGUES[restored.pending.id]);const clean=restor [... omitted end of long line]
+dist/chapter-one-expansion-quests.js:23:const chat=(g,lines,then=null)=>{g.beginScene('c1Conversation',then);g.pending.lines=lines;};
+dist/game-v14.js:173:function showScene(){if(!g.pending)return;mode='dialogue';g.active=false;reset();if(flowPending!==g.pending){flowPending=g.pending;const lines=g.pendi [... omitted end of long line]

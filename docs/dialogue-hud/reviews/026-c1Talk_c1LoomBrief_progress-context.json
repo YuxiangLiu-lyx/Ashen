@@ -1,0 +1,130 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1LoomBrief_progress",
+  "chapter": "R01",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "b3e97bf1c8cd7c80b12d1764e40346ce51487ce6a4f9f23f944af2011fd80307",
+  "before": [
+    [
+      "罗萨",
+      "缀纹机就在我身后。先比较装备，再收好试作材料；不用为了试一遍就把钱花完。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "rosa",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/rosa.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "制作提醒只说明材料能留存和先挑配方，避免把帮助变成消费说教；并未降低价格。",
+    "relationship": {
+      "participants": [
+        "罗萨"
+      ],
+      "judgment": "制作提醒只说明材料能留存和先挑配方，避免把帮助变成消费说教；并未降低价格。",
+      "profiles": [
+        {
+          "id": "rosa",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/rosa.json",
+          "coverage": "partial"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "b3e97bf1c8cd7c80b12d1764e40346ce51487ce6a4f9f23f944af2011fd80307",
+      "registered_event": {
+        "id": "R01:c1Talk_c1LoomBrief_progress",
+        "scene": "c1Talk_c1LoomBrief_progress",
+        "order": 50,
+        "summary": "罗萨：缀纹机就在我身后。先比较装备，再收好试作材料；不用为了试一遍就把钱花完。",
+        "participants": [
+          "rosa"
+        ],
+        "sources": [
+          "flow:c1Talk_c1LoomBrief_progress",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "rosa",
+            "fact": "F-C1-FLOW-C1TALK_C1LOOMBRIEF_PROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1LOOMBRIEF_PROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "制作提醒只说明材料能留存和先挑配方，避免把帮助变成消费说教；并未降低价格。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c1Talk_c1LoomBrief_progress",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1LoomBrief_progress",
+        "scene": "c1Talk_c1LoomBrief_progress",
+        "order": 50,
+        "summary": "罗萨：缀纹机就在我身后。先比较装备，再收好试作材料；不用为了试一遍就把钱花完。",
+        "participants": [
+          "rosa"
+        ],
+        "sources": [
+          "flow:c1Talk_c1LoomBrief_progress",
+          "runtime-c1-actions"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "rosa",
+            "fact": "F-C1-FLOW-C1TALK_C1LOOMBRIEF_PROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1LOOMBRIEF_PROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}

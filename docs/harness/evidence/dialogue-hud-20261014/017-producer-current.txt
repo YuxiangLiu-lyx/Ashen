@@ -1,0 +1,63 @@
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (89.176791ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (82.941416ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (13.697584ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.205125ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (11.976709ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (5.086208ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (10.793958ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (6.158417ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (6.88475ms)
+✖ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (359.044417ms)
+ℹ tests 10
+ℹ suites 0
+ℹ pass 9
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 743.955208
+
+✖ failing tests:
+
+test at tests/dialogue-hud.test.mjs:75:1
+✖ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (359.044417ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      activeScene: {
+        node: 'c6v25Departure',
+        scene: 'c6v25Departure',
+        token: 9
+  ...
+              slot: 'chest',
+  -           weaponType: undefined
+            }
+          ],
+          gold: 90,
+          items: {},
+          seed: 1964328261,
+  ...
+              slot: 'hands',
+  -           weaponType: undefined
+            }
+          ],
+          gold: 90,
+          items: {
+            hpGrand: 2,
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/dialogue-hud.test.mjs:78:408)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { schema: 1, started: true, stage: 10, phase: 'scene', serial: 9, completed: [ 'c6v25Musician', 'c6v25Checkpoint', 'c6v25Gather', 'v25DisguiseBasin', 'c6v25Disguise', 'c6v25Village', 'c6v25Tax', 'c6v25Conscription', 'c6v25Rescue', 'v25FerrySupply' ], activeScene: { node: 'c6v25Departure', scene: 'c6v25Departure', token: 9 }, task: null, visits: [ 'ch5Exit', 'ch6Outpost', 'ch6ReedWild', 'ch6VillageLane', 'ch6VillageSquare', 'ch6TaxWarehouse', 'ch6ConvoyRoad', 'ch6Riverside' ], rewards: { 'node:c6v25Musician': [Object], 'node:c6v25Checkpoint': [Object], 'kill:v25-dye-a-0': [Object], 'kill:v25-dye-a-1': [Object], 'kill:v25-dye-b-0': [Object], 'kill:v25-dye-b-1': [Object], 'node:c6v25Gather': [Object], 'node:v25DisguiseBasin': [Object], 'node:c6v25Disguise': [Object], 'node:c6v25Village': [Object], 'kill:v25-tax-a-0': [Object], 'kill:v25-tax-a-1': [Object], 'kill:v25-tax-b-0': [Object], 'kill:v25-tax-b-1': [Object], 'node:c6v25Tax': [Object], 'kill:v25-convoy-a-0': [Object], 'kill:v25-convoy-a-1': [Object], 'kill:v25-convoy-b-0': [Object], 'kill:v25-convoy-b-1': [Object], 'kill:v25-convoy-b-2': [Object], 'node:c6v25Conscription': [Object], 'node:c6v25Rescue': [Object], 'node:v25FerrySupply': [Object] }, pendingGear: [], cloak: { owned: true, on: false }, disguise: true, training: [], spirit: { unlocked: false, level: 0, topics: [], practiceClaims: [] }, checkpoint: { map: 'ch6Riverside', x: 280, y: 760 } },
+    expected: { schema: 1, started: true, stage: 10, phase: 'scene', serial: 9, completed: [ 'c6v25Musician', 'c6v25Checkpoint', 'c6v25Gather', 'v25DisguiseBasin', 'c6v25Disguise', 'c6v25Village', 'c6v25Tax', 'c6v25Conscription', 'c6v25Rescue', 'v25FerrySupply' ], activeScene: { node: 'c6v25Departure', scene: 'c6v25Departure', token: 9 }, task: null, visits: [ 'ch5Exit', 'ch6Outpost', 'ch6ReedWild', 'ch6VillageLane', 'ch6VillageSquare', 'ch6TaxWarehouse', 'ch6ConvoyRoad', 'ch6Riverside' ], rewards: { 'node:c6v25Musician': [Object], 'node:c6v25Checkpoint': [Object], 'kill:v25-dye-a-0': [Object], 'kill:v25-dye-a-1': [Object], 'kill:v25-dye-b-0': [Object], 'kill:v25-dye-b-1': [Object], 'node:c6v25Gather': [Object], 'node:v25DisguiseBasin': [Object], 'node:c6v25Disguise': [Object], 'node:c6v25Village': [Object], 'kill:v25-tax-a-0': [Object], 'kill:v25-tax-a-1': [Object], 'kill:v25-tax-b-0': [Object], 'kill:v25-tax-b-1': [Object], 'node:c6v25Tax': [Object], 'kill:v25-convoy-a-0': [Object], 'kill:v25-convoy-a-1': [Object], 'kill:v25-convoy-b-0': [Object], 'kill:v25-convoy-b-1': [Object], 'kill:v25-convoy-b-2': [Object], 'node:c6v25Conscription': [Object], 'node:c6v25Rescue': [Object], 'node:v25FerrySupply': [Object] }, pendingGear: [], cloak: { owned: true, on: false }, disguise: true, training: [], spirit: { unlocked: false, level: 0, topics: [], practiceClaims: [] }, checkpoint: { map: 'ch6Riverside', x: 280, y: 760 } },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

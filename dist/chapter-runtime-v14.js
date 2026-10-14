@@ -24,7 +24,7 @@ export function chapterApply(g,a,stats){
  if(a==='ch2_pursuit'){g.flags.pursuitStopped=true;g.saint={x:1020,y:560,visible:true,moving:false,angle:0};g.say('追兵停在界碑外。沿东南石阶离开他们的视线。');return true;}
  if(a==='ch2_end'){if(g.chapter!==11||g.flags.complete)return true;g.chapter=12;g.quests.exile='done';g.flags.complete=true;g.gainXP(100);g.p.gold+=35;g.emit('ending');return true;}
  if(a==='pump_accept'){if(g.chapter<8)g.quests.pump=g.quests.pump||'active';return true;}
- if(a==='pump_take'){if(g.flags.pumpTool)return true;g.flags.pumpTool=true;g.addItem('pumpPole');g.props.find(p=>p.id==='bridge-tools').used=true;return true;}
+ if(a==='pump_take'){if(g.flags.pumpTool||g.quests.pump!=='active')return true;g.flags.pumpTool=true;g.addItem('pumpPole');g.props.find(p=>p.id==='bridge-tools').used=true;return true;}
  if(a==='pump_work'){if(g.flags.pumpTool&&!g.flags.pumpFixed&&g.chapter<8){scene(g,'selineWorkReturn','pump_fixed');}return true;}
  if(a==='pump_fixed'){if(!g.flags.pumpTool||g.chapter>=8)return true;g.flags.pumpFixed=true;g.p.items.pumpPole=0;g.quests.pump=g.quests.pump||'active';scene(g,'selineWorkDone','pump_reward_menu');return true;}
  if(a==='pump_reward_menu'){if(!g.flags.pumpChoice)g.emit('mechanism',{kind:'pump'});return true;}
@@ -40,7 +40,7 @@ export function chapterOptions(g,id){if(id==='seline'){const o=[];if(g.chapter==
 export function chapterChoose(g,a){const C=a.startsWith('ch2:');if(!C)return false;const id=a.slice(4);if(id==='relay'&&g.chapter===6)scene(g,'ch2Relay','ch2_relay');else if(id==='pumpAccept'&&g.chapter<8&&!g.quests.pump)scene(g,'selineWork','pump_accept');else if(id==='pumpReturn'&&g.flags.pumpTool&&!g.flags.pumpFixed&&g.chapter<8){if(!g.quests.pump)scene(g,'selineFoundFirst','pump_work');else scene(g,'selineWorkReturn','pump_fixed');}else if(id==='pumpReward')g.emit('mechanism',{kind:'pump'});else if(id==='rest'&&g.chapter<8)scene(g,'innRestTalk','ch2_paid_rest');else if(id==='watch')scene(g,'bridgeWatchIdle');return true;}
 export function chapterProp(g,id){const p=g.props.find(p=>p.id===id);if(!p||p.used||!p.action?.startsWith('ch2-'))return false;switch(p.action){
  case 'ch2-door':if(g.chapter===7){scene(g,'ch2InnerDoor','ch2_inner');}else g.say('内门紧锁，铜盘没有亮起。');break;
- case 'ch2-tools':if(!g.flags.pumpTool)scene(g,'selinePoleFound','pump_take');break;
+ case 'ch2-tools':if(g.quests.pump!=='active'){g.say('这根连杆像是水泵上的零件，可以先问问塞琳。');break;}if(!g.flags.pumpTool)scene(g,'selinePoleFound','pump_take');break;
  case 'ch2-pump':if(g.flags.pumpFixed){if(!g.flags.pumpChoice)g.emit('mechanism',{kind:'pump'});else scene(g,'selineIdleAfter');}else if(g.flags.pumpTool){scene(g,'selineWorkReturn','pump_fixed');}else scene(g,'selineWork',g.quests.pump?null:'pump_accept');break;
  case 'ch2-rest':scene(g,'innRestTalk','ch2_paid_rest');break;
  case 'ch2-paper':if(g.chapter===6)scene(g,'ch2Relay','ch2_relay');else g.say('庄园外墙与南沟标在路图上，内门没有别的入口。');break;

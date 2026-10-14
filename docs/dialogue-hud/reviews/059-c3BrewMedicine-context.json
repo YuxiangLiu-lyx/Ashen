@@ -1,0 +1,138 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c3BrewMedicine",
+  "chapter": "R03",
+  "source_fingerprint": "af21858c4723529d7fe313ca25088005790808a9f56c71e58dfc8c13ea82a73a",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "e82ca67c6693900b83ee58ea031933047f3a531f",
+  "baseline_sha256": "d4170e0711d9fb57385a4b1c32e64651a730b9c3484aeef7b17f73715e1fdd5b",
+  "before": [
+    [
+      "莫里斯",
+      "药装好了。塞子按紧些，别又跟那些带尖的铁片挤在一起。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/dialogue-hud/baseline/full-corpus.json",
+  "profiles": [
+    {
+      "id": "morris",
+      "path": "docs/dialogue-hud/baseline/narrative-state/characters/morris.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "柜台交付药瓶，用分袋与尖铁片会磕瓶解释收纳；没有给病人新诊断。",
+    "relationship": {
+      "participants": [
+        "莫里斯"
+      ],
+      "judgment": "柜台交付药瓶，用分袋与尖铁片会磕瓶解释收纳；没有给病人新诊断。",
+      "profiles": [
+        {
+          "id": "morris",
+          "path": "docs/dialogue-hud/baseline/narrative-state/characters/morris.json",
+          "coverage": "partial"
+        }
+      ]
+    },
+    "known_information": {
+      "scope": "只使用修改前本场已说出的事实；原未知项仍未知，不将后章作者设想赋予角色。",
+      "whole_scene_sha256": "d4170e0711d9fb57385a4b1c32e64651a730b9c3484aeef7b17f73715e1fdd5b",
+      "registered_event": {
+        "id": "R03:c3BrewMedicine",
+        "scene": "c3BrewMedicine",
+        "order": 25,
+        "summary": "莫里斯配好中型疗伤药，提醒诺恩按紧瓶塞、别与尖铁片挤放；结束后一次消费两份余温草和八金。",
+        "participants": [
+          "noen",
+          "morris"
+        ],
+        "sources": [
+          "experience:c3BrewMedicine"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          },
+          {
+            "actor": "morris",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R03:ch3Wake",
+          "R03:ch3End"
+        ],
+        "trigger": "phase17至20，hellCamp医师近处安全，已完成v12WarmHerbs；HerbMedicine仅首次交付，BrewMedicine实际选择配药且资源足够，pending完成后幂等支付。"
+      },
+      "chapter_coverage": "curated_mainline"
+    },
+    "retained_outcome": "柜台交付药瓶，用分袋与尖铁片会磕瓶解释收纳；没有给病人新诊断。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "key": "c3BrewMedicine",
+      "producer_fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R03:c3BrewMedicine",
+        "scene": "c3BrewMedicine",
+        "order": 25,
+        "summary": "莫里斯配好中型疗伤药，提醒诺恩按紧瓶塞、别与尖铁片挤放；结束后一次消费两份余温草和八金。",
+        "participants": [
+          "noen",
+          "morris"
+        ],
+        "sources": [
+          "experience:c3BrewMedicine"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          },
+          {
+            "actor": "morris",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C3BREWMEDICINE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R03:ch3Wake",
+          "R03:ch3End"
+        ],
+        "trigger": "phase17至20，hellCamp医师近处安全，已完成v12WarmHerbs；HerbMedicine仅首次交付，BrewMedicine实际选择配药且资源足够，pending完成后幂等支付。"
+      }
+    },
+    "limitations": "这是既有全文的文风修订。第四至八章基本运行索引仍非完整认知时间线，未提升为 curated；新增剧情必须回到常规事件状态门禁。"
+  },
+  "provenance": {
+    "prewrite_snapshot": "docs/dialogue-hud/baseline/narrative-state/",
+    "preserved_baseline": "docs/dialogue-hud/baseline/full-corpus.json",
+    "assembly_note": "由开工时保全的原稿、角色档案与逐场编辑记录整理证据；此文件整理时间不冒充写作前生成时间。"
+  }
+}
