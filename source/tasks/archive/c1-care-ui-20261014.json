@@ -10,9 +10,9 @@
     "story",
     "chapter01_plan"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-14T18:54:07.270281+00:00",
-  "updated_at_utc": "2026-10-14T19:43:06.014586+00:00",
+  "updated_at_utc": "2026-10-14T19:50:08.638886+00:00",
   "decisions": [
     "四阶段：审计与章稿；NPC美术与对白导航；关键人物对白及兼容；浏览器/叙事/集成验收和交付。第一章内容修订，全章节共享对白操作改进，奖励地图拓扑不变。",
     "地下地图行走原图保留，新增三人清晰立绘；回看仅动阅读游标；旧静态页语义迁移，自带全文的旧档接续原段。"
@@ -22,13 +22,12 @@
     "清晰三人立绘已生成保留；四场新稿已采用；阅读游标独立实现，正在做真实输入与旧档验证。",
     "四场共70页、地下三人独立清晰立绘与共享点击/回看已接入；真实三视口浏览器、触摸、背景/文字/肖像点击、双击、拖动、键盘及后续章回看通过。45旧静态游标与旧全文、特殊尾段专项已验证。",
     "62项Harness、215项核心与完整集成通过；70页三视口真实点击/触摸回看、45旧游标迁移和75任务场景573页回归通过；四场七维叙事及地下三图/会馆三维门禁完成，默认离线HTTP手机包已提升并保留旧包。",
-    "5174服务232模块/7样式逐字核验；27个集成JSON共123506738字节原件压缩逐字节验证，图片/失败日志/基线原件保留。"
+    "5174服务232模块/7样式逐字核验；27个集成JSON共123506738字节原件压缩逐字节验证，图片/失败日志/基线原件保留。",
+    "运行885c52f及完整验收a519d22已推送GitHub main，ls-remote核验相等；默认包和5174新立绘及全部运行模块均一致。真人文风/亲昵节奏/触摸反馈继续明确待验。"
   ],
-  "remaining": [
-    "GitHub保存及最终任务归档"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "检查暂存内容并保存GitHub main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "narrative",
@@ -303,11 +302,11 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-14T19:43:05.964215+00:00",
-      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T19:50:08.527815+00:00",
+      "head_commit": "a519d22b89b050d7626497b876473652fa2094da",
       "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
-      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n?? archives/c1-care-ui-evidence/\n?? docs/c1-care-ui/ACCEPTANCE.md\n?? docs/c1-care-ui/AUDIT.json\n?? docs/c1-care-ui/AUDIT.txt\n?? docs/c1-care-ui/AUDIT_INITIAL.json\n?? docs/c1-care-ui/AUDIT_INITIAL.txt\n?? docs/c1-care-ui/CONTEXT_ROUTE.json\n?? docs/c1-care-ui/DEFAULT_BUILD.json\n?? docs/c1-care-ui/LOCAL_SERVER.json\n?? docs/c1-care-ui/MAP_QUALITY.json\n?? docs/c1-care-ui/NARRATIVE_NOTES.json\n?? docs/c1-care-ui/NAVIGATION.json\n?? docs/c1-care-ui/RECOMMENDED.json\n?? docs/c1-care-ui/RESTORE_EVIDENCE.py\n?? docs/c1-care-ui/after/\n?? docs/c1-care-ui/assets/MANIFEST.json\n?? docs/c1-care-ui/assets/unused-sprite-extraction.png\n?? docs/c1-care-ui/author_script.py\n?? docs/c1-care-ui/baseline/MAP_QUALITY.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.png\n?? docs/c1-care-ui/baseline/c1TrialCrypt.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer.png\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.json\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.png\n?? docs/c1-care-ui/baseline/c1TrialVault.json\n?? docs/c1-care-ui/baseline/c1TrialVault.png\n?? docs/c1-care-ui/baseline/c1hesha-dialogue.png\n?? docs/c1-care-ui/baseline/c1hesha-portrait.png\n?? docs/c1-care-ui/baseline/c1iden-dialogue.png\n?? docs/c1-care-ui/baseline/c1iden-portrait.png\n?? docs/c1-care-ui/baseline/c1venn-dialogue.png\n?? docs/c1-care-ui/baseline/c1venn-portrait.png\n?? docs/c1-care-ui/browser-attempt-004/\n?? docs/c1-care-ui/browser-attempt-005/\n?? docs/c1-care-ui/browser-final/\n?? docs/c1-care-ui/browser/\n?? docs/c1-care-ui/capture.mjs\n?? docs/c1-care-ui/complete_checks.py\n?? docs/c1-care-ui/final-checks/\n?? docs/c1-care-ui/final_checks.py\n?? docs/c1-care-ui/flow-browser/\n?? docs/c1-care-ui/integration/\n?? docs/c1-care-ui/maps-final-safe/\n?? docs/c1-care-ui/maps-final/\n?? docs/c1-care-ui/narrative-before/\n?? docs/c1-care-ui/narrative-current/\n?? docs/c1-care-ui/navigation.mjs\n?? docs/c1-care-ui/package/\n?? docs/c1-care-ui/portrait-regression/\n?? docs/c1-care-ui/promote.py\n?? docs/c1-care-ui/record_map_review.py\n?? docs/c1-care-ui/register_narrative.py\n?? docs/c1-care-ui/review_narrative.py\n?? docs/c1-care-ui/verify_local.py\n?? docs/harness/evidence/c1-care-ui-20261014/\n?? source/tasks/active/c1-care-ui-20261014.json"
+      "worktree": "M source/CURRENT_STATE.json\n?? docs/c1-care-ui/GIT_SAVE.json"
     }
   ],
   "narrative_reviews": [
@@ -343,5 +342,8 @@
       "review": "docs/c1-care-ui/narrative-current/sisterBeforeDeparture-review.json",
       "review_sha256": "234ac2dd785dcceb19eebfc7f22debd6053d7b01c1e2ff92821b25ea4bbe29e4"
     }
-  ]
+  ],
+  "summary": "第一章地下三人清晰立绘、任意位置继续及上一条回看、四场薇蕾娜/诺恩交流已交付；62 Harness/215核心/完整集成、旧档、三视口、叙事、三维、离线HTTP手机与默认入口通过并同步GitHub。真人文风和节奏待反馈。",
+  "completed_at_utc": "2026-10-14T19:50:09.332139+00:00",
+  "verified_source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5"
 }
