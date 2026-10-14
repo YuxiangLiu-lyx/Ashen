@@ -83,6 +83,8 @@ export class ChapterOneStoryFlow extends StoryFlow {
   if(!this.c1Tail){super.sync();return;}
   if(this.g.pending){this.g.pending.c1Tail={...this.c1Tail};this.g.pending.phase=this.phase;this.g.pending.closing=true;}
  }
+ get readingRows(){return this.c1Tail?C1_HIDDEN[this.c1Tail.id]:super.readingRows;}
+ get readingIndex(){return this.c1Tail?this.c1Tail.line:super.readingIndex;}
  get current(){return this.c1Tail?C1_HIDDEN[this.c1Tail.id][this.c1Tail.line]:super.current;}
  complete(){
   if(this.finished)return;

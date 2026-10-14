@@ -6,5 +6,7 @@ export class StoryFlow{
  complete(){this.finished=true;this.phase='complete';this.cine?.finish();this.g.finishScene();this.revision++;}
  update(dt){if(this.finished)return [];const cues=this.cine?.update(dt)||[];if(this.phase==='action'&&!this.cine?.busy()){if(this.closing)this.complete();else{this.phase='dialogue';this.revision++;this.sync();}}return cues;}
  advance(){if(this.finished||this.phase!=='dialogue')return false;if(this.index+1>=this.lines.length){if(this.cine?.startOutro()){this.closing=true;this.phase='action';this.revision++;this.sync();return true;}this.complete();return true;}this.index++;this.cine?.setLine(this.index);this.phase=this.cine?.busy()?'action':'dialogue';this.revision++;this.sync();return true;}
+ get readingRows(){return this.lines;}
+ get readingIndex(){return this.index;}
  get current(){return this.phase==='dialogue'?this.lines[this.index]:null;}
 }

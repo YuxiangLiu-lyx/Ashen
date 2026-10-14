@@ -66,8 +66,8 @@ test('the clerk walks around real hall furniture and never occupies a blocked fo
  const g=new RPG('shadow',null,()=>.44);g.chapter=2;g.enter('c1TrainingYard');g.beginScene('c1HiddenPairArrangement','c1:privateTalkDone');const f=new ChapterOneStoryFlow(g,DIALOGUES[g.pending.id]),cine=f.cine,nav=stageNavigationV26(g,cine.stage,'clerk');let samples=0;
  while(cine.busy()&&samples++<1000){cine.update(.016);const a=cine.get('clerk');assert.equal(nav.blocked(a.x,a.y),false,JSON.stringify(a));}assert.ok(samples>10&&samples<1000);assert.ok(Math.hypot(cine.get('clerk').x-cine.get('sister').x,cine.get('clerk').y-cine.get('sister').y)<150);
 });
-test('all original scenes outside the requested contract stay byte identical and all quest numeric budgets remain intact',()=>{
- const before=JSON.parse(fs.readFileSync(new URL('../docs/c1-story-flow/baseline/dialogues.json',import.meta.url)));for(const [id,rows]of Object.entries(before))if(id!=='contract')assert.deepEqual(DIALOGUES[id],rows,id);
+test('original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact',()=>{
+ const before=JSON.parse(fs.readFileSync(new URL('../docs/c1-story-flow/baseline/dialogues.json',import.meta.url))),care=JSON.parse(fs.readFileSync(new URL('../docs/c1-care-ui/SCRIPT.json',import.meta.url))).scenes;for(const [id,rows]of Object.entries(before))assert.deepEqual(DIALOGUES[id],care[id]||rows,id);
  const budgets=JSON.parse(fs.readFileSync(new URL('../docs/c1-story-flow/baseline/quests.json',import.meta.url)));for(const [id,q]of Object.entries(budgets))assert.deepEqual([C1_QUESTS[id].xp,C1_QUESTS[id].gold,C1_QUESTS[id].requires],[q.xp,q.gold,q.requires],id);
  assert.equal(Object.keys(C1_QUEST_DIALOGUES).length,75);assert.ok(!JSON.stringify(C1_QUEST_DIALOGUES).includes('肩伤'));
 });

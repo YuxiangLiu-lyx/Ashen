@@ -1,3 +1,4 @@
+import {C1_CARE_DIALOGUES} from './chapter-one-care-dialogues.js';
 // Chapter 1.1: local requests are conversations, committed when they finish.
 // Keep quest IDs and rewards independent of the authored presentation.
 export const C1_QUEST_TALKS={
@@ -96,7 +97,7 @@ export const C1_QUEST_TALKS={
 
 export const C1_EXTRA_TALKS={
  c1CanalAlreadyClear:[['诺恩','闸口已经没有追兵了，先沿东边出去。'],['艾莉娅','我会自己走。到了安全的地方，你必须把为什么抓我说清楚。']],
- c1TrainingReason:[['薇蕾娜','我让鲁恩看着你练，是因为这回你得带着一个人撤出来。对方不会乖乖听话，追兵也不会一个一个等你。'],['诺恩','我明白。先去后院，看清它们的起手和空当。'],['薇蕾娜','再到地下找伊登。你有本事，我知道；可我得知道你遇上麻烦也肯停下来想，而不是硬往前冲。']],
+ c1TrainingReason:C1_CARE_DIALOGUES.c1TrainingReason,
  c1HerbsToLena:[['诺恩','米拉说你弟弟急着用药。这三株银叶草先给你，账记在她那里。'],['蕾娜','谢谢，我这就去熬。他烧了一夜，总算不用干等着了。'],['蕾娜','这本研习札记你拿着吧，是我们留下的一点心意。']],
  c1PatrolRoad:[['罗萨','运料队又要走旧王道和磨坊那条线，上回退开的野兽又聚回来了。车上装得满，车夫顾不上防它们。'],['诺恩','你想让我先走一趟？'],['罗萨','嗯，沿这两段路清掉八只挡路野兽，回来报个平安。我按约给你工钱和一枚核心。']],
  c1PatrolGrove:[['罗萨','这一趟运料要绕溪林和废窑。车夫来报，说那两处的野兽又开始追车了。'],['诺恩','我去看溪林到废窑这一段。'],['罗萨','麻烦你沿线清掉八只，再回来告诉我。车队能走了，我把工钱和核心一起给你。']],

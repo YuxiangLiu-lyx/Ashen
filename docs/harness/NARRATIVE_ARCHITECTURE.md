@@ -1,3 +1,5 @@
+2026-10-14 R01追加采用1.2：[熟人的关心与对白回看](CHAPTER_01_CARE_UI.md)，IMPLEMENTED；1.1与1.0依次保留为基础。
+
 # 长期叙事架构与章节登记
 
 > 2026-10-14当前采用第一章1.1：[任务交代与会馆私谈](CHAPTER_01_STORY_FLOW.md)，IMPLEMENTED。接交先读完对白，试炼缘于薇蕾娜担心撤离能力；诺恩实际离开后切回会馆私谈。技术验收见docs/c1-story-flow/ACCEPTANCE.md，真人阅读与节奏待验。

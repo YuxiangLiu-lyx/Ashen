@@ -1,3 +1,5 @@
+import {C1_CARE_DIALOGUES} from './chapter-one-care-dialogues.js';
+import {C1_CARE_REVISION,migrateC1CarePending} from './chapter-one-care-save.js';
 import {EXPERIENCE_CACHES} from './rpg-experience-exploration.js';
 import {EXPERIENCE_DIALOGUES,EXPERIENCE_QUEST_SCENES,EXPERIENCE_INSPECTIONS} from './rpg-experience-dialogues.js';
 import {C1_QUEST_DIALOGUES,C1_QUEST_TALKS,c1QuestScene} from './chapter-one-quest-dialogues.js';
@@ -27,15 +29,13 @@ const submitAliases={oilDone:'oil',letterDone:'letter',herbsMira:'herbs',herbsWo
 export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
  for(const scene of ['intro','ratAccept'])DIALOGUES[scene]=DIALOGUES[scene].map(([speaker,line])=>[speaker,line.replaceAll('六只','八只')]);
  Object.assign(DIALOGUES,EXPERIENCE_DIALOGUES,C1_QUEST_DIALOGUES,C1_HIDDEN);
- DIALOGUES.contract=DIALOGUES.contract.map(([speaker,line])=>[speaker,line.replace('六只老鼠','八只老鼠')]);
- DIALOGUES.contract[19]=['薇蕾娜','先把通行纸收好。还有一件事：出门前去找鲁恩，先做庭院实战，再到地下找伊登试一试。'];
- DIALOGUES.contract.push(['诺恩','你担心我应付不来？'],['薇蕾娜','我知道你会打，可这回你还得带着一个不肯配合的人撤走。遇上围堵，光顾着往前冲可不行。我想先看看你会怎么应对。'],['诺恩','好，我先去试炼。'],['薇蕾娜','回来让鲁恩告诉我结果。饭也记得吃，奥伦从早上就炖着了。']);
- DIALOGUES.contract.splice(19,0,['薇蕾娜','这份封套是鲁恩备的维护班次。进城交给北街的托马，他会核对你的登记，再告诉你礼拜厅的入口。别把封蜡碰坏了。']);
+ Object.assign(DIALOGUES,C1_CARE_DIALOGUES);
  DIALOGUES.c1Conversation=[['旁白','把眼前的事记清楚。']];
  const giverMap=(g,id)=>{const giver=C1_GIVERS[id];if(giver==='saint')return g.saint?.visible||(g.chapter>=3&&g.chapter<5)?g.map:'alley';return Object.keys(MAPS).find(map=>MAPS[map].npcs.some(n=>n.id===giver))||C1_QUESTS[id]?.map;};
  const names={c1Readiness:'出发前的试炼',c1ExitDrill:'旧廊的试炼守卫',v12Water:'药箱里的备用药',c1CanalPrep:'清除渠鼠，确认退路',c1CanalBreak:'闸口已清',c1RunePatrol:'沿线讨伐'};
  for(const q of Object.values(C1_QUESTS)){if(names[q.id])q.name=names[q.id];if(q.id==='copper')q.target='lotti';if(q.id==='c1Readiness')q.target='c1-moss-1';if(q.id==='c1ExitDrill')q.target='c1-trial-warden';if(q.id==='c1CanalPrep')q.target='c1-valve-rat';QUESTS[q.id]={...QUESTS[q.id],...q,giver:C1_GIVERS[q.id]||q.target,desc:C1_ACCEPT_TEXT[q.id]||q.name};}
- const P=RPG.prototype,old={};for(const k of ['ready','complete','apply','choose','npcOptions','useProp','canDoor','objective','questGoal','available','claimPacing','requestDeparture','targets','marker','ensureMap','enter','update','damage','restore'])old[k]=P[k];
+ const P=RPG.prototype,old={};for(const k of ['ready','complete','apply','choose','npcOptions','useProp','canDoor','objective','questGoal','available','claimPacing','requestDeparture','targets','marker','ensureMap','enter','update','damage','restore','beginScene'])old[k]=P[k];
+ P.beginScene=function(id,...args){const result=old.beginScene.call(this,id,...args);if(this.pending?.id===id&&C1_CARE_DIALOGUES[id])this.pending.c1CareRevision=C1_CARE_REVISION;return result;};
  P.c1Count=function(id,part){return part?c1State(this).journey.parts[id]?.[part]||0:id==='rats'?Math.min(8,this.flags.rats||0):count(this,id);};
  P.c1AddCount=function(id,o){const j=c1State(this).journey;if(o.id){j.parts[id]||={};j.parts[id][o.id]=Math.min(o.count,this.c1Count(id,o.id)+1);}else j.counts[id]=Math.min(o.count,count(this,id)+1);if(o.item)this.addItem(o.item);return this.c1Count(id,o.id);};
  P.c1Ready=function(id){if(!active(this,id))return false;const h=c1State(this),o=C1_OBJECTIVES[id];
@@ -238,7 +238,7 @@ if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id===
  P.ensureMap=function(id){const r=old.ensureMap.call(this,id);if(c1Map(id)&&['herbs','c1CampHerbs'].some(qid=>active(this,qid)))this.c1SeedResources(id);return r;};
  P.c1PrivateTalkTick=function(){if(this.flags.c1PrivateTalk!=='exited'||this.flags.c1Viewed?.c1HiddenPairArrangement||this.map==='hall'||this.chapter!==2||!experienceSceneSafe(this))return false;this.beginScene('c1HiddenPairArrangement','c1:privateTalkDone');return true;};
  P.enter=function(id,...args){const from=this.map,r=old.enter.call(this,id,...args);if(this.map===id&&c1Map(id)){this.c1SyncQuests();this.repairEntities();if(from==='hall'&&id!=='hall'&&this.flags.c1PrivateTalk==='awaitingExit')this.flags.c1PrivateTalk='exited';this.c1PrivateTalkTick();}return r;};
- P.restore=function(...args){const r=old.restore.apply(this,args);this.c1SyncQuests();return r;};
+ P.restore=function(...args){const r=old.restore.apply(this,args);this.pending=migrateC1CarePending(this.pending);this.c1SyncQuests();return r;};
  P.update=function(dt,input={}){if(this.c1PrivateTalkTick())return;const running=this.active&&!this.pending&&!this.transition,before={x:this.p.x,y:this.p.y},r=old.update.call(this,dt,input);if(running&&this.chapter<5){const moving=Math.hypot(this.p.x-before.x,this.p.y-before.y)>.01,combat=this.p.attackAnim>0&&this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<450);if(moving||combat)c1State(this).journey.clock+=dt;this.c1SyncQuests();}return r;};
  P.c1Morning=function(){if(this.map!=='road'||!done(this,'v12CourierRoad'))return false;c1State(this).worldChanges.morning=true;chat(this,[['旁白','车棚挡住夜雨。诺恩把通行纸收进干燥的内袋。'],['旁白','天亮，白榆城开门。离午钟还有一段时间。']]);this.saveEvent();return true;};
 }

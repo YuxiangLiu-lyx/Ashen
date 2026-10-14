@@ -564,6 +564,9 @@
         "npc事件"
       ],
       "entries": [
+        "dist/chapter-one-care-dialogues.js",
+        "dist/chapter-one-care-save.js",
+        "dist/dialogue-reader.js",
         "dist/chapter-one-quest-dialogues.js",
         "dist/chapter-one-private-staging.js",
         "dist/world-dialogues-v29.js",
@@ -621,7 +624,8 @@
         "node --test tests/chapter-one-incremental.test.mjs",
         "node --test tests/ch12-bugs.test.mjs",
         "python3 tools/harness/check.py --tier narrative",
-        "node --test tests/c1-story-flow.test.mjs"
+        "node --test tests/c1-story-flow.test.mjs",
+        "node --test tests/dialogue-reader.test.mjs"
       ]
     },
     {
@@ -761,6 +765,7 @@
         "人物样貌"
       ],
       "entries": [
+        "dist/chapter-one-natural-art.js",
         "dist/chapter123-presentation-v30.js",
         "dist/chapter23-art-v30.js",
         "dist/chapter-one-art-v30.js",
@@ -820,6 +825,7 @@
         "菜单"
       ],
       "entries": [
+        "dist/dialogue-reader.js",
         "dist/game-v14.js",
         "dist/display-v14.js",
         "dist/save-transfer-v14.js",
@@ -838,7 +844,8 @@
       "risk": "保持真实 UI 输入和导入导出路径；用户流程不暴露开发细节。",
       "tests": [
         "node --test tests/presentation-v281.test.mjs",
-        "node tests/browser-presentation-v281.mjs"
+        "node tests/browser-presentation-v281.mjs",
+        "node --test tests/dialogue-reader.test.mjs"
       ]
     },
     {
@@ -851,6 +858,7 @@
         "save"
       ],
       "entries": [
+        "dist/chapter-one-care-save.js",
         "dist/save-v14.js",
         "dist/save-protection-v23.js",
         "dist/save-transfer-v14.js",
@@ -873,7 +881,8 @@
       "tests": [
         "node --test tests/presentation-v281.test.mjs",
         "node --test tests/balance-lab.test.mjs",
-        "node --test tests/world-v29.test.mjs"
+        "node --test tests/world-v29.test.mjs",
+        "node --test tests/dialogue-reader.test.mjs"
       ]
     },
     {
@@ -1013,6 +1022,7 @@
         "chapter 1"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_CARE_UI.md",
         "docs/harness/CHAPTER_01_STORY_FLOW.md",
         "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
         "docs/harness/CHAPTER_01.md"
@@ -1021,7 +1031,7 @@
         "docs/harness/NARRATIVE_WORKFLOW.md",
         "docs/harness/STORY.md"
       ],
-      "risk": "第一章1.1按当前用户要求重写任务交代和真实离场私谈，诺恩无既定肩伤；保留1.0玩法与主线结果及旧档。"
+      "risk": "第一章1.2扩写亲昵关心，1.1任务交代与离场私谈保留；对白回看不改变实际剧情进度，保留旧档和原奖励。"
     },
     {
       "patterns": [
