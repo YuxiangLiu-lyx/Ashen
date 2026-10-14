@@ -56,6 +56,10 @@ class NarrativeEndToEndTests(unittest.TestCase):
     def test_real_cli_daily_context_requires_time_then_resolves(self):
         _,unknown=cli('tools/harness/context.py','--task','新增薇蕾娜与诺恩的日常互动')
         self.assertFalse(unknown['narrative']['ready_to_write'])
+        self.assertEqual(set(unknown['narrative']['characters']),{'vilerena','noen'})
+        self.assertTrue(unknown['narrative']['selection']['stage_candidates'])
+        both,_=context_packet('薇蕾娜、蕾娜与诺恩的对话')
+        self.assertEqual(set(both['characters']),{'vilerena','lena','noen'})
         code,known=cli('tools/harness/narrative.py','context','--chapter','R01','--scene','sisterIdle','--at','contract','--actor','noen','--actor','vilerena')
         self.assertEqual(code,0);self.assertTrue(known['ready_to_write'])
         self.assertNotIn('F-C1-ABDUCTION',known['knowledge']['noen'])

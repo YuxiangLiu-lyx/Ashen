@@ -74,11 +74,20 @@ def query(task, chapter=None, scene=None, actors=None, root=ROOT, at=None):
     cat = catalog(root)
     requested = bool(chapter or scene or actors or re.search(
         r'剧情|对白|对话|文案|伏笔|真相|人物|角色关系|知识边界|日常互动|叙事|章节策划|章节规划|分卷|分章|世界观', task, re.I))
-    ids = []
+    ids = []; matches=[]; occupied=[]
     for c in cat['characters']:
         # Names alone may refer to art/combat; only opt in if dialogue intent exists.
-        if any(a in task for a in [c['name'], c['id']] if len(a) > 1):
-            ids.append(c['id'])
+        for alias in [c['name'],c['id']]:
+            if len(alias)<=1:continue
+            pattern=re.escape(alias)
+            if alias.isascii():pattern=r'(?<!\w)'+pattern+r'(?!\w)'
+            for m in re.finditer(pattern,task):matches.append((m.start(),m.end(),c['id']))
+    # 薇蕾娜 contains 蕾娜; a shorter name inside the longer mention is not
+    # a second participant. A separate mention still selects both people.
+    for start,end,cid in sorted(matches,key=lambda m:-(m[1]-m[0])):
+        if any(start<right and end>left for left,right in occupied):continue
+        occupied.append((start,end))
+        if cid not in ids:ids.append(cid)
     if re.search(r'圣女', task) and 'elyria' not in ids:
         ids.append('elyria')
     for value in actors or []:
