@@ -1,0 +1,395 @@
+{
+  "status": "budget_limited",
+  "task": "第二章RPG体验升级：灰桥支路与旅店准备、水泵任务世界结果、庄园守卫岗位、剧情触发安全",
+  "basis_commit": "29f30df6f0ecde80d485260656a4e9171e7de178",
+  "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711",
+  "modules": [
+    "story",
+    "design_pacing",
+    "chapter02_plan"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "design_pacing: current constraints",
+        "chapter02_plan: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 章节剧情记录与开发流程",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 22,
+          "text": "2. 实现前在本章稿记录版本、目标、进入/结束状态、逐场剧情、角色与玩家各自知道什么、地图/任务/演出交接、揭露上限及验收。缺稿就先补稿；不能边写代码边临时决定主线。使用 [章节模板](#章节模板)。",
+          "truncated": false
+        },
+        {
+          "line": 24,
+          "text": "4. 开发者把当前章节改为 `DEV_FROZEN`，写明采用",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "来源：用户2026-10-14叙事升级需求。此处是编辑原则，不给文学打分，不是运行剧情的新设定。配合 [纯风格参考](DIALOGUE_STYLE_SAMPLES.md) 与当前人物事件状态使用。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 105,
+          "text": "尤其不要把“挑衣服”“参加宴会”“处理伤员”等事件加入剧情，除非游戏原本独立存在相应的正式设定。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_02.md",
+      "reasons": [
+        "chapter02_plan: task matched 第二章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "current_code",
+      "sha256": "0f96d95c1931efcf3127adcf96cd2d436da161e0355789b483f36531cdf2f58b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第二章剧情记录 · 保留现行主线，补足幕后动机",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "本轮第二章只写作、记录，不开发运行内容。0.3 取代 0.1 的全章重做方案：以前稿件里的新信件、披风、接应棚、签署回执、新交互、新几何、新章界均不自动采用。旧稿可留作历史，不能成为本轮执行依据。后续只有用户明确指定第二章开发时，才把本稿的追加部分列成小范围任务。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "第二章已有的主线和人物反抗很完整。保留灰石驿站接头、圣徽身份验门、灰桥绕行、枯井庄园、圣女拒绝开门与主动报警、两波突围、赫斯特存活、桥口封路、流放界碑和禁地入口的既有顺序。保留水泵跑腿、旅店日常、补给、探索和普通闲谈。不能为补幕后计划而改成长篇过场串联，也不额外布置必须完成的主线任务。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "本稿以加载 `dist/core-v14.js` 后的实际最终 `DIALOGUES` 为底稿，不复制整章对白以免另立一套不同步的文本。下文用真实 ID、来源、因果和摘要记录完整主线，只展开明确需要补充的幕后对白。最早的 `chapter-dialogues-v14.js` 不是最终运行权威。下文把“当前实际剧情”和“",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 16479
+    },
+    {
+      "path": "source/narrative/chapters/R02.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "narrative_context",
+      "sha256": "5ac6bdf21dc83f4115b9679b71c295d9a01769c1b4cffcd99109074d367365ab",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": " ",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 16306
+    }
+  ],
+  "excerpt_bytes": 3382,
+  "max_files": 14,
+  "budget_bytes": 8000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R02"
+      ],
+      "scene": null,
+      "actors": [
+        "noen",
+        "elyria"
+      ],
+      "stage_candidates": [
+        {
+          "event": "R02:ch2Arrival",
+          "scene": "ch2Arrival",
+          "summary": "圣女仍帮助普通人，塞琳指向后屋"
+        },
+        {
+          "event": "R02:ch2SearchAside",
+          "scene": "ch2SearchAside",
+          "summary": "玩家独立看见守卫部署"
+        },
+        {
+          "event": "R02:ch2Relay",
+          "scene": "ch2Relay",
+          "summary": "后屋领取目标与验门解释"
+        },
+        {
+          "event": "R02:darkCommissionV9",
+          "scene": "darkCommissionV9",
+          "summary": "会馆观察安排切镜"
+        },
+        {
+          "event": "R02:ch2Terms",
+          "scene": "ch2Terms",
+          "summary": "诺恩告知刺杀，圣女拒绝为杀人开门"
+        },
+        {
+          "event": "R02:ch2Bridge",
+          "scene": "ch2Bridge",
+          "summary": "桥岗查验后绕南沟"
+        },
+        {
+          "event": "R02:ch2OuterCourt",
+          "scene": "ch2OuterCourt",
+          "summary": "圣女仍想向守卫说明情况"
+        },
+        {
+          "event": "R02:ch2TargetBefore",
+          "scene": "ch2TargetBefore",
+          "summary": "玩家独立内室目睹虐待"
+        },
+        {
+          "event": "R02:ch2InnerDoor",
+          "scene": "ch2InnerDoor",
+          "summary": "圣女拒绝并拉响警报"
+        },
+        {
+          "event": "R02:ch2Alarm",
+          "scene": "ch2Alarm",
+          "summary": "警报引发护卫围堵，圣女提醒搬柴者"
+        },
+        {
+          "event": "R02:ch2Breakout",
+          "scene": "ch2Breakout",
+          "summary": "两波守卫与布伦败亡后撤离"
+        },
+        {
+          "event": "R02:ch2TargetAfter",
+          "scene": "ch2TargetAfter",
+          "summary": "目标存活，继续追捕与虐待"
+        }
+      ],
+      "needs": [
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "budget_limited": true,
+    "deferred_sections": [
+      "knowledge",
+      "facts",
+      "seeds",
+      "required_scene_brief",
+      "stage",
+      "reveal_ceiling",
+      "provenance"
+    ],
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "noen": {
+        "name": "诺恩",
+        "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+        "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+        "state": {
+          "emotion": "日常回到会馆，进入任务准备。",
+          "goals": [
+            "前往灰石驿站取得路图。"
+          ],
+          "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+          "expression": "能与熟人正常交谈；情感伦理理解不足。",
+          "conflicts": [
+            "知道圣女不会自愿同行。"
+          ],
+          "last_change": "R01:chapterEnd"
+        },
+        "relationships": {
+          "elyria": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "任务要求活着带到驿站",
+            "concealment": "未解释后续全貌",
+            "obligation": "UNRESOLVED",
+            "conflict": "她要求救人，自己要撤离"
+          }
+        },
+        "sources": [
+          "author-hero",
+          "scene:contract",
+          "scene:sisterIdle",
+          "scene:ch2Spillway",
+          "runtime-c1-hidden"
+        ],
+        "profile": "source/narrative/characters/noen.json"
+      },
+      "elyria": {
+        "name": "艾莉娅",
+        "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+        "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+        "state": {
+          "emotion": "愤怒、担忧城中人，非原谅。",
+          "goals": [
+            "保护百姓，要求诺恩兑现放人承诺。"
+          ],
+          "faction_view": "真诚信任教廷的救助。",
+          "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+          "conflicts": [
+            "无法施圣术，亲见杀人与绑架。"
+          ],
+          "last_change": "R01:chapterEnd"
+        },
+        "relationships": {
+          "noen": {
+            "trust": "只要求履行承诺，未信任",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "追究杀人与绑架",
+            "dependence": "被强制控制，不是情感依赖",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "受迫同行，非自愿结伴"
+          }
+        },
+        "sources": [
+          "author-saint",
+          "scene:saintBrief",
+          "scene:ch2Terms",
+          "scene:ch2ExileEnd"
+        ],
+        "profile": "source/narrative/characters/elyria.json"
+      }
+    },
+    "conflicts": [
+      {
+        "id": "DIFF-C2-EXILE",
+        "kind": "implementation_gap",
+        "status": "OPEN",
+        "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+        "sources": [
+          "runtime-knowledge",
+          "scene:darkExileV9",
+          "author-pair",
+          "c2-difference"
+        ],
+        "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+      },
+      {
+        "id": "DIFF-C2-VILERENA-DOOR",
+        "kind": "outdated_plan_detail",
+        "status": "OPEN",
+        "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ],
+        "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+      }
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ]
+  },
+  "narrative_bytes": 4618,
+  "total_context_bytes": 8000,
+  "deferred": [
+    "source/narrative/characters/noen.json",
+    "source/narrative/characters/elyria.json",
+    "docs/harness/STORY.md",
+    "docs/harness/RPG_DESIGN.md",
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "dist/rpg-experience-triggers.js",
+    "dist/data-v14.js",
+    "dist/saga-runtime-v26.js",
+    "dist/dialogue-runtime-v16.js",
+    "dist/story-flow-v14.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/rpg-experience-dialogues.js",
+    "dist/dialogue-save-migration-v26.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/rpg-experience.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "证据与设计判断独立；脚本不冒充真人体验；按任务范围加载，不默认读取八章。",
+    "第二章0.3是保留主线的剧情记录与未来幕后补充，本轮不改第二章代码或知识状态。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

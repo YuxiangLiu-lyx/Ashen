@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "29f30df6f0ecde80d485260656a4e9171e7de178",
-  "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711",
+  "basis_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+  "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "d2e70f5777c5877620d36da25dada036b8628a777aa63617612054b8cb15390c",
@@ -2301,8 +2301,8 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "196925254963088eb85c06121680e0b339cfc83900ddca26c5f60cfccf86bc7c",
-      "bytes": 78063,
+      "sha256": "116269de6bfe5abb783ecdf118cebf5f6c69f782d7d7da0063c4d9bf1c122e40",
+      "bytes": 78182,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2360,6 +2360,7 @@
         "dist/quest-service-v14.js",
         "dist/romance-runtime-v20.js",
         "dist/romance-world-v20.js",
+        "dist/rpg-chapter-two.js",
         "dist/saga-chains67-v26.js",
         "dist/saga-nodes-v25.js",
         "dist/saga-runtime-v25.js",
@@ -4838,6 +4839,53 @@
         "maps"
       ]
     },
+    "dist/rpg-chapter-two-data.js": {
+      "sha256": "dd9989d46f2d64fe3c8275ce62f86d856e4862d1c1de34e908660225ebc248d2",
+      "bytes": 1877,
+      "imports": [],
+      "symbols": [
+        "C2_EVENTS",
+        "C2_ROLES",
+        "C2_SCENES",
+        "C2_STOCK"
+      ],
+      "modules": [
+        "chapter02_plan"
+      ]
+    },
+    "dist/rpg-chapter-two.js": {
+      "sha256": "055c16135362bb8d8275f0b78e021bbef3b4f39709694c79da09b1c6393a1446",
+      "bytes": 4854,
+      "imports": [
+        "dist/rpg-chapter-two-data.js",
+        "dist/rpg-experience-triggers.js",
+        "dist/secrets-v14.js"
+      ],
+      "symbols": [
+        "P",
+        "before",
+        "e",
+        "eligible",
+        "id",
+        "installChapterTwoExperience",
+        "item",
+        "key",
+        "migrateRewards",
+        "phase",
+        "r",
+        "ratio",
+        "rewards",
+        "role",
+        "row",
+        "rows",
+        "s",
+        "tune",
+        "v"
+      ],
+      "modules": [
+        "chapter02_plan"
+      ]
+    },
     "dist/rpg-experience-combat.js": {
       "sha256": "281c873d59f7bfc4d1054d3e2eea26156a4ef2a9b1bd4b91f0c9e756dd7d968c",
       "bytes": 3421,
@@ -4867,9 +4915,11 @@
       ]
     },
     "dist/rpg-experience-data.js": {
-      "sha256": "766424684e7ef48b17e4513f7f39fd239ad6d577bd7ec144221440b4e40f0d2d",
-      "bytes": 2036,
-      "imports": [],
+      "sha256": "65d439b8eced1c53f069f48c69264f11d523e366780ecf0f723a1b8aa79eaf0c",
+      "bytes": 2117,
+      "imports": [
+        "dist/rpg-chapter-two-data.js"
+      ],
       "symbols": [
         "EXPERIENCE_ROLES",
         "experienceProfile"
@@ -4905,8 +4955,8 @@
       ]
     },
     "dist/rpg-experience-services-ui.js": {
-      "sha256": "5c769ada6e97187f64bf1c988f704ddb01ad04e94dcc8ce4f4475690332ff984",
-      "bytes": 2748,
+      "sha256": "351bcea61fd1e282c5f2c09b48a7a3e5068575a17fe276057ae5614dc855ca75",
+      "bytes": 2852,
       "imports": [
         "dist/rpg-experience-services.js"
       ],
@@ -4919,11 +4969,12 @@
       ]
     },
     "dist/rpg-experience-services.js": {
-      "sha256": "5b70cf7c3bd27a1b6251b379cbb1cb164821f4db68f69ab43fbc9cff0f70011a",
-      "bytes": 4456,
+      "sha256": "620c9a92c73cec96bcbba7b586f7525385d10dc4c8b932926e106524c207dc15",
+      "bytes": 4916,
       "imports": [
         "dist/chapter-one-expansion-save.js",
         "dist/equipment-v14.js",
+        "dist/rpg-chapter-two-data.js",
         "dist/systems-data-v14.js"
       ],
       "symbols": [
@@ -5786,8 +5837,8 @@
       ]
     },
     "dist/scene-arrival-v19.js": {
-      "sha256": "463facb5810076ca96c4fac9f1d1bcc6817d072bbe8e0eee7d84a094c400914e",
-      "bytes": 3216,
+      "sha256": "d11fcd5b939916bcce075f081e49e5d316aa61c015efca76357c598a84de439f",
+      "bytes": 3630,
       "imports": [],
       "symbols": [
         "arrivals",
@@ -5799,6 +5850,7 @@
         "key",
         "m",
         "meta",
+        "near",
         "origin",
         "path",
         "plan",
@@ -6945,8 +6997,18 @@
       ]
     },
     "docs/harness/CHAPTER_02.md": {
-      "sha256": "0f96d95c1931efcf3127adcf96cd2d436da161e0355789b483f36531cdf2f58b",
-      "bytes": 16479,
+      "sha256": "5fa0a135928652c4ddd5c9693b6c905f9f591259f2bc104f9b09406cdb4278be",
+      "bytes": 16690,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "chapter02_plan"
+      ]
+    },
+    "docs/harness/CHAPTER_02_RPG_EXPERIENCE.md": {
+      "sha256": "fd4382d6ffd91b3d3c823b6455008397a5815f2879e0f200642d455cd500c1ff",
+      "bytes": 4062,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7017,8 +7079,8 @@
       "modules": []
     },
     "docs/harness/NARRATIVE_ARCHITECTURE.md": {
-      "sha256": "9320edad70a673e33cb20b51b90043ba15887a85f9cf2b91a47336c8b0ca04c7",
-      "bytes": 5544,
+      "sha256": "1d3012332763f7e093190bb018c2461dfe64bdd45e1bfd8ec659027c54292f66",
+      "bytes": 5645,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7154,8 +7216,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "97d12bda23f43e29bf940f3ded01489cbd97b844f540c2193543fd5be8c16cac",
-      "bytes": 30692,
+      "sha256": "c5dfb2bd3ba3747f5576db4670cd473689b8dbee5bddf6349f2132655891d2a4",
+      "bytes": 30879,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7183,8 +7245,8 @@
       ]
     },
     "source/narrative/chapters/R02.json": {
-      "sha256": "5ac6bdf21dc83f4115b9679b71c295d9a01769c1b4cffcd99109074d367365ab",
-      "bytes": 16306,
+      "sha256": "45fcc5429dd91b8c98fa0f43f5aa6a13907450fecb5f04cf4d0f39b83eb0b180",
+      "bytes": 19145,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8153,8 +8215,8 @@
       ]
     },
     "source/narrative/runtime-index.json": {
-      "sha256": "761b3089e18ffc5413c1e5531db29cb9ee4a70c05902745f00d0a748270c7f9a",
-      "bytes": 142970,
+      "sha256": "7ca0093686aa046a36ad31d18c22cd5470fb2b39dd907a6722ce042c284859a8",
+      "bytes": 143365,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8163,8 +8225,8 @@
       ]
     },
     "source/narrative/sources.json": {
-      "sha256": "82527f2207fafe2a65dbba870ccb1101b10d8e433eabbad3d9784e8a5139bb8d",
-      "bytes": 40178,
+      "sha256": "1cd7ef3808449f8b9e8af1698ce01ae64634b03a76dcc890bf377a3b551bf092",
+      "bytes": 40718,
       "imports": [],
       "symbols": [
         "C1_HIDDEN",
@@ -8180,8 +8242,8 @@
       ]
     },
     "source/narrative/sources.lock.json": {
-      "sha256": "5af007de4082e0ea8c231bd6a323388fed9f970f053e6b01df5dc4e4f342e32a",
-      "bytes": 47903,
+      "sha256": "c1f6aac050f4e29d9b7e5c244bc85593ddd5d6d1331bd6edfba1a3d2f4dc6b72",
+      "bytes": 53948,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8662,6 +8724,79 @@
         "build"
       ]
     },
+    "tests/browser-rpg-chapter-two-services.mjs": {
+      "sha256": "6bf7bd1d184e6c4955f1a49c2ef8078d2f5a175a44d34162809dc29664728f0c",
+      "bytes": 5081,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "after",
+        "b",
+        "before",
+        "bought",
+        "click",
+        "deferred",
+        "hook",
+        "out",
+        "p",
+        "pages",
+        "rested",
+        "sold",
+        "state"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
+    "tests/browser-rpg-chapter-two.mjs": {
+      "sha256": "a41a37c9a3ebefbbdc186fa67ef120aa9aa90a1db724eac4b489d8b1a9286a6e",
+      "bytes": 11814,
+      "imports": [
+        "tools/balance_lab/provenance.mjs",
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "b",
+        "bag",
+        "button",
+        "choice",
+        "cls",
+        "d",
+        "dialogue",
+        "dx",
+        "e",
+        "end",
+        "es",
+        "fight",
+        "first",
+        "grow",
+        "hook",
+        "i",
+        "id",
+        "importedPath",
+        "k",
+        "key",
+        "keys",
+        "now",
+        "outfit",
+        "p",
+        "record",
+        "route",
+        "s",
+        "skill",
+        "source",
+        "started",
+        "startingMap",
+        "supply",
+        "target",
+        "walk",
+        "world"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tests/browser-rpg-experience-services.mjs": {
       "sha256": "29680cf3435eb84ccc64150c1e454c0d173ee6ed140b5338efeb48eb9d93e476",
       "bytes": 4627,
@@ -8957,8 +9092,8 @@
       ]
     },
     "tests/chapter-one-incremental.test.mjs": {
-      "sha256": "e3a7b8f56138162626d95357898c59bd1aa5e9719fe619370ba12a2cf5c4b8d9",
-      "bytes": 15238,
+      "sha256": "92ecb5dde4af62edcbd517e5ba05b8757250dd40f00363507720f9fa77e5bcc1",
+      "bytes": 15647,
       "imports": [
         "dist/chapter-one-dialogues-v31.js",
         "dist/chapter-one-expansion-data.js",
@@ -9448,6 +9583,47 @@
         "src",
         "type",
         "x"
+      ],
+      "modules": []
+    },
+    "tests/rpg-chapter-two.test.mjs": {
+      "sha256": "a65b98db5ac3ec7563692ee8c74c44dca042cd94badeba399b0425803bfa5553",
+      "bytes": 8684,
+      "imports": [
+        "dist/chapter-runtime-v14.js",
+        "dist/core-v14.js",
+        "dist/data-v14.js",
+        "dist/rpg-experience-services-ui.js",
+        "dist/save-transfer-v14.js",
+        "dist/story-flow-v14.js"
+      ],
+      "symbols": [
+        "before",
+        "cls",
+        "dotA",
+        "e",
+        "es",
+        "f",
+        "finish",
+        "flow",
+        "front",
+        "g",
+        "game",
+        "gold",
+        "h",
+        "hit",
+        "hp",
+        "id",
+        "knowledge",
+        "legacy",
+        "n",
+        "near",
+        "preview",
+        "q",
+        "r",
+        "restore",
+        "snap",
+        "z"
       ],
       "modules": []
     },
@@ -9966,8 +10142,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "208d9f3e9a930d51409e8a849d7c9b53aba39267b89a35bd560a02d8dc235aee",
-      "bytes": 7430,
+      "sha256": "b9c92a8c2d2400e3e8f54f0aea8007040f22b3363c2512e6db2757ab59801ac3",
+      "bytes": 7463,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -10206,135 +10382,139 @@
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 225
-    },
-    {
-      "name": "installChapter4",
       "line": 226
     },
     {
-      "name": "installPacing",
-      "line": 228
+      "name": "installChapter4",
+      "line": 227
     },
     {
-      "name": "installQuestService",
+      "name": "installPacing",
       "line": 229
     },
     {
+      "name": "installQuestService",
+      "line": 230
+    },
+    {
       "name": "installSystemsV13",
-      "line": 234
+      "line": 235
     },
     {
       "name": "installProgressionV14",
-      "line": 236
-    },
-    {
-      "name": "installChapter5",
       "line": 237
     },
     {
-      "name": "installMercenariesV14",
+      "name": "installChapter5",
       "line": 238
     },
     {
-      "name": "installMemoryV13",
+      "name": "installMercenariesV14",
       "line": 239
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMemoryV13",
       "line": 240
     },
     {
-      "name": "installDialogueTextV16",
-      "line": 242
+      "name": "installHellActivitiesV15",
+      "line": 241
     },
     {
-      "name": "installGrowthV17",
+      "name": "installDialogueTextV16",
       "line": 243
     },
     {
-      "name": "installHellActivitiesV17",
+      "name": "installGrowthV17",
       "line": 244
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installHellActivitiesV17",
       "line": 245
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installSaintBondsV17",
       "line": 246
     },
     {
-      "name": "installCityV18",
+      "name": "installHellExpeditionsV18",
       "line": 247
     },
     {
-      "name": "installDiscoveryV19",
-      "line": 249
+      "name": "installCityV18",
+      "line": 248
     },
     {
-      "name": "installSaintStoryV18",
+      "name": "installDiscoveryV19",
       "line": 250
     },
     {
+      "name": "installSaintStoryV18",
+      "line": 251
+    },
+    {
       "name": "installRomanceV20",
-      "line": 252
+      "line": 253
     },
     {
       "name": "installCombatInputV17",
-      "line": 255
-    },
-    {
-      "name": "installPartyRewardHooksV18",
       "line": 256
     },
     {
-      "name": "installArrivalV22",
+      "name": "installPartyRewardHooksV18",
       "line": 257
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installArrivalV22",
       "line": 258
     },
     {
+      "name": "installCityMomentsV24",
+      "line": 259
+    },
+    {
       "name": "installSagaV25",
-      "line": 263
+      "line": 264
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 267
+      "line": 268
     },
     {
       "name": "installSagaV26",
-      "line": 270
+      "line": 271
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 277
+      "line": 278
     },
     {
       "name": "installPresentationPhysicsV281",
-      "line": 279
+      "line": 280
     },
     {
       "name": "installWorldExplorationV29",
-      "line": 281
+      "line": 282
     },
     {
       "name": "installChapterOneMotionV30",
-      "line": 283
-    },
-    {
-      "name": "installChapterOneInteraction",
       "line": 284
     },
     {
+      "name": "installChapterOneInteraction",
+      "line": 285
+    },
+    {
       "name": "installChapterOneExpansion",
-      "line": 286
+      "line": 287
     },
     {
       "name": "installGameSettings",
-      "line": 287
+      "line": 288
+    },
+    {
+      "name": "installChapterTwoExperience",
+      "line": 290
     }
   ],
   "missing_imports": [],

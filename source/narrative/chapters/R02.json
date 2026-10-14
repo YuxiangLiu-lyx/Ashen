@@ -10,10 +10,10 @@
   ],
   "coverage": "curated_mainline",
   "plan": {
-    "path": "docs/harness/CHAPTER_02.md",
-    "revision": "0.3",
-    "status": "SCRIPT_READY",
-    "implementation": "既有路线在运行；追加A/B未实施"
+    "path": "docs/harness/CHAPTER_02_RPG_EXPERIENCE.md",
+    "revision": "0.4",
+    "status": "IMPLEMENTED",
+    "implementation": "0.4玩法技术验收通过；真人节奏待验；0.3追加A/B仍未实施"
   },
   "sources": [
     "c2-plan"
@@ -151,6 +151,28 @@
       "status": "ADOPTED_PLAN",
       "sources": [
         "c2-plan"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C2PUMPREST",
+      "summary": "修泵后塞琳以节省提水劳力为由免收离开驿站前的歇脚费；诺恩记得旧报价，二人谈的是实际工钱与热水。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c2PumpRest"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-V9TOLLFOUND",
+      "summary": "桥下旧木匣保留原护符，并露出两瓶蜡封清醒药和一瓶疗伤药；正式领取一次，满包不结算，旧已领档不补发。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:v9TollFound"
       ],
       "risk_terms": []
     }
@@ -659,6 +681,76 @@
         }
       },
       "relationship_changes": {}
+    },
+    {
+      "id": "R02:c2PumpRest",
+      "scene": "c2PumpRest",
+      "order": 18,
+      "summary": "修泵后塞琳以节省提水劳力为由免收离开驿站前的歇脚费；诺恩记得旧报价，二人谈的是实际工钱与热水。",
+      "participants": [
+        "seline",
+        "noen"
+      ],
+      "sources": [
+        "experience:c2PumpRest"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "seline",
+          "fact": "F-EXP-C2PUMPREST",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C2PUMPREST",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C2PUMPREST",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R02:ch2Arrival",
+        "R02:ch2InnerDoor"
+      ],
+      "trigger": "仅在inn、phase5–7、pumpFixed且实际柜台/炉边近处安全时选择休息；沿用ch2_paid_rest完成后结算。新ID不挪旧innRestTalk行号。"
+    },
+    {
+      "id": "R02:v9TollFound",
+      "scene": "v9TollFound",
+      "order": 19,
+      "summary": "桥下旧木匣保留原护符，并露出两瓶蜡封清醒药和一瓶疗伤药；正式领取一次，满包不结算，旧已领档不补发。",
+      "participants": [
+        "noen"
+      ],
+      "sources": [
+        "experience:v9TollFound"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-V9TOLLFOUND",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-V9TOLLFOUND",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R02:ch2Bridge",
+        "R02:ch2InnerDoor"
+      ],
+      "trigger": "保留原两行和领取前提，领取护符与药品在同一同步调用保存；旧pending仍按原游标读，不重复发放。"
     }
   ],
   "gaps": [

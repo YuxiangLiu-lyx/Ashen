@@ -460,16 +460,17 @@
 <!-- task:rpg-experience-20261014 -->
 ## 任务 rpg-experience-20261014
 - 状态：in_progress
-- 更新：2026-10-14T12:23:07.075576+00:00
-- 下一步：以第一章技术检查点开始第二章独立任务
+- 更新：2026-10-14T13:39:51.729573+00:00
+- 下一步：第二章保存GitHub后启动第三章真实基线与独立实现
 - 任务记录：source/tasks/active/rpg-experience-20261014.json
-- 已完成：基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看；八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验；第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。
-- 待完成：第二至八章逐章实际改造与正常输入/培养/地图/旧档验收；全游戏交付构建、GitHub同步与真人待验清单
+- 已完成：基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看；八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验；第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。；第二章0.4已技术验收归档；完整integration191核心/61Harness、三职业正常UI、73路线和独立可玩包完成；真人待验。
+- 待完成：第三至八章逐章实际改造、正常输入与五项体验证据；全游戏最终交付与真人待验清单
 - 决定：采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造；零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务
 - 阻塞：无
 - 阶段 audit：complete；HEAD cad2add19b46e319475c28504e155322a9df687d
 - 阶段 chapter-one：complete；HEAD 29f30df6f0ecde80d485260656a4e9171e7de178
-- 最近检查：c1-final-integration，退出码 0；docs/harness/evidence/rpg-experience-20261014/018-c1-final-integration.txt
+- 阶段 chapter-two：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
+- 最近检查：c2-real-preparation-comparison，退出码 0；docs/harness/evidence/rpg-experience-20261014/025-c2-real-preparation-comparison.txt
 <!-- /task:rpg-experience-20261014 -->
 
 <!-- task:rpg-c1-20261014 -->
@@ -504,3 +505,19 @@
 - 阶段 verification：complete；HEAD 29f30df6f0ecde80d485260656a4e9171e7de178
 - 最近检查：verification，退出码 0；docs/harness/evidence/rpg-harness-20261014/009-verification.txt
 <!-- /task:rpg-harness-20261014 -->
+
+<!-- task:rpg-c2-20261014 -->
+## 任务 rpg-c2-20261014
+- 状态：complete
+- 更新：2026-10-14T13:40:52.227816+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/rpg-c2-20261014.json
+- 已完成：216组普通/连续地图和54组布伦基线保存；三职业正常行装可过，低培养烬术师布伦失败，保留布伦与井兽预算。；9项新增专项、三职业真实章首档正常UI至phase12、三视口交易装备出售免费休息与延后对白实景通过；同源前后216群战/54布伦对照完成。；完整006 integration、007最终fast与008证据门禁通过；三职业正常UI、前后540+36战斗、73地图路径/三维、三视口和离线HTTP移动包通过。
+- 待完成：无
+- 决定：采用第一章真实正常UI章首档做同源前后对照；第二章保持逃亡主线，不把旧0.3追加A/B自动实施；优先改已有支路与准备价值。；采用第二章0.4玩法稿；八图原几何保留，修泵免费休息、寄卖行装、桥下补给和守卫配合实装。；003大段导入驱动超时，004遗漏既有桥口打听门禁；修正驱动后005三职业通过，未绕过真实任务门禁。019战斗fixture被对白中断，不计战斗结论；020统一已看条件前后重测通过。
+- 阻塞：无
+- 阶段 audit：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
+- 阶段 implementation：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
+- 阶段 verification：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
+- 最近检查：verification，退出码 0；docs/harness/evidence/rpg-c2-20261014/008-verification.txt
+<!-- /task:rpg-c2-20261014 -->

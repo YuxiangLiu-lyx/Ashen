@@ -1,0 +1,251 @@
+{
+  "schema": 1,
+  "id": "rpg-c2-20261014",
+  "goal": "第二章RPG体验升级：灰桥支路、旅店准备与水泵世界结果、庄园守卫岗位及安全剧情触发",
+  "acceptance": [
+    "三职业真实章首档同源培养对照，普通群体与连续地图，布伦及井兽机制验证",
+    "旅店真实交易及修泵后服务结果、桥下支路价值与存档幂等",
+    "原主线与人物知识保留，三职业正常UI从真实章首档到phase12；技术与真人待验分开"
+  ],
+  "baseline_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+  "modules": [
+    "story",
+    "design_pacing",
+    "chapter02_plan"
+  ],
+  "status": "complete",
+  "created_at_utc": "2026-10-14T12:26:38.516714+00:00",
+  "updated_at_utc": "2026-10-14T13:40:52.227816+00:00",
+  "decisions": [
+    "采用第一章真实正常UI章首档做同源前后对照；第二章保持逃亡主线，不把旧0.3追加A/B自动实施；优先改已有支路与准备价值。",
+    "采用第二章0.4玩法稿；八图原几何保留，修泵免费休息、寄卖行装、桥下补给和守卫配合实装。",
+    "003大段导入驱动超时，004遗漏既有桥口打听门禁；修正驱动后005三职业通过，未绕过真实任务门禁。019战斗fixture被对白中断，不计战斗结论；020统一已看条件前后重测通过。"
+  ],
+  "completed": [
+    "216组普通/连续地图和54组布伦基线保存；三职业正常行装可过，低培养烬术师布伦失败，保留布伦与井兽预算。",
+    "9项新增专项、三职业真实章首档正常UI至phase12、三视口交易装备出售免费休息与延后对白实景通过；同源前后216群战/54布伦对照完成。",
+    "完整006 integration、007最终fast与008证据门禁通过；三职业正常UI、前后540+36战斗、73地图路径/三维、三视口和离线HTTP移动包通过。"
+  ],
+  "remaining": [],
+  "blockers": [],
+  "next": "No required task work remains",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "baseline-combat",
+      "command": [
+        "node",
+        "docs/rpg-experience/c2/BASELINE_DRIVER.mjs",
+        "docs/rpg-experience/c2/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T12:33:10.002261+00:00",
+      "finished_at_utc": "2026-10-14T12:33:50.206241+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/001-baseline-combat.txt",
+      "output_sha256": "a00a80a752a26116f1051ed3c3fb3c73f37cc99a6357373d6813e1ab901495ec",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "implementation-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/rpg-experience.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T12:54:08.739034+00:00",
+      "finished_at_utc": "2026-10-14T12:54:10.852259+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "6a51ff7601b759ec7942e67f78f629b01b127548680ba2429e2f319b39b2d4dc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/002-implementation-unit.txt",
+      "output_sha256": "830f4dc210879c04507a96b0e8e8022143bd9f3ecb6e854d247e1cddfc3e79a4",
+      "timeout_seconds": 90.0
+    },
+    {
+      "label": "normal-three-class",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "python3",
+        "docs/rpg-experience/c2/NORMAL_DRIVER.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T12:54:54.002461+00:00",
+      "finished_at_utc": "2026-10-14T12:58:00.803258+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "6a51ff7601b759ec7942e67f78f629b01b127548680ba2429e2f319b39b2d4dc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/003-normal-three-class.txt",
+      "output_sha256": "c3868d61ecc034166c24f30a420f2200235487192e9d5eb15c4c55f74034a6d1",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "normal-shadow",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "ASHEN_CLASS=shadow",
+        "ASHEN_PLAY_OUTPUT=docs/rpg-experience/c2/natural-004/shadow",
+        "node",
+        "tests/browser-rpg-chapter-two.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T13:06:28.293587+00:00",
+      "finished_at_utc": "2026-10-14T13:08:03.832223+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "c64d7dfcff1eb42c3afcbf28714e9616538121976b6d356801b65735e21f263e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/004-normal-shadow.txt",
+      "output_sha256": "b560f466eb3a94cbe36bc7ceebd921f4ea2d074f17e850980b049e62e6bbbfba",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "normal-three-class-005",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "ASHEN_C2_NATURAL=docs/rpg-experience/c2/natural-005",
+        "python3",
+        "docs/rpg-experience/c2/NORMAL_DRIVER.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:14:06.148729+00:00",
+      "finished_at_utc": "2026-10-14T13:18:08.941518+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "70cf758075b231a9ed1f191521f980a6bfdaf4cb0b55e40c493cf32cae7707f8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/005-normal-three-class-005.txt",
+      "output_sha256": "42d697e25f43532dfcf035923f686791211c6b009072121d5c64441411a41a9d",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "final-integration",
+      "command": [
+        "env",
+        "ASHEN_INTEGRATION_OUTPUT=docs/rpg-experience/c2/integration",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "python3",
+        "docs/rpg-experience/c1/INTEGRATION_DRIVER.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:19:53.698789+00:00",
+      "finished_at_utc": "2026-10-14T13:26:55.245393+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/006-final-integration.txt",
+      "output_sha256": "2767b863d056e3492e6fa3d0ac59f572812c44b1b0fb4121e20062362c3c521d",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "final-metadata-fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:34:29.272043+00:00",
+      "finished_at_utc": "2026-10-14T13:35:15.963263+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/007-final-metadata-fast.txt",
+      "output_sha256": "4bc7fcded84ca56950bf7dffff86a621e52b34db562cee5537423b55831fe919",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "docs/rpg-experience/c2/FINAL_GATES.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:38:39.377397+00:00",
+      "finished_at_utc": "2026-10-14T13:38:40.506737+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c2-20261014/008-verification.txt",
+      "output_sha256": "2e6de07fb53c110c56397ac7053327ee217e2d680eead52eb8acacf6142dc6e8",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "experience_requirement": {
+    "scopes": [
+      "combat",
+      "exploration",
+      "quests",
+      "services",
+      "pacing"
+    ],
+    "chapters": [
+      "V01C02"
+    ],
+    "kind": "chapter"
+  },
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T12:53:49.622154+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "6a51ff7601b759ec7942e67f78f629b01b127548680ba2429e2f319b39b2d4dc",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M dist/rpg-experience-services.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/chapter-one-incremental.test.mjs\n?? dist/rpg-chapter-two-data.js\n?? dist/rpg-chapter-two.js\n?? docs/harness/CHAPTER_02_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c2-20261014/\n?? docs/rpg-experience/c1/GIT_SAVE.json\n?? docs/rpg-experience/c2/\n?? source/tasks/active/rpg-c2-20261014.json\n?? tests/browser-rpg-chapter-two.mjs\n?? tests/rpg-chapter-two.test.mjs"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T13:19:38.136003+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M dist/rpg-experience-services.js\n M dist/scene-arrival-v19.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/chapter-one-incremental.test.mjs\n M tools/harness/check.py\n?? dist/rpg-chapter-two-data.js\n?? dist/rpg-chapter-two.js\n?? docs/harness/CHAPTER_02_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c2-20261014/\n?? docs/harness/evidence/rpg-experience-20261014/019-c2-current-combat.txt\n?? docs/harness/evidence/rpg-experience-20261014/020-c2-isolated-comparison.txt\n?? docs/harness/evidence/rpg-experience-20261014/021-c2-service-and-scenes.txt\n?? docs/rpg-experience/c1/GIT_SAVE.json\n?? docs/rpg-experience/c2/\n?? source/tasks/active/rpg-c2-20261014.json\n?? tests/browser-rpg-chapter-two-services.mjs\n?? tests/browser-rpg-chapter-two.mjs\n?? tests/rpg-chapter-two.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T13:39:50.985811+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M dist/rpg-experience-services.js\n M dist/scene-arrival-v19.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/chapter-one-incremental.test.mjs\n M tools/harness/check.py\n?? dist/rpg-chapter-two-data.js\n?? dist/rpg-chapter-two.js\n?? docs/harness/CHAPTER_02_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c2-20261014/\n?? docs/harness/evidence/rpg-experience-20261014/019-c2-current-combat.txt\n?? docs/harness/evidence/rpg-experience-20261014/020-c2-isolated-comparison.txt\n?? docs/harness/evidence/rpg-experience-20261014/021-c2-service-and-scenes.txt\n?? docs/harness/evidence/rpg-experience-20261014/022-c2-playable-package.txt\n?? docs/harness/evidence/rpg-experience-20261014/023-c2-package-ui.txt\n?? docs/harness/evidence/rpg-experience-20261014/024-c2-map-quality-evidence.txt\n?? docs/harness/evidence/rpg-experience-20261014/025-c2-real-preparation-comparison.txt\n?? docs/rpg-experience/c1/GIT_SAVE.json\n?? docs/rpg-experience/c2/\n?? source/tasks/active/rpg-c2-20261014.json\n?? tests/browser-rpg-chapter-two-services.mjs\n?? tests/browser-rpg-chapter-two.mjs\n?? tests/rpg-chapter-two.test.mjs"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/rpg-experience/c2/narrative/c2PumpRest-context.json",
+      "context_sha256": "6f9516b5794f8db99531f00a7e2bfb0d78312d90f414986a5dcbbe17e72713b8",
+      "draft": "docs/rpg-experience/c2/narrative/c2PumpRest-draft.json",
+      "draft_sha256": "20cf194abe05237851bc732241b0927aedb1657e6432ecac26e80b4f4d00c436",
+      "review": "docs/rpg-experience/c2/narrative/c2PumpRest-review.json",
+      "review_sha256": "2be655520b94230b11751887346be765f7e8d0fae37fcc6d5a6e5124cf7599d8"
+    },
+    {
+      "context": "docs/rpg-experience/c2/narrative/v9TollFound-context.json",
+      "context_sha256": "edf71843608f5d61628915872c7278de45e26a0af6e629cee040d9b2f4bb927d",
+      "draft": "docs/rpg-experience/c2/narrative/v9TollFound-draft.json",
+      "draft_sha256": "c4e071c9c854dcbb4ec08a7accfc505af87d3e8be3313952a23a95d6767b52cb",
+      "review": "docs/rpg-experience/c2/narrative/v9TollFound-review.json",
+      "review_sha256": "646e7890a4aa6e9cba1dc03abc684982caaa7301ed945b9b1b32bd7b4bf6fce6"
+    }
+  ],
+  "experience_reviews": [
+    {
+      "path": "docs/rpg-experience/c2/ACCEPTANCE.json",
+      "sha256": "eeae683142f63251e7c2b1b0994080696145557b787d2c2364a455f7dd03a52f",
+      "chapter": "V01C02"
+    }
+  ],
+  "summary": "第二章0.4技术验收完成，三职业正常UI、战斗成长、地图三维、服务、兼容与构建通过；真人待验附可玩包与观察表。",
+  "completed_at_utc": "2026-10-14T13:40:52.825586+00:00",
+  "verified_source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807"
+}

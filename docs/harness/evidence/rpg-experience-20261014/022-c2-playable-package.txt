@@ -1,0 +1,34 @@
+Assets prepared: 20/142
+Assets prepared: 40/142
+Assets prepared: 60/142
+Assets prepared: 80/142
+Assets prepared: 100/142
+Assets prepared: 120/142
+Assets prepared: 140/142
+{
+  "version": "30",
+  "source_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+  "source_dirty": true,
+  "runtime_input_sha256": "f4ce989908e5549c32520dd72cdad859a4d5cc519cab40737d3f6d25d8c74477",
+  "offline_filename": "Ashen-V28.1-Play.html",
+  "module_count": 223,
+  "image_count": 142,
+  "original_images_bytes": 316120386,
+  "web_images_bytes": 182668910,
+  "offline_html_bytes": 247463341,
+  "offline_sha256": "964b99787f7a383d3261aa7965341b5af2996e1f81fa137f521adaf4891492c3",
+  "original_dist_modified": false
+}
+Traceback (most recent call last):
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-web-play.py", line 144, in <module>
+    if not executable:raise RuntimeError('Chrome or Chromium is required')
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Chrome or Chromium is required
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import subprocess; subprocess.run([".venv/bin/python","tools/build_web_play.py","--output","qa-export/rpg-c2-preview"],check=True); subprocess.run([".venv/bin/python","tests/browser-web-play.py","--build","qa-export/rpg-c2-preview"],check=True)
+                                                                                                                                        ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/Cellar/python@3.13/3.13.7/Frameworks/Python.framework/Versions/3.13/lib/python3.13/subprocess.py", line 577, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['.venv/bin/python', 'tests/browser-web-play.py', '--build', 'qa-export/rpg-c2-preview']' returned non-zero exit status 1.

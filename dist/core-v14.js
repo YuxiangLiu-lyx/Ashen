@@ -1,3 +1,4 @@
+import {installChapterTwoExperience} from './rpg-chapter-two.js';
 import {installGameSettings} from './game-settings-v31.js';
 import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';
 import {BOUNDARIES} from './world-v14.js';
@@ -285,3 +286,5 @@ installChapterOneInteraction(RPG);
 
 installChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});
 installGameSettings(RPG,{MAPS});
+
+installChapterTwoExperience(RPG,{DIALOGUES,stats});

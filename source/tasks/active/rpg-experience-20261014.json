@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-14T06:07:34.250879+00:00",
-  "updated_at_utc": "2026-10-14T12:23:07.075576+00:00",
+  "updated_at_utc": "2026-10-14T13:39:51.729573+00:00",
   "decisions": [
     "采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造",
     "零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务"
@@ -21,14 +21,14 @@
   "completed": [
     "基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看",
     "八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验",
-    "第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。"
+    "第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。",
+    "第二章0.4已技术验收归档；完整integration191核心/61Harness、三职业正常UI、73路线和独立可玩包完成；真人待验。"
   ],
   "remaining": [
-    "第二至八章逐章实际改造与正常输入/培养/地图/旧档验收",
-    "全游戏交付构建、GitHub同步与真人待验清单"
+    "第三至八章逐章实际改造、正常输入与五项体验证据；全游戏最终交付与真人待验清单"
   ],
   "blockers": [],
-  "next": "以第一章技术检查点开始第二章独立任务",
+  "next": "第二章保存GitHub后启动第三章真实基线与独立实现",
   "required_checks": [
     "fast",
     "integration"
@@ -355,6 +355,131 @@
       "output": "docs/harness/evidence/rpg-experience-20261014/018-c1-final-integration.txt",
       "output_sha256": "a66930f39df31c8daf064c979167acbead739134e40c6018df00edb2c602b5c0",
       "timeout_seconds": 900.0
+    },
+    {
+      "label": "c2-current-combat",
+      "command": [
+        "node",
+        "docs/rpg-experience/c2/BASELINE_DRIVER.mjs",
+        "docs/rpg-experience/c2/current"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T12:54:27.789029+00:00",
+      "finished_at_utc": "2026-10-14T12:55:07.645453+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "6a51ff7601b759ec7942e67f78f629b01b127548680ba2429e2f319b39b2d4dc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/019-c2-current-combat.txt",
+      "output_sha256": "a00a80a752a26116f1051ed3c3fb3c73f37cc99a6357373d6813e1ab901495ec",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "c2-isolated-comparison",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess; from pathlib import Path; r=Path.cwd(); subprocess.run([\"node\",\"docs/rpg-experience/c2/BASELINE_DRIVER.mjs\",str(r/\"docs/rpg-experience/c2/baseline-isolated\")],cwd=\"/tmp/ashen-c2-before-b54fdfe\",check=True); subprocess.run([\"node\",\"docs/rpg-experience/c2/BASELINE_DRIVER.mjs\",\"docs/rpg-experience/c2/current-isolated\"],check=True)"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:06:54.997929+00:00",
+      "finished_at_utc": "2026-10-14T13:08:22.608352+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "c64d7dfcff1eb42c3afcbf28714e9616538121976b6d356801b65735e21f263e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/020-c2-isolated-comparison.txt",
+      "output_sha256": "d095080afe958bdb6c8ee28598c159ae12fc082d32c79038dc190e58d7fdf342",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "c2-service-and-scenes",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "node",
+        "tests/browser-rpg-chapter-two-services.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:14:08.415519+00:00",
+      "finished_at_utc": "2026-10-14T13:14:29.389404+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "70cf758075b231a9ed1f191521f980a6bfdaf4cb0b55e40c493cf32cae7707f8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/021-c2-service-and-scenes.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 360.0
+    },
+    {
+      "label": "c2-playable-package",
+      "command": [
+        ".venv/bin/python",
+        "-c",
+        "import subprocess; subprocess.run([\".venv/bin/python\",\"tools/build_web_play.py\",\"--output\",\"qa-export/rpg-c2-preview\"],check=True); subprocess.run([\".venv/bin/python\",\"tests/browser-web-play.py\",\"--build\",\"qa-export/rpg-c2-preview\"],check=True)"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T13:19:54.869782+00:00",
+      "finished_at_utc": "2026-10-14T13:19:56.802669+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/022-c2-playable-package.txt",
+      "output_sha256": "ea5361b39f28a9cbedb9fdc37d82f6cfde069bd1c7649e4bf5c1faeed84bfe4e",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "c2-package-ui",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/rpg-c2-preview",
+        "--out",
+        "docs/rpg-experience/c2/package-ui"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:20:25.157264+00:00",
+      "finished_at_utc": "2026-10-14T13:21:55.191510+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/023-c2-package-ui.txt",
+      "output_sha256": "a0ae58d308a0ebdd02b4d2a2840c00054641579ab84973e56b271ab834d960df",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "c2-map-quality-evidence",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        "node",
+        "docs/rpg-experience/c2/MAP_DRIVER.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:23:42.529914+00:00",
+      "finished_at_utc": "2026-10-14T13:23:55.364326+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/024-c2-map-quality-evidence.txt",
+      "output_sha256": "8881c44780807d346b6b6e3a928fb1444af28e9422e7e3fddb5cc1c2f8f853e6",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "c2-real-preparation-comparison",
+      "command": [
+        "node",
+        "docs/rpg-experience/c2/PREPARED_DRIVER.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T13:28:31.796912+00:00",
+      "finished_at_utc": "2026-10-14T13:28:40.039831+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "354dc826993010e4d119f1c03a44a23ba2bd5f9151dbd47b79b7c7bc67cb2cc7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/025-c2-real-preparation-comparison.txt",
+      "output_sha256": "c31cfcb3f4a2dc7a678c301563ce5d41c57c98118ecf6b98486741f0db54ba7a",
+      "timeout_seconds": 300.0
     }
   ],
   "stages": [
@@ -373,6 +498,14 @@
       "head_commit": "29f30df6f0ecde80d485260656a4e9171e7de178",
       "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711",
       "worktree": "M .agents/skills/ashen-art-maps/SKILL.md\n M .agents/skills/ashen-classes-gear/SKILL.md\n M .agents/skills/ashen-combat-skills/SKILL.md\n M .agents/skills/ashen-qa-release/SKILL.md\n M .agents/skills/ashen-quests-economy/SKILL.md\n M .agents/skills/ashen-story-characters/SKILL.md\n M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-runtime.js\n M dist/rpg-experience-combat.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/CHAPTER_01_RPG_EXPERIENCE.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M docs/rpg-experience/AUDIT.md\n M docs/rpg-experience/c1/CONTENT_SPACE_STATUS.md\n M docs/rpg-experience/c1/narrative/c1GateBrief-context.json\n M docs/rpg-experience/c1/narrative/c1GateBrief-review.json\n M docs/rpg-experience/c1/narrative/c1NorthBrief-context.json\n M docs/rpg-experience/c1/narrative/c1NorthBrief-review.json\n M docs/rpg-experience/c1/narrative/c1RepairAccept-context.json\n M docs/rpg-experience/c1/narrative/c1RepairAccept-review.json\n M docs/rpg-experience/c1/narrative/c1RepairCable-context.json\n M docs/rpg-experience/c1/narrative/c1RepairCable-review.json\n M docs/rpg-experience/c1/narrative/c1RepairDrain-context.json\n M docs/rpg-experience/c1/narrative/c1RepairDrain-review.json\n M docs/rpg-experience/c1/narrative/c1RepairLegacyReturn-context.json\n M docs/rpg-experience/c1/narrative/c1RepairLegacyReturn-review.json\n M docs/rpg-experience/c1/narrative/c1RepairReturn-context.json\n M docs/rpg-experience/c1/narrative/c1RepairReturn-review.json\n M docs/rpg-experience/c1/narrative/c1VaultAccept-context.json\n M docs/rpg-experience/c1/narrative/c1VaultAccept-review.json\n M docs/rpg-experience/c1/narrative/c1VaultLedger-context.json\n M docs/rpg-experience/c1/narrative/c1VaultLedger-review.json\n M docs/rpg-experience/c1/narrative/c1VaultLegacyReturn-context.json\n M docs/rpg-experience/c1/narrative/c1VaultLegacyReturn-review.json\n M docs/rpg-experience/c1/narrative/c1VaultReturn-context.json\n M docs/rpg-experience/c1/narrative/c1VaultReturn-review.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n D source/tasks/active/rpg-c1-20261014.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter123.mjs\n M tests/browser-world-v29.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/rpg-experience.test.mjs\n M tools/balance_lab/chapter-one.mjs\n M tools/balance_lab/experience-audit.mjs\n M tools/harness/check.py\n M tools/harness/task.py\n?? dist/rpg-experience-triggers.js\n?? docs/harness/RPG_DESIGN.md\n?? docs/harness/evidence/rpg-c1-20261014/017-natural-three-class.txt\n?? docs/harness/evidence/rpg-c1-20261014/018-elites-trigger-regression.txt\n?? docs/harness/evidence/rpg-c1-20261014/019-current-core.txt\n?? docs/harness/evidence/rpg-c1-20261014/020-final-natural-input.txt\n?? docs/harness/evidence/rpg-c1-20261014/021-world-prepared-regression.txt\n?? docs/harness/evidence/rpg-c1-20261014/022-final-expansion-browser.txt\n?? docs/harness/evidence/rpg-c1-20261014/023-final-map-review.txt\n?? docs/harness/evidence/rpg-c1-20261014/024-verification.txt\n?? docs/harness/evidence/rpg-experience-20261014/008-c1-content-core.txt\n?? docs/harness/evidence/rpg-experience-20261014/009-c1-current-groups.txt\n?? docs/harness/evidence/rpg-experience-20261014/010-c1-elites-growth.txt\n?? docs/harness/evidence/rpg-experience-20261014/011-c1-tuned-elites.txt\n?? docs/harness/evidence/rpg-experience-20261014/012-c1-integration.txt\n?? docs/harness/evidence/rpg-experience-20261014/013-c1-world-prepared-probe.txt\n?? docs/harness/evidence/rpg-experience-20261014/014-c1-browser-tail.txt\n?? docs/harness/evidence/rpg-experience-20261014/015-c1-browser-resume.txt\n?? docs/harness/evidence/rpg-experience-20261014/016-c1-final-integration.txt\n?? docs/harness/evidence/rpg-experience-20261014/017-c1-final-integration.txt\n?? docs/harness/evidence/rpg-experience-20261014/018-c1-final-integration.txt\n?? docs/harness/evidence/rpg-harness-20261014/\n?? docs/rpg-experience/c1/ACCEPTANCE.json\n?? docs/rpg-experience/c1/BALANCE_COMPARISON.json\n?? docs/rpg-experience/c1/BROWSER_RESUME_DRIVER.py\n?? docs/rpg-experience/c1/BROWSER_TAIL_DRIVER.py\n?? docs/rpg-experience/c1/CHECK_RECOMMENDATIONS.json\n?? docs/rpg-experience/c1/COMPARISON.md\n?? docs/rpg-experience/c1/FINAL_GATES.py\n?? docs/rpg-experience/c1/HUMAN_OBSERVATION.md\n?? docs/rpg-experience/c1/INTEGRATION_DRIVER.py\n?? docs/rpg-experience/c1/MAP_QUALITY.json\n?? docs/rpg-experience/c1/MAP_REVIEW.md\n?? docs/rpg-experience/c1/SOURCE_FINAL_VERIFICATION.json\n?? docs/rpg-experience/c1/VERIFICATION_EQUIVALENCE.json\n?? docs/rpg-experience/c1/core008/\n?? docs/rpg-experience/c1/core020/\n?? docs/rpg-experience/c1/elites019/\n?? docs/rpg-experience/c1/elites020/\n?? docs/rpg-experience/c1/expansion-final/\n?? docs/rpg-experience/c1/groups-final/\n?? docs/rpg-experience/c1/groups018/\n?? docs/rpg-experience/c1/integration-complete/\n?? docs/rpg-experience/c1/integration-final/\n?? docs/rpg-experience/c1/integration-resumed/\n?? docs/rpg-experience/c1/integration-tail/\n?? docs/rpg-experience/c1/natural-017/\n?? docs/rpg-experience/c1/natural-final/\n?? docs/rpg-experience/c1/package-browser/\n?? docs/rpg-experience/c1/services-final/\n?? docs/rpg-experience/c1/visual-final/\n?? docs/rpg-experience/c1/world-final/\n?? docs/rpg-experience/c1/world-fixture-probe.mjs\n?? docs/rpg-experience/c1/world-prepared-probe/\n?? docs/rpg-experience/harness/\n?? source/tasks/archive/rpg-c1-20261014.json\n?? source/tasks/archive/rpg-harness-20261014.json\n?? tests/harness/test_experience.py\n?? tools/balance_lab/experience-elites.mjs\n?? tools/harness/experience.py"
+    },
+    {
+      "name": "chapter-two",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T13:39:51.683789+00:00",
+      "head_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+      "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
+      "worktree": "M .codex/progress.md\n M dist/core-v14.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M dist/rpg-experience-services.js\n M dist/scene-arrival-v19.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/chapter-one-incremental.test.mjs\n M tools/harness/check.py\n?? dist/rpg-chapter-two-data.js\n?? dist/rpg-chapter-two.js\n?? docs/harness/CHAPTER_02_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c2-20261014/\n?? docs/harness/evidence/rpg-experience-20261014/019-c2-current-combat.txt\n?? docs/harness/evidence/rpg-experience-20261014/020-c2-isolated-comparison.txt\n?? docs/harness/evidence/rpg-experience-20261014/021-c2-service-and-scenes.txt\n?? docs/harness/evidence/rpg-experience-20261014/022-c2-playable-package.txt\n?? docs/harness/evidence/rpg-experience-20261014/023-c2-package-ui.txt\n?? docs/harness/evidence/rpg-experience-20261014/024-c2-map-quality-evidence.txt\n?? docs/harness/evidence/rpg-experience-20261014/025-c2-real-preparation-comparison.txt\n?? docs/rpg-experience/c1/GIT_SAVE.json\n?? docs/rpg-experience/c2/\n?? source/tasks/active/rpg-c2-20261014.json\n?? tests/browser-rpg-chapter-two-services.mjs\n?? tests/browser-rpg-chapter-two.mjs\n?? tests/rpg-chapter-two.test.mjs"
     }
   ],
   "experience_requirement": {

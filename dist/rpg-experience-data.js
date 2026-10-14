@@ -1,3 +1,4 @@
+import {C2_ROLES} from './rpg-chapter-two-data.js';
 // Authored regional roles. Fixed budgets do not rise with the player's level.
 // Values are shared by production AI and the real-runtime Balance Lab.
 export const EXPERIENCE_ROLES={
@@ -14,4 +15,4 @@ export const EXPERIENCE_ROLES={
  trialWarden:{hp:1050,damage:23,speed:130,aggro:350,reach:80,cooldown:1.8,leash:null,xp:45,gold:10,isBoss:true,guardFront:.65,guardRear:1.1,dotMultiplier:.85,basicAttacksBetweenSpecials:1,specialCooldown:4.8,moveOrder:['shieldBash','heavySlam','rangedCounter'],specialMultiplier:1.15},
  vaultWarden:{hp:1550,damage:28,speed:135,aggro:360,reach:85,cooldown:1.7,leash:null,xp:60,gold:15,isBoss:true,guardFront:.6,guardRear:1.15,dotMultiplier:.85,basicAttacksBetweenSpecials:1,specialCooldown:4.5,moveOrder:['charge','heavySlam','rangedCounter'],specialMultiplier:1.3},
 };
-export const experienceProfile=e=>EXPERIENCE_ROLES[e?.experienceRole]||null;
+export const experienceProfile=e=>EXPERIENCE_ROLES[e?.experienceRole]||C2_ROLES[e?.experienceRole]||null;

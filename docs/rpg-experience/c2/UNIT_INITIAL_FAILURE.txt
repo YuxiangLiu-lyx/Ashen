@@ -1,0 +1,48 @@
+✖ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (7.189084ms)
+✔ repair is a lasting free rest result; both real locations, pending resume and actual reward remain correct (10.261459ms)
+✔ rest cannot be applied from another map, distant menu, dead player or through active threats (0.873833ms)
+✔ cellar supplies pay once only after a legal claim; full bag and legacy claimed boxes do not print medicine (4.918459ms)
+✔ authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore (7.408459ms)
+✔ front guard responds to position and skills, while DOT is not silently weakened (2.716959ms)
+✖ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (7.851792ms)
+✔ the well chain is a real one-time control tool and old pending mainline scenes remain readable (5.715791ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 6
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 188.716291
+
+✖ failing tests:
+
+test at tests/rpg-chapter-two.test.mjs:10:1
+✖ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (7.189084ms)
+  TypeError: Cannot read properties of undefined (reading 'includes')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/rpg-chapter-two.test.mjs:12:418)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+
+test at tests/rpg-chapter-two.test.mjs:40:1
+✖ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (7.851792ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(r.c2SceneTick())
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/rpg-chapter-two.test.mjs:41:339)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

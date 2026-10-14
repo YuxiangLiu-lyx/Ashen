@@ -2,6 +2,11 @@
 const copy=x=>structuredClone(x),point=xy=>({x:xy[0],y:xy[1]});
 const valid=xy=>Array.isArray(xy)&&xy.length===2&&xy.every(Number.isFinite)&&xy[0]>=135&&xy[0]<=1465&&xy[1]>=155&&xy[1]<=965;
 export function prepareSceneArrivalV19(stage,g,id){
+ // A delayed escape conversation can finish at the adjoining safe exit.
+ // Keep its actors at the actual arrival, without moving the live world back.
+ if(stage&&id==='ch2Spillway'&&g.pending?.id===id&&g.map==='exile'&&g.chapter===10){
+  const near=g.safePoint(g.p.x+70,g.p.y+35);stage.map=g.map;stage.actors={hero:[g.p.x,g.p.y],saint:[near.x,near.y]};stage.beats=[];stage.focus=[g.p.x+35,g.p.y];return stage;
+ }
  const origin=g.pending?.sceneOrigin;
  if(!stage||stage.map!==g.map||g.pending?.id!==id||!origin||!(/^(v18Saint|v19Discovery|v20Romance|v22CityArrival|v24Moment|c[67]v25|v25C8|c[678]v26)/.test(id)))return stage;
  const arrivals=[],restore={},originalZero=stage.beats?.find(b=>b.line===0),zero=originalZero?copy(originalZero):{line:0,moves:[]};let duration=0;

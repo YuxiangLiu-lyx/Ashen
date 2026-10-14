@@ -37,12 +37,13 @@ test('default saint portrait uses the preserved gentle original; later disguises
 test('original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions',()=>{
  for(const [key,table]of Object.entries({maps:MAPS,scenery:SCENERY,quests:QUESTS,dialogues:DIALOGUES,originalStaging:STAGING.scenes})){
   const added=Object.keys(table).filter(id=>!(id in baseline[key]));
-  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c1Conversation','c1GateBrief','c1NorthBrief','c1RepairAccept','c1RepairCable','c1RepairDrain','c1RepairLegacyReturn','c1RepairReturn','c1VaultAccept','c1VaultLedger','c1VaultLegacyReturn','c1VaultReturn']:[];
+  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c2PumpRest','c1Conversation','c1GateBrief','c1NorthBrief','c1RepairAccept','c1RepairCable','c1RepairDrain','c1RepairLegacyReturn','c1RepairReturn','c1VaultAccept','c1VaultLedger','c1VaultLegacyReturn','c1VaultReturn']:[];
   assert.deepEqual(added.sort(),allowed.slice().sort(),key+' authorized additions');
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
    if(['maps','scenery'].includes(key)&&C1_MAPS.includes(id))continue; // 0.7 explicit 17-map geometry/art authorization; independently audited.
    let value=table[id];if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
+   if(key==='dialogues'&&id==='v9TollFound')value=value.map(([speaker,line],i)=>[speaker,i?line:line.replace('护符下面还压着两瓶蜡封的清醒药和一瓶疗伤药，瓶口没有渗漏。','')]); // C2 0.4: exact appended cache contents only.
    if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
    assert.equal(hash(value),h,key+'/'+id);
   }
@@ -59,6 +60,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);
    original=original.replace('e.hp=Math.max(0,e.hp-n);','e.hp-=n;');
    for(const [approved,prior]of [
+    ["import {installChapterTwoExperience} from './rpg-chapter-two.js';\n",''],["\ninstallChapterTwoExperience(RPG,{DIALOGUES,stats});\n",''],
     ["import {installGameSettings} from './game-settings-v31.js';\n",''],["installGameSettings(RPG,{MAPS});\n",''],
     ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],
     ["\ninstallChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,stats});\n",''],
