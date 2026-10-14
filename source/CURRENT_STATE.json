@@ -5,11 +5,11 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_ch1_story_world_08_verified",
+  "snapshot_type": "v30_rpg_first_three_chapters_technical_verified",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 223,
+  "runtime_modules": 227,
   "runtime_stylesheets": 7,
   "runtime_images": 147,
   "runtime_resource_bytes": 322597479,
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "First chapter 1.0 runtime, three-class normal input through chapter two, groups, elite comparisons and package checks verified; final integration passed. Human pacing/fun/aesthetics pending; historical 0.6 human task remains independent. Chapters 2–8 overhaul pending. No website deployment.",
-  "checked_at_utc": "2026-10-13T05:45:19.082484+00:00",
+  "known_limits": "R01-R03 implemented and technically verified: 62 Harness, 199 core, complete integration, three-class normal-input chains and default offline/HTTP/mobile build. Human pacing/fun/aesthetics/touch feel pending; historical 0.6 human task remains independent. R04-R08 deferred by latest user instruction. No website deployment.",
+  "checked_at_utc": "2026-10-14T15:50:17.865950+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "0.8 verified: three normal-input classes through first two chapters; six NPC deliveries, ten touch routes, offline/HTTP/mobile and local entry recovery passed",
+  "browser_qa_status": "Final integration and default offline/HTTP/mobile entry passed; third chapter three-class original-save normal UI chains completed.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -856,7 +856,7 @@
   },
   "rpg_experience_upgrade": {
     "task": "rpg-experience-20261014",
-    "status": "chapter_two_technical_verified",
+    "status": "first_three_technical_verified_human_pending",
     "baseline": "cad2add19b46e319475c28504e155322a9df687d",
     "branch": "work/rpg-experience-20261014",
     "request": "docs/rpg-experience/USER_REQUEST.txt",
@@ -867,12 +867,12 @@
     "chapters": {
       "1": "implemented_technical_verified_human_pending",
       "2": "implemented_technical_verified_human_pending",
-      "3": "implementation_pending",
-      "4": "implementation_pending",
-      "5": "implementation_pending",
-      "6": "implementation_pending",
-      "7": "implementation_pending",
-      "8": "implementation_pending"
+      "3": "implemented_technical_verified_human_pending",
+      "4": "deferred_by_user_20261014",
+      "5": "deferred_by_user_20261014",
+      "6": "deferred_by_user_20261014",
+      "7": "deferred_by_user_20261014",
+      "8": "deferred_by_user_20261014"
     },
     "c1_current_evidence": "docs/rpg-experience/c1/COMPARISON.md",
     "c1_acceptance": "docs/rpg-experience/c1/ACCEPTANCE.json",
@@ -880,6 +880,27 @@
     "c1_integration": "docs/harness/evidence/rpg-experience-20261014/018-c1-final-integration.txt",
     "c2_acceptance": "docs/rpg-experience/c2/ACCEPTANCE.json",
     "c2_playable": "qa-export/rpg-c2-preview/Ashen-V28.1-Play.html",
-    "c2_integration": "docs/harness/evidence/rpg-c2-20261014/006-final-integration.txt"
+    "c2_integration": "docs/harness/evidence/rpg-c2-20261014/006-final-integration.txt",
+    "current_authorized_scope": "R01-R03 only; user narrowed scope on 2026-10-14",
+    "deferred_by_user": [
+      "R04",
+      "R05",
+      "R06",
+      "R07",
+      "R08"
+    ],
+    "c3_acceptance": "docs/rpg-experience/c3/ACCEPTANCE.json",
+    "current_playable": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "summary": "docs/rpg-experience/ACCEPTANCE.md",
+    "preserved_build": "qa-export/release-build-before-rpg-three-20261014",
+    "final_verification": "docs/rpg-experience/FINAL_VERIFICATION.json"
+  },
+  "chapter_three_rpg_experience": {
+    "status": "implemented_technical_verified_human_pending",
+    "task": "rpg-c3-20261014",
+    "plan": "docs/harness/CHAPTER_03_RPG_EXPERIENCE.md",
+    "scope": "运行R03；两洞窟回路、工坊成长、药草支线配药、延后安全事件与旧档迁移；原532场全文保持，2场服务对白新增",
+    "human": "pending",
+    "literary_id": null
   }
 }

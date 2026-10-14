@@ -1,0 +1,88 @@
+{
+  "chapter": "R01",
+  "scene": "c1GateBrief",
+  "at": "contract",
+  "actors": [
+    "toma",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/rpg-experience-dialogues.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md"
+    ]
+  },
+  "brief": {
+    "information": "用于旧档已交封套但未听入口交代；托马说明北侧前厅和损坏检修道，不重复收封套。",
+    "purposes": "给旧档未完成入口交代的玩家补齐必要信息。",
+    "outcome": "用于旧档已交封套但未听入口交代；托马说明北侧前厅和损坏检修道，不重复收封套。",
+    "causality": "旧封套已收，托马只补入口与检修道说明，不重复收件。",
+    "emotional_basis": "没有把旧档迁移技术说进台词；二人维持工作关系。",
+    "gameplay_handoff": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+  },
+  "lines": [
+    {
+      "speaker": "toma",
+      "text": "封套我已经收到了。再叮嘱你一句：午钟后走北侧前厅，跟值守的人说你是维护班来的。正门那时已经落闩了。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1GATEBRIEF",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "北渠的检修道呢？",
+      "claims": [],
+      "no_fact_reason": "诺恩是在询问行动条件，问句不把未知事项当作已知事实。"
+    },
+    {
+      "speaker": "toma",
+      "text": "支木让渠鼠啃空了，暂时别走。你愿意帮着清理的话，我再把位置告诉你。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1GATEBRIEF",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "给旧档未完成入口交代的玩家补齐必要信息。 诺恩会询问和判断，不只用冷淡短答。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "通读本场全部3行；旧封套已收，托马只补入口与检修道说明，不重复收件。 问答承接具体对象，没有以“规矩/命运/真正的”替代实际交代。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "旧封套已收，托马只补入口与检修道说明，不重复收件。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。 新静态ID不挪动原pending页码；旧动态pending.lines继续原样读完。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "获知者限定toma,noen及玩家；没有圣女或委托内幕。调查独白不向未在场NPC自动同步，回报场才说明结果。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本场只处理线路、器物/清册或维护登记，不新增长期阴谋伏笔；不改变既有私谈揭露上限。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "没有把旧档迁移技术说进台词；二人维持工作关系。"
+    },
+    "reviewer": "Codex执行编辑；逐场读取正式人物档案、实际代码、采用稿及新全文，2026-10-14"
+  }
+}

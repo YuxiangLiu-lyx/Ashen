@@ -1,3 +1,5 @@
+2026-10-14当前交付：前三章RPG体验升级（R01—R03），第四至八章按用户最新指令暂缓。战斗成长、地下探索、任务结果、真实设施与安全剧情触发已实施；技术证据及真人待验见docs/rpg-experience/ACCEPTANCE.md。默认离线入口为qa-export/release-build/Ashen-V28.1-Play.html；旧包保存在qa-export/release-build-before-rpg-three-20261014，文件名沿用旧版。GitHub保存与网站发布分开；下面旧记录保留为历史。
+
 # Ashen · 烬誓：圣女与影刃
 
 当前接续开发版本：**产品 V30 · 第一章0.9分层任务与通用规则**。在0.8的22图上增加5条双向通路，地下三层与多种怪物、分区材料目标相连；常驻遭遇每次入图刷新，默认主线追踪，任务使用金叹号/灰问号/金问号，墙板贴合北墙。任务与门禁不展示数字爆率或公式条件。通用约定见[游戏设定](docs/harness/GAME_SETTINGS.md)，本轮实施和验收见[记录](docs/ch1-layer-rules/ACCEPTANCE.md)。
@@ -84,7 +86,7 @@
 
 第一章0.6可玩开发包：`qa-export/c1-expansion-preview/Ashen-V28.1-Play.html`，源5f05e5f，离线/HTTP/手机横屏检查通过。它尚待人类完整流程观察与节奏验收；[证据及限制](docs/ch1-expansion/ACCEPTANCE.md)。该0.6包作为历史保留，当前常用入口采用下述0.9包；个人存档与旧构建保留。
 
-本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。当前默认包为2026-10-13的第一章0.9分层任务与通用规则版（源d9913f7，以同目录清单为准）；上一版0.8包保存在 `qa-export/release-build-before-layer-rules-20261013/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
+本机已验收的离线包位于 `qa-export/release-build/Ashen-V28.1-Play.html`；文件名为兼容旧入口保留，实际版本看同目录 `WEB_BUILD_MANIFEST.json`。当前默认包为2026-10-14前三章RPG体验升级版（精确来源及输入哈希以同目录清单为准）；上一版0.8包保存在 `qa-export/release-build-before-layer-rules-20261013/`，`qa-export/dialogue-release-build`现在是当前包别名。新克隆仓库需按下方说明启动，或按 `docs/web-play/README.md` 构建；qa-export本地包不随Git分发。
 
 需要 Git 和 Python 3.9+；不需要安装第三方 Python 包。
 

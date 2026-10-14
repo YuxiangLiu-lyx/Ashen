@@ -8,11 +8,17 @@
     12,
     20
   ],
-  "coverage": "basic_runtime_only",
-  "plan": null,
+  "coverage": "curated_mainline",
+  "plan": {
+    "path": "docs/harness/CHAPTER_03_RPG_EXPERIENCE.md",
+    "revision": "1.0",
+    "status": "IMPLEMENTED",
+    "implementation": "三职业正常UI分段原档接续到phase21；技术证据见docs/rpg-experience/c3，真人节奏待验。"
+  },
   "sources": [
     "runtime-later",
-    "runtime-c3-trigger"
+    "runtime-c3-trigger",
+    "c3-experience-plan"
   ],
   "initial_knowledge": [],
   "facts": [
@@ -26,6 +32,83 @@
         "scene:ch3Wake"
       ],
       "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C3HERBMEDICINE",
+      "summary": "两处药草采样交付后，莫里斯为诺恩提供用两份余温草和八金配制中型疗伤药的服务；诺恩核实工钱，莫里斯说明瓶塞和熬药的工夫。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c3HerbMedicine"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C3BREWMEDICINE",
+      "summary": "莫里斯配好中型疗伤药，提醒诺恩按紧瓶塞、别与尖铁片挤放；结束后一次消费两份余温草和八金。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c3BrewMedicine"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C3-EMBLEM-ATTACK",
+      "summary": "亡魂看见圣徽后攻击艾莉娅；她和诺恩都不知道真正原因。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Souls"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C3-UNSEALED",
+      "summary": "诺恩重伤时解开艾莉娅右手封术印，她恢复法术并保护伤者。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Unseal"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C3-MEDICINE",
+      "summary": "诺恩链伤暂封，必须取得白盐苔与乳白凝晶后才能取出链头。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Doctor"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C3-LAMP",
+      "summary": "普通火在矿道会灭，芮妲所借矿灯能照出凝晶脉纹，乳白可取、泛绿不可碰。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3WorkshopLamp"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C3-TEMPORARY-COMPANY",
+      "summary": "封术印已毁；艾莉娅暂随诺恩行路照料伤势，但找到离路后要回城，诺恩答应不拦。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3CampDeparture"
+      ],
+      "risk_terms": []
     }
   ],
   "events": [
@@ -33,7 +116,7 @@
       "id": "R03:ch3Arrival",
       "scene": "ch3Arrival",
       "order": 1,
-      "summary": "进入地狱入口",
+      "summary": "进入地狱，外界已被雾挡住，先寻落脚处",
       "participants": [
         "elyria",
         "noen"
@@ -47,10 +130,356 @@
       "relationship_changes": {}
     },
     {
+      "id": "R03:ch3AdvanceIntro",
+      "scene": "ch3AdvanceIntro",
+      "participants": [
+        "reida",
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3AdvanceIntro"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 2,
+      "summary": "芮妲告知车与灯油被铁甲虫困住，栈桥已塌"
+    },
+    {
+      "id": "R03:ch3AdvanceBoss1Before",
+      "scene": "ch3AdvanceBoss1Before",
+      "participants": [
+        "reida",
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3AdvanceBoss1Before"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 3,
+      "summary": "观察抬螯预兆和车轴威胁"
+    },
+    {
+      "id": "R03:ch3AdvanceBoss1After",
+      "scene": "ch3AdvanceBoss1After",
+      "participants": [
+        "reida",
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3AdvanceBoss1After"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 4,
+      "summary": "解救货车、收好散落物并得知炉墙绕路"
+    },
+    {
+      "id": "R03:ch3AdvanceBoss2Before",
+      "scene": "ch3AdvanceBoss2Before",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3AdvanceBoss2Before"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 5,
+      "summary": "炉卫挡住闸门，诺恩引开重钩"
+    },
+    {
+      "id": "R03:ch3AdvanceBoss2After",
+      "scene": "ch3AdvanceBoss2After",
+      "participants": [
+        "reida",
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3AdvanceBoss2After"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 6,
+      "summary": "芮妲清理闸链、告知营地与哭墙夜间危险"
+    },
+    {
+      "id": "R03:ch3Souls",
+      "scene": "ch3Souls",
+      "participants": [
+        "elyria",
+        "role_73c6213673",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3Souls"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-EMBLEM-ATTACK",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C3-EMBLEM-ATTACK",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-EMBLEM-ATTACK",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 7,
+      "summary": "亡魂见圣徽即袭击，原因未知"
+    },
+    {
+      "id": "R03:ch3Wound",
+      "scene": "ch3Wound",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3Wound"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 8,
+      "summary": "诺恩替艾莉娅挡链，伤口仍有铁头"
+    },
+    {
+      "id": "R03:ch3Unseal",
+      "scene": "ch3Unseal",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3Unseal"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-UNSEALED",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C3-UNSEALED",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-UNSEALED",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 9,
+      "summary": "诺恩解印，艾莉娅恢复光术护住伤者"
+    },
+    {
+      "id": "R03:ch3RescueCart",
+      "scene": "ch3RescueCart",
+      "participants": [
+        "elyria",
+        "reida"
+      ],
+      "sources": [
+        "scene:ch3RescueCart"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 10,
+      "summary": "芮妲拉车，艾莉娅托肩，送往莫里斯处"
+    },
+    {
+      "id": "R03:ch3Doctor",
+      "scene": "ch3Doctor",
+      "participants": [
+        "morris",
+        "elyria",
+        "reida"
+      ],
+      "sources": [
+        "scene:ch3Doctor"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-MEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-MEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "morris",
+          "fact": "F-C3-MEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "reida",
+          "fact": "F-C3-MEDICINE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 11,
+      "summary": "医师封伤，说明盐苔、凝晶和借灯路线"
+    },
+    {
+      "id": "R03:ch3MedicineDeparture",
+      "scene": "ch3MedicineDeparture",
+      "participants": [
+        "elyria",
+        "morris"
+      ],
+      "sources": [
+        "scene:ch3MedicineDeparture"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 12,
+      "summary": "医师提醒衣服显眼，直说不知亡魂尚有多少记忆"
+    },
+    {
+      "id": "R03:ch3SaltGrotto",
+      "scene": "ch3SaltGrotto",
+      "participants": [
+        "afu",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3SaltGrotto"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 13,
+      "summary": "艾莉娅避开空壳并保护阿芙"
+    },
+    {
+      "id": "R03:ch3SaltGather",
+      "scene": "ch3SaltGather",
+      "participants": [
+        "afu",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3SaltGather"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 14,
+      "summary": "阿芙教挑厚叶留根，艾莉娅替她止血"
+    },
+    {
+      "id": "R03:ch3WorkshopLamp",
+      "scene": "ch3WorkshopLamp",
+      "participants": [
+        "reida",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3WorkshopLamp"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-LAMP",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-LAMP",
+          "mode": "knows"
+        },
+        {
+          "actor": "reida",
+          "fact": "F-C3-LAMP",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 15,
+      "summary": "芮妲借特殊矿灯，说明凝晶颜色和工坊机器"
+    },
+    {
+      "id": "R03:ch3MineCrystal",
+      "scene": "ch3MineCrystal",
+      "participants": [
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3MineCrystal"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 16,
+      "summary": "艾莉娅选乳白凝晶，先送药不继续探路"
+    },
+    {
+      "id": "R03:ch3Treatment",
+      "scene": "ch3Treatment",
+      "participants": [
+        "elyria",
+        "morris"
+      ],
+      "sources": [
+        "scene:ch3Treatment"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 17,
+      "summary": "莫里斯取出链头，艾莉娅配合照明换布"
+    },
+    {
       "id": "R03:ch3Wake",
       "scene": "ch3Wake",
-      "order": 2,
-      "summary": "艾莉娅寻药救诺恩；救人不代表原谅杀人",
+      "order": 18,
+      "summary": "救人不等于原谅；诺恩道谢却未答应不杀人",
       "participants": [
         "noen",
         "elyria",
@@ -91,15 +520,111 @@
         },
         "elyria": {
           "expression": "照顾伤者同时坚持追究杀人；不因救人立刻原谅。"
+        },
+        "morris": {
+          "goals": [
+            "观察康复与换药，继续营地诊治。"
+          ],
+          "expression": "照顾伤者，也提醒照料者休息；不替两人调停道德争执。"
         }
       },
       "relationship_changes": {}
     },
     {
+      "id": "R03:ch3CampDeparture",
+      "scene": "ch3CampDeparture",
+      "participants": [
+        "morris",
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3CampDeparture"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-TEMPORARY-COMPANY",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C3-TEMPORARY-COMPANY",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-TEMPORARY-COMPANY",
+          "mode": "knows"
+        },
+        {
+          "actor": "morris",
+          "fact": "F-C3-TEMPORARY-COMPANY",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 19,
+      "summary": "暂时同行，封印已毁，找到离路后她要回城"
+    },
+    {
+      "id": "R03:ch3Pass",
+      "scene": "ch3Pass",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch3Pass"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 20,
+      "summary": "躲火纹、调整伤口绑带，继续找升降台"
+    },
+    {
+      "id": "R03:ch3ArenaBefore",
+      "scene": "ch3ArenaBefore",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3ArenaBefore"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 21,
+      "summary": "狱卒挡路，双方观察拖链预兆"
+    },
+    {
+      "id": "R03:ch3ArenaAfter",
+      "scene": "ch3ArenaAfter",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3ArenaAfter"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "order": 22,
+      "summary": "升降台可用，先补药与还灯"
+    },
+    {
       "id": "R03:ch3End",
       "scene": "ch3End",
-      "order": 3,
-      "summary": "乘升降台继续向下，疑问尚未解答",
+      "order": 23,
+      "summary": "升降台下行暂不能回头，圣徽疑问留待后章",
       "participants": [
         "elyria",
         "noen"
@@ -111,10 +636,86 @@
       "grants": [],
       "state_changes": {},
       "relationship_changes": {}
+    },
+    {
+      "id": "R03:c3HerbMedicine",
+      "scene": "c3HerbMedicine",
+      "order": 24,
+      "summary": "两处药草采样交付后，莫里斯为诺恩提供用两份余温草和八金配制中型疗伤药的服务；诺恩核实工钱，莫里斯说明瓶塞和熬药的工夫。",
+      "participants": [
+        "noen",
+        "morris"
+      ],
+      "sources": [
+        "experience:c3HerbMedicine"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C3HERBMEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "morris",
+          "fact": "F-EXP-C3HERBMEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C3HERBMEDICINE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R03:ch3Wake",
+        "R03:ch3End"
+      ],
+      "trigger": "phase17至20，hellCamp医师近处安全，已完成v12WarmHerbs；HerbMedicine仅首次交付，BrewMedicine实际选择配药且资源足够，pending完成后幂等支付。"
+    },
+    {
+      "id": "R03:c3BrewMedicine",
+      "scene": "c3BrewMedicine",
+      "order": 25,
+      "summary": "莫里斯配好中型疗伤药，提醒诺恩按紧瓶塞、别与尖铁片挤放；结束后一次消费两份余温草和八金。",
+      "participants": [
+        "noen",
+        "morris"
+      ],
+      "sources": [
+        "experience:c3BrewMedicine"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C3BREWMEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "morris",
+          "fact": "F-EXP-C3BREWMEDICINE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C3BREWMEDICINE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R03:ch3Wake",
+        "R03:ch3End"
+      ],
+      "trigger": "phase17至20，hellCamp医师近处安全，已完成v12WarmHerbs；HerbMedicine仅首次交付，BrewMedicine实际选择配药且资源足够，pending完成后幂等支付。"
     }
   ],
   "gaps": [
-    "未建立新文学章节稿；旧运行章节不自动等于多卷架构的V01C03。",
-    "只确认下列运行节点；支线、关系分支与完整知识仍需逐场补齐。"
+    "文学章号尚未分配；R03不可自动命名为V01C03。",
+    "当前已确认救治主线和配药可选事件；其余支线知识仍须按事件读取，未登记不等于所有人知情。"
   ]
 }

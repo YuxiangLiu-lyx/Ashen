@@ -1,3 +1,4 @@
+import {C3_AUTHORED_CAVES,C3_NAVIGATION,assertAuthoredCave,legacyCaveControl} from './c3-spatial-control.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -10,12 +11,12 @@ import {reactionV30,defeatsV30,motionPoseV30} from '../dist/chapter-one-motion-v
 const read=name=>JSON.parse(fs.readFileSync(new URL('../docs/chapter23/'+name,import.meta.url)));
 const game=()=>new RPG('shadow',null,()=>.44);
 const savedGame=g=>parseSave(JSON.stringify(g.snapshot()));
-test('23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable',()=>{
+test('21 maps keep exact baseline geometry; two authorized C3 caves keep exits, identities and reachable targets',()=>{
  const before=read('BASELINE_NAVIGATION.json');assert.equal(CHAPTER23_MAPS_V30.length,23);
  for(const row of before.maps){const g=game();g.enter(row.id,...(MAPS[row.id].entry||[800,800]));const after=inspectWorldMap(g,row.id);
-  assert.equal(after.walkableCells,row.walkableCells,row.id);assert.equal(after.connectedCells,row.connectedCells,row.id);
+  const cells=C3_NAVIGATION[row.id]??row.walkableCells;assert.equal(after.walkableCells,cells,row.id);assert.equal(after.connectedCells,C3_NAVIGATION[row.id]??row.connectedCells,row.id);
   assert.equal(after.enemies,row.enemies,row.id);assert.deepEqual(after.unreachable,[],row.id);
-  assert.deepEqual(MAPS[row.id].spawns,row.spawns,row.id);assert.deepEqual(JSON.parse(JSON.stringify(MAPS[row.id].doors)),row.doors,row.id);
+  if(C3_AUTHORED_CAVES.includes(row.id))assertAuthoredCave(row.id);else assert.deepEqual(MAPS[row.id].spawns,row.spawns,row.id);assert.deepEqual(JSON.parse(JSON.stringify(MAPS[row.id].doors)),row.doors,row.id);
  }
  assert.equal(chapter23V30('hellMemoryVillage'),false);assert.equal(chapter23V30('deepGate'),false);
 });
@@ -25,7 +26,7 @@ test('24 baseline seeded encounters preserve full combat, reward, cooldown and R
   // effective damage, timing, rewards, RNG and every other event remain exact.
   const expected=structuredClone(result);
   for(const event of expected.events)if(event.type==='damage'&&event.hp<0)event.hp=0;
-  assert.deepEqual(simulate(config),expected,config.cls+'/'+config.enemy);
+  assert.deepEqual(legacyCaveControl(config.map,()=>simulate(config)),expected,config.cls+'/'+config.enemy);
  }
 });
 test('water interaction migration repairs visited old maps without moving actors or resetting claims',()=>{

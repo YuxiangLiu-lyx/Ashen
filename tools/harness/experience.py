@@ -19,7 +19,14 @@ KEYWORDS = {
     'services': ('世界服务', '设施规划', '经济循环'),
     'pacing': ('章节节奏', '剧情触发', '地点触发'),
 }
-CHAPTER_END = dict(zip([f'V01C{i:02}' for i in range(1, 9)], [5, 12, 21, 25, 30, 34, 38, 38]))
+CHAPTER_END = dict(zip([f'R{i:02}' for i in range(1, 9)], [5, 12, 21, 25, 30, 34, 38, 38]))
+# Schema-1 reports used literary-looking keys for runtime phases. Retain them only
+# as legacy evidence aliases; they do not assign any literary volume/chapter.
+LEGACY_CHAPTERS = {f'V01C{i:02}': f'R{i:02}' for i in range(1, 9)}
+
+
+def runtime_chapter(key):
+    return LEGACY_CHAPTERS.get(key, key)
 
 
 def requested(goal):
@@ -31,8 +38,8 @@ def requested(goal):
         chapters = list(CHAPTER_END)
     else:
         for n, word in enumerate('一二三四五六七八', 1):
-            if re.search(f'第{word}章|V01C{n:02}|(?<![A-Za-z0-9])C{n}(?![0-9])', goal, re.I):
-                chapters.append(f'V01C{n:02}')
+            if re.search(f'第{word}章|(?<![A-Za-z0-9])R{n:02}(?![0-9])|(?<![A-Za-z0-9])C{n}(?![0-9])', goal, re.I):
+                chapters.append(f'R{n:02}')
     return {'scopes': scopes, 'chapters': chapters, 'kind': 'chapter' if broad else 'scoped'}
 
 
@@ -45,8 +52,8 @@ def validate_report(report, root=ROOT):
     errors = []
     if report.get('source_fingerprint') != fingerprint(inventory(root)):
         errors.append('RPG review predates current sources')
-    if report.get('chapter') not in CHAPTER_END:
-        errors.append('Explicit implemented chapter required')
+    if runtime_chapter(report.get('chapter')) not in CHAPTER_END:
+        errors.append('Explicit implemented runtime chapter required')
     if report.get('kind') not in ('chapter', 'scoped'):
         errors.append('Explicit chapter/scoped review kind required')
     scopes = report.get('scopes', {})
@@ -81,9 +88,9 @@ def validate_report(report, root=ROOT):
             evidence(row, 'normal_input/' + cls)
             if row.get('input_method') != 'normal_ui' or row.get('state_mutation_hooks') is not False:
                 errors.append('normal_input/' + cls + ': normal input without mutation hooks required')
-            if row.get('ending_phase', -1) < CHAPTER_END.get(report.get('chapter'), 999):
+            if row.get('ending_phase', -1) < CHAPTER_END.get(runtime_chapter(report.get('chapter')), 999):
                 errors.append('normal_input/' + cls + ': chapter end not reached')
-            if report.get('chapter') == 'V01C08' and row.get('ending_flags', {}).get('ch8Complete') is not True:
+            if runtime_chapter(report.get('chapter')) == 'R08' and row.get('ending_flags', {}).get('ch8Complete') is not True:
                 errors.append('normal_input/' + cls + ': final saga completion flag required')
         evidence(report.get('compatibility', {}), 'compatibility')
     human = report.get('human', {})
@@ -118,7 +125,7 @@ def task_errors(record, root=ROOT):
             errors.append('RPG review omits requested scope')
         if requirement.get('kind') == 'chapter' and report.get('kind') != 'chapter':
             errors.append('A scoped review cannot replace whole chapter acceptance')
-    if set(requirement.get('chapters', [])) - {r.get('chapter') for r in reports}:
+    if {runtime_chapter(c) for c in requirement.get('chapters', [])} - {runtime_chapter(r.get('chapter')) for r in reports}:
         errors.append('RPG review omits requested chapters')
     return errors
 
@@ -127,7 +134,7 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument('--report', required=True)
     p.add_argument('--template', action='store_true')
-    p.add_argument('--chapter', choices=list(CHAPTER_END), default='V01C01')
+    p.add_argument('--chapter', choices=list(CHAPTER_END) + list(LEGACY_CHAPTERS), default='R01')
     p.add_argument('--scope', choices=list(FIELDS), action='append')
     args = p.parse_args()
     if args.template:
@@ -135,7 +142,7 @@ def main():
         if not path.is_relative_to(ROOT.resolve()) or path.exists():
             p.error('Use a new report path inside the repository')
         scopes = args.scope or list(FIELDS)
-        write_json(path, {'schema': 1, 'chapter': args.chapter, 'kind': 'scoped' if args.scope else 'chapter',
+        write_json(path, {'schema': 2, 'chapter': runtime_chapter(args.chapter), 'kind': 'scoped' if args.scope else 'chapter',
                          'source_fingerprint': fingerprint(inventory()),
                          'scopes': {s: {f: {'status': 'unverified', 'reason': '', 'evidence': []} for f in FIELDS[s]} for s in scopes},
                          'normal_input': {}, 'compatibility': {}, 'comparison': {},

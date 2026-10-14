@@ -1,3 +1,4 @@
+import {drawChapterThreeCaveMass} from './rpg-chapter-three-art.js';
 import {chapter123PropArtV30} from './chapter123-presentation-v30.js';
 // Cached ground and small local lighting; all collision and encounter data stay native.
 import {CH3_GROUND_STYLE} from './chapter3-world-v14.js';
@@ -41,7 +42,7 @@ function floorDetail(c,id){
  }
  if(id==='hellMine'){
   // Broken rails stop before the roof fall and the southern rock face.
-  for(const points of [[[220,405],[350,405],[555,540]],[[625,555],[925,555],[1080,745]]]){
+  for(const points of [[[180,405],[430,405],[520,300],[900,300],[1080,400]],[[1100,920],[1100,820],[640,820],[520,735]]]){
    c.save();c.lineCap='round';for(const offset of [-14,14]){c.save();c.translate(0,offset);trace(c,points);c.strokeStyle='#292d2e';c.lineWidth=5;c.stroke();c.strokeStyle='#a6987880';c.lineWidth=1;c.stroke();c.restore();}
    for(let i=1;i<points.length;i++){const a=points[i-1],b=points[i],length=Math.hypot(b[0]-a[0],b[1]-a[1]);for(let t=20;t<length;t+=30){const x=a[0]+(b[0]-a[0])*t/length,y=a[1]+(b[1]-a[1])*t/length;c.strokeStyle='#433b31';c.lineWidth=4;c.beginPath();c.moveTo(x,y-20);c.lineTo(x,y+20);c.stroke();}}
    c.restore();
@@ -71,7 +72,7 @@ export function chapter23GroundV30(bank,id){
  // Grounded scenery shadows use existing feet, never a second collision outline.
  for(const o of SCENERY[id]||[]){if(o.flat)continue;c.save();c.translate(o.x+o.w*.10,o.y+3);c.scale(1,.22);glow(c,0,0,Math.min(150,o.w*.60),'#12191c',.34);c.restore();}
  for(const [x,y,w,h]of BOUNDARIES[id]||[]){c.fillStyle=interior?'#192026c4':'#17232049';c.fillRect(x,y,w,h);if(interior){c.fillStyle='#92917a60';c.fillRect(x,y+h-7,w,3);}}
- water(c,bank,id);floorDetail(c,id);
+ water(c,bank,id);floorDetail(c,id);drawChapterThreeCaveMass(c,bank,id);
  if(id==='exile'){const g=c.createLinearGradient(770,0,1500,0);g.addColorStop(0,'#81999b00');g.addColorStop(1,'#81999b60');c.fillStyle=g;c.fillRect(770,150,830,810);}
  return out;
 }

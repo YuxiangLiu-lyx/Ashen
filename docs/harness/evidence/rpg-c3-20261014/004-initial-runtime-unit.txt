@@ -1,0 +1,38 @@
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (51.506125ms)
+✖ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (10.4815ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (10.229333ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (3.915209ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (16.530334ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (16.240209ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (4.126042ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 6
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 264.197959
+
+✖ failing tests:
+
+test at tests/rpg-chapter-three.test.mjs:13:1
+✖ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (10.4815ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  4 !== 3
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/rpg-chapter-three.test.mjs:14:215)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 4,
+    expected: 3,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

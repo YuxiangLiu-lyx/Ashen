@@ -1,3 +1,4 @@
+import {C3_NAVIGATION,assertAuthoredCave} from './c3-spatial-control.mjs';
 import {C1_MAPS} from '../dist/chapter-one-layout.js';
 import test from 'node:test';
 import fs from 'node:fs';
@@ -64,8 +65,8 @@ test('legacy player in a new footprint is repaired only during restore',()=>{
 test('opt-in guestroom rest keeps its old result and ends at the original position',()=>{
  const g=game('guestroom',800,600),rest=g.props.find(p=>p.action==='guestRest');g.p.hp=30;const t=at(g,rest.id),p={x:g.p.x,y:g.p.y};g.interact(t);assert.equal(g.p.hp,30);for(let i=0;i<22;i++)g.update(.035,{});assert.equal(g.pending.id,'guestRest');finish(g);assert.equal(g.p.hp,stats(g.p).hp);assert.deepEqual({x:g.p.x,y:g.p.y},p);
 });
-test('other 114 maps retain baseline navigation and interaction diagnostics',()=>{
+test('baseline navigation is retained outside C1 and the two explicitly authored C3 caves',()=>{
  const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/v29-live-navigation.json',import.meta.url))).maps,g=new RPG('shadow',null,()=>.44);
  for(const m of baseline)if(!C1_MAPS.includes(m.id)){const report=inspectWorldMap(g,m.id);// Chapter 2 repair moves the water interaction off the wall; the historical baseline stays intact.
- const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.id==='town'?m.unreachable.filter(t=>t.id!=='well'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);assert.equal(report.walkableCells,m.walkableCells,m.id);}
+ const expected=m.id==='bridge'?m.unreachable.filter(t=>t.id!=='v9-bridge-water'):m.id==='town'?m.unreachable.filter(t=>t.id!=='well'):m.unreachable;assert.deepEqual(report.unreachable,expected,m.id);if(C3_NAVIGATION[m.id])assertAuthoredCave(m.id);assert.equal(report.walkableCells,C3_NAVIGATION[m.id]??m.walkableCells,m.id);}
 });

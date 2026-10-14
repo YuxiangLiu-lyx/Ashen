@@ -1,3 +1,5 @@
+import {installChapterThreeExperience} from './rpg-chapter-three.js';
+import {installChapterThreeCaves} from './rpg-chapter-three-world.js';
 import {installChapterTwoExperience} from './rpg-chapter-two.js';
 import {installGameSettings} from './game-settings-v31.js';
 import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';
@@ -288,3 +290,6 @@ installChapterOneExpansion(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES,SCENERY,BOUNDARIES,s
 installGameSettings(RPG,{MAPS});
 
 installChapterTwoExperience(RPG,{DIALOGUES,stats});
+
+installChapterThreeCaves(RPG,{MAPS,SCENERY,BOUNDARIES});
+installChapterThreeExperience(RPG,{DIALOGUES,stats});

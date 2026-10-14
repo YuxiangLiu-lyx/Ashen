@@ -1,0 +1,809 @@
+{
+  "status": "budget_limited",
+  "task": "继续第三章RPG体验升级的验收并逐章推进第四至八章",
+  "basis_commit": "9d352b17ee7d40ed963e3315aae007f13481f08b",
+  "source_fingerprint": "7202126217ff37f3a4b441e46962bf4d6bf166fc487a3db77c72e6dbf3989ed3",
+  "modules": [
+    "maps",
+    "build"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/EXPLORATION.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "c2f289b62054a96022553a8e802ab72ec65ff364ac10388b6c63200e032aaa7e",
+      "excerpts": [
+        {
+          "line": 11,
+          "text": "验证：world-v29.test.mjs + browser-world-v29.mjs。后者在隔离档中一次建立Lv3旧短刃起点，后续真实更新、普通战斗、鼠标/键盘交互、地图门与读档；不得偷偷伤害敌人或免伤后声称正常通关。--baseline仅全景截图，--audit-only抓其他代表图，不运行任务。world_audit用真实碰撞的网格泛洪和活动半径作诊断，quiet估计不是实测游玩时间；不能用最大密度优化覆盖率。所有视觉验收另看图，错误/初稿也保留在docs/v29。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "V30表现范围与资产/动作验收见docs/v30/RELEASE.md。导航历史MAP_AUDIT_BEFORE保留；测试另用v29-live-navigation.json，来自相同V29基线经真实enter后采样，包含V18已退休筹牌桌的移除。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3302
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "5bf6b3bad81353a133db9b666a842e934b5e22e714ca4ca6a294acff2fd14fa5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "用 `task.py run` 记录真实检查。验收写到 `docs/map-quality/LATEST.json`：source_fingerprint、reviewed_paths（相对路径）、assets（path/sha256）、maps数组。每图id下三个维度各自包含 status=pass/failed/unverified、reason、evidence数组（每项path/sha256）。必须实际查看图片和报告后写理由，不能仅根据文件存在批量自动批准。未执行的检查注明限制与复现步骤，维度保持unverified。",
+          "truncated": false
+        },
+        {
+          "line": 20,
+          "text": "当前0.7由用户进一步授权全面整理第一章17图，见CHAPTER_01_MAP_QUESTS.md。移除旧训练/巡检/通风点击步骤；0.6踏板等仅属旧任务历史，当前使用真实怪物击杀、掉落和采集验收。其他章节保持。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3000
+    },
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "f73a09447f5d17999d1051fd9e301f946f36f1c5168631f97ebf153b5166c33f",
+      "excerpts": [
+        {
+          "line": 11,
+          "text": "每次实际地图/人物美术修改继续分别执行[三维验收](MAP_QUALITY.md)。当前运行以1cefe80为底稿并保留后续人物/地图局部优化，不安装已撤回的spatial重构；现场及回滚验收见[回滚记录](../rollback-v30/ACCEPTANCE.md)。这些历史现场不构成本轮恢复开发的指令。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2237
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 40,
+          "text": "浏览器使用真实 HTTP、真实游戏模块和 Chrome，QA hook 只注入内存里的测试入口，不写入正式 game 模块。第八章同时断言旁白无人物立绘、具名对白保留并成功载入小立绘，防止测试把旁白误认成缺图。新增验收图由正式人物/装备/怪物渲染器绘制。远端结果在 `QA_REMOTE.json` 与 `screenshots/`。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4137
+    },
+    {
+      "path": "docs/harness/GIT_SAVE.md",
+      "reasons": [
+        "build: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "0872d55a0974872e0d7d7284cea33d665e3570418c3af34462ffc3a8c3fcd953",
+      "excerpts": [
+        {
+          "line": 7,
+          "text": "结束更新 source 状态/限制/progress、任务证据和 docs 验收，保留旧记录；审查 diff、untracked、ignore 及 staged 内容后提交真实改动，整合到 main并推送。推送后用 ls-remote核对HEAD；若远端又前进则fetch并检查本轮提交是其祖先。只有这项验证通过才报告“已上传”。没有新增内容不造空提交。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1789
+    },
+    {
+      "path": "docs/web-play/README.md",
+      "reasons": [
+        "build: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "09c9d39b7d61f46bf7a1e2e3d03b99b6157edd4b40e648668e590fb1961c3a4f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "本轮0.6开发试玩包位于 `qa-export/c1-expansion-preview/Ashen-V28.1-Play.html`，文件名沿用历史，构建身份见同目录报告及site/BUILD.json。它尚未通过人类全过程观察与节奏验收；默认release-build仍保留上一0.5包。源码dist为0.6开发版；下方旧入口说明按历史理解。可玩内容与限制见[开发版摘要](../ch1-expansion/CHANGE_SUMMARY.md)。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2048
+    },
+    {
+      "path": "dist/presentation-physics-v281.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "5d8fbff6cc52412b87200a60a2f5fd9cf3b28c5a119dec7b516de1f701d4c151",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {footRadiusV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const validFootBoxV281=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function pointInFootBoxV281(x,y,b,pad=0){return validFootBoxV281(b)&&x>b[0]-pad&&x<b[0]+b[2]+pad&&y>b[1]-pad&&y<b[1]+b[3]+pad;}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function segmentFootBoxV281(a,b,box,pad=0){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " if(!validFootBoxV281(box))return false;let lo=0,hi=1;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " for(const [p,d,mn,mx]of [[a.x,b.x-a.x,box[0]-pad,box[0]+box[2]+pad],[a.y,b.y-a.y,box[1]-pad,box[1]+box[3]+pad]]){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(Math.abs(d)<1e-9){if(p<=mn||p>=mx)return false;continue;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  const u=(mn-p)/d,v=(mx-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));if(lo>=hi)return false;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6309
+    },
+    {
+      "path": "dist/chapter123-presentation-v30.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Presentation only. Object IDs, feet, depth, collision, targets and quest state",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// remain owned by the original world/runtime. Explicit host bindings avoid drawing",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// a second pot on a well, or a second mechanism over an interactive scenery object.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {chapter123V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const art=(sheet,index,w,h)=>({sheet,index,...(w?{w,h}:{})});",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const furniture=(i,w,h)=>art('chapterFurnishings',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const settlement=(i,w,h)=>art('chapterSettlement',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const utility=(i,w,h)=>art('chapterUtilities',i,w,h);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6728
+    },
+    {
+      "path": "tools/serve.py",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "bad8de4fb90f39fed4ec5a4ca14b52dfb5b850b398bef19b59457b1a1b5de804",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "#!/usr/bin/env python3",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "\"\"\"Restore original assets and serve current game code with a visible loading UI.\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import argparse",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "from functools import partial",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import io",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import json",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import re",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4376
+    },
+    {
+      "path": "dist/chapter23-design-v30.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "7fae612898b579a8bc245b1c2993f564da3816a21ae7692b76cf1525b43d412c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Complete first-three-chapter inventory, including optional rooms and cutaways.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// QA independently derives this set from the registered maps and staging, so a",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// missing entry cannot silently remove a map from both implementation and tests.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','guestroom','millpath','echo','workshop']);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const CHAPTER_TWO_MAPS_V30=Object.freeze(['post','inn','bridge','manor','spillway','exile','chamber','bridgecellar','wellcrypt']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const CHAPTER_THREE_MAPS_V30=Object.freeze(['hellGate','hellApproach','hellQuarry','hellSluice','hellWall','hellCamp','hellGrotto','hellWorkshop','hellMine','hellFerry','hellPass','hellArena','hellTomb','hellRift']);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const CHAPTER23_MAPS_V30=Object.freeze([...CHAPTER_TWO_MAPS_V30,...CHAPTER_THREE_MAPS_V30]);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const second=new Set(CHAPTER_TWO_MAPS_V30),third=new Set(CHAPTER_THREE_MAPS_V30);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4417
+    },
+    {
+      "path": "tools/web_runtime.py",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "fd171642454fcda718f51ed0e5dbc109ce3f1eebe4316c6d3aa34f86555fcb04",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "\"\"\"Shared in-memory loading hooks for local HTTP and packaged play. Stdlib only.\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "from pathlib import Path",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2385
+    },
+    {
+      "path": "dist/world-design-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "c95add5c7fcaf0516e6a31dcd3c093e055a545244133c1aa9c4bcd92f7d275e9",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Authored space, not a random density pass. Existing map/quest/prop IDs are stable.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const DEMO_MAPS_V29=['road','millpath','echo','workshop'];",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const scene=(id,sheet,asset,x,y,w,h,box=null)=>({id,sheet,asset,x,y,w,h,box});",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const tree=(id,x,y,w=190,h=230)=>scene(id,'world',4,x,y,w,h,[x-w*.11,y-24,w*.22,24]);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const wall=(id,x,y,w=150)=>scene(id,'world',5,x,y,w,76,[x-w*.42,y-27,w*.84,27]);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const rock=(id,x,y,w=85,h=60)=>scene(id,'details',3,x,y,w,h,[x-w*.34,y-22,w*.68,22]);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const plant=(id,x,y,w=100,h=78)=>({...scene(id,'qualityWorld',7,x,y,w,h),collisionV281:false});",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const clue=(id,action,x,y,label,art,extra={})=>({id,action,type:'book',x,y,label,art,worldInteractionV29:{duration:.35},...extra});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10673
+    },
+    {
+      "path": "web/launcher.html",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "6bda2ca15e2e3e3e4a46497143ab58ddca898cd705f2dab80856d8afc0378f3c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "<!doctype html>",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "<html lang=\"zh-CN\">",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "<head>",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "<meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1,viewport-fit=cover\">",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "<meta name=\"description\" content=\"烬誓：圣女与影刃 V28.1 完整网页试玩。三种职业、即时战斗、八章剧情与独立剧情测试。\">",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "<title>烬誓 · 圣女与影刃 — V28.1 试玩</title>",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "<!--GAME_STYLES-->",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "<style>",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4969
+    },
+    {
+      "path": "dist/world-runtime-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "d9c637d72ce108c0896e03ad2a6d20d6aab3b2f088327f2c6b1fcd9469eefe28",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {repairChapter23AnchorsV30,TOWN_NOTICE_ANCHOR_V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DEMO_MAPS_V29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {WORLD_DIALOGUES_V29} from './world-dialogues-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const demo=new Set(DEMO_MAPS_V29), distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const feedback=new WeakMap();",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const fresh=()=>({schema:1,seen:[]});",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function validateWorldSaveV29(save){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const value=save.flags?.worldV29;if(value===undefined)return;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9970
+    },
+    {
+      "path": "tools/restore_archives.py",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "56c7ee84c39c389a44990e3d6d8de1717d91e4f5b0c635bc5253e718d22adaa3",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "#!/usr/bin/env python3",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "\"\"\"Verify and restore the checked-in, split archives. Python 3.9+, no dependencies.\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import argparse",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import hashlib",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import json",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import shutil",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import tarfile",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import tempfile",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4665
+    },
+    {
+      "path": "dist/world-art-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "43fae8106699ecde716953f0c51080f5fe622d003c22417d772747d40a8e428c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {WORLD_REGIONS_V29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {WATERS,BRIDGES,BOUNDARIES} from './world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {worldFeedbackV29} from './world-runtime-v29.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6430
+    },
+    {
+      "path": "tools/build_web_play.py",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "a0d1e4a154c0a7a193db722abea14392e98de17b48ee48179caa22af8be27517",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "#!/usr/bin/env python3",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "\"\"\"Build an online static site and a self-contained offline HTML from Ashen dist.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "No runtime libraries/CDNs. Original code/art remains untouched in dist/archives.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "Run after restore_archives.py; Pillow is the only build-time dependency.",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "from __future__ import annotations",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import argparse, base64, concurrent.futures, hashlib, io, json, re, shutil, subprocess",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "from pathlib import Path",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 8015
+    },
+    {
+      "path": "dist/world-v14.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 97,
+      "category": "current_code",
+      "sha256": "259e8c468b9cb59bc89f83e4a194804c67820e34dbf963be677d49ba00ad80fe",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {configureExplorationWorldV29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {romanceActionArtV20} from './romance-world-v20.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {configureQualityWorld,secretPropArt} from './quality-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureChapterWorld} from './chapter-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {DENSITY} from './density-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {configureMechanisms} from './mechanisms-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {WORLD_ADDITIONS} from './exploration-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9656
+    },
+    {
+      "path": "tests/browser-presentation-v281.mjs",
+      "reasons": [
+        "build: task matched 验收; maintained entry"
+      ],
+      "priority": 97,
+      "category": "current_code",
+      "sha256": "262c787168d915facaa3951c2404d316e6a965d30717754a86f1276bb3bd1af2",
+      "excerpts": [
+        {
+          "line": 18,
+          "text": "  label('V28.1 · 实际游戏渲染验收',720,36,25);label('同一脚底基准 · 职业武器与装备层 · 原生物种与首领轮廓',720,65,16);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 12318
+    },
+    {
+      "path": "dist/scene-geometry-v26.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 96,
+      "category": "current_code",
+      "sha256": "6c53829d10a6e9830d315f277867d85af3bf3c88c8960421d5feef74704a0313",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {supplementalFootprintsV281} from './presentation-physics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {actorHeightV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// Shared foot-space navigation and alpha-aware foreground cutaway. Raster artwork remains unchanged.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "let worldMaps={},worldScenery={};",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),seated=new Set(['sit','seated','drink','listen','seated-listen','bench-wood','bench-stone']),resting=new Set(['lying','sleep','sleep-bed','carried']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const extraCache=new Map();",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function invalidateSceneGeometryV281(map=null){if(map==null)extraCache.clear();else extraCache.delete(map);}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function furnitureFootprintV26(o){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15034
+    }
+  ],
+  "excerpt_bytes": 9088,
+  "max_files": 20,
+  "budget_bytes": 24000,
+  "deferred": [
+    "tests/browser-web-play.py",
+    "dist/navigation-v14.js",
+    "dist/world-entry-v22.js",
+    "dist/chapter-one-expansion-world.js",
+    "dist/chapter-one-expansion-art.js",
+    "dist/rpg-experience-exploration.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/chapter123-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-chapter123.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-world-v29.mjs",
+    "node tools/world_audit.mjs",
+    "python3 tests/test_local_serve.py",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier release",
+    "python3 tools/harness/map_quality.py"
+  ],
+  "risks": [
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。",
+    "GitHub 保存不是部署；历史分卷不覆盖；构建输出保留精确版本和哈希。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

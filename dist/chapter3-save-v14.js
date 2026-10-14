@@ -1,3 +1,4 @@
+import {C3_DEFERRED} from './rpg-chapter-three-data.js';
 import {UTILITIES} from './attunement-v14.js';
 import {SKILLS,ITEMS,CLASSES} from './data-v14.js';
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
@@ -18,6 +19,8 @@ function frozenActor(p,saint=false){
 export function validateChapter3Save(s){
  const h=s.ch3;if(s.p?.cls==='saint'&&(!h?.frozenHero||h.controlActor!=='saint'||s.flags?.ch3TreatmentApplied))throw new Error('救援段缺少正确的诺恩记录。');
  if(h===undefined)return;if(!object(h)||!object(h.claims)||!object(h.crafts)||!object(h.visits)||!int(h.seed,0,4294967295)||!int(h.draws,0,7)||!num(h.xpEscrow,0,1e7))throw new Error('第三章旅程记录不完整。');
+ if(h.experienceScenes!==undefined&&(!Array.isArray(h.experienceScenes)||h.experienceScenes.length>Object.keys(C3_DEFERRED).length||new Set(h.experienceScenes).size!==h.experienceScenes.length||h.experienceScenes.some(id=>!Object.hasOwn(C3_DEFERRED,id))))throw new Error('第三章延后事件记录不正确。');
+ if(h.experienceBrewPending!==undefined&&typeof h.experienceBrewPending!=='boolean')throw new Error('配药记录不正确。');
  if(h.frozenHero)frozenActor(h.frozenHero);if(h.saintBuild)frozenActor(h.saintBuild,true);
  for(const v of Object.values(h.claims))if(typeof v!=='boolean')throw new Error('一次性奖励标记不正确。');
  for(const v of Object.values(h.crafts))if(!int(v,0,8))throw new Error('制作次数不正确。');

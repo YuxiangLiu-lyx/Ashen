@@ -1,6 +1,7 @@
 // Test-session tools reuse production scene, quest, combat and reward reducers.
 // There is no write to storage here; the UI owns the existing isolated test slots.
 import {c1UIAction} from './chapter-one-expansion-ui.js';
+import {C3_DEFERRED} from './rpg-chapter-three-data.js';
 import {V12_PACING} from './pacing-data-v14.js';
 import {MAPS,DIALOGUES} from './data-v14.js';
 import {enableStoryTestV25,isStoryTestV25,storyTestChapterSaveKeyV26,STORY_TEST_CHAPTERS} from './story-test-v25.js';
@@ -62,7 +63,7 @@ function tick(g){g.active=true;g.update(.02,{});}
 function boss(g,map,type){
  go(g,map);finishScenes(g);
  if(!g.enemies.some(e=>!e.dead&&e.v11Boss===type)){g.startV11Boss(type);finishScenes(g);}
- clear(g);finishScenes(g);
+ clear(g);tick(g);finishScenes(g);
 }
 function earlyStep(g){
  switch(g.chapter){
@@ -174,7 +175,11 @@ function step(g){
  if(g.sagaV25?.started)return sagaStep(g);
  if(g.flags.ch5Started)return fifthStep(g);
  if(g.flags.ch4Started)return fourthStep(g);
- if(g.flags.ch3Started)return thirdStep(g);
+ if(g.flags.ch3Started){
+  // A detached skip settles the current threat before the production safe-event tick.
+  if(g.ch3?.experienceScenes?.some(id=>C3_DEFERRED[id]?.[0]===g.map)){clear(g);tick(g);if(g.pending){finishScenes(g);return;}}
+  return thirdStep(g);
+ }
  return earlyStep(g);
 }
 export function createStoryChapterTestV31(RPG,stats,chapter,cls='shadow'){
@@ -196,9 +201,9 @@ export function skipStoryTestStepV31(RPG,stats,current){
  if(!isStoryTestV25(current))throw Error('请先进入章节测试模式。');
  // Work on a detached copy. Failure keeps the active session and stored bytes intact.
  const g=enableStoryTestV25(new RPG(current.p.cls,current.snapshot()),stats,current.storyTestSaveKeyV26);
- const before=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion]);
+ const before=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion,g.ch3,g.v11]);
  g.active=true;step(g);finishScenes(g);
- const after=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion]);
+ const after=JSON.stringify([g.chapter,g.pending,g.objective(),g.sagaV25,g.sagaV26,g.flags,g.quests,g.c1Expansion,g.ch3,g.v11]);
  if(before===after)throw Error('当前步骤未能推进，请完成眼前交互或重新选择章节。');
  g.moveTo=null;g.target=null;g.bullets=[];g.zones=[];g.events=[];g.active=true;
  return g;

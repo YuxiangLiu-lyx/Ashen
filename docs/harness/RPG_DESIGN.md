@@ -42,9 +42,11 @@
 
 明确设计任务的 `task.py start` 会按目标登记 `experience_requirement`；普通故障修复不自动登记。完整章任务要求五项能力、三职业正常UI到章末、旧档和独立人类状态；单项设计只登记相关范围。任务记录中的当前需求决定是否采用整章门禁，不能用单项报告替代整章任务。
 
-1. `python3 tools/harness/experience.py --template --chapter V01C01 --report docs/rpg-experience/c1/ACCEPTANCE.json` 生成未验收模板。单项使用重复的 `--scope combat` 等，范围为combat/exploration/quests/services/pacing。
+1. `python3 tools/harness/experience.py --template --chapter R01 --report docs/rpg-experience/c1/ACCEPTANCE.json` 生成未验收模板。单项使用重复的 `--scope combat` 等，范围为combat/exploration/quests/services/pacing。
 2. 填写逐项判断和真实证据path/sha256；`comparison`记录三职业、starter/normal/optimized、same_source_snapshot、production_rules、human_win_rate_claim=false。整章的normal_input分别写input_method=normal_ui、state_mutation_hooks=false、ending_phase与证据；第八章还要求ending_flags.ch8Complete=true。隔离场景测试不能写成全程正常输入。
 3. `python3 tools/harness/experience.py --report <报告>` 拒绝缺项、失败、过期、篡改、培养对照错误及未结束路线。task.py的`experience --id <任务> --report <报告>`持久挂接，finish再次检查；全游戏任务需八章报告。
 4. 人类乐趣/节奏若未测，human.status=pending并提供playable_build、observation_template两份哈希引用与remaining。工具只报告technical_pass和human_status，绝不将pending改成pass。真人通过必须记录观察者、时间和原始观察证据。旧0.6人工任务保持独立，不能被本门禁代替。
 
 脚本只能核验声明与证据完整性，不能自动判文学、美学或乐趣。五项编辑判断须引用具体场景和实测结论；`unchanged`表示实际审阅确认本章既有内容已满足本项，仍须理由与证据。地图三维和Narrative门禁继续独立执行。
+
+体验门禁使用运行章ID R01–R08，与叙事文学卷章分开；旧报告V01C01–V01C08只按历史别名兼容，不据此授予文学正史。

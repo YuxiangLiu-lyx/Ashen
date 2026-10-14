@@ -1,0 +1,84 @@
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (10.97825ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (23.551584ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (50.039125ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (988.003667ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (7.468ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (48.892583ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (756.591458ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (8.475792ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.315291ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.027166ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.231167ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (462.900291ms)
+✖ all three classes skip from chapter one through eight with every intermediate save validated (93.947625ms)
+✖ each later chapter start can skip to the final result without stuck quests (25.976708ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (3.569459ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.53ms)
+✖ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (2.611791ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.925417ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (29.108708ms)
+✔ 118-map navigation baseline stays exact outside authorized C1 layouts and the two audited C3 caves (847.917375ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (7.886375ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (8.372708ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.42125ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (19.312125ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (7.425875ms)
+✔ 21 maps keep exact baseline geometry; two authorized C3 caves keep exits, identities and reachable targets (190.901875ms)
+✔ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (638.867334ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (10.216709ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.210791ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (8.467ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.25225ms)
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (56.51875ms)
+✔ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (11.19775ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (9.3825ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (3.778625ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (16.085708ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (16.39275ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (3.430292ms)
+ℹ tests 38
+ℹ suites 0
+ℹ pass 35
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2068.891167
+
+✖ failing tests:
+
+test at tests/chapter-test.test.mjs:26:1
+✖ all three classes skip from chapter one through eight with every intermediate save validated (93.947625ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:207:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:32:6)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/chapter-test.test.mjs:44:1
+✖ each later chapter start can skip to the final result without stuck quests (25.976708ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:207:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:47:54)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-test.test.mjs:75:1
+✖ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (2.611791ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:207:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:81:28)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

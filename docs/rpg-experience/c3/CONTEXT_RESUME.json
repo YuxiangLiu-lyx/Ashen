@@ -1,0 +1,751 @@
+{
+  "status": "ok",
+  "task": "继续第三章R03 RPG体验升级、旧档与安全延后事件兼容、正常UI验证、洞窟路线和锻造配药",
+  "basis_commit": "9d352b17ee7d40ed963e3315aae007f13481f08b",
+  "source_fingerprint": "a2ee956ade6386b1f47c63b1651dc5fb0a9c964ace0f78afa7729d8cd13abcc5",
+  "modules": [
+    "maps"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/EXPLORATION.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "c2f289b62054a96022553a8e802ab72ec65ff364ac10388b6c63200e032aaa7e",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 已验证示范区的接续约束",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3302
+    },
+    {
+      "path": "docs/harness/MAP_QUALITY.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "5bf6b3bad81353a133db9b666a842e934b5e22e714ca4ca6a294acff2fd14fa5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 每次地图变更的三个独立验收维度",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3000
+    },
+    {
+      "path": "docs/harness/WORLD.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "f73a09447f5d17999d1051fd9e301f946f36f1c5168631f97ebf153b5166c33f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 地图与资产约束",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2237
+    },
+    {
+      "path": "docs/v28.1/RELEASE.md",
+      "reasons": [
+        "maps: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "ed11ba8a3b2941f203b58009c7a5a4a6d751e1a10964ad16dac252c3d9926e73",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# V28.1 · 美工 / 表现修复",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4137
+    },
+    {
+      "path": "dist/presentation-physics-v281.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "5d8fbff6cc52412b87200a60a2f5fd9cf3b28c5a119dec7b516de1f701d4c151",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {footRadiusV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const validFootBoxV281=b=>Array.isArray(b)&&b.length===4&&b.every(Number.isFinite)&&b[2]>0&&b[3]>0;",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function pointInFootBoxV281(x,y,b,pad=0){return validFootBoxV281(b)&&x>b[0]-pad&&x<b[0]+b[2]+pad&&y>b[1]-pad&&y<b[1]+b[3]+pad;}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function segmentFootBoxV281(a,b,box,pad=0){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " if(!validFootBoxV281(box))return false;let lo=0,hi=1;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " for(const [p,d,mn,mx]of [[a.x,b.x-a.x,box[0]-pad,box[0]+box[2]+pad],[a.y,b.y-a.y,box[1]-pad,box[1]+box[3]+pad]]){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(Math.abs(d)<1e-9){if(p<=mn||p>=mx)return false;continue;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  const u=(mn-p)/d,v=(mx-p)/d;lo=Math.max(lo,Math.min(u,v));hi=Math.min(hi,Math.max(u,v));if(lo>=hi)return false;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6309
+    },
+    {
+      "path": "dist/chapter123-presentation-v30.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "40be93bb97f988afd5ef35f512fa47344f3f36a247e406f3130f2626d94271bf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Presentation only. Object IDs, feet, depth, collision, targets and quest state",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// remain owned by the original world/runtime. Explicit host bindings avoid drawing",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// a second pot on a well, or a second mechanism over an interactive scenery object.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {chapter123V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const art=(sheet,index,w,h)=>({sheet,index,...(w?{w,h}:{})});",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const furniture=(i,w,h)=>art('chapterFurnishings',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const settlement=(i,w,h)=>art('chapterSettlement',i,w,h);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const utility=(i,w,h)=>art('chapterUtilities',i,w,h);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6728
+    },
+    {
+      "path": "dist/chapter23-design-v30.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "7fae612898b579a8bc245b1c2993f564da3816a21ae7692b76cf1525b43d412c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Complete first-three-chapter inventory, including optional rooms and cutaways.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// QA independently derives this set from the registered maps and staging, so a",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// missing entry cannot silently remove a map from both implementation and tests.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const CHAPTER_ONE_MAPS_V30=Object.freeze(['hall','warehouse','road','town','chapel','alley','canal','grove','guestroom','millpath','echo','workshop']);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "export const CHAPTER_TWO_MAPS_V30=Object.freeze(['post','inn','bridge','manor','spillway','exile','chamber','bridgecellar','wellcrypt']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export const CHAPTER_THREE_MAPS_V30=Object.freeze(['hellGate','hellApproach','hellQuarry','hellSluice','hellWall','hellCamp','hellGrotto','hellWorkshop','hellMine','hellFerry','hellPass','hellArena','hellTomb','hellRift']);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const CHAPTER23_MAPS_V30=Object.freeze([...CHAPTER_TWO_MAPS_V30,...CHAPTER_THREE_MAPS_V30]);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const second=new Set(CHAPTER_TWO_MAPS_V30),third=new Set(CHAPTER_THREE_MAPS_V30);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4417
+    },
+    {
+      "path": "dist/world-design-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "c95add5c7fcaf0516e6a31dcd3c093e055a545244133c1aa9c4bcd92f7d275e9",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Authored space, not a random density pass. Existing map/quest/prop IDs are stable.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const DEMO_MAPS_V29=['road','millpath','echo','workshop'];",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const scene=(id,sheet,asset,x,y,w,h,box=null)=>({id,sheet,asset,x,y,w,h,box});",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const tree=(id,x,y,w=190,h=230)=>scene(id,'world',4,x,y,w,h,[x-w*.11,y-24,w*.22,24]);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const wall=(id,x,y,w=150)=>scene(id,'world',5,x,y,w,76,[x-w*.42,y-27,w*.84,27]);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const rock=(id,x,y,w=85,h=60)=>scene(id,'details',3,x,y,w,h,[x-w*.34,y-22,w*.68,22]);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const plant=(id,x,y,w=100,h=78)=>({...scene(id,'qualityWorld',7,x,y,w,h),collisionV281:false});",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const clue=(id,action,x,y,label,art,extra={})=>({id,action,type:'book',x,y,label,art,worldInteractionV29:{duration:.35},...extra});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10673
+    },
+    {
+      "path": "dist/world-runtime-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "d9c637d72ce108c0896e03ad2a6d20d6aab3b2f088327f2c6b1fcd9469eefe28",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {repairChapter23AnchorsV30,TOWN_NOTICE_ANCHOR_V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DEMO_MAPS_V29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {WORLD_DIALOGUES_V29} from './world-dialogues-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const demo=new Set(DEMO_MAPS_V29), distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const feedback=new WeakMap();",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const fresh=()=>({schema:1,seen:[]});",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function validateWorldSaveV29(save){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const value=save.flags?.worldV29;if(value===undefined)return;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9970
+    },
+    {
+      "path": "dist/world-art-v29.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "43fae8106699ecde716953f0c51080f5fe622d003c22417d772747d40a8e428c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {WORLD_REGIONS_V29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {WATERS,BRIDGES,BOUNDARIES} from './world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {worldFeedbackV29} from './world-runtime-v29.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6430
+    },
+    {
+      "path": "dist/world-v14.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 97,
+      "category": "current_code",
+      "sha256": "259e8c468b9cb59bc89f83e4a194804c67820e34dbf963be677d49ba00ad80fe",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {configureExplorationWorldV29} from './world-design-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {romanceActionArtV20} from './romance-world-v20.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {configureQualityWorld,secretPropArt} from './quality-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureChapterWorld} from './chapter-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {DENSITY} from './density-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {configureMechanisms} from './mechanisms-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {WORLD_ADDITIONS} from './exploration-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9656
+    },
+    {
+      "path": "dist/scene-geometry-v26.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 96,
+      "category": "current_code",
+      "sha256": "6c53829d10a6e9830d315f277867d85af3bf3c88c8960421d5feef74704a0313",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {supplementalFootprintsV281} from './presentation-physics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {actorHeightV281} from './presentation-metrics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "// Shared foot-space navigation and alpha-aware foreground cutaway. Raster artwork remains unchanged.",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "let worldMaps={},worldScenery={};",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const d=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y),seated=new Set(['sit','seated','drink','listen','seated-listen','bench-wood','bench-stone']),resting=new Set(['lying','sleep','sleep-bed','carried']);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const extraCache=new Map();",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function invalidateSceneGeometryV281(map=null){if(map==null)extraCache.clear();else extraCache.delete(map);}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function furnitureFootprintV26(o){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15034
+    },
+    {
+      "path": "dist/navigation-v14.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "7e2251c88503d19a8816f607f18a701f2524d56296ead2aff67d1d9f4266b1b2",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export function direction(x,y){const h=x<620?'西':x>980?'东':'',v=y<400?'北':y>690?'南':'';return h+v||'中央';}",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export function exitDirection(d){if(d.direction)return d.direction;if(d.y<250)return '北';if(d.y>900)return '南';return d.x<450?'西':'东';}",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export function mapRoute(g,goal){if(!MAPS[goal])return [];const queue=[{id:g.map,path:[]}],seen=new Set();while(queue.length){const {id,path}=queue.shift();if(id===goal)return path;if(seen.has(id))continue;seen.add(id);for(const d of MAPS[id].doors){if(!MAPS[d.to]||d.hidden&&!g.flags[d.hidden])continue;if(g.canDoor.call(Object.create(g,{map:{value:id},enemies:{value:g.states[id]?.enemies||[]},props:{value:g.states[id]?.props||MAPS[id].props},npcs:{value:MAPS[id].npcs}}),d))continue;if(d.to==='chapel'&&(g.chapter>=3||g.chapter<2))continue;queue.push({id:d.to,path:[...path,{from:id,to:d.to,direc",
+          "truncated": true
+        },
+        {
+          "line": 5,
+          "text": "export function routeHint(g,goal){if(goal.trial)return '留意首领聚光与落点。要中止挑战，可回试炼石选择退出，已通关层数保留。';if(!goal.map)return '可以回访白榆城，或沿王道寻找尚未完成的线索。';let t=(goal.map===g.map?g.enemies.find(e=>e.id===goal.target&&!e.dead):null)||(goal.map===g.map?g.npcs:MAPS[goal.map].npcs).find(n=>n.id===goal.target)||MAPS[goal.map].props.find(n=>n.id===goal.target)||MAPS[goal.map].doors.find(n=>n.to===goal.target);if(goal.map==='inn'&&goal.target==='seline'&&g.flags.pumpFixed)t={...t,x:540,y:660};if(goal.map===g.map){if(MAPS[g.map].c1Layout&&goal.target==='saint')return g.saint?.visible?'艾莉娅就在身边，走近她交谈并确认下一步。':'等艾莉娅走近，再和她确",
+          "truncated": true
+        },
+        {
+          "line": 6,
+          "text": " const path=mapRoute(g,goal.map);if(!path.length)return '道路暂未通行，先找附近的人问问情况。';const steps=path.s",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 2686
+    },
+    {
+      "path": "dist/world-entry-v22.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 94,
+      "category": "current_code",
+      "sha256": "eb9ee8e1ec0147f616603d0447e3e7efd83ef772eb437d3e1d6e71607abbd81b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Reconstructed V21/V22 behaviour from the published V20 baseline and user requests.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// This module is not an assertion of byte-identical recovery of the original release.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {DIALOGUES,MAPS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {STAGING} from './staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {CHAPTER_STAGING} from './chapter-staging-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {CITY_ARCHITECTURE_META_V19 as architecture,CITY_FURNISHINGS_META_V19 as furnishings} from './world-art-meta-v19.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const copy=v=>structuredClone(v),ID='v22CityArrival',ACTION='v22arrival:complete:';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10519
+    },
+    {
+      "path": "dist/chapter-one-expansion-world.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 93,
+      "category": "current_code",
+      "sha256": "1515e0bdc913df979db3e36505bdc6e9ae8fad35445b1de645b9d2366294ea68",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {EXPERIENCE_DUNGEONS,EXPERIENCE_CACHES} from './rpg-experience-exploration.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {C1_PEOPLE} from './chapter-one-story-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {C1_NEW_MAPS} from './chapter-one-expansion-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {c1State} from './chapter-one-expansion-save.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {C1_LAYOUTS,C1_MAPS,C1_FURNITURE,C1_RESOURCE_SITES,c1Boundary,c1Map,c1Land} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {WATERS,BRIDGES} from './world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const C1_CONNECTIONS=[['hall','c1TrainingYard'],['c1TrainingYard','c1TrialFoyer'],['c1TrialFoyer','c1DrillGallery'],['c1TrialFoyer','c1TrialCrypt'],['c1TrialCrypt','c1TrialVault'],['grove','c1RiversideCamp'],['road','c1RiversideCamp'],['c1RiversideCamp','c1KilnCourt'],['c1KilnCourt','c1ReedKiln'],['c1DrillGallery','warehouse'],['workshop','c1LoomRoom'],['town','c1NorthWalk'],['c1NorthWalk','alley'],['grove','c1ReedKiln'],['c1DrillGallery','c1TrialCrypt'],['c1TrialCrypt','c1TrainingYard'],['c1TrialVault','c1DrillGallery'],['c1RiversideCamp','millpath'],['c1ReedKiln','c1NorthWalk']];",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export const C1_CHANGED_MAPS=C1_MAPS.filter(id=>!C1_NEW_MAPS.includes(id));",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15668
+    },
+    {
+      "path": "dist/chapter-one-expansion-art.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 92,
+      "category": "current_code",
+      "sha256": "bb536b6ecc1cc0f382959d1c6768bea0c72eefffa10b387cd324011d7ab3177d",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {c1NaturalSprite,drawC1LocalPerson,c1WallPiece} from './chapter-one-natural-art.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {sceneryAlphaV26} from './scene-geometry-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {C1_LAYOUTS,c1Map,c1Land} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "function material(c,bank,index,rect,size=220){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " const f=bank.frame('chapterMaterials',index),im=bank.images.chapterMaterials;if(!f||!im)return;",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " c.save();c.beginPath();c.rect(...rect);c.clip();c.imageSmoothingEnabled=true;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " for(let y=Math.floor(rect[1]/size)*size;y<rect[1]+rect[3];y+=size)for(let x=Math.floor(rect[0]/size)*size;x<rect[0]+rect[2];x+=size)c.drawImage(im,f.cell.x,f.cell.y,f.cell.w,f.cell.h,x,y,size,size);c.restore();",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6944
+    },
+    {
+      "path": "dist/rpg-experience-exploration.js",
+      "reasons": [
+        "maps: task matched 第三章; maintained entry"
+      ],
+      "priority": 91,
+      "category": "current_code",
+      "sha256": "2f72cc339a818a43252cff16bef69ed3428a2db5e5efbb35d4250fa5fa778468",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Authored room encounters. Stable IDs preserve deaths and quest evidence on migration.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const EXPERIENCE_DUNGEONS={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " c1DrillGallery:[['rat',370,640,'c1-sentry-1'],['rat',550,500,'c1-sentry-2'],['rat',420,420,'c1-sentry-3'],['rat',730,610,'c1-sentry-4'],['rat',1080,520,'c1-sentry-5'],['rat',1340,470,'c1-sentry-6'],['rat',1290,745,'c1-sentry-7'],['rat',970,870,'c1-sentry-8'],['wolf',1260,520,'c1-trial-warden']],",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " c1TrialCrypt:[['rat',650,430,'c1-crypt-1'],['rat',470,540,'c1-crypt-2'],['rat',540,660,'c1-crypt-3'],['rat',760,620,'c1-crypt-4'],['rat',1100,500,'c1-crypt-5'],['rat',1350,450,'c1-crypt-6'],['rat',1180,800,'c1-crypt-7'],['rat',800,870,'c1-crypt-8']],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " c1TrialVault:[['rat',500,500,'c1-vault-sentry-1'],['rat',670,670,'c1-vault-sentry-2'],['rat',700,350,'c1-vault-sentry-3'],['rat',950,620,'c1-vault-sentry-4'],['rat',1100,510,'c1-vault-sentry-5'],['rat',1360,340,'c1-vault-sentry-6'],['rat',1280,810,'c1-vault-sentry-7'],['rat',970,870,'c1-vault-sentry-8'],['wolf',1280,510,'c1-vault-warden']],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "};",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const EXPERIENCE_CACHES={",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " 'c1-drill-supplies':{map:'c1DrillGallery',label:'器械间急救箱',x:590,y:335,items:{hp:1,mp:1}},",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1290
+    }
+  ],
+  "excerpt_bytes": 9982,
+  "max_files": 20,
+  "budget_bytes": 24000,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/chapter123-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-chapter123.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-world-v29.mjs",
+    "node tools/world_audit.mjs",
+    "python3 tools/harness/map_quality.py"
+  ],
+  "risks": [
+    "118 地图及已封锁出口基线；足部碰撞、患者搬运/坐席例外不可破坏。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

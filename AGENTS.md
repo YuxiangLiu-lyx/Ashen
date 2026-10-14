@@ -1,5 +1,7 @@
 # Ashen Agent 入口
 
+2026-10-14最新用户收束：“目前更新完前三章即可”。本轮只交付R01—R03及已有Harness；第四至八章保留审计、原运行与未来方向，不继续实装。前三章技术验收和真人待验见docs/rpg-experience/ACCEPTANCE.md，当前默认试玩入口为qa-export/release-build/Ashen-V28.1-Play.html；旧包保留，未发布网站。
+
 RPG内容设计按需使用docs/harness/RPG_DESIGN.md；现有六项Skill覆盖成长、探索、任务、设施与节奏。task.py experience挂接分章技术证据，真人待验必须附可玩构建与观察表；旧0.6人工门禁保持独立。普通故障修复不自动加载整套体验资料。
 
 2026-10-14当前用户授权全游戏RPG体验升级：先八章真实审计、第一章完整试点，再按章推广到现有第二至八章。需求原文docs/rpg-experience/USER_REQUEST.txt；审计docs/rpg-experience/AUDIT.md；首章新采用稿docs/harness/CHAPTER_01_RPG_EXPERIENCE.md（1.0，IMPLEMENTED；真人节奏待验）。允许重评精英、成长、空间、任务顺序与服务；旧0.1/0.2不恢复，原关键剧情、知识边界、历史证据和旧档保留。下述0.9及“第二章只策划”为本次之前的保留基线，不阻止此次明确授权的逐章改造。人工乐趣/节奏未完成时必须保留待验，不能冒充实测。

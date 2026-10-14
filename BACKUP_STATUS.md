@@ -1,3 +1,5 @@
+2026-10-14当前交付：前三章RPG体验升级（R01—R03），第四至八章按用户最新指令暂缓。战斗成长、地下探索、任务结果、真实设施与安全剧情触发已实施；技术证据及真人待验见docs/rpg-experience/ACCEPTANCE.md。默认离线入口为qa-export/release-build/Ashen-V28.1-Play.html；旧包保存在qa-export/release-build-before-rpg-three-20261014，文件名沿用旧版。GitHub保存与网站发布分开；下面旧记录保留为历史。
+
 # 2026-10-14 · 叙事Harness升级
 
 本轮仅工具、结构化人物/事件/知识/伏笔资料、中文对白规范、索引与验证；基线95ea904。 最终实现f78334c，57项Harness、164核心与完整集成通过；完整验收93ae263已推送GitHub main并ls-remote核对。原运行版本与0.6人工节奏待办保持，未发布网站。验收和Git回执见docs/narrative-harness/ACCEPTANCE.md；后续历史回执不覆盖本轮范围。

@@ -1,0 +1,1518 @@
+{
+  "status": "budget_limited",
+  "task": "第三章RPG体验升级：地狱救治与同行、矿道探索、三职业战斗成长、营地工坊补给与安全剧情触发",
+  "basis_commit": "b54fdfe8ded648db6d7bb1beecff3fa041b01a17",
+  "source_fingerprint": "31a674f27bde4ae25fb11aee3c51724b06d16c0c40c3f36cd071d46f8df35807",
+  "modules": [
+    "design_combat",
+    "design_pacing",
+    "classes"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "design_pacing: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 章节剧情记录与开发流程",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 22,
+          "text": "2. 实现前在本章稿记录版本、目标、进入/结束状态、逐场剧情、角色与玩家各自知道什么、地图/任务/演出交接、揭露上限及验收。缺稿就先补稿；不能边写代码边临时决定主线。使用 [章节模板](#章节模板)。",
+          "truncated": false
+        },
+        {
+          "line": 24,
+          "text": "4. 开发者把当前章节改为 `DEV_FROZEN`，写明采用版本与少量实施调整；通过 task.py 保存 checkpoint。中途改剧情同步改稿和登记表，记录原因与知识/存档影响，禁止只有代码发生变化。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "来源：用户2026-10-14叙事升级需求。此处是编辑原则，不给文学打分，不是运行剧情的新设定。配合 [纯风格参考](DIALOGUE_STYLE_SAMPLES.md) 与当前人物事件状态使用。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 105,
+          "text": "尤其不要把“挑衣服”“参加宴会”“处理伤员”等事件加入剧情，除非游戏原本独立存在相应的正式设定。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "source/narrative/chapters/R03.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "narrative_context",
+      "sha256": "d5b2b0b74c8a44441bea79a1d6da9cfa719851a589883e5e2d17048b27df1ccd",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"R03\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"runtime_chapter\": 3,",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"literary_id\": null,",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  \"title\": \"地狱入口与营地\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  \"phase_range\": [",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    12,",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2743
+    },
+    {
+      "path": "source/narrative/characters/noen.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "narrative_context",
+      "sha256": "064c167a6421ac4f13ffc3eee1b60c1445004b099280bb7f0cccbea03265e4e6",
+      "excerpts": [
+        {
+          "line": 22,
+          "text": "    \"summary\": \"黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 14921
+    },
+    {
+      "path": "source/narrative/characters/elyria.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "a97f58deed37dfa732fc3af27600f630182e40ad6ec5c27e200a47e5cd8acbbe",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"elyria\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"艾莉娅\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"艾莉娅\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "    \"圣女\",",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"女主\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10455
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "design_combat: current constraints",
+        "classes: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "8e911de953956d179294b06bf331c01cf35a3f04cc8801f7bbfc8ade4a7799a4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 战斗与构建约束",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "数值真源：`stats` → growth 的属性/装备/章节修饰；`skillNumbers` → 职业/共通/地狱/进阶技能和刻印；`RPG.attack/skill/damage/hurt/update` → 真正结算；enemy-ai → V15 Boss scaling、防御、DOT、视线、AI 和弹丸。V17 输入队列是人类输入路径，直接 skill 仍有完整校验。",
+          "truncated": false
+        },
+        {
+          "line": 14,
+          "text": "首章三职业训练借用装仅训练会话有效，快照还原原装。三个命名精英最终预算与两段扑击/直线冲撞/绕柱声波见规格；35XP/12金不得叠V28倍率。制作和专属装备直接伤害效果不影响DOT/proc/反伤，同组取最高；封缄要求实际受到威胁且避开已结算重击。后续章节战斗不调平。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2070
+    },
+    {
+      "path": "docs/harness/RPG_DESIGN.md",
+      "reasons": [
+        "design_combat: current constraints",
+        "design_pacing: current constraints"
+      ],
+      "priority": 124,
+      "category": "current_rules",
+      "sha256": "05abe1e7e31104c459e4608b63aa9b2987ddb1dc89021162b9686ed73310399f",
+      "excerpts": [
+        {
+          "line": 11,
+          "text": "## 战斗与成长",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "使用生产RPG的伤害、AI、属性、冷却、资源、掉落和存档；不得用预览无敌模式验证平衡。三职业至少比较合法初始武器/零加点、实际路线普通行装、仅使用已拥有装备与已获得点数的优化行装。完全卸掉武器可能禁止攻击，须单列，不能据此声称低培养有挑战。记录同一来源快照、同一遭遇、策略和种子；比较通关/失败、耗时、承伤、用药、法力空窗、技能使用和机制回合。优化方案可能牺牲生存，不能只报告有利指标。",
+          "truncated": false
+        },
+        {
+          "line": 19,
+          "text": "先给房间、道路与楼层明确用途，再放墙、物件和敌人。列出主路、分支、回路、入口/出口、战斗宽度及返回距离；支路要有真实资源、情报、服务或可选挑战。比较改前/改后实际路线，不用新增楼层、重复宝箱、随机装饰替代探索。任务无关的常驻刷新遵守GAME_SETTINGS，已经取得的任务证据不随刷新丢失。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "执行MAP_QUALITY的三个独立维度。实际moveActor/clearLine验证每个入口到出口和新目标；实际战斗检查近战、远程、绕障和预警躲避；正式渲染截图与原画核对布局、脚锚、遮挡和角色轮廓。未提供的参考图不得声称对照过。角色或场景审美需要人类观察时保留待验，不把自动几何通过当作美学认可。",
+          "truncated": false
+        },
+        {
+          "line": 31,
+          "text": "每项服务有真实地点/NPC、安全条件和事务：药品实际到账，休息实际恢复，装备预览和装备后的stats一致，出售和制作真实扣料/扣钱且不复制。验证距离、战斗/过场限制、背包满、钱不足、重复提交、读档和买卖套利。价格与奖励要结合纯主线、典型探索、完整探索、重复路线的真实现金流；不要为展示消费强行清",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7443
+    },
+    {
+      "path": "dist/rpg-experience-triggers.js",
+      "reasons": [
+        "design_pacing: task matched 剧情触发; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "3fe66d89b09779d9b5e96a4bee36108d96212c9348ce5b8318859e13d4d283cf",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Reuse original scene IDs, staging, knowledge grants and completion actions.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// Flags preserve old saves; a blocked entrance remains eligible on the next safe tick.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const EXPERIENCE_EVENTS = [",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " {id:'saintBrief',map:'town',chapter:2,flag:'cityIntro',markOnStart:true,then:null,stage:'chapel',actors:['saint','prelate'],audience:'player'},",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " {id:'assassination',map:'chapel',chapter:2,flag:'assassination',markOnStart:true,then:'assassinate',stage:'chapel',actors:['hero','saint','prelate'],audience:'present'},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " {id:'canalStart',map:'canal',chapter:3,flag:'captainStarted',markOnStart:false,then:'captain',stage:'canal',actors:['hero','saint','captain'],audience:'present'}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "];",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function experienceSceneSafe(g){return g.active&&!g.pending&&!g.transition&&g.p.hp>0&&!g.enemies.some(e=>!e.dead&&Math.hypot(e.x-g.p.x,e.y-g.p.y)<360&&g.clearLine(e,g.p,false))&&!g.bullets.some(b=>b.friendly===false);}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1882
+    },
+    {
+      "path": "tools/balance_lab/experience-audit.mjs",
+      "reasons": [
+        "design_combat: task matched 战斗成长; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "c840a124fb2d2f1866eaba0a06917c0ebfe532dcf4d882259fcc031a77bb054a",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Explicit laboratory fixtures over the final production RPG. No alternate rules.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import fs from 'node:fs';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import path from 'node:path';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {RPG, MAPS, stats} from '../../dist/core-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {CHAPTER_CARDS_V17} from '../../dist/presentation-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {C1_MAPS} from '../../dist/chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {C1_OBJECTIVES} from '../../dist/chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {SAGA_NODES_V25, SAGA_TASKS_V25} from '../../dist/saga-nodes-v25.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 8939
+    },
+    {
+      "path": "dist/saga-runtime-v26.js",
+      "reasons": [
+        "design_pacing: task matched 剧情触发; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "33a11c08efe813764f685bcdfcbf41029429ac41929587f675b72f84a69b1615",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS,ITEMS,DIALOGUES} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {hashSagaV25,seededSagaV25} from './saga-state-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {clearEnemyCombatV9} from './enemy-ai-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureSagaValidationV26,freshSagaV26,sagaStateV26 as state,savedSagaV26,validateSagaSaveV26,sagaCallbackV26 as callback,sagaRewardKeyV26 as rewardKey,sagaGatherIdV26 as gatherId,sagaEnemyIdV26 as enemyId} from './saga-state-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const copy=x=>structuredClone(x),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const live=g=>g.p?.hp>0&&g.p.cls!=='saint'&&!g._mercenaryContext&&!g.memoryV13?.active;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function installSagaV26(RPG,{nodes,chains,stats}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const P=RPG.prototype;if(P._sagaInstalledV26)return;Object.defineProperty(P,'_sagaInstalledV26',{value:true});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 13879
+    },
+    {
+      "path": "tools/balance_lab/experience-elites.mjs",
+      "reasons": [
+        "design_combat: task matched 战斗成长; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "bdfe7a46fdfc55079ec59e2c9bf03719bee9d42eb1e61143ef0497e3a4108dc0",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import fs from 'node:fs';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {cohort} from './experience-audit.mjs';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {simulateSnapshot} from './chapter-one.mjs';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {provenance,sha} from './provenance.mjs';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const runs=[],sources=[],sourceDir=process.env.ASHEN_C1_ECONOMY||'docs/rpg-experience/c1/core008/economy',out=process.argv[2]||'docs/rpg-experience/c1/elites';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','local_work']){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " const file=`${sourceDir}/${cls}-${route}.json`,raw=fs.readFileSync(file),data=JSON.parse(raw);sources.push({path:file,sha256:sha(raw)});",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " for(const encounter of ['rat','warden','bat','captain']){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2093
+    },
+    {
+      "path": "dist/enemy-ai-v14.js",
+      "reasons": [
+        "design_combat: task matched 战斗成长; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "7c229ddb8435d214e1b8ca3298be28899aa2e935188c77c9b176eb9e6f76cf2f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {playerProjectileSourceValidV17} from './combat-input-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {experienceProfile} from './rpg-experience-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const profile=e=>({...profileForEnemy(e.type,e.id),...experienceProfile(e)});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 24452
+    },
+    {
+      "path": "dist/growth-v14.js",
+      "reasons": [
+        "classes: task matched 职业; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "e64839efe23bc3bd79de8b020d0c9345588267630543efba12ee4d9954a727e6",
+      "excerpts": [
+        {
+          "line": 19,
+          "text": "export const ATTRIBUTE_HELP={str:'按职业增加普攻；决定力量战技的伤害。具体倍率见下方与技能说明。',dex:'每点暴击 +0.25%（基础总上限35%），并增强敏捷战技；力量和敏捷都不增加攻速或移速。攻速独立来自职业特性、装备与技能。',vit:'每点最大生命 +10；断誓者每点另减免0.25%来袭伤害。',wis:'每点最大法力 +4；每点每秒回蓝 +0.01（基础0.6，合计最高1.2），增强精神战技。'};",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4762
+    },
+    {
+      "path": "dist/growth-runtime-v17.js",
+      "reasons": [
+        "classes: task matched 职业; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "f5a0871f3b053db9ac32366a92c914749bddd5cf7084beeda8d7c92f53ea0cf4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {SKILL_RANK_CAP_V17} from './rank-scaling-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {PROGRESSION_SKILLS} from './progression-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {HELL_SKILL_BOOKS,SAINT_SKILLS} from './chapter3-combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {SYSTEM_SKILLS} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {migrateEquipment,normalizeGear} from './equipment-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "export function installGrowthV17(RPG,{SKILLS}){",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " for(const s of Object.values(SKILLS))if(s.rank>1)s.rank=SKILL_RANK_CAP_V17;",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " for(const s of [...Object.values(PROGRESSION_SKILLS),...HELL_SKILL_BOOKS,...SAINT_SKILLS,...SYSTEM_SKILLS])if(s.rank>1)s.rank=SKILL_RANK_CAP_V17;",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1641
+    },
+    {
+      "path": "dist/progression-data-v14.js",
+      "reasons": [
+        "classes: task matched 职业; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "117828bbc22b33ac0bf2082c7065391ac1b8b889972c34831d1080c6c886b814",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "export const BLOODBLADE_BLEED_MAX_STACKS=30;",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// Pure progression registry. Importable before RPG registration; no DOM or state mutation.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const NORMAL_LEVEL_CAP=32;",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const CAREERS={",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " bloodblade:{id:'bloodblade',cls:'shadow',name:'血刃',summary:'持续流血、引爆创口；适合贴身周旋。',growth:{str:2,dex:2,vit:1,wis:0},bonus:{str:3,dex:3,vit:2,wis:0},trait:'刻骨',traitDesc:`普攻每次施加一层裂伤，最多${BLOODBLADE_BLEED_MAX_STACKS}层；每次叠加刷新6秒持续时间。每秒每层造成 基础战力×0.08 + 敏捷×0.12 + 力量×0.08 伤害。裂伤不会触发吸血或装备连锁。`,skills:['bloodCarve','bloodFan','bloodHarvest','bloodRenew','bloodBinding']},",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " assassin:{id:'assassin',cls:'shadow',name:'暗杀者',summary:'标记破绽，集中爆发；选择正确的出手时机。',growth:{str:2,dex:3,vit:0,wis:0},bonus:{str:3,dex:5,vit:0,wis:0},trait:'要害',traitDesc:'直接伤害对生命低于35%的敌人提高15%；暴击率额外+8%，仍受总上限45%约束。',skills:['assassinMark','assassinSever','assassinVeil','assassinFan','assassinFinish']},",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " nightmare:{id:'nightmare',cls:'shadow',name:'夜魇',summary:'以密集而迅速的短刃攻击压住对手。',growth:{str:1,dex:3,vit:1,wis:0},bonus:{str:1,dex:5,vit:2,wis:0},trait:'不息刃',traitDesc:'攻速额外+20%；每次有效普攻回复2 MP，每0.45秒最多一次。移动速度不变。',skills:['nightFrenzy','nightMomentum','nightPursuit','nightBreaker','nightThirst']},",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " dreadguard:{id:'dreadguard',cls:'oath',name:'铸誓卫',summary:'靠护盾承受攻击，以格挡反击和控制稳步推进。',growth:{str:1,dex:0,vit:3,wis:1},bonus:{str:1,dex:0,vit:6,wis:1},trait:'壁垒',traitDesc:'最大生命+12%，最终总减伤额外+8%（全来源最高60%）；有",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 15995
+    },
+    {
+      "path": "dist/progression-runtime-v14.js",
+      "reasons": [
+        "classes: task matched 职业; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "680300608f35bfc3b5f8296b9c4a49bf4ab02c21220e0444f82a5b673a056b0c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {isStoryTestV25} from './story-test-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {BLOODBLADE_BLEED_MAX_STACKS,CAREERS,PROGRESSION_SKILLS,careerFor,MEMORY_CAREERS,careerSkillUnlocked,careerUnlockedSkills,CAREER_STAGE_LABELS} from './progression-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {progressionSkillNumbers,isCareerDamage} from './progression-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {totalAttributes,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {cleanBindings} from './attunement-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {ITEMS} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "const dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "const state=p=>{",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19666
+    },
+    {
+      "path": "dist/saga-stats-v25.js",
+      "reasons": [
+        "classes: task matched 职业; maintained entry"
+      ],
+      "priority": 98,
+      "category": "current_code",
+      "sha256": "a75fa58e31057c566135dbb6efadbf7efa97f1f331b3b8326fb744c0ce2bea73",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Runtime association, never co",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 1753
+    }
+  ],
+  "excerpt_bytes": 11552,
+  "max_files": 22,
+  "budget_bytes": 24000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R03"
+      ],
+      "scene": null,
+      "actors": [
+        "noen",
+        "elyria"
+      ],
+      "stage_candidates": [
+        {
+          "event": "R03:ch3Arrival",
+          "scene": "ch3Arrival",
+          "summary": "进入地狱入口"
+        },
+        {
+          "event": "R03:ch3Wake",
+          "scene": "ch3Wake",
+          "summary": "艾莉娅寻药救诺恩；救人不代表原谅杀人"
+        },
+        {
+          "event": "R03:ch3End",
+          "scene": "ch3End",
+          "summary": "乘升降台继续向下，疑问尚未解答"
+        }
+      ],
+      "needs": [
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "budget_limited": true,
+    "deferred_sections": [
+      "provenance"
+    ],
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "noen": {
+        "name": "诺恩",
+        "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+        "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+        "state": {
+          "emotion": "日常回到会馆，进入任务准备。",
+          "goals": [
+            "寻找雾中能走的路。"
+          ],
+          "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+          "expression": "松手与提醒脚下仅是局部行为，未成为成熟爱人。",
+          "conflicts": [
+            "承认违约，继续控制艾莉娅。"
+          ],
+          "last_change": "R02:ch2ExileEnd"
+        },
+        "relationships": {
+          "elyria": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "共同逃亡但仍有控制",
+            "concealment": "未解释后续全貌",
+            "obligation": "UNRESOLVED",
+            "conflict": "知道自己违约仍不释放"
+          }
+        },
+        "sources": [
+          "author-hero",
+          "scene:contract",
+          "scene:sisterIdle",
+          "scene:ch2Spillway",
+          "runtime-c1-hidden"
+        ],
+        "profile": "source/narrative/characters/noen.json"
+      },
+      "elyria": {
+        "name": "艾莉娅",
+        "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+        "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+        "state": {
+          "emotion": "拒绝把求生等同答应同行。",
+          "goals": [
+            "寻找出口，出去后要求诺恩回教堂说明。"
+          ],
+          "faction_view": "真诚信任教廷的救助。",
+          "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+          "conflicts": [
+            "无法施圣术，亲见杀人与绑架。"
+          ],
+          "last_change": "R02:ch2ExileEnd"
+        },
+        "relationships": {
+          "noen": {
+            "trust": "承诺已经破裂",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "继续反抗",
+            "dependence": "危险处境被迫共行",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "拒绝以别人生命换自由"
+          }
+        },
+        "sources": [
+          "author-saint",
+          "scene:saintBrief",
+          "scene:ch2Terms",
+          "scene:ch2ExileEnd"
+        ],
+        "profile": "source/narrative/characters/elyria.json"
+      }
+    },
+    "knowledge": {
+      "noen": {
+        "F-C1-COMMISSION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-SEAL-INSTRUCTION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-DOOR-CLAIM": {
+          "mode": "believes",
+          "via": "R01:contract"
+        },
+        "F-C1-ABDUCTION": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-SEAL-OBSERVED": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-PROMISE": {
+          "mode": "knows",
+          "via": "R01:chapterEnd"
+        },
+        "F-C2-TARGET": {
+          "mode": "believes",
+          "via": "R02:ch2Relay"
+        },
+        "F-C2-REFUSAL": {
+          "mode": "knows",
+          "via": "R02:ch2InnerDoor"
+        },
+        "F-C2-BROKEN-PROMISE": {
+          "mode": "knows",
+          "via": "R02:ch2Spillway"
+        },
+        "F-C2-EXILE": {
+          "mode": "knows",
+          "via": "R02:ch2PursuitStops"
+        }
+      },
+      "elyria": {
+        "F-C1-MISSING": {
+          "mode": "knows",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-BLAME": {
+          "mode": "believes",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-ABDUCTION": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-SEAL-OBSERVED": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-PROMISE": {
+          "mode": "knows",
+          "via": "R01:chapterEnd"
+        },
+        "F-C2-TARGET": {
+          "mode": "heard",
+          "via": "R02:ch2Terms"
+        },
+        "F-C2-REFUSAL": {
+          "mode": "knows",
+          "via": "R02:ch2InnerDoor"
+        },
+        "F-C2-BROKEN-PROMISE": {
+          "mode": "knows",
+          "via": "R02:ch2Spillway"
+        },
+        "F-C2-EXILE": {
+          "mode": "knows",
+          "via": "R02:ch2PursuitStops"
+        }
+      },
+      "player": {
+        "F-C1-COMMISSION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-SEAL-INSTRUCTION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-DOOR-CLAIM": {
+          "mode": "believes",
+          "via": "R01:contract"
+        },
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-PROTECT": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-MISSING": {
+          "mode": "knows",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-BLAME": {
+          "mode": "heard",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-ABDUCTION": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-SEAL-OBSERVED": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-PROMISE": {
+          "mode": "knows",
+          "via": "R01:chapterEnd"
+        },
+        "F-C2-TARGET": {
+          "mode": "believes",
+          "via": "R02:ch2Relay"
+        },
+        "F-C2-OBSERVE": {
+          "mode": "knows",
+          "via": "R02:darkCommissionV9"
+        },
+        "F-C2-ABUSE": {
+          "mode": "knows",
+          "via": "R02:ch2TargetBefore"
+        },
+        "F-C2-REFUSAL": {
+          "mode": "knows",
+          "via": "R02:ch2InnerDoor"
+        },
+        "F-C2-BREN-DEAD": {
+          "mode": "knows",
+          "via": "R02:ch2TargetAfter"
+        },
+        "F-C2-BROKEN-PROMISE": {
+          "mode": "knows",
+          "via": "R02:ch2Spillway"
+        },
+        "F-C2-EXILE": {
+          "mode": "knows",
+          "via": "R02:ch2PursuitStops"
+        },
+        "F-C2-EXILE-ACCOUNT": {
+          "mode": "believes",
+          "via": "R02:darkExileV9"
+        },
+        "F-C2-RESCUE": {
+          "mode": "knows",
+          "via": "R02:darkExileV9"
+        }
+      }
+    },
+    "facts": {
+      "F-C1-DOOR-CLAIM": {
+        "id": "F-C1-DOOR-CLAIM",
+        "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+        "truth": "reported_claim",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-EXILE-ACCOUNT": {
+        "id": "F-C2-EXILE-ACCOUNT",
+        "summary": "当前会馆对白把进入禁地归于封路逼迫；运行给玩家exile-was-unplanned。与已定作者方向不同，记录为当前解释而非全知真相。",
+        "truth": "reported_claim",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkExileV9",
+          "runtime-knowledge"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-MISSING": {
+        "id": "F-C1-MISSING",
+        "summary": "失踪家属正在等消息，艾莉娅关心老人和姑娘们。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:saintBrief"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-PROTECT": {
+        "id": "F-C1-PROTECT",
+        "summary": "薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "runtime-c1-hidden"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-ABDUCTION": {
+        "id": "F-C1-ABDUCTION",
+        "summary": "卡德兰被诺恩刺杀，圣女施救受阻、圣术被封，被强迫带走。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:assassination",
+          "scene:chapterEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-REFUSAL": {
+        "id": "F-C2-REFUSAL",
+        "summary": "艾莉娅拒绝开门并主动报警，要求尽量活捉；内门没有打开。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2InnerDoor"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-PROMISE": {
+        "id": "F-C1-PROMISE",
+        "summary": "诺恩在水渠以其他百姓威胁，许诺驿站事情办完后放人；艾莉娅为百姓安全被迫答应。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:chapterEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-BROKEN-PROMISE": {
+        "id": "F-C2-BROKEN-PROMISE",
+        "summary": "诺恩为防驿站暴露继续扣留艾莉娅，承认不守信；她决定自己寻找回去的机会。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2Spillway"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-OBSERVE": {
+        "id": "F-C2-OBSERVE",
+        "summary": "会馆有意观察两人同行的反应，薇蕾娜要求保证退路；不保证控制每个结果。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkCommissionV9"
+        ],
+        "risk_terms": [
+          "我们在看",
+          "观察两个人"
+        ]
+      },
+      "F-C2-EXILE": {
+        "id": "F-C2-EXILE",
+        "summary": "两人越过界碑，追兵停在碑外。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2PursuitStops",
+          "scene:ch2ExileEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-BREN-DEAD": {
+        "id": "F-C2-BREN-DEAD",
+        "summary": "第二章目标后场明确说布伦死了，赫斯特仍活着。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2TargetAfter"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-BLAME": {
+        "id": "F-C1-BLAME",
+        "summary": "卡德兰称黑暗教廷杀了奥斯文并将失踪案归责于其；只是其说法，未在该场核实。",
+        "truth": "unreliable_report",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:saintBrief"
+        ],
+        "risk_terms": [
+          "黑暗教廷杀了奥斯文"
+        ]
+      },
+      "F-C1-SEAL-OBSERVED": {
+        "id": "F-C1-SEAL-OBSERVED",
+        "summary": "诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:assassination",
+          "runtime-knowledge"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-COMMISSION": {
+        "id": "F-C1-COMMISSION",
+        "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-ALT-DOOR": {
+        "id": "F-C1-ALT-DOOR",
+        "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "runtime-c1-hidden"
+        ],
+        "risk_terms": [
+          "别的办法解开",
+          "另一种开门",
+          "其他开门办法"
+        ],
+        "initial_holders": [
+          "vilerena"
+        ]
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "id": "F-C1-SEAL-INSTRUCTION",
+        "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+        "truth": "instruction",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-ABUSE": {
+        "id": "F-C2-ABUSE",
+        "summary": "玩家独立镜头看到赫斯特虐待舞者、侍女与税户；主角不在内室。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2TargetBefore",
+          "scene:ch2TargetAfter"
+        ],
+        "risk_terms": [
+          "赫斯特虐待舞者",
+          "内室的税户"
+        ]
+      },
+      "F-C2-TARGET": {
+        "id": "F-C2-TARGET",
+        "summary": "塞琳传达赫斯特目标、画像、路图和本人佩戴圣徽靠近铜盘即可验门的解释。",
+        "truth": "instruction",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2Relay"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-RESCUE": {
+        "id": "F-C2-RESCUE",
+        "summary": "薇蕾娜在当前会馆场要求带药绳到外沿接人，鲁恩去找人并保留观察点。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkExileV9"
+        ],
+        "risk_terms": []
+      }
+    },
+    "seeds": [
+      {
+        "id": "SEED-DOOR",
+        "fact_ids": [
+          "F-C1-ALT-DOOR"
+        ],
+        "state": "partially_revealed",
+        "planted_at": "R01:c1HiddenPairArrangement",
+        "shown": [
+          "存在其他解法，但带圣女仍是上级安排。"
+        ],
+        "interpretations": {
+          "player": "知道存在替代办法",
+          "vilerena": "追问为什么仍要带人",
+          "rune": "称服从上面安排",
+          "noen": "未获知",
+          "elyria": "未获知"
+        },
+        "withheld": [
+          "具体办法、代价、上层目的"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+        ],
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ]
+      },
+      {
+        "id": "SEED-OBSERVATION",
+        "fact_ids": [
+          "F-C2-OBSERVE"
+        ],
+        "state": "partially_revealed",
+        "planted_at": "R01:aside",
+        "shown": [
+          "会馆控制任务信息",
+          "第二章玩家看见观察同行的安排"
+        ],
+        "interpretations": {
+          "player": "至第二章会馆场知道观察意图",
+          "noen": "不知",
+          "elyria": "不知",
+          "vilerena": "参与安排"
+        },
+        "withheld": [
+          "观察的全部长期目的",
+          "预言机制"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "信任与自主选择可能受到影响，不能提前认定反叛。"
+        ],
+        "sources": [
+          "scene:aside",
+          "scene:darkCommissionV9",
+          "author-pair"
+        ]
+      },
+      {
+        "id": "SEED-SEAL",
+        "fact_ids": [
+          "F-C1-SEAL-OBSERVED"
+        ],
+        "state": "planted",
+        "planted_at": "R01:assassination",
+        "shown": [
+          "封住圣术的实际效果"
+        ],
+        "interpretations": {
+          "noen": "会使用，未知来源全貌",
+          "elyria": "亲历圣术受阻",
+          "player": "看见封术效果"
+        },
+        "withheld": [
+          "来源、完整边界与解除条件的长期解释"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "需要后续实际证据，不能创造万能感应。"
+        ],
+        "sources": [
+          "scene:assassination",
+          "author-open"
+        ]
+      }
+    ],
+    "conflicts": [],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R03",
+      "scene": null,
+      "position": "before",
+      "at": null,
+      "stage_exact": false,
+      "coverage": "basic_runtime_only",
+      "gaps": [
+        "未建立新文学章节稿；旧运行章节不自动等于多卷架构的V01C03。",
+        "只确认下列运行节点；支线、关系分支与完整知识仍需逐场补齐。"
+      ],
+      "plan": null
+    },
+    "reveal_ceiling": {
+      "this_event_only": [],
+      "author_secrets_do_not_grant_knowledge": true
+    }
+  },
+  "narrative_bytes": 12448,
+  "total_context_bytes": 24000,
+  "deferred": [
+    "dist/core-v14.js",
+    "dist/equipment-v14.js",
+    "dist/skills-v14.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/rpg-experience.test.mjs",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "证据与设计判断独立；脚本不冒充真人体验；按任务范围加载，不默认读取八章。",
+    "证据与设计判断独立；脚本不冒充真人体验；按任务范围加载，不默认读取八章。",
+    "UI 数值取 stats/skillNumbers；成长、激活上限和圣女独立成长必须兼容。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 226
+    },
+    {
+      "name": "installChapter4",
+      "line": 227
+    },
+    {
+      "name": "installPacing",
+      "line": 229
+    },
+    {
+      "name": "installQuestService",
+      "line": 230
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 235
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 237
+    },
+    {
+      "name": "installChapter5",
+      "line": 238
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 239
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 240
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 241
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 243
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 244
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 245
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 246
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 247
+    },
+    {
+      "name": "installCityV18",
+      "line": 248
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 250
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 251
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 253
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 256
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 257
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 258
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 259
+    },
+    {
+      "name": "installSagaV25",
+      "line": 264
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 268
+    },
+    {
+      "name": "installSagaV26",
+      "line": 271
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 278
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 280
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 282
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 284
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 285
+    },
+    {
+      "name": "installChapterOneExpansion",
+      "line": 287
+    },
+    {
+      "name": "installGameSettings",
+      "line": 288
+    },
+    {
+      "name": "installChapterTwoExperience",
+      "line": 290
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

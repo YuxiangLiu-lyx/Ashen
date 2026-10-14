@@ -1,0 +1,942 @@
+{
+  "task": "rpg-c3-20261014",
+  "reviewer": "Codex实际画面审阅；真人审美待验",
+  "checked_at_utc": "2026-10-14T15:44:26.190259+00:00",
+  "source_fingerprint": "3375b1bbec97c8361b8a927ad556b8a3288188414bfc1511c5424a31f5af4fa2",
+  "reviewed_paths": [
+    "dist/chapter23-art-v30.js",
+    "dist/core-v14.js",
+    "dist/rpg-chapter-three-art.js",
+    "dist/rpg-chapter-three-world.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/v10/hell-npc-portraits-v10.png",
+      "sha256": "9618ec47a5b631806862579e05c97d756077d33e7740b1ee7acc5e1405a42f58"
+    },
+    {
+      "path": "dist/assets/v10/hell-enemies-atlas-v10.png",
+      "sha256": "1a1d93a6dbea76c83f517e71f857ad945df6f0d1e4fe4442b7d40fc7919abecd"
+    },
+    {
+      "path": "dist/assets/v10/hell-environment-atlas-v10.png",
+      "sha256": "6a46328a252feb038e8f5e7c724c451dcf891965053d3f691a31b92606bae4b2"
+    },
+    {
+      "path": "dist/assets/v30/hell-scenery.png",
+      "sha256": "7ba4ecfc4f91ce65800fd0f5c02673301aefd3f6d23aa64b988f7314621e387a"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hellGate",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGate-collision.webp",
+            "sha256": "a0340212163c0bd9d0540fd83eab09eb21daf93008b56dddd7bcb4d309fbae01"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGate.webp",
+            "sha256": "401ecb4a6e74780fd0acfee044394f8f2f4e22067d436061afa8343fec4383ef"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellGate.webp",
+            "sha256": "401ecb4a6e74780fd0acfee044394f8f2f4e22067d436061afa8343fec4383ef"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGate.webp",
+            "sha256": "401ecb4a6e74780fd0acfee044394f8f2f4e22067d436061afa8343fec4383ef"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellApproach",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellApproach-collision.webp",
+            "sha256": "b49653bf1be9dbf8b3252719cc4c592adc958ba7ce58bb902331dee21bc0a17d"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellApproach.webp",
+            "sha256": "5462f7a77e1ce5f3be4ed766d2390d33227aef69bc6fe3b99681a08c2af9d9fc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellApproach.webp",
+            "sha256": "5462f7a77e1ce5f3be4ed766d2390d33227aef69bc6fe3b99681a08c2af9d9fc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellApproach.webp",
+            "sha256": "5462f7a77e1ce5f3be4ed766d2390d33227aef69bc6fe3b99681a08c2af9d9fc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellQuarry",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellQuarry-collision.webp",
+            "sha256": "d75c91ab9cc21b0f40631be153b9720ab8e908b21ddc9116ab298d1f6e2a5e41"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellQuarry.webp",
+            "sha256": "2ac8db0cbd9236f547a40939e799350d18b73cd535b584c69fdb5d05d4cc5086"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellQuarry.webp",
+            "sha256": "23dbf4e8e22c07abb18d922ae49876778002ac7ecc61bea7f9e196e9d5ffe4e7"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellQuarry.webp",
+            "sha256": "2ac8db0cbd9236f547a40939e799350d18b73cd535b584c69fdb5d05d4cc5086"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellSluice",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellSluice-collision.webp",
+            "sha256": "c9f269ce7b498977ed1359830772ce6e4b29c787c7616fd99449d99f23189988"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellSluice.webp",
+            "sha256": "9177bd7874b3f7094371c1814e94abb80b1c19ae6180b3cf1272574229215c3a"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellSluice.webp",
+            "sha256": "4b1a35e689fa18793c9c59b40e0ba0f33fe827195dd54c0769517cac4d3f8905"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellSluice.webp",
+            "sha256": "9177bd7874b3f7094371c1814e94abb80b1c19ae6180b3cf1272574229215c3a"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellWall",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWall-collision.webp",
+            "sha256": "f38c326c06417d938b6d9e2d86a98fb61d6d68f7e66aa4e51157f41790a2635f"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWall.webp",
+            "sha256": "c7b1f2bc4196a68258238baace35778f0ddb4b99684184507cbc629fbef2dcbb"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellWall.webp",
+            "sha256": "7f03a761eeabff8bbec5c7d45228ad6f294e05075eb4ee735957a30deda74a5f"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWall.webp",
+            "sha256": "c7b1f2bc4196a68258238baace35778f0ddb4b99684184507cbc629fbef2dcbb"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellCamp",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellCamp-collision.webp",
+            "sha256": "c83a5473c431b12055dc525eb650e8a151ad622b8cdf00e590db4ffbaffe9568"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellCamp.webp",
+            "sha256": "d057db2e1f7361cbdbe17ac34cb8cbd025572a62509b5091cfe1888fb4522ffc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellCamp.webp",
+            "sha256": "d057db2e1f7361cbdbe17ac34cb8cbd025572a62509b5091cfe1888fb4522ffc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellCamp.webp",
+            "sha256": "d057db2e1f7361cbdbe17ac34cb8cbd025572a62509b5091cfe1888fb4522ffc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellGrotto",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGrotto-collision.webp",
+            "sha256": "1f330633c1cdbaccf0d52065e79896bf512381870cc6aab7667fcdf0c0353463"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGrotto.webp",
+            "sha256": "6fde389048b19ec932243f0479269d215a27add8ea66e391402c8389e7fad29b"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellGrotto.webp",
+            "sha256": "771b5edccf080be4c61bc640c0e7a5dfbf654ba8b61c822e6738f47b408327b0"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellGrotto.webp",
+            "sha256": "6fde389048b19ec932243f0479269d215a27add8ea66e391402c8389e7fad29b"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellWorkshop",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWorkshop-collision.webp",
+            "sha256": "18b2b61c47affe2118a4369250c86edc2deb53b86df8d1428a7188627a6e71ca"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWorkshop.webp",
+            "sha256": "ddfba90158a17c55295d8c70afc2bec265691f4fecad3adbd2bf22b1e5d7df26"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellWorkshop.webp",
+            "sha256": "8f1514e33540bd52b03547ba26b9c3e980ab44eeb28b8e90942d3fba33c0ea41"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellWorkshop.webp",
+            "sha256": "ddfba90158a17c55295d8c70afc2bec265691f4fecad3adbd2bf22b1e5d7df26"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellMine",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellMine-collision.webp",
+            "sha256": "2f592f8eb5d2eaa3300f84d3784af6ceb65eeae7a100a6de622335df19b19ac9"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellMine.webp",
+            "sha256": "3595e333ad8ee8210ae47565c24ccab8d7c599c281876f1bee20a11a9a6afae2"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellMine.webp",
+            "sha256": "31cf2d63c61b186b1809179558eb1c6a6c4521f3d395a76547fbde26489fb67f"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellMine.webp",
+            "sha256": "3595e333ad8ee8210ae47565c24ccab8d7c599c281876f1bee20a11a9a6afae2"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellFerry",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellFerry-collision.webp",
+            "sha256": "012c3014cb1d311c476721451333e8eda3aa1eae9860746d0c7a1597fe6bee59"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellFerry.webp",
+            "sha256": "e19348b79ecc1145323add57e59269c7a335b1789d2b5b0d5c86d2da6b9f9292"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellFerry.webp",
+            "sha256": "e19348b79ecc1145323add57e59269c7a335b1789d2b5b0d5c86d2da6b9f9292"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellFerry.webp",
+            "sha256": "e19348b79ecc1145323add57e59269c7a335b1789d2b5b0d5c86d2da6b9f9292"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellPass",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellPass-collision.webp",
+            "sha256": "7f102157a3bc6881f416ed5c01a3cd69e2ed0ec859a9bf346c964114f3f5851c"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellPass.webp",
+            "sha256": "5ce7f0d021f5b25702b561d950eceea42732a1b746677cb5a87c53a2a9d760bd"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellPass.webp",
+            "sha256": "ca2beaa197bb1edbd2c04ecf7633388db4dbb83d74c3f5e673fd5dd5fe55706b"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellPass.webp",
+            "sha256": "5ce7f0d021f5b25702b561d950eceea42732a1b746677cb5a87c53a2a9d760bd"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellArena",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellArena-collision.webp",
+            "sha256": "41bf4e6fd8e0666decccaf4864792e3748f90f94066c7513109e1d02188481f3"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellArena.webp",
+            "sha256": "6d8f739dd3cc896f2738ac284bbc17cb72e6e129b55605a386571eed7cc07eab"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellArena.webp",
+            "sha256": "1b075d0532482a2b374ceefc393b071c1c28af8003c946c75d60f72e37fbcb63"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellArena.webp",
+            "sha256": "6d8f739dd3cc896f2738ac284bbc17cb72e6e129b55605a386571eed7cc07eab"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellTomb",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellTomb-collision.webp",
+            "sha256": "35b4527599ad66498f356e9c180f2d4c11e135f169d2a312007feef7016f93ea"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellTomb.webp",
+            "sha256": "6c1ff34503f48f87048800478eff5cad1f75a4e96744a4823f3aa42165795b8f"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellTomb.webp",
+            "sha256": "5262a0f71641ab02778006bdb6c500a0a7325a59a5ba17d194bc4a55cbc11392"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellTomb.webp",
+            "sha256": "6c1ff34503f48f87048800478eff5cad1f75a4e96744a4823f3aa42165795b8f"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellRift",
+      "playability": {
+        "status": "pass",
+        "reason": "14图182条正式移动路线；实际入图生产群战、正常UI和首领测试另列，不以移除敌人的网格扫描代替战斗。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/maps-delivery/NAVIGATION.json",
+            "sha256": "c5a8a8a421a2fa61a69be7bd76c72ccbdfe1c1622f57589fc0ea626b8c103207"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellRift-collision.webp",
+            "sha256": "c3aa04742c54c391cf1c956cf042d76c7f908e8fd6cc551d77b1a99d673206bc"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-entry-final/COMBAT.json",
+            "sha256": "fcc8fd26f9f8096648d1383f8085f714a078401377ddd77c594deafd1fa4c1aa"
+          },
+          {
+            "path": "docs/rpg-experience/c3/NORMAL_INPUT_CHAIN.json",
+            "sha256": "86eca25dd7ede6d6784207367ea2918a8a941b414fcc0d94774ce7b9e468ad52"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "已查看正式全图与改前后；具体地理/物件用途和保留局限见逐图审阅。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellRift.webp",
+            "sha256": "347d50d9ec5204a680571d419d07c5dacded056ac780a107c8c1b2e437729106"
+          },
+          {
+            "path": "docs/rpg-experience/c3/baseline-maps-complete/hellRift.webp",
+            "sha256": "a7738e724cf966678f1196a22bb56e83560d090108f73434c817c4a5cda0aaa4"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "实际NPC和敌人画廊与原画映射一致；职业救援与恢复用原演员和行装。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellNPC-frames.webp",
+            "sha256": "05e0fe44d504b71dd6d1c69f7ea6174ff77a4037fc2210d99d48fc7fb2720d95"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellEnemies-frames.webp",
+            "sha256": "efc52e1b002077f6ab873ffbcf0565fb078df444673867ea2f6ae91c53447b52"
+          },
+          {
+            "path": "docs/rpg-experience/c3/current-maps-final/hellRift.webp",
+            "sha256": "347d50d9ec5204a680571d419d07c5dacded056ac780a107c8c1b2e437729106"
+          },
+          {
+            "path": "docs/rpg-experience/c3/MAP_REVIEW.md",
+            "sha256": "87438032d55d8efc48fd83f6dfd496cdb25426818a046ab4834811dc76bbeb8c"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,658 @@
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (572.011208ms)
+✖ all three classes skip from chapter one through eight with every intermediate save validated (98.310083ms)
+✖ each later chapter start can skip to the final result without stuck quests (28.400625ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (3.981291ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (5.368583ms)
+✖ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (2.96525ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (4.777792ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (35.736541ms)
+✖ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (682.523833ms)
+✖ original chapter geometry, exits, encounters and object identities remain intact (7.839541ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (9.1305ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.470083ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (20.176125ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (5.927042ms)
+✖ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (179.773541ms)
+✖ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (483.417167ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (9.431541ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.655292ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (8.998083ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.254917ms)
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (73.649834ms)
+✔ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (17.261625ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (15.258959ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (6.194125ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (15.821459ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (25.687959ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (4.480958ms)
+✔ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (45.858084ms)
+✔ repair is a lasting free rest result; both real locations, pending resume and actual reward remain correct (5.431375ms)
+✔ rest cannot be applied from another map, distant menu, dead player or through active threats (6.70625ms)
+✔ cellar supplies pay once only after a legal claim; full bag and legacy claimed boxes do not print medicine (4.526125ms)
+✔ authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore (12.690042ms)
+✔ front guard responds to position and skills, while DOT is not silently weakened (7.364041ms)
+✔ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (8.518ms)
+✔ the well chain is a real one-time control tool and old pending mainline scenes remain readable (6.433417ms)
+✔ a deferred spillway conversation remains available after escaping and uses the real safe arrival (3.125459ms)
+ℹ tests 36
+ℹ suites 0
+ℹ pass 29
+ℹ fail 7
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1081.225792
+
+✖ failing tests:
+
+test at tests/chapter-test.test.mjs:26:1
+✖ all three classes skip from chapter one through eight with every intermediate save validated (98.310083ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:202:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:32:6)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/chapter-test.test.mjs:44:1
+✖ each later chapter start can skip to the final result without stuck quests (28.400625ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:202:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:47:54)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-test.test.mjs:75:1
+✖ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (2.96525ms)
+  Error: 当前步骤未能推进，请完成眼前交互或重新选择章节。
+      at skipStoryTestStepV31 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/story-test-v31.js:202:26)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-test.test.mjs:81:28)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter123-v30.test.mjs:30:1
+✖ all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable (682.523833ms)
+  AssertionError [ERR_ASSERTION]: hellGrotto/walkableCells
+  
+  330 !== 605
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:39:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 330,
+    expected: 605,
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter123-v30.test.mjs:44:1
+✖ original chapter geometry, exits, encounters and object identities remain intact (7.839541ms)
+  AssertionError [ERR_ASSERTION]: hellGrotto/blocks
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      [
+        0,
+        0,
+        1600,
+  +     220
+  -     150
+      ],
+      [
+        0,
+  +     220,
+  +     960,
+  +     60
+  -     965,
+  -     400,
+  -     115
+      ],
+      [
+  +     1460,
+  +     220,
+  +     140,
+  +     300
+  -     620,
+  -     965,
+  -     980,
+  -     115
+      ],
+      [
+        0,
+  +     280,
+  +     480,
+  +     320
+  -     150,
+  -     130,
+  -     815
+      ],
+      [
+  +     880,
+  +     280,
+  +     80,
+  +     40
+  -     1470,
+  -     150,
+  -     130,
+  -     140
+      ],
+      [
+  +     880,
+  +     500,
+  +     80,
+  +     20
+  -     1470,
+  -     510,
+  -     130,
+  -     455
+      ],
+      [
+  +     880,
+  +     520,
+  +     340,
+  +     60
+  +   ],
+  +   [
+  +     1420,
+  +     520,
+  +     180,
+  +     160
+  +   ],
+  +   [
+  +     680,
+  +     580,
+  +     540,
+  +     20
+  +   ],
+  +   [
+  +     0,
+  +     600,
+  +     320,
+        360,
+  -     492,
+  -     120,
+  -     38
+      ],
+      [
+  +     680,
+  +     600,
+  +     280,
+  +     160
+  +   ],
+  +   [
+  +     1380,
+  +     680,
+  +     220,
+  +     180
+  +   ],
+  +   [
+  +     1040,
+  +     860,
+  +     560,
+  +     60
+  +   ],
+  +   [
+  +     680,
+  +     920,
+  +     920,
+  -     702,
+  -     605,
+  -     146,
+        40
+      ],
+      [
+  +     0,
+  +     960,
+  +     1600,
+  +     120
+  +   ],
+  +   [
+        862,
+        430,
+        136,
+        40
+      ],
+  ...
+      [
+  -     265,
+  -     795,
+  -     70,
+  -     30
+  -   ],
+  -   [
+        1274,
+        317,
+        22,
+        18
+      ],
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter123-v30.test.mjs:46:81)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [
+      [ 0, 0, 1600, 220 ],     [ 0, 220, 960, 60 ],
+      [ 1460, 220, 140, 300 ], [ 0, 280, 480, 320 ],
+      [ 880, 280, 80, 40 ],    [ 880, 500, 80, 20 ],
+      [ 880, 520, 340, 60 ],   [ 1420, 520, 180, 160 ],
+      [ 680, 580, 540, 20 ],   [ 0, 600, 320, 360 ],
+      [ 680, 600, 280, 160 ],  [ 1380, 680, 220, 180 ],
+      [ 1040, 860, 560, 60 ],  [ 680, 920, 920, 40 ],
+      [ 0, 960, 1600, 120 ],   [ 862, 430, 136, 40 ],
+      [ 498, 266, 124, 34 ],   [ 1249, 565, 102, 30 ],
+      [ 955, 835, 150, 35 ],   [ 1274, 317, 22, 18 ],
+      [ 699, 414, 62, 16 ]
+    ],
+    expected: [ [ 0, 0, 1600, 150 ], [ 0, 965, 400, 115 ], [ 620, 965, 980, 115 ], [ 0, 150, 130, 815 ], [ 1470, 150, 130, 140 ], [ 1470, 510, 130, 455 ], [ 360, 492, 120, 38 ], [ 702, 605, 146, 40 ], [ 862, 430, 136, 40 ], [ 498, 266, 124, 34 ], [ 1249, 565, 102, 30 ], [ 955, 835, 150, 35 ], [ 265, 795, 70, 30 ], [ 1274, 317, 22, 18 ], [ 699, 414, 62, 16 ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter23-v30.test.mjs:13:1
+✖ 23 maps keep the exact baseline geometry, spawns and gates; all interaction anchors are reachable (179.773541ms)
+  AssertionError [ERR_ASSERTION]: hellGrotto
+  
+  330 !== 605
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:16:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 330,
+    expected: 605,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter23-v30.test.mjs:22:1
+✖ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (483.417167ms)
+  AssertionError [ERR_ASSERTION]: ember/hellGuard
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      config: {
+        attrs: {
+          dex: 0,
+          str: 0,
+  ...
+      },
+  +   elapsed: 7.55,
+  -   elapsed: 1.85,
+      events: [
+        {
+          enemy: 'hellGuard',
+          maxHP: 1173,
+          player: {
+  ...
+        {
+  -       amount: 181,
+  -       hp: 897,
+  -       kind: 'hit',
+  -       origin: 'unattributed-projectile',
+  -       target: 'lab-hellGuard',
+  -       time: 0.3,
+  -       type: 'damage'
+  -     },
+  -     {
+          amount: 163,
+  +       hp: 587,
+  -       hp: 406,
+          kind: 'proc',
+          origin: 'e',
+          target: 'lab-hellGuard',
+          time: 0.475,
+          type: 'damage'
+  ...
+          amount: 328,
+  +       hp: 587,
+  -       hp: 406,
+          kind: 'skill',
+          origin: 'e',
+          target: 'lab-hellGuard',
+          time: 0.475,
+          type: 'damage'
+  ...
+          key: 'e',
+  +       mp: 325.551,
+  -       mp: 325.52635,
+          mpSpent: 17,
+          time: 0.475,
+          type: 'use'
+        },
+        {
+          amount: 110,
+  +       hp: 477,
+  -       hp: 296,
+          kind: 'skill',
+          origin: 'unattributed-projectile',
+          target: 'lab-hellGuard',
+          time: 0.625,
+          type: 'damage'
+  ...
+          key: 'attack',
+  +       mp: 326.1397,
+  -       mp: 326.14405,
+          mpSpent: 0,
+  +       time: 1.025,
+  -       time: 1.05,
+          type: 'use'
+        },
+        {
+          amount: 6,
+  +       hp: 471,
+  -       hp: 290,
+          kind: 'dot',
+          origin: 'dot',
+          target: 'lab-hellGuard',
+  +       time: 1.05,
+  -       time: 1.075,
+          type: 'damage'
+        },
+        {
+  +       absorbed: 0,
+  +       amount: 44,
+  +       hp: 439,
+  +       time: 1.325,
+  +       type: 'hurt'
+  +     },
+  +     {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 326.9807,
+  +       mpSpent: 0,
+  +       time: 1.75,
+  +       type: 'use'
+  +     },
+  +     {
+  +       amount: 4,
+  +       hp: 467,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  -       amount: 181,
+  -       hp: 109,
+  -       kind: 'hit',
+  -       origin: 'unattributed-projectile',
+          target: 'lab-hellGuard',
+  +       time: 2.05,
+  -       time: 1.1,
+          type: 'damage'
+        },
+        {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 327.8217,
+  +       mpSpent: 0,
+  +       time: 2.475,
+  +       type: 'use'
+  +     },
+  +     {
+  +       amount: 2,
+  +       hp: 465,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  +       target: 'lab-hellGuard',
+  +       time: 3.05,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 328.6627,
+  +       mpSpent: 0,
+  +       time: 3.2,
+  +       type: 'use'
+  +     },
+  +     {
+          absorbed: 0,
+          amount: 44,
+  +       hp: 395,
+  +       time: 3.45,
+  -       hp: 439,
+  -       time: 1.375,
+          type: 'hurt'
+        },
+        {
+          cooldown: 0.72,
+          key: 'attack',
+  +       mp: 329.5037,
+  -       mp: 326.9894,
+          mpSpent: 0,
+  +       time: 3.925,
+  -       time: 1.8,
+          type: 'use'
+        },
+        {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 330.3447,
+  +       mpSpent: 0,
+  +       time: 4.65,
+  +       type: 'use'
+  +     },
+  +     {
+  +       cooldown: 5,
+  +       key: 'q',
+  +       mp: 318.8087,
+  +       mpSpent: 12,
+  +       time: 5.05,
+  +       type: 'use'
+  +     },
+  +     {
+  +       amount: 95,
+  +       hp: 370,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  +       target: 'lab-hellGuard',
+  +       time: 5.075,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 319.1857,
+  +       mpSpent: 0,
+  +       time: 5.375,
+  +       type: 'use'
+  +     },
+  +     {
+  +       absorbed: 0,
+  +       amount: 44,
+  +       hp: 351,
+  +       time: 5.575,
+  +       type: 'hurt'
+  +     },
+  +     {
+  +       amount: 95,
+  +       hp: 275,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  +       target: 'lab-hellGuard',
+  +       time: 5.775,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 320.0267,
+  +       mpSpent: 0,
+  +       time: 6.1,
+  +       type: 'use'
+  +     },
+  +     {
+  +       amount: 95,
+  +       hp: 180,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  +       target: 'lab-hellGuard',
+  +       time: 6.475,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 0.72,
+  +       key: 'attack',
+  +       mp: 320.8677,
+  +       mpSpent: 0,
+  +       time: 6.825,
+  +       type: 'use'
+  +     },
+  +     {
+  +       amount: 95,
+  +       hp: 85,
+  +       kind: 'dot',
+  +       origin: 'dot',
+  +       target: 'lab-hellGuard',
+  +       time: 7.175,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       amount: 85,
+  -       amount: 109,
+          hp: 0,
+  +       kind: 'skill',
+  +       origin: 'e',
+  -       kind: 'hit',
+  -       origin: 'unattributed-projectile',
+          target: 'lab-hellGuard',
+  +       time: 7.525,
+  -       time: 1.85,
+          type: 'damage'
+        },
+  +     {
+  +       cooldown: 7,
+  +       key: 'e',
+  +       mp: 304.6797,
+  +       mpSpent: 17,
+  +       time: 7.525,
+  +       type: 'use'
+  +     }
+      ],
+      limits: [
+        'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated',
+        'Strategies are scripted input policies, not measured human skill or full-chapter completion rates',
+        'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time',
+  ...
+        damageByKind: {
+  +       dot: 487,
+  -       dot: 101,
+  -       hit: 471,
+          proc: 163,
+  +       skill: 523
+  -       skill: 438
+        },
+        damageBySource: {
+  +       'unattributed-projectile': 110,
+  +       dot: 487,
+  +       e: 576
+  -       'unattributed-projectile': 581,
+  -       dot: 101,
+  -       e: 491
+        },
+  +     damageReceived: 132,
+  +     dps: 155.364238,
+  +     enemyAttacks: 3,
+  -     damageReceived: 44,
+  -     dps: 634.054054,
+  -     enemyAttacks: 1,
+        enemyInitialHP: 1173,
+        enemyRemainingHP: 0,
+        maxBleed: 0,
+  +     mpSpent: 58,
+  +     peakOneSecondDamage: 696,
+  +     remainingHP: 351,
+  +     remainingMP: 304.68405,
+  -     mpSpent: 29,
+  -     peakOneSecondDamage: 969,
+  -     remainingHP: 439,
+  -     remainingMP: 327.0474,
+        shieldAbsorbed: 0,
+        uses: {
+  +       attack: 10,
+  +       e: 2,
+  +       q: 2
+  -       attack: 3,
+  -       e: 1,
+  -       q: 1
+        }
+      },
+      outcome: 'win',
+  +   ttk: 7.55
+  -   ttk: 1.85
+    }
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:28:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: {
+      config: { cls: 'ember', level: 11, map: 'hellMine', enemy: 'hellGuard', seed: 42, duration: 25, dt: 0.025, strategy: 'combo', gearRarity: 'rare', skills: [Object], attrs: [Object], potions: false, x: 850, y: 700 },
+      outcome: 'win',
+      elapsed: 7.55,
+      ttk: 7.55,
+      metrics: { damage: 1173, damageReceived: 132, dps: 155.364238, peakOneSecondDamage: 696, remainingHP: 351, remainingMP: 304.68405, mpSpent: 58, shieldAbsorbed: 0, maxBleed: 0, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 1173, enemyRemainingHP: 0, enemyAttacks: 3 },
+      events: [
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object],
+        [Object], [Object], [Object]
+      ],
+      limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ]
+    },
+    expected: {
+      config: { cls: 'ember', level: 11, map: 'hellMine', enemy: 'hellGuard', seed: 42, duration: 25, dt: 0.025, strategy: 'combo', gearRarity: 'rare', skills: [Object], attrs: [Object], potions: false, x: 850, y: 700 },
+      outcome: 'win',
+      elapsed: 1.85,
+      ttk: 1.85,
+      metrics: { damage: 1173, damageReceived: 44, dps: 634.054054, peakOneSecondDamage: 969, remainingHP: 439, remainingMP: 327.0474, mpSpent: 29, shieldAbsorbed: 0, maxBleed: 0, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 1173, enemyRemainingHP: 0, enemyAttacks: 1 },
+      events: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ]
+    },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

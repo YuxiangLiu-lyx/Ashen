@@ -1,0 +1,911 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R03"
+    ],
+    "scene": "c3HerbMedicine",
+    "actors": [
+      "noen",
+      "morris"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "知道她救了自己，表达谢意。",
+        "goals": [
+          "寻找雾中能走的路。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "松手与提醒脚下仅是局部行为，未成为成熟爱人。",
+        "conflicts": [
+          "面对不再杀人的要求没有明确答应。"
+        ],
+        "last_change": "R03:ch3Wake"
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    },
+    "morris": {
+      "name": "莫里斯",
+      "base": "地狱营地的医师；检查链伤、封住侵蚀并指导采药取铁。他按眼前伤势分配工作，未证明他知道亡魂敌视圣徽的真因。",
+      "voice": "以病床、药布、药锅和手上动作说话；指令具体，解释能让求助者立刻照做，不加医者格言。",
+      "state": {
+        "emotion": "救治时沉着，关注伤势和照料者体力。",
+        "goals": [
+          "观察康复与换药，继续营地诊治。"
+        ],
+        "faction_view": "UNRESOLVED",
+        "expression": "照顾伤者，也提醒照料者休息；不替两人调停道德争执。",
+        "conflicts": [],
+        "last_change": "R03:ch3Wake"
+      },
+      "relationships": {},
+      "sources": [
+        "scene:ch3Doctor",
+        "scene:ch3MedicineDeparture"
+      ],
+      "profile": "source/narrative/characters/morris.json"
+    }
+  },
+  "knowledge": {
+    "noen": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-ABDUCTION": {
+        "mode": "knows",
+        "via": "R01:assassination"
+      },
+      "F-C1-SEAL-OBSERVED": {
+        "mode": "knows",
+        "via": "R01:assassination"
+      },
+      "F-C1-PROMISE": {
+        "mode": "knows",
+        "via": "R01:chapterEnd"
+      },
+      "F-C2-TARGET": {
+        "mode": "believes",
+        "via": "R02:ch2Relay"
+      },
+      "F-C2-REFUSAL": {
+        "mode": "knows",
+        "via": "R02:ch2InnerDoor"
+      },
+      "F-C2-BROKEN-PROMISE": {
+        "mode": "knows",
+        "via": "R02:ch2Spillway"
+      },
+      "F-C2-EXILE": {
+        "mode": "knows",
+        "via": "R02:ch2PursuitStops"
+      },
+      "F-C3-EMBLEM-ATTACK": {
+        "mode": "knows",
+        "via": "R03:ch3Souls"
+      },
+      "F-C3-UNSEALED": {
+        "mode": "knows",
+        "via": "R03:ch3Unseal"
+      },
+      "F-C3-RESCUE": {
+        "mode": "knows",
+        "via": "R03:ch3Wake"
+      },
+      "F-C3-TEMPORARY-COMPANY": {
+        "mode": "knows",
+        "via": "R03:ch3CampDeparture"
+      }
+    },
+    "morris": {
+      "F-C3-MEDICINE": {
+        "mode": "knows",
+        "via": "R03:ch3Doctor"
+      },
+      "F-C3-RESCUE": {
+        "mode": "knows",
+        "via": "R03:ch3Wake"
+      },
+      "F-C3-TEMPORARY-COMPANY": {
+        "mode": "knows",
+        "via": "R03:ch3CampDeparture"
+      }
+    },
+    "player": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-ALT-DOOR": {
+        "mode": "knows",
+        "via": "R01:c1HiddenPairArrangement"
+      },
+      "F-C1-PROTECT": {
+        "mode": "knows",
+        "via": "R01:c1HiddenPairArrangement"
+      },
+      "F-C1-MISSING": {
+        "mode": "knows",
+        "via": "R01:saintBrief"
+      },
+      "F-C1-BLAME": {
+        "mode": "heard",
+        "via": "R01:saintBrief"
+      },
+      "F-C1-ABDUCTION": {
+        "mode": "knows",
+        "via": "R01:assassination"
+      },
+      "F-C1-SEAL-OBSERVED": {
+        "mode": "knows",
+        "via": "R01:assassination"
+      },
+      "F-C1-PROMISE": {
+        "mode": "knows",
+        "via": "R01:chapterEnd"
+      },
+      "F-C2-TARGET": {
+        "mode": "believes",
+        "via": "R02:ch2Relay"
+      },
+      "F-C2-OBSERVE": {
+        "mode": "knows",
+        "via": "R02:darkCommissionV9"
+      },
+      "F-C2-ABUSE": {
+        "mode": "knows",
+        "via": "R02:ch2TargetBefore"
+      },
+      "F-C2-REFUSAL": {
+        "mode": "knows",
+        "via": "R02:ch2InnerDoor"
+      },
+      "F-C2-BREN-DEAD": {
+        "mode": "knows",
+        "via": "R02:ch2TargetAfter"
+      },
+      "F-C2-BROKEN-PROMISE": {
+        "mode": "knows",
+        "via": "R02:ch2Spillway"
+      },
+      "F-C2-EXILE": {
+        "mode": "knows",
+        "via": "R02:ch2PursuitStops"
+      },
+      "F-C2-EXILE-ACCOUNT": {
+        "mode": "believes",
+        "via": "R02:darkExileV9"
+      },
+      "F-C2-RESCUE": {
+        "mode": "knows",
+        "via": "R02:darkExileV9"
+      },
+      "F-C3-EMBLEM-ATTACK": {
+        "mode": "knows",
+        "via": "R03:ch3Souls"
+      },
+      "F-C3-UNSEALED": {
+        "mode": "knows",
+        "via": "R03:ch3Unseal"
+      },
+      "F-C3-MEDICINE": {
+        "mode": "knows",
+        "via": "R03:ch3Doctor"
+      },
+      "F-C3-LAMP": {
+        "mode": "knows",
+        "via": "R03:ch3WorkshopLamp"
+      },
+      "F-C3-RESCUE": {
+        "mode": "knows",
+        "via": "R03:ch3Wake"
+      },
+      "F-C3-TEMPORARY-COMPANY": {
+        "mode": "knows",
+        "via": "R03:ch3CampDeparture"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-PROMISE": {
+      "id": "F-C1-PROMISE",
+      "summary": "诺恩在水渠以其他百姓威胁，许诺驿站事情办完后放人；艾莉娅为百姓安全被迫答应。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:chapterEnd"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-UNSEALED": {
+      "id": "F-C3-UNSEALED",
+      "summary": "诺恩重伤时解开艾莉娅右手封术印，她恢复法术并保护伤者。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Unseal"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-MISSING": {
+      "id": "F-C1-MISSING",
+      "summary": "失踪家属正在等消息，艾莉娅关心老人和姑娘们。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-EXILE-ACCOUNT": {
+      "id": "F-C2-EXILE-ACCOUNT",
+      "summary": "当前会馆对白把进入禁地归于封路逼迫；运行给玩家exile-was-unplanned。与已定作者方向不同，记录为当前解释而非全知真相。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkExileV9",
+        "runtime-knowledge"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-ABDUCTION": {
+      "id": "F-C1-ABDUCTION",
+      "summary": "卡德兰被诺恩刺杀，圣女施救受阻、圣术被封，被强迫带走。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "scene:chapterEnd"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-MEDICINE": {
+      "id": "F-C3-MEDICINE",
+      "summary": "诺恩链伤暂封，必须取得白盐苔与乳白凝晶后才能取出链头。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Doctor"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-RESCUE": {
+      "id": "F-C3-RESCUE",
+      "summary": "艾莉娅寻药救诺恩，明确换别人也会救；诺恩道谢，但未答应从此不杀人。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Wake"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-PROTECT": {
+      "id": "F-C1-PROTECT",
+      "summary": "薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-BLAME": {
+      "id": "F-C1-BLAME",
+      "summary": "卡德兰称黑暗教廷杀了奥斯文并将失踪案归责于其；只是其说法，未在该场核实。",
+      "truth": "unreliable_report",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": [
+        "黑暗教廷杀了奥斯文"
+      ]
+    },
+    "F-C2-EXILE": {
+      "id": "F-C2-EXILE",
+      "summary": "两人越过界碑，追兵停在碑外。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2PursuitStops",
+        "scene:ch2ExileEnd"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-TEMPORARY-COMPANY": {
+      "id": "F-C3-TEMPORARY-COMPANY",
+      "summary": "封术印已毁；艾莉娅暂随诺恩行路照料伤势，但找到离路后要回城，诺恩答应不拦。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3CampDeparture"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-ALT-DOOR": {
+      "id": "F-C1-ALT-DOOR",
+      "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": [
+        "别的办法解开",
+        "另一种开门",
+        "其他开门办法"
+      ],
+      "initial_holders": [
+        "vilerena"
+      ]
+    },
+    "F-C2-OBSERVE": {
+      "id": "F-C2-OBSERVE",
+      "summary": "会馆有意观察两人同行的反应，薇蕾娜要求保证退路；不保证控制每个结果。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkCommissionV9"
+      ],
+      "risk_terms": [
+        "我们在看",
+        "观察两个人"
+      ]
+    },
+    "F-C1-SEAL-OBSERVED": {
+      "id": "F-C1-SEAL-OBSERVED",
+      "summary": "诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "runtime-knowledge"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-EMBLEM-ATTACK": {
+      "id": "F-C3-EMBLEM-ATTACK",
+      "summary": "亡魂看见圣徽后攻击艾莉娅；她和诺恩都不知道真正原因。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Souls"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-DOOR-CLAIM": {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-EXP-C3HERBMEDICINE": {
+      "id": "F-EXP-C3HERBMEDICINE",
+      "summary": "两处药草采样交付后，莫里斯为诺恩提供用两份余温草和八金配制中型疗伤药的服务；诺恩核实工钱，莫里斯说明瓶塞和熬药的工夫。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c3HerbMedicine"
+      ],
+      "risk_terms": []
+    },
+    "F-C3-LAMP": {
+      "id": "F-C3-LAMP",
+      "summary": "普通火在矿道会灭，芮妲所借矿灯能照出凝晶脉纹，乳白可取、泛绿不可碰。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3WorkshopLamp"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-RESCUE": {
+      "id": "F-C2-RESCUE",
+      "summary": "薇蕾娜在当前会馆场要求带药绳到外沿接人，鲁恩去找人并保留观察点。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkExileV9"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-BROKEN-PROMISE": {
+      "id": "F-C2-BROKEN-PROMISE",
+      "summary": "诺恩为防驿站暴露继续扣留艾莉娅，承认不守信；她决定自己寻找回去的机会。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2Spillway"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-REFUSAL": {
+      "id": "F-C2-REFUSAL",
+      "summary": "艾莉娅拒绝开门并主动报警，要求尽量活捉；内门没有打开。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2InnerDoor"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-BREN-DEAD": {
+      "id": "F-C2-BREN-DEAD",
+      "summary": "第二章目标后场明确说布伦死了，赫斯特仍活着。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2TargetAfter"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-TARGET": {
+      "id": "F-C2-TARGET",
+      "summary": "塞琳传达赫斯特目标、画像、路图和本人佩戴圣徽靠近铜盘即可验门的解释。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2Relay"
+      ],
+      "risk_terms": []
+    },
+    "F-C2-ABUSE": {
+      "id": "F-C2-ABUSE",
+      "summary": "玩家独立镜头看到赫斯特虐待舞者、侍女与税户；主角不在内室。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2TargetBefore",
+        "scene:ch2TargetAfter"
+      ],
+      "risk_terms": [
+        "赫斯特虐待舞者",
+        "内室的税户"
+      ]
+    }
+  },
+  "seeds": [
+    {
+      "id": "SEED-DOOR",
+      "fact_ids": [
+        "F-C1-ALT-DOOR"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:c1HiddenPairArrangement",
+      "shown": [
+        "存在其他解法，但带圣女仍是上级安排。"
+      ],
+      "interpretations": {
+        "player": "知道存在替代办法",
+        "vilerena": "追问为什么仍要带人",
+        "rune": "称服从上面安排",
+        "noen": "未获知",
+        "elyria": "未获知"
+      },
+      "withheld": [
+        "具体办法、代价、上层目的"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+      ],
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ]
+    },
+    {
+      "id": "SEED-OBSERVATION",
+      "fact_ids": [
+        "F-C2-OBSERVE"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:aside",
+      "shown": [
+        "会馆控制任务信息",
+        "第二章玩家看见观察同行的安排"
+      ],
+      "interpretations": {
+        "player": "至第二章会馆场知道观察意图",
+        "noen": "不知",
+        "elyria": "不知",
+        "vilerena": "参与安排"
+      },
+      "withheld": [
+        "观察的全部长期目的",
+        "预言机制"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "信任与自主选择可能受到影响，不能提前认定反叛。"
+      ],
+      "sources": [
+        "scene:aside",
+        "scene:darkCommissionV9",
+        "author-pair"
+      ]
+    },
+    {
+      "id": "SEED-SEAL",
+      "fact_ids": [
+        "F-C1-SEAL-OBSERVED"
+      ],
+      "state": "planted",
+      "planted_at": "R01:assassination",
+      "shown": [
+        "封住圣术的实际效果"
+      ],
+      "interpretations": {
+        "noen": "会使用，未知来源全貌",
+        "elyria": "亲历圣术受阻",
+        "player": "看见封术效果"
+      },
+      "withheld": [
+        "来源、完整边界与解除条件的长期解释"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "需要后续实际证据，不能创造万能感应。"
+      ],
+      "sources": [
+        "scene:assassination",
+        "author-open"
+      ]
+    }
+  ],
+  "conflicts": [],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R03",
+    "scene": "c3HerbMedicine",
+    "position": "before",
+    "at": "R03:ch3CampDeparture",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "文学章号尚未分配；R03不可自动命名为V01C03。",
+      "当前已确认救治主线和配药可选事件；其余支线知识仍须按事件读取，未登记不等于所有人知情。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_03_RPG_EXPERIENCE.md",
+      "revision": "1.0",
+      "status": "DEV_FROZEN",
+      "implementation": "采用运行第三章玩法稿；三职业流程与完整验收进行中，真人节奏待验。"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c3HerbMedicine",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "noen",
+        "fact": "F-EXP-C3HERBMEDICINE",
+        "mode": "knows"
+      },
+      {
+        "actor": "morris",
+        "fact": "F-EXP-C3HERBMEDICINE",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-EXP-C3HERBMEDICINE",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "author-open": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 4. 不平凡背景与预言的开放性",
+      "kind": "unresolved"
+    },
+    "author-pair": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+      "kind": "user_confirmed"
+    },
+    "c2-plan": {
+      "path": "docs/harness/CHAPTER_02.md",
+      "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+      "kind": "adopted_plan"
+    },
+    "experience:c3HerbMedicine": {
+      "path": "dist/rpg-chapter-three-data.js",
+      "anchor": "c3HerbMedicine:",
+      "kind": "runtime",
+      "runtime_scene": "c3HerbMedicine",
+      "note": "R03康复后营地服务；不改变救人不等于原谅的主线与知识边界。"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-knowledge": {
+      "path": "dist/core-v14.js",
+      "anchor": "if(sceneId==='darkExileV9')",
+      "kind": "runtime"
+    },
+    "scene:aside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "aside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:assassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "assassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2ExileEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2ExileEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2InnerDoor": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2InnerDoor",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2PursuitStops": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2PursuitStops",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Relay": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Relay",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2TargetAfter": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2TargetAfter",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2TargetBefore": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2TargetBefore",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3CampDeparture": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3CampDeparture",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Doctor": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Doctor",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3MedicineDeparture": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3MedicineDeparture",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Souls": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Souls",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Unseal": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Unseal",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Wake": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Wake",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3WorkshopLamp": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3WorkshopLamp",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:chapterEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "chapterEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkCommissionV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkCommissionV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkExileV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkExileV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:saintBrief": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "saintBrief",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_03_RPG_EXPERIENCE.md",
+    "source/narrative/characters/noen.json",
+    "source/narrative/characters/morris.json",
+    "source/narrative/chapters/R03.json"
+  ],
+  "source_fingerprint": "4f337ca79c8f1b0f30be660bfd10d49f49cd14c1f3948ad9a7615f0f8c54956a"
+}

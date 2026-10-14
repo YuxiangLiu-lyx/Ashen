@@ -1,0 +1,1010 @@
+{
+  "source": "9d352b17ee7d40ed963e3315aae007f13481f08b",
+  "maps": {
+    "hellMine": {
+      "name": "无灯矿道",
+      "sub": "断轨在落石前分开，最深的渗液仍被旧蒸馏器接着",
+      "entry": [
+        280,
+        400
+      ],
+      "layout": "braided-excavation",
+      "doors": [
+        {
+          "x": 170,
+          "y": 400,
+          "to": "hellGrotto",
+          "tx": 1320,
+          "ty": 400,
+          "label": "盐骨苔窟",
+          "direction": "西"
+        },
+        {
+          "x": 1100,
+          "y": 940,
+          "to": "hellWorkshop",
+          "tx": 1100,
+          "ty": 290,
+          "label": "沉钟工坊",
+          "direction": "东南"
+        }
+      ],
+      "npcs": [],
+      "props": [
+        {
+          "id": "black-brine",
+          "action": "ch3-black-brine",
+          "label": "乳白凝晶",
+          "x": 1180,
+          "y": 330,
+          "interactX": 1180,
+          "interactY": 415,
+          "art": {
+            "sheet": "hellWorld",
+            "index": 9,
+            "w": 100,
+            "h": 126
+          },
+          "box": [
+            1144,
+            300,
+            72,
+            30
+          ],
+          "questMaterial": true
+        },
+        {
+          "id": "ch3-machine-spring",
+          "action": "ch3-spring",
+          "label": "三个铁环的检修柜",
+          "x": 1000,
+          "y": 740,
+          "interactX": 960,
+          "interactY": 760,
+          "art": {
+            "sheet": "hellProps",
+            "index": 3,
+            "w": 50,
+            "h": 86
+          },
+          "hp": 999
+        },
+        {
+          "id": "hellMine-gather-0",
+          "action": "ch3-gather",
+          "label": "微温的草丛",
+          "x": 538,
+          "y": 470,
+          "interactX": 510,
+          "interactY": 485,
+          "resource": "emberHerb",
+          "renewable": true,
+          "art": {
+            "sheet": "hellWorld",
+            "index": 14,
+            "w": 47,
+            "h": 39
+          },
+          "hp": 999
+        },
+        {
+          "id": "hellMine-gather-1",
+          "action": "ch3-gather",
+          "label": "积灰的旧兵器",
+          "x": 888,
+          "y": 350,
+          "interactX": 860,
+          "interactY": 365,
+          "resource": "cinderIron",
+          "renewable": true,
+          "art": {
+            "sheet": "hellProps",
+            "index": 2,
+            "w": 60,
+            "h": 54
+          },
+          "hp": 999
+        }
+      ],
+      "size": [
+        1600,
+        1080
+      ],
+      "footBounds": [
+        135,
+        155,
+        1465,
+        965
+      ],
+      "chapterRegion": 3,
+      "safe": false,
+      "blocks": [
+        [
+          0,
+          0,
+          1600,
+          150
+        ],
+        [
+          0,
+          965,
+          990,
+          115
+        ],
+        [
+          1210,
+          965,
+          390,
+          115
+        ],
+        [
+          0,
+          150,
+          130,
+          140
+        ],
+        [
+          0,
+          510,
+          130,
+          455
+        ],
+        [
+          1470,
+          150,
+          130,
+          815
+        ],
+        [
+          635,
+          372,
+          200,
+          48
+        ],
+        [
+          722,
+          610,
+          156,
+          40
+        ],
+        [
+          302,
+          698,
+          106,
+          32
+        ],
+        [
+          1247,
+          397,
+          116,
+          33
+        ],
+        [
+          1036,
+          195,
+          128,
+          35
+        ],
+        [
+          878,
+          798,
+          124,
+          32
+        ],
+        [
+          460,
+          267,
+          100,
+          33
+        ],
+        [
+          282,
+          244,
+          96,
+          31
+        ],
+        [
+          1029,
+          472,
+          22,
+          18
+        ],
+        [
+          1144,
+          300,
+          72,
+          30
+        ]
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          430,
+          500,
+          "ch3-mine-1"
+        ],
+        [
+          "hellGuard",
+          510,
+          450,
+          "ch3-mine-2"
+        ],
+        [
+          "hellHound",
+          440,
+          600,
+          "ch3-mine-3"
+        ],
+        [
+          "hellSoul",
+          690,
+          280,
+          "ch3-mine-4"
+        ],
+        [
+          "hellSoul",
+          800,
+          260,
+          "ch3-mine-5"
+        ],
+        [
+          "hellGuard",
+          860,
+          330,
+          "ch3-mine-6"
+        ],
+        [
+          "hellSoul",
+          1110,
+          590,
+          "ch3-mine-7"
+        ],
+        [
+          "hellGuard",
+          1210,
+          610,
+          "ch3-mine-8"
+        ],
+        [
+          "hellHound",
+          610,
+          820,
+          "ch3-mine-9"
+        ],
+        [
+          "hellSoul",
+          710,
+          810,
+          "ch3-mine-10"
+        ]
+      ],
+      "enemyGroups": [
+        "ch3-mine-broken-track",
+        "ch3-mine-roof-fall",
+        "ch3-mine-brine-watch",
+        "ch3-mine-blind-cut"
+      ],
+      "encounters": [
+        {
+          "id": "ch3-mine-broken-track",
+          "spawnIds": [
+            "ch3-mine-1",
+            "ch3-mine-2",
+            "ch3-mine-3"
+          ],
+          "anchor": [
+            460,
+            517
+          ],
+          "radius": 75,
+          "leash": 310
+        },
+        {
+          "id": "ch3-mine-roof-fall",
+          "spawnIds": [
+            "ch3-mine-4",
+            "ch3-mine-5",
+            "ch3-mine-6"
+          ],
+          "anchor": [
+            783,
+            290
+          ],
+          "radius": 75,
+          "leash": 310
+        },
+        {
+          "id": "ch3-mine-brine-watch",
+          "spawnIds": [
+            "ch3-mine-7",
+            "ch3-mine-8"
+          ],
+          "anchor": [
+            1160,
+            600
+          ],
+          "radius": 75,
+          "leash": 310
+        },
+        {
+          "id": "ch3-mine-blind-cut",
+          "spawnIds": [
+            "ch3-mine-9",
+            "ch3-mine-10"
+          ],
+          "anchor": [
+            660,
+            815
+          ],
+          "radius": 75,
+          "leash": 310
+        }
+      ]
+    },
+    "hellGrotto": {
+      "name": "盐骨苔窟",
+      "sub": "蓝草沿盐痕生长，洞中的两道石脊之间留着旧路",
+      "entry": [
+        510,
+        830
+      ],
+      "layout": "crescent-salt-shelves",
+      "doors": [
+        {
+          "x": 510,
+          "y": 940,
+          "to": "hellCamp",
+          "tx": 650,
+          "ty": 285,
+          "label": "余烬营地",
+          "direction": "西南"
+        },
+        {
+          "x": 1430,
+          "y": 400,
+          "to": "hellMine",
+          "tx": 280,
+          "ty": 400,
+          "label": "无灯矿道",
+          "direction": "东"
+        }
+      ],
+      "npcs": [],
+      "props": [
+        {
+          "id": "salt-moss",
+          "action": "ch3-salt-moss",
+          "label": "盐骨苔",
+          "x": 730,
+          "y": 430,
+          "interactX": 730,
+          "interactY": 510,
+          "art": {
+            "sheet": "hellWorld",
+            "index": 14,
+            "w": 90,
+            "h": 68
+          },
+          "box": [
+            699,
+            414,
+            62,
+            16
+          ],
+          "questMaterial": true
+        },
+        {
+          "id": "hellGrotto-gather-0",
+          "action": "ch3-gather",
+          "label": "微温的草丛",
+          "x": 568,
+          "y": 670,
+          "interactX": 540,
+          "interactY": 685,
+          "resource": "emberHerb",
+          "renewable": true,
+          "art": {
+            "sheet": "hellWorld",
+            "index": 14,
+            "w": 47,
+            "h": 39
+          },
+          "hp": 999
+        },
+        {
+          "id": "hellGrotto-gather-1",
+          "action": "ch3-gather",
+          "label": "积灰的旧兵器",
+          "x": 1198,
+          "y": 710,
+          "interactX": 1170,
+          "interactY": 725,
+          "resource": "cinderIron",
+          "renewable": true,
+          "art": {
+            "sheet": "hellProps",
+            "index": 2,
+            "w": 60,
+            "h": 54
+          },
+          "hp": 999
+        }
+      ],
+      "size": [
+        1600,
+        1080
+      ],
+      "footBounds": [
+        135,
+        155,
+        1465,
+        965
+      ],
+      "chapterRegion": 3,
+      "safe": false,
+      "blocks": [
+        [
+          0,
+          0,
+          1600,
+          150
+        ],
+        [
+          0,
+          965,
+          400,
+          115
+        ],
+        [
+          620,
+          965,
+          980,
+          115
+        ],
+        [
+          0,
+          150,
+          130,
+          815
+        ],
+        [
+          1470,
+          150,
+          130,
+          140
+        ],
+        [
+          1470,
+          510,
+          130,
+          455
+        ],
+        [
+          360,
+          492,
+          120,
+          38
+        ],
+        [
+          702,
+          605,
+          146,
+          40
+        ],
+        [
+          862,
+          430,
+          136,
+          40
+        ],
+        [
+          498,
+          266,
+          124,
+          34
+        ],
+        [
+          1249,
+          565,
+          102,
+          30
+        ],
+        [
+          955,
+          835,
+          150,
+          35
+        ],
+        [
+          265,
+          795,
+          70,
+          30
+        ],
+        [
+          1274,
+          317,
+          22,
+          18
+        ],
+        [
+          699,
+          414,
+          62,
+          16
+        ]
+      ],
+      "spawns": [
+        [
+          "hellHound",
+          460,
+          610,
+          "ch3-grotto-1"
+        ],
+        [
+          "hellSoul",
+          540,
+          650,
+          "ch3-grotto-2"
+        ],
+        [
+          "hellHound",
+          400,
+          670,
+          "ch3-grotto-3"
+        ],
+        [
+          "hellSoul",
+          990,
+          700,
+          "ch3-grotto-4"
+        ],
+        [
+          "hellSoul",
+          1080,
+          630,
+          "ch3-grotto-5"
+        ],
+        [
+          "hellGuard",
+          1170,
+          690,
+          "ch3-grotto-6"
+        ],
+        [
+          "hellSoul",
+          950,
+          300,
+          "ch3-grotto-7"
+        ],
+        [
+          "hellHound",
+          1060,
+          290,
+          "ch3-grotto-8"
+        ],
+        [
+          "hellGuard",
+          1120,
+          420,
+          "ch3-grotto-9"
+        ]
+      ],
+      "enemyGroups": [
+        "ch3-grotto-lower-shelf",
+        "ch3-grotto-salt-pool",
+        "ch3-grotto-high-ledge"
+      ],
+      "encounters": [
+        {
+          "id": "ch3-grotto-lower-shelf",
+          "spawnIds": [
+            "ch3-grotto-1",
+            "ch3-grotto-2",
+            "ch3-grotto-3"
+          ],
+          "anchor": [
+            467,
+            643
+          ],
+          "radius": 75,
+          "leash": 310
+        },
+        {
+          "id": "ch3-grotto-salt-pool",
+          "spawnIds": [
+            "ch3-grotto-4",
+            "ch3-grotto-5",
+            "ch3-grotto-6"
+          ],
+          "anchor": [
+            1080,
+            673
+          ],
+          "radius": 75,
+          "leash": 310
+        },
+        {
+          "id": "ch3-grotto-high-ledge",
+          "spawnIds": [
+            "ch3-grotto-7",
+            "ch3-grotto-8",
+            "ch3-grotto-9"
+          ],
+          "anchor": [
+            1043,
+            337
+          ],
+          "radius": 75,
+          "leash": 310
+        }
+      ]
+    }
+  },
+  "scenery": {
+    "hellMine": [
+      {
+        "id": "mine-main-roof-fall",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 735,
+        "y": 420,
+        "w": 261,
+        "h": 171,
+        "box": [
+          635,
+          372,
+          200,
+          48
+        ]
+      },
+      {
+        "id": "mine-track-fork",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 800,
+        "y": 650,
+        "w": 215,
+        "h": 140,
+        "box": [
+          722,
+          610,
+          156,
+          40
+        ]
+      },
+      {
+        "id": "mine-west-stone",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 355,
+        "y": 730,
+        "w": 146,
+        "h": 115,
+        "box": [
+          302,
+          698,
+          106,
+          32
+        ]
+      },
+      {
+        "id": "mine-east-face",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 1305,
+        "y": 430,
+        "w": 158,
+        "h": 112,
+        "box": [
+          1247,
+          397,
+          116,
+          33
+        ]
+      },
+      {
+        "id": "mine-brine-backwall",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 1100,
+        "y": 230,
+        "w": 177,
+        "h": 125,
+        "box": [
+          1036,
+          195,
+          128,
+          35
+        ]
+      },
+      {
+        "id": "mine-south-face",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 940,
+        "y": 830,
+        "w": 169,
+        "h": 106,
+        "box": [
+          878,
+          798,
+          124,
+          32
+        ]
+      },
+      {
+        "id": "mine-dead-forge",
+        "sheet": "hellWorld",
+        "asset": 10,
+        "x": 510,
+        "y": 300,
+        "w": 129,
+        "h": 122,
+        "box": [
+          460,
+          267,
+          100,
+          33
+        ]
+      },
+      {
+        "id": "mine-broken-pit-frame",
+        "sheet": "hellWorld",
+        "asset": 7,
+        "x": 330,
+        "y": 275,
+        "w": 133,
+        "h": 153,
+        "box": [
+          282,
+          244,
+          96,
+          31
+        ]
+      },
+      {
+        "id": "mine-last-lamp",
+        "sheet": "hellWorld",
+        "asset": 15,
+        "x": 1040,
+        "y": 490,
+        "w": 42,
+        "h": 101,
+        "box": [
+          1029,
+          472,
+          22,
+          18
+        ]
+      },
+      {
+        "id": "mine-brine-blue-grass",
+        "sheet": "hellWorld",
+        "asset": 14,
+        "x": 1250,
+        "y": 275,
+        "w": 53,
+        "h": 44,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "mine-upper-seam",
+        "sheet": "hellWorld",
+        "asset": 6,
+        "x": 950,
+        "y": 360,
+        "w": 153,
+        "h": 40,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "mine-low-seam",
+        "sheet": "hellWorld",
+        "asset": 6,
+        "x": 700,
+        "y": 915,
+        "w": 310,
+        "h": 45,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      }
+    ],
+    "hellGrotto": [
+      {
+        "id": "grotto-west-rib",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 420,
+        "y": 530,
+        "w": 165,
+        "h": 127,
+        "box": [
+          360,
+          492,
+          120,
+          38
+        ]
+      },
+      {
+        "id": "grotto-low-rib",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 775,
+        "y": 645,
+        "w": 198,
+        "h": 134,
+        "box": [
+          702,
+          605,
+          146,
+          40
+        ]
+      },
+      {
+        "id": "grotto-east-rib",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 930,
+        "y": 470,
+        "w": 187,
+        "h": 142,
+        "box": [
+          862,
+          430,
+          136,
+          40
+        ]
+      },
+      {
+        "id": "grotto-upper-bones",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 560,
+        "y": 300,
+        "w": 168,
+        "h": 122,
+        "box": [
+          498,
+          266,
+          124,
+          34
+        ]
+      },
+      {
+        "id": "grotto-east-shelf",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 1300,
+        "y": 595,
+        "w": 143,
+        "h": 98,
+        "box": [
+          1249,
+          565,
+          102,
+          30
+        ]
+      },
+      {
+        "id": "grotto-south-shelf",
+        "sheet": "hellWorld",
+        "asset": 4,
+        "x": 1030,
+        "y": 870,
+        "w": 207,
+        "h": 121,
+        "box": [
+          955,
+          835,
+          150,
+          35
+        ]
+      },
+      {
+        "id": "grotto-old-pipe",
+        "sheet": "hellWorld",
+        "asset": 9,
+        "x": 300,
+        "y": 825,
+        "w": 94,
+        "h": 112,
+        "box": [
+          265,
+          795,
+          70,
+          30
+        ]
+      },
+      {
+        "id": "grotto-mine-route-lamp",
+        "sheet": "hellWorld",
+        "asset": 15,
+        "x": 1285,
+        "y": 335,
+        "w": 42,
+        "h": 100,
+        "box": [
+          1274,
+          317,
+          22,
+          18
+        ]
+      },
+      {
+        "id": "grotto-moss-trail-1",
+        "sheet": "hellWorld",
+        "asset": 14,
+        "x": 630,
+        "y": 505,
+        "w": 70,
+        "h": 53,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "grotto-moss-trail-2",
+        "sheet": "hellWorld",
+        "asset": 14,
+        "x": 690,
+        "y": 375,
+        "w": 75,
+        "h": 54,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "grotto-moss-trail-3",
+        "sheet": "hellWorld",
+        "asset": 14,
+        "x": 805,
+        "y": 415,
+        "w": 63,
+        "h": 48,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "grotto-moss-trail-4",
+        "sheet": "hellWorld",
+        "asset": 14,
+        "x": 535,
+        "y": 875,
+        "w": 50,
+        "h": 38,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      },
+      {
+        "id": "grotto-salt-crack",
+        "sheet": "hellWorld",
+        "asset": 6,
+        "x": 1110,
+        "y": 535,
+        "w": 236,
+        "h": 47,
+        "box": null,
+        "flat": true,
+        "depthY": 0
+      }
+    ]
+  },
+  "boundaries": {},
+  "waters": {
+    "hellMine": [],
+    "hellGrotto": []
+  },
+  "bridges": {
+    "hellMine": [],
+    "hellGrotto": []
+  }
+}

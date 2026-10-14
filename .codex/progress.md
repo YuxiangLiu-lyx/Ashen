@@ -1,3 +1,5 @@
+2026-10-14最新范围：用户只要求更新完前三章。R01—R03及Harness技术验收完成；默认包已提升，原0.9保留；真人体验仍待验，R04—R08暂缓。最终证据docs/rpg-experience/ACCEPTANCE.md；当前仅剩Git回执归档。
+
 # 当前工作：全游戏RPG体验升级（2026-10-14）
 
 任务rpg-experience-20261014，基线cad2add，分支work/rpg-experience-20261014。按全八章审计、第一章样板、逐章推广执行；允许重新平衡三精英，保留旧0.6人工待办及撤回原件。计划docs/rpg-experience/PLAN.md。
@@ -460,17 +462,18 @@
 <!-- task:rpg-experience-20261014 -->
 ## 任务 rpg-experience-20261014
 - 状态：in_progress
-- 更新：2026-10-14T13:39:51.729573+00:00
-- 下一步：第二章保存GitHub后启动第三章真实基线与独立实现
+- 更新：2026-10-14T15:50:17.726079+00:00
+- 下一步：推送并核验远端后归档本轮前三章任务
 - 任务记录：source/tasks/active/rpg-experience-20261014.json
-- 已完成：基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看；八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验；第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。；第二章0.4已技术验收归档；完整integration191核心/61Harness、三职业正常UI、73路线和独立可玩包完成；真人待验。
-- 待完成：第三至八章逐章实际改造、正常输入与五项体验证据；全游戏最终交付与真人待验清单
-- 决定：采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造；零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务
+- 已完成：基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看；八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验；第一章试点与Harness独立任务已完成技术验收归档；最终018完整集成通过，真人观察仍待验。；第二章0.4已技术验收归档；完整integration191核心/61Harness、三职业正常UI、73路线和独立可玩包完成；真人待验。；用户收束至前三章；第三章与前三章最终050 integration、051 fast及全部证据门禁通过；第四至八章暂缓。
+- 待完成：提交前三章最终内容与归档回执并核验GitHub main
+- 决定：采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造；零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务；用户最新收束：目前更新完前三章即可。R04至R08退出本轮必做；保留已完成八章审计，不继续实际改造。
 - 阻塞：无
 - 阶段 audit：complete；HEAD cad2add19b46e319475c28504e155322a9df687d
 - 阶段 chapter-one：complete；HEAD 29f30df6f0ecde80d485260656a4e9171e7de178
 - 阶段 chapter-two：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
-- 最近检查：c2-real-preparation-comparison，退出码 0；docs/harness/evidence/rpg-experience-20261014/025-c2-real-preparation-comparison.txt
+- 阶段 chapter-three：complete；HEAD 9d352b17ee7d40ed963e3315aae007f13481f08b
+- 最近检查：fast，退出码 0；docs/harness/evidence/rpg-experience-20261014/051-fast.txt
 <!-- /task:rpg-experience-20261014 -->
 
 <!-- task:rpg-c1-20261014 -->
@@ -521,3 +524,33 @@
 - 阶段 verification：complete；HEAD b54fdfe8ded648db6d7bb1beecff3fa041b01a17
 - 最近检查：verification，退出码 0；docs/harness/evidence/rpg-c2-20261014/008-verification.txt
 <!-- /task:rpg-c2-20261014 -->
+
+<!-- task:rpg-c3-20261014 -->
+## 任务 rpg-c3-20261014
+- 状态：in_progress
+- 更新：2026-10-14T15:50:17.621017+00:00
+- 下一步：保存代码与证据到GitHub，归档技术任务；真人观察另列待验
+- 任务记录：source/tasks/active/rpg-c3-20261014.json
+- 已完成：270组基线、14图182条移动路线与实景完成；正常UI从真实C2档通过前两Boss和切圣女，寻药矿道死亡保留为诊断；两洞窟回路、制作升级/旧物向上迁移、配药服务、延后事件持久化与章节跳过兼容已实现；532原场景完全保持，新增两场七维审查通过；R03完整主线及知识隔离已登记。；三职业正常UI原档接续至phase21；540群战、81首领、108独立制作对照；14图182路径、三维、三视口、199核心/62Harness和完整集成、包入口通过。
+- 待完成：提交第三章及验收记录并核验GitHub同步
+- 决定：第三章已有独立runtime和五层裂隙；旧审计后六章均Saga/零静态怪的概括不适用于R03/R04。制作武器7至11攻击低于章二24，优先修复收益和寻药路线；不统一堆怪物血量。；007正常UI至康复后修轮通过；脚本重复囤药导致金钱不足，改为按库存补足，不降低真实制作价格。
+- 阻塞：无
+- 阶段 audit：complete；HEAD 9d352b17ee7d40ed963e3315aae007f13481f08b
+- 阶段 implementation：complete；HEAD 9d352b17ee7d40ed963e3315aae007f13481f08b
+- 阶段 verification：complete；HEAD 9d352b17ee7d40ed963e3315aae007f13481f08b
+- 最近检查：verification，退出码 0；docs/harness/evidence/rpg-c3-20261014/016-verification.txt
+<!-- /task:rpg-c3-20261014 -->
+
+<!-- task:rpg-delivery-20261014 -->
+## 任务 rpg-delivery-20261014
+- 状态：in_progress
+- 更新：2026-10-14T15:50:17.831914+00:00
+- 下一步：保存并核验GitHub main
+- 任务记录：source/tasks/active/rpg-delivery-20261014.json
+- 已完成：默认离线包提升并保留旧0.9；离线HTTP移动入口、原件、JSON分卷逐字节校验和最终证据门禁通过。
+- 待完成：Git提交与远端核验回执
+- 决定：无
+- 阻塞：无
+- 阶段 verification：complete；HEAD 9d352b17ee7d40ed963e3315aae007f13481f08b
+- 最近检查：verification，退出码 0；docs/harness/evidence/rpg-delivery-20261014/008-verification.txt
+<!-- /task:rpg-delivery-20261014 -->

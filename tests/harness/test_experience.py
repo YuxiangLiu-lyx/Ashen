@@ -88,6 +88,30 @@ class ExperienceTests(unittest.TestCase):
                 record['experience_reviews'][0]['sha256'] = digest(root / 'report.json')
                 self.assertTrue(can_finish(record, root), 'reattaching cannot turn a failed group test into a pass')
 
+    def test_runtime_chapters_keep_legacy_receipts_without_assigning_literary_chapters(self):
+        self.assertEqual(requested('第三章RPG体验升级')['chapters'], ['R03'])
+        self.assertEqual(requested('R03 RPG体验升级')['chapters'], ['R03'])
+        self.assertEqual(requested('V01C03 RPG体验升级')['chapters'], [])
+        self.assertEqual(requested('全游戏RPG体验升级')['chapters'], [f'R{i:02}' for i in range(1, 9)])
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            report = self.fixture(root)
+            report['chapter'] = 'R03'
+            for row in report['normal_input'].values():
+                row['ending_phase'] = 21
+            self.assertEqual(validate_report(report, root), [])
+            write_json(root / 'report.json', report)
+            record = {'experience_requirement': {'chapters': ['V01C03']},
+                      'experience_reviews': [{'path': 'report.json', 'sha256': digest(root / 'report.json')}]}
+            self.assertEqual(task_errors(record, root), [])
+            report['chapter'] = 'R08'
+            for row in report['normal_input'].values():
+                row['ending_phase'] = 38
+            self.assertTrue(validate_report(report, root))
+            for row in report['normal_input'].values():
+                row['ending_flags'] = {'ch8Complete': True}
+            self.assertEqual(validate_report(report, root), [])
+
     def test_design_routing_and_ordinary_fix_boundaries(self):
         for task, module, source in [
             ('装备收益设计', 'design_combat', 'tools/balance_lab/experience-audit.mjs'),
@@ -105,7 +129,7 @@ class ExperienceTests(unittest.TestCase):
         result = route('修复碰撞卡点')
         self.assertNotIn('rpg_experience', result['modules'])
         self.assertNotIn('docs/harness/RPG_DESIGN.md', {c['path'] for c in result['contexts']})
-        self.assertEqual(requested('第一章RPG体验试点')['chapters'], ['V01C01'])
+        self.assertEqual(requested('第一章RPG体验试点')['chapters'], ['R01'])
 
 
 if __name__ == '__main__':

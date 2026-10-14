@@ -1,3 +1,4 @@
+import {C3_AUTHORED_CAVES,C3_NAVIGATION,assertAuthoredCave,legacyCaves} from './c3-spatial-control.mjs';
 import {C1_MAPS} from '../dist/chapter-one-layout.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -27,7 +28,7 @@ test('runtime independently enumerates all 35 original maps and ten explicitly a
  assert.ok(!maps.includes('hellMemoryVillage'),'chapter 4 memory remains separate');
 });
 
-test('all 118 maps preserve baseline navigation and counts; only the documented well interaction becomes reachable',()=>{
+test('118-map navigation baseline stays exact outside authorized C1 layouts and the two audited C3 caves',()=>{
  const g=game(),baseline=read('BASELINE_NAVIGATION.json');assert.equal(baseline.length,118);
  for(const row of baseline){if(C1_MAPS.includes(row.id))continue;g.enter(row.id);const after=inspectWorldMap(g,row.id);
   // New interactions and the one named grove encounter are authorized additions.
@@ -35,7 +36,7 @@ test('all 118 maps preserve baseline navigation and counts; only the documented 
   after.targets-=g.targets().filter(t=>t.id?.startsWith('c1-')||C1_NEW_MAPS.includes(t.id)).length;
   if(row.id==='grove')after.enemies-=g.enemies.filter(e=>e.id==='c1-elite-rat').length;
   for(const key of ['walkableCells','connectedCells','enemies','targets','unreachable']){
-   const expected=key==='unreachable'&&row.id==='town'?row[key].filter(t=>t.id!=='well'):row[key];
+   const expected=C3_AUTHORED_CAVES.includes(row.id)&&['walkableCells','connectedCells'].includes(key)?C3_NAVIGATION[row.id]:key==='unreachable'&&row.id==='town'?row[key].filter(t=>t.id!=='well'):row[key];
    assert.deepEqual(after[key],expected,row.id+'/'+key);
   }
  }
@@ -43,10 +44,11 @@ test('all 118 maps preserve baseline navigation and counts; only the documented 
 
 test('original chapter geometry, exits, encounters and object identities remain intact',()=>{
  for(const before of read('BASELINE_CONTENT.json')){if(C1_MAPS.includes(before.id))continue;
-  const map=MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify((key==='doors'?map[key].filter(d=>!d.c1Door):map[key])||[])),before[key],before.id+'/'+key);
-  assert.deepEqual(SCENERY[before.id],before.scenery,before.id+'/scenery');
+  if(C3_AUTHORED_CAVES.includes(before.id))assertAuthoredCave(before.id);
+  const map=C3_AUTHORED_CAVES.includes(before.id)?legacyCaves.maps[before.id]:MAPS[before.id];for(const key of ['blocks','doors','spawns'])assert.deepEqual(JSON.parse(JSON.stringify((key==='doors'?map[key].filter(d=>!d.c1Door):map[key])||[])),before[key],before.id+'/'+key);
+  assert.deepEqual(C3_AUTHORED_CAVES.includes(before.id)?legacyCaves.scenery[before.id]:SCENERY[before.id],before.scenery,before.id+'/scenery');
   const g=game();g.chapter=map.chapterRegion||2;g.enter(before.id,800,540);
-  for(const p of before.props){const actual=g.props.find(a=>a.id===p.id);assert.ok(actual);
+  for(const p of before.props){let actual=g.props.find(a=>a.id===p.id);assert.ok(actual);if(p.id==='ch3-machine-spring'){assert.deepEqual([actual.x,actual.y,actual.interactX,actual.interactY],[520,740,520,795]);actual=legacyCaves.maps.hellMine.props.find(a=>a.id===p.id);}
    for(const key of ['action','type','label','interactX','interactY','depthY'])assert.equal(actual[key],p[key],before.id+'/'+p.id+'/'+key);
    if(p.id!=='townbook')assert.deepEqual([actual.x,actual.y],[p.x,p.y],before.id+'/'+p.id);
   }

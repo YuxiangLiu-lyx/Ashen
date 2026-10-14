@@ -1,0 +1,71 @@
+{
+  "chapter": "R01",
+  "scene": "c1RepairLegacyReturn",
+  "at": "contract",
+  "actors": [
+    "hesha",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/rpg-experience-dialogues.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md"
+    ]
+  },
+  "brief": {
+    "information": "旧档已完成的清理证据继续有效；赫莎自行检修线路，诺恩不声称做过新调查。",
+    "purposes": "承认旧任务交付，恢复库门。",
+    "outcome": "旧档已完成的清理证据继续有效；赫莎自行检修线路，诺恩不声称做过新调查。",
+    "causality": "赫莎认先前清场，不让玩家重跑；接线由她执行。",
+    "emotional_basis": "没有冒称诺恩调查过新接头、水槽；感谢只限实际帮忙。",
+    "gameplay_handoff": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+  },
+  "lines": [
+    {
+      "speaker": "hesha",
+      "text": "你先前清过的地方我记着，不用重新跑。我带上工具去接好库门的线，你下去后先找维恩，他还守着那些账册。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "承认旧任务交付，恢复库门。 诺恩会询问和判断，不只用冷淡短答。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "通读本场全部1行；赫莎认先前清场，不让玩家重跑；接线由她执行。 问答承接具体对象，没有以“规矩/命运/真正的”替代实际交代。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "赫莎认先前清场，不让玩家重跑；接线由她执行。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。 新静态ID不挪动原pending页码；旧动态pending.lines继续原样读完。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "获知者限定hesha,noen及玩家；没有圣女或委托内幕。调查独白不向未在场NPC自动同步，回报场才说明结果。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本场只处理线路、器物/清册或维护登记，不新增长期阴谋伏笔；不改变既有私谈揭露上限。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "没有冒称诺恩调查过新接头、水槽；感谢只限实际帮忙。"
+    },
+    "reviewer": "Codex执行编辑；逐场读取正式人物档案、实际代码、采用稿及新全文，2026-10-14"
+  }
+}

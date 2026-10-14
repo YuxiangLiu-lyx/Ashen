@@ -1,0 +1,105 @@
+{
+  "chapter": "R01",
+  "scene": "c1VaultAccept",
+  "at": "contract",
+  "actors": [
+    "venn",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/rpg-experience-dialogues.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md"
+    ]
+  },
+  "brief": {
+    "information": "维恩请诺恩停下东厅看守，从北墙书架取回封存清册，告知作战空间与备用药报酬。",
+    "purposes": "维恩要保全清册；诺恩确认目标位置与如何靠近。",
+    "outcome": "维恩请诺恩停下东厅看守，从北墙书架取回封存清册，告知作战空间与备用药报酬。",
+    "causality": "维恩关心账册和旧口令；诺恩复述行动并追问书架，维恩指出东厅北墙与中央战斗空间。",
+    "emotional_basis": "抱账睡楼梯的抱怨来自困在库房的现状，随后认真说明委托，不强加口头禅或身世。",
+    "gameplay_handoff": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+  },
+  "lines": [
+    {
+      "speaker": "venn",
+      "text": "你下来的时候，库门能正常开了？那就好。我还以为今天得抱着这几本账睡在楼梯上。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "赫莎修好了门。你还缺什么？",
+      "claims": [],
+      "no_fact_reason": "诺恩是在询问行动条件，问句不把未知事项当作已知事实。"
+    },
+    {
+      "speaker": "venn",
+      "text": "东厅书架上那本封存清册。外面的账能带出来，里头那本一直拿不到；看守认的是旧口令，我一靠近，它就举盾。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "先停下看守，再把清册带回来。书架在哪一边？",
+      "claims": [],
+      "no_fact_reason": "诺恩是在询问行动条件，问句不把未知事项当作已知事实。"
+    },
+    {
+      "speaker": "venn",
+      "text": "东厅北墙，别和西边的旧账混了。它冲过来时别退进架子之间，厅中央能让开。回来后我把备用药分你两瓶，也替你把护送账册的工钱结了。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "维恩要保全清册；诺恩确认目标位置与如何靠近。 诺恩会询问和判断，不只用冷淡短答。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "通读本场全部5行；维恩关心账册和旧口令；诺恩复述行动并追问书架，维恩指出东厅北墙与中央战斗空间。 问答承接具体对象，没有以“规矩/命运/真正的”替代实际交代。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "维恩关心账册和旧口令；诺恩复述行动并追问书架，维恩指出东厅北墙与中央战斗空间。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。 新静态ID不挪动原pending页码；旧动态pending.lines继续原样读完。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "获知者限定venn,noen及玩家；没有圣女或委托内幕。调查独白不向未在场NPC自动同步，回报场才说明结果。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本场只处理线路、器物/清册或维护登记，不新增长期阴谋伏笔；不改变既有私谈揭露上限。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "抱账睡楼梯的抱怨来自困在库房的现状，随后认真说明委托，不强加口头禅或身世。"
+    },
+    "reviewer": "Codex执行编辑；逐场读取正式人物档案、实际代码、采用稿及新全文，2026-10-14"
+  }
+}

@@ -1,3 +1,4 @@
+import {C3_AUTHORED_CAVES,assertAuthoredCave,legacyCaves} from './c3-spatial-control.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
@@ -37,12 +38,12 @@ test('default saint portrait uses the preserved gentle original; later disguises
 test('original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions',()=>{
  for(const [key,table]of Object.entries({maps:MAPS,scenery:SCENERY,quests:QUESTS,dialogues:DIALOGUES,originalStaging:STAGING.scenes})){
   const added=Object.keys(table).filter(id=>!(id in baseline[key]));
-  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c2PumpRest','c1Conversation','c1GateBrief','c1NorthBrief','c1RepairAccept','c1RepairCable','c1RepairDrain','c1RepairLegacyReturn','c1RepairReturn','c1VaultAccept','c1VaultLedger','c1VaultLegacyReturn','c1VaultReturn']:[];
+  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c3HerbMedicine','c3BrewMedicine','c2PumpRest','c1Conversation','c1GateBrief','c1NorthBrief','c1RepairAccept','c1RepairCable','c1RepairDrain','c1RepairLegacyReturn','c1RepairReturn','c1VaultAccept','c1VaultLedger','c1VaultLegacyReturn','c1VaultReturn']:[];
   assert.deepEqual(added.sort(),allowed.slice().sort(),key+' authorized additions');
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
    if(['maps','scenery'].includes(key)&&C1_MAPS.includes(id))continue; // 0.7 explicit 17-map geometry/art authorization; independently audited.
-   let value=table[id];if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
+   let value=table[id];if(['maps','scenery'].includes(key)&&C3_AUTHORED_CAVES.includes(id)){assertAuthoredCave(id);value=legacyCaves[key][id];}if(key==='dialogues'&&['intro','ratAccept'].includes(id))value=value.map(([speaker,line])=>[speaker,line.replaceAll('八只','六只')]); // Authorized 0.8 objective count; all remaining dialogue stays exact.
    if(key==='dialogues'&&id==='v9TollFound')value=value.map(([speaker,line],i)=>[speaker,i?line:line.replace('护符下面还压着两瓶蜡封的清醒药和一瓶疗伤药，瓶口没有渗漏。','')]); // C2 0.4: exact appended cache contents only.
    if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
    assert.equal(hash(value),h,key+'/'+id);
@@ -60,6 +61,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);
    original=original.replace('e.hp=Math.max(0,e.hp-n);','e.hp-=n;');
    for(const [approved,prior]of [
+    ["import {installChapterThreeExperience} from './rpg-chapter-three.js';\n",''],["import {installChapterThreeCaves} from './rpg-chapter-three-world.js';\n",''],["\ninstallChapterThreeCaves(RPG,{MAPS,SCENERY,BOUNDARIES});\ninstallChapterThreeExperience(RPG,{DIALOGUES,stats});\n",''],
     ["import {installChapterTwoExperience} from './rpg-chapter-two.js';\n",''],["\ninstallChapterTwoExperience(RPG,{DIALOGUES,stats});\n",''],
     ["import {installGameSettings} from './game-settings-v31.js';\n",''],["installGameSettings(RPG,{MAPS});\n",''],
     ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],
@@ -69,6 +71,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
      assert.equal(original.split(approved).length,2,'one scoped 0.6 core change');original=original.replace(approved,prior);
     }data=Buffer.from(original);
   }
+  if(file==='dist/chapter23-art-v30.js'){let source=data.toString();for(const [approved,prior]of [["import {drawChapterThreeCaveMass} from './rpg-chapter-three-art.js';\n",''],['floorDetail(c,id);drawChapterThreeCaveMass(c,bank,id);','floorDetail(c,id);'],['[[[180,405],[430,405],[520,300],[900,300],[1080,400]],[[1100,920],[1100,820],[640,820],[520,735]]]','[[[220,405],[350,405],[555,540]],[[625,555],[925,555],[1080,745]]]']]){assert.equal(source.split(approved).length,2);source=source.replace(approved,prior);}data=Buffer.from(source);}
   if(file==='dist/visuals-v14.js'){let source=data.toString();for(const approved of ["import {c1Ground} from './chapter-one-expansion-art.js';\n",'c1Ground(this,id)||',"import {installC1NaturalFrames,c1LocalPortrait} from './chapter-one-natural-art.js';\n",'installC1NaturalFrames(this,name,data);','const local=c1LocalPortrait(this,name);if(local)return local;']){assert.equal(source.split(approved).length,2);source=source.replace(approved,'');}data=Buffer.from(source);}
   if(file==='dist/chapter-one-interaction-v31.js'){let source=data.toString();source=source.replace("{...t,y:this.props.find(p=>p.id==='well')?.interactY??735}",'{...t,y:735}').replace('{x:p.interactX??p.x,y:p.interactY??735}','{x:p.x,y:735}');data=Buffer.from(source);}
   assert.equal(crypto.createHash('sha256').update(data).digest('hex'),h,file);

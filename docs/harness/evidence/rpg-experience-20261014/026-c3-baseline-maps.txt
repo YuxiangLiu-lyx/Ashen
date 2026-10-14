@@ -1,0 +1,11 @@
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39
+    const evaluate=async expression=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true});if(r.exceptionDetails)throw Error(r.exceptionDetails.exception?.description||r.exceptionDetails.text);return r.result?.value;};
+                                                                                                                                                           ^
+
+Error: TypeError: Cannot read properties of undefined (reading 'length')
+    at Object.gallery (http://127.0.0.1:63574/game-v14.js:316:1159)
+    at <anonymous>:1:9
+    at Object.evaluate (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:39:156)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/docs/rpg-experience/c3/BASELINE_MAPS.mjs:13:454
+
+Node.js v25.2.1
