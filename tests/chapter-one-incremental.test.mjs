@@ -37,7 +37,7 @@ test('default saint portrait uses the preserved gentle original; later disguises
 test('original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions',()=>{
  for(const [key,table]of Object.entries({maps:MAPS,scenery:SCENERY,quests:QUESTS,dialogues:DIALOGUES,originalStaging:STAGING.scenes})){
   const added=Object.keys(table).filter(id=>!(id in baseline[key]));
-  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c1Conversation']:[];
+  const allowed=key==='maps'||key==='scenery'?C1_NEW_MAPS:key==='quests'?Object.keys(C1_QUESTS).filter(id=>!(id in baseline[key])):key==='dialogues'?['c1Conversation','c1GateBrief','c1NorthBrief','c1RepairAccept','c1RepairCable','c1RepairDrain','c1RepairLegacyReturn','c1RepairReturn','c1VaultAccept','c1VaultLedger','c1VaultLegacyReturn','c1VaultReturn']:[];
   assert.deepEqual(added.sort(),allowed.slice().sort(),key+' authorized additions');
   for(const [id,h]of Object.entries(baseline[key])){
    if(key==='quests'&&C1_QUESTS[id])continue; // exact new budgets/IDs guarded by expansion tests
@@ -55,6 +55,9 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    const guard='if(isStoryTestV25(this))n=Math.max(1,n,e.hp);',source=data.toString();
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
    let original=source.replace(guard,'');
+   // 1.0 fixes invalid overkill saves; no other original damage behavior changes.
+   assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);
+   original=original.replace('e.hp=Math.max(0,e.hp-n);','e.hp-=n;');
    for(const [approved,prior]of [
     ["import {installGameSettings} from './game-settings-v31.js';\n",''],["installGameSettings(RPG,{MAPS});\n",''],
     ["import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';\n",''],["import {BOUNDARIES} from './world-v14.js';\n",''],

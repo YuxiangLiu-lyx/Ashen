@@ -65,6 +65,9 @@ def recommend(paths):
     tests.add('python3 tools/harness/check.py --tier fast')
     if any(p.startswith('source/narrative/') or re_narrative_path(p) for p in paths):
         tests.add('python3 tools/harness/check.py --tier narrative')
+    if any(p.startswith('dist/rpg-experience-') or p == 'tools/harness/experience.py' for p in paths):
+        tests.add('python3 -m unittest discover -s tests/harness -p test_experience.py -v')
+        tests.add('node --test tests/rpg-experience.test.mjs')
     from map_quality import relevant
     if relevant(paths):
         tests.add('python3 tools/harness/map_quality.py')

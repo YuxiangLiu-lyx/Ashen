@@ -9,6 +9,8 @@ import {StoryFlow} from '../dist/story-flow-v14.js';
 import fs from 'node:fs';
 import {EXPERIENCE_CACHES,EXPERIENCE_DUNGEONS} from '../dist/rpg-experience-exploration.js';
 import {EXPERIENCE_INSPECTIONS} from '../dist/rpg-experience-dialogues.js';
+import {EXPERIENCE_EVENTS} from '../dist/rpg-experience-triggers.js';
+import {STAGING} from '../dist/staging-v14.js';
 const finish=g=>{for(let i=0;g.pending&&i<80;i++)g.finishScene();g.active=true;};
 const enter=(g,map)=>{g.enter(map);finish(g);};
 const kill=g=>{for(const e of g.enemies)if(!e.dead)g.damage(e,99999);finish(g);};
@@ -91,4 +93,29 @@ test('exploration caches contain real usable supplies/materials and remain empty
  for(const [id,c]of Object.entries(EXPERIENCE_CACHES)){
   const g=game();g.chapter=2;enter(g,c.map);kill(g);const before={...g.p.items};assert.ok(inspect(g,id));for(const [item,n]of Object.entries(c.items))assert.equal(g.p.items[item],(before[item]||0)+n);const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(inspect(r,id),false);for(const [item,n]of Object.entries(c.items))assert.equal(r.p.items[item],(before[item]||0)+n);assert.ok(!r.targets().some(t=>t.id===id));
  }
+});
+
+test('elite migration preserves living health ratio, off-map deaths, and all settled rewards',()=>{
+ const g=game();g.chapter=2;enter(g,'grove');const e=g.enemies.find(e=>e.id==='c1-elite-rat');
+ e.maxHP=540;e.hp=270;e.c1Tuned=true;delete e.c1CombatRevision;const saved=parseSave(JSON.stringify(g.snapshot())),r=new RPG('shadow',saved,()=>.9);
+ assert.equal(r.enemies.find(x=>x.id===e.id).hp,450);assert.equal(r.enemies.find(x=>x.id===e.id).maxHP,900);const twice=new RPG('shadow',parseSave(JSON.stringify(r.snapshot())),()=>.9);assert.equal(twice.enemies.find(x=>x.id===e.id).hp,450);
+ r.damage(r.enemies.find(x=>x.id===e.id),99999);const ledger=structuredClone(r.c1Expansion.claimLedger),gold=r.p.gold;r.enter('hall');const death=r.snapshot();delete death.states.grove.enemies.find(x=>x.id===e.id).c1CombatRevision;const restored=new RPG('shadow',parseSave(JSON.stringify(death)),()=>.9);assert.ok(restored.states.grove.enemies.find(x=>x.id===e.id).dead);assert.equal(restored.p.gold,gold);assert.deepEqual(restored.c1Expansion.claimLedger,ledger);
+});
+test('charging rat protects its front while recovery rewards a counterattack; DOT is unchanged',()=>{
+ const g=game();g.chapter=2;enter(g,'grove');const e=g.enemies.find(e=>e.id==='c1-elite-rat');e.angle=0;e.telegraph={a:0};
+ const hit=(x,kind='skill')=>{e.hp=e.maxHP;g.p.x=e.x+x;g.p.y=e.y;const before=e.hp;g.damage(e,40,kind);return before-e.hp;};
+ const front=hit(70),rear=hit(-70);assert.ok(rear>front);const dot=hit(70,'dot');e.c1Recovery=1;const counter=hit(70);assert.ok(counter>rear);assert.equal(hit(70,'dot'),dot);
+});
+test('automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge',()=>{
+ for(const row of EXPERIENCE_EVENTS){assert.ok(DIALOGUES[row.id]);assert.equal(STAGING.scenes[row.id].map,row.stage);for(const actor of row.actors)assert.ok(STAGING.scenes[row.id].actors[actor]);}
+ assert.ok(!STAGING.scenes.saintBrief.actors.hero);
+ const g=game();g.chapter=2;const knowledge=structuredClone(g.knowledge);g.enter('town');assert.equal(g.pending.id,'saintBrief');finish(g);assert.deepEqual(g.knowledge,knowledge);g.enter('workshop');g.enter('town');assert.equal(g.pending,null);
+});
+test('unsafe entrance defers its scene, reload and a safe tick restore it exactly once',()=>{
+ const g=game();g.chapter=2;g.ensureMap('town');g.map='town';const e=g.enemy('guard',800,800,'trigger-fixture');g.states.town.enemies.push(e);g.map='hall';g.enter('town',800,800);
+ assert.equal(g.pending,null);assert.equal(g.flags.cityIntro,false);assert.equal(g.experienceSceneTick(),false);
+ const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())),()=>.9);r.damage(r.enemies.find(e=>e.id==='trigger-fixture'),99999);r.pending=null;r.active=true;
+ r.transition={to:'workshop'};assert.equal(r.experienceSceneTick(),false);r.transition=null;r.beginScene('_spoken');assert.equal(r.experienceSceneTick(),false);finish(r);
+ r.bullets.push({friendly:false});assert.equal(r.experienceSceneTick(),false);r.bullets=[];assert.ok(r.experienceSceneTick());assert.equal(r.pending.id,'saintBrief');
+ const f=new StoryFlow(r,DIALOGUES.saintBrief);f.advance();const saved=parseSave(JSON.stringify(r.snapshot())),s=new RPG('shadow',saved,()=>.9);assert.equal(s.pending.line,saved.pending.line);finish(s);assert.equal(s.experienceSceneTick(),false);assert.ok(s.flags.cityIntro);
 });

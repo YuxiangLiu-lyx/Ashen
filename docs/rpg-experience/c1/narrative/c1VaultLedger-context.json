@@ -76,17 +76,6 @@
     }
   },
   "facts": {
-    "F-EXP-C1VAULTLEDGER": {
-      "id": "F-EXP-C1VAULTLEDGER",
-      "summary": "诺恩在东厅书架找到并带走封存清册。",
-      "truth": "world_fact",
-      "plane": "runtime",
-      "status": "RUNTIME",
-      "sources": [
-        "experience:c1VaultLedger"
-      ],
-      "risk_terms": []
-    },
     "F-C1-DOOR-CLAIM": {
       "id": "F-C1-DOOR-CLAIM",
       "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
@@ -98,10 +87,10 @@
       ],
       "risk_terms": []
     },
-    "F-C1-COMMISSION": {
-      "id": "F-C1-COMMISSION",
-      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
-      "truth": "world_fact",
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
@@ -109,10 +98,21 @@
       ],
       "risk_terms": []
     },
-    "F-C1-SEAL-INSTRUCTION": {
-      "id": "F-C1-SEAL-INSTRUCTION",
-      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
-      "truth": "instruction",
+    "F-EXP-C1VAULTLEDGER": {
+      "id": "F-EXP-C1VAULTLEDGER",
+      "summary": "诺恩在东厅书架找到并带走封存清册。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1VaultLedger"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
@@ -172,8 +172,8 @@
     "plan": {
       "path": "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
       "revision": "1.0",
-      "status": "DEV_FROZEN",
-      "implementation": "RPG体验试点开发中；0.9为保留运行基线；0.6人工节奏独立待验"
+      "status": "IMPLEMENTED",
+      "implementation": "1.0运行增量与三职业正常输入已验证；真人节奏/乐趣仍待验，旧0.6人工任务独立保留"
     }
   },
   "runtime_reader": [
@@ -264,5 +264,5 @@
     "source/narrative/characters/noen.json",
     "source/narrative/chapters/R01.json"
   ],
-  "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5"
+  "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711"
 }

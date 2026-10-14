@@ -153,6 +153,8 @@ def can_finish(record, root=ROOT):
     errors.extend(chapter_errors(record, root))
     from narrative import task_errors as narrative_errors
     errors.extend(narrative_errors(record, root))
+    from experience import task_errors as experience_errors
+    errors.extend(experience_errors(record, root))
     if record.get('running_check'):
         errors.append('Interrupted or running check has no final exit status; rerun verification')
     current = fingerprint(inventory(root))
@@ -178,7 +180,7 @@ def main():
     start.add_argument('--goal', required=True)
     start.add_argument('--accept', action='append', required=True)
     start.add_argument('--require', action='append', default=[])
-    for name in ['resume', 'update', 'checkpoint', 'run', 'finish', 'narrative']:
+    for name in ['resume', 'update', 'checkpoint', 'run', 'finish', 'narrative', 'experience']:
         p = sub.add_parser(name)
         p.add_argument('--id', required=True)
         if name in ['update', 'checkpoint']:
@@ -199,6 +201,8 @@ def main():
         if name == 'narrative':
             for kind in ['context', 'draft', 'review']:
                 p.add_argument('--' + kind, required=True)
+        if name == 'experience':
+            p.add_argument('--report', required=True)
     sub.add_parser('list')
     args = parser.parse_args()
     if args.action == 'list':
@@ -229,6 +233,10 @@ def dispatch(args, parser):
                   'decisions': [], 'completed': [], 'remaining': args.accept,
                   'blockers': [], 'next': 'Inspect routed code and capture baseline',
                   'required_checks': args.require or ['verification'], 'checks': []}
+        from experience import requested
+        requirement = requested(args.goal)
+        if requirement['scopes']:
+            record['experience_requirement'] = requirement
     else:
         if not path.is_file():
             parser.error('No active task with this ID; check tasks/archive')
@@ -262,6 +270,18 @@ def dispatch(args, parser):
         stage.update(status=args.state, updated_at_utc=now(), head_commit=git('rev-parse', 'HEAD'),
                      source_fingerprint=fingerprint(inventory()), worktree=git('status', '--short'))
     code = 0
+    if args.action == 'experience':
+        from narrative import safe_file
+        from experience import requested, task_errors as experience_errors
+        source = safe_file(args.report)
+        report = read_json(source.relative_to(ROOT).as_posix())
+        record['experience_requirement'] = requested(record['goal'])
+        reviews = record.setdefault('experience_reviews', [])
+        reviews[:] = [r for r in reviews if r.get('chapter') != report.get('chapter')]
+        reviews.append({'path': source.relative_to(ROOT).as_posix(), 'sha256': digest(source), 'chapter': report.get('chapter')})
+        errors = experience_errors(record)
+        if errors:
+            print('RPG evidence attached; unresolved completion checks:\n' + '\n'.join(errors))
     if args.action == 'narrative':
         from narrative import safe_file, task_errors as narrative_errors
         evidence = {}

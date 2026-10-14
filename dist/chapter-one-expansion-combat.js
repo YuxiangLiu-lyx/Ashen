@@ -7,7 +7,7 @@ const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
 const steps=(g,id)=>c1State(g).questSteps[id]||(c1State(g).questSteps[id]={});
 export function c1Encounter(g,id){const h=c1State(g);return h.elite[id]||(h.elite[id]={killSequence:0,aliveGeneration:1,lastKill:0,outsideActiveSeconds:0,leftAfterKill:false,firstPartGranted:false,lootResult:null});}
 export function c1Danger(t,p){if(!t)return false;if(t.shape==='circle')return distance(t,p)<t.r;if(t.shape==='cone')return distance(t,p)<t.r&&Math.cos(Math.atan2(p.y-t.y,p.x-t.x)-t.a)>Math.cos(t.arc);const dx=p.x-t.x,dy=p.y-t.y,along=dx*Math.cos(t.a)+dy*Math.sin(t.a),across=Math.abs(-dx*Math.sin(t.a)+dy*Math.cos(t.a));return along>-18&&along<t.length&&across<t.width/2+12;}
-function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=e.hp/Math.max(1,e.maxHP);if(!e.c1Tuned){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;}
+function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));if(!e.c1Tuned||e.c1CombatRevision!==2){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;e.c1CombatRevision=2;}
  Object.assign(e,{label:cfg.name,elite:true,c1Custom:true,c1Generation:e.c1Generation||h.aliveGeneration,v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:35,v28RewardGold:12,v13Tuned:true});}
 export function installC1Combat(RPG,{stats,MAPS}){
  const P=RPG.prototype,old={};for(const k of ['ensureMap','enemy','enter','update','damage','handleHellDeath','dropCombatLoot','snapshot','restore','respawn','skill','enemyHit'])old[k]=P[k];
@@ -65,7 +65,7 @@ export function installC1Combat(RPG,{stats,MAPS}){
    if(e.type==='wolf'&&e.hp<e.maxHP*.5&&!e.c1Second){e.c1Second=true;e.c1Follow=.65;}else e.c1Second=false;
    return true;
   }
-  if(e.type==='bat'&&e.hp<e.maxHP*.5&&!e.c1Summoned){e.c1Summoned=true;for(const dy of [-70,70]){const at=this.safePoint(e.x-130,e.y+dy),add=this.enemy('bat',at.x,at.y,'c1-weak-bat-'+dy);Object.assign(add,{maxHP:40,hp:40,c1NoReward:true,storyTag:'c1-weak',v28RewardXP:0,v28RewardGold:0});this.enemies.push(add);}this.say('夜翼只唤来这一对弱蝠，绕窑柱挡住声波。');}
+  if(e.type==='bat'&&e.hp<e.maxHP*.5&&!e.c1Summoned){e.c1Summoned=true;for(const dy of [-70,70]){const at=this.safePoint(e.x-130,e.y+dy),add=this.enemy('bat',at.x,at.y,'c1-weak-bat-'+dy);Object.assign(add,{maxHP:80,hp:80,c1NoReward:true,storyTag:'c1-weak',v28RewardXP:0,v28RewardGold:0});this.enemies.push(add);}this.say('夜翼只唤来这一对弱蝠，绕窑柱挡住声波。');}
   const d=distance(e,p);if(d>550&&e.aiState!=='COMBAT')return true;if(d>750){e.aiState='IDLE';return true;}e.aiState='COMBAT';e.angle=Math.atan2(p.y-e.y,p.x-e.x);
   if(e.cd<=0&&d<410&&this.clearLine(e,p,false)){
    e.c1Pattern=(e.c1Pattern||0)+1;
@@ -91,7 +91,7 @@ export function installC1Combat(RPG,{stats,MAPS}){
  P.c1EndTraining=function(){const s=this.c1TrainingSession;if(!s)return;Object.assign(this.p,c1Clone(s.backup));for(const st of Object.values(this.states))st.enemies=st.enemies.filter(e=>!e.c1Training);this.bullets=[];this.zones=[];delete this.c1TrainingSession;};
  P.damage=function(e,n,kind='hit',source){const hp=e.hp,result=old.damage.call(this,e,n,kind,source),s=this.c1TrainingSession;if(e.c1Training&&s&&hp>e.hp){if(s.kind==='drill'){if(e.dead||e.hp<=0){steps(this,'c1ExitDrill').target=true;this.say('构装靶停下了。把负重带到便门，记住你选的路线。');}}else{e.hp=e.maxHP;e.dead=false;}if(s.kind==='copper'&&['skill','ch3skill'].includes(kind)){steps(this,'copper').tested=true;this.c1EndTraining();this.say('铜圈把力传到了杖端。借用装已归还，回洛缇的工作台装牢。');}else if(s.kind==='readiness'){if(kind==='hit')s.lastHit=this.time;if(['skill','ch3skill'].includes(kind)){steps(this,'c1Readiness').skill=true;if(this.time-s.lastHit<5)steps(this,'c1Readiness').combo=true;}}}return result;};
  P.snapshot=function(){const out=old.snapshot.call(this),s=this.c1TrainingSession;if(!s)return out;const saved=c1Clone(out);Object.assign(saved.p,c1Clone(s.backup));for(const st of Object.values(saved.states))st.enemies=st.enemies.filter(e=>!e.c1Training);return saved;};
- P.restore=function(...args){delete this.c1TrainingSession;const result=old.restore.apply(this,args);for(const st of Object.values(this.states))st.enemies=st.enemies.filter(e=>!e.c1Training);return result;};
+ P.restore=function(...args){delete this.c1TrainingSession;const result=old.restore.apply(this,args);for(const [map,st]of Object.entries(this.states)){st.enemies=st.enemies.filter(e=>!e.c1Training);for(const e of st.enemies)if(C1_ELITES[e.id]?.map===map)tune(this,e);}return result;};
  P.respawn=function(...args){this.c1EndTraining();return old.respawn.apply(this,args);};
  P.update=function(dt,input={}){
   const active=this.active&&!this.pending&&!this.transition,at={x:this.p.x,y:this.p.y};

@@ -38,7 +38,15 @@ export function installExperienceCombat(RPG,{stats}){
    p.mp=Math.min(s.mp,before.mp+s.mp-before.stats.mp+Math.round(s.mp*.2*levels));this.saveEvent();
   }return result;
  };
- P.damage=function(e,n,kind='hit',...args){const hp=e.hp,result=old.damage.call(this,e,n,kind,...args),cfg=experienceProfile(e);
+ P.damage=function(e,n,kind='hit',...args){
+  if(inChapterOne(this)&&e.c1Custom&&['hit','skill','ch3skill'].includes(kind)){
+   if(e.c1Recovery>0)n*=1.3;
+   else if(e.id==='c1-elite-rat'&&(e.telegraph||e.c1Charge)){
+    const facing=e.c1Charge?.a??e.telegraph?.a??e.angle;
+    if(Math.cos(Math.atan2(this.p.y-e.y,this.p.x-e.x)-facing)>.35)n*=.55;
+   }
+  }
+  const hp=e.hp,result=old.damage.call(this,e,n,kind,...args),cfg=experienceProfile(e);
   if(cfg?.guardFront&&!cfg.isBoss&&!e.dead&&e.hp<hp&&['skill','ch3skill'].includes(kind)){
    e.exposedUntil=Math.max(e.exposedUntil||0,this.time+1.3);this.text('护势松动',e.x,e.y-85,'#e6bf85');
   }return result;

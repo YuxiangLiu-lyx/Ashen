@@ -1,0 +1,263 @@
+{
+  "task": "rpg-c1-20261014",
+  "reviewer": "Codex执行编辑，实际查看原图与正式地图",
+  "checked_at_utc": "2026-10-14T12:13:08.143851+00:00",
+  "source_fingerprint": "3afc33e688995cc84598c5b5460efc4526508f7651f5cad3857858c02128c711",
+  "reviewed_paths": [
+    "dist/chapter-one-expansion-world.js",
+    "dist/chapter-one-story-world.js",
+    "dist/core-v14.js",
+    "dist/rpg-experience-exploration.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/c1-story-world/underground-npcs.png",
+      "sha256": "a4f761904dee86d74e36fb9f74ae920fc3335bc1d980bc23d8b883dd51125c5c"
+    },
+    {
+      "path": "dist/assets/c1-map-quests/trial-construct.png",
+      "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+    },
+    {
+      "path": "dist/assets/c1-story-world/vault-guardian.png",
+      "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+    }
+  ],
+  "maps": [
+    {
+      "id": "c1DrillGallery",
+      "playability": {
+        "status": "pass",
+        "reason": "真实moveActor通用及新目标路径通过；三职业生产规则地下连续遭遇与本地完整路线通过，NPC不堵通路。正常UI证据另覆盖主线两层，不把隔离三层录像称作自然通关。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/core020/MOVEMENT.json",
+            "sha256": "fddd2fdafed4d829c52d1895181f9ab76ddaf98bbdaf5ba17964bfa59194a98a"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/NEW_TARGET_MOVEMENT.json",
+            "sha256": "543008d2b1b5c18157d7422441b7b7557b7aabb524c364a8f6fbda5ea36b2edf"
+          },
+          {
+            "path": "docs/rpg-experience/c1/groups-final/COMBAT.json",
+            "sha256": "262a2b0508df79a8fbbf902a5059c45b0983cf90041a1834f6746611639e67af"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/shadow-local_work.json",
+            "sha256": "755cee58fcfb32423c1b1b89fa5d9d294bfdaa6d4a5ce5c5007f15c8b7c6b07c"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/oath-local_work.json",
+            "sha256": "82bdaaee66ddbaa9e088ff6098776139eb558643d545652018a7ab03c0059924"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/ember-local_work.json",
+            "sha256": "51fbc0c2ad005ff1dff1f22347419ce8e00d01fb5b60165abc1be89beff03328"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1DrillGallery-collision.webp",
+            "sha256": "d63b90051cbbe52fab2e6ea2e6a8b7eb985dc1bb401a2eb245ee65288b5954c6"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "练习区、内室和南廊分开；笼具已移开楼梯，西北药箱有实际用途，返回通路不用穿过看守中心。 已与原0.9和当前正式渲染对照；该项为执行编辑检查，真人审美仍待验。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1DrillGallery.webp",
+            "sha256": "9b7e2fcb52321effa4930be823b38c2e4100823fb356941e842cdc65096d3946"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "已对照原始NPC、石构装和锁甲看守图集与正式帧；赫莎围裙工具、维恩黄衣灰发与岗位相符，石构装和封存看守有独立轮廓。帧脚部与地面锚点一致，没有增加替代人物。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1DrillGallery.webp",
+            "sha256": "9b7e2fcb52321effa4930be823b38c2e4100823fb356941e842cdc65096d3946"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialCrypt",
+      "playability": {
+        "status": "pass",
+        "reason": "真实moveActor通用及新目标路径通过；三职业生产规则地下连续遭遇与本地完整路线通过，NPC不堵通路。正常UI证据另覆盖主线两层，不把隔离三层录像称作自然通关。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/core020/MOVEMENT.json",
+            "sha256": "fddd2fdafed4d829c52d1895181f9ab76ddaf98bbdaf5ba17964bfa59194a98a"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/NEW_TARGET_MOVEMENT.json",
+            "sha256": "543008d2b1b5c18157d7422441b7b7557b7aabb524c364a8f6fbda5ea36b2edf"
+          },
+          {
+            "path": "docs/rpg-experience/c1/groups-final/COMBAT.json",
+            "sha256": "262a2b0508df79a8fbbf902a5059c45b0983cf90041a1834f6746611639e67af"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/shadow-local_work.json",
+            "sha256": "755cee58fcfb32423c1b1b89fa5d9d294bfdaa6d4a5ce5c5007f15c8b7c6b07c"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/oath-local_work.json",
+            "sha256": "82bdaaee66ddbaa9e088ff6098776139eb558643d545652018a7ab03c0059924"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/ember-local_work.json",
+            "sha256": "51fbc0c2ad005ff1dff1f22347419ce8e00d01fb5b60165abc1be89beff03328"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialCrypt-collision.webp",
+            "sha256": "03fd832e45b5dda48ab43c8fabbd1aed9afb38fb599cbaf6a17d09f57e1c8d32"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "西北传动机、东北回水槽、西南工具桌对应调查和维修岗位；南廊与中央梯连通，两台设备和两段槽均可见。 已与原0.9和当前正式渲染对照；该项为执行编辑检查，真人审美仍待验。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialCrypt.webp",
+            "sha256": "2d1e8e59b5b75b8dca050687cf95c64939e513965f022f5cc2c78e12a4e2f058"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "已对照原始NPC、石构装和锁甲看守图集与正式帧；赫莎围裙工具、维恩黄衣灰发与岗位相符，石构装和封存看守有独立轮廓。帧脚部与地面锚点一致，没有增加替代人物。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialCrypt.webp",
+            "sha256": "2d1e8e59b5b75b8dca050687cf95c64939e513965f022f5cc2c78e12a4e2f058"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "真实moveActor通用及新目标路径通过；三职业生产规则地下连续遭遇与本地完整路线通过，NPC不堵通路。正常UI证据另覆盖主线两层，不把隔离三层录像称作自然通关。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/core020/MOVEMENT.json",
+            "sha256": "fddd2fdafed4d829c52d1895181f9ab76ddaf98bbdaf5ba17964bfa59194a98a"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/NEW_TARGET_MOVEMENT.json",
+            "sha256": "543008d2b1b5c18157d7422441b7b7557b7aabb524c364a8f6fbda5ea36b2edf"
+          },
+          {
+            "path": "docs/rpg-experience/c1/groups-final/COMBAT.json",
+            "sha256": "262a2b0508df79a8fbbf902a5059c45b0983cf90041a1834f6746611639e67af"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/shadow-local_work.json",
+            "sha256": "755cee58fcfb32423c1b1b89fa5d9d294bfdaa6d4a5ce5c5007f15c8b7c6b07c"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/oath-local_work.json",
+            "sha256": "82bdaaee66ddbaa9e088ff6098776139eb558643d545652018a7ab03c0059924"
+          },
+          {
+            "path": "docs/rpg-experience/c1/core020/economy/ember-local_work.json",
+            "sha256": "51fbc0c2ad005ff1dff1f22347419ce8e00d01fb5b60165abc1be89beff03328"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialVault-collision.webp",
+            "sha256": "158d5dd419b1067fd109abc35b3b4896885ef52f4c58305ed3d51c65bcee244c"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "西侧旧档材料箱与东北目标清册分区，东厅看守与中央检修便道相连；维恩在入口工作桌前，便于报告和返回。 已与原0.9和当前正式渲染对照；该项为执行编辑检查，真人审美仍待验。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialVault.webp",
+            "sha256": "042cc1a9005a3febb361cb4fa12ddd6b2f842d5dd5206b794ccb40b7f756c8a7"
+          },
+          {
+            "path": "docs/rpg-experience/c1/MAP_REVIEW.md",
+            "sha256": "2afa4c42c58f3618c222f80a2c673f4fb6d39a07089dcaaf740d3e3ea2257975"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "已对照原始NPC、石构装和锁甲看守图集与正式帧；赫莎围裙工具、维恩黄衣灰发与岗位相符，石构装和封存看守有独立轮廓。帧脚部与地面锚点一致，没有增加替代人物。",
+        "evidence": [
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1TrialVault.webp",
+            "sha256": "042cc1a9005a3febb361cb4fa12ddd6b2f842d5dd5206b794ccb40b7f756c8a7"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1UnderNPC-frames.webp",
+            "sha256": "a25529c583dfaf450a5a3d02e13874e01ab90ce40c64e95cfe14a6bea21e0060"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1Construct-frames.webp",
+            "sha256": "536562ff5bcf331f47c9061a141f45a750429e392bcfbb81ba99d89a9ffe08cb"
+          },
+          {
+            "path": "docs/rpg-experience/c1/visual-final/c1VaultGuardian-frames.webp",
+            "sha256": "be8d5d92fe8d62a0c36f752ef210e70ffa0c07492eaf19bc0b80dace69e4030a"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "三层布局变化；其余19图布局不变。截图画廊是隔离证据，正常UI另列。",
+    "真人乐趣、首次寻路和美学待验；core仅HP归零不改共享几何。"
+  ]
+}

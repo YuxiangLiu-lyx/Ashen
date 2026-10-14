@@ -1,0 +1,20 @@
+RUN: node tests/browser-chapter-one-v30.mjs
+Captured 11 chapter-one maps; browser errors: 0
+RUN: node tests/browser-chapter23.mjs
+Captured 23 chapter-two/three maps; browser errors: 0
+RUN: node tests/browser-chapter123.mjs
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: wrong click response townbook: {"mode":"dialogue","map":"town","pending":{"id":"saintBrief","then":null,"line":0,"phase":"action","closing":false},"flow":{"id":"saintBrief","index":0},"flags":{"rats":0,"cityIntro":true,"chapterCardsV17":[1,2,3,4,5,6,7,8]},"quests":{},"events":[],"notices":[],"player":{"x":990,"y":840},"pendingWalk":null,"moveTo":null}
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-chapter123.mjs:51:129 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v25.2.1

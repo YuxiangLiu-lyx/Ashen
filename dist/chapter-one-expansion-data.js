@@ -49,9 +49,9 @@ export const C1_GEAR={
  c1CaptainSeal:{name:'追缉官的封缄',slot:'relic',atk:1,hp:18,effect:'evasion'}
 };
 export const C1_ELITES={
- 'c1-elite-rat':{name:'裂齿渠鼠',type:'rat',map:'grove',hp:540,hit:16,heavy:27,wind:.9,part:'c1PartJaw',pool:['c1FangWeapon','c1TrailBoots'],x:1150,y:540},
- 'echo-warden':{name:'灰脊守兽',type:'wolf',map:'echo',hp:720,hit:19,heavy:30,wind:1,part:'c1PartTendon',pool:['c1EchoHood','c1QuietRing']},
- 'c1-elite-bat':{name:'苇窑夜翼',type:'bat',map:'c1ReedKiln',hp:660,hit:17,heavy:25,wind:.9,part:'c1PartMembrane',pool:['c1WingGloves','c1VeinChest'],x:1140,y:450}
+ 'c1-elite-rat':{name:'裂齿渠鼠',type:'rat',map:'grove',hp:900,hit:24,heavy:42,wind:.9,part:'c1PartJaw',pool:['c1FangWeapon','c1TrailBoots'],x:1150,y:540},
+ 'echo-warden':{name:'灰脊守兽',type:'wolf',map:'echo',hp:1250,hit:29,heavy:46,wind:1,part:'c1PartTendon',pool:['c1EchoHood','c1QuietRing']},
+ 'c1-elite-bat':{name:'苇窑夜翼',type:'bat',map:'c1ReedKiln',hp:1050,hit:25,heavy:40,wind:.9,part:'c1PartMembrane',pool:['c1WingGloves','c1VeinChest'],x:1140,y:450}
 };
 export const C1_PARTS={c1PartJaw:'裂齿下颌',c1PartTendon:'灰脊腱束',c1PartMembrane:'夜翼膜片'};
 export const C1_NEW_MAPS=['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt'];

@@ -45,7 +45,7 @@ export function cohort(snapshot,kind,seed=42){
  if(kind==='unarmed'||kind==='starter'){
   const fresh=new RPG(g.p.cls,null,seeded(seed));g.p.gear=Object.fromEntries(Object.keys(g.p.gear).map(k=>[k,null]));
   if(kind==='starter')g.p.gear.weapon=structuredClone(fresh.p.gear.weapon);
-  g.p.attrs={str:0,dex:0,vit:0,wis:0};g.p.skills={...fresh.p.skills};g.p.bar=['q','e'];
+  g.p.attrs={str:0,dex:0,vit:0,wis:0};g.p.skills={...fresh.p.skills};g.p.bar=structuredClone(fresh.p.bar);
  }else if(kind==='optimized'){
   // Only reassign points already spent on this real route; only equip owned loot.
   const points=Object.values(g.p.attrs).reduce((a,b)=>a+b,0),main={shadow:'dex',oath:'str',ember:'wis'}[g.p.cls];

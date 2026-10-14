@@ -3,11 +3,17 @@ import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import assert from 'node:assert/strict';
+import {createHash} from 'node:crypto';
 import {browserSession,delay} from '../tools/browser_session.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const baseline=process.argv.includes('--baseline'),auditOnly=process.argv.includes('--audit-only');
 const outputArg=process.argv.indexOf('--output');
 const out=path.resolve(outputArg<0?(process.env.ASHEN_WORLD_OUTPUT||'qa-export/world-v29'):process.argv[outputArg+1]);
+// This suite checks continuous world interactions, not low-investment balance.
+// Use an obtainable campaign build; starter/no-allocation remains in the lab matrix.
+const journeySource=path.join(process.env.ASHEN_C1_ECONOMY||'docs/ch1-layer-rules/economy','shadow-main_only.json');
+const journeyBytes=!baseline&&!auditOnly?fs.readFileSync(journeySource):null;
+const journeySnapshot=journeyBytes?JSON.parse(journeyBytes).milestones.find(m=>m.name==='prepared').snapshot:null;
 const hook=`
 let worldTravel={distance:0,moving:0,quiet:0,maxQuiet:0,samples:[],interactions:0,last:null};
 const oldWorldUpdate=RPG.prototype.update;RPG.prototype.update=function(dt,input){const p={x:this.p.x,y:this.p.y,map:this.map};const result=oldWorldUpdate.call(this,dt,input);if(this===g&&p.map===this.map){const d=Math.hypot(p.x-this.p.x,p.y-this.p.y);if(d>.01){worldTravel.distance+=d;worldTravel.moving+=dt;worldTravel.quiet+=dt;worldTravel.maxQuiet=Math.max(worldTravel.maxQuiet,worldTravel.quiet);if(!worldTravel.last||Math.hypot(worldTravel.last.x-this.p.x,worldTravel.last.y-this.p.y)>70){worldTravel.last={map:this.map,x:this.p.x,y:this.p.y};worldTravel.samples.push({...worldTravel.last,time:this.time});}}if(this.events.some(e=>['npc','scene','map','mechanism','toast'].includes(e.type))||this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<160))worldTravel.quiet=0;}return result;};
@@ -26,7 +32,7 @@ window.__WORLD_QA={ready:()=>assetsReady,
  load(s){start(s);return this.state();},
  data(){return {map:MAPS[g.map],scenery:SCENERY[g.map],targets:g.targets(),enemy:g.enemies.map(e=>({id:e.id,type:e.type,x:e.x,y:e.y,hp:e.hp,dead:e.dead}))};},
  walk(x,y){if(g.pending||mode!=='play')return false;auto=false;pendingWalk=null;g.target=null;g.moveTo={x,y};g.portCD=999;g.active=true;return true;},
- journey(){this.setup('road',850,570);g.gainXP(260);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.flags.lottiMet=true;g.c1Accept('echo');worldTravel={distance:0,moving:0,quiet:0,maxQuiet:0,samples:[],interactions:0,last:null};this.live();return {level:g.p.level,stats:stats(g.p),gear:g.p.gear,items:g.p.items};},
+ journey(){this.setup('road',850,570);g=new RPG('shadow',${JSON.stringify(journeySnapshot)},()=>.44);g.enter('road',850,570);g.pending=null;g.events=[];g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.flags.lottiMet=true;g.c1Accept('echo');worldTravel={distance:0,moving:0,quiet:0,maxQuiet:0,samples:[],interactions:0,last:null};this.live();return {level:g.p.level,stats:stats(g.p),gear:g.p.gear,items:g.p.items};},
  travel(){return worldTravel;},
  interactPoint(id){const t=g.targets().find(t=>t.id===id);return t?this.point(t.drawX??t.x,(t.drawY??t.y)-25):null;},
  enemies(){return g.enemies.filter(e=>!e.dead).map(e=>({id:e.id,x:e.x,y:e.y,hp:e.hp,maxHP:e.maxHP}));},
@@ -80,7 +86,8 @@ try{
    await walk(920,645);await object('lotti');await browser.wait(`${Q}.state().mode==='npc'`);await button('[data-choice="c1:claim:echo"]');await dialogue();assert.equal((await state()).quests.echo,'done');journey.completed=await state();console.log('Journey: returned core to Lotti');
    await browser.evaluate(Q+'.overview()');await browser.shot(path.join(out,'workshop-completed.png'));await browser.evaluate(Q+'.live()');
    const loaded=await browser.evaluate(Q+'.safeLoad()');assert.equal(loaded.quests.echo,'done');assert.equal(loaded.flags.echoChoice,'gear');journey.reloaded=loaded;journey.telemetry=await browser.evaluate(Q+'.travel()');
-   journey.scope='Level-3 starter fixture created once on road with echo quest accepted; mouse/keyboard dialogue, navigation, ordinary combat, valve, extraction, exclusive reward, return and save/reload. Offscreen waypoints use the same moveTo runtime, no damage/teleport/immune hooks. Not a campaign playthrough.';
+   journey.source={path:journeySource,sha256:createHash('sha256').update(journeyBytes).digest('hex'),milestone:'prepared'};
+   journey.scope='Actual main-only prepared campaign snapshot staged once on road with full resources and echo quest accepted; mouse/keyboard dialogue, navigation, ordinary combat, valve, extraction, exclusive reward, return and save/reload. Offscreen waypoints use the same moveTo runtime, no damage/teleport/immune hooks. Not a campaign playthrough.';
   }
   assert.deepEqual(browser.errors,[]);
   fs.mkdirSync(out,{recursive:true});

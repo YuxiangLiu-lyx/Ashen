@@ -1,6 +1,6 @@
 ---
 name: ashen-qa-release
-description: 执行 Ashen 集成测试、构建恢复、发布验收或交付保存时使用；单一内容修改只使用其领域 Skill。
+description: 执行 Ashen 集成测试、构建恢复、发布验收或交付保存时使用；单一内容修改只使用其领域 Skill；RPG章节交付核对技术证据及真人待验。
 ---
 
 执行根 AGENTS.md，先运行 `python3 tools/harness/context.py --task "用户的具体需求"`；示例领域：集成 发布 验收。索引过期先更新并复核语义，再读取返回入口与调用者。
@@ -9,4 +9,6 @@ description: 执行 Ashen 集成测试、构建恢复、发布验收或交付保
 
 用 task.py 持续记录验收、决定、下一步和真实子进程证据；按 router/test recommendations 验证。本 Skill 不扩展用户授权范围，不把未执行检查写成通过。
 
-第一章0.6开发按[扩充规格](../../../docs/harness/CHAPTER_01_EXPANSION.md)核对单一数值源、事务和真实输入证据；这不扩展第二章改写授权。
+第一章0.6开发按[扩充规格](../../../docs/harness/CHAPTER_01_EXPANSION.md)核对单一数值源、事务和真实输入证据；其历史范围不覆盖根AGENTS记录的最新用户授权；后续章仍按各自独立任务实施。
+
+RPG章节技术验收时按需读 [RPG内容设计](../../../docs/harness/RPG_DESIGN.md)。按本次范围挂接experience报告；完整章含五项判断、三职业正常UI、旧档和真实构建。明确技术通过与真人节奏/乐趣待验，后者须提供观察表。保留旧0.6人工任务，不以脚本通过关闭它。普通故障修复不因此加载全游戏资料。
