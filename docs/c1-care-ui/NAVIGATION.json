@@ -1,0 +1,201 @@
+{
+  "status": "passed",
+  "maps": [
+    {
+      "id": "c1TrialFoyer",
+      "grid": {
+        "id": "c1TrialFoyer",
+        "name": "地下接待室",
+        "kind": "existing",
+        "gridStep": 20,
+        "walkableCells": 1968,
+        "connectedCells": 1968,
+        "connectedRatio": 1,
+        "scenery": 4,
+        "targets": 4,
+        "enemies": 0,
+        "activityCoverage": 0.103,
+        "maxDistanceToActivity": 948.5,
+        "estimatedQuietSeconds": 5.27,
+        "unreachable": []
+      },
+      "routes": [
+        {
+          "from": "c1TrainingYard",
+          "to": "c1iden",
+          "points": [
+            {
+              "x": 530,
+              "y": 595
+            }
+          ],
+          "arrived": [
+            525.2144524570266,
+            599.2452437881217
+          ]
+        },
+        {
+          "from": "c1DrillGallery",
+          "to": "c1iden",
+          "points": [
+            {
+              "x": 530,
+              "y": 595
+            }
+          ],
+          "arrived": [
+            535.3598277430328,
+            594.515678215991
+          ]
+        },
+        {
+          "from": "c1TrialCrypt",
+          "to": "c1iden",
+          "points": [
+            {
+              "x": 530,
+              "y": 595
+            }
+          ],
+          "arrived": [
+            535.0614794557043,
+            597.9439217242361
+          ]
+        }
+      ],
+      "scope": "Actual blocked/clearLine/routeTo/moveActor; collision/actor/AI configurations are unchanged. Combat regressions run in integration."
+    },
+    {
+      "id": "c1TrialCrypt",
+      "grid": {
+        "id": "c1TrialCrypt",
+        "name": "二层蓄能廊",
+        "kind": "existing",
+        "gridStep": 20,
+        "walkableCells": 1560,
+        "connectedCells": 1560,
+        "connectedRatio": 1,
+        "scenery": 5,
+        "targets": 5,
+        "enemies": 8,
+        "activityCoverage": 0.727,
+        "maxDistanceToActivity": 325.6,
+        "estimatedQuietSeconds": 1.81,
+        "unreachable": []
+      },
+      "routes": [
+        {
+          "from": "c1TrialFoyer",
+          "to": "c1hesha",
+          "points": [
+            {
+              "x": 280,
+              "y": 920
+            }
+          ],
+          "arrived": [
+            274.53495932910903,
+            918.8289198562377
+          ]
+        },
+        {
+          "from": "c1TrialVault",
+          "to": "c1hesha",
+          "points": [
+            {
+              "x": 280,
+              "y": 920
+            }
+          ],
+          "arrived": [
+            286.12944846972016,
+            919.7213887059219
+          ]
+        },
+        {
+          "from": "c1DrillGallery",
+          "to": "c1hesha",
+          "points": [
+            {
+              "x": 520,
+              "y": 660
+            },
+            {
+              "x": 280,
+              "y": 920
+            }
+          ],
+          "arrived": [
+            283.0697552955568,
+            916.7490966582968
+          ]
+        },
+        {
+          "from": "c1TrainingYard",
+          "to": "c1hesha",
+          "points": [
+            {
+              "x": 280,
+              "y": 920
+            }
+          ],
+          "arrived": [
+            285.001357470787,
+            918.7496606323033
+          ]
+        }
+      ],
+      "scope": "Actual blocked/clearLine/routeTo/moveActor; collision/actor/AI configurations are unchanged. Combat regressions run in integration."
+    },
+    {
+      "id": "c1TrialVault",
+      "grid": {
+        "id": "c1TrialVault",
+        "name": "三层封存库",
+        "kind": "existing",
+        "gridStep": 20,
+        "walkableCells": 1607,
+        "connectedCells": 1607,
+        "connectedRatio": 1,
+        "scenery": 5,
+        "targets": 4,
+        "enemies": 9,
+        "activityCoverage": 0.838,
+        "maxDistanceToActivity": 313.2,
+        "estimatedQuietSeconds": 1.74,
+        "unreachable": []
+      },
+      "routes": [
+        {
+          "from": "c1TrialCrypt",
+          "to": "c1venn",
+          "points": [
+            {
+              "x": 285,
+              "y": 910
+            }
+          ],
+          "arrived": [
+            278.847175892106,
+            910.4101882738597
+          ]
+        },
+        {
+          "from": "c1DrillGallery",
+          "to": "c1venn",
+          "points": [
+            {
+              "x": 285,
+              "y": 910
+            }
+          ],
+          "arrived": [
+            290.051370569636,
+            907.2097191139154
+          ]
+        }
+      ],
+      "scope": "Actual blocked/clearLine/routeTo/moveActor; collision/actor/AI configurations are unchanged. Combat regressions run in integration."
+    }
+  ]
+}

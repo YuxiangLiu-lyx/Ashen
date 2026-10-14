@@ -1,0 +1,347 @@
+{
+  "schema": 1,
+  "id": "c1-care-ui-20261014",
+  "goal": "修复地下演练场人物外观；全剧情点击继续与上一条回看；第一章薇蕾娜扩写亲昵调侃、试炼担忧和吃饭关心，严格Harness语言规范",
+  "acceptance": [
+    "地下三名NPC完整自然且身份一致；鼠标触屏点击对白/背景均前进、上一条可回看且不重放动作或任务结算；关键对白自然且知识边界正确；旧档和后续章回归通过；默认入口同步并GitHub保存"
+  ],
+  "baseline_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T18:54:07.270281+00:00",
+  "updated_at_utc": "2026-10-14T19:43:06.014586+00:00",
+  "decisions": [
+    "四阶段：审计与章稿；NPC美术与对白导航；关键人物对白及兼容；浏览器/叙事/集成验收和交付。第一章内容修订，全章节共享对白操作改进，奖励地图拓扑不变。",
+    "地下地图行走原图保留，新增三人清晰立绘；回看仅动阅读游标；旧静态页语义迁移，自带全文的旧档接续原段。"
+  ],
+  "completed": [
+    "已保存最终对白、三地下地图/碰撞/低清立绘及写作前上下文；核对原图alpha后纠正最初黑底判断，真实问题是行走图头部放大。采用1.2稿，四场关键交流。",
+    "清晰三人立绘已生成保留；四场新稿已采用；阅读游标独立实现，正在做真实输入与旧档验证。",
+    "四场共70页、地下三人独立清晰立绘与共享点击/回看已接入；真实三视口浏览器、触摸、背景/文字/肖像点击、双击、拖动、键盘及后续章回看通过。45旧静态游标与旧全文、特殊尾段专项已验证。",
+    "62项Harness、215项核心与完整集成通过；70页三视口真实点击/触摸回看、45旧游标迁移和75任务场景573页回归通过；四场七维叙事及地下三图/会馆三维门禁完成，默认离线HTTP手机包已提升并保留旧包。",
+    "5174服务232模块/7样式逐字核验；27个集成JSON共123506738字节原件压缩逐字节验证，图片/失败日志/基线原件保留。"
+  ],
+  "remaining": [
+    "GitHub保存及最终任务归档"
+  ],
+  "blockers": [],
+  "next": "检查暂存内容并保存GitHub main",
+  "required_checks": [
+    "fast",
+    "narrative",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline-browser",
+      "command": [
+        "node",
+        "docs/c1-care-ui/capture.mjs",
+        "docs/c1-care-ui/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T18:56:31.005980+00:00",
+      "finished_at_utc": "2026-10-14T18:56:44.021141+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "b2355c8363f698a0aed2b75b55035a93250139cbe062461c6a21c1b5b772120f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/001-baseline-browser.txt",
+      "output_sha256": "04117492f0312bb0e2846c8455a172db77b40100e5508b5dd4f82a7e260ac4b1",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "initial-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T19:05:10.318964+00:00",
+      "finished_at_utc": "2026-10-14T19:05:12.888264+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "d0f805094b00392d02b9149030759ff9ea6b0c5c3c0f566c5f8ae5d2480da5cf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/002-initial-regression.txt",
+      "output_sha256": "f82b7a836a7aeb8d331c988a1072a9ce3748f585be8f39c0e731e2df06b2c729",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "reader-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-reader.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T19:11:33.973021+00:00",
+      "finished_at_utc": "2026-10-14T19:11:35.967920+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "5e6d8b08039c32dbfca45bd39bfac2c9d9c69f34340481120b9ae6708a28aa1a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/003-reader-regression.txt",
+      "output_sha256": "1da0a50b693aa9cbb071846bb36793810a65e352f8de12a4564f782a7a908845",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "reader-browser",
+      "command": [
+        "node",
+        "tests/browser-dialogue-reader.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T19:13:51.250531+00:00",
+      "finished_at_utc": "2026-10-14T19:13:58.157797+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "6a654cfe5d3b61fa17c3a8eb4e3db2fa373972bc89b2e6c1b4a437b00d433c0c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/004-reader-browser.txt",
+      "output_sha256": "8478a8552c242c5bf4d4ee2374677be00ab9fc0be7032810e2e6df300ed1e8ab",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "reader-browser",
+      "command": [
+        "node",
+        "tests/browser-dialogue-reader.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T19:15:14.900983+00:00",
+      "finished_at_utc": "2026-10-14T19:15:24.409600+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "d61bbc62ef2780d29c2efc989b4036db792c4dbb1defe2080f4a3318f1caee5e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/005-reader-browser.txt",
+      "output_sha256": "3f4041397b6bf3f60e7f3d2bf5214c370128fe9277d1c42ff279656643ff0734",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "reader-browser",
+      "command": [
+        "node",
+        "tests/browser-dialogue-reader.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:16:43.784257+00:00",
+      "finished_at_utc": "2026-10-14T19:17:16.616201+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "9ebc53c3bfe5ca74c9fbe1335f1f17bd1582b1fde6a94f9af393e2793f3acc0f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/006-reader-browser.txt",
+      "output_sha256": "6b9b0c26dcf260c078a24d83a52ff6ea5336e362ce7ad5f174a7efec743c43e9",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-care-ui/final_checks.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T19:27:50.512518+00:00",
+      "finished_at_utc": "2026-10-14T19:29:50.350873+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/007-integration.txt",
+      "output_sha256": "81c5e0cba05579f86b7e531a0015fab586704a3463a313829ca41adf5cd56590",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-care-ui/complete_checks.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:30:16.850225+00:00",
+      "finished_at_utc": "2026-10-14T19:37:46.158956+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/008-integration.txt",
+      "output_sha256": "e14a42ae44918f2cf28b450fcb33019f86aa5010b45e1fa1b7ff80a41c967483",
+      "timeout_seconds": 1400.0
+    },
+    {
+      "label": "map-capture",
+      "command": [
+        "node",
+        "docs/c1-care-ui/capture.mjs",
+        "docs/c1-care-ui/maps-final-safe"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:38:00.544971+00:00",
+      "finished_at_utc": "2026-10-14T19:38:12.682356+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/009-map-capture.txt",
+      "output_sha256": "04117492f0312bb0e2846c8455a172db77b40100e5508b5dd4f82a7e260ac4b1",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:38:20.527198+00:00",
+      "finished_at_utc": "2026-10-14T19:39:04.422891+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/010-fast.txt",
+      "output_sha256": "de12f9ca175d86ce19989557dc2b42d6bd3428b1d4ea3a45d7fa5d6051f5ac0e",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:40:22.053479+00:00",
+      "finished_at_utc": "2026-10-14T19:41:05.542899+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/011-narrative.txt",
+      "output_sha256": "5f07d13d117dd1ec553099da7c20a67666ef9c766efbf883128d68317dd5bc00",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "60ce94bf3b72eec03a83d7aeb915be5e3534ba14"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:42:28.150292+00:00",
+      "finished_at_utc": "2026-10-14T19:42:28.301610+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/012-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "local-server",
+      "command": [
+        "python3",
+        "docs/c1-care-ui/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:42:28.373820+00:00",
+      "finished_at_utc": "2026-10-14T19:42:28.577968+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/013-local-server.txt",
+      "output_sha256": "7da4f0ba622a15128097edb9169c4e8e23fe25f12e76ec930acd0dbb632b5d87",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "evidence-archive",
+      "command": [
+        "python3",
+        "docs/c1-care-ui/RESTORE_EVIDENCE.py",
+        "--verify-only"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T19:42:28.648591+00:00",
+      "finished_at_utc": "2026-10-14T19:42:28.901167+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-care-ui-20261014/014-evidence-archive.txt",
+      "output_sha256": "11eb3f9b8230e41a821d6837a6d6a4e453f9273a8ae4dd5216b556ceb7b3bc7a",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T19:01:34.945863+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "ee6b064fb158a8f76613f61a8ff4caf69c7e96e2fe5f90817d8de2775211a8eb",
+      "worktree": "M .codex/progress.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n?? docs/c1-care-ui/\n?? docs/harness/CHAPTER_01_CARE_UI.md\n?? docs/harness/evidence/c1-care-ui-20261014/\n?? source/tasks/active/c1-care-ui-20261014.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T19:20:50.346772+00:00",
+      "head_commit": "60ce94bf3b72eec03a83d7aeb915be5e3534ba14",
+      "source_fingerprint": "d1a817fd144336f05cffcb6898399a99166f8a9846b6c679f4a50e7b1bcd85a6",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-dialogues-v31.js\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-quest-dialogues.js\n M dist/game-v14.js\n M dist/story-flow-v14.js\n M dist/style-v14.css\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/vilerena.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-incremental.test.mjs\n?? dist/assets/c1-care-ui/\n?? dist/chapter-one-care-dialogues.js\n?? dist/chapter-one-care-save.js\n?? dist/dialogue-reader.js\n?? docs/c1-care-ui/\n?? docs/harness/CHAPTER_01_CARE_UI.md\n?? docs/harness/evidence/c1-care-ui-20261014/\n?? source/tasks/active/c1-care-ui-20261014.json\n?? tests/browser-dialogue-reader.mjs\n?? tests/dialogue-reader.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T19:43:05.858796+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n?? archives/c1-care-ui-evidence/\n?? docs/c1-care-ui/ACCEPTANCE.md\n?? docs/c1-care-ui/AUDIT.json\n?? docs/c1-care-ui/AUDIT.txt\n?? docs/c1-care-ui/AUDIT_INITIAL.json\n?? docs/c1-care-ui/AUDIT_INITIAL.txt\n?? docs/c1-care-ui/CONTEXT_ROUTE.json\n?? docs/c1-care-ui/DEFAULT_BUILD.json\n?? docs/c1-care-ui/LOCAL_SERVER.json\n?? docs/c1-care-ui/MAP_QUALITY.json\n?? docs/c1-care-ui/NARRATIVE_NOTES.json\n?? docs/c1-care-ui/NAVIGATION.json\n?? docs/c1-care-ui/RECOMMENDED.json\n?? docs/c1-care-ui/RESTORE_EVIDENCE.py\n?? docs/c1-care-ui/after/\n?? docs/c1-care-ui/assets/MANIFEST.json\n?? docs/c1-care-ui/assets/unused-sprite-extraction.png\n?? docs/c1-care-ui/author_script.py\n?? docs/c1-care-ui/baseline/MAP_QUALITY.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.png\n?? docs/c1-care-ui/baseline/c1TrialCrypt.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer.png\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.json\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.png\n?? docs/c1-care-ui/baseline/c1TrialVault.json\n?? docs/c1-care-ui/baseline/c1TrialVault.png\n?? docs/c1-care-ui/baseline/c1hesha-dialogue.png\n?? docs/c1-care-ui/baseline/c1hesha-portrait.png\n?? docs/c1-care-ui/baseline/c1iden-dialogue.png\n?? docs/c1-care-ui/baseline/c1iden-portrait.png\n?? docs/c1-care-ui/baseline/c1venn-dialogue.png\n?? docs/c1-care-ui/baseline/c1venn-portrait.png\n?? docs/c1-care-ui/browser-attempt-004/\n?? docs/c1-care-ui/browser-attempt-005/\n?? docs/c1-care-ui/browser-final/\n?? docs/c1-care-ui/browser/\n?? docs/c1-care-ui/capture.mjs\n?? docs/c1-care-ui/complete_checks.py\n?? docs/c1-care-ui/final-checks/\n?? docs/c1-care-ui/final_checks.py\n?? docs/c1-care-ui/flow-browser/\n?? docs/c1-care-ui/integration/\n?? docs/c1-care-ui/maps-final-safe/\n?? docs/c1-care-ui/maps-final/\n?? docs/c1-care-ui/narrative-before/\n?? docs/c1-care-ui/narrative-current/\n?? docs/c1-care-ui/navigation.mjs\n?? docs/c1-care-ui/package/\n?? docs/c1-care-ui/portrait-regression/\n?? docs/c1-care-ui/promote.py\n?? docs/c1-care-ui/record_map_review.py\n?? docs/c1-care-ui/register_narrative.py\n?? docs/c1-care-ui/review_narrative.py\n?? docs/c1-care-ui/verify_local.py\n?? docs/harness/evidence/c1-care-ui-20261014/\n?? source/tasks/active/c1-care-ui-20261014.json"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-14T19:43:05.964215+00:00",
+      "head_commit": "885c52f886a16679b0e229f8a182e6c43b0884ed",
+      "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n?? archives/c1-care-ui-evidence/\n?? docs/c1-care-ui/ACCEPTANCE.md\n?? docs/c1-care-ui/AUDIT.json\n?? docs/c1-care-ui/AUDIT.txt\n?? docs/c1-care-ui/AUDIT_INITIAL.json\n?? docs/c1-care-ui/AUDIT_INITIAL.txt\n?? docs/c1-care-ui/CONTEXT_ROUTE.json\n?? docs/c1-care-ui/DEFAULT_BUILD.json\n?? docs/c1-care-ui/LOCAL_SERVER.json\n?? docs/c1-care-ui/MAP_QUALITY.json\n?? docs/c1-care-ui/NARRATIVE_NOTES.json\n?? docs/c1-care-ui/NAVIGATION.json\n?? docs/c1-care-ui/RECOMMENDED.json\n?? docs/c1-care-ui/RESTORE_EVIDENCE.py\n?? docs/c1-care-ui/after/\n?? docs/c1-care-ui/assets/MANIFEST.json\n?? docs/c1-care-ui/assets/unused-sprite-extraction.png\n?? docs/c1-care-ui/author_script.py\n?? docs/c1-care-ui/baseline/MAP_QUALITY.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt-collision.png\n?? docs/c1-care-ui/baseline/c1TrialCrypt.json\n?? docs/c1-care-ui/baseline/c1TrialCrypt.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer-collision.png\n?? docs/c1-care-ui/baseline/c1TrialFoyer.json\n?? docs/c1-care-ui/baseline/c1TrialFoyer.png\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.json\n?? docs/c1-care-ui/baseline/c1TrialVault-collision.png\n?? docs/c1-care-ui/baseline/c1TrialVault.json\n?? docs/c1-care-ui/baseline/c1TrialVault.png\n?? docs/c1-care-ui/baseline/c1hesha-dialogue.png\n?? docs/c1-care-ui/baseline/c1hesha-portrait.png\n?? docs/c1-care-ui/baseline/c1iden-dialogue.png\n?? docs/c1-care-ui/baseline/c1iden-portrait.png\n?? docs/c1-care-ui/baseline/c1venn-dialogue.png\n?? docs/c1-care-ui/baseline/c1venn-portrait.png\n?? docs/c1-care-ui/browser-attempt-004/\n?? docs/c1-care-ui/browser-attempt-005/\n?? docs/c1-care-ui/browser-final/\n?? docs/c1-care-ui/browser/\n?? docs/c1-care-ui/capture.mjs\n?? docs/c1-care-ui/complete_checks.py\n?? docs/c1-care-ui/final-checks/\n?? docs/c1-care-ui/final_checks.py\n?? docs/c1-care-ui/flow-browser/\n?? docs/c1-care-ui/integration/\n?? docs/c1-care-ui/maps-final-safe/\n?? docs/c1-care-ui/maps-final/\n?? docs/c1-care-ui/narrative-before/\n?? docs/c1-care-ui/narrative-current/\n?? docs/c1-care-ui/navigation.mjs\n?? docs/c1-care-ui/package/\n?? docs/c1-care-ui/portrait-regression/\n?? docs/c1-care-ui/promote.py\n?? docs/c1-care-ui/record_map_review.py\n?? docs/c1-care-ui/register_narrative.py\n?? docs/c1-care-ui/review_narrative.py\n?? docs/c1-care-ui/verify_local.py\n?? docs/harness/evidence/c1-care-ui-20261014/\n?? source/tasks/active/c1-care-ui-20261014.json"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-care-ui/narrative-current/contract-context.json",
+      "context_sha256": "8fa4dbf92391af4da0c579a05d739a2343570af43bbe08d9eaee7cb5ae43682b",
+      "draft": "docs/c1-care-ui/narrative-current/contract-draft.json",
+      "draft_sha256": "d6386a980aa28cb70d0a99f3e903f48dba11ff51e32bd5a5845aec54de33faf7",
+      "review": "docs/c1-care-ui/narrative-current/contract-review.json",
+      "review_sha256": "469e85190e611a2788ad8a3fda8ff4ce570ce402682af866dde866a8b2672026"
+    },
+    {
+      "context": "docs/c1-care-ui/narrative-current/sisterIdle-context.json",
+      "context_sha256": "33b03760f3c81eecacdf0bc9e8e5f458572e71fc1da71815defef8d8100b4e63",
+      "draft": "docs/c1-care-ui/narrative-current/sisterIdle-draft.json",
+      "draft_sha256": "74d5e7bc84c75554e8f49abb0d5808434b10638561b26c932d1a8d2fff71d5c3",
+      "review": "docs/c1-care-ui/narrative-current/sisterIdle-review.json",
+      "review_sha256": "4dc0c27799aa75cef70222ca964ff7fe5c2509d56fa7028fdd48db3ced2a4d32"
+    },
+    {
+      "context": "docs/c1-care-ui/narrative-current/c1TrainingReason-context.json",
+      "context_sha256": "08d283d108393a1690d50b77f5ac582af1b64d7c9d5f0f96d7125c227cba80bd",
+      "draft": "docs/c1-care-ui/narrative-current/c1TrainingReason-draft.json",
+      "draft_sha256": "0917cf005e153fa282180e342cd08620671d33cd792c6dcb0a02f72afeebb6d0",
+      "review": "docs/c1-care-ui/narrative-current/c1TrainingReason-review.json",
+      "review_sha256": "b2428ad31a447bd01ef6bc83da2b286e163ad41c94c3769062e0ae831bc0cf9a"
+    },
+    {
+      "context": "docs/c1-care-ui/narrative-current/sisterBeforeDeparture-context.json",
+      "context_sha256": "3cd1f9b76f1a09061bd690fff14f3b10a49a38b4a109f6c1440e42622c39b06b",
+      "draft": "docs/c1-care-ui/narrative-current/sisterBeforeDeparture-draft.json",
+      "draft_sha256": "029dbfa3d17413f648afa300d227f051b75461b3b60dbb9410a45564b91081e2",
+      "review": "docs/c1-care-ui/narrative-current/sisterBeforeDeparture-review.json",
+      "review_sha256": "234ac2dd785dcceb19eebfc7f22debd6053d7b01c1e2ff92821b25ea4bbe29e4"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "status": "passed",
+  "errors": [],
+  "warnings": [
+    {
+      "id": "DIFF-C2-EXILE",
+      "kind": "implementation_gap",
+      "status": "OPEN",
+      "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+      "sources": [
+        "runtime-knowledge",
+        "scene:darkExileV9",
+        "author-pair",
+        "c2-difference"
+      ],
+      "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+    },
+    {
+      "id": "DIFF-C2-VILERENA-DOOR",
+      "kind": "outdated_plan_detail",
+      "status": "OPEN",
+      "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ],
+      "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+    },
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "counts": {
+    "characters": 87,
+    "chapters": 8,
+    "events": 163,
+    "facts": 124,
+    "seeds": 4
+  },
+  "limits": [
+    "Literary quality and unannotated implications require contextual editorial review.",
+    "Known runtime/intent differences are reported, not silently rewritten."
+  ]
+}

@@ -1,0 +1,151 @@
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (50.068416ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (34.797ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.544292ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (10.363542ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.784542ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (37.245917ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.776083ms)
+✖ all original scenes outside the requested contract stay byte identical and all quest numeric budgets remain intact (3.103833ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (2.220458ms)
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (26.090959ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.347917ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (4.783208ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (10.666958ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (50.189417ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (1064.42725ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (9.578083ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (52.107167ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (1103.42375ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (9.672791ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.847375ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (4.714625ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.699042ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 20
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 2480.483084
+
+✖ failing tests:
+
+test at tests/c1-story-flow.test.mjs:69:1
+✖ all original scenes outside the requested contract stay byte identical and all quest numeric budgets remain intact (3.103833ms)
+  AssertionError [ERR_ASSERTION]: sisterIdle
+  + actual - expected
+  
+    [
+      [
+        '薇蕾娜',
+  +     '怎么刚进门就往柜子那边走？我还以为你是来找我的。'
+  -     '怎么我还没开口，你就要走？外头有人等着？'
+      ],
+      [
+        '诺恩',
+  +     '我是来找皮带的。刀鞘上那根有些松了，奥伦说这里还有。'
+  -     '没人在等。我是来找皮带的。'
+      ],
+      [
+        '薇蕾娜',
+  +     '在西边柜子里。既然过来了，也帮我看看这枚领扣怎么样。我问奥伦，他只关心它能买几顿饭。'
+  -     '那也先看我一眼。我换了领扣，奥伦只会问这能买几顿饭，听得我都懒得理他。'
+      ],
+      [
+        '诺恩',
+  +     '银边比原来亮，挺好看的。你晚些要见客人？'
+  -     '你今天要见谁？'
+      ],
+      [
+        '薇蕾娜',
+  +     '嗯，还要陪他们谈一下午。你肯多看我一眼，我倒觉得这钱花得不亏。'
+  -     '晚些有客人。就看出这个？……算了，你的刀鞘都裂了，先找奥伦要根皮带缠上。'
+      ],
+      [
+        '诺恩',
+  +     '我刚才看你一直在翻文书，以为不方便打扰。'
+  -     '等回来就换。'
+      ],
+      [
+        '薇蕾娜',
+  +     '你来跟我说说话，我也能歇一会儿。文书又不会自己跑掉，用不着一看见它们就躲着我。'
+  -     '上回你也是这么说的。下次我替你挑个绣红花的，看你还肯不肯将就。'
+      ],
+  +   [
+  +     '诺恩',
+  +     '那我找到皮带再过来。刀鞘的接缝也裂了，我想一起缠好。'
+  +   ],
+  +   [
+  +     '薇蕾娜',
+  +     '让我看看。裂口已经到这里了，光缠上只能撑一阵。先拿皮带固定，方便的时候还是换一个，我可不想看你把手划伤。'
+  +   ],
+  +   [
+  +     '诺恩',
+  +     '我会留意有没有合适的。你替我挑的话，挑结实些的就好。'
+  +   ],
+  +   [
+  +     '薇蕾娜',
+  +     '还真把事情交给我了？那我得挑个一眼就认得出的，省得你换了新刀鞘，又忘记是谁替你操的心。'
+  +   ],
+  +   [
+  +     '诺恩',
+  +     '不会忘。我找到皮带了，你看看这样缠牢不牢。'
+  +   ]
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:70:188)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ [ '薇蕾娜', '怎么刚进门就往柜子那边走？我还以为你是来找我的。' ], [ '诺恩', '我是来找皮带的。刀鞘上那根有些松了，奥伦说这里还有。' ], [ '薇蕾娜', '在西边柜子里。既然过来了，也帮我看看这枚领扣怎么样。我问奥伦，他只关心它能买几顿饭。' ], [ '诺恩', '银边比原来亮，挺好看的。你晚些要见客人？' ], [ '薇蕾娜', '嗯，还要陪他们谈一下午。你肯多看我一眼，我倒觉得这钱花得不亏。' ], [ '诺恩', '我刚才看你一直在翻文书，以为不方便打扰。' ], [ '薇蕾娜', '你来跟我说说话，我也能歇一会儿。文书又不会自己跑掉，用不着一看见它们就躲着我。' ], [ '诺恩', '那我找到皮带再过来。刀鞘的接缝也裂了，我想一起缠好。' ], [ '薇蕾娜', '让我看看。裂口已经到这里了，光缠上只能撑一阵。先拿皮带固定，方便的时候还是换一个，我可不想看你把手划伤。' ], [ '诺恩', '我会留意有没有合适的。你替我挑的话，挑结实些的就好。' ], [ '薇蕾娜', '还真把事情交给我了？那我得挑个一眼就认得出的，省得你换了新刀鞘，又忘记是谁替你操的心。' ], [ '诺恩', '不会忘。我找到皮带了，你看看这样缠牢不牢。' ] ],
+    expected: [ [ '薇蕾娜', '怎么我还没开口，你就要走？外头有人等着？' ], [ '诺恩', '没人在等。我是来找皮带的。' ], [ '薇蕾娜', '那也先看我一眼。我换了领扣，奥伦只会问这能买几顿饭，听得我都懒得理他。' ], [ '诺恩', '你今天要见谁？' ], [ '薇蕾娜', '晚些有客人。就看出这个？……算了，你的刀鞘都裂了，先找奥伦要根皮带缠上。' ], [ '诺恩', '等回来就换。' ], [ '薇蕾娜', '上回你也是这么说的。下次我替你挑个绣红花的，看你还肯不肯将就。' ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-incremental.test.mjs:39:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (10.666958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      [
+        '薇蕾娜',
+  +     '总算舍得来见我了。奥伦说你在库房忙了一上午，我还想着，要不要亲自过去把你领回来。'
+  -     '总算来了。八只老鼠让你忙了一上午，我还当你把我的事忘了。'
+      ],
+      [
+        '诺恩',
+  +     '北墙有块木板松了，最后一只老鼠钻进夹墙，费了些工夫。你找我有事？'
+  -     '有一只钻进夹墙了。下次你来帮忙，能快些。'
+      ],
+      [
+        '薇蕾娜',
+  +     '有事才能找你？过来让我看看，肩上挂着这么多木屑，你是打算替奥伦把墙也拆了吗？'
+  -     '还使唤起我了？过来，肩上都是木屑。……别躲，我手里又没拿针。'
+      ],
+      [
+        '旁白',
+        '薇蕾娜绕到桌角，靠近了些。诺恩肩头挂着一小截木屑，通行纸就放在他手边。'
+      ],
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:48:173)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [ '薇蕾娜', '总算舍得来见我了。奥伦说你在库房忙了一上午，我还想着，要不要亲自过去把你领回来。' ], [ '诺恩', '北墙有块木板松了，最后一只老鼠钻进夹墙，费了些工夫。你找我有事？' ], [ '薇蕾娜', '有事才能找你？过来让我看看，肩上挂着这么多木屑，你是打算替奥伦把墙也拆了吗？' ], [ '旁白', '薇蕾娜绕到桌角，靠近了些。诺恩肩头挂着一小截木屑，通行纸就放在他手边。' ], [ '薇蕾娜', '明天午钟，卡德兰主祭会在白榆城礼拜厅。画像夹在通行纸里，你先看看。' ], [ '诺恩', '确认过是他？' ], [ '薇蕾娜', '确认过，鲁恩的人今早刚回来。正门要验通行纸，侧门出去就是北门小巷。换岗的时辰也记在这里，一起带上。' ], [ '诺恩', '侧门能开？' ], [ '薇蕾娜', '能，从里面抽闩就行。另外，圣女艾莉娅也会到场，你得把她带出来。' ], [ '诺恩', '为什么要带圣女？' ], [ '薇蕾娜', '我们要进一扇门，得用她的圣徽才能打开。具体地点会送到灰石驿站，你带她去那里，接头人会给你路图。' ], [ '诺恩', '为什么不先查清地点？' ], [ '薇蕾娜', '地方已经查过了，但院里的人这两天还在换。等最后的消息到了，再把路图给你，免得你按旧图走。' ], [ '诺恩', '那接头人呢？名字也不能告诉我？' ], [ '旁白', '薇蕾娜停了一下，收回压着通行纸的手。' ], [ '薇蕾娜', '通行纸可能被搜走，接头人的名字不能写在上面。这次先照我的安排办。' ], [ '诺恩', '她不会自愿跟我走。' ], [ '薇蕾娜', '所以要带封术印。它只能封住圣术，你制住她就够了，别下重手。' ], [ '诺恩', '人我会带到。' ] ],
+    expected: [ [ '薇蕾娜', '总算来了。八只老鼠让你忙了一上午，我还当你把我的事忘了。' ], [ '诺恩', '有一只钻进夹墙了。下次你来帮忙，能快些。' ], [ '薇蕾娜', '还使唤起我了？过来，肩上都是木屑。……别躲，我手里又没拿针。' ], [ '旁白', '薇蕾娜绕到桌角，靠近了些。诺恩肩头挂着一小截木屑，通行纸就放在他手边。' ], [ '薇蕾娜', '明天午钟，卡德兰主祭会在白榆城礼拜厅。画像夹在通行纸里，你先看看。' ], [ '诺恩', '确认过是他？' ], [ '薇蕾娜', '确认过，鲁恩的人今早刚回来。正门要验通行纸，侧门出去就是北门小巷。换岗的时辰也记在这里，一起带上。' ], [ '诺恩', '侧门能开？' ], [ '薇蕾娜', '能，从里面抽闩就行。另外，圣女艾莉娅也会到场，你得把她带出来。' ], [ '诺恩', '为什么要带圣女？' ], [ '薇蕾娜', '我们要进一扇门，得用她的圣徽才能打开。具体地点会送到灰石驿站，你带她去那里，接头人会给你路图。' ], [ '诺恩', '为什么不先查清地点？' ], [ '薇蕾娜', '地方已经查过了，但院里的人这两天还在换。等最后的消息到了，再把路图给你，免得你按旧图走。' ], [ '诺恩', '那接头人呢？名字也不能告诉我？' ], [ '旁白', '薇蕾娜停了一下，收回压着通行纸的手。' ], [ '薇蕾娜', '通行纸可能被搜走，接头人的名字不能写在上面。这次先照我的安排办。' ], [ '诺恩', '她不会自愿跟我走。' ], [ '薇蕾娜', '所以要带封术印。它只能封住圣术，你制住她就够了，别下重手。' ], [ '诺恩', '人我会带到。' ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

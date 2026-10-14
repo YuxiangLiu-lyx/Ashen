@@ -1,0 +1,50 @@
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (45.918958ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (30.040958ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.39925ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (10.461125ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.708458ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (36.479084ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.749459ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (4.63775ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (3.144167ms)
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (25.371167ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.321584ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (5.635625ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (22.0175ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (48.124916ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (977.038292ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (8.940833ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (48.473792ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (631.415875ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.532ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.011083ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.614584ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.266042ms)
+✔ read every previously reached commission page without changing pending, actors, knowledge or rewards (34.204208ms)
+✔ action phases cannot be advanced or rewound by reading controls (0.484542ms)
+✖ quest accept and reward wait for live final page; going backward and forward never commits (1.898042ms)
+✔ legacy private tail has its own read-back rows and never exposes the earlier commission (1.191459ms)
+✔ all 45 old static positions migrate once by meaning, including direct/imported/nested saves (115.037709ms)
+✔ exact inline old dialogue text and new authored cursors survive import unchanged (43.305041ms)
+✔ only four adopted scenes changed; protected commission facts/staging rows and all later chapter text remain exact (1.989292ms)
+ℹ tests 29
+ℹ suites 0
+ℹ pass 28
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1919.756542
+
+✖ failing tests:
+
+test at tests/dialogue-reader.test.mjs:31:1
+✖ quest accept and reward wait for live final page; going backward and forward never commits (1.898042ms)
+  TypeError: Cannot read properties of null (reading 'id')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/dialogue-reader.test.mjs:34:84)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
