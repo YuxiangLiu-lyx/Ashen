@@ -525,16 +525,26 @@ def task_errors(record,root=ROOT):
     """Require fresh writing context and review only for creative content changes."""
     paths=git('diff','--name-only',record['baseline_commit'],root=root).splitlines()
     paths+=git('ls-files','--others','--exclude-standard',root=root).splitlines()
+    report=audit(root)
+    errors=['Narrative data/provenance audit failed'] if report['errors'] else []
+    # Installed dialogue can change in generic data/registration files too.
+    # Inspect final scene signatures before the filename-based early return.
+    previous=subprocess.run(['git','show',record['baseline_commit']+':'+RUNTIME],cwd=root,capture_output=True,text=True)
+    try:before=json.loads(previous.stdout) if previous.returncode==0 else None
+    except ValueError:before=None
+    runtime=read_json(RUNTIME,root)
+    changed_scenes={s for s in set(before['scenes'])|set(runtime['scenes'])
+                    if before['scenes'].get(s)!=runtime['scenes'].get(s)} if before else set()
     creative=[p for p in paths if re.match(r'docs/harness/CHAPTER_.*\.md$',p) or
               (p.startswith('dist/') and re.search(r'dialogue|story|narrative|chengli-text|chapter-one-expansion-quests|chapter-one-objectives',p))]
     if 'dist/core-v14.js' in paths:
         changed=git('diff','--unified=0',record['baseline_commit'],'--','dist/core-v14.js',root=root)
         if any(line.startswith(('+','-')) and re.search(r'knowledge|DIALOGUES|finishScene',line) for line in changed.splitlines()):
             creative.append('dist/core-v14.js')
-    if not creative:return []
+    if not creative and not changed_scenes:return errors
     evidence_list=record.get('narrative_reviews',[])
-    if not evidence_list:return ['Narrative content changed: attach fresh context/draft/review via task.py narrative; '+', '.join(creative)]
-    errors=[];covered_files=set();covered_scenes=set()
+    if not evidence_list:return errors+['Narrative content changed: attach fresh context/draft/review via task.py narrative; '+', '.join(creative+sorted(changed_scenes))]
+    covered_files=set();covered_scenes=set()
     for evidence in evidence_list:
         try:
             for kind in ['context','draft','review']:
@@ -556,8 +566,7 @@ def task_errors(record,root=ROOT):
                 match=re.search(r'CHAPTER_(\d+)',path)
                 if match and normalize_chapter(int(match[1]),root)!=normalize_chapter(draft['chapter'],root):
                     errors.append('Narrative review covers the wrong chapter document: '+path)
-            if any(p.startswith('dist/') for p in scope.get('files',[])):
-                runtime=read_json(RUNTIME,root)
+            if draft['scene'] in changed_scenes or any(p.startswith('dist/') for p in scope.get('files',[])):
                 if draft['scene'] in runtime['scenes']:
                     entries={c['id']:c['name'] for c in catalog(root)['characters']}
                     rows=[[entries.get(line['speaker'],'旁白'),line['text']] for line in draft['lines']]
@@ -569,18 +578,7 @@ def task_errors(record,root=ROOT):
                         errors.append('Dynamic dialogue requires a successful current task.py run check for caller/quest/flags')
         except (OSError,ValueError,KeyError) as exc:errors.append('Invalid narrative evidence: '+str(exc))
     if set(creative)-covered_files:errors.append('Narrative changed files lack review coverage: '+','.join(sorted(set(creative)-covered_files)))
-    # Compare the installed table at the task baseline when available. Changes
-    # to a second scene cannot be hidden behind one successfully reviewed scene.
-    try:
-        before=json.loads(git('show',record['baseline_commit']+':'+RUNTIME,root=root))
-    except (subprocess.CalledProcessError,ValueError):
-        before=None
-    if before:
-        after=read_json(RUNTIME,root)
-        changed={s for s in set(before['scenes'])|set(after['scenes']) if before['scenes'].get(s)!=after['scenes'].get(s)}
-        if changed-covered_scenes:errors.append('Installed scenes lack narrative review: '+','.join(sorted(changed-covered_scenes)))
-    report=audit(root)
-    if report['errors']:errors.append('Narrative data/provenance audit failed')
+    if changed_scenes-covered_scenes:errors.append('Installed scenes lack narrative review: '+','.join(sorted(changed_scenes-covered_scenes)))
     return errors
 
 

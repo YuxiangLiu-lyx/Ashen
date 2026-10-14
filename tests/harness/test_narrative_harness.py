@@ -255,5 +255,21 @@ class NarrativeCounterexampleTests(unittest.TestCase):
             p=root/'docs/harness/CHAPTER_02.md';p.write_text(p.read_text()+'\nnew scene\n')
             self.assertTrue(any('attach fresh' in e for e in task_errors(record,root)))
 
+    def test_generic_data_dialogue_change_also_requires_review(self):
+        with sandbox() as root:
+            baseline=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+            p=root/'dist/data-v14.js'
+            p.write_text(p.read_text()+"\nDIALOGUES.narrativeGateFixture=[['诺恩','仅用于独立副本的对白门禁测试。']];\n")
+            subprocess.run([sys.executable,'tools/harness/index.py'],cwd=root,check=True,capture_output=True)
+            errors=task_errors({'baseline_commit':baseline},root)
+            self.assertTrue(any('attach fresh' in e and 'narrativeGateFixture' in e for e in errors),errors)
+
+    def test_data_only_canon_error_also_blocks_task_finish(self):
+        with sandbox() as root:
+            baseline=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+            p=root/'source/narrative/chapters/R01.json';book=json.loads(p.read_text())
+            book['facts'][0]['sources']=['style-A'];write_json(p,book)
+            self.assertIn('Narrative data/provenance audit failed',task_errors({'baseline_commit':baseline},root))
+
 
 if __name__=='__main__':unittest.main()
