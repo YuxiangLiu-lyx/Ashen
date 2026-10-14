@@ -1,0 +1,197 @@
+{
+  "schema": 1,
+  "id": "rpg-c1-20261014",
+  "goal": "第一章1.0完整RPG试点：战斗成长、地下探索、任务服务与触发，保留原主线人物和结果",
+  "acceptance": [
+    "三职业真实路线与成长群战对照；交易存档边界；22图三维；正常输入及可玩构建；人工待验显式记录"
+  ],
+  "baseline_commit": "cad2add19b46e319475c28504e155322a9df687d",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "combat"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T06:23:04.170640+00:00",
+  "updated_at_utc": "2026-10-14T10:53:51.539608+00:00",
+  "decisions": [
+    "采用第一章1.0稿；地区固定敌人岗位，减少重复清图经验和升级全补满，保持旧档等级与奖励",
+    "005core为168/170，两个失败分别是过量伤害负HP存档缺陷和授权数值更改导致旧golden漂移；修复归零并保留旧golden，新12组逐事件精确回放；006相关回归通过，完整core待重跑；旧QA先压缩存档再恢复原件"
+  ],
+  "completed": [
+    "固定地区岗位、防护破绽、两地下看守招式、重复收益和升级有限恢复实现；四NPC行装药水休息服务实现；三职业主线至章二通过；288组对照正常行装响应策略36/36；7新单测通过"
+  ],
+  "remaining": [
+    "任务内容、地图空间、剧情触发、完整专项集成、正常输入浏览器及可玩构建"
+  ],
+  "blockers": [],
+  "next": "任务与地图阶段：赫莎维修、维恩封存挑战、托马同地交接合并；保存叙事上下文与审查",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "combat-main-probe",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import fs from \"node:fs\";import {journey} from \"./tests/chapter-one-economy.mjs\";import {provenance} from \"./tools/balance_lab/provenance.mjs\";const out=\"docs/rpg-experience/c1/probe01\";fs.mkdirSync(out,{recursive:true});for(const cls of [\"shadow\",\"oath\",\"ember\"]){const r=journey(cls,\"main_only\",42);r.continueChapterTwo();fs.writeFileSync(out+\"/\"+cls+\"-main_only.json\",JSON.stringify({provenance:provenance(),events:r.events,milestones:r.milestones,limits:r.limits},null,2)+\"\\n\");}"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T06:25:33.752731+00:00",
+      "finished_at_utc": "2026-10-14T06:25:34.381741+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "c8737999cc86c01512895902b4984e6a552162029e0b8460acb4ee9b41e6c3e4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/001-combat-main-probe.txt",
+      "output_sha256": "9abd20bc7b39ee62b34f31a1ff8f00bec5122eeb9435a93b38592a6a485f20ce",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "combat-equipped-probe",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import fs from \"node:fs\";import {journey} from \"./tests/chapter-one-economy.mjs\";import {provenance} from \"./tools/balance_lab/provenance.mjs\";const out=\"docs/rpg-experience/c1/probe02\";fs.mkdirSync(out,{recursive:true});for(const cls of [\"shadow\",\"oath\",\"ember\"]){const r=journey(cls,\"main_only\",42);r.continueChapterTwo();fs.writeFileSync(out+\"/\"+cls+\"-main_only.json\",JSON.stringify({provenance:provenance(),events:r.events,milestones:r.milestones,limits:r.limits},null,2)+\"\\n\");}"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:28:57.035244+00:00",
+      "finished_at_utc": "2026-10-14T06:29:01.755221+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "7d8f9a2195899217e538ec196109566e7dc8b9c364369b297ab2bcfe3c04e407",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/002-combat-equipped-probe.txt",
+      "output_sha256": "237c81b27d249c39b794d1fc9332fc171fa09bc8bfed185bfc8af6b7989a0b7d",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "combat-service-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/rpg-experience.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:30:46.270565+00:00",
+      "finished_at_utc": "2026-10-14T06:30:46.523126+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "2d99065a4ccbc1dd4d23f158f28ad599d7c7c7b2414553653b24779d0120dae2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/003-combat-service-unit.txt",
+      "output_sha256": "4a89e5cdc283b63b13f85a88b2f559e00e8f0012eac645da22fb7b538aa5f175",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "combat-groups-probe",
+      "command": [
+        "node",
+        "tools/balance_lab/experience-audit.mjs",
+        "combat",
+        "docs/rpg-experience/c1/probe02",
+        "docs/rpg-experience/c1/probe02"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:31:04.806637+00:00",
+      "finished_at_utc": "2026-10-14T06:31:29.155479+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "2d99065a4ccbc1dd4d23f158f28ad599d7c7c7b2414553653b24779d0120dae2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/004-combat-groups-probe.txt",
+      "output_sha256": "3c32b73b59c957b8a455625683826afe074f2e3be779da4dd3595c1c6dbdf0cf",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "combat-service-core",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "core"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T06:31:59.619378+00:00",
+      "finished_at_utc": "2026-10-14T06:33:19.761798+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "2d99065a4ccbc1dd4d23f158f28ad599d7c7c7b2414553653b24779d0120dae2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/005-combat-service-core.txt",
+      "output_sha256": "bbcd4484e5ab9c6e44bc9b9170673299b5d03b56728ad408ab8997231d92676f",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "combat-save-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/rpg-experience.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter-one-expansion.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T10:51:51.197454+00:00",
+      "finished_at_utc": "2026-10-14T10:51:51.619196+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "ddfb28d530901d409617bb2eaf0e063c7b40bda461873ec2c766a1c627ec27f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/006-combat-save-regression.txt",
+      "output_sha256": "e04aba9977573574d4da924203439f4ea833f4b0b6ea5a29a609bcfe84a3b514",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "combat-foundation-fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T10:52:29.234396+00:00",
+      "finished_at_utc": "2026-10-14T10:52:29.761178+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "ddfb28d530901d409617bb2eaf0e063c7b40bda461873ec2c766a1c627ec27f9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/007-combat-foundation-fast.txt",
+      "output_sha256": "179382642f8be2edd4c12f96b86acb96661d5e83424df1883756e623cb894d07",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "combat-foundation-fast-fixed",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T10:53:06.596149+00:00",
+      "finished_at_utc": "2026-10-14T10:53:51.533164+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "b20bf54ffb40b8a42f9648042d81ea0d98d863048c7b1920e29a2eb1ee1c725f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/008-combat-foundation-fast-fixed.txt",
+      "output_sha256": "054e05e47194db90f1c04228f8871f522539ecc8b2f1b179e25ef5c52bca0084",
+      "timeout_seconds": 180.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "combat",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-14T06:23:19.990994+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "732263d4ec96c6915560581ccc6e19af4ba41a954b8ced07f8681e931925dc64",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/harness/CHAPTER_01_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-experience-20261014/\n?? docs/rpg-experience/\n?? source/tasks/active/rpg-c1-20261014.json\n?? source/tasks/active/rpg-experience-20261014.json\n?? tools/balance_lab/experience-audit.mjs"
+    },
+    {
+      "name": "combat-foundation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T10:52:29.037476+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "ddfb28d530901d409617bb2eaf0e063c7b40bda461873ec2c766a1c627ec27f9",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-runtime.js\n M dist/chapter-one-expansion-ui.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-v30.test.mjs\n M tools/harness/check.py\n?? dist/rpg-experience-combat.js\n?? dist/rpg-experience-data.js\n?? dist/rpg-experience-services-ui.js\n?? dist/rpg-experience-services.js\n?? docs/harness/CHAPTER_01_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c1-20261014/\n?? docs/harness/evidence/rpg-experience-20261014/\n?? docs/rpg-experience/\n?? source/tasks/active/rpg-c1-20261014.json\n?? source/tasks/active/rpg-experience-20261014.json\n?? tests/fixtures/rpg-experience-combat.json\n?? tests/rpg-experience.test.mjs\n?? tools/balance_lab/experience-audit.mjs"
+    }
+  ]
+}

@@ -221,7 +221,9 @@
         "dist/progression-data-v14.js",
         "dist/progression-runtime-v14.js",
         "dist/chapter-one-motion-v30.js",
-        "dist/chapter-one-expansion-combat.js"
+        "dist/chapter-one-expansion-combat.js",
+        "dist/rpg-experience-data.js",
+        "dist/rpg-experience-combat.js"
       ],
       "patterns": [
         "dist/*combat*",
@@ -232,7 +234,9 @@
         "dist/progression-skills*",
         "dist/chapter3-skills*",
         "dist/rank-scaling*",
-        "dist/chapter-one-motion*"
+        "dist/chapter-one-motion*",
+        "dist/rpg-experience-data.js",
+        "tests/rpg-experience.test.mjs"
       ],
       "rules": [
         "docs/harness/COMBAT.md",
@@ -250,7 +254,8 @@
         "node --test tests/balance-lab.test.mjs",
         "node tests/browser-balance-lab.mjs",
         "node --test tests/chapter-one-v30.test.mjs",
-        "node --test tests/chapter23-v30.test.mjs"
+        "node --test tests/chapter23-v30.test.mjs",
+        "node --test tests/rpg-experience.test.mjs"
       ]
     },
     {
@@ -353,7 +358,9 @@
         "dist/systems-data-v14.js",
         "dist/world-runtime-v29.js",
         "dist/chapter-one-expansion-quests.js",
-        "dist/chapter-one-expansion-data.js"
+        "dist/chapter-one-expansion-data.js",
+        "dist/rpg-experience-services.js",
+        "dist/rpg-experience-services-ui.js"
       ],
       "patterns": [
         "dist/chapter5-economy*",
@@ -367,7 +374,8 @@
         "dist/chapter2-court-data*",
         "dist/chapter3-sidequests*",
         "dist/discovery-runtime*",
-        "dist/exploration*"
+        "dist/exploration*",
+        "dist/rpg-experience-services*"
       ],
       "rules": [
         "docs/harness/ECONOMY.md"
@@ -856,6 +864,7 @@
         "chapter 1"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
         "docs/harness/CHAPTER_01.md"
       ],
       "rules": [

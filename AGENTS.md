@@ -1,5 +1,7 @@
 # Ashen Agent 入口
 
+2026-10-14当前用户授权全游戏RPG体验升级：先八章真实审计、第一章完整试点，再按章推广到现有第二至八章。需求原文docs/rpg-experience/USER_REQUEST.txt；审计docs/rpg-experience/AUDIT.md；首章新采用稿docs/harness/CHAPTER_01_RPG_EXPERIENCE.md（1.0，DEV_FROZEN）。允许重评精英、成长、空间、任务顺序与服务；旧0.1/0.2不恢复，原关键剧情、知识边界、历史证据和旧档保留。下述0.9及“第二章只策划”为本次之前的保留基线，不阻止此次明确授权的逐章改造。人工乐趣/节奏未完成时必须保留待验，不能冒充实测。
+
 2026-10-14已授权叙事Harness升级，限工具、资料、索引与验证，不主动改运行剧情/任务/存档。以后所有人物、对白、日常/NPC事件、伏笔和认知关系任务执行docs/harness/NARRATIVE_WORKFLOW.md及NARRATIVE_HARNESS.md；context.py按章/角色/事件取状态，风格样本STYLE_ONLY。用narrative审查和task.py叙事证据门禁保存写作前上下文及修改后七维编辑判断；只改碰撞/数值不加载全部叙事。新资料不替代原章稿，未实施第二章追加与已撤回稿不能作运行正史。
 
 当前用户进一步授权第一章0.9跨层多怪目标、互通通路、入图刷新与通用规则。采用稿docs/harness/CHAPTER_01_LAYER_RULES.md；固定游戏设定docs/harness/GAME_SETTINGS.md纳入Harness：默认主线、金叹号/灰问号/金问号、无明面爆率、自然门禁、任务无关常驻刷新。0.8以下内容为保留基线，0.6独立人工节奏验收仍待办。

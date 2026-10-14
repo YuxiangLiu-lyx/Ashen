@@ -1,0 +1,136 @@
+{
+  "schema": 1,
+  "id": "rpg-experience-20261014",
+  "goal": "全游戏RPG体验升级：全八章真实审计，第一章完整改造与验证，随后逐章推广；战斗成长、探索、任务设施、叙事触发与Harness",
+  "acceptance": [
+    "全八章审计和分章改造记录；真实三职业成长对照、正常输入、存档兼容及三维地图证据；可试玩构建；人工体验保持待验；GitHub main核验"
+  ],
+  "baseline_commit": "cad2add19b46e319475c28504e155322a9df687d",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "combat"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T06:07:34.250879+00:00",
+  "updated_at_utc": "2026-10-14T06:23:19.897193+00:00",
+  "decisions": [
+    "采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造",
+    "零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务"
+  ],
+  "completed": [
+    "基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看",
+    "八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验"
+  ],
+  "remaining": [
+    "第一章实现验证、第二至八章逐章改造、Harness门禁、可玩构建和交付"
+  ],
+  "blockers": [],
+  "next": "第一章战斗成长子系统实现与实际路线复测",
+  "required_checks": [
+    "fast",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline-fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:07:34.798512+00:00",
+      "finished_at_utc": "2026-10-14T06:08:13.920767+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/001-baseline-fast.txt",
+      "output_sha256": "d843f4121a48534c7511fc30c7b753b6a542c8c119667986e6f778c3c986881a",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "baseline-campaign",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import fs from \"node:fs\";import {journey} from \"./tests/chapter-one-economy.mjs\";import {provenance} from \"./tools/balance_lab/provenance.mjs\";const out=\"docs/rpg-experience/baseline/routes\";fs.mkdirSync(out,{recursive:true});for(const cls of [\"shadow\",\"oath\",\"ember\"])for(const route of [\"main_only\",\"typical\",\"local_work\"]){const r=journey(cls,route,42);r.continueChapterTwo();fs.writeFileSync(out+\"/\"+cls+\"-\"+route+\".json\",JSON.stringify({provenance:provenance(),events:r.events,milestones:r.milestones,limits:r.limits},null,2)+\"\\n\");}"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:13:51.280569+00:00",
+      "finished_at_utc": "2026-10-14T06:14:06.731213+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/002-baseline-campaign.txt",
+      "output_sha256": "ffee9c078851274d37b78e4acb61f4aa5a80abcbd74f192c025726bb75e422cf",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "baseline-scenes",
+      "command": [
+        "env",
+        "ASHEN_C1_OUTPUT=docs/rpg-experience/baseline/visual",
+        "node",
+        "tests/browser-chapter-one-map-quests.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:14:13.783923+00:00",
+      "finished_at_utc": "2026-10-14T06:14:33.320064+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/003-baseline-scenes.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "baseline-world",
+      "command": [
+        "node",
+        "tools/balance_lab/experience-audit.mjs",
+        "inventory",
+        "docs/rpg-experience/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:16:20.016467+00:00",
+      "finished_at_utc": "2026-10-14T06:16:20.349607+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "60fc8bc97530633eb0be59c7ebc68b11650c5eef6a00db2b88a038dda7efd435",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/004-baseline-world.txt",
+      "output_sha256": "11aaaec5a7b7aa6b9a780c85570b275b5e9aed0ce5f244a87e0050edcbcfd4f0",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "baseline-groups",
+      "command": [
+        "node",
+        "tools/balance_lab/experience-audit.mjs",
+        "combat",
+        "docs/rpg-experience/baseline"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T06:16:20.468118+00:00",
+      "finished_at_utc": "2026-10-14T06:16:42.311609+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "60fc8bc97530633eb0be59c7ebc68b11650c5eef6a00db2b88a038dda7efd435",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/005-baseline-groups.txt",
+      "output_sha256": "ee1aeaa64080345d58407b4ee16ccdf200ed634693596cced3e43b29a94378fa",
+      "timeout_seconds": 300.0
+    }
+  ],
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T06:23:19.850879+00:00",
+      "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
+      "source_fingerprint": "732263d4ec96c6915560581ccc6e19af4ba41a954b8ced07f8681e931925dc64",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n?? docs/harness/CHAPTER_01_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-experience-20261014/\n?? docs/rpg-experience/\n?? source/tasks/active/rpg-c1-20261014.json\n?? source/tasks/active/rpg-experience-20261014.json\n?? tools/balance_lab/experience-audit.mjs"
+    }
+  ]
+}

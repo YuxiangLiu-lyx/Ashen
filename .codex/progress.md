@@ -1,3 +1,7 @@
+# 当前工作：全游戏RPG体验升级（2026-10-14）
+
+任务rpg-experience-20261014，基线cad2add，分支work/rpg-experience-20261014。按全八章审计、第一章样板、逐章推广执行；允许重新平衡三精英，保留旧0.6人工待办及撤回原件。计划docs/rpg-experience/PLAN.md。
+
 # 已完成：叙事Harness升级（2026-10-14）
 
 任务 narrative-harness-20261014；基线95ea904，最终实现f78334c，完整验收93ae263已推送GitHub main并核验。57项Harness、164核心、18经济路线、1620实战快照及7组浏览器通过；369个dist文件与520场对白保持。验收docs/narrative-harness/ACCEPTANCE.md；仅工具与资料，旧0.6人工节奏待办保持。
@@ -452,3 +456,32 @@
 - 阶段 delivery：complete；HEAD 93ae2631056de5e75a24a4a3fd24e94732bac060
 - 最近检查：preservation，退出码 0；docs/harness/evidence/narrative-harness-20261014/019-preservation.txt
 <!-- /task:narrative-harness-20261014 -->
+
+<!-- task:rpg-experience-20261014 -->
+## 任务 rpg-experience-20261014
+- 状态：in_progress
+- 更新：2026-10-14T06:23:19.897193+00:00
+- 下一步：第一章战斗成长子系统实现与实际路线复测
+- 任务记录：source/tasks/active/rpg-experience-20261014.json
+- 已完成：基线fast、九条三职业路线至章二、22图实景、128图运行清单及288组实际群战对照已保存；地下三层实图已查看；八章结构审计与体验预算、首章1.0采用稿已落盘；基线全部运行证据保存，真人节奏仍待验
+- 待完成：第一章实现验证、第二至八章逐章改造、Harness门禁、可玩构建和交付
+- 决定：采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造；零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务
+- 阻塞：无
+- 阶段 audit：complete；HEAD cad2add19b46e319475c28504e155322a9df687d
+- 最近检查：baseline-groups，退出码 0；docs/harness/evidence/rpg-experience-20261014/005-baseline-groups.txt
+<!-- /task:rpg-experience-20261014 -->
+
+<!-- task:rpg-c1-20261014 -->
+## 任务 rpg-c1-20261014
+- 状态：in_progress
+- 更新：2026-10-14T10:53:51.539608+00:00
+- 下一步：任务与地图阶段：赫莎维修、维恩封存挑战、托马同地交接合并；保存叙事上下文与审查
+- 任务记录：source/tasks/active/rpg-c1-20261014.json
+- 已完成：固定地区岗位、防护破绽、两地下看守招式、重复收益和升级有限恢复实现；四NPC行装药水休息服务实现；三职业主线至章二通过；288组对照正常行装响应策略36/36；7新单测通过
+- 待完成：任务内容、地图空间、剧情触发、完整专项集成、正常输入浏览器及可玩构建
+- 决定：采用第一章1.0稿；地区固定敌人岗位，减少重复清图经验和升级全补满，保持旧档等级与奖励；005core为168/170，两个失败分别是过量伤害负HP存档缺陷和授权数值更改导致旧golden漂移；修复归零并保留旧golden，新12组逐事件精确回放；006相关回归通过，完整core待重跑；旧QA先压缩存档再恢复原件
+- 阻塞：无
+- 阶段 combat：in_progress；HEAD cad2add19b46e319475c28504e155322a9df687d
+- 阶段 combat-foundation：complete；HEAD cad2add19b46e319475c28504e155322a9df687d
+- 最近检查：combat-foundation-fast-fixed，退出码 0；docs/harness/evidence/rpg-c1-20261014/008-combat-foundation-fast-fixed.txt
+<!-- /task:rpg-c1-20261014 -->

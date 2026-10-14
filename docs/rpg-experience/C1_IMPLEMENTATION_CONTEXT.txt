@@ -1,0 +1,1258 @@
+{
+  "status": "budget_limited",
+  "task": "第一章1.0完整RPG试点：战斗成长、地下探索、任务服务与触发，保留原主线人物和结果",
+  "basis_commit": "cad2add19b46e319475c28504e155322a9df687d",
+  "source_fingerprint": "732263d4ec96c6915560581ccc6e19af4ba41a954b8ced07f8681e931925dc64",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "combat"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "5. 实现、回放、实际游玩、存档迁移验收后，更新为 `IMPLEMENTED`，登记真实入口、文件与证据。未开发章仍保持原状态，不能因第一章完成而宣称前两章都已实装。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.3仍只策划。两章记录分别见 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，不再有独立分镜开发prompt。长期世界观不扩大本轮范围。",
+          "truncated": false
+        },
+        {
+          "line": 31,
+          "text": "局部增强的章稿可采用“完整主线记录＋现有最终场景ID与对白来源＋本轮增量逐句稿”；保留对白无需另写一遍。开发记录只冻结",
+          "truncated": true
+        },
+        {
+          "line": 57,
+          "text": "##",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "narrative_context",
+      "sha256": "a0b089ae6659ad6a3b0c23f16521020df561fb02fa7f1fe6d93ddf6e827bc9a1",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿0.9 · 分层任务与通用规则",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2280
+    },
+    {
+      "path": "docs/harness/CHAPTER_01.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "current_code",
+      "sha256": "6d7b2fd1b057c964f79e6d64b5ac7cdaad3f02a05e529e394362a4f1c0c0d047",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章剧情记录 · 午钟之前",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "> 2026-10-14新采用稿第一章1.0：[RPG体验试点](CHAPTER_01_RPG_EXPERIENCE.md)，DEV_FROZEN，任务rpg-c1-20261014。全游戏当前授权与分章实施见[体验审计](../rpg-experience/AUDIT.md)。以下0.9为历史运行基线，后续章节新改造逐章登记，不等于已实现。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "> 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "- 2026-10-12采用用户《第一章流程扩充与成长系统》；任务c1-expansion-20261012。",
+          "truncated": false
+        },
+        {
+          "line": 60,
+          "text": "| `road` | 既有路线，阿林丢信、采银叶草、路牌等 | 保留旅程战斗与可选交互 |",
+          "truncated": false
+        },
+        {
+          "line": 65,
+          "text": "| `canal` | phase 3 → `canalStart`，then `captain` | 她要求救人/活捉，追缉官挡闸口；保留原战斗/数值/掉落 |",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9873
+    },
+    {
+      "path": "source/narrative/chapters/R01.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "b90641346e1fc44f92b6e79a5540b9e7262438ce7e0c5ebc277448fe9725d95b",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "  \"title\": \"午钟之前（工作名；运行第一章）\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19247
+    },
+    {
+      "path": "source/narrative/characters/noen.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 189,
+      "category": "narrative_context",
+      "sha256": "064c167a6421ac4f13ffc3eee1b60c1445004b099280bb7f0cccbea03265e4e6",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"noen\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"诺恩\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"诺恩\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "    \"男主\",",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"影刃\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 14921
+    },
+    {
+      "path": "source/narrative/characters/elyria.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 188,
+      "category": "narrative_context",
+      "sha256": "a97f58deed37dfa732fc3af27600f630182e40ad6ec5c27e200a47e5cd8acbbe",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"elyria\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"艾莉娅\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"艾莉娅\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "    \"圣女\",",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"女主\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10455
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "8e911de953956d179294b06bf331c01cf35a3f04cc8801f7bbfc8ade4a7799a4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 战斗与构建约束",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "## 第一章0.6采用范围（2026-10-12）",
+          "truncated": false
+        },
+        {
+          "line": 14,
+          "text": "首章三职业训练借用装仅训练会话有效，快照还原原装。三个命名精英最终预算与两段扑击/直线冲撞/绕柱声波见规格；35XP/12金不得叠V28倍率。制作和专属装备直接伤害效果不影响DOT/proc/反伤，同组取最高；封缄要求实际受到威胁且避开已结算重击。后续章节战斗不调平。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2070
+    },
+    {
+      "path": "docs/v28/COMBAT_OVERHAUL.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c4e2c4ff882a577d719da212c4f3bcc96758c832cd52da72f1b2bd64cb7ced6a",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "V28 的战斗修改遵循三个原则：普通怪的强度必须随进度明显增长；Boss 需要玩家先完成技能、属性与装备配置后再挑战；稀有掉落要有惊喜但不能让前期提前拿到后期装备。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "每一进度层包含兽类、灵体、人形三种战斗身份，共 8 层 × 3 = 24：",
+          "truncated": false
+        },
+        {
+          "line": 31,
+          "text": "- 经验与金币随强化幅度做小幅补偿，避免战斗时长增加却没有收益。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3618
+    },
+    {
+      "path": "dist/world-dialogues-v29.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "811dfdf74c9599f0809afd1471ce74733e98ec6ce4c9d2597be5ebfb664ebc20",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// New scene IDs keep every pre-V29 pending dialogue and line cursor intact.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const WORLD_DIALOGUES_V29={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " v29EchoSeparateCore:[['诺恩','前槽的细簧还在绷着。先卸下后槽那根心轴，别让它带着一起转。']],",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " v29RoadSign:[['旁白','木牌朝城里的那一面还认得出字，朝南的一面却被雨水泡白了。下方另钉着一片铜皮：旧磨坊，沿水槽走；正门勿推。'],['诺恩','有人修过这条路。车没再往南走。']],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " v29MillTracks:[['旁白','车辙在前院停住了。湿泥里叠着狼爪印，一条扯碎的皮带拖向水岸。'],['诺恩','不是冲着屋子来的。它们在下面做了窝。']],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " v29MillChannel:[['旁白','水从裂开的木槽流进草根。石阶旁的苔痕反而浅些，最近有人走过，又在洞口折返了。'],['诺恩','检修洞在这儿。先听听里面。']],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " v29EchoNotes:[['旁白','检修簿压在石台上，干页夹在两片薄铜板之间。'],['旁白','「先泄压，再卸后槽的黄铜心轴。前槽的刻录筒与指环架共用细簧，只能保全一件。请勿把后槽与前槽混拆。」'],['诺恩','铜管通向兽窝。阀门能从这边够到。']],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " v29EchoNeedNotes:[['旁白','心轴背后还扣着一片簧，旁边有个检修编号。'],['诺恩','先找对应的检修表。硬拽会弯。']],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3886
+    },
+    {
+      "path": "dist/chengli-text-v27.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "41b77c14733de26ea6cea7aa369ee95663148342b9f032bde8b059b3fae35cb5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Exact V26 baselines and current V27 Chengli dialogue; keep IDs, row counts and speakers stable.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const CHENGLI_REWRITE_V27=[{\"id\":\"v25C8Defeat\",\"before\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得整条手臂发麻。\"],[\"旁白\",\"他连退数步才稳住，碎石从靴边滚入山沟。维瑟还站在原处，看不出半点吃力。\"],[\"艾莉娅\",\"诺恩！你的手——\"],[\"诺恩\",\"手还能动。别靠近他，我们往西走。\"],[\"艾莉娅\",\"我能替你挡一下。\"],[\"诺恩\",\"挡不住的。等我把他逼开一点，你就往石缝跑。\"],[\"维瑟\",\"商量好了？\"],[\"旁白\",\"诺恩抓起一把潮湿的灰土，扬向身侧的余火。短促的烟尘腾起，他立刻退到艾莉娅身边。\"],[\"诺恩\",\"走！\"],[\"旁白\",\"两人沿石缝后的窄路奔出去。维瑟的脚步并不急，剑刃擦过岩壁的声音却一直跟在后面。\"],[\"艾莉娅\",\"前面只有水，路到那里就断了。\"],[\"诺恩\",\"沿水边走，那里有脚印。\"],[\"旁白\",\"一抹湖水青的轻纱在垂花后闪过。诺恩扶住艾莉娅踏上溪石，手臂上的血滴进浅水。\"],[\"澄璃\",\"别踩中间那块，它是松的。往你右手边来。\"],[\"艾莉娅\",\"后面有人追我们！\"],[\"澄璃\",\"看见了。先过来，我会拦住他。\"]],\"after\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得",
+          "truncated": true
+        },
+        {
+          "line": 3,
+          "text": "export function installChengliTextV27(dialogues){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " for(const {id,before,after} of CHENGLI_REWRITE_V27){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  const actual=JSON.stringify(dialogues[id]);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  if(actual===JSON.stringify(after))continue;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(actual!==JSON.stringify(before))throw new Error('第八章对白基线不一致：'+id);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  dialogues[id]=after.map(row=>",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 128525
+    },
+    {
+      "path": "dist/core-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "6dbec335b8c3c7a1dc6bc2e8ee72073ea9c6498fb305155afac1e2b2c59e0d04",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {installGameSettings} from './game-settings-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {installChapterOneExpansion} from './chapter-one-expansion-runtime.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {BOUNDARIES} from './world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {installChapterOneInteraction} from './chapter-one-interaction-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {installChapterOneMotionV30} from './chapter-one-motion-v30.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {installWorldExplorationV29} from './world-runtime-v29.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {installPresentationPhysicsV281} from './presentation-physics-v281.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {CH5_VISUAL_FAMILIES as PRESENTATION_ALIASES_V281} from './chapter5-world-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 78047
+    },
+    {
+      "path": "dist/balance-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "f2a2e7ffcab9c66d8f2dc68ce40410df75ad1c4d3605cdcec74cc74589af7e67",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {CH5_BOSS_MOVES} from './chapter5-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {MEMORY_BOSS,MEMORY_MOVES} from './memory-combat-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {TRIAL_FLOORS} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {V11_BOSS_PROFILES,V11_BOSS_MOVES,V11_DEEP_ENEMY_PROFILES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {HELL_ENEMY_PROFILES,HELL_BOSS_MOVES} from './chapter3-combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// V9 combat numbers. Distances are world pixels; player artwork is 84px tall.",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const COMBAT_BALANCE = Object.freeze({",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  mageAttackRange:336, mageAttackSpeed:500, mageAttackRate:.64,",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6084
+    },
+    {
+      "path": "dist/data-v14.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "fc855631ba89147f7a4d0aeba1fc4d313a88457acfcfd24e3b3a1c0fd7de5f7b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "export const CLASSES={shadow:{name:'影刃',tag:'双刃 · 流血收割',hp:150,mp:80,atk:16,speed:205,reach:85,rate:.40,color:'#90d8d4',q:'影袭',e:'绯刃'},oath:{name:'断誓者',tag:'重剑 · 格挡反击',hp:190,mp:65,atk:23,speed:188,reach:100,rate:.63,color:'#e2bb72',q:'断誓斩',e:'逆誓'},ember:{name:'烬术师',tag:'法杖 · 火印引爆',hp:135,mp:110,atk:19,speed:198,reach:390,rate:.55,color:'#bd9be4',q:'烬印',e:'焚星'}};",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const AFFIXES={blood:{name:'血棘',desc:'直击附加流血，最多 4 层；圣女的神圣普攻不触发。'},storm:{name:'逐雷',desc:'主动战技命中后对目标及其周围115范围雷击：攻击×0.9；8秒冷却'},mercy:{name:'余温',desc:'击败敌人回复 5 生命'},echo:{name:'回响',desc:'命中时多积累 1 点情绪'},ward:{name:'不屈',desc:'受击后生命低于50%时获得18护盾，持续3秒；12秒冷却'},fire:{name:'余烬',desc:'直击附加 3 秒灼烧'}};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const SKILLS={q:{rank:3,lv:1,cost:1},e:{rank:3,lv:1,cost:1},edge:{name:'刃上功夫',desc:'每级增加 3 攻击',passive:true,rank:3,lv:2,cost:1},heart:{name:'长途体能',desc:'每级增加 15 生命',passive:true,rank:3,lv:2,cost:1},crash:{name:'断魂击',desc:'跳向敌人重击，短暂震慑。需要主战技 2 级。',rank:3,lv:3,cost:1,requires:['q',2]},frost:{name:'寒霜印',desc:'冰环减速近处敌人。通过技能书学习。',rank:3,lv:1,cost:1,book:'frostBook'},sprint:{name:'疾行',desc:'短时提高移动速度。通过技能书学习。',rank:3,lv:1,cost:1,book:'sprintBook'}};",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const ITEMS={hp:{name:'疗伤药',desc:'恢复 70 生命，药品共享 5 秒冷却',cost:12},mp:{name:'清醒药',desc:'恢复 50 法力，药品共享 5 秒冷却',cost:12},frostBook:{name:'《寒霜印》残卷',desc:'学会主",
+          "truncated": true
+        },
+        {
+          "line": 5,
+          "text": "e",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 45262
+    },
+    {
+      "path": "dist/dialogue-runtime-v16.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "ba17529030e5c5fe04784337e37f4c2da947f2dab60c6559cccd733233e98138",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {DIALOGUE_TEXT_V16} from './dialogue-text-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DIALOGUE_MIGRATIONS_V16} from './dialogue-migrations-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {CH3_SIDE} from './chapter3-sidequests-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1740
+    },
+    {
+      "path": "dist/skills-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "e4beb471a5cbd21bfc2b92a0b3379c39fb709bada2d1ced273cb409815202986",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {skillRankMultiplierV17,skillRankDurationV17,skillRankSupportV17} from './rank-scaling-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {progressionSkillNumbers} from './progression-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {arcaneBonus} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {enchantStat,modifySkill} from './enchantments-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {chapter3SkillNumbers,hellDamageFactor} from './chapter3-skills-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// All skill numbers shown in the interface and consumed by combat share this source.",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {totalAttributes,damageModifier,baseCombatPower} from './growth-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {SKILL_SPEC as spec} from './balance-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3806
+    },
+    {
+      "path": "dist/enemy-ai-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "2d686d816719ce7133a8910121e8720eaa11728cf4245df50cd68e80e8d0e802",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {playerProjectileSourceValidV17} from './combat-input-v17.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 24364
+    },
+    {
+      "path": "dist/saga-runtime-v26.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "33a11c08efe813764f685bcdfcbf41029429ac41929587f675b72f84a69b1615",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS,ITEMS,DIALOGUES} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {hashSagaV25,seededSagaV25} from './saga-state-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {clearEnemyCombatV9} from './enemy-ai-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureSagaValidationV26,freshSagaV26,sagaStateV26 as state,savedSagaV26,validateSagaSaveV26,sagaCallbackV26 as callback,sagaRewardKeyV26 as rewardKey,sagaGatherIdV26 as gatherId,sagaEnemyIdV26 as enemyId} from './saga-state-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const copy=x=>structuredClone(x),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const live=g=>g.p?.hp>0&&g.p.cls!=='saint'&&!g._mercenaryContext&&!g.memoryV13?.active;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function installSagaV26(RPG,{nodes,chains,stats}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const P=RPG.prototype;if(P._sagaInstalledV26)return;Object.defineProperty(P,'_sagaInstalledV26',{value:true});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 13879
+    }
+  ],
+  "excerpt_bytes": 12566,
+  "max_files": 20,
+  "budget_bytes": 44000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R01"
+      ],
+      "scene": null,
+      "actors": [
+        "noen",
+        "elyria"
+      ],
+      "stage_candidates": [
+        {
+          "event": "R01:intro",
+          "scene": "intro",
+          "summary": "会馆日常与库房请求"
+        },
+        {
+          "event": "R01:ratDone",
+          "scene": "ratDone",
+          "summary": "回报库房后进入委托阶段"
+        },
+        {
+          "event": "R01:aside",
+          "scene": "aside",
+          "summary": "会馆核对午钟、通行纸与带人安排；诺恩不在此切镜中"
+        },
+        {
+          "event": "R01:contract",
+          "scene": "contract",
+          "summary": "交付目标、带人理由及封术印使用要求"
+        },
+        {
+          "event": "R01:c1HiddenPairArrangement",
+          "scene": "c1HiddenPairArrangement",
+          "summary": "诺恩离开后薇蕾娜追问鲁恩；玩家看见，两位主角听不到"
+        },
+        {
+          "event": "R01:saintBrief",
+          "scene": "saintBrief",
+          "summary": "清晨礼拜厅；诺恩不在切镜中"
+        },
+        {
+          "event": "R01:watch",
+          "scene": "watch",
+          "summary": "通行纸通过门卫核验"
+        },
+        {
+          "event": "R01:assassination",
+          "scene": "assassination",
+          "summary": "原十八行刺杀、封术、挟持"
+        },
+        {
+          "event": "R01:canalStart",
+          "scene": "canalStart",
+          "summary": "圣女要求救人与活捉，追缉官挡路"
+        },
+        {
+          "event": "R01:chapterEnd",
+          "scene": "chapterEnd",
+          "summary": "以百姓为威胁换取受迫同行，承诺事毕放人"
+        },
+        {
+          "event": "R01:c1:localTalk:c1iden",
+          "scene": "c1:localTalk:c1iden",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        },
+        {
+          "event": "R01:c1:localTalk:c1hesha",
+          "scene": "c1:localTalk:c1hesha",
+          "summary": "可选本地工作与处境；不赋予幕后秘密"
+        }
+      ],
+      "needs": [
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "noen": {
+        "name": "诺恩",
+        "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+        "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+        "state": {
+          "emotion": "日常回到会馆，进入任务准备。",
+          "goals": [
+            "处理库房问题，听取委托。"
+          ],
+          "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+          "expression": "能与熟人正常交谈；情感伦理理解不足。",
+          "conflicts": []
+        },
+        "relationships": {
+          "elyria": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "未建立",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "UNRESOLVED"
+          }
+        },
+        "sources": [
+          "author-hero",
+          "scene:contract",
+          "scene:sisterIdle",
+          "scene:ch2Spillway",
+          "runtime-c1-hidden"
+        ],
+        "profile": "source/narrative/characters/noen.json"
+      },
+      "elyria": {
+        "name": "艾莉娅",
+        "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+        "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+        "state": {
+          "emotion": "关心失踪家属和施粥安排，准备礼拜。",
+          "goals": [
+            "帮助等候的普通人并履行圣女职责。"
+          ],
+          "faction_view": "真诚信任教廷的救助。",
+          "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+          "conflicts": [
+            "想帮家属但无法保证找到失踪者。"
+          ]
+        },
+        "relationships": {
+          "noen": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "未建立",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "UNRESOLVED"
+          }
+        },
+        "sources": [
+          "author-saint",
+          "scene:saintBrief",
+          "scene:ch2Terms",
+          "scene:ch2ExileEnd"
+        ],
+        "profile": "source/narrative/characters/elyria.json"
+      }
+    },
+    "knowledge": {
+      "noen": {},
+      "elyria": {},
+      "player": {}
+    },
+    "facts": {},
+    "seeds": [],
+    "conflicts": [
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "OPEN",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "记录真实差异，后续对白任务按当前八鼠目标改稿。本轮不重写。"
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R01",
+      "scene": null,
+      "position": "before",
+      "at": null,
+      "stage_exact": false,
+      "coverage": "curated_mainline",
+      "gaps": [
+        "0.6底稿的六鼠/旧训练叙述部分被0.8/0.9覆盖；contract仍提六只，与intro的八只有文案漂移，本轮不改。",
+        "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。"
+      ],
+      "plan": {
+        "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+        "revision": "0.9",
+        "status": "DEV_FROZEN",
+        "implementation": "0.9范围已验收；0.6人工节奏另待验收"
+      }
+    },
+    "reveal_ceiling": {
+      "this_event_only": [],
+      "author_secrets_do_not_grant_knowledge": true
+    },
+    "provenance": {
+      "author-hero": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 3. 诺恩的起点与成长",
+        "kind": "user_confirmed"
+      },
+      "author-saint": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 2. 艾莉娅的起点与成长",
+        "kind": "user_confirmed"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "scene:ch2ExileEnd": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2ExileEnd",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Spillway": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Spillway",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Terms": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Terms",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:saintBrief": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "saintBrief",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:sisterIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "sisterIdle"
+      }
+    },
+    "provenance_errors": [
+      {
+        "code": "SOURCE_DRIFT",
+        "where": "architecture",
+        "message": {
+          "source": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+          "anchor": "## 整体结构",
+          "action": "review records, then acknowledge --source architecture --note ..."
+        }
+      },
+      {
+        "code": "SOURCE_DRIFT",
+        "where": "c1-retained",
+        "message": {
+          "source": "docs/harness/CHAPTER_01.md",
+          "anchor": "## 4. 接委托后的私下对话",
+          "action": "review records, then acknowledge --source c1-retained --note ..."
+        }
+      },
+      {
+        "code": "SOURCE_DRIFT",
+        "where": "withdrawn-rebuild",
+        "message": {
+          "source": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+          "anchor": "旧稿可从Git历史追溯",
+          "action": "review records, then acknowledge --source withdrawn-rebuild --note ..."
+        }
+      }
+    ]
+  },
+  "narrative_bytes": 7958,
+  "total_context_bytes": 20524,
+  "deferred": [
+    "dist/combat-overhaul-v28.js",
+    "dist/story-flow-v14.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/combat-input-v17.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/chapter3-skills-v14.js",
+    "dist/dialogue-save-migration-v26.js",
+    "dist/enchantments-v14.js",
+    "dist/equipment-v14.js",
+    "dist/growth-v14.js",
+    "dist/progression-data-v14.js",
+    "dist/save-protection-v23.js",
+    "dist/progression-runtime-v14.js",
+    "dist/chapter-one-motion-v30.js",
+    "dist/chapter-one-expansion-combat.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/chapter-one-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-balance-lab.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "第一章0.5保留人物/地图/交互优化；圣女默认立绘柔和，幕后只保留接委托后的薇蕾娜/鲁恩对话；删除新增匿名神秘人并兼容旧尾段存档；第二章只策划。",
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 225
+    },
+    {
+      "name": "installChapter4",
+      "line": 226
+    },
+    {
+      "name": "installPacing",
+      "line": 228
+    },
+    {
+      "name": "installQuestService",
+      "line": 229
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 234
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 236
+    },
+    {
+      "name": "installChapter5",
+      "line": 237
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 238
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 239
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 240
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 242
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 243
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 244
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 245
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 246
+    },
+    {
+      "name": "installCityV18",
+      "line": 247
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 249
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 250
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 252
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 255
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 256
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 257
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 258
+    },
+    {
+      "name": "installSagaV25",
+      "line": 263
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 267
+    },
+    {
+      "name": "installSagaV26",
+      "line": 270
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 277
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 279
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 281
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 283
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 284
+    },
+    {
+      "name": "installChapterOneExpansion",
+      "line": 286
+    },
+    {
+      "name": "installGameSettings",
+      "line": 287
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

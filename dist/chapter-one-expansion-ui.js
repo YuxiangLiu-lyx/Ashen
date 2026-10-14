@@ -1,4 +1,5 @@
 import {C1_LOCAL_QUESTS} from './chapter-one-story-world.js';
+import {experienceServicePanel,experienceServiceAction} from './rpg-experience-services-ui.js';
 import {C1_OBJECTIVES} from './chapter-one-objectives.js';
 import {C1_RECIPES,C1_RUNES,C1_CORES,C1_ELITES,C1_PARTS,C1_EFFECT_TEXT,C1_MAIN,C1_SIDE,C1_GEAR} from './chapter-one-expansion-data.js';
 import {c1State} from './chapter-one-expansion-save.js';
@@ -10,6 +11,7 @@ const button=(text,action,disabled=false)=>`<button data-c1="${action}" ${disabl
 const view=g=>{if(!views.has(g))views.set(g,{recipe:'c1LoomWeapon',rune:'c1RuneEdge',weapon:c1Weapons(g.p.cls)[0],coupon:true,core:'c1CoreBlade',result:null,preview:false,transaction:null});return views.get(g);};
 const delta=(before,after)=>['atk','hp','mp','manaRegen','speed'].map(k=>`${({atk:'攻击',hp:'生命',mp:'法力上限',manaRegen:'每秒回蓝',speed:'移速'})[k]} ${after[k].toFixed(2)}（${after[k]-before[k]>=0?'+':''}${(after[k]-before[k]).toFixed(2)}）`).join(' · ');
 export function c1Panel(g,kind){const h=c1State(g),v=view(g);let body='',title='缀纹工坊';
+ if(kind.startsWith('c1-outfit:'))({title,body}=experienceServicePanel(g,kind.slice(10)));
  if(kind==='c1-loom'){
   const r=C1_RECIPES[v.recipe],u=C1_RUNES[v.rune],p=g.c1Preview(v.recipe,v.rune,v.weapon);
   body=`<p>核心稳定基础，符文只浮动一项。无失败率，无额外随机附魔。工费含胚料。</p><h3>1 · 配方</h3><div class="row">${Object.values(C1_RECIPES).map(r=>button(r.name,'recipe:'+r.id)).join('')}</div><p>已选：${r.name} · ${C1_CORES[r.core].name} · 蓝色 · 需等级${r.minLevel}</p>${r.slot==='weapon'?`<div class="row">${c1Weapons(g.p.cls).map(k=>button(({daggers:'单手短刃',sword:'单手剑',greatsword:'双手重剑',wand:'单手短杖',staff:'双手法杖'})[k],'weapon:'+k)).join('')}</div>`:''}<h3>2 · T1符文</h3><div class="row">${Object.values(C1_RUNES).map(r=>button(r.name+'（持有'+(g.p.items[r.id]||0)+'）','rune:'+r.id)).join('')}</div><p>当前${u.name}：${names[u.stat]} +${u.min}～${u.max}，以实际制作为准。</p><p>固定基础：攻击+${r.atk}、生命+${r.hp}；${C1_EFFECT_TEXT[r.effect]}</p>${button('比较装备后的真实属性','preview')} ${button(v.coupon?'使用免工费券':'保留券，支付6金','coupon')}<p>完整成本：${C1_CORES[r.core].name} ×1（${g.p.items[r.core]||0}）＋${u.name} ×1（${g.p.items[v.rune]||0}）＋${v.coupon&&g.p.items.c1FeeCoupon?0:6}金；当前${g.p.gold}金。${v.coupon&&g.p.items.c1FeeCoupon?'消耗一次免工费券。':''}</p>`;
@@ -30,6 +32,7 @@ export function c1Panel(g,kind){const h=c1State(g),v=view(g);let body='',title='
  return `<div class="modal"><section class="panel"><header class="panel-head"><h2>${title}</h2><button data-act="resume">返回 ×</button></header><div class="panel-body">${body}</div></section></div>`;
 }
 export function c1UIAction(g,action){const v=view(g),[verb,id]=action.split(':');
+ if(verb.startsWith('outfit-'))return experienceServiceAction(g,action);
  if(['recipe','rune','weapon','core'].includes(verb)){v[verb]=id;v.preview=false;v.result=null;v.transaction=null;return 'c1-loom';}
  if(verb==='drill'){g.c1StartTraining('drill',id==='assist');return 'resume';}
  if(verb==='coupon'){v.coupon=!v.coupon;return 'c1-loom';}

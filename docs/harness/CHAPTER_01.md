@@ -1,5 +1,7 @@
 # 第一章剧情记录 · 午钟之前
 
+> 2026-10-14新采用稿第一章1.0：[RPG体验试点](CHAPTER_01_RPG_EXPERIENCE.md)，DEV_FROZEN，任务rpg-c1-20261014。全游戏当前授权与分章实施见[体验审计](../rpg-experience/AUDIT.md)。以下0.9为历史运行基线，后续章节新改造逐章登记，不等于已实现。
+
 > 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。
 
 > 历史0.8基线（DEV_FROZEN）：[自然场景与逐个任务交接](CHAPTER_01_STORY_WORLD.md)，任务c1-story-world-20261012。下述0.7为上一稿：[地图与任务全面优化](CHAPTER_01_MAP_QUESTS.md)。用户新要求替代下述0.6多步骤互动/几何保护；保留原刺杀、人物知识和成长预算。下文作为0.6主线与对白来源记录。

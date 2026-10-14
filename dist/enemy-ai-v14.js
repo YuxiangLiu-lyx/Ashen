@@ -1,5 +1,7 @@
 import {playerProjectileSourceValidV17} from './combat-input-v17.js';
 import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';
+import {experienceProfile} from './rpg-experience-data.js';
+const profile=e=>({...profileForEnemy(e.type,e.id),...experienceProfile(e)});
 
 export const ENEMY_STATES=Object.freeze({IDLE:'IDLE',PATROL:'PATROL',ALERT:'ALERT',COMBAT:'COMBAT',RETURNING:'RETURNING',DEAD:'DEAD'});
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
@@ -148,7 +150,7 @@ export function interruptEnemyV9(g,e,duration){
 }
 
 export function playerDamageMultiplierV9(g,e,kind){
-  if(!formidable(e))return 1;if(g.time<(e.exposedUntil||0))return B.exposedMultiplier;const cfg=profileForEnemy(e.type);if(cfg.guardFront){if(kind==='dot')return cfg.dotMultiplier||.9;const front=Math.cos(Math.atan2(g.p.y-e.y,g.p.x-e.x)-e.angle)>.2;return front?cfg.guardFront:cfg.guardRear;}
+  const cfg=profile(e);if(!formidable(e)&&!cfg.guardFront)return 1;if(g.time<(e.exposedUntil||0))return B.exposedMultiplier;if(cfg.guardFront){if(kind==='dot')return cfg.dotMultiplier||.9;const front=Math.cos(Math.atan2(g.p.y-e.y,g.p.x-e.x)-e.angle)>.2;return front?cfg.guardFront:cfg.guardRear;}
   if(g.time<(e.exposedUntil||0))return B.exposedMultiplier;
   if(e.elite)return kind==='dot'?B.eliteDotMultiplier:B.eliteGuardMultiplier;
   if(kind==='dot')return e.type==='hellJailer'?.82:B.bossDotMultiplier;
@@ -170,7 +172,7 @@ function telegraph(g,e,kind,move,target){
   e.angle=Math.atan2(target.y-e.y,target.x-e.x);
   e.telegraph={kind,shape:move.shape,x:move.shape==='circle'?target.x:e.x,y:move.shape==='circle'?target.y:e.y,
     r:move.r||0,arc:move.arc||.82,a:e.angle,length:move.length||0,width:move.width||0,life:move.wind,max:move.wind,label:move.label};
-  e.actionSpec={...move,damage:attackDamage(e,move.damage*(profileForEnemy(e.type,e.id).specialMultiplier||1))};e.cd=move.recovery||1.3;
+  e.actionSpec={...move,damage:attackDamage(e,move.damage*(profile(e).specialMultiplier||1))};e.cd=move.recovery||1.3;
   e.mechanicsUsed[kind]=(e.mechanicsUsed[kind]||0)+1;
   e.pattern++;e.moving=false;
   if(formidable(e))g.text(move.label,e.x,e.y-104,'#f0b586');
@@ -256,7 +258,7 @@ export function tickEnemiesV9(g,dt,idleAI){
     ensureEnemyAI(e,g);
     if(e.dead){transition(g,e,'DEAD');continue;}
     if(g.c1TickEnemy?.(e,dt))continue;
-    const cfg=profileForEnemy(e.type,e.id),p=g.p;
+    const cfg=profile(e),p=g.p;
     e.moving=false;e.attackAnim=Math.max(0,(e.attackAnim||0)-dt);
     if(e.type==='bat')e.anim+=dt*8;
     e.stun=Math.max(0,(e.stun||0)-dt);e.slow=Math.max(0,(e.slow||0)-dt);if(!e.slow)delete e.slowFactor;
@@ -309,7 +311,7 @@ export function tickEnemiesV9(g,dt,idleAI){
 }
 
 export function resolveEnemyHitV9(g,e){
-  const move=e.actionSpec||{r:85,damage:attackDamage(e,profileForEnemy(e.type,e.id).damage),arc:1};
+  const move=e.actionSpec||{r:85,damage:attackDamage(e,profile(e).damage),arc:1};
   const kind=e.moveKind||'melee';
   if(move.basicAttack)return resolveBasic(g,e,move,kind);
   const encounter=attackEncounters.get(e);if(e.dead||e.hp<=0||encounter&&!attackValid(g,e,encounter))return;

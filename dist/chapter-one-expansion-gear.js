@@ -2,7 +2,7 @@ import {C1_RECIPES,C1_RUNES,C1_CORES,C1_GEAR,C1_EFFECT_TEXT,c1CoreAt} from './ch
 import {c1State,c1Random,c1Clone} from './chapter-one-expansion-save.js';
 import {normalizeGear,WEAPON_RULES,equipmentPlan} from './equipment-v14.js';
 export function c1Effects(p){const effects={};for(const item of Object.values(p.gear||{})){if(!item?.c1Effect)continue;const k=item.c1Effect;effects[k]=Math.max(effects[k]||0,item.c1Value||1);}return effects;}
-export function c1Stats(p,s){const effects=c1Effects(p);return {...s,mp:s.mp+Object.values(p.gear||{}).reduce((n,i)=>n+(i?.c1Mana||0),0)+(effects.mana||0),manaRegen:s.manaRegen+(effects.regen||0),speed:s.speed*(1+(effects.speed||0)+(effects.trail&&p.c1QuietSeconds>=4?.06:0))};}
+export function c1Stats(p,s){const effects=c1Effects(p),armor=Object.values(p.gear||{}).reduce((n,i)=>n+Math.max(0,Math.min(.15,i?.experienceArmor||0)),0);return {...s,reduction:Math.min(.6,s.reduction+Math.min(.2,armor)),mp:s.mp+Object.values(p.gear||{}).reduce((n,i)=>n+(i?.c1Mana||0),0)+(effects.mana||0),manaRegen:s.manaRegen+(effects.regen||0),speed:s.speed*(1+(effects.speed||0)+(effects.trail&&p.c1QuietSeconds>=4?.06:0))};}
 export const c1Weapons=cls=>Object.entries(WEAPON_RULES).filter(([,v])=>v.classes.includes(cls)).map(([k])=>k);
 export function c1Item(cls,template,instance,weaponType){
  const t=C1_GEAR[template]||C1_RECIPES[template];if(!t)throw Error('Unknown chapter-one gear');
