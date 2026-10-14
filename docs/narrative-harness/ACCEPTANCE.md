@@ -87,4 +87,4 @@ python3 tools/harness/check.py --tier narrative
 
 ## Git保存
 
-实现检查点已本地提交；远端同步回执将在核验GitHub main后单独登记。没有将Git保存等同网站发布。
+最终实现f78334c及完整验收已随 `93ae2631056de5e75a24a4a3fd24e94732bac060` 快进推送GitHub main，ls-remote与本地HEAD相同。核验时间、完整SHA与范围见 [GIT_SAVE.json](GIT_SAVE.json)。任务完成回执随后单独提交，文件所属提交可通过Git历史定位。没有将Git保存等同网站发布。

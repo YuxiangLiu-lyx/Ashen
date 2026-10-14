@@ -1,6 +1,6 @@
-# 当前工作：叙事Harness升级（2026-10-14）
+# 已完成：叙事Harness升级（2026-10-14）
 
-任务 narrative-harness-20261014；基线95ea904；分支work/narrative-harness-20261014。计划docs/narrative-harness/PLAN.md。仅工具和资料，不改运行剧情；旧0.6人工节奏待办保持。
+任务 narrative-harness-20261014；基线95ea904，最终实现f78334c，完整验收93ae263已推送GitHub main并核验。57项Harness、164核心、18经济路线、1620实战快照及7组浏览器通过；369个dist文件与520场对白保持。验收docs/narrative-harness/ACCEPTANCE.md；仅工具与资料，旧0.6人工节奏待办保持。
 
 # 前轮工作：第一章0.9分层任务与通用设定
 
@@ -437,18 +437,18 @@
 
 <!-- task:narrative-harness-20261014 -->
 ## 任务 narrative-harness-20261014
-- 状态：in_progress
-- 更新：2026-10-14T06:00:02.149092+00:00
-- 下一步：提交完整验收并推送GitHub main
-- 任务记录：source/tasks/active/narrative-harness-20261014.json
-- 已完成：已核对Git与当前稿；完整用户需求和所有dist哈希已保存；原31项Harness基线通过；完整安装520场对白与动态NPC入口已核对；四类来源差异登记；87个角色/称谓登记、前两章三主角档案、53事件/22事实/4伏笔、长期方向与纯风格样本落盘；21项新叙事反例及真实任务挂接/finish测试通过；原入口发现章二完整稿被预算挤出的缺陷并已修复优先级；原入口与新工具52项fast全部通过；补齐原稿优先级、时点重放、真实任务证据门禁和可查最终对白入口；d2e6783完整integration及369文件/520场保护通过；008新报告已另存并恢复历史报告；009fast与010narrative的55项检查通过，六NPC实际动作读取通过；012fast与013narrative共57项检查通过；实际检索示例发现薇蕾娜误选蕾娜并修复完整姓名优先匹配；最终015fast、016narrative各57项；017integration含164核心/18经济/1620快照/7组浏览器通过；018章二兼容、019全369文件/520场保护通过；新QA另存，旧报告恢复
-- 待完成：GitHub main保存与远端核验
+- 状态：complete
+- 更新：2026-10-14T06:04:52.852364+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/narrative-harness-20261014.json
+- 已完成：已核对Git与当前稿；完整用户需求和所有dist哈希已保存；原31项Harness基线通过；完整安装520场对白与动态NPC入口已核对；四类来源差异登记；87个角色/称谓登记、前两章三主角档案、53事件/22事实/4伏笔、长期方向与纯风格样本落盘；21项新叙事反例及真实任务挂接/finish测试通过；原入口发现章二完整稿被预算挤出的缺陷并已修复优先级；原入口与新工具52项fast全部通过；补齐原稿优先级、时点重放、真实任务证据门禁和可查最终对白入口；d2e6783完整integration及369文件/520场保护通过；008新报告已另存并恢复历史报告；009fast与010narrative的55项检查通过，六NPC实际动作读取通过；012fast与013narrative共57项检查通过；实际检索示例发现薇蕾娜误选蕾娜并修复完整姓名优先匹配；最终015fast、016narrative各57项；017integration含164核心/18经济/1620快照/7组浏览器通过；018章二兼容、019全369文件/520场保护通过；新QA另存，旧报告恢复；93ae263完整实现与全部验收已快进推送GitHub main，ls-remote与HEAD一致；369运行文件/520场对白保持，未发布网站或改试玩包
+- 待完成：无
 - 决定：不改运行剧情；第二章策划与运行差异显式保留；风格样本独立隔离；后六章只登记可靠运行节点；第四/七章回忆不混作当前事件；未知不补造；保留003失败日志与原章节路由断言；先返回当前完整章稿，纯剧情不带无关地图美术模块；最终复核发现动态NPC读取命令错误，补实际choose动作读取与六NPC回归；需要按新指纹重跑最终检查；011集成为补通用数据文件对白门禁而主动中断，记录termination=interrupted与退出127，不计成功；finish同时检查最终场景差异和纯数据正史错误；014集成为修复真实CLI姓名误匹配而主动中断，不计通过；原回执保持，最终重新跑全部必需检查
 - 阻塞：无
 - 阶段 audit：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
 - 阶段 records：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
 - 阶段 integration：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
 - 阶段 verification：complete；HEAD f78334ce45b7be7dd760bc2b3cd5dd242823eb36
-- 阶段 delivery：in_progress；HEAD f78334ce45b7be7dd760bc2b3cd5dd242823eb36
+- 阶段 delivery：complete；HEAD 93ae2631056de5e75a24a4a3fd24e94732bac060
 - 最近检查：preservation，退出码 0；docs/harness/evidence/narrative-harness-20261014/019-preservation.txt
 <!-- /task:narrative-harness-20261014 -->
