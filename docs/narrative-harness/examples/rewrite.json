@@ -1,0 +1,955 @@
+{
+  "status": "ok",
+  "task": "重写第一章诺恩和艾莉娅的这段对白",
+  "basis_commit": "c708763a42bf8bfa69e7b3313fa003fd939bceb8",
+  "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter01_plan: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "4. 读 [对白规范](DIALOGUE_STYLE.md) 与 [纯风格样本](DIALOGUE_STYLE_SAMPLES.md)。写清本场信息、每个人的行为目的、结果、因果与情绪依据、游戏动作和对话框交接，再生成文字。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "7. 记录完整 context、候选/已实施 draft、review，挂入 task.py；修改行数时另做 pending、staging 和存档专项。finish 检查叙事记录与来源新鲜度。仅工具维护且未改运行/章稿的任务不伪造对白审查。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "5. 实现、回放、实际游玩、存档迁移验收后，更新为 `IMPLEMENTED`，登记真实入口、文件与证据。未开发章仍保持原状态，不能因第",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "诺恩早期会观察、追问和解释任务判断，情感理解有限不等于没有正常交流能力。艾莉娅关心具体受伤的人，也能说明为什么反对某个决定；不必逢人发表生命演说。薇蕾娜可以亲昵逗趣，也能准确谈正事；不要把所有交流改成暧昧。以上方向仍要受当时的档案、事件和关系限制。",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "游戏适配同样必要：长对白可以分页，不可破坏 pending 行号、演出动作、说话者与一次性提交。新增行数须检查存档迁移与实际对话框；不要因为技术上的旧行数方便，就删掉必要解释。此次 Harness 升级不自动改动任何现有对白。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "## A：诺恩与艾莉娅——日常分歧与正常交流",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "艾莉娅：“你刚才为什么拦着那个老人？他走了那么远才到这里，伤口又一直在流血，至少应该先让医师看一眼。”",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "艾莉娅：“那你应该跟他说清楚。他刚才还以为你要赶他走，着急得连话都说不完整了。”",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "艾莉娅：“他大概是太担心自己的伤势了。你看见他手上的布了吗？已经完全浸透了，再不处理恐怕会出问题。”",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "艾莉娅：“那就麻烦你了。还有，院子里那些人一直站着也不行，我们最好搬几张凳子出来，至少让伤势比较严重的人先坐下来休息。”",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "艾莉娅：“你说得对。我去找人清理门口，你先拿纱布。等这边忙完，我们再看看还有没有其他办法。”",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "艾莉娅真正在关心伤员，也会因为诺恩看似冷漠的行动产生不满，但她愿意听取解释、处理问题。",
+          "truncated": false
+        },
+        {
+          "line": 35,
+          "text": "不需要让艾莉娅发表关于生命价值的演讲，也不需要诺恩说出刻意深刻的台词。",
+          "truncated": false
+        },
+        {
+          "line": 89,
+          "text": "薇蕾娜可以成熟、自信、亲昵、爱开玩笑，但不需要把所有对白写成暧昧台词。",
+          "truncated": false
+        },
+        {
+          "line": 103,
+          "text": "不要复制固定句式、对白结构、事件顺序或具体玩笑。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "narrative_context",
+      "sha256": "a0b089ae6659ad6a3b0c23f16521020df561fb02fa7f1fe6d93ddf6e827bc9a1",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿0.9 · 分层任务与通用规则",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "旧廊与蓄能廊增加侧阶，蓄能廊与练武庭增加旧升降井台阶，封存库与旧廊增加检修便道；河畔营地通磨坊小径，废窑通北渠检修道。通路由门闩/检修/伤势等自然理由说明，不能绕过主线入城与水渠追缉官。楼层名、门标签、路线和接取对白一致。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2280
+    },
+    {
+      "path": "docs/harness/CHAPTER_01.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "current_code",
+      "sha256": "404a5176b4ffcc2fcfc8257d1ce329edbfcf4ff45bda9883469c03887d61b399",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章剧情记录 · 午钟之前",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "> 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "> 历史0.8基线（DEV_FROZEN）：[自然场景与逐个任务交接](CHAPTER_01_STORY_WORLD.md)，任务c1-story-world-20261012。下述0.7为上一稿：[地图与任务全面优化](CHAPTER_01_MAP_QUESTS.md)。用户新要求替代下述0.6多步骤互动/几何保护；保留原刺杀、人物知识和成长预算。下文作为0.6主线与对白来源记录。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "- 2026-10-12采用用户《第一章流程扩充与成长系统》；任务c1-expansion-20261012。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "午钟刺杀仍采用原18行对白及动作：杀死卡德兰、阻止艾莉娅施救、封术、强迫撤离。她不因此谅解诺恩。沿chapel→alley→canal与追缉官交战，亲手开闸并在藏身处站稳。phase4仍可自愿补给、告别；最终离城确认后chapterEnd→post。",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "## 2. 最终运行对白的真实来源",
+          "truncated": false
+        },
+        {
+          "line": 50,
+          "text": "这是本章完整顺序。没有新增逐句稿的场景，直接采用回滚后最终运行对白；无需把旧对白再复制成一份未来必须替换的剧本。",
+          "truncated": false
+        },
+        {
+          "line": 54,
+          "text": "| `hall` 会馆日常 | `startNew()` → `intro`；奥伦 → `ratAccept` | 接库房异响，保留任务、北墙指示和对白 |",
+          "truncated": false
+        },
+        {
+          "line": 68,
+          "text": "原支线 `oil`、`letter`、`herbs`、`lantern`、`copper`、`echo`、`farewell` 及全部奖励/分支保留。`sisterAfterBell`、`saintSealEarly`、`saintRoadEarly`、`saintGateWarning`、告别等待等原可选对白也保留。",
+          "truncated": false
+        },
+        {
+          "line": 98,
+          "text": "原H2 `c1HiddenSealEcho` 的全部匿名对白和黑影退出运行，不再在刺杀后追加片段。保留原18行刺杀对白和地图动作，直接接原护卫/逃离结果。",
+          "truncated": false
+        },
+        {
+          "line": 102,
+          "text": "玩家得知门的禁制可用其他办法解开，但不知道具体",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 9571
+    },
+    {
+      "path": "source/narrative/characters/elyria.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "a97f58deed37dfa732fc3af27600f630182e40ad6ec5c27e200a47e5cd8acbbe",
+      "excerpts": [
+        {
+          "line": 4,
+          "text": "  \"name\": \"艾莉娅\",",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"艾莉娅\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 10455
+    },
+    {
+      "path": "source/narrative/characters/noen.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 189,
+      "category": "narrative_context",
+      "sha256": "064c167a6421ac4f13ffc3eee1b60c1445004b099280bb7f0cccbea03265e4e6",
+      "excerpts": [
+        {
+          "line": 30,
+          "text": "  \"fears\": \"UNRESOLVED：早期不擅自写成已经害怕失去艾莉娅。\",",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "  \"flaws\": \"控制他人、任务优先，第二章明知违约仍扣留艾莉娅；不能把这写成成熟体贴。\",",
+          "truncated": false
+        },
+        {
+          "line": 39,
+          "text": "    \"address\": \"按当前对白称呼；面对薇蕾娜熟悉，面对艾莉娅早期仍有控制。\",",
+          "truncated": false
+        },
+        {
+          "line": 66,
+          "text": "      \"affection\": \"熟人亲近程度由对白体现，非恋爱确认\",",
+          "truncated": false
+        },
+        {
+          "line": 89,
+          "text": "      \"summary\": \"共同经历后逐渐理解感情，开始害怕艾莉娅死亡并作出超出命令的选择；具体转折须有事件。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 14921
+    },
+    {
+      "path": "source/narrative/chapters/R01.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 188,
+      "category": "narrative_context",
+      "sha256": "b90641346e1fc44f92b6e79a5540b9e7262438ce7e0c5ebc277448fe9725d95b",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "  \"title\": \"午钟之前（工作名；运行第一章）\",",
+          "truncated": false
+        },
+        {
+          "line": 94,
+          "text": "      \"summary\": \"失踪家属正在等消息，艾莉娅关心老人和姑娘们。\",",
+          "truncated": false
+        },
+        {
+          "line": 130,
+          "text": "      \"summary\": \"诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。\",",
+          "truncated": false
+        },
+        {
+          "line": 142,
+          "text": "      \"summary\": \"诺恩在水渠以其他百姓威胁，许诺驿站事情办完后放人；艾莉娅为百姓安全被迫答应。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19247
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter01_plan: current constraints"
+      ],
+      "priority": 128,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "当前人物文本及迁移层为 chengli-text-v27、dialogue-runtime-v16、Saga V26 和其 text/chains/staging。先查具体场景 ID、运行对白和触发条件，按 router 结果读取少量资料。历史 delivery/候选文案不是现行权威；未取回的最新 source 稿明确缺失，不凭猜测补写。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "诺恩、艾莉娅、澄璃的身份、知识与关系必须遵守现有场景知识边界，圣女在场时不提前揭露角色尚未知的真相。FUTURE_ONLY 构思只有用户授权后才能实装。对白改动同时检查已存 pending/行号迁移、演出节拍、坐席和小立绘。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "第八章大图在注册/展示/预加载均禁用；小立绘、对白、任务和演出保留。原 CG 不删除，保留归档原件。章节测试种子只用于验收，不把其无敌 preview 行为用于平衡实验。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "dist/world-dialogues-v29.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 108,
+      "category": "current_code",
+      "sha256": "811dfdf74c9599f0809afd1471ce74733e98ec6ce4c9d2597be5ebfb664ebc20",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// New scene IDs keep every pre-V29 pending dialogue and line cursor intact.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const WORLD_DIALOGUES_V29={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " v29EchoSeparateCore:[['诺恩','前槽的细簧还在绷着。先卸下后槽那根心轴，别让它带着一起转。']],",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " v29RoadSign:[['旁白','木牌朝城里的那一面还认得出字，朝南的一面却被雨水泡白了。下方另钉着一片铜皮：旧磨坊，沿水槽走；正门勿推。'],['诺恩','有人修过这条路。车没再往南走。']],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " v29MillTracks:[['旁白','车辙在前院停住了。湿泥里叠着狼爪印，一条扯碎的皮带拖向水岸。'],['诺恩','不是冲着屋子来的。它们在下面做了窝。']],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " v29MillChannel:[['旁白','水从裂开的木槽流进草根。石阶旁的苔痕反而浅些，最近有人走过，又在洞口折返了。'],['诺恩','检修洞在这儿。先听听里面。']],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " v29EchoNotes:[['旁白','检修簿压在石台上，干页夹在两片薄铜板之间。'],['旁白','「先泄压，再卸后槽的黄铜心轴。前槽的刻录筒与指环架共用细簧，只能保全一件。请勿把后槽与前槽混拆。」'],['诺恩','铜管通向兽窝。阀门能从这边够到。']],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " v29EchoNeedNotes:[['旁白','心轴背后还扣着一片簧，旁边有个检修编号。'],['诺恩','先找对应的检修表。硬拽会弯。']],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3886
+    },
+    {
+      "path": "dist/chengli-text-v27.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 107,
+      "category": "current_code",
+      "sha256": "41b77c14733de26ea6cea7aa369ee95663148342b9f032bde8b059b3fae35cb5",
+      "excerpts": [
+        {
+          "line": 2,
+          "text": "export const CHENGLI_REWRITE_V27=[{\"id\":\"v25C8Defeat\",\"before\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得整条手臂发麻。\"],[\"旁白\",\"他连退数步才稳住，碎石从靴边滚入山沟。维瑟还站在原处，看不出半点吃力。\"],[\"艾莉娅\",\"诺恩！你的手——\"],[\"诺恩\",\"手还能动。别靠近他，我们往西走。\"],[\"艾莉娅\",\"我能替你挡一下。\"],[\"诺恩\",\"挡不住的。等我把他逼开一点，你就往石缝跑。\"],[\"维瑟\",\"商量好了？\"],[\"旁白\",\"诺恩抓起一把潮湿的灰土，扬向身侧的余火。短促的烟尘腾起，他立刻退到艾莉娅身边。\"],[\"诺恩\",\"走！\"],[\"旁白\",\"两人沿石缝后的窄路奔出去。维瑟的脚步并不急，剑刃擦过岩壁的声音却一直跟在后面。\"],[\"艾莉娅\",\"前面只有水，路到那里就断了。\"],[\"诺恩\",\"沿水边走，那里有脚印。\"],[\"旁白\",\"一抹湖水青的轻纱在垂花后闪过。诺恩扶住艾莉娅踏上溪石，手臂上的血滴进浅水。\"],[\"澄璃\",\"别踩中间那块，它是松的。往你右手边来。\"],[\"艾莉娅\",\"后面有人追我们！\"],[\"澄璃\",\"看见了。先过来，我会拦住他。\"]],\"after\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得",
+          "truncated": true
+        },
+        {
+          "line": 7,
+          "text": "  if(actual!==JSON.stringify(before))throw new Error('第八章对白基线不一致：'+id);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 128525
+    },
+    {
+      "path": "dist/data-v14.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 106,
+      "category": "current_code",
+      "sha256": "fc855631ba89147f7a4d0aeba1fc4d313a88457acfcfd24e3b3a1c0fd7de5f7b",
+      "excerpts": [
+        {
+          "line": 10,
+          "text": " chapel:{name:'礼拜厅',sub:'午钟之前',atlas:'interior',cell:2,safe:true,doors:[{x:780,y:960,to:'town',tx:820,ty:270,label:'白榆城'},{x:1420,y:640,to:'alley',tx:850,ty:290,label:'侧门',gate:'escape'}],npcs:[{id:'prelate',name:'主祭卡德兰',x:1050,y:310,sprite:5},{id:'saint',name:'艾莉娅',x:830,y:370,sprite:0}],props:[]},",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "export const QUESTS={rats:{name:'库房异响',type:'主线',giver:'steward',map:'hall',desc:'清理旧库房里的 6 只灰鼠，检查最里面的松动墙板，再向奥伦回报。',xp:65,gold:25},contract:{name:'午钟之前',type:'主线',giver:'sister',map:'hall',desc:'奥伦说薇蕾娜找你，去会馆里面见她，沿旧王道前往白榆城，与门卫交谈后进入礼拜厅。'},escape:{name:'带她离开',type:'主线',giver:null,map:'canal',desc:'带艾莉娅从侧门离开，经北门小巷抵达水渠，突破追捕。'},oil:{name:'别把灯油倒了',type:'支线',giver:'steward',map:'hall',desc:'在库房找到备用灯油，带回给管家奥伦。',xp:30,gold:15},letter:{name:'少了一封信',type:'支线',giver:'courier',map:'road',desc:'找回路边翻倒邮袋中的信，交给信使阿林。',xp:40,gold:20},herbs:{name:'三株银叶草',type:'支线',giver:'herbalist',map:'town',desc:'采集 3 株银叶草。米拉需要",
+          "truncated": true
+        },
+        {
+          "line": 16,
+          "text": "export const DIALOGUES={\"intro\": [[\"奥伦\", \"诺恩，先别出门。你昨晚睡得倒安稳，我让库房里的东西折腾了半宿。\"], [\"诺恩\", \"老鼠？\"], [\"奥伦\", \"昨晚我提灯进去，数见六只。粮袋咬穿了两个，那只猫倒好，趴在炉边，叫都叫不动。\"], [\"诺恩\", \"换只猫。\"], [\"奥伦\", \"换猫不用钱？再说了，它在这儿住了七年，你才回来几天。先替我进去看看。\"], [\"诺恩\", \"库房钥匙给我。\"], [\"奥伦\", \"挂",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 45262
+    },
+    {
+      "path": "dist/dialogue-runtime-v16.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 105,
+      "category": "current_code",
+      "sha256": "ba17529030e5c5fe04784337e37f4c2da947f2dab60c6559cccd733233e98138",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {DIALOGUE_TEXT_V16} from './dialogue-text-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DIALOGUE_MIGRATIONS_V16} from './dialogue-migrations-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {CH3_SIDE} from './chapter3-sidequests-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1740
+    },
+    {
+      "path": "dist/saga-runtime-v26.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "33a11c08efe813764f685bcdfcbf41029429ac41929587f675b72f84a69b1615",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS,ITEMS,DIALOGUES} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {hashSagaV25,seededSagaV25} from './saga-state-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {clearEnemyCombatV9} from './enemy-ai-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureSagaValidationV26,freshSagaV26,sagaStateV26 as state,savedSagaV26,validateSagaSaveV26,sagaCallbackV26 as callback,sagaRewardKeyV26 as rewardKey,sagaGatherIdV26 as gatherId,sagaEnemyIdV26 as enemyId} from './saga-state-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const copy=x=>structuredClone(x),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const live=g=>g.p?.hp>0&&g.p.cls!=='saint'&&!g._mercenaryContext&&!g.memoryV13?.active;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function installSagaV26(RPG,{nodes,chains,stats}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const P=RPG.prototype;if(P._sagaInstalledV26)return;Object.defineProperty(P,'_sagaInstalledV26',{value:true});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 13879
+    },
+    {
+      "path": "dist/story-flow-v14.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "786b9ea74e758588a11f278cd6f5c7a506908cb5759b8f889feb7900352dacd4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {faceStory} from './orientation-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {Cinematic,CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export class StoryFlow{",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " constructor(g,lines){this.g=g;this.lines=lines;this.id=g.pending.id;this.index=Math.max(0,Math.min(g.pending.line||0,lines.length-1));this.savedPhase=g.pending.phase;this.closing=!!g.pending.closing;this.cine=CINEMATIC_SCENES.has(this.id)?new Cinematic(g,this.id,this.index):null;if(this.savedPhase==='dialogue'||this.closing)this.cine?.fastForward();if(this.closing)this.cine?.startOutro();this.phase=this.cine?.busy()?'action':'dialogue';this.revision=0;this.finished=false;this.sync();}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " sync(){if(this.phase==='dialogue')faceStory(this.cine,this.lines[this.index]?.[0],this.lines[this.index-1]?.[0]);if(this.g.pending){this.g.pending.line=this.index;this.g.pending.phase=this.phase;this.g.pending.closing=this.closing;}}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " complete(){this.finished=true;this.phase='complete';this.cine?.finish();this.g.finishScene();this.revision++;}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " update(dt){if(this.finished)return [];const cues=this.cine?.update(dt)||[];if(this.phase==='action'&&!this.cine?.busy()){if(this.closing)this.complete();else{this.phase='dialogue';this.revision++;this.sync();}}return cues;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " advance(){if(this.finished||this.phase!=='dialogue')return false;if(this.index+1>=this.lines.length){if(this.cine?.startOutro()){this.closing=true;this.phase='action';this.revision++;this.sync();return true;}this.complete();return true;}this.index++;this.cine?.setLine(this.index);this.phase=this.cine?.busy()?'action':'dialogue';this.revision++;this.sync();return true;}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1650
+    },
+    {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "240dafcf91dbdd04b220549b91dcdaaef9def67083613672748cdf779f7402e8",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {StoryFlow} from './story-flow-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3317
+    },
+    {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "reasons": [
+        "story: task matched 对白, 艾莉娅, 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "2c496a360f9fbd2ec9b5f3c55afbbede612310704250a8a45e412adc9ea4690f",
+      "excerpts": [
+        {
+          "line": 140,
+          "text": " P.requestDeparture=function(...args){this.c1SyncQuests();if(this.chapter===4&&!c1State(this).legacyReadinessBypass&&!done(this,'c1CanalBreak')){this.say('艾莉娅还在留意闸口的动静，先和她商量水渠另一端的路。');return false;}return old.requestDeparture.apply(this,args);};",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 28396
+    },
+    {
+      "path": "dist/dialogue-save-migration-v26.js",
+      "reasons": [
+        "story: 人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "62a2e6f8c4acd650985477de420ec8065706a0dab271f638658141635a59fc22",
+      "excerpts": [
+        {
+          "line": 11,
+          "text": " if(!Array.isArray(entries)||entries.length>2048)throw new Error('对白迁移登记不完整。');",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "  if(typeof id!=='string'||!id.length||!validRows(before)||!validRows(after)||before.length!==after.length||before.some((row,i)=>row[0]!==after[i][0]))throw new Error('对白迁移不得改变行数或说话人。');",
+          "truncated": false
+        },
+        {
+          "line": 18,
+          "text": "  if(existing&&!equalRows(existing.after,after))throw new Error('同一场对白的旧版本迁移存在冲突。');",
+          "truncated": false
+        },
+        {
+          "line": 37,
+          "text": "     else if(!variants.some(entry=>equalRows(pending.lines,entry.after)))throw new Error('对白版本无法识别，请使用完整的已发行存档。');",
+          "truncated": false
+        },
+        {
+          "line": 59,
+          "text": " if(!equalRows(entry.after,next.before))throw new Error('对白迁移基线不一致：'+entry.id);",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3824
+    }
+  ],
+  "excerpt_bytes": 16795,
+  "max_files": 20,
+  "budget_bytes": 24000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R01"
+      ],
+      "scene": null,
+      "actors": [
+        "elyria",
+        "noen"
+      ],
+      "stage_candidates": [
+        {
+          "event": "R01:assassination",
+          "scene": "assassination",
+          "summary": "原十八行刺杀、封术、挟持"
+        },
+        {
+          "event": "R01:canalStart",
+          "scene": "canalStart",
+          "summary": "圣女要求救人与活捉，追缉官挡路"
+        },
+        {
+          "event": "R01:chapterEnd",
+          "scene": "chapterEnd",
+          "summary": "以百姓为威胁换取受迫同行，承诺事毕放人"
+        }
+      ],
+      "needs": [
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "elyria": {
+        "name": "艾莉娅",
+        "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+        "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+        "state": {
+          "emotion": "关心失踪家属和施粥安排，准备礼拜。",
+          "goals": [
+            "帮助等候的普通人并履行圣女职责。"
+          ],
+          "faction_view": "真诚信任教廷的救助。",
+          "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+          "conflicts": [
+            "想帮家属但无法保证找到失踪者。"
+          ]
+        },
+        "relationships": {
+          "noen": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "未建立",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "UNRESOLVED"
+          }
+        },
+        "sources": [
+          "author-saint",
+          "scene:saintBrief",
+          "scene:ch2Terms",
+          "scene:ch2ExileEnd"
+        ],
+        "profile": "source/narrative/characters/elyria.json"
+      },
+      "noen": {
+        "name": "诺恩",
+        "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+        "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+        "state": {
+          "emotion": "日常回到会馆，进入任务准备。",
+          "goals": [
+            "处理库房问题，听取委托。"
+          ],
+          "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+          "expression": "能与熟人正常交谈；情感伦理理解不足。",
+          "conflicts": []
+        },
+        "relationships": {
+          "elyria": {
+            "trust": "尚未相识",
+            "affection": "未建立",
+            "caution": "UNRESOLVED",
+            "hostility": "未建立",
+            "dependence": "未建立",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "UNRESOLVED"
+          }
+        },
+        "sources": [
+          "author-hero",
+          "scene:contract",
+          "scene:sisterIdle",
+          "scene:ch2Spillway",
+          "runtime-c1-hidden"
+        ],
+        "profile": "source/narrative/characters/noen.json"
+      }
+    },
+    "knowledge": {
+      "elyria": {},
+      "noen": {},
+      "player": {}
+    },
+    "facts": {},
+    "seeds": [],
+    "conflicts": [
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "OPEN",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "记录真实差异，后续对白任务按当前八鼠目标改稿。本轮不重写。"
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R01",
+      "scene": null,
+      "position": "before",
+      "at": null,
+      "stage_exact": false,
+      "coverage": "curated_mainline",
+      "gaps": [
+        "0.6底稿的六鼠/旧训练叙述部分被0.8/0.9覆盖；contract仍提六只，与intro的八只有文案漂移，本轮不改。",
+        "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。"
+      ],
+      "plan": {
+        "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+        "revision": "0.9",
+        "status": "DEV_FROZEN",
+        "implementation": "0.9范围已验收；0.6人工节奏另待验收"
+      }
+    },
+    "reveal_ceiling": {
+      "this_event_only": [],
+      "author_secrets_do_not_grant_knowledge": true
+    },
+    "provenance": {
+      "author-hero": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 3. 诺恩的起点与成长",
+        "kind": "user_confirmed"
+      },
+      "author-saint": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 2. 艾莉娅的起点与成长",
+        "kind": "user_confirmed"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "scene:ch2ExileEnd": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2ExileEnd",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Spillway": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Spillway",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Terms": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Terms",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:saintBrief": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "saintBrief",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:sisterIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "sisterIdle"
+      }
+    }
+  },
+  "narrative_bytes": 6272,
+  "total_context_bytes": 23067,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "第一章0.5保留人物/地图/交互优化；圣女默认立绘柔和，幕后只保留接委托后的薇蕾娜/鲁恩对话；删除新增匿名神秘人并兼容旧尾段存档；第二章只策划。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

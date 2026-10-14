@@ -1,0 +1,1692 @@
+{
+  "status": "ok",
+  "task": "设计第二章重大真相揭露",
+  "basis_commit": "c708763a42bf8bfa69e7b3313fa003fd939bceb8",
+  "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+  "modules": [
+    "story",
+    "chapter02_plan"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter02_plan: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "excerpts": [
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.3仍只策划。两章记录分别见 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，不再有独立分镜开发prompt。长期世界观不扩大本轮范围。",
+          "truncated": false
+        },
+        {
+          "line": 59,
+          "text": "新章开发须记录地区内准备—调查—处理—反馈、主支线依赖、可验证操作、成长预算、旧档迁移和真实输入路线。任务数量与秒杀跳章回放不能替代内容质量；采用稿只有证据齐全才标IMPLEMENTED。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 7673
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3820
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_02.md",
+      "reasons": [
+        "chapter02_plan: task matched 第二章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "current_code",
+      "sha256": "0f96d95c1931efcf3127adcf96cd2d436da161e0355789b483f36531cdf2f58b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第二章剧情记录 · 保留现行主线，补足幕后动机",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "本轮第二章只写作、记录，不开发运行内容。0.3 取代 0.1 的全章重做方案：以前稿件里的新信件、披风、接应棚、签署回执、新交互、新几何、新章界均不自动采用。旧稿可留作历史，不能成为本轮执行依据。后续只有用户明确指定第二章开发时，才把本稿的追加部分列成小范围任务。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "第二章已有的主线和人物反抗很完整。保留灰石驿站接头、圣徽身份验门、灰桥绕行、枯井庄园、圣女拒绝开门与主动报警、两波突围、赫斯特存活、桥口封路、流放界碑和禁地入口的既有顺序。保留水泵跑腿、旅店日常、补给、探索和普通闲谈。不能为补幕后计划而改成长篇过场串联，也不额外布置必须完成的主线任务。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "现行章界：第一章离城后，`chapter` 运行阶段到 5，进入 `post` 自动接 `ch2Arrival`；第二章以 `ch2ExileEnd` 和会馆独立镜头 `darkExileV9` 收束。最终 `ch2_end` 由第三章安装层接走，进入 `hellGate`，阶段 12，pending 为 `ch3Arrival`。这里是技术交接，不把第三章内容扩写成第二章；本轮不移动这些触发点。",
+          "truncated": false
+        },
+        {
+          "line": 53,
+          "text": "以下内容是写好的下一版追加稿，**本轮只记录，不实装第二章**。未来采用时先冻结这两个窗口的实际修改清单，普通主线对白按下文底稿保留；开发不得自行把追加扩成第二章重做。",
+          "truncated": false
+        },
+        {
+          "line": 75,
+          "text": "位置：现有 `darkExileV9`。仍在会馆，仍以鲁恩送急信、薇蕾娜要求救援、鲁恩出门的原顺序收束。利用已有镜头、现有人物，把“她以为只是地方封路的意外”定点调整成“她核实接应承诺是假的”。不建第二章新接应地点，不",
+          "truncated": true
+        },
+        {
+          "line": 99,
+          "text": "**",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 16479
+    },
+    {
+      "path": "source/narrative/characters/vilerena.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "narrative_context",
+      "sha256": "1282de0fc3e0ba5116714afe45aabcff1bf3756d19c9e2578512606f2e233107",
+      "excerpts": [
+        {
+          "line": 88,
+          "text": "      \"summary\": \"第二章新策划中发现接应承诺被骗并愤怒救援；当前运行未实装，不前置。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4074
+    },
+    {
+      "path": "source/narrative/characters/rune.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "f94af97781e018de45b1b72004dd93c124d55a0f9306cf4a98f70cea6b960adc",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"rune\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"鲁恩\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"鲁恩\"",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  ],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  \"scope\": \"individual\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2518
+    },
+    {
+      "path": "source/narrative/chapters/R02.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 189,
+      "category": "narrative_context",
+      "sha256": "5ac6bdf21dc83f4115b9679b71c295d9a01769c1b4cffcd99109074d367365ab",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "  \"title\": \"灰桥封路（工作名；运行第二章）\",",
+          "truncated": false
+        },
+        {
+          "line": 76,
+          "text": "      \"summary\": \"第二章目标后场明确说布伦死了，赫斯特仍活着。\",",
+          "truncated": false
+        },
+        {
+          "line": 133,
+          "text": "      \"summary\": \"作者确定上级隐瞒无接应并安排两人入地狱；薇蕾娜发现被骗的第二章追加尚未实施。\",",
+          "truncated": false
+        },
+        {
+          "line": 148,
+          "text": "      \"summary\": \"第二章追加A曾拟再次透露另一开门办法被暂扣；可因第一章已揭露而缩减或暂缓。\",",
+          "truncated": false
+        },
+        {
+          "line": 666,
+          "text": "    \"第一章0.5已让薇蕾娜知道另有开门办法，第二章0.3旧知识表对此有滞后；以当前事件链保留她已知，不自行猜她知道具体办法。\"",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 16306
+    },
+    {
+      "path": "source/narrative/outline.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 188,
+      "category": "narrative_context",
+      "sha256": "4d11857e922c17a21ba45f0efe64a460ba491b68afb67d62f08bc482acf94ce4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"items\": [",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "    {",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "      \"id\": \"WORLD-SCALE\",",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "      \"status\": \"CONFIRMED\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "      \"plane\": \"intent\",",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "      \"summary\": \"多卷多章，世界有独立于两位主角的组织与命运。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3066
+    },
+    {
+      "path": "source/narrative/foreshadowing.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 187,
+      "category": "narrative_context",
+      "sha256": "297303d7910e305e7127b93c23c6a5d23de51d2fa66013db27e230e4ac27cfe6",
+      "excerpts": [
+        {
+          "line": 45,
+          "text": "        \"第二章玩家看见观察同行的安排\"",
+          "truncated": false
+        },
+        {
+          "line": 48,
+          "text": "        \"player\": \"至第二章会馆场知道观察意图\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3050
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter02_plan: current constraints"
+      ],
+      "priority": 127,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "dist/world-dialogues-v29.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 107,
+      "category": "current_code",
+      "sha256": "811dfdf74c9599f0809afd1471ce74733e98ec6ce4c9d2597be5ebfb664ebc20",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// New scene IDs keep every pre-V29 pending dialogue and line cursor intact.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const WORLD_DIALOGUES_V29={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " v29EchoSeparateCore:[['诺恩','前槽的细簧还在绷着。先卸下后槽那根心轴，别让它带着一起转。']],",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " v29RoadSign:[['旁白','木牌朝城里的那一面还认得出字，朝南的一面却被雨水泡白了。下方另钉着一片铜皮：旧磨坊，沿水槽走；正门勿推。'],['诺恩','有人修过这条路。车没再往南走。']],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " v29MillTracks:[['旁白','车辙在前院停住了。湿泥里叠着狼爪印，一条扯碎的皮带拖向水岸。'],['诺恩','不是冲着屋子来的。它们在下面做了窝。']],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " v29MillChannel:[['旁白','水从裂开的木槽流进草根。石阶旁的苔痕反而浅些，最近有人走过，又在洞口折返了。'],['诺恩','检修洞在这儿。先听听里面。']],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " v29EchoNotes:[['旁白','检修簿压在石台上，干页夹在两片薄铜板之间。'],['旁白','「先泄压，再卸后槽的黄铜心轴。前槽的刻录筒与指环架共用细簧，只能保全一件。请勿把后槽与前槽混拆。」'],['诺恩','铜管通向兽窝。阀门能从这边够到。']],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " v29EchoNeedNotes:[['旁白','心轴背后还扣着一片簧，旁边有个检修编号。'],['诺恩','先找对应的检修表。硬拽会弯。']],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3886
+    },
+    {
+      "path": "dist/chengli-text-v27.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 106,
+      "category": "current_code",
+      "sha256": "41b77c14733de26ea6cea7aa369ee95663148342b9f032bde8b059b3fae35cb5",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Exact V26 baselines and current V27 Chengli dialogue; keep IDs, row counts and speakers stable.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const CHENGLI_REWRITE_V27=[{\"id\":\"v25C8Defeat\",\"before\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得整条手臂发麻。\"],[\"旁白\",\"他连退数步才稳住，碎石从靴边滚入山沟。维瑟还站在原处，看不出半点吃力。\"],[\"艾莉娅\",\"诺恩！你的手——\"],[\"诺恩\",\"手还能动。别靠近他，我们往西走。\"],[\"艾莉娅\",\"我能替你挡一下。\"],[\"诺恩\",\"挡不住的。等我把他逼开一点，你就往石缝跑。\"],[\"维瑟\",\"商量好了？\"],[\"旁白\",\"诺恩抓起一把潮湿的灰土，扬向身侧的余火。短促的烟尘腾起，他立刻退到艾莉娅身边。\"],[\"诺恩\",\"走！\"],[\"旁白\",\"两人沿石缝后的窄路奔出去。维瑟的脚步并不急，剑刃擦过岩壁的声音却一直跟在后面。\"],[\"艾莉娅\",\"前面只有水，路到那里就断了。\"],[\"诺恩\",\"沿水边走，那里有脚印。\"],[\"旁白\",\"一抹湖水青的轻纱在垂花后闪过。诺恩扶住艾莉娅踏上溪石，手臂上的血滴进浅水。\"],[\"澄璃\",\"别踩中间那块，它是松的。往你右手边来。\"],[\"艾莉娅\",\"后面有人追我们！\"],[\"澄璃\",\"看见了。先过来，我会拦住他。\"]],\"after\":[[\"旁白\",\"诺恩刚试着逼近，维瑟的剑已压过他的兵刃。那股力量比他预想的沉重得多，震得",
+          "truncated": true
+        },
+        {
+          "line": 3,
+          "text": "export function installChengliTextV27(dialogues){",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " for(const {id,before,after} of CHENGLI_REWRITE_V27){",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  const actual=JSON.stringify(dialogues[id]);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  if(actual===JSON.stringify(after))continue;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  if(actual!==JSON.stringify(before))throw new Error('第八章对白基线不一致：'+id);",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  dialogues[id]=after.map(row=>",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 128525
+    },
+    {
+      "path": "dist/data-v14.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 105,
+      "category": "current_code",
+      "sha256": "fc855631ba89147f7a4d0aeba1fc4d313a88457acfcfd24e3b3a1c0fd7de5f7b",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "export const CLASSES={shadow:{name:'影刃',tag:'双刃 · 流血收割',hp:150,mp:80,atk:16,speed:205,reach:85,rate:.40,color:'#90d8d4',q:'影袭',e:'绯刃'},oath:{name:'断誓者',tag:'重剑 · 格挡反击',hp:190,mp:65,atk:23,speed:188,reach:100,rate:.63,color:'#e2bb72',q:'断誓斩',e:'逆誓'},ember:{name:'烬术师',tag:'法杖 · 火印引爆',hp:135,mp:110,atk:19,speed:198,reach:390,rate:.55,color:'#bd9be4',q:'烬印',e:'焚星'}};",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const AFFIXES={blood:{name:'血棘',desc:'直击附加流血，最多 4 层；圣女的神圣普攻不触发。'},storm:{name:'逐雷',desc:'主动战技命中后对目标及其周围115范围雷击：攻击×0.9；8秒冷却'},mercy:{name:'余温',desc:'击败敌人回复 5 生命'},echo:{name:'回响',desc:'命中时多积累 1 点情绪'},ward:{name:'不屈',desc:'受击后生命低于50%时获得18护盾，持续3秒；12秒冷却'},fire:{name:'余烬',desc:'直击附加 3 秒灼烧'}};",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const SKILLS={q:{rank:3,lv:1,cost:1},e:{rank:3,lv:1,cost:1},edge:{name:'刃上功夫',desc:'每级增加 3 攻击',passive:true,rank:3,lv:2,cost:1},heart:{name:'长途体能',desc:'每级增加 15 生命',passive:true,rank:3,lv:2,cost:1},crash:{name:'断魂击',desc:'跳向敌人重击，短暂震慑。需要主战技 2 级。',rank:3,lv:3,cost:1,requires:['q',2]},frost:{name:'寒霜印',desc:'冰环减速近处敌人。通过技能书学习。',rank:3,lv:1,cost:1,book:'frostBook'},sprint:{name:'疾行',desc:'短时提高移动速度。通过技能书学习。',rank:3,lv:1,cost:1,book:'sprintBook'}};",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const ITEMS={hp:{name:'疗伤药',desc:'恢复 70 生命，药品共享 5 秒冷却',cost:12},mp:{name:'清醒药',desc:'恢复 50 法力，药品共享 5 秒冷却',cost:12},frostBook:{name:'《寒霜印》残卷',desc:'学会主",
+          "truncated": true
+        },
+        {
+          "line": 5,
+          "text": "e",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 45262
+    },
+    {
+      "path": "dist/dialogue-runtime-v16.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 104,
+      "category": "current_code",
+      "sha256": "ba17529030e5c5fe04784337e37f4c2da947f2dab60c6559cccd733233e98138",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {DIALOGUE_TEXT_V16} from './dialogue-text-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DIALOGUE_MIGRATIONS_V16} from './dialogue-migrations-v16.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {CH3_SIDE} from './chapter3-sidequests-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1740
+    },
+    {
+      "path": "dist/saga-runtime-v26.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "33a11c08efe813764f685bcdfcbf41029429ac41929587f675b72f84a69b1615",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {MAPS,QUESTS,ITEMS,DIALOGUES} from './data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {hashSagaV25,seededSagaV25} from './saga-state-v25.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {clearEnemyCombatV9} from './enemy-ai-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {configureSagaValidationV26,freshSagaV26,sagaStateV26 as state,savedSagaV26,validateSagaSaveV26,sagaCallbackV26 as callback,sagaRewardKeyV26 as rewardKey,sagaGatherIdV26 as gatherId,sagaEnemyIdV26 as enemyId} from './saga-state-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const copy=x=>structuredClone(x),dist=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const live=g=>g.p?.hp>0&&g.p.cls!=='saint'&&!g._mercenaryContext&&!g.memoryV13?.active;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export function installSagaV26(RPG,{nodes,chains,stats}){",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " const P=RPG.prototype;if(P._sagaInstalledV26)return;Object.defineProperty(P,'_sagaInstalledV26',{value:true});",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 13879
+    },
+    {
+      "path": "dist/story-flow-v14.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "786b9ea74e758588a11f278cd6f5c7a506908cb5759b8f889feb7900352dacd4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {faceStory} from './orientation-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {Cinematic,CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export class StoryFlow{",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " constructor(g,lines){this.g=g;this.lines=lines;this.id=g.pending.id;this.index=Math.max(0,Math.min(g.pending.line||0,lines.length-1));this.savedPhase=g.pending.phase;this.closing=!!g.pending.closing;this.cine=CINEMATIC_SCENES.has(this.id)?new Cinematic(g,this.id,this.index):null;if(this.savedPhase==='dialogue'||this.closing)this.cine?.fastForward();if(this.closing)this.cine?.startOutro();this.phase=this.cine?.busy()?'action':'dialogue';this.revision=0;this.finished=false;this.sync();}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " sync(){if(this.phase==='dialogue')faceStory(this.cine,this.lines[this.index]?.[0],this.lines[this.index-1]?.[0]);if(this.g.pending){this.g.pending.line=this.index;this.g.pending.phase=this.phase;this.g.pending.closing=this.closing;}}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " complete(){this.finished=true;this.phase='complete';this.cine?.finish();this.g.finishScene();this.revision++;}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " update(dt){if(this.finished)return [];const cues=this.cine?.update(dt)||[];if(this.phase==='action'&&!this.cine?.busy()){if(this.closing)this.complete();else{this.phase='dialogue';this.revision++;this.sync();}}return cues;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " advance(){if(this.finished||this.phase!=='dialogue')return false;if(this.index+1>=this.lines.length){if(this.cine?.startOutro()){this.closing=true;this.phase='action';this.revision++;this.sync();return true;}this.complete();return true;}this.index++;this.cine?.setLine(this.index);this.phase=this.cine?.busy()?'action':'dialogue';this.revision++;this.sync();return true;}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1650
+    },
+    {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "240dafcf91dbdd04b220549b91dcdaaef9def67083613672748cdf779f7402e8",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {StoryFlow} from './story-flow-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3317
+    },
+    {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "reasons": [
+        "story: task matched 第二章, 真相揭露; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "2c496a360f9fbd2ec9b5f3c55afbbede612310704250a8a45e412adc9ea4690f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {questMarkerForOptions} from './game-settings-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {C1_STORY_RETURN,C1_PEOPLE,C1_LOCAL_TALK} from './chapter-one-story-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {C1_MAIN,C1_SIDE,C1_QUESTS,C1_PATROL,C1_PARTS} from './chapter-one-expansion-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {C1_OBJECTIVES,c1ObjectiveParts,C1_GIVERS,C1_NPC_NAMES,C1_ACCEPT_TEXT} from './chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {C1_MAPS,C1_RESOURCE_SITES,c1Map} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {c1State} from './chapter-one-expansion-save.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {c1Item} from './chapter-one-expansion-gear.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {STORY} from './story-data-v14.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 28396
+    },
+    {
+      "path": "dist/dialogue-save-migration-v26.js",
+      "reasons": [
+        "story: 人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。"
+      ],
+      "priority": 95,
+      "category": "current_code",
+      "sha256": "62a2e6f8c4acd650985477de420ec8065706a0dab271f638658141635a59fc22",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {CHENGLI_REWRITE_V27} from './chengli-text-v27.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {DIALOGUE_MIGRATIONS_V26} from './dialogue-migrations-v26.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "const record=v=>v!==null&&typeof v==='object'&&!Array.isArray(v);",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "const validRows=rows=>Array.isArray(rows)&&rows.length>0&&rows.length<=200&&rows.every(row=>Array.isArray(row)&&row.length===2&&row.every(v=>typeof v==='string'&&v.length<=2000));",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "const equalRows=(a,b)=>Array.isArray(a)&&a.length===b.length&&a.every((row,i)=>Array.isArray(row)&&row.length===2&&row[0]===b[i][0]&&row[1]===b[i][1]);",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "const copyRows=rows=>rows.map(row=>[row[0],row[1]]);",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "// Exact static text migration and guard. Other save validators still run afterwards.",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "// Unregistered dynamic scenes retain their own existing validation rules.",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3824
+    }
+  ],
+  "excerpt_bytes": 14067,
+  "max_files": 24,
+  "budget_bytes": 48000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R02"
+      ],
+      "scene": "darkExileV9",
+      "actors": [
+        "vilerena",
+        "rune"
+      ],
+      "stage_candidates": [],
+      "needs": []
+    },
+    "ready_to_write": true,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "vilerena": {
+        "name": "薇蕾娜",
+        "base": "会馆中向诺恩交付安排、处理行动事务的重要人物。",
+        "voice": "成熟、自信、熟悉中有亲昵；事务和玩笑自然穿插，不每句暧昧。",
+        "state": {
+          "emotion": "追问后动怒，担忧诺恩。",
+          "goals": [
+            "要求鲁恩保护诺恩。"
+          ],
+          "faction_view": "参与组织行动但非全部秘密的知情者。",
+          "expression": "能亲昵也能明确说明正事。",
+          "conflicts": [
+            "知道带走圣女另有安排，却没有向诺恩说明。"
+          ],
+          "last_change": "R01:c1HiddenPairArrangement"
+        },
+        "relationships": {
+          "rune": {
+            "trust": "共同处理事务",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "不接受以服从命令回避诺恩安危"
+          }
+        },
+        "sources": [
+          "author-pair",
+          "scene:contract",
+          "runtime-c1-hidden",
+          "scene:darkCommissionV9",
+          "scene:darkExileV9"
+        ],
+        "profile": "source/narrative/characters/vilerena.json"
+      },
+      "rune": {
+        "name": "鲁恩",
+        "base": "会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。",
+        "voice": "事务信息具体，越权部分回避与道歉；不能用沉默推出他知道全部真相。",
+        "state": {
+          "emotion": "回避，反复道歉。",
+          "goals": [
+            "按上级安排传递任务。"
+          ],
+          "faction_view": "UNRESOLVED",
+          "expression": "能交代细节，遇越权问题不解释。",
+          "conflicts": [],
+          "last_change": "R01:c1HiddenPairArrangement"
+        },
+        "relationships": {
+          "vilerena": {
+            "trust": "共事",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "对诺恩安危与服从的分歧"
+          }
+        },
+        "sources": [
+          "scene:aside",
+          "scene:clerkIdle",
+          "runtime-c1-hidden"
+        ],
+        "profile": "source/narrative/characters/rune.json"
+      }
+    },
+    "knowledge": {
+      "vilerena": {
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-PROTECT": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C2-OBSERVE": {
+          "mode": "knows",
+          "via": "R02:darkCommissionV9"
+        }
+      },
+      "rune": {
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-PROTECT": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C2-OBSERVE": {
+          "mode": "knows",
+          "via": "R02:darkCommissionV9"
+        }
+      },
+      "player": {
+        "F-C1-COMMISSION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-SEAL-INSTRUCTION": {
+          "mode": "knows",
+          "via": "R01:contract"
+        },
+        "F-C1-DOOR-CLAIM": {
+          "mode": "believes",
+          "via": "R01:contract"
+        },
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-PROTECT": {
+          "mode": "knows",
+          "via": "R01:c1HiddenPairArrangement"
+        },
+        "F-C1-MISSING": {
+          "mode": "knows",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-BLAME": {
+          "mode": "heard",
+          "via": "R01:saintBrief"
+        },
+        "F-C1-ABDUCTION": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-SEAL-OBSERVED": {
+          "mode": "knows",
+          "via": "R01:assassination"
+        },
+        "F-C1-PROMISE": {
+          "mode": "knows",
+          "via": "R01:chapterEnd"
+        },
+        "F-C2-TARGET": {
+          "mode": "believes",
+          "via": "R02:ch2Relay"
+        },
+        "F-C2-OBSERVE": {
+          "mode": "knows",
+          "via": "R02:darkCommissionV9"
+        },
+        "F-C2-ABUSE": {
+          "mode": "knows",
+          "via": "R02:ch2TargetBefore"
+        },
+        "F-C2-REFUSAL": {
+          "mode": "knows",
+          "via": "R02:ch2InnerDoor"
+        },
+        "F-C2-BREN-DEAD": {
+          "mode": "knows",
+          "via": "R02:ch2TargetAfter"
+        },
+        "F-C2-BROKEN-PROMISE": {
+          "mode": "knows",
+          "via": "R02:ch2Spillway"
+        },
+        "F-C2-EXILE": {
+          "mode": "knows",
+          "via": "R02:ch2PursuitStops"
+        }
+      }
+    },
+    "facts": {
+      "F-C1-BLAME": {
+        "id": "F-C1-BLAME",
+        "summary": "卡德兰称黑暗教廷杀了奥斯文并将失踪案归责于其；只是其说法，未在该场核实。",
+        "truth": "unreliable_report",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:saintBrief"
+        ],
+        "risk_terms": [
+          "黑暗教廷杀了奥斯文"
+        ]
+      },
+      "F-C2-BROKEN-PROMISE": {
+        "id": "F-C2-BROKEN-PROMISE",
+        "summary": "诺恩为防驿站暴露继续扣留艾莉娅，承认不守信；她决定自己寻找回去的机会。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2Spillway"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-RESCUE": {
+        "id": "F-C2-RESCUE",
+        "summary": "薇蕾娜在当前会馆场要求带药绳到外沿接人，鲁恩去找人并保留观察点。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkExileV9"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "id": "F-C1-SEAL-INSTRUCTION",
+        "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+        "truth": "instruction",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-ALT-DOOR": {
+        "id": "F-C1-ALT-DOOR",
+        "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "runtime-c1-hidden"
+        ],
+        "risk_terms": [
+          "别的办法解开",
+          "另一种开门",
+          "其他开门办法"
+        ],
+        "initial_holders": [
+          "vilerena"
+        ]
+      },
+      "F-C1-ABDUCTION": {
+        "id": "F-C1-ABDUCTION",
+        "summary": "卡德兰被诺恩刺杀，圣女施救受阻、圣术被封，被强迫带走。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:assassination",
+          "scene:chapterEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-TARGET": {
+        "id": "F-C2-TARGET",
+        "summary": "塞琳传达赫斯特目标、画像、路图和本人佩戴圣徽靠近铜盘即可验门的解释。",
+        "truth": "instruction",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2Relay"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-PROTECT": {
+        "id": "F-C1-PROTECT",
+        "summary": "薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "runtime-c1-hidden"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-BREN-DEAD": {
+        "id": "F-C2-BREN-DEAD",
+        "summary": "第二章目标后场明确说布伦死了，赫斯特仍活着。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2TargetAfter"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-SEAL-OBSERVED": {
+        "id": "F-C1-SEAL-OBSERVED",
+        "summary": "诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:assassination",
+          "runtime-knowledge"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-PROMISE": {
+        "id": "F-C1-PROMISE",
+        "summary": "诺恩在水渠以其他百姓威胁，许诺驿站事情办完后放人；艾莉娅为百姓安全被迫答应。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:chapterEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-MISSING": {
+        "id": "F-C1-MISSING",
+        "summary": "失踪家属正在等消息，艾莉娅关心老人和姑娘们。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:saintBrief"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-ABUSE": {
+        "id": "F-C2-ABUSE",
+        "summary": "玩家独立镜头看到赫斯特虐待舞者、侍女与税户；主角不在内室。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2TargetBefore",
+          "scene:ch2TargetAfter"
+        ],
+        "risk_terms": [
+          "赫斯特虐待舞者",
+          "内室的税户"
+        ]
+      },
+      "F-C2-EXILE": {
+        "id": "F-C2-EXILE",
+        "summary": "两人越过界碑，追兵停在碑外。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2PursuitStops",
+          "scene:ch2ExileEnd"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-OBSERVE": {
+        "id": "F-C2-OBSERVE",
+        "summary": "会馆有意观察两人同行的反应，薇蕾娜要求保证退路；不保证控制每个结果。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkCommissionV9"
+        ],
+        "risk_terms": [
+          "我们在看",
+          "观察两个人"
+        ]
+      },
+      "F-C1-DOOR-CLAIM": {
+        "id": "F-C1-DOOR-CLAIM",
+        "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+        "truth": "reported_claim",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-REFUSAL": {
+        "id": "F-C2-REFUSAL",
+        "summary": "艾莉娅拒绝开门并主动报警，要求尽量活捉；内门没有打开。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:ch2InnerDoor"
+        ],
+        "risk_terms": []
+      },
+      "F-C2-EXILE-ACCOUNT": {
+        "id": "F-C2-EXILE-ACCOUNT",
+        "summary": "当前会馆对白把进入禁地归于封路逼迫；运行给玩家exile-was-unplanned。与已定作者方向不同，记录为当前解释而非全知真相。",
+        "truth": "reported_claim",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:darkExileV9",
+          "runtime-knowledge"
+        ],
+        "risk_terms": []
+      },
+      "F-C1-COMMISSION": {
+        "id": "F-C1-COMMISSION",
+        "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "scene:contract"
+        ],
+        "risk_terms": []
+      }
+    },
+    "seeds": [
+      {
+        "id": "SEED-DOOR",
+        "fact_ids": [
+          "F-C1-ALT-DOOR"
+        ],
+        "state": "partially_revealed",
+        "planted_at": "R01:c1HiddenPairArrangement",
+        "shown": [
+          "存在其他解法，但带圣女仍是上级安排。"
+        ],
+        "interpretations": {
+          "player": "知道存在替代办法",
+          "vilerena": "追问为什么仍要带人",
+          "rune": "称服从上面安排",
+          "noen": "未获知",
+          "elyria": "未获知"
+        },
+        "withheld": [
+          "具体办法、代价、上层目的"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+        ],
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ]
+      },
+      {
+        "id": "SEED-OBSERVATION",
+        "fact_ids": [
+          "F-C2-OBSERVE"
+        ],
+        "state": "partially_revealed",
+        "planted_at": "R01:aside",
+        "shown": [
+          "会馆控制任务信息",
+          "第二章玩家看见观察同行的安排"
+        ],
+        "interpretations": {
+          "player": "至第二章会馆场知道观察意图",
+          "noen": "不知",
+          "elyria": "不知",
+          "vilerena": "参与安排"
+        },
+        "withheld": [
+          "观察的全部长期目的",
+          "预言机制"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "信任与自主选择可能受到影响，不能提前认定反叛。"
+        ],
+        "sources": [
+          "scene:aside",
+          "scene:darkCommissionV9",
+          "author-pair"
+        ]
+      },
+      {
+        "id": "SEED-SEAL",
+        "fact_ids": [
+          "F-C1-SEAL-OBSERVED"
+        ],
+        "state": "planted",
+        "planted_at": "R01:assassination",
+        "shown": [
+          "封住圣术的实际效果"
+        ],
+        "interpretations": {
+          "noen": "会使用，未知来源全貌",
+          "elyria": "亲历圣术受阻",
+          "player": "看见封术效果"
+        },
+        "withheld": [
+          "来源、完整边界与解除条件的长期解释"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "需要后续实际证据，不能创造万能感应。"
+        ],
+        "sources": [
+          "scene:assassination",
+          "author-open"
+        ]
+      },
+      {
+        "id": "SEED-RESCUE-PROMISE",
+        "fact_ids": [
+          "F-INTENT-NO-RESCUE"
+        ],
+        "state": "planned",
+        "planted_at": null,
+        "shown": [],
+        "interpretations": {},
+        "withheld": [
+          "接应骗局的核实尚未在运行展示"
+        ],
+        "payoff": {
+          "chapter": "R02",
+          "status": "ADOPTED_PLAN"
+        },
+        "consequences": [
+          "新版计划让薇蕾娜发现受骗并行动；不覆盖现行救援场。"
+        ],
+        "sources": [
+          "author-pair",
+          "c2-plan"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "DIFF-C2-EXILE",
+        "kind": "implementation_gap",
+        "status": "OPEN",
+        "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+        "sources": [
+          "runtime-knowledge",
+          "scene:darkExileV9",
+          "author-pair",
+          "c2-difference"
+        ],
+        "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+      },
+      {
+        "id": "DIFF-C2-VILERENA-DOOR",
+        "kind": "outdated_plan_detail",
+        "status": "OPEN",
+        "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ],
+        "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R02",
+      "scene": "darkExileV9",
+      "position": "before",
+      "at": null,
+      "stage_exact": true,
+      "coverage": "curated_mainline",
+      "gaps": [
+        "追加A/B未实施；F-INTENT-NO-RESCUE不是当前角色知识。",
+        "第一章0.5已让薇蕾娜知道另有开门办法，第二章0.3旧知识表对此有滞后；以当前事件链保留她已知，不自行猜她知道具体办法。"
+      ],
+      "plan": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "revision": "0.3",
+        "status": "SCRIPT_READY",
+        "implementation": "既有路线在运行；追加A/B未实施"
+      }
+    },
+    "runtime_reader": [
+      "node",
+      "tools/harness/narrative_runtime.mjs",
+      "--scene",
+      "darkExileV9",
+      "--text"
+    ],
+    "reveal_ceiling": {
+      "this_event_only": [
+        {
+          "actor": "player",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        }
+      ],
+      "author_secrets_do_not_grant_knowledge": true
+    },
+    "author_outline": [
+      {
+        "id": "WORLD-SCALE",
+        "status": "CONFIRMED",
+        "plane": "intent",
+        "summary": "多卷多章，世界有独立于两位主角的组织与命运。",
+        "sources": [
+          "author-world"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "WORLD-FACTIONS",
+        "status": "CONFIRMED",
+        "plane": "intent",
+        "summary": "两教均有长期计划；读书人协会、商人协会、国家等应实际影响世界，不定为纯善恶二分。",
+        "sources": [
+          "author-world"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "V01",
+        "status": "PROVISIONAL",
+        "plane": "intent",
+        "summary": "首卷暂名圣城之外，起于两次任务与被隐瞒的弃置；最终解决事件和卷长未定。",
+        "sources": [
+          "architecture"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "LATER-VOLUMES",
+        "status": "PROVISIONAL",
+        "plane": "intent",
+        "summary": "公共秩序、知识商路、族群、记录与预言、自主决策代价等方向可重排，无锁定卷名终局。",
+        "sources": [
+          "architecture"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "FACTION-FUNCTIONS",
+        "status": "PROPOSED",
+        "plane": "intent",
+        "summary": "具体医疗、避难、研究、运输等职能和内部派系是建议，需要章节采用再确定。",
+        "sources": [
+          "world-proposals"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "BLOOD-CHAIN",
+        "status": "CONFIRMED",
+        "plane": "intent",
+        "summary": "作者确定：教廷内部有杀人制造血魔行动，方法由另一组织提供并有死后精华回收安排；不得提前赋给角色。",
+        "sources": [
+          "author-church"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "BLOOD-PURPOSE",
+        "status": "UNRESOLVED",
+        "plane": "intent",
+        "summary": "宏观目的、精华用途与最终组织关系未定。",
+        "sources": [
+          "world-unresolved"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "PAIR-FATE",
+        "status": "UNRESOLVED",
+        "plane": "intent",
+        "summary": "不确定唯一圣子、最终血统、预言答案或人物终局。",
+        "sources": [
+          "author-open"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "VILERENA-BETRAYAL",
+        "status": "CONFIRMED",
+        "plane": "intent",
+        "summary": "作者确定她参与前期安排但不知道上级隐瞒接应；具体新版发现事件尚未运行。",
+        "sources": [
+          "author-pair",
+          "c2-plan"
+        ],
+        "applies_to_runtime": false
+      },
+      {
+        "id": "REBUILD-01-02",
+        "status": "WITHDRAWN",
+        "plane": "intent",
+        "summary": "旧0.1/冻结0.2全面重构、披风信件新章界与圣女实战不再构成实施依据。",
+        "sources": [
+          "withdrawn-rebuild"
+        ],
+        "applies_to_runtime": false
+      }
+    ],
+    "author_only_facts": [
+      {
+        "id": "F-INTENT-NO-RESCUE",
+        "summary": "作者确定上级隐瞒无接应并安排两人入地狱；薇蕾娜发现被骗的第二章追加尚未实施。",
+        "truth": "world_fact",
+        "plane": "intent",
+        "status": "CONFIRMED",
+        "sources": [
+          "author-pair",
+          "c2-plan"
+        ],
+        "risk_terms": [
+          "接应令从来没有发过",
+          "接应从未派出"
+        ]
+      },
+      {
+        "id": "F-PLAN-ALT-DOOR",
+        "summary": "第二章追加A曾拟再次透露另一开门办法被暂扣；可因第一章已揭露而缩减或暂缓。",
+        "truth": "future_plan",
+        "plane": "plan",
+        "status": "ADOPTED_PLAN",
+        "sources": [
+          "c2-plan"
+        ],
+        "risk_terms": []
+      }
+    ],
+    "provenance": {
+      "architecture": {
+        "path": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+        "anchor": "## 整体结构",
+        "kind": "provisional"
+      },
+      "author-church": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 5. 前期光明教廷事件",
+        "kind": "user_confirmed"
+      },
+      "author-open": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 4. 不平凡背景与预言的开放性",
+        "kind": "unresolved"
+      },
+      "author-pair": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+        "kind": "user_confirmed"
+      },
+      "author-world": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 1. 故事的规模与基本立场",
+        "kind": "user_confirmed"
+      },
+      "c2-difference": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "exile-was-unplanned",
+        "kind": "adopted_plan"
+      },
+      "c2-plan": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-knowledge": {
+        "path": "dist/core-v14.js",
+        "anchor": "if(sceneId==='darkExileV9')",
+        "kind": "runtime"
+      },
+      "scene:aside": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "aside",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:assassination": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "assassination",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2ExileEnd": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2ExileEnd",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2InnerDoor": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2InnerDoor",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2PursuitStops": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2PursuitStops",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Relay": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Relay",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Spillway": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Spillway",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2TargetAfter": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2TargetAfter",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2TargetBefore": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2TargetBefore",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:chapterEnd": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "chapterEnd",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:clerkIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "clerkIdle",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkCommissionV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkCommissionV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkExileV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkExileV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:saintBrief": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "saintBrief",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "withdrawn-rebuild": {
+        "path": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+        "anchor": "旧稿可从Git历史追溯",
+        "kind": "withdrawn"
+      },
+      "world-proposals": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "## 二、建议方案：供讨论、采用或修改",
+        "kind": "proposal"
+      },
+      "world-unresolved": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "## 三、暂未完善、需要逐步讨论的内容",
+        "kind": "unresolved"
+      }
+    }
+  },
+  "narrative_bytes": 20632,
+  "total_context_bytes": 34699,
+  "deferred": [],
+  "test_suggestions": [
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "第二章0.3是保留主线的剧情记录与未来幕后补充，本轮不改第二章代码或知识状态。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

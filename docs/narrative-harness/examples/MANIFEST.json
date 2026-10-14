@@ -1,0 +1,129 @@
+[
+  {
+    "example": "rewrite",
+    "command": [
+      "python3",
+      "tools/harness/context.py",
+      "--task",
+      "重写第一章诺恩和艾莉娅的这段对白"
+    ],
+    "output": "docs/narrative-harness/examples/rewrite.json",
+    "status": "ok",
+    "narrative_included": true,
+    "ready_to_write": false,
+    "actors": [
+      "elyria",
+      "noen"
+    ]
+  },
+  {
+    "example": "daily",
+    "command": [
+      "python3",
+      "tools/harness/context.py",
+      "--task",
+      "新增薇蕾娜与诺恩的日常互动"
+    ],
+    "output": "docs/narrative-harness/examples/daily.json",
+    "status": "ok",
+    "narrative_included": true,
+    "ready_to_write": false,
+    "actors": [
+      "vilerena",
+      "noen"
+    ]
+  },
+  {
+    "example": "daily-timed",
+    "command": [
+      "python3",
+      "tools/harness/narrative.py",
+      "context",
+      "--task",
+      "新增薇蕾娜与诺恩的日常互动",
+      "--chapter",
+      "R01",
+      "--scene",
+      "sisterIdle",
+      "--at",
+      "contract"
+    ],
+    "output": "docs/narrative-harness/examples/daily-timed.json",
+    "status": null,
+    "narrative_included": true,
+    "ready_to_write": true,
+    "actors": [
+      "vilerena",
+      "noen"
+    ]
+  },
+  {
+    "example": "reveal",
+    "command": [
+      "python3",
+      "tools/harness/context.py",
+      "--task",
+      "设计第二章重大真相揭露",
+      "--scene",
+      "darkExileV9",
+      "--budget",
+      "48000",
+      "--max-files",
+      "24"
+    ],
+    "output": "docs/narrative-harness/examples/reveal.json",
+    "status": "ok",
+    "narrative_included": true,
+    "ready_to_write": true,
+    "actors": [
+      "vilerena",
+      "rune"
+    ]
+  },
+  {
+    "example": "collision",
+    "command": [
+      "python3",
+      "tools/harness/context.py",
+      "--task",
+      "修复一个地图碰撞 Bug"
+    ],
+    "output": "docs/narrative-harness/examples/collision.json",
+    "status": "ok",
+    "narrative_included": false,
+    "ready_to_write": null,
+    "actors": []
+  },
+  {
+    "example": "private-after",
+    "command": [
+      "python3",
+      "tools/harness/narrative.py",
+      "context",
+      "--chapter",
+      "R01",
+      "--scene",
+      "c1HiddenPairArrangement",
+      "--position",
+      "after",
+      "--actor",
+      "noen",
+      "--actor",
+      "elyria",
+      "--actor",
+      "vilerena",
+      "--actor",
+      "rune"
+    ],
+    "output": "docs/narrative-harness/examples/private-after.json",
+    "status": null,
+    "narrative_included": true,
+    "ready_to_write": true,
+    "actors": [
+      "noen",
+      "elyria",
+      "vilerena",
+      "rune"
+    ]
+  }
+]

@@ -1,0 +1,140 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/narrative.py audit --live
+{
+  "status": "passed",
+  "errors": [],
+  "warnings": [
+    {
+      "id": "DIFF-C2-EXILE",
+      "kind": "implementation_gap",
+      "status": "OPEN",
+      "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+      "sources": [
+        "runtime-knowledge",
+        "scene:darkExileV9",
+        "author-pair",
+        "c2-difference"
+      ],
+      "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+    },
+    {
+      "id": "DIFF-C2-VILERENA-DOOR",
+      "kind": "outdated_plan_detail",
+      "status": "OPEN",
+      "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ],
+      "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+    },
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "OPEN",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "记录真实差异，后续对白任务按当前八鼠目标改稿。本轮不重写。"
+    }
+  ],
+  "counts": {
+    "characters": 87,
+    "chapters": 8,
+    "events": 53,
+    "facts": 22,
+    "seeds": 4
+  },
+  "limits": [
+    "Literary quality and unannotated implications require contextual editorial review.",
+    "Known runtime/intent differences are reported, not silently rewritten."
+  ]
+}
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_persistent_game_settings_routes_to_rules_and_real_contracts (test_harness.RoutingTests.test_persistent_game_settings_routes_to_rules_and_real_contracts) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_absent_character_cannot_speak_even_without_fact_claim (test_narrative_harness.NarrativeCounterexampleTests.test_absent_character_cannot_speak_even_without_fact_claim) ... ok
+test_changed_chapter_cannot_finish_without_review_but_tools_can (test_narrative_harness.NarrativeCounterexampleTests.test_changed_chapter_cannot_finish_without_review_but_tools_can) ... ok
+test_data_only_canon_error_also_blocks_task_finish (test_narrative_harness.NarrativeCounterexampleTests.test_data_only_canon_error_also_blocks_task_finish) ... ok
+test_dynamic_context_reader_executes_actual_local_actions (test_narrative_harness.NarrativeCounterexampleTests.test_dynamic_context_reader_executes_actual_local_actions) ... ok
+test_exact_runtime_reader_uses_final_overrides (test_narrative_harness.NarrativeCounterexampleTests.test_exact_runtime_reader_uses_final_overrides) ... ok
+test_examples_and_withdrawn_sources_cannot_support_canon (test_narrative_harness.NarrativeCounterexampleTests.test_examples_and_withdrawn_sources_cannot_support_canon) ... ok
+test_future_event_and_outline_cannot_be_promoted (test_narrative_harness.NarrativeCounterexampleTests.test_future_event_and_outline_cannot_be_promoted) ... ok
+test_generic_data_dialogue_change_also_requires_review (test_narrative_harness.NarrativeCounterexampleTests.test_generic_data_dialogue_change_also_requires_review) ... ok
+test_grant_to_absent_hero_and_plan_promotion_fail (test_narrative_harness.NarrativeCounterexampleTests.test_grant_to_absent_hero_and_plan_promotion_fail) ... ok
+test_new_unregistered_npc_and_invalid_source_are_reported (test_narrative_harness.NarrativeCounterexampleTests.test_new_unregistered_npc_and_invalid_source_are_reported) ... ok
+test_real_task_attach_finish_and_tampered_evidence_gate (test_narrative_harness.NarrativeCounterexampleTests.test_real_task_attach_finish_and_tampered_evidence_gate) ... ok
+test_review_blocks_future_plan_and_report_as_truth (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_future_plan_and_report_as_truth) ... ok
+test_review_blocks_hero_leak_and_premature_player_reveal (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_hero_leak_and_premature_player_reveal) ... ok
+test_source_drift_survives_reindex_and_blocks_context (test_narrative_harness.NarrativeCounterexampleTests.test_source_drift_survives_reindex_and_blocks_context) ... ok
+test_style_warning_is_not_a_literary_failure (test_narrative_harness.NarrativeCounterexampleTests.test_style_warning_is_not_a_literary_failure) ... ok
+test_budget_reports_omissions_and_honors_utf8_bytes (test_narrative_harness.NarrativeEndToEndTests.test_budget_reports_omissions_and_honors_utf8_bytes) ... ok
+test_chapter_states_and_directional_relationships_change_by_events (test_narrative_harness.NarrativeEndToEndTests.test_chapter_states_and_directional_relationships_change_by_events) ... ok
+test_collision_task_does_not_load_narrative (test_narrative_harness.NarrativeEndToEndTests.test_collision_task_does_not_load_narrative) ... ok
+test_invalid_chapter_scene_pair_fails_cli (test_narrative_harness.NarrativeEndToEndTests.test_invalid_chapter_scene_pair_fails_cli) ... ok
+test_later_runtime_is_partial_and_not_a_new_literary_plan (test_narrative_harness.NarrativeEndToEndTests.test_later_runtime_is_partial_and_not_a_new_literary_plan) ... ok
+test_live_export_matches_current_records (test_narrative_harness.NarrativeEndToEndTests.test_live_export_matches_current_records) ... ok
+test_optional_episodes_require_timestamp_and_do_not_advance_plot (test_narrative_harness.NarrativeEndToEndTests.test_optional_episodes_require_timestamp_and_do_not_advance_plot) ... ok
+test_player_sees_private_scene_heroes_do_not (test_narrative_harness.NarrativeEndToEndTests.test_player_sees_private_scene_heroes_do_not) ... ok
+test_real_cli_daily_context_requires_time_then_resolves (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_daily_context_requires_time_then_resolves) ... ok
+test_real_cli_locates_requested_characters_and_style (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_locates_requested_characters_and_style) ... ok
+test_same_characters_do_not_receive_planned_betrayal (test_narrative_harness.NarrativeEndToEndTests.test_same_characters_do_not_receive_planned_betrayal) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 57 tests in 39.667s
+
+OK
+PASS tier: narrative

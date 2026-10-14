@@ -11,24 +11,31 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-14T05:02:36.142208+00:00",
-  "updated_at_utc": "2026-10-14T05:35:15.885693+00:00",
+  "updated_at_utc": "2026-10-14T06:00:02.149092+00:00",
   "decisions": [
     "不改运行剧情；第二章策划与运行差异显式保留；风格样本独立隔离",
     "后六章只登记可靠运行节点；第四/七章回忆不混作当前事件；未知不补造",
-    "保留003失败日志与原章节路由断言；先返回当前完整章稿，纯剧情不带无关地图美术模块"
+    "保留003失败日志与原章节路由断言；先返回当前完整章稿，纯剧情不带无关地图美术模块",
+    "最终复核发现动态NPC读取命令错误，补实际choose动作读取与六NPC回归；需要按新指纹重跑最终检查",
+    "011集成为补通用数据文件对白门禁而主动中断，记录termination=interrupted与退出127，不计成功；finish同时检查最终场景差异和纯数据正史错误",
+    "014集成为修复真实CLI姓名误匹配而主动中断，不计通过；原回执保持，最终重新跑全部必需检查"
   ],
   "completed": [
     "已核对Git与当前稿；完整用户需求和所有dist哈希已保存",
     "原31项Harness基线通过；完整安装520场对白与动态NPC入口已核对；四类来源差异登记",
     "87个角色/称谓登记、前两章三主角档案、53事件/22事实/4伏笔、长期方向与纯风格样本落盘",
     "21项新叙事反例及真实任务挂接/finish测试通过；原入口发现章二完整稿被预算挤出的缺陷并已修复优先级",
-    "原入口与新工具52项fast全部通过；补齐原稿优先级、时点重放、真实任务证据门禁和可查最终对白入口"
+    "原入口与新工具52项fast全部通过；补齐原稿优先级、时点重放、真实任务证据门禁和可查最终对白入口",
+    "d2e6783完整integration及369文件/520场保护通过；008新报告已另存并恢复历史报告",
+    "009fast与010narrative的55项检查通过，六NPC实际动作读取通过",
+    "012fast与013narrative共57项检查通过；实际检索示例发现薇蕾娜误选蕾娜并修复完整姓名优先匹配",
+    "最终015fast、016narrative各57项；017integration含164核心/18经济/1620快照/7组浏览器通过；018章二兼容、019全369文件/520场保护通过；新QA另存，旧报告恢复"
   ],
   "remaining": [
-    "工具反例验证、集成与交付"
+    "GitHub main保存与远端核验"
   ],
   "blockers": [],
-  "next": "最终fast/narrative/集成及逐字节保护验证",
+  "next": "提交完整验收并推送GitHub main",
   "required_checks": [
     "fast",
     "narrative",
@@ -111,6 +118,273 @@
       "output": "docs/harness/evidence/narrative-harness-20261014/004-fast-second.txt",
       "output_sha256": "190b4c2ccff42a12dfde38bab04aae9c8c3220c187883d1f55ad1009981686d4",
       "timeout_seconds": 300.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:35:42.939787+00:00",
+      "finished_at_utc": "2026-10-14T05:36:17.169351+00:00",
+      "head_commit": "d2e6783eac3f910ad4da95ce18f7f866ecda121c",
+      "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/005-fast.txt",
+      "output_sha256": "39102d31a1428404b0e9f02d1c6a126aa30e7deecabfa609d9939a1c7c57148b",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:36:34.187781+00:00",
+      "finished_at_utc": "2026-10-14T05:37:09.059227+00:00",
+      "head_commit": "d2e6783eac3f910ad4da95ce18f7f866ecda121c",
+      "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/006-narrative.txt",
+      "output_sha256": "3b540fcf2f8e9c24fc439e23c5267fd4a8b0c58d336ad57c7bd49d16de11c3b2",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "preservation",
+      "command": [
+        "python3",
+        "docs/narrative-harness/verify_preserved.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:37:09.134887+00:00",
+      "finished_at_utc": "2026-10-14T05:37:09.601824+00:00",
+      "head_commit": "d2e6783eac3f910ad4da95ce18f7f866ecda121c",
+      "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/007-preservation.txt",
+      "output_sha256": "9d0b99497d129c0061748e080aa8aeeb3d74c0c38f161fcfcf0e9abac255e13b",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:37:09.679837+00:00",
+      "finished_at_utc": "2026-10-14T05:43:23.142077+00:00",
+      "head_commit": "d2e6783eac3f910ad4da95ce18f7f866ecda121c",
+      "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/008-integration.txt",
+      "output_sha256": "a72401007b2f097fed12893f0bf4cfc66a8b33797f170ca9263a3bbfc54059ce",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:45:19.859375+00:00",
+      "finished_at_utc": "2026-10-14T05:45:55.300584+00:00",
+      "head_commit": "cfda523730a96084e8faaab782752a92e642c471",
+      "source_fingerprint": "d04f75f558af3a3d09d0ce2eb64ac2dab4963169a66c2ff122963e0afe2f7bd4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/009-fast.txt",
+      "output_sha256": "e421e6f11abb0851d82192272cfec562eccb9e76ed8f6debca197602bb38c0e8",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:45:55.374882+00:00",
+      "finished_at_utc": "2026-10-14T05:46:30.552057+00:00",
+      "head_commit": "cfda523730a96084e8faaab782752a92e642c471",
+      "source_fingerprint": "d04f75f558af3a3d09d0ce2eb64ac2dab4963169a66c2ff122963e0afe2f7bd4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/010-narrative.txt",
+      "output_sha256": "5b5acacb0e34c8c9fe33faef0476575db69079d98ebd8141f11665990ab8f177",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 127,
+      "started_at_utc": "2026-10-14T05:46:30.624547+00:00",
+      "finished_at_utc": "2026-10-14T05:47:29.326749+00:00",
+      "head_commit": "cfda523730a96084e8faaab782752a92e642c471",
+      "source_fingerprint": "d04f75f558af3a3d09d0ce2eb64ac2dab4963169a66c2ff122963e0afe2f7bd4",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/011-integration.txt",
+      "output_sha256": "9d654c46c6bb01d0e3679e1c54c36be893ddab975bc935e8fb27fce5fb128f0f",
+      "timeout_seconds": 1800.0,
+      "termination": "interrupted"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:49:15.528709+00:00",
+      "finished_at_utc": "2026-10-14T05:49:54.290931+00:00",
+      "head_commit": "c708763a42bf8bfa69e7b3313fa003fd939bceb8",
+      "source_fingerprint": "fc2ff04ae17b5829b82b7931a5f1c77ad3308591ca8fbf3917f88b09eb8ed95e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/012-fast.txt",
+      "output_sha256": "f6a0819d863fb7f83e4ff4ce07f24af06491390fbac1417a0dc35a76a863ae9e",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:49:54.362147+00:00",
+      "finished_at_utc": "2026-10-14T05:50:33.945160+00:00",
+      "head_commit": "c708763a42bf8bfa69e7b3313fa003fd939bceb8",
+      "source_fingerprint": "fc2ff04ae17b5829b82b7931a5f1c77ad3308591ca8fbf3917f88b09eb8ed95e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/013-narrative.txt",
+      "output_sha256": "762cadfe8d2eb86811699acaefb1cdaa201f9c0e1c54935f39082a025430d162",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 130,
+      "started_at_utc": "2026-10-14T05:50:34.019618+00:00",
+      "finished_at_utc": "2026-10-14T05:51:37.211279+00:00",
+      "head_commit": "c708763a42bf8bfa69e7b3313fa003fd939bceb8",
+      "source_fingerprint": "fc2ff04ae17b5829b82b7931a5f1c77ad3308591ca8fbf3917f88b09eb8ed95e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/014-integration.txt",
+      "output_sha256": "0dd3423c5490a442b956a40260f819182f0f028c35e2910fe5d0e727c4d809eb",
+      "timeout_seconds": 1800.0,
+      "termination": "interrupted"
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:51:39.024938+00:00",
+      "finished_at_utc": "2026-10-14T05:52:18.436639+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/015-fast.txt",
+      "output_sha256": "fe23b4b219f617293138c3031d7b4b346b86ccd43ef4b521d26670e0bc618918",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "narrative"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:52:18.506759+00:00",
+      "finished_at_utc": "2026-10-14T05:52:58.685706+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/016-narrative.txt",
+      "output_sha256": "0a038826dcfebf58cc3994368890eb9273479a50ef0614a12df3e9de1d5dd14c",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:52:58.759785+00:00",
+      "finished_at_utc": "2026-10-14T05:59:06.387121+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/017-integration.txt",
+      "output_sha256": "bfae53e9884a349ab746cf6294cd2026b3e87811b9cdadd49277b08f13787fd9",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "compatibility",
+      "command": [
+        "node",
+        "--test",
+        "tests/ch12-bugs.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:59:06.477294+00:00",
+      "finished_at_utc": "2026-10-14T05:59:06.700785+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/018-compatibility.txt",
+      "output_sha256": "883cdb9cce3e95f8cb579b563f0cf2d04de36bda7a41b7d593ff3c0f1494b4a3",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "preservation",
+      "command": [
+        "python3",
+        "docs/narrative-harness/verify_preserved.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T05:59:06.772052+00:00",
+      "finished_at_utc": "2026-10-14T05:59:07.159254+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/narrative-harness-20261014/019-preservation.txt",
+      "output_sha256": "9d0b99497d129c0061748e080aa8aeeb3d74c0c38f161fcfcf0e9abac255e13b",
+      "timeout_seconds": 120.0
     }
   ],
   "stages": [
@@ -137,6 +411,22 @@
       "head_commit": "95ea904021af84c436a5677e385c6e9ba4c744e8",
       "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
       "worktree": "M .agents/skills/ashen-story-characters/SKILL.md\n M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/harness/NARRATIVE_WORKFLOW.md\n M docs/harness/STORY.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M tools/harness/check.py\n M tools/harness/common.py\n M tools/harness/context.py\n M tools/harness/index.py\n M tools/harness/task.py\n?? docs/harness/DIALOGUE_STYLE.md\n?? docs/harness/DIALOGUE_STYLE_SAMPLES.md\n?? docs/harness/NARRATIVE_HARNESS.md\n?? docs/harness/evidence/narrative-harness-20261014/\n?? docs/narrative-harness/\n?? source/narrative/\n?? source/tasks/active/narrative-harness-20261014.json\n?? tests/harness/test_narrative_harness.py\n?? tools/harness/narrative.py\n?? tools/harness/narrative_runtime.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T06:00:01.588106+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "worktree": "M .codex/progress.md\nAM docs/narrative-harness/ACCEPTANCE.md\nA  docs/narrative-harness/PRESERVATION.json\nA  docs/narrative-harness/examples/MANIFEST.json\nA  docs/narrative-harness/examples/before-name-fix/MANIFEST.json\nA  docs/narrative-harness/examples/before-name-fix/collision.json\nA  docs/narrative-harness/examples/before-name-fix/daily.json\nA  docs/narrative-harness/examples/before-name-fix/private-after.json\nA  docs/narrative-harness/examples/before-name-fix/reveal.json\nA  docs/narrative-harness/examples/before-name-fix/rewrite.json\nA  docs/narrative-harness/examples/collision.json\nA  docs/narrative-harness/examples/daily-timed.json\nA  docs/narrative-harness/examples/daily.json\nA  docs/narrative-harness/examples/private-after.json\nA  docs/narrative-harness/examples/reveal.json\nA  docs/narrative-harness/examples/rewrite.json\nA  docs/narrative-harness/integration/008/MANIFEST.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/MOVEMENT.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/balance/ACTUAL_SNAPSHOTS.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/QA.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1DrillGallery-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1NorthWalk-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1ReedKiln-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1RiversideCamp-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1RiversideCamp-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialFoyer-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialFoyer.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialVault-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialVault.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1blake-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1eve-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1eve-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1hesha-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1hesha-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1venn-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1venn-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/chapel.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/echo-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/grove-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/grove-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/guestroom-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/hall-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/hall-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/herb-interaction.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/loom-1440.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/millpath-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/road-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/road-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/town-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/warehouse-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/warehouse-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/workshop-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/workshop-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-typical.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-typical.json\nA  docs/narrative-harness/integration/011-interrupted/MANIFEST.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-typical.json\nA  docs/narrative-harness/integration/014-interrupted/MANIFEST.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/MOVEMENT.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-typical.json\n M source/CURRENT_STATE.json\n M source/tasks/active/narrative-harness-20261014.json\n?? docs/harness/evidence/narrative-harness-20261014/005-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/006-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/007-preservation.txt\n?? docs/harness/evidence/narrative-harness-20261014/008-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/009-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/010-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/011-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/012-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/013-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/014-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/015-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/016-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/017-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/018-compatibility.txt\n?? docs/harness/evidence/narrative-harness-20261014/019-preservation.txt\n?? docs/narrative-harness/integration/017/"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-14T06:00:01.975121+00:00",
+      "head_commit": "f78334ce45b7be7dd760bc2b3cd5dd242823eb36",
+      "source_fingerprint": "88bb0cba629cb14785f1822e5789e6b2003ed72a076aebf8e910ae2df5e0eeee",
+      "worktree": "M .codex/progress.md\nAM docs/narrative-harness/ACCEPTANCE.md\nA  docs/narrative-harness/PRESERVATION.json\nA  docs/narrative-harness/examples/MANIFEST.json\nA  docs/narrative-harness/examples/before-name-fix/MANIFEST.json\nA  docs/narrative-harness/examples/before-name-fix/collision.json\nA  docs/narrative-harness/examples/before-name-fix/daily.json\nA  docs/narrative-harness/examples/before-name-fix/private-after.json\nA  docs/narrative-harness/examples/before-name-fix/reveal.json\nA  docs/narrative-harness/examples/before-name-fix/rewrite.json\nA  docs/narrative-harness/examples/collision.json\nA  docs/narrative-harness/examples/daily-timed.json\nA  docs/narrative-harness/examples/daily.json\nA  docs/narrative-harness/examples/private-after.json\nA  docs/narrative-harness/examples/reveal.json\nA  docs/narrative-harness/examples/rewrite.json\nA  docs/narrative-harness/integration/008/MANIFEST.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/MOVEMENT.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/balance/ACTUAL_SNAPSHOTS.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/QA.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/alley.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1DrillGallery-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1KilnCourt.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1NorthWalk-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1ReedKiln-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1RiversideCamp-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1RiversideCamp-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrainingYard-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialCrypt.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialFoyer-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialFoyer.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialVault-touch.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1TrialVault.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1blake-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1eve-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1eve-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1hesha-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1hesha-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1iden-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-ready.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1mada-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1venn-menu.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/c1venn-report.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/canal.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/chapel.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/echo-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/grove-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/grove-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/guestroom-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/hall-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/hall-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/herb-interaction.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/loom-1440.png\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/millpath-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/road-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/road-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/town-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/warehouse-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/warehouse-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/workshop-after.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/browser/workshop-collision.webp\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/ember-typical.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-all_once-one-epic.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/008/docs/ch1-layer-rules/economy/shadow-typical.json\nA  docs/narrative-harness/integration/011-interrupted/MANIFEST.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/011-interrupted/docs/ch1-layer-rules/economy/shadow-typical.json\nA  docs/narrative-harness/integration/014-interrupted/MANIFEST.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/MOVEMENT.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/NAVIGATION.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/ember-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-all_once.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-local_work.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-repeat_patrol.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/oath-typical.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-all_once.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-local_work.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-main_only.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-repeat_patrol.json\nA  docs/narrative-harness/integration/014-interrupted/docs/ch1-layer-rules/economy/shadow-typical.json\n M source/CURRENT_STATE.json\n M source/tasks/active/narrative-harness-20261014.json\n?? docs/harness/evidence/narrative-harness-20261014/005-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/006-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/007-preservation.txt\n?? docs/harness/evidence/narrative-harness-20261014/008-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/009-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/010-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/011-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/012-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/013-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/014-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/015-fast.txt\n?? docs/harness/evidence/narrative-harness-20261014/016-narrative.txt\n?? docs/harness/evidence/narrative-harness-20261014/017-integration.txt\n?? docs/harness/evidence/narrative-harness-20261014/018-compatibility.txt\n?? docs/harness/evidence/narrative-harness-20261014/019-preservation.txt\n?? docs/narrative-harness/integration/017/"
     }
   ]
 }
