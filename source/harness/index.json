@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "d9913f7bf783298e03d059d9dc10821596c4d5f7",
-  "source_fingerprint": "68a8c8d21660bc71999e59161102ff6ed9bf42469b6b01eb9b77e4cf822b4e7b",
+  "basis_commit": "95ea904021af84c436a5677e385c6e9ba4c744e8",
+  "source_fingerprint": "a460fa1646df2a0974d5bdf45e9cc75077da55ed3566f5e384424084628119f6",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "09b641fbe431864da77e9fb71cb1f5ead9f335925950bda57a1c1c54d1cf35f2",
@@ -49,8 +49,8 @@
       ]
     },
     ".agents/skills/ashen-story-characters/SKILL.md": {
-      "sha256": "c63896f02ba1712bdc4bb8e2192a15544eea40580f3f4bb0111c3e581054b5ad",
-      "bytes": 1104,
+      "sha256": "d1a816389aae8b9a4e90e440b71b75f4646782b3345f831224c140a23f6c70cc",
+      "bytes": 2627,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -96,8 +96,8 @@
       ]
     },
     "AGENTS.md": {
-      "sha256": "84aadbf2da355e1124c5c3d7ef0b8b691fb55b871f819e5f41d07b3d4d17de37",
-      "bytes": 5848,
+      "sha256": "31986c4486956588249e6f0282cdb4e746bbf4d0a25ad44c4e2941a05a54c7e7",
+      "bytes": 6419,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6748,6 +6748,7 @@
       "imports": [],
       "symbols": [],
       "modules": [
+        "story",
         "chapter01_plan"
       ]
     },
@@ -6757,7 +6758,8 @@
       "imports": [],
       "symbols": [],
       "modules": [
-        "chapter01_expansion"
+        "chapter01_expansion",
+        "story"
       ]
     },
     "docs/harness/CHAPTER_01_LAYER_RULES.md": {
@@ -6766,7 +6768,8 @@
       "imports": [],
       "symbols": [],
       "modules": [
-        "chapter01_expansion"
+        "chapter01_expansion",
+        "story"
       ]
     },
     "docs/harness/CHAPTER_01_MAP_QUESTS.md": {
@@ -6775,7 +6778,8 @@
       "imports": [],
       "symbols": [],
       "modules": [
-        "chapter01_expansion"
+        "chapter01_expansion",
+        "story"
       ]
     },
     "docs/harness/CHAPTER_01_STORY_WORLD.md": {
@@ -6784,7 +6788,8 @@
       "imports": [],
       "symbols": [],
       "modules": [
-        "chapter01_expansion"
+        "chapter01_expansion",
+        "story"
       ]
     },
     "docs/harness/CHAPTER_02.md": {
@@ -6793,6 +6798,7 @@
       "imports": [],
       "symbols": [],
       "modules": [
+        "story",
         "chapter02_plan"
       ]
     },
@@ -6802,6 +6808,24 @@
       "imports": [],
       "symbols": [],
       "modules": []
+    },
+    "docs/harness/DIALOGUE_STYLE.md": {
+      "sha256": "08cf7b3e3ae4dc0d4314203cce16bfc3a3a08e7cbd4d81327ce70a9acf133b64",
+      "bytes": 3820,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story"
+      ]
+    },
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md": {
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "bytes": 6098,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story"
+      ]
     },
     "docs/harness/ECONOMY.md": {
       "sha256": "c7d5554ea345b77389e0a756f67673c7c34e04a5d62ce3991e8c289425e843fa",
@@ -6841,20 +6865,32 @@
       "modules": []
     },
     "docs/harness/NARRATIVE_ARCHITECTURE.md": {
-      "sha256": "1c797914a333d5ab03f090e028468874551152ce793487c54d9b416a852f162a",
-      "bytes": 4757,
+      "sha256": "47ab4914c6cf1bfe2fc56efff3e3d65cc6cb64afba39d27561064e9837227a59",
+      "bytes": 5196,
       "imports": [],
       "symbols": [],
       "modules": [
+        "story",
         "narrative_architecture"
       ]
     },
-    "docs/harness/NARRATIVE_WORKFLOW.md": {
-      "sha256": "59bb8ef3901532a264970bf693404d5b9c196e0763914a5cc73a24f86b793b85",
-      "bytes": 5119,
+    "docs/harness/NARRATIVE_HARNESS.md": {
+      "sha256": "12d532622b652537bdb40c12238335961794e01c48e07cd7cf404df9904da1a8",
+      "bytes": 10053,
       "imports": [],
       "symbols": [],
-      "modules": []
+      "modules": [
+        "story"
+      ]
+    },
+    "docs/harness/NARRATIVE_WORKFLOW.md": {
+      "sha256": "8e3724a9cb7f30f2b8c0ef9ec330ef83a081d96021af0c90346d8347d9325fdf",
+      "bytes": 7673,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story"
+      ]
     },
     "docs/harness/RUNTIME.md": {
       "sha256": "0d74a052bd8e8e86373b66063e0a61ae3cac223ebf2d2dd08f7e1c62aa29c4cb",
@@ -6871,8 +6907,8 @@
       "modules": []
     },
     "docs/harness/STORY.md": {
-      "sha256": "ce27b1fa693206ed106fdc20e04b030045bba3cbc4ddd8c7e3c9e5c4b09fad90",
-      "bytes": 1915,
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "bytes": 2296,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -6943,25 +6979,1052 @@
       "modules": []
     },
     "source/GLOBAL_PROMPT.md": {
-      "sha256": "033aa7f664bc556518d0f5ecee7940749cb8289ec19db5c8ffe834805e399758",
-      "bytes": 1769,
+      "sha256": "069e227f975a4795e06b5ed2b8ed4bc63624b5a03456e75b675f147ec54cb96a",
+      "bytes": 2125,
       "imports": [],
       "symbols": [],
       "modules": []
     },
     "source/README.md": {
-      "sha256": "fae650f79e9c3ea3287954ceb498119ec786f51b93c57bc41b79ee96ab67f807",
-      "bytes": 3674,
+      "sha256": "bdf1f878b7cb7c7cdd143a8547d3122a1395094dba12544e5b821a7bf9790ef7",
+      "bytes": 4023,
       "imports": [],
       "symbols": [],
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "f4c8bd737f643550ea94c87a2ed21bfb3949f8cd6563704c8972c5b319e9f206",
-      "bytes": 25698,
+      "sha256": "6804d6fa533355ebd4346cb87ffe90d0eeefdbf76a817f7546074ae244fde3ac",
+      "bytes": 26295,
       "imports": [],
       "symbols": [],
       "modules": [
+        "harness"
+      ]
+    },
+    "source/narrative/catalog.json": {
+      "sha256": "51e49f5b41b21982aa21561bba5b2d518927e29c64a3b1457e60f772681d3ad6",
+      "bytes": 20946,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R01.json": {
+      "sha256": "b90641346e1fc44f92b6e79a5540b9e7262438ce7e0c5ebc277448fe9725d95b",
+      "bytes": 19247,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R02.json": {
+      "sha256": "5ac6bdf21dc83f4115b9679b71c295d9a01769c1b4cffcd99109074d367365ab",
+      "bytes": 16306,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R03.json": {
+      "sha256": "d5b2b0b74c8a44441bea79a1d6da9cfa719851a589883e5e2d17048b27df1ccd",
+      "bytes": 2743,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R04.json": {
+      "sha256": "13a8d0b622c6016ad88d02fa435579e6b37837db509be18f7b0b56ba10a7ac8a",
+      "bytes": 1573,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R05.json": {
+      "sha256": "cc2fbe5f94a597725b4d31cd3884d5a37bccfeb47e279cbc1aeaaffa795d3ba7",
+      "bytes": 1385,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R06.json": {
+      "sha256": "e5728047513957f76c27e8d599e862818657eabe94d11ea59503f989055d503c",
+      "bytes": 1782,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R07.json": {
+      "sha256": "7338d25ebad91dd89e995bacbaddf4482e83c62767057454d5f25b4514f1afda",
+      "bytes": 2675,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/chapters/R08.json": {
+      "sha256": "41088da4de4b8f8511bc2e18d88d84fd22c8f7a2683f75d611afae6f3e8c5bcb",
+      "bytes": 2525,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/afu.json": {
+      "sha256": "07629e1a952721d4d01b2b4b198a656c6f431623bf21aaf1e6ad72f91cffa36c",
+      "bytes": 1500,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/ajuan.json": {
+      "sha256": "100f31a74f8043f43b5e54f0afe87abb933250102044c3fed04bbbed9552b388",
+      "bytes": 1850,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/arin.json": {
+      "sha256": "5c3e6df0e755779f3706c8b49c2dc14680eff1f67430a21421d7f0efbe109eb0",
+      "bytes": 1627,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/atang.json": {
+      "sha256": "7293654e096e571a8fcb565ea4ecc13294ba722babb239a1ba104442df617102",
+      "bytes": 1553,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/axin.json": {
+      "sha256": "3b88c4e15aa515ee460a2fa3f04a2adbbcc313022673482e5e3b0dc962cbe64b",
+      "bytes": 1496,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/barlen.json": {
+      "sha256": "c533e60d416a53b2d84242405c0df1dfeecb0c1924d364b6255530c3f8b9fd19",
+      "bytes": 1510,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/blake.json": {
+      "sha256": "7ad7bf4bfecf3b89b159f085d05bd4651efb33d1c358297694405ce17b2d3a92",
+      "bytes": 1381,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/bren.json": {
+      "sha256": "4886b66affa2437cde960f7ed514152cdde0df6a6af4f7680ea3724a9b891b1a",
+      "bytes": 1473,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/cadlan.json": {
+      "sha256": "09fb90a85b0040e8f002fb216759dc1626b9114dca4280633ab0cd5ceeacd968",
+      "bytes": 1488,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/chengli.json": {
+      "sha256": "de658320edb7972df95c83f6b60409e6d244723027bcb2bdd29c7bcb91dbf568",
+      "bytes": 2325,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/clock_sister.json": {
+      "sha256": "c4acba6f9a228942dba4ca78b45e1e1971be969a048cf1c8a5bbdac6dcc8d28b",
+      "bytes": 1658,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/dolly.json": {
+      "sha256": "23dfbee8ece03e0c44e348f32921ede944b122d5c633dd26fe032d14db380ecc",
+      "bytes": 1830,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/elyria.json": {
+      "sha256": "a97f58deed37dfa732fc3af27600f630182e40ad6ec5c27e200a47e5cd8acbbe",
+      "bytes": 10455,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/eve.json": {
+      "sha256": "6cc190eb61567ac3871ff94f0a45b450a01f9f29d0752e4d4f2c08f59e807904",
+      "bytes": 1361,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/glena.json": {
+      "sha256": "2cfa6ff46746397a1507aa45338116c2a9798704f8369e6673514ca3701b9f94",
+      "bytes": 1843,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/helen.json": {
+      "sha256": "e944adaa0043bb271934b233b132ca7c9926e1fc6a0969bb273f63f5a5b69ccf",
+      "bytes": 1509,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/herloen.json": {
+      "sha256": "5facc2abdb9c035ddde85bf15e6f250dfe666c3b3bf9be71edaeafefd5965376",
+      "bytes": 1451,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/hesha.json": {
+      "sha256": "7683392943c96dacc2375d5719aa2a35bfca11b4713b14ef5d897be4411d5f05",
+      "bytes": 1369,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/hester.json": {
+      "sha256": "d293edf53b3ab9ca5ccb7df2994f961dd1426cc43433f026ecb31c0d35dd0a5b",
+      "bytes": 1485,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/iden.json": {
+      "sha256": "95c72043e220ac78409e64669bd231e76c1225c065a2178bcaf1ddd55a6ee76e",
+      "bytes": 1380,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/laodu.json": {
+      "sha256": "6fb222bc796cc8391630f7669274e2ba890b9f23acdc713466041936353bbed2",
+      "bytes": 1645,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/lena.json": {
+      "sha256": "9dcbeff56d8d537dd186ad17807b8ccd59687fc4c544cb73019cc29c0a426992",
+      "bytes": 1615,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/leon.json": {
+      "sha256": "df66e9354cb24d04d2157f25d0a27dae4e72009400c49b8e6bb845a13ba8f929",
+      "bytes": 1518,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/lottie.json": {
+      "sha256": "50b01196118626d2e42b64e9b4730a820d978d1bc0b5fa5dc1c2373a17937ec0",
+      "bytes": 1749,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/mada.json": {
+      "sha256": "f529e25689b066c2578e111b3d296454b670a8aaa8205b8aa4961f8ec97c82fc",
+      "bytes": 1377,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/martha.json": {
+      "sha256": "00f7959a170424af6a17194d17e01d88b36f21c271306743c2b765814c408275",
+      "bytes": 1790,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/mira.json": {
+      "sha256": "f4b087a45571b663f7329ec4b66e1f1a0fe21915ee112ddd85c62aa9f1c4c10e",
+      "bytes": 1615,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/miya.json": {
+      "sha256": "81f7b6f8fb3813ca4fee096eb806ff743c78880b3aea8ae5ca601a6227065b72",
+      "bytes": 1736,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/morris.json": {
+      "sha256": "1c2f5c70e03f5237a3e172b56b72de6a21f8a5cb830dc65e7701288ec52edd39",
+      "bytes": 1624,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/noen.json": {
+      "sha256": "064c167a6421ac4f13ffc3eee1b60c1445004b099280bb7f0cccbea03265e4e6",
+      "bytes": 14921,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/odric.json": {
+      "sha256": "1e52d2d89d68059a763607dbe4beedc11e3bcbc8f23260fb90418403702bb6ba",
+      "bytes": 1768,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/oren.json": {
+      "sha256": "dd34c358f2c4261b335782161dd10a11f2b3e3852c9eba3acb26b4e854244863",
+      "bytes": 1641,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/reida.json": {
+      "sha256": "53fd8f6dca8d899ed03f66627356f1bbd53269ce49d6687c1bc41924dac39566",
+      "bytes": 1771,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_01f6759a0b.json": {
+      "sha256": "ed295f47c481cdf00ec2b1543ebf6fe32e920e5a90a4d2f8025f62ae24133fd2",
+      "bytes": 1489,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_08a83928fb.json": {
+      "sha256": "9730541230892fbbbdc8398f98128f19aac7581cded65c356cdc535ae4e263fa",
+      "bytes": 1435,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_0ef095be7b.json": {
+      "sha256": "0c8a6ba6457c6c30b37057bb0b52e60176b97f6d86cec1aced24e4891a039251",
+      "bytes": 1633,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_1bbf34e082.json": {
+      "sha256": "77c2ee910331843bbbdd4816ae1ac59ad63e8a14798595330c46141f0f822c86",
+      "bytes": 1492,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_1d7bbc1d99.json": {
+      "sha256": "24c99189a114e080cf2b01a9cb4a28a681772ea70bfa0372fe0c9254061b551f",
+      "bytes": 1527,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_3248033326.json": {
+      "sha256": "01380ec0d0464faaaf7d1b690ec747919e6c221c08cd3f4e819d317ea9c1a5f5",
+      "bytes": 1573,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_42a144cfc9.json": {
+      "sha256": "b478dd42279e86ebcc999f41efc64964376b2df139e1d66bdeb16f7b841af3c7",
+      "bytes": 1477,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_42c29786d7.json": {
+      "sha256": "090b30e0d84ebfdca0e4cd55e868067c0c6ca7abb9ddac8b4c941ac50cff5683",
+      "bytes": 1618,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_4992a88026.json": {
+      "sha256": "fab8b879c69a82819b290b697eb0ba2f3c5d3d618246e229c729ffaac25ee08d",
+      "bytes": 1480,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_4a97bcc686.json": {
+      "sha256": "70c0d0e199a7b58562eb8231897f9645b006fd5431c704af3f175b8c1e17447e",
+      "bytes": 1468,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_4ae25552de.json": {
+      "sha256": "53083e28a8c087502609ee8286975976feb28f0ceccc3509f4085869b86577d6",
+      "bytes": 1748,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_4d20e17532.json": {
+      "sha256": "7e64cffe8cc9eac3471075fa071444bfef240b6540bb7041e42b2c9c5f219219",
+      "bytes": 1483,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_5504bff58d.json": {
+      "sha256": "afc1ca7e5ee1e47c3b74fee307f18414ed5a8a6cacf2ff73ea66e99fff5d409d",
+      "bytes": 1435,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_6027f22e9a.json": {
+      "sha256": "ae11b18c2f29ab617428f28697b1c708aa9010938ba1aa8cb313ea382a460354",
+      "bytes": 1455,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_6702bee73b.json": {
+      "sha256": "bed2cd16f6f915905babcf141a7d8992dfd286d9ccff14e7256f255776634f90",
+      "bytes": 1480,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_729aca2cff.json": {
+      "sha256": "5f7576d02645d01e269544b8a77f6a5140fa9e1c89b687cfbc2ae44762c5b907",
+      "bytes": 1567,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_72d5266cad.json": {
+      "sha256": "7277b216d80f9c32b479dc86326b0308918c344e70bd73916f87d870e82cb221",
+      "bytes": 1461,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_73c6213673.json": {
+      "sha256": "08cd07a53c2bcc2848197467a8acded8c1a48d6467ca16553e00e539d5fad57b",
+      "bytes": 1456,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_74fd45556b.json": {
+      "sha256": "6872d59e340ce01c032c8b2a3eaed602fed0f3f79d8c512504f47be84c1fe8db",
+      "bytes": 1657,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_7ba57d616b.json": {
+      "sha256": "ae6ec7b02b028013b0d4662702c0521a1e8f400348e0837ff7bb34ee41d3dd6e",
+      "bytes": 1495,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_80687eeb30.json": {
+      "sha256": "8e984fd97adf93e4b14d792da94eed21ac3bc7991ccb13897cc1aec57b76d525",
+      "bytes": 1489,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_95e6dc225a.json": {
+      "sha256": "e091bd1327a8bfc4dcbe7fd285c4df18aa4726ec3ce3f163c353d5a8d6e7c905",
+      "bytes": 1441,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_99cf729a1a.json": {
+      "sha256": "7e36827a5c8efb1df61c072a315401bc9ed46a5fae470b57f122740d05769b60",
+      "bytes": 1483,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_a8a3d05b68.json": {
+      "sha256": "3e6a567f0542e7378994fa44f0d4734036aa7aad82629893c51c4a7c640c0248",
+      "bytes": 1506,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_ab90ccc980.json": {
+      "sha256": "061a6358ee2239f49e99cbb7faf252319de1c9b99fbcd9ec45d4de2178023ddf",
+      "bytes": 1468,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_afb81423b7.json": {
+      "sha256": "8bd6cebc9374c01250e1e842d2d4684a750383624683ae60b141e1d8912c4fb8",
+      "bytes": 1474,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_b10ff18fa4.json": {
+      "sha256": "477f8243527b570d6c7ae12bbd5a262308f2dd5f25cb663b4be67e6802fd67aa",
+      "bytes": 1625,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_bbb65a62c5.json": {
+      "sha256": "64158a063e88f53e948731c41655017eb254dca31d6fecd6d7a90c31941f8cb1",
+      "bytes": 1480,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_c0e7890863.json": {
+      "sha256": "fdd92a687d659a3d6c77edbeee2e6664944b9bb39b644067e57b6cc9fbdb37e9",
+      "bytes": 1588,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_c1cdc14f4f.json": {
+      "sha256": "8619a54a6a41dbe820a6dd2f2d0d27f06fed1880d5391103e4e387dde409bcd3",
+      "bytes": 1517,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_c8a11d7df2.json": {
+      "sha256": "eae7d7e4a333806719596aec1f1290d2656a55714145132dd399e1fd4a95967b",
+      "bytes": 1524,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_da752ab664.json": {
+      "sha256": "a9294ce456df5252356c210145e1fa627def9d1e5c6b42e50ce23853cb3d96ad",
+      "bytes": 1474,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_ddca266540.json": {
+      "sha256": "e21e19e79715b23793717e9a3c2396b339ddec45af0246659f49ee2c270b2924",
+      "bytes": 1571,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_e016501194.json": {
+      "sha256": "d6dc85c586557f4426d794f02f718ba7da94f7507f1724c363e3177093f55b49",
+      "bytes": 1648,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_e1a9ff99f7.json": {
+      "sha256": "b8e4d7d9fdb66766df222caab78590b5e8567f1831272664d4d1dea899a6c1e1",
+      "bytes": 1517,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_faa21ce793.json": {
+      "sha256": "b9bed34aee97472c1efe722327340109d4242492c78b7a3e9ba6d054be95b21f",
+      "bytes": 1489,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_fda66614e3.json": {
+      "sha256": "def8b6dceb73034a6773adc4f4dad23209a469e4f9d68635308934348e76643d",
+      "bytes": 1486,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/role_fe78726c15.json": {
+      "sha256": "f3556516596f42f0a8dce1410839d06c197786d577337cfbd1546314175b3c32",
+      "bytes": 1527,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/rosa.json": {
+      "sha256": "6238613e3d45a66fcc69f5eeb100efb65b0f872dbc6cb0a09a86088c78597e4f",
+      "bytes": 1373,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/rune.json": {
+      "sha256": "f94af97781e018de45b1b72004dd93c124d55a0f9306cf4a98f70cea6b960adc",
+      "bytes": 2518,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/saido.json": {
+      "sha256": "074bc06730f901d104fb1083f68ae2d3d0c0addc8256133dbbe15c151e7df0d2",
+      "bytes": 1386,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/saif.json": {
+      "sha256": "71076b40db5142a98fabc92a0cc51fc82b9caafccba417ec8575d5cc4153e424",
+      "bytes": 1608,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/seline.json": {
+      "sha256": "42677d5df5d0533e30e31d20ef1858bc3744e4d47789102c92c268c174fd8a83",
+      "bytes": 1678,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/serina.json": {
+      "sha256": "6632203ad915313b56424996621043c4424a9935953d6a755edc7abc4aadc5a5",
+      "bytes": 1917,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/severin.json": {
+      "sha256": "e0ffbf251a75eca33fc60ab63dbb6d038f23816778790acafc2708d93d6eb022",
+      "bytes": 1627,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/taoshu.json": {
+      "sha256": "4c86b72769927384e8a8470089c81c1e4e44791f0ada09f4f41767156b8a3d63",
+      "bytes": 1490,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/toma.json": {
+      "sha256": "d3d0d69cb95c0c816bb92c4ab5feeae97a5f0d71352ef7d56b2c25fd9d6e5645",
+      "bytes": 1697,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/ulo.json": {
+      "sha256": "c2793ab76697492ef25a168b72d486fb736c49e63df390f93d886149231d3c17",
+      "bytes": 1526,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/venn.json": {
+      "sha256": "93399ed5316c4807b8f6838c70b26e6578f3a60798949d9d9fd01eda44351c7d",
+      "bytes": 1371,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/vilan.json": {
+      "sha256": "0e4907a82bdf45f8ee09d2d0a97e6fa610d7cb6962eaa7fc334e0b68a98cdc9f",
+      "bytes": 1602,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/vilen.json": {
+      "sha256": "79dd588e60887edae062c77b625fdd7c31e874669c5683b83bea1df2c119652a",
+      "bytes": 1443,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/vilerena.json": {
+      "sha256": "1282de0fc3e0ba5116714afe45aabcff1bf3756d19c9e2578512606f2e233107",
+      "bytes": 4074,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/vita.json": {
+      "sha256": "034fdac15434ebe55e5de04838a239897d7c578845361c48c41c5bbdaae00018",
+      "bytes": 1508,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/characters/wither.json": {
+      "sha256": "881644e2430fbb740be0ba30050865efe89b18f638ebb27b04d35d426eae3428",
+      "bytes": 1441,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/conflicts.json": {
+      "sha256": "60ecf35ac4032687799ba47f7fa0464857d929be89c306e92e2cb2e68b5a58e2",
+      "bytes": 1835,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/foreshadowing.json": {
+      "sha256": "297303d7910e305e7127b93c23c6a5d23de51d2fa66013db27e230e4ac27cfe6",
+      "bytes": 3050,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/outline.json": {
+      "sha256": "4d11857e922c17a21ba45f0efe64a460ba491b68afb67d62f08bc482acf94ce4",
+      "bytes": 3066,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/runtime-index.json": {
+      "sha256": "a8bfa92d992327f14d8cdaa8e0eb78c44a80fdaf3f5e282118c6fea44c8f7399",
+      "bytes": 140153,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/sources.json": {
+      "sha256": "a5569ef1c25eaf4ad5e8db73277660aa761f7d99bf1efa0ccf69c1449340028a",
+      "bytes": 36927,
+      "imports": [],
+      "symbols": [
+        "C1_HIDDEN",
+        "C1_LOCAL_TALK",
+        "C1_OBJECTIVES",
+        "SAGA_NODES_V25",
+        "scenes",
+        "tailFor"
+      ],
+      "modules": [
+        "story",
+        "harness"
+      ]
+    },
+    "source/narrative/sources.lock.json": {
+      "sha256": "37b9bc7cd7f7fb112888c7d638fba34e2045e0903ce0f93c24f61d168cb03cc1",
+      "bytes": 38042,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
         "harness"
       ]
     },
@@ -8087,6 +9150,18 @@
         "harness"
       ]
     },
+    "tests/harness/test_narrative_harness.py": {
+      "sha256": "bc7130b2188670a88f966dba294997bd5bac5a21843238e7b56c82c78961cc01",
+      "bytes": 16159,
+      "imports": [],
+      "symbols": [
+        "NarrativeCounterexampleTests",
+        "NarrativeEndToEndTests"
+      ],
+      "modules": [
+        "harness"
+      ]
+    },
     "tests/harness/test_narrative_routing.py": {
       "sha256": "f24af882cc5d4cc65d7d35aca75bd7ba81bc276042084dd47908d602e63629ad",
       "bytes": 5205,
@@ -8520,8 +9595,8 @@
       ]
     },
     "tools/harness/check.py": {
-      "sha256": "765c45d25d36e4c233b78782efeda5a74b5aade749561eb81bb184ca0212c2c4",
-      "bytes": 6492,
+      "sha256": "da23f7b5d239b035b126b1386fb033b44bca11750019e68ee72968c3aeb50a96",
+      "bytes": 7140,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8529,8 +9604,8 @@
       ]
     },
     "tools/harness/common.py": {
-      "sha256": "123aea3978b65dbae43bcbd1ffeed61b860f9c8e212970a782bdc9e2906a12d1",
-      "bytes": 2575,
+      "sha256": "abd26928bfe1e525f4e5de9d810c144a21c7ef02b47c27697f6bd6d14e225ce2",
+      "bytes": 2625,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8538,8 +9613,8 @@
       ]
     },
     "tools/harness/context.py": {
-      "sha256": "927cc3904cf89bf9678f45bf0edba3d6e14c6100ee4de96c904de4588baf1f00",
-      "bytes": 6149,
+      "sha256": "c510ba32bce60037e8af0f0fa5e6e9e32a4dca8bbcf603c216cded4969453002",
+      "bytes": 8093,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8547,8 +9622,8 @@
       ]
     },
     "tools/harness/index.py": {
-      "sha256": "251b71262468e333d3c1e061bad2a125a564e10215c7dfe659977bc4580f16a7",
-      "bytes": 5126,
+      "sha256": "5661762fbb97bf2aa794c1ae961419163e669e985698fbc5900abab246514c05",
+      "bytes": 5406,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8564,6 +9639,40 @@
         "harness"
       ]
     },
+    "tools/harness/narrative.py": {
+      "sha256": "5008c2d2aabc9ccf449101a0c4534ba701b92b6f8ede5e3a4b5f6aab31e33ae7",
+      "bytes": 40202,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "harness"
+      ]
+    },
+    "tools/harness/narrative_runtime.mjs": {
+      "sha256": "d7ae881b6c5c424c6da83f6f9cef66825bce85307f356ee65a17fbe16dad9668",
+      "bytes": 1912,
+      "imports": [
+        "dist/chapter-one-dialogues-v31.js",
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-story-world.js",
+        "dist/core-v14.js",
+        "dist/data-v14.js"
+      ],
+      "symbols": [
+        "g",
+        "hash",
+        "id",
+        "knowledge",
+        "name",
+        "npc",
+        "npcs",
+        "scenes",
+        "selected"
+      ],
+      "modules": [
+        "harness"
+      ]
+    },
     "tools/harness/runtime_audit.py": {
       "sha256": "26a947340adb3d2f131768ec6b8475c9d36b940102173d3935db8415ac8dbeed",
       "bytes": 850,
@@ -8574,8 +9683,8 @@
       ]
     },
     "tools/harness/task.py": {
-      "sha256": "f9514e86c9e8a1c5548b1dc00cfe1cb644dd91f502f48b538a4b32fbe214a1e4",
-      "bytes": 13578,
+      "sha256": "2fde6b4f867e32be65947d27372310ca3c4513333fd14efb760f1f6ffcc9733e",
+      "bytes": 14615,
       "imports": [],
       "symbols": [],
       "modules": [

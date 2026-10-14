@@ -151,6 +151,8 @@ def can_finish(record, root=ROOT):
     errors.extend(task_errors(record, root))
     from chapter_quality import task_errors as chapter_errors
     errors.extend(chapter_errors(record, root))
+    from narrative import task_errors as narrative_errors
+    errors.extend(narrative_errors(record, root))
     if record.get('running_check'):
         errors.append('Interrupted or running check has no final exit status; rerun verification')
     current = fingerprint(inventory(root))
@@ -176,7 +178,7 @@ def main():
     start.add_argument('--goal', required=True)
     start.add_argument('--accept', action='append', required=True)
     start.add_argument('--require', action='append', default=[])
-    for name in ['resume', 'update', 'checkpoint', 'run', 'finish']:
+    for name in ['resume', 'update', 'checkpoint', 'run', 'finish', 'narrative']:
         p = sub.add_parser(name)
         p.add_argument('--id', required=True)
         if name in ['update', 'checkpoint']:
@@ -194,6 +196,9 @@ def main():
             p.add_argument('command', nargs=argparse.REMAINDER)
         if name == 'finish':
             p.add_argument('--summary', required=True)
+        if name == 'narrative':
+            for kind in ['context', 'draft', 'review']:
+                p.add_argument('--' + kind, required=True)
     sub.add_parser('list')
     args = parser.parse_args()
     if args.action == 'list':
@@ -257,6 +262,20 @@ def dispatch(args, parser):
         stage.update(status=args.state, updated_at_utc=now(), head_commit=git('rev-parse', 'HEAD'),
                      source_fingerprint=fingerprint(inventory()), worktree=git('status', '--short'))
     code = 0
+    if args.action == 'narrative':
+        from narrative import safe_file, task_errors as narrative_errors
+        evidence = {}
+        for kind in ['context', 'draft', 'review']:
+            source = safe_file(getattr(args, kind))
+            evidence[kind] = source.relative_to(ROOT).as_posix()
+            evidence[kind + '_sha256'] = digest(source)
+        reviews = record.setdefault('narrative_reviews', [])
+        reviews[:] = [r for r in reviews if r['draft'] != evidence['draft']]
+        reviews.append(evidence)
+        # More scenes may be attached next; finish enforces aggregate coverage.
+        errors = narrative_errors(record)
+        if errors:
+            print('Narrative evidence attached; unresolved completion checks:\n' + '\n'.join(errors))
     if args.action == 'run':
         if not re.fullmatch(r'[a-z0-9-]+', args.label):
             parser.error('Unsafe check label')

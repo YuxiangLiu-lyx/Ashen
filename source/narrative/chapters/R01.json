@@ -1,0 +1,756 @@
+{
+  "schema": 1,
+  "id": "R01",
+  "runtime_chapter": 1,
+  "literary_id": "V01C01",
+  "title": "午钟之前（工作名；运行第一章）",
+  "phase_range": [
+    0,
+    4
+  ],
+  "coverage": "curated_mainline",
+  "plan": {
+    "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+    "revision": "0.9",
+    "status": "DEV_FROZEN",
+    "implementation": "0.9范围已验收；0.6人工节奏另待验收"
+  },
+  "sources": [
+    "c1-current",
+    "c1-retained"
+  ],
+  "initial_knowledge": [
+    {
+      "actor": "vilerena",
+      "fact": "F-C1-ALT-DOOR",
+      "mode": "knows"
+    }
+  ],
+  "facts": [
+    {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-ALT-DOOR",
+      "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": [
+        "别的办法解开",
+        "另一种开门",
+        "其他开门办法"
+      ],
+      "initial_holders": [
+        "vilerena"
+      ]
+    },
+    {
+      "id": "F-C1-PROTECT",
+      "summary": "薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-MISSING",
+      "summary": "失踪家属正在等消息，艾莉娅关心老人和姑娘们。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-BLAME",
+      "summary": "卡德兰称黑暗教廷杀了奥斯文并将失踪案归责于其；只是其说法，未在该场核实。",
+      "truth": "unreliable_report",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": [
+        "黑暗教廷杀了奥斯文"
+      ]
+    },
+    {
+      "id": "F-C1-ABDUCTION",
+      "summary": "卡德兰被诺恩刺杀，圣女施救受阻、圣术被封，被强迫带走。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "scene:chapterEnd"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-SEAL-OBSERVED",
+      "summary": "诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "runtime-knowledge"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-PROMISE",
+      "summary": "诺恩在水渠以其他百姓威胁，许诺驿站事情办完后放人；艾莉娅为百姓安全被迫答应。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:chapterEnd"
+      ],
+      "risk_terms": []
+    }
+  ],
+  "events": [
+    {
+      "id": "R01:intro",
+      "scene": "intro",
+      "order": 1,
+      "summary": "会馆日常与库房请求",
+      "participants": [
+        "noen",
+        "oren"
+      ],
+      "sources": [
+        "scene:intro"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:ratDone",
+      "scene": "ratDone",
+      "order": 2,
+      "summary": "回报库房后进入委托阶段",
+      "participants": [
+        "noen",
+        "oren"
+      ],
+      "sources": [
+        "scene:ratDone"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:aside",
+      "scene": "aside",
+      "order": 3,
+      "summary": "会馆核对午钟、通行纸与带人安排；诺恩不在此切镜中",
+      "participants": [
+        "vilerena",
+        "rune"
+      ],
+      "sources": [
+        "scene:aside"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:contract",
+      "scene": "contract",
+      "order": 4,
+      "summary": "交付目标、带人理由及封术印使用要求",
+      "participants": [
+        "noen",
+        "vilerena"
+      ],
+      "sources": [
+        "scene:contract"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C1-COMMISSION",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-SEAL-INSTRUCTION",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-DOOR-CLAIM",
+          "mode": "believes"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-COMMISSION",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-SEAL-INSTRUCTION",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-DOOR-CLAIM",
+          "mode": "believes"
+        }
+      ],
+      "state_changes": {
+        "noen": {
+          "goals": [
+            "刺杀卡德兰，带圣女到驿站。"
+          ],
+          "conflicts": [
+            "知道圣女不会自愿同行。"
+          ]
+        }
+      },
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:c1HiddenPairArrangement",
+      "scene": "c1HiddenPairArrangement",
+      "order": 5,
+      "summary": "诺恩离开后薇蕾娜追问鲁恩；玩家看见，两位主角听不到",
+      "participants": [
+        "vilerena",
+        "rune"
+      ],
+      "sources": [
+        "scene:c1HiddenPairArrangement"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C1-ALT-DOOR",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-PROTECT",
+          "mode": "knows"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C1-ALT-DOOR",
+          "mode": "knows"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C1-PROTECT",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C1-ALT-DOOR",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C1-PROTECT",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "vilerena": {
+          "emotion": "追问后动怒，担忧诺恩。",
+          "goals": [
+            "要求鲁恩保护诺恩。"
+          ]
+        },
+        "rune": {
+          "emotion": "回避，反复道歉。"
+        }
+      },
+      "relationship_changes": {
+        "vilerena": {
+          "rune": {
+            "trust": "UNRESOLVED",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "不接受以服从命令回避诺恩安危"
+          }
+        }
+      },
+      "trigger": "ChapterOneStoryFlow在contract提交前的尾段；flags.c1Viewed记录已看。"
+    },
+    {
+      "id": "R01:saintBrief",
+      "scene": "saintBrief",
+      "order": 6,
+      "summary": "清晨礼拜厅；诺恩不在切镜中",
+      "participants": [
+        "elyria",
+        "cadlan"
+      ],
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "elyria",
+          "fact": "F-C1-MISSING",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-MISSING",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C1-BLAME",
+          "mode": "believes"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-BLAME",
+          "mode": "heard"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:watch",
+      "scene": "watch",
+      "order": 7,
+      "summary": "通行纸通过门卫核验",
+      "participants": [
+        "noen",
+        "toma"
+      ],
+      "sources": [
+        "scene:watch"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:assassination",
+      "scene": "assassination",
+      "order": 8,
+      "summary": "原十八行刺杀、封术、挟持",
+      "participants": [
+        "noen",
+        "elyria",
+        "cadlan"
+      ],
+      "sources": [
+        "scene:assassination"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C1-ABDUCTION",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-SEAL-OBSERVED",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C1-ABDUCTION",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C1-SEAL-OBSERVED",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-ABDUCTION",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-SEAL-OBSERVED",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "noen": {
+          "goals": [
+            "带圣女撤离。"
+          ]
+        },
+        "elyria": {
+          "emotion": "惊恐、愤怒，仍要求先救伤者。",
+          "goals": [
+            "救人，脱离挟持。"
+          ],
+          "conflicts": [
+            "无法施圣术，亲见杀人与绑架。"
+          ]
+        }
+      },
+      "relationship_changes": {
+        "elyria": {
+          "noen": {
+            "trust": "不信任",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "反抗杀人与挟持",
+            "dependence": "被强制控制，不是情感依赖",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "救人与杀人立场冲突"
+          }
+        },
+        "noen": {
+          "elyria": {
+            "trust": "UNRESOLVED",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "任务要求活着带到驿站",
+            "concealment": "未解释后续全貌",
+            "obligation": "UNRESOLVED",
+            "conflict": "她要求救人，自己要撤离"
+          }
+        }
+      }
+    },
+    {
+      "id": "R01:canalStart",
+      "scene": "canalStart",
+      "order": 9,
+      "summary": "圣女要求救人与活捉，追缉官挡路",
+      "participants": [
+        "noen",
+        "elyria",
+        "role_4a97bcc686"
+      ],
+      "sources": [
+        "scene:canalStart"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R01:chapterEnd",
+      "scene": "chapterEnd",
+      "order": 10,
+      "summary": "以百姓为威胁换取受迫同行，承诺事毕放人",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:chapterEnd"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C1-PROMISE",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C1-PROMISE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-PROMISE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "elyria": {
+          "emotion": "愤怒、担忧城中人，非原谅。",
+          "goals": [
+            "保护百姓，要求诺恩兑现放人承诺。"
+          ]
+        },
+        "noen": {
+          "goals": [
+            "前往灰石驿站取得路图。"
+          ]
+        }
+      },
+      "relationship_changes": {
+        "elyria": {
+          "noen": {
+            "trust": "只要求履行承诺，未信任",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "追究杀人与绑架",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "受迫同行，非自愿结伴"
+          }
+        }
+      }
+    },
+    {
+      "id": "R01:c1:localTalk:c1iden",
+      "scene": "c1:localTalk:c1iden",
+      "order": 11,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "iden"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1iden)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:c1:localTalk:c1hesha",
+      "scene": "c1:localTalk:c1hesha",
+      "order": 12,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "hesha"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1hesha)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:c1:localTalk:c1venn",
+      "scene": "c1:localTalk:c1venn",
+      "order": 13,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "venn"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1venn)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:c1:localTalk:c1blake",
+      "scene": "c1:localTalk:c1blake",
+      "order": 14,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "blake"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1blake)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:c1:localTalk:c1eve",
+      "scene": "c1:localTalk:c1eve",
+      "order": 15,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "eve"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1eve)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:c1:localTalk:c1mada",
+      "scene": "c1:localTalk:c1mada",
+      "order": 16,
+      "summary": "可选本地工作与处境；不赋予幕后秘密",
+      "participants": [
+        "noen",
+        "mada"
+      ],
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "choose(c1:localTalk:c1mada)，c1Conversation.pending.lines"
+    },
+    {
+      "id": "R01:sisterIdle",
+      "scene": "sisterIdle",
+      "order": 17,
+      "summary": "可选熟人交流；按实际进入时点恢复状态，不当作必经事件。",
+      "participants": [
+        "noen",
+        "vilerena"
+      ],
+      "sources": [
+        "scene:sisterIdle"
+      ],
+      "optional": true,
+      "stage_window": [
+        "R01:intro",
+        "R01:chapterEnd"
+      ],
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。"
+    },
+    {
+      "id": "R01:sisterBeforeDeparture",
+      "scene": "sisterBeforeDeparture",
+      "order": 18,
+      "summary": "可选熟人交流；按实际进入时点恢复状态，不当作必经事件。",
+      "participants": [
+        "noen",
+        "vilerena"
+      ],
+      "sources": [
+        "scene:sisterBeforeDeparture"
+      ],
+      "optional": true,
+      "stage_window": [
+        "R01:contract",
+        "R01:assassination"
+      ],
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。"
+    },
+    {
+      "id": "R01:sisterAfterBell",
+      "scene": "sisterAfterBell",
+      "order": 19,
+      "summary": "可选熟人交流；按实际进入时点恢复状态，不当作必经事件。",
+      "participants": [
+        "noen",
+        "vilerena"
+      ],
+      "sources": [
+        "scene:sisterAfterBell"
+      ],
+      "optional": true,
+      "stage_window": [
+        "R01:assassination",
+        "R01:chapterEnd"
+      ],
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {},
+      "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。"
+    }
+  ],
+  "gaps": [
+    "0.6底稿的六鼠/旧训练叙述部分被0.8/0.9覆盖；contract仍提六只，与intro的八只有文案漂移，本轮不改。",
+    "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。"
+  ]
+}

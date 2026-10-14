@@ -1,5 +1,7 @@
 # 剧情与角色约束
 
+所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。
+
 当前人物文本及迁移层为 chengli-text-v27、dialogue-runtime-v16、Saga V26 和其 text/chains/staging。先查具体场景 ID、运行对白和触发条件，按 router 结果读取少量资料。历史 delivery/候选文案不是现行权威；未取回的最新 source 稿明确缺失，不凭猜测补写。
 
 诺恩、艾莉娅、澄璃的身份、知识与关系必须遵守现有场景知识边界，圣女在场时不提前揭露角色尚未知的真相。FUTURE_ONLY 构思只有用户授权后才能实装。对白改动同时检查已存 pending/行号迁移、演出节拍、坐席和小立绘。

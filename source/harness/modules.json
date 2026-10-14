@@ -403,7 +403,17 @@
         "薇蕾娜",
         "封术印",
         "演出",
-        "剧情开发"
+        "剧情开发",
+        "对话",
+        "日常互动",
+        "人物性格",
+        "人物状态",
+        "伏笔",
+        "真相揭露",
+        "信息隔离",
+        "情感",
+        "NPC事件",
+        "npc事件"
       ],
       "entries": [
         "dist/world-dialogues-v29.js",
@@ -433,7 +443,13 @@
         "dist/city-runtime*",
         "dist/city-moments-v24*",
         "dist/romance-runtime*",
-        "dist/chapter-one-dialogues*"
+        "dist/chapter-one-dialogues*",
+        "source/narrative/*",
+        "source/narrative/characters/*",
+        "source/narrative/chapters/*",
+        "docs/harness/DIALOGUE*",
+        "docs/harness/NARRATIVE*",
+        "docs/harness/CHAPTER*"
       ],
       "rules": [
         "docs/harness/STORY.md",
@@ -448,7 +464,8 @@
         "node tests/browser-presentation-v281.mjs",
         "node --test tests/world-v29.test.mjs",
         "node --test tests/chapter-one-incremental.test.mjs",
-        "node --test tests/ch12-bugs.test.mjs"
+        "node --test tests/ch12-bugs.test.mjs",
+        "python3 tools/harness/check.py --tier narrative"
       ]
     },
     {
@@ -774,7 +791,10 @@
       "patterns": [
         "tools/harness/*",
         "tests/harness/*",
-        ".agents/skills/*/SKILL.md"
+        ".agents/skills/*/SKILL.md",
+        "source/narrative/*",
+        "source/narrative/characters/*",
+        "source/narrative/chapters/*"
       ],
       "rules": [
         "docs/harness/WORKFLOW.md"

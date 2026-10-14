@@ -51,6 +51,7 @@ def inventory(root=ROOT):
                     'tools/**/*.mjs', 'tests/**/*.py', 'tests/**/*.mjs', 'tests/fixtures/*.json',
                     '.agents/skills/*/SKILL.md', '.github/workflows/*.yml',
                     'docs/harness/*.md', 'docs/balance-lab/*.md', 'source/harness/modules.json',
+                    'source/narrative/**/*.json',
                     'AGENTS.md', 'NEXT_SESSION_PROMPT.md', 'source/README.md', 'source/GLOBAL_PROMPT.md']:
         files.update(p for p in root.glob(pattern) if p.is_file())
     # Explicit current rule references, never automatically ingest historical archives.

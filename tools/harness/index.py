@@ -107,6 +107,11 @@ def main():
             print('STALE index: ' + ', '.join(changed), file=sys.stderr)
             return 2
     else:
+        # Derived runtime metadata is refreshed here; curated provenance locks are
+        # deliberately NOT acknowledged by reindexing.
+        if (ROOT / 'source/narrative/catalog.json').exists():
+            from narrative import refresh_runtime
+            refresh_runtime()
         result = generate()
         write_json(ROOT / INDEX, result)
     problems = result['missing_imports'] + result['unmapped_runtime']

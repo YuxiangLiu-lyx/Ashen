@@ -1,0 +1,668 @@
+{
+  "schema": 1,
+  "id": "R02",
+  "runtime_chapter": 2,
+  "literary_id": "V01C02",
+  "title": "灰桥封路（工作名；运行第二章）",
+  "phase_range": [
+    5,
+    11
+  ],
+  "coverage": "curated_mainline",
+  "plan": {
+    "path": "docs/harness/CHAPTER_02.md",
+    "revision": "0.3",
+    "status": "SCRIPT_READY",
+    "implementation": "既有路线在运行；追加A/B未实施"
+  },
+  "sources": [
+    "c2-plan"
+  ],
+  "initial_knowledge": [],
+  "facts": [
+    {
+      "id": "F-C2-TARGET",
+      "summary": "塞琳传达赫斯特目标、画像、路图和本人佩戴圣徽靠近铜盘即可验门的解释。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2Relay"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-OBSERVE",
+      "summary": "会馆有意观察两人同行的反应，薇蕾娜要求保证退路；不保证控制每个结果。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkCommissionV9"
+      ],
+      "risk_terms": [
+        "我们在看",
+        "观察两个人"
+      ]
+    },
+    {
+      "id": "F-C2-ABUSE",
+      "summary": "玩家独立镜头看到赫斯特虐待舞者、侍女与税户；主角不在内室。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2TargetBefore",
+        "scene:ch2TargetAfter"
+      ],
+      "risk_terms": [
+        "赫斯特虐待舞者",
+        "内室的税户"
+      ]
+    },
+    {
+      "id": "F-C2-REFUSAL",
+      "summary": "艾莉娅拒绝开门并主动报警，要求尽量活捉；内门没有打开。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2InnerDoor"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-BREN-DEAD",
+      "summary": "第二章目标后场明确说布伦死了，赫斯特仍活着。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2TargetAfter"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-BROKEN-PROMISE",
+      "summary": "诺恩为防驿站暴露继续扣留艾莉娅，承认不守信；她决定自己寻找回去的机会。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2Spillway"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-EXILE",
+      "summary": "两人越过界碑，追兵停在碑外。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch2PursuitStops",
+        "scene:ch2ExileEnd"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-EXILE-ACCOUNT",
+      "summary": "当前会馆对白把进入禁地归于封路逼迫；运行给玩家exile-was-unplanned。与已定作者方向不同，记录为当前解释而非全知真相。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkExileV9",
+        "runtime-knowledge"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C2-RESCUE",
+      "summary": "薇蕾娜在当前会馆场要求带药绳到外沿接人，鲁恩去找人并保留观察点。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:darkExileV9"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-INTENT-NO-RESCUE",
+      "summary": "作者确定上级隐瞒无接应并安排两人入地狱；薇蕾娜发现被骗的第二章追加尚未实施。",
+      "truth": "world_fact",
+      "plane": "intent",
+      "status": "CONFIRMED",
+      "sources": [
+        "author-pair",
+        "c2-plan"
+      ],
+      "risk_terms": [
+        "接应令从来没有发过",
+        "接应从未派出"
+      ]
+    },
+    {
+      "id": "F-PLAN-ALT-DOOR",
+      "summary": "第二章追加A曾拟再次透露另一开门办法被暂扣；可因第一章已揭露而缩减或暂缓。",
+      "truth": "future_plan",
+      "plane": "plan",
+      "status": "ADOPTED_PLAN",
+      "sources": [
+        "c2-plan"
+      ],
+      "risk_terms": []
+    }
+  ],
+  "events": [
+    {
+      "id": "R02:ch2Arrival",
+      "scene": "ch2Arrival",
+      "order": 1,
+      "summary": "圣女仍帮助普通人，塞琳指向后屋",
+      "participants": [
+        "noen",
+        "elyria",
+        "seline"
+      ],
+      "sources": [
+        "scene:ch2Arrival"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2SearchAside",
+      "scene": "ch2SearchAside",
+      "order": 2,
+      "summary": "玩家独立看见守卫部署",
+      "participants": [
+        "bren",
+        "role_4ae25552de"
+      ],
+      "sources": [
+        "scene:ch2SearchAside"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Relay",
+      "scene": "ch2Relay",
+      "order": 3,
+      "summary": "后屋领取目标与验门解释",
+      "participants": [
+        "noen",
+        "seline"
+      ],
+      "sources": [
+        "scene:ch2Relay"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C2-TARGET",
+          "mode": "believes"
+        },
+        {
+          "actor": "seline",
+          "fact": "F-C2-TARGET",
+          "mode": "believes"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-TARGET",
+          "mode": "believes"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:darkCommissionV9",
+      "scene": "darkCommissionV9",
+      "order": 4,
+      "summary": "会馆观察安排切镜",
+      "participants": [
+        "vilerena",
+        "rune"
+      ],
+      "sources": [
+        "scene:darkCommissionV9"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C2-OBSERVE",
+          "mode": "knows"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C2-OBSERVE",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C2-OBSERVE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Terms",
+      "scene": "ch2Terms",
+      "order": 5,
+      "summary": "诺恩告知刺杀，圣女拒绝为杀人开门",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch2Terms"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "elyria",
+          "fact": "F-C2-TARGET",
+          "mode": "heard"
+        }
+      ],
+      "state_changes": {
+        "elyria": {
+          "emotion": "反对被迫助杀。",
+          "goals": [
+            "拒绝开门，劝阻诺恩。"
+          ]
+        }
+      },
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Bridge",
+      "scene": "ch2Bridge",
+      "order": 6,
+      "summary": "桥岗查验后绕南沟",
+      "participants": [
+        "noen",
+        "elyria",
+        "role_4ae25552de"
+      ],
+      "sources": [
+        "scene:ch2Bridge"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2OuterCourt",
+      "scene": "ch2OuterCourt",
+      "order": 7,
+      "summary": "圣女仍想向守卫说明情况",
+      "participants": [
+        "noen",
+        "elyria",
+        "bren"
+      ],
+      "sources": [
+        "scene:ch2OuterCourt"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2TargetBefore",
+      "scene": "ch2TargetBefore",
+      "order": 8,
+      "summary": "玩家独立内室目睹虐待",
+      "participants": [
+        "hester",
+        "role_fe78726c15",
+        "role_01f6759a0b",
+        "role_4d20e17532",
+        "role_1d7bbc1d99"
+      ],
+      "sources": [
+        "scene:ch2TargetBefore"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C2-ABUSE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2InnerDoor",
+      "scene": "ch2InnerDoor",
+      "order": 9,
+      "summary": "圣女拒绝并拉响警报",
+      "participants": [
+        "noen",
+        "elyria",
+        "role_4ae25552de"
+      ],
+      "sources": [
+        "scene:ch2InnerDoor"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C2-REFUSAL",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C2-REFUSAL",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-REFUSAL",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Alarm",
+      "scene": "ch2Alarm",
+      "order": 10,
+      "summary": "警报引发护卫围堵，圣女提醒搬柴者",
+      "participants": [
+        "noen",
+        "elyria",
+        "bren"
+      ],
+      "sources": [
+        "scene:ch2Alarm"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Breakout",
+      "scene": "ch2Breakout",
+      "order": 11,
+      "summary": "两波守卫与布伦败亡后撤离",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch2Breakout"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2TargetAfter",
+      "scene": "ch2TargetAfter",
+      "order": 12,
+      "summary": "目标存活，继续追捕与虐待",
+      "participants": [
+        "hester",
+        "role_4ae25552de",
+        "role_fe78726c15",
+        "role_1d7bbc1d99"
+      ],
+      "sources": [
+        "scene:ch2TargetAfter"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C2-BREN-DEAD",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2Spillway",
+      "scene": "ch2Spillway",
+      "order": 13,
+      "summary": "泄水口拒绝释放，诺恩承认违约",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch2Spillway"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C2-BROKEN-PROMISE",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C2-BROKEN-PROMISE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-BROKEN-PROMISE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "noen": {
+          "goals": [
+            "撤离并避免驿站暴露。"
+          ],
+          "conflicts": [
+            "承认违约，继续控制艾莉娅。"
+          ]
+        },
+        "elyria": {
+          "goals": [
+            "自己找机会回去，阻止伤人。"
+          ],
+          "emotion": "不再等诺恩兑现承诺。"
+        }
+      },
+      "relationship_changes": {
+        "elyria": {
+          "noen": {
+            "trust": "承诺已经破裂",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "继续反抗",
+            "dependence": "危险处境被迫共行",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "拒绝以别人生命换自由"
+          }
+        },
+        "noen": {
+          "elyria": {
+            "trust": "UNRESOLVED",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "共同逃亡但仍有控制",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "知道自己违约仍不释放"
+          }
+        }
+      }
+    },
+    {
+      "id": "R02:ch2ExileApproach",
+      "scene": "ch2ExileApproach",
+      "order": 14,
+      "summary": "界碑前圣女警告禁地，男主强迫越界",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch2ExileApproach"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2PursuitStops",
+      "scene": "ch2PursuitStops",
+      "order": 15,
+      "summary": "追兵停在碑外",
+      "participants": [
+        "noen",
+        "elyria",
+        "role_4ae25552de"
+      ],
+      "sources": [
+        "scene:ch2PursuitStops"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C2-EXILE",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C2-EXILE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-EXILE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:ch2ExileEnd",
+      "scene": "ch2ExileEnd",
+      "order": 16,
+      "summary": "男主松手；艾莉娅说自己寻找出口不代表答应同行。",
+      "participants": [
+        "noen",
+        "elyria"
+      ],
+      "sources": [
+        "scene:ch2ExileEnd"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {
+        "noen": {
+          "goals": [
+            "寻找雾中能走的路。"
+          ],
+          "expression": "松手与提醒脚下仅是局部行为，未成为成熟爱人。"
+        },
+        "elyria": {
+          "goals": [
+            "寻找出口，出去后要求诺恩回教堂说明。"
+          ],
+          "emotion": "拒绝把求生等同答应同行。"
+        }
+      },
+      "relationship_changes": {}
+    },
+    {
+      "id": "R02:darkExileV9",
+      "scene": "darkExileV9",
+      "order": 17,
+      "summary": "会馆获知最后可见位置，派外沿接应",
+      "participants": [
+        "vilerena",
+        "rune"
+      ],
+      "sources": [
+        "scene:darkExileV9"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C2-EXILE-ACCOUNT",
+          "mode": "believes"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "vilerena",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C2-RESCUE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "vilerena": {
+          "emotion": "担心、急切，优先救诺恩。",
+          "goals": [
+            "找熟悉界碑的人带药绳到外沿接人。"
+          ],
+          "conflicts": [
+            "当前是退路失效的解释；未发生新版接应骗局核实。"
+          ]
+        },
+        "rune": {
+          "goals": [
+            "派人接应并保留观察点。"
+          ]
+        }
+      },
+      "relationship_changes": {}
+    }
+  ],
+  "gaps": [
+    "追加A/B未实施；F-INTENT-NO-RESCUE不是当前角色知识。",
+    "第一章0.5已让薇蕾娜知道另有开门办法，第二章0.3旧知识表对此有滞后；以当前事件链保留她已知，不自行猜她知道具体办法。"
+  ]
+}

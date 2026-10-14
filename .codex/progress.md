@@ -1,4 +1,8 @@
-# 当前工作：第一章0.9分层任务与通用设定
+# 当前工作：叙事Harness升级（2026-10-14）
+
+任务 narrative-harness-20261014；基线95ea904；分支work/narrative-harness-20261014。计划docs/narrative-harness/PLAN.md。仅工具和资料，不改运行剧情；旧0.6人工节奏待办保持。
+
+# 前轮工作：第一章0.9分层任务与通用设定
 
 2026-10-13，从干净main efdf696接续；分支work/c1-layer-rules-20261013。阶段计划docs/ch1-layer-rules/PLAN.md，采用稿docs/harness/CHAPTER_01_LAYER_RULES.md。先规则/数据与存档，再通路/美术，最后专项集成及Git保存。
 
@@ -430,3 +434,19 @@
 - 阶段 delivery：complete；HEAD fdca9d627cbaff405c82237a602ab462940d03e6
 - 最近检查：package-promote，退出码 0；docs/harness/evidence/c1-layer-rules-20261013/016-package-promote.txt
 <!-- /task:c1-layer-rules-20261013 -->
+
+<!-- task:narrative-harness-20261014 -->
+## 任务 narrative-harness-20261014
+- 状态：in_progress
+- 更新：2026-10-14T05:35:15.885693+00:00
+- 下一步：最终fast/narrative/集成及逐字节保护验证
+- 任务记录：source/tasks/active/narrative-harness-20261014.json
+- 已完成：已核对Git与当前稿；完整用户需求和所有dist哈希已保存；原31项Harness基线通过；完整安装520场对白与动态NPC入口已核对；四类来源差异登记；87个角色/称谓登记、前两章三主角档案、53事件/22事实/4伏笔、长期方向与纯风格样本落盘；21项新叙事反例及真实任务挂接/finish测试通过；原入口发现章二完整稿被预算挤出的缺陷并已修复优先级；原入口与新工具52项fast全部通过；补齐原稿优先级、时点重放、真实任务证据门禁和可查最终对白入口
+- 待完成：工具反例验证、集成与交付
+- 决定：不改运行剧情；第二章策划与运行差异显式保留；风格样本独立隔离；后六章只登记可靠运行节点；第四/七章回忆不混作当前事件；未知不补造；保留003失败日志与原章节路由断言；先返回当前完整章稿，纯剧情不带无关地图美术模块
+- 阻塞：无
+- 阶段 audit：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
+- 阶段 records：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
+- 阶段 integration：complete；HEAD 95ea904021af84c436a5677e385c6e9ba4c744e8
+- 最近检查：fast-second，退出码 0；docs/harness/evidence/narrative-harness-20261014/004-fast-second.txt
+<!-- /task:narrative-harness-20261014 -->

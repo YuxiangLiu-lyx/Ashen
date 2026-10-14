@@ -63,6 +63,8 @@ def recommend(paths):
                 queue.append(caller)
     tests = {t for m in config['modules'] if m['id'] in impacted for t in m['tests']}
     tests.add('python3 tools/harness/check.py --tier fast')
+    if any(p.startswith('source/narrative/') or re_narrative_path(p) for p in paths):
+        tests.add('python3 tools/harness/check.py --tier narrative')
     from map_quality import relevant
     if relevant(paths):
         tests.add('python3 tools/harness/map_quality.py')
@@ -74,9 +76,13 @@ def recommend(paths):
             'limits': ['Reverse literal imports are conservative; prototype/data mutation requires inspection']}
 
 
+def re_narrative_path(path):
+    return path.startswith('docs/harness/') and any(word in path for word in ['NARRATIVE', 'DIALOGUE', 'CHAPTER', 'WORLD_VISION', 'STORY'])
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--tier', choices=['fast', 'core', 'integration', 'release'], default='fast')
+    parser.add_argument('--tier', choices=['fast', 'narrative', 'core', 'integration', 'release'], default='fast')
     parser.add_argument('--recommend', action='store_true')
     parser.add_argument('--files', nargs='*')
     parser.add_argument('--base', help='Recommend from git diff against this commit')
@@ -90,6 +96,10 @@ def main():
         return 0
     health()
     commands = [[sys.executable, '-m', 'unittest', 'discover', '-s', 'tests/harness', '-v']]
+    # All tiers protect provenance and knowledge isolation. Narrative includes a
+    # fresh fully-installed export; fast uses content hashes and cached metadata.
+    commands.insert(0, [sys.executable, 'tools/harness/narrative.py', 'audit'] +
+                    (['--live'] if args.tier != 'fast' else []))
     if args.tier in ['core', 'integration', 'release']:
         assets()
         commands += [[sys.executable, 'tools/harness/runtime_audit.py'],

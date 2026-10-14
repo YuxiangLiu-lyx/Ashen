@@ -158,6 +158,8 @@ V28 不覆盖 V27 的剧情与地图结构，而是在最终运行时追加 `dis
 
 ## Agent Harness 与 Balance Lab
 
+2026-10-14加入[叙事Harness](docs/harness/NARRATIVE_HARNESS.md)：按章节、人物和事件检索当前状态，区分角色/玩家知识、未来策划与纯风格样本，提供来源漂移检查和七维编辑审查。运行剧情、任务、存档及资产保持原样；初始化范围与验证见[交付记录](docs/narrative-harness/ACCEPTANCE.md)。
+
 新会话可直接说“修改暗影流血连招”，按根AGENTS自动定位。结构化模块图、按任务检索、六项项目Skills、持久任务与分级CI在 `tools/harness/`、`source/harness/`、`.agents/skills/`。短流程和接续例子见 [WORKFLOW](docs/harness/WORKFLOW.md)。
 
 ```bash

@@ -1,5 +1,7 @@
 # 当前接续入口
 
+2026-10-14叙事Harness升级见 ../docs/harness/NARRATIVE_HARNESS.md：source/narrative 人物/事件/知识/伏笔索引已接入context/index/check/task和剧情Skill。对白风格样本只供学习语言，不作正史；初始后六章仅有限运行节点。升级不改dist、任务、存档或资产；独立0.6人工节奏待办保持。
+
 当前用户进一步授权第一章0.9跨层多怪目标、互通通路、入图刷新与通用规则。采用稿docs/harness/CHAPTER_01_LAYER_RULES.md；固定游戏设定docs/harness/GAME_SETTINGS.md纳入Harness：默认主线、金叹号/灰问号/金问号、无明面爆率、自然门禁、任务无关常驻刷新。0.8以下内容为保留基线，0.6独立人工节奏验收仍待办。
 
 2026-10-11新增八章独立测试入口、主线步骤/对白跳过及免伤秒杀。各章测试存档独立，正式旅程不启用测试能力；详见../docs/chapter-test/ACCEPTANCE.md。原站未发布。

@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "id": "R03",
+  "runtime_chapter": 3,
+  "literary_id": null,
+  "title": "地狱入口与营地",
+  "phase_range": [
+    12,
+    20
+  ],
+  "coverage": "basic_runtime_only",
+  "plan": null,
+  "sources": [
+    "runtime-later",
+    "runtime-c3-trigger"
+  ],
+  "initial_knowledge": [],
+  "facts": [
+    {
+      "id": "F-C3-RESCUE",
+      "summary": "艾莉娅寻药救诺恩，明确换别人也会救；诺恩道谢，但未答应从此不杀人。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:ch3Wake"
+      ],
+      "risk_terms": []
+    }
+  ],
+  "events": [
+    {
+      "id": "R03:ch3Arrival",
+      "scene": "ch3Arrival",
+      "order": 1,
+      "summary": "进入地狱入口",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3Arrival"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    },
+    {
+      "id": "R03:ch3Wake",
+      "scene": "ch3Wake",
+      "order": 2,
+      "summary": "艾莉娅寻药救诺恩；救人不代表原谅杀人",
+      "participants": [
+        "noen",
+        "elyria",
+        "morris"
+      ],
+      "sources": [
+        "scene:ch3Wake"
+      ],
+      "optional": false,
+      "grants": [
+        {
+          "actor": "player",
+          "fact": "F-C3-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C3-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "elyria",
+          "fact": "F-C3-RESCUE",
+          "mode": "knows"
+        },
+        {
+          "actor": "morris",
+          "fact": "F-C3-RESCUE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {
+        "noen": {
+          "emotion": "知道她救了自己，表达谢意。",
+          "conflicts": [
+            "面对不再杀人的要求没有明确答应。"
+          ]
+        },
+        "elyria": {
+          "expression": "照顾伤者同时坚持追究杀人；不因救人立刻原谅。"
+        }
+      },
+      "relationship_changes": {}
+    },
+    {
+      "id": "R03:ch3End",
+      "scene": "ch3End",
+      "order": 3,
+      "summary": "乘升降台继续向下，疑问尚未解答",
+      "participants": [
+        "elyria",
+        "noen"
+      ],
+      "sources": [
+        "scene:ch3End"
+      ],
+      "optional": false,
+      "grants": [],
+      "state_changes": {},
+      "relationship_changes": {}
+    }
+  ],
+  "gaps": [
+    "未建立新文学章节稿；旧运行章节不自动等于多卷架构的V01C03。",
+    "只确认下列运行节点；支线、关系分支与完整知识仍需逐场补齐。"
+  ]
+}

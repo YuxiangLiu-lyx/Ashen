@@ -1,0 +1,125 @@
+{
+  "schema": 1,
+  "seeds": [
+    {
+      "id": "SEED-DOOR",
+      "fact_ids": [
+        "F-C1-ALT-DOOR"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:c1HiddenPairArrangement",
+      "shown": [
+        "存在其他解法，但带圣女仍是上级安排。"
+      ],
+      "interpretations": {
+        "player": "知道存在替代办法",
+        "vilerena": "追问为什么仍要带人",
+        "rune": "称服从上面安排",
+        "noen": "未获知",
+        "elyria": "未获知"
+      },
+      "withheld": [
+        "具体办法、代价、上层目的"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+      ],
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ]
+    },
+    {
+      "id": "SEED-OBSERVATION",
+      "fact_ids": [
+        "F-C2-OBSERVE"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:aside",
+      "shown": [
+        "会馆控制任务信息",
+        "第二章玩家看见观察同行的安排"
+      ],
+      "interpretations": {
+        "player": "至第二章会馆场知道观察意图",
+        "noen": "不知",
+        "elyria": "不知",
+        "vilerena": "参与安排"
+      },
+      "withheld": [
+        "观察的全部长期目的",
+        "预言机制"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "信任与自主选择可能受到影响，不能提前认定反叛。"
+      ],
+      "sources": [
+        "scene:aside",
+        "scene:darkCommissionV9",
+        "author-pair"
+      ]
+    },
+    {
+      "id": "SEED-RESCUE-PROMISE",
+      "fact_ids": [
+        "F-INTENT-NO-RESCUE"
+      ],
+      "state": "planned",
+      "planted_at": null,
+      "shown": [],
+      "interpretations": {},
+      "withheld": [
+        "接应骗局的核实尚未在运行展示"
+      ],
+      "payoff": {
+        "chapter": "R02",
+        "status": "ADOPTED_PLAN"
+      },
+      "consequences": [
+        "新版计划让薇蕾娜发现受骗并行动；不覆盖现行救援场。"
+      ],
+      "sources": [
+        "author-pair",
+        "c2-plan"
+      ]
+    },
+    {
+      "id": "SEED-SEAL",
+      "fact_ids": [
+        "F-C1-SEAL-OBSERVED"
+      ],
+      "state": "planted",
+      "planted_at": "R01:assassination",
+      "shown": [
+        "封住圣术的实际效果"
+      ],
+      "interpretations": {
+        "noen": "会使用，未知来源全貌",
+        "elyria": "亲历圣术受阻",
+        "player": "看见封术效果"
+      },
+      "withheld": [
+        "来源、完整边界与解除条件的长期解释"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "需要后续实际证据，不能创造万能感应。"
+      ],
+      "sources": [
+        "scene:assassination",
+        "author-open"
+      ]
+    }
+  ]
+}
