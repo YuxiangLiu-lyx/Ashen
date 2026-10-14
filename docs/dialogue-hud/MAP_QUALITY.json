@@ -1,0 +1,312 @@
+{
+  "schema": 1,
+  "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+  "reviewer": "Codex查看当前三视口目标条、地下三图与NPC、会馆私谈及灰/金标记对照；真人审美待验。",
+  "reviewed_paths": [
+    "dist/chapter-one-natural-art.js",
+    "dist/core-v14.js",
+    "dist/game-v14.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/c1-layer-rules/quest-marks.png",
+      "sha256": "54121945d3cb0f728dea89b942077c15a2c5fd6b962da56bdab6cf71a00aa1dc"
+    },
+    {
+      "path": "dist/assets/c1-care-ui/underground-portraits.png",
+      "sha256": "95178a5e7a76097a2e335ee31d575d266254e13d38e5b02c12c0f2227b76ee7c"
+    },
+    {
+      "path": "dist/assets/c1-story-world/underground-npcs.png",
+      "sha256": "a4f761904dee86d74e36fb9f74ae920fc3335bc1d980bc23d8b883dd51125c5c"
+    },
+    {
+      "path": "dist/assets/v6/vilerena-portrait-v6.png",
+      "sha256": "d5e086c22544cdc1f9343333d82045f2569a92b4341e3e7a7f0cc9dcd7d6bedc"
+    }
+  ],
+  "maps": [
+    {
+      "id": "c1TrialFoyer",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮世界数据与基线逐地图完全相等；当前完整集成含实际走图、碰撞和敌人回归。下方碰撞图由真实blocked逐格采样，未用视觉判断替代可达性。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/MAP_INTEGRITY.json",
+            "sha256": "2d48b187b6eff9968bf5fcd5c0f0ec6a8ee4476a6dbff3a9f53a3d8b5a92f950"
+          },
+          {
+            "path": "docs/dialogue-hud/final-checks/RESULTS.json",
+            "sha256": "56ba095e5b9260c6ee9cfa207a97c7a24ba5853de7e6abdad8ac8afaf9fe2bb8"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialFoyer-collision.json",
+            "sha256": "0fee8bf841e33394cf396df0c37194ba8c079f5e270bba7f8f1030f235081197"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialFoyer-collision.png",
+            "sha256": "277d13e42d0a5aa280123362c2685ae50969b0c65a6e775fbfdb573731dd98c8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "候场长凳、登记桌和册架围着通路摆放，任务标记落在岗位人物上方。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialFoyer.png",
+            "sha256": "6d7fbb1230e17a60d5b33faf2a388779b0cde90987fdbce5a4bb18428bcac595"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1TrialFoyer.png",
+            "sha256": "6d7fbb1230e17a60d5b33faf2a388779b0cde90987fdbce5a4bb18428bcac595"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "伊登黑发胡须、青蓝外衣、钢肩甲与旧行走图一致。 此次只统一标点材质；三人的清晰立绘及原世界小人均保留。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1iden-dialogue.png",
+            "sha256": "37b908ef144a5ddddd296cf622bbba7c5b92ad1de8a51b3ff28a5513135335ec"
+          },
+          {
+            "path": "docs/dialogue-hud/reader-final/c1iden-390.png",
+            "sha256": "75bf022072c6927c2cea1f1f6111104b0405c5c304b77499dcb1220ab3d020c7"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1iden-dialogue.png",
+            "sha256": "4ee13cffeb52b47092fb9263a03302008816f7b3499280d08bffaa44752ffe2f"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialCrypt",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮世界数据与基线逐地图完全相等；当前完整集成含实际走图、碰撞和敌人回归。下方碰撞图由真实blocked逐格采样，未用视觉判断替代可达性。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/MAP_INTEGRITY.json",
+            "sha256": "2d48b187b6eff9968bf5fcd5c0f0ec6a8ee4476a6dbff3a9f53a3d8b5a92f950"
+          },
+          {
+            "path": "docs/dialogue-hud/final-checks/RESULTS.json",
+            "sha256": "56ba095e5b9260c6ee9cfa207a97c7a24ba5853de7e6abdad8ac8afaf9fe2bb8"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialCrypt-collision.json",
+            "sha256": "b8e5378bbdd1af35d11b4bdfd3dbe3aed175fc26de09ec55c546beedd163d405"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialCrypt-collision.png",
+            "sha256": "e7303280218a702ead72e39afe7df16b5dc2d9d56d00782970c119a46bda0ead"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "蓄能槽、机械轴和工具桌沿作业区布置，标记没有变成场景中的金色发光物体。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialCrypt.png",
+            "sha256": "a9b25de5418de086003ef0218f408bc9ebc392e0c406d7ab7c429a9232b6f9ec"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1TrialCrypt.png",
+            "sha256": "d2002d95fbda94b847ae595925f02b53d66902bbb99521543c114933416b6c1d"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "赫莎红褐盘发、暗红衣与工具围裙保留。 此次只统一标点材质；三人的清晰立绘及原世界小人均保留。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1hesha-dialogue.png",
+            "sha256": "0fa25128ac930a5f85a8c0d76fae9c387ee07c7b154ca08a4313d3d6c1d334fe"
+          },
+          {
+            "path": "docs/dialogue-hud/reader-final/c1hesha-390.png",
+            "sha256": "dd2a9019fb025c603d924caf1ecaa360a51f24fc914d043354abf37d0717b035"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1hesha-dialogue.png",
+            "sha256": "cf72fe4730a489431f35ca039f910771253a552598512b572fafce01afbd201a"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮世界数据与基线逐地图完全相等；当前完整集成含实际走图、碰撞和敌人回归。下方碰撞图由真实blocked逐格采样，未用视觉判断替代可达性。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/MAP_INTEGRITY.json",
+            "sha256": "2d48b187b6eff9968bf5fcd5c0f0ec6a8ee4476a6dbff3a9f53a3d8b5a92f950"
+          },
+          {
+            "path": "docs/dialogue-hud/final-checks/RESULTS.json",
+            "sha256": "56ba095e5b9260c6ee9cfa207a97c7a24ba5853de7e6abdad8ac8afaf9fe2bb8"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialVault-collision.json",
+            "sha256": "9cebf637310276887a072f369b542df7bd530e03b59c0c1ee2527d52f19c3123"
+          },
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialVault-collision.png",
+            "sha256": "2186d6f39d4da890139d74294195743281e328494aa87e7c03883fce4689b168"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "封存物架和木箱仍位于房间两侧，维恩守登记桌，入口和主廊保持。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1TrialVault.png",
+            "sha256": "fe63f965a030d1e0e860950a9af89b4ab41b460239d2dd0f2a7dd1ee2b038a27"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1TrialVault.png",
+            "sha256": "57019bef0f1659563ee6e157abfa03287ac4cff6db7dfb85dbb7387527931d5a"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "维恩白发白须、赭色长衣与灰围巾保留。 此次只统一标点材质；三人的清晰立绘及原世界小人均保留。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/maps-final/c1venn-dialogue.png",
+            "sha256": "6f6410eb12ea6da6de3cbae4bdfc9807dc00a83a46d7bbdaaf23856ba000bdb2"
+          },
+          {
+            "path": "docs/dialogue-hud/reader-final/c1venn-390.png",
+            "sha256": "9cfcc07f163f140cca5d397ecc35873c44b525d1a08ba56d8a9102059fd682c9"
+          },
+          {
+            "path": "docs/c1-care-ui/baseline/c1venn-dialogue.png",
+            "sha256": "3727b39648f8fcc1048273c4636993c034b5c48f26a8380dbe83926e59412807"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "真实点击离场私谈、保存原页、回到原练武庭坐标和知识记录通过；对话回看保持只读，任务末页只结算一次。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/flow-browser/QA.json",
+            "sha256": "17c2ecce8627afcc1e85b146a7bf73a6fc33095411867ac16609b8e91288b6b1"
+          },
+          {
+            "path": "docs/dialogue-hud/reader-final/QA.json",
+            "sha256": "c02407f64c12b3580117c314847e283cc1703775841f561650230a5ec8829162"
+          },
+          {
+            "path": "docs/dialogue-hud/MAP_INTEGRITY.json",
+            "sha256": "2d48b187b6eff9968bf5fcd5c0f0ec6a8ee4476a6dbff3a9f53a3d8b5a92f950"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "会馆炉火和家具可见，诺恩离开后鲁恩走向薇蕾娜；私谈沿用实景，不出现黑幕。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/flow-browser/hall.png",
+            "sha256": "93a3b8ff874309edf0e4c8630f59c1416d44ebacfa77e6ed008a35386e845491"
+          },
+          {
+            "path": "docs/dialogue-hud/flow-browser/meeting-vilerena.png",
+            "sha256": "0b7da4179d8425cb6c5b4952d4531a4afdab3629ca4f298d37fb4509a3a24590"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "薇蕾娜与鲁恩仍用原形象、原位置演出；改句表达她对安排的不满和担心，不赋予鲁恩原稿未披露的消息。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/flow-browser/meeting-rune-390.png",
+            "sha256": "2179bfa3801c1d1951d13179e69b31d315f2bf5ec07ff1502e5bd1066374896d"
+          },
+          {
+            "path": "docs/dialogue-hud/flow-browser/meeting-vilerena.png",
+            "sha256": "0b7da4179d8425cb6c5b4952d4531a4afdab3629ca4f298d37fb4509a3a24590"
+          },
+          {
+            "path": "docs/dialogue-hud/NARRATIVE_QA.json",
+            "sha256": "a66301071ecaf6ff0cad60290e24ddec57715c92970d7b1c29294f629e519a09"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrainingYard",
+      "playability": {
+        "status": "pass",
+        "reason": "普通怪与Boss经真实鼠标/触摸选择切换，血量、死亡、脱战和换图更新；三视口目标条不与状态栏/菜单相交。真实地图和战斗规则沿用。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/browser-final/QA.json",
+            "sha256": "4201b9dfb93a587eb47b5b7c05c6ddc7c6575b4dafa63b97def67d3a278b5c04"
+          },
+          {
+            "path": "docs/dialogue-hud/MAP_INTEGRITY.json",
+            "sha256": "2d48b187b6eff9968bf5fcd5c0f0ec6a8ee4476a6dbff3a9f53a3d8b5a92f950"
+          },
+          {
+            "path": "docs/dialogue-hud/final-checks/RESULTS.json",
+            "sha256": "56ba095e5b9260c6ee9cfa207a97c7a24ba5853de7e6abdad8ac8afaf9fe2bb8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际查看练武庭路面、门口与木障；上方目标条保持适中长度，地图标题在交战期间隐藏以避让，右上是空间小地图而非出口名单。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/browser-final/1440-ordinary.png",
+            "sha256": "59f2a7c7c29486e8a0a8ee7a2167c8ef3cd621744da2d4afa7b9c8bdaf6173b8"
+          },
+          {
+            "path": "docs/dialogue-hud/browser-final/844-boss.png",
+            "sha256": "e9298073ad87b02647d014783b83a314f354c6eb0ec1c89dedafc8581b37606e"
+          },
+          {
+            "path": "docs/dialogue-hud/browser-final/390-ordinary.png",
+            "sha256": "6de17c0824718594a768da6c58246ea8f297a81462126b22c98eb6b4ed2593c5"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "两种敌人均用原世界形象；顶部名字和血量跟随当前目标。金问号采用灰问号轮廓，金叹号压低亮部；原任务图集逐字节保留。",
+        "evidence": [
+          {
+            "path": "docs/dialogue-hud/marks-final/marks.png",
+            "sha256": "ddf3dedebd4043fc3c78944e55ced9e0fd8089c17cd388ced094b7fbf0d48556"
+          },
+          {
+            "path": "docs/dialogue-hud/baseline/ui/marks.png",
+            "sha256": "8a3322223e9a6a1b774b806d8f64396d0433e37b9fcac63d2d86f84ce75350da"
+          },
+          {
+            "path": "docs/dialogue-hud/browser-final/1440-boss.png",
+            "sha256": "08e002d25c637071ffed8326f6b42852c40453c5500587fec53d100a7629ef46"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": "共享HUD适用于全部地图；安装后全部地图定义逐字比较。视觉判断为上列实际代表场景，未宣称逐图真人通关或全八章审美验收。"
+}

@@ -1,0 +1,101 @@
+[
+  {
+    "name": "integration",
+    "steps": [
+      {
+        "command": [
+          "python3",
+          "tools/harness/check.py",
+          "--tier",
+          "integration"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true
+  },
+  {
+    "name": "focused",
+    "steps": [
+      {
+        "command": [
+          "node",
+          "--test",
+          "tests/ch12-bugs.test.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/dialogue-hud/map-integrity.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/c1-care-ui/capture.mjs",
+          "docs/dialogue-hud/maps-final"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/dialogue-hud/capture-ui.mjs",
+          "docs/dialogue-hud/marks-final"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "docs/dialogue-hud/capture-copyedits.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-c1-story-flow.mjs"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          "node",
+          "tests/browser-ch12-portraits.mjs"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true
+  },
+  {
+    "name": "package",
+    "steps": [
+      {
+        "command": [
+          ".venv/bin/python",
+          "tools/build_web_play.py",
+          "--output",
+          "qa-export/dialogue-hud-preview"
+        ],
+        "exit_code": 0
+      },
+      {
+        "command": [
+          ".venv/bin/python",
+          "tests/browser-web-play.py",
+          "--build",
+          "qa-export/dialogue-hud-preview",
+          "--out",
+          "docs/dialogue-hud/package"
+        ],
+        "exit_code": 0
+      }
+    ],
+    "passed": true
+  }
+]

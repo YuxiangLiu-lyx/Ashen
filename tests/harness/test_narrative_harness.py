@@ -237,6 +237,8 @@ class NarrativeCounterexampleTests(unittest.TestCase):
             command('tools/harness/index.py')
             out=root/'qa-export';out.mkdir()
             d=draft();d['scope']={'files':['docs/harness/CHAPTER_01.md']}
+            d['style_policy_version']=2
+            d['editorial']['negative_imperatives']={'scene_judgment':'独立样例中艾莉娅请求获释；没有否定祈使候选，不消除原受迫同行冲突。','decisions':[]}
             write_json(out/'draft.json',d)
             command('tools/harness/narrative.py','context','--chapter','R01','--scene','chapterEnd','--actor','noen','--actor','elyria','--output','qa-export/context.json')
             command('tools/harness/narrative.py','review','--draft','qa-export/draft.json','--output','qa-export/review.json')

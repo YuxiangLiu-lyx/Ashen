@@ -1,0 +1,143 @@
+{
+  "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+  "status": "technical_and_editorial_checks_passed",
+  "implementation_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+  "checks": {
+    "producer-current": {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "--test",
+        "tests/dialogue-hud.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:10:46.894056+00:00",
+      "finished_at_utc": "2026-10-14T21:10:48.123514+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/022-producer-current.txt",
+      "output_sha256": "ad2bb357686aae77c7a3ce24c03d83f5c92332debf334fabb25b6e96d769b93a",
+      "timeout_seconds": 180.0
+    },
+    "integration": {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/resume_final_checks.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:27:54.183445+00:00",
+      "finished_at_utc": "2026-10-14T21:29:08.684486+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/024-integration.txt",
+      "output_sha256": "e53b8fe5dbb46298a64e20c5ee6b602ce2b86cc42198ab3d3d7827e4c83f979c",
+      "timeout_seconds": 1000.0
+    },
+    "fast": {
+      "label": "fast",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/check-fast-from-integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:31:19.912296+00:00",
+      "finished_at_utc": "2026-10-14T21:31:20.017453+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/025-fast.txt",
+      "output_sha256": "2beb24d11fa9e627ba7b4413d74c83d1207b32f0c105a9f309a0719a8c4a1583",
+      "timeout_seconds": 180.0
+    },
+    "narrative": {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/check-narrative.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:33:51.511934+00:00",
+      "finished_at_utc": "2026-10-14T21:34:31.200095+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/026-narrative.txt",
+      "output_sha256": "f2d2b22c79c0427b24fe2e5a9fb106cf66597a3f957721d9e1839118ac67df27",
+      "timeout_seconds": 240.0
+    },
+    "map-quality": {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--report",
+        "docs/dialogue-hud/MAP_QUALITY.json",
+        "--base",
+        "e82ca67c6693900b83ee58ea031933047f3a531f"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:35:02.163448+00:00",
+      "finished_at_utc": "2026-10-14T21:35:02.330425+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/027-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    "default-build": {
+      "label": "default-build",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/promote.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:35:31.682967+00:00",
+      "finished_at_utc": "2026-10-14T21:35:55.998884+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/028-default-build.txt",
+      "output_sha256": "6a6f616ea438504f8e68924110fc11f7a556fb87365dab3f3a21f20386253354",
+      "timeout_seconds": 240.0
+    },
+    "local-server": {
+      "label": "local-server",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:37:07.261336+00:00",
+      "finished_at_utc": "2026-10-14T21:37:07.549315+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/029-local-server.txt",
+      "output_sha256": "724b9a2e502ae7618ed2003eaf66c5807cc0ebd753d4028cc203d4caac365883",
+      "timeout_seconds": 180.0
+    },
+    "evidence-archive": {
+      "label": "evidence-archive",
+      "command": [
+        "python3",
+        "docs/dialogue-hud/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T21:38:22.328732+00:00",
+      "finished_at_utc": "2026-10-14T21:38:23.462027+00:00",
+      "head_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+      "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/dialogue-hud-20261014/030-evidence-archive.txt",
+      "output_sha256": "d31e07701ecf78ca02653394cda0536957965a800c243c00a919c33ec68cd21c",
+      "timeout_seconds": 180.0
+    }
+  },
+  "human_review": "pending; HUMAN_OBSERVATION.md",
+  "website_published": false
+}

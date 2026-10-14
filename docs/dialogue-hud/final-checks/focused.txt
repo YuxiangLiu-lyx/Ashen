@@ -1,0 +1,21 @@
+✔ chapter-two completion pays once through the backstage scene, retries and reloads (23.261084ms)
+✔ stale chapter-two completion cannot reward early or overwrite a later chapter (1.604333ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 163.905959
+All 128 installed maps equal immutable baseline.
+Captured three actual underground maps, collision grids and NPC portraits.
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43
+      async wait(expression,timeout=60000){const end=Date.now()+timeout;while(Date.now()<end){if(await evaluate(expression))return;await delay(100);}throw Error('Timed out: '+expression);},
+                                                                                                                                                           ^
+
+Error: Timed out: window.__EDIT?.ready()
+    at Object.wait (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43:156)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/docs/dialogue-hud/capture-copyedits.mjs:5:5
+
+Node.js v25.2.1

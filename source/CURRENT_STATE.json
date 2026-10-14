@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_rpg_three_chapters_with_c1_care_ui_1_2",
+  "snapshot_type": "v30_rpg_three_chapters_with_all_current_dialogue_and_enemy_hud",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "R01-R03 implemented. Current 62 Harness, 215 core and full integration pass. C1 1.2 adds three underground portraits, four character conversations and shared dialogue review. Human prose, affection balance, pacing, aesthetics and touch comfort pending; historical 0.6 human task independent. R04-R08 deferred. No website deployment.",
-  "checked_at_utc": "2026-10-14T19:40:57.940533+00:00",
+  "known_limits": "R01-R03 gameplay implemented. Current 67 Harness, 225 core and full integration pass. All existing R01-R08 main/side/daily dialogue received the contextual negative-imperative pass (111 scenes/167 edits). Shared enemy HUD and quest-item acceptance gates verified. Human prose, affection balance, pacing, aesthetics and touch comfort pending; historical 0.6 human task independent. R04-R08 gameplay expansion deferred. No website deployment.",
+  "checked_at_utc": "2026-10-14T21:39:08.756575+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Current integration, three viewport dialogue navigation, 45 legacy cursor migrations and default offline/HTTP/mobile build passed.",
+  "browser_qa_status": "Current integration, three-viewport enemy HUD and dialogue navigation, 167 edited pages per viewport, exact legacy text migration, default offline/HTTP/mobile build and all 5174 JS/CSS bytes passed.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -942,5 +942,25 @@
     "source_fingerprint": "82b93376de0f15e3feccb0130ef2de31b49a4725267541399ba410932e3c15b5",
     "github_receipt": "docs/c1-care-ui/GIT_SAVE.json",
     "verified_content_commit": "a519d22b89b050d7626497b876473652fa2094da"
+  },
+  "dialogue_hud_revision": {
+    "task": "dialogue-hud-20261014",
+    "status": "technical_and_editorial_verification_passed; GitHub save pending",
+    "implementation_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
+    "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+    "scope": "All current chapters: contextual dialogue copyedit, shared current-enemy HUD and subdued quest marks, quest-exclusive item acceptance gates; gameplay expansion remains R01-R03 only",
+    "adopted_script": "docs/dialogue-hud/SCRIPT.json",
+    "reviewed_scenes": 111,
+    "revised_lines": 167,
+    "dialogue_style_policy": 2,
+    "harness_tests": 67,
+    "core_tests": 225,
+    "acceptance": "docs/dialogue-hud/ACCEPTANCE.md",
+    "default_build": "docs/dialogue-hud/DEFAULT_BUILD.json",
+    "local_server": "docs/dialogue-hud/LOCAL_SERVER.json",
+    "human_observation": "docs/dialogue-hud/HUMAN_OBSERVATION.md",
+    "human_feedback": "pending",
+    "site_deployed": false,
+    "checked_at_utc": "2026-10-14T21:39:08.756575+00:00"
   }
 }

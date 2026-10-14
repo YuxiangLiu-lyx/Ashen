@@ -1,0 +1,18 @@
+{
+  "running_record": {
+    "label": "fast",
+    "command": [
+      "python3",
+      "tools/harness/check.py",
+      "--tier",
+      "fast"
+    ],
+    "started_at_utc": "2026-10-14T21:00:22.115226+00:00",
+    "timeout_seconds": 180.0
+  },
+  "log": "docs/harness/evidence/dialogue-hud-20261014/020-fast.txt",
+  "status": "timeout; runner interrupted during final fingerprint read",
+  "passed": false,
+  "observed_failure": "new-task v2 editorial fields missing from legacy lifecycle fixture; full suite did not finish",
+  "diagnostic": "Python sample showed blocking read syscall; main source sed read also stalled. Remaining input unchanged until runner stopped."
+}

@@ -1,4 +1,6 @@
 // Isolated rendering/transaction diagnostics; normal input route is checked separately.
+// Expectations use the fully installed tables, including approved copyedits.
+import '../dist/core-v14.js';
 import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';

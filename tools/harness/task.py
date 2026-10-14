@@ -175,6 +175,7 @@ def can_finish(record, root=ROOT):
 def narrative_evidence(rows, root=ROOT):
     """Hash a complete batch before mutating the task; finish retains every gate."""
     from narrative import safe_file
+    root=Path(root).resolve()
     if not isinstance(rows,list) or not rows or len(rows)>4096:
         raise ValueError('Expected a nonempty narrative evidence list')
     evidence=[];seen=set()
