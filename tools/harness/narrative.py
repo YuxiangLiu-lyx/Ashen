@@ -223,8 +223,13 @@ def context_packet(task, chapter=None, scene=None, actors=None, position='before
         for a in q['actors']:
             paths.append(entries[a]['path'])
         packet['stage'] = {k:result[k] for k in ['chapter','scene','position','at','stage_exact','coverage','gaps','plan']}
-        if q['scene']:
+        runtime=read_json(RUNTIME,root)
+        if q['scene'] in runtime['scenes']:
             packet['runtime_reader']=['node','tools/harness/narrative_runtime.mjs','--scene',q['scene'],'--text']
+        elif q['scene'] and q['scene'].startswith('c1:localTalk:') and q['scene'].split(':')[-1] in runtime['local_talk']:
+            packet['runtime_reader']=['node','tools/harness/narrative_runtime.mjs','--action',q['scene'],'--text']
+        elif q['scene']:
+            packet['runtime_lookup']={'scene':q['scene'],'instruction':'查找实际动作、任务条件和 pending.lines；尚无通用读取命令。'}
         packet['ready_to_write'] = not q['needs'] and result['coverage']=='curated_mainline'
         packet['knowledge'] = result['knowledge']
         for a,p in result['profiles'].items():

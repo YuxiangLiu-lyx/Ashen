@@ -151,6 +151,20 @@ class NarrativeCounterexampleTests(unittest.TestCase):
         self.assertIn('八只',json.dumps(result['text'],ensure_ascii=False))
         self.assertNotIn('六只',json.dumps(result['text'],ensure_ascii=False))
 
+    def test_dynamic_context_reader_executes_actual_local_actions(self):
+        runtime=json.loads((ROOT/'source/narrative/runtime-index.json').read_text())
+        for npc,text in runtime['local_talk'].items():
+            packet,_=context_packet('第一章NPC对白',scene='c1:localTalk:'+npc,at='contract')
+            self.assertIn('--action',packet['runtime_reader'])
+            p=subprocess.run(packet['runtime_reader'],cwd=ROOT,capture_output=True,text=True,check=True,timeout=30)
+            result=json.loads(p.stdout)
+            self.assertEqual(result['id'],'c1Conversation')
+            self.assertEqual(result['text'][0][1],text)
+            self.assertNotIn('把眼前的事记清楚',result['text'][0][1])
+        packet,_=context_packet('第一章对白',chapter='R01',scene='unmappedAction')
+        self.assertFalse(packet['ready_to_write']);self.assertNotIn('runtime_reader',packet)
+        self.assertIn('runtime_lookup',packet)
+
     def test_style_warning_is_not_a_literary_failure(self):
         d=draft();d['lines'][0]['text']='先立下规矩，才能更好地走下去。'
         result=review(d)

@@ -36,7 +36,7 @@ python3 tools/harness/context.py --task "修复地图碰撞Bug"
 
 可重复场景使用 `--at` 表示它发生在某个主线事件之后。若角色确实完成过可选事件，用 `--completed 'R01:sisterIdle@R01:contract'` 指定发生时点；工具按时间插入，而不是把可选内容都算成章末发生。声明未来完成、跨章不匹配或不在可用窗口会失败。新场景先建有来源的事件与前置，不能随便借一个接近的旧 ID。
 
-读取完整安装后的单场实际台词，可运行 `node tools/harness/narrative_runtime.mjs --scene contract --text`；不会只读早期覆盖表。动态公共ID必须改查具体action调用者。
+读取完整安装后的单场实际台词，可运行 `node tools/harness/narrative_runtime.mjs --scene contract --text`；不会只读早期覆盖表。本地六位NPC的日常动作可用 `node tools/harness/narrative_runtime.mjs --action c1:localTalk:c1iden --text`，实际调用 choose 并读取 pending.lines。该读取不证明当前地图/任务已开放；其余动态公共ID仍须查具体action、任务与flags调用者。
 
 完整上下文回执用下列入口生成，不受摘录预算截断。写作前保存一次；完成同步后再生成最新回执，保留旧文件，finish 验证最新资料。
 
