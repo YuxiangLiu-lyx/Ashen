@@ -7,9 +7,11 @@ import {NARRATIVE_STAGING_V9,adjustExistingNarrativeStagingV9} from './narrative
 import {CHAPTER_STAGING} from './chapter-staging-v14.js';
 Object.assign(CHAPTER_STAGING,NARRATIVE_STAGING_V9);Object.assign(STAGING.scenes,CHAPTER_STAGING);adjustExistingNarrativeStagingV9(STAGING);
 import {STAGING} from './staging-v14.js';
+import {C1_PRIVATE_STAGING} from './chapter-one-private-staging.js';
+STAGING.scenes.c1HiddenPairArrangement=C1_PRIVATE_STAGING;
 const lerp=(a,b,t)=>a+(b-a)*t,clamp=t=>Math.max(0,Math.min(1,t));
 const actor=(id,x,y,extra={})=>({id,x,y,sprite:{roadElder:7,saint:0,sister:1,steward:2,clerk:3,prelate:5,guard1:7,guard2:7,captain:7,victim1:6,victim2:11}[id],angle:0,visible:true,fall:0,...extra});
-export const CINEMATIC_SCENES=new Set(['intro','aside','contract','saintBrief','assassination','canalStart','chapterEnd',...Object.keys(CHAPTER_STAGING)]);
+export const CINEMATIC_SCENES=new Set(['intro','aside','contract','saintBrief','assassination','canalStart','chapterEnd','c1HiddenPairArrangement',...Object.keys(CHAPTER_STAGING)]);
 export class Cinematic{
  constructor(g,id,line=0){this.id=id;this.g=g;this.map=STAGING.scenes[id]?.map||(['saintBrief','assassination'].includes(id)?'chapel':['canalStart','chapterEnd'].includes(id)?'canal':'hall');this.time=0;this.actionUntil=0;this.moves=[];this.events=[];this.line=-1;this.actors=[];
   const stage=this.stage=prepareSocialStageV20(prepareSceneArrivalV19(prepareSagaStageRuntimeV25(structuredClone(STAGING.scenes[id]),g,id),g,id),g,id);this.map=stage.map;if(id==='chapterEnd'&&g.map==='canal'){const saved=g.pending?.sceneOrigin,hero=saved?.hero||[g.p.x,g.p.y],saint=saved?.saint||[g.saint.x,g.saint.y];stage.actors={hero,saint};stage.initiallyHidden=[];const near=g.safePoint(hero[0]-78,hero[1]+32);stage.beats=[{line:0,moves:[['saint',near.x,near.y,.75]]},{line:13,moves:[['hero',1410,370,1.6],['saint',1410,455,1.5,.35]]}];}if(id==='selineWorkReturn'){stage.actors.hero=[g.p.x,g.p.y];stage.actors.seline=[1020,620];stage.beats=[{line:0,moves:[['hero',450,660,2],['seline',540,660,1.9]]}];}if(id.startsWith('ch3Teaching')){this.map=stage.map=g.map;const at=g.safePoint(g.p.x+88,g.p.y+30);stage.actors={hero:[g.p.x,g.p.y],saint:[at.x,at.y]};stage.focus=[g.p.x+40,g.p.y-20];} preparePhysicalStageV26(stage,g);this.actors=Object.entries(stage.actors).map(([key,[x,y]])=>actor(key,x,y,{visible:!stage.initiallyHidden?.includes(key),...stage.actorMeta?.[key]}));

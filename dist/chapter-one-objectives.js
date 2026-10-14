@@ -22,7 +22,7 @@ export const C1_GIVERS={c1Readiness:'clerk',c1ExitDrill:'c1iden',c1LoomBrief:'c1
 export const C1_NPC_NAMES={steward:'奥伦',sister:'薇蕾娜',clerk:'鲁恩',courier:'阿林',herbalist:'米拉',woman:'蕾娜',watch:'托马',dolly:'朵莉',lotti:'洛缇',oldwoman:'修钟人的妹妹',c1rosa:'罗萨',c1saido:'赛铎'};
 export const C1_ACCEPT_TEXT={
  oil:'库房灰鼠把包油的皮囊拖进了货堆。处理鼠群时找回一袋灯油，带给我。',
- v12Water:'庭院苔壳兽背上的清心苔能缓旧伤。带一份回来，我替你换药；别再硬撑肩膀。',
+ v12Water:'药箱缺清心苔，后院苔壳兽背上有。带五份回来，我配好后分你一份备用。',
  v12CourierRoad:'四只野兽反复袭击东段车道。清掉它们，我才能叫人把断车拉回来。',
  letter:'狼把信囊叼走了。在旧王道东段找狼，拿到信后回来交给我。',
  herbs:'银叶草在旧王道和溪边林地随机成丛，取三株。药可以交给我，也可先帮蕾娜。',
@@ -44,7 +44,7 @@ Object.assign(C1_OBJECTIVES,{
  c1TrialSalvage:{kind:'drop',map:'c1DrillGallery',count:5,prefix:'c1-sentry-',chance:.7,name:'完整铆钉',monster:'旧廊哨兵'},
 });
 Object.assign(C1_NPC_NAMES,{saint:'艾莉娅',...Object.fromEntries(Object.entries(C1_PEOPLE).map(([id,p])=>[id,p.name]))});
-Object.assign(C1_ACCEPT_TEXT,C1_STORY_ACCEPT,{oil:'灰鼠拖走了五袋灯油。处理粮仓鼠群时留意油囊，带齐五袋回来修门廊的灯。',v12Water:'苔壳兽身上的清心苔能缓解肩伤。带五份回来，我替你配药换好绷带。',v12CourierRoad:'八只野兽占了东段车道。清掉它们，再回来找我，车夫们等着回去收断车。',lantern:'北渠八只夜蝠占了灯路，晚归的人不敢过桥。帮忙驱走它们，再回来告诉我，我去添灯油。',copper:'磨坊狼群咬走了五个传力铜圈。找回铜圈交给我，我替你做个练武环，也能把铺子的工具修好。'});
+Object.assign(C1_ACCEPT_TEXT,C1_STORY_ACCEPT,{oil:'灰鼠拖走了五袋灯油。处理粮仓鼠群时留意油囊，带齐五袋回来修门廊的灯。',v12Water:'会馆药箱里的清心苔快用完了。带五份回来，奥伦配药后会分你一份路上备用。',v12CourierRoad:'八只野兽占了东段车道。清掉它们，再回来找我，车夫们等着回去收断车。',lantern:'北渠八只夜蝠占了灯路，晚归的人不敢过桥。帮忙驱走它们，再回来告诉我，我去添灯油。',copper:'磨坊狼群咬走了五个传力铜圈。找回铜圈交给我，我替你做个练武环，也能把铺子的工具修好。'});
 
 // Stable per-source keys keep several floors from sharing one ambiguous counter.
 const sentries={id:'sentries',map:'c1DrillGallery',count:8,prefix:'c1-sentry-',name:'一层旧廊哨兵'};

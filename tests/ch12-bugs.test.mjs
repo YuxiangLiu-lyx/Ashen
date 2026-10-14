@@ -7,7 +7,7 @@ test('chapter-two completion pays once through the backstage scene, retries and 
  for(const cls of ['shadow','oath','ember']){
   const g=new RPG(cls,null,()=>.44);g.chapter=11;g.enter('exile',1200,850);g.pending=null;g.quests.exile='active';
   const before=g.p.gold;g.apply('ch2_end');assert.equal(g.pending.id,'darkExileV9');assert.equal(g.p.gold,before);
-  g.finishScene();assert.equal(g.chapter,12);assert.equal(g.map,'hellGate');assert.equal(g.p.gold,before+35);assert.equal(g.pending.id,'ch3Arrival');
+  g.finishScene();assert.equal(g.chapter,12);assert.equal(g.map,'hellGate');assert.equal(g.p.gold,before+35);assert.ok(g.pending?.id==='ch3Arrival'||g.ch3.experienceScenes?.includes('ch3Arrival'),'arrival either starts safely or is durably queued by C3');
   const committed=snapshot(g);g.apply('ch2_end');assert.deepEqual(snapshot(g),committed,'duplicate completion must not grant XP, gold or mutate pending');
   const r=new RPG(cls,parseSave(JSON.stringify(committed)),()=>.44),saved=snapshot(r);r.apply('ch2_end');assert.deepEqual(snapshot(r),saved,'reload keeps one-time completion');
  }

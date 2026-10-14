@@ -1,5 +1,7 @@
 # Ashen Agent 入口
 
+2026-10-14最新用户要求先优化第一章任务叙事：诺恩无预设伤势，薇蕾娜担心他的安危而安排能力试炼；全部主支线自然交代缘由；诺恩真实离开会馆后，鲁恩与薇蕾娜在原会馆场景见面私谈，取消黑幕。采用稿docs/harness/CHAPTER_01_STORY_FLOW.md（1.1，IMPLEMENTED），任务c1-story-flow-20261014；替代旧稿肩伤/黑幕要求，保留1.0玩法、第二章以后与历史原件。
+
 2026-10-14最新用户收束：“目前更新完前三章即可”。本轮只交付R01—R03及已有Harness；第四至八章保留审计、原运行与未来方向，不继续实装。前三章技术验收和真人待验见docs/rpg-experience/ACCEPTANCE.md，当前默认试玩入口为qa-export/release-build/Ashen-V28.1-Play.html；旧包保留，未发布网站。
 
 RPG内容设计按需使用docs/harness/RPG_DESIGN.md；现有六项Skill覆盖成长、探索、任务、设施与节奏。task.py experience挂接分章技术证据，真人待验必须附可玩构建与观察表；旧0.6人工门禁保持独立。普通故障修复不自动加载整套体验资料。

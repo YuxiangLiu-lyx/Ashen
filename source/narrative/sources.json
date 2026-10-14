@@ -34,9 +34,10 @@
       "runtime_scene": "c1HiddenPairArrangement"
     },
     "runtime-c1-trigger": {
-      "path": "dist/chapter-one-dialogues-v31.js",
-      "anchor": "const tailFor={contract:'c1HiddenPairArrangement'}",
-      "kind": "runtime"
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.c1PrivateTalkTick",
+      "kind": "runtime",
+      "note": "新私谈在contract提交后真实离开hall触发；旧c1Tail由ChapterOneStoryFlow接续。"
     },
     "runtime-c2-trigger": {
       "path": "dist/chapter-runtime-v14.js",
@@ -84,8 +85,8 @@
       "kind": "provisional"
     },
     "c1-current": {
-      "path": "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
-      "anchor": "V01C01 / 午钟之前 / IMPLEMENTED",
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
       "kind": "adopted_plan"
     },
     "c1-retained": {
@@ -1188,6 +1189,461 @@
       "kind": "runtime",
       "runtime_scene": "ch3MachineReturn",
       "note": "芮妲修理、材料与工钱表达的既有依据。"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "flow:c1CanalAlreadyClear": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1CanalAlreadyClear"
+    },
+    "flow:c1TrainingReason": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrainingReason"
+    },
+    "flow:c1HerbsToLena": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HerbsToLena"
+    },
+    "flow:c1PatrolRoad": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolRoad"
+    },
+    "flow:c1PatrolGrove": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolGrove"
+    },
+    "flow:c1PatrolProgress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolProgress"
+    },
+    "flow:c1PatrolReturn": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolReturn"
+    },
+    "flow:c1Talk_rats_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_rats_offer"
+    },
+    "flow:c1Talk_rats_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_rats_progress"
+    },
+    "flow:c1Talk_c1Readiness_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_offer"
+    },
+    "flow:c1Talk_c1Readiness_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_progress"
+    },
+    "flow:c1Talk_c1Readiness_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_report"
+    },
+    "flow:c1Talk_c1ExitDrill_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_offer"
+    },
+    "flow:c1Talk_c1ExitDrill_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_progress"
+    },
+    "flow:c1Talk_c1ExitDrill_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_report"
+    },
+    "flow:c1Talk_v12CourierRoad_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_offer"
+    },
+    "flow:c1Talk_v12CourierRoad_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_progress"
+    },
+    "flow:c1Talk_v12CourierRoad_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_report"
+    },
+    "flow:c1Talk_c1LoomBrief_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_offer"
+    },
+    "flow:c1Talk_c1LoomBrief_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_progress"
+    },
+    "flow:c1Talk_c1LoomBrief_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_report"
+    },
+    "flow:c1Talk_v12NorthDelivery_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12NorthDelivery_offer"
+    },
+    "flow:c1Talk_v12NorthDelivery_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12NorthDelivery_progress"
+    },
+    "flow:c1Talk_c1CanalPrep_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_offer"
+    },
+    "flow:c1Talk_c1CanalPrep_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_progress"
+    },
+    "flow:c1Talk_c1CanalPrep_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_report"
+    },
+    "flow:c1Talk_c1CanalBreak_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_offer"
+    },
+    "flow:c1Talk_c1CanalBreak_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_progress"
+    },
+    "flow:c1Talk_c1CanalBreak_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_report"
+    },
+    "flow:c1Talk_oil_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_offer"
+    },
+    "flow:c1Talk_oil_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_progress"
+    },
+    "flow:c1Talk_oil_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_report"
+    },
+    "flow:c1Talk_v12Water_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_offer"
+    },
+    "flow:c1Talk_v12Water_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_progress"
+    },
+    "flow:c1Talk_v12Water_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_report"
+    },
+    "flow:c1Talk_letter_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_offer"
+    },
+    "flow:c1Talk_letter_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_progress"
+    },
+    "flow:c1Talk_letter_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_report"
+    },
+    "flow:c1Talk_herbs_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_offer"
+    },
+    "flow:c1Talk_herbs_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_progress"
+    },
+    "flow:c1Talk_herbs_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_report"
+    },
+    "flow:c1Talk_lantern_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_offer"
+    },
+    "flow:c1Talk_lantern_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_progress"
+    },
+    "flow:c1Talk_lantern_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_report"
+    },
+    "flow:c1Talk_copper_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_offer"
+    },
+    "flow:c1Talk_copper_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_progress"
+    },
+    "flow:c1Talk_copper_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_report"
+    },
+    "flow:c1Talk_echo_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_offer"
+    },
+    "flow:c1Talk_echo_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_progress"
+    },
+    "flow:c1Talk_echo_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_report"
+    },
+    "flow:c1Talk_c1ClockMemory_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ClockMemory_offer"
+    },
+    "flow:c1Talk_c1ClockMemory_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ClockMemory_progress"
+    },
+    "flow:c1Talk_c1RuneWear_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_offer"
+    },
+    "flow:c1Talk_c1RuneWear_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_progress"
+    },
+    "flow:c1Talk_c1RuneWear_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_report"
+    },
+    "flow:c1Talk_c1RuneKiln_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_offer"
+    },
+    "flow:c1Talk_c1RuneKiln_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_progress"
+    },
+    "flow:c1Talk_c1RuneKiln_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_report"
+    },
+    "flow:c1Talk_c1AlchemistSamples_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_offer"
+    },
+    "flow:c1Talk_c1AlchemistSamples_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_progress"
+    },
+    "flow:c1Talk_c1AlchemistSamples_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_report"
+    },
+    "flow:c1Talk_c1CampHunt_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_offer"
+    },
+    "flow:c1Talk_c1CampHunt_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_progress"
+    },
+    "flow:c1Talk_c1CampHunt_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_report"
+    },
+    "flow:c1Talk_c1CampHerbs_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_offer"
+    },
+    "flow:c1Talk_c1CampHerbs_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_progress"
+    },
+    "flow:c1Talk_c1CampHerbs_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_report"
+    },
+    "flow:c1Talk_c1KilnRoost_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_offer"
+    },
+    "flow:c1Talk_c1KilnRoost_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_progress"
+    },
+    "flow:c1Talk_c1KilnRoost_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_report"
+    },
+    "flow:c1Talk_c1TrialSalvage_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_offer"
+    },
+    "flow:c1Talk_c1TrialSalvage_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_progress"
+    },
+    "flow:c1Talk_c1TrialSalvage_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_report"
+    },
+    "flow:c1Talk_c1CryptRepair_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CryptRepair_progress"
+    },
+    "flow:c1Talk_c1VaultWatch_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1VaultWatch_progress"
     }
   }
 }

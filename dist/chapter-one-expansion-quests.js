@@ -1,7 +1,10 @@
 import {EXPERIENCE_CACHES} from './rpg-experience-exploration.js';
 import {EXPERIENCE_DIALOGUES,EXPERIENCE_QUEST_SCENES,EXPERIENCE_INSPECTIONS} from './rpg-experience-dialogues.js';
+import {C1_QUEST_DIALOGUES,C1_QUEST_TALKS,c1QuestScene} from './chapter-one-quest-dialogues.js';
+import {C1_HIDDEN} from './chapter-one-dialogues-v31.js';
+import {experienceSceneSafe} from './rpg-experience-triggers.js';
 import {questMarkerForOptions} from './game-settings-v31.js';
-import {C1_STORY_RETURN,C1_PEOPLE,C1_LOCAL_TALK} from './chapter-one-story-world.js';
+import {C1_PEOPLE,C1_LOCAL_TALK} from './chapter-one-story-world.js';
 import {C1_MAIN,C1_SIDE,C1_QUESTS,C1_PATROL,C1_PARTS} from './chapter-one-expansion-data.js';
 import {C1_OBJECTIVES,c1ObjectiveParts,C1_GIVERS,C1_NPC_NAMES,C1_ACCEPT_TEXT} from './chapter-one-objectives.js';
 import {C1_MAPS,C1_RESOURCE_SITES,c1Map} from './chapter-one-layout.js';
@@ -23,10 +26,14 @@ const acceptAliases={oilAccept:'oil',letterAccept:'letter',herbsAccept:'herbs',l
 const submitAliases={oilDone:'oil',letterDone:'letter',herbsMira:'herbs',herbsWoman:'herbs',lanternReturn:'lantern',lanternReward:'lantern',copperComplete:'copper',echoReturn:'echo',oldReturn:'c1ClockMemory'};
 export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
  for(const scene of ['intro','ratAccept'])DIALOGUES[scene]=DIALOGUES[scene].map(([speaker,line])=>[speaker,line.replaceAll('六只','八只')]);
- Object.assign(DIALOGUES,EXPERIENCE_DIALOGUES);
+ Object.assign(DIALOGUES,EXPERIENCE_DIALOGUES,C1_QUEST_DIALOGUES,C1_HIDDEN);
+ DIALOGUES.contract=DIALOGUES.contract.map(([speaker,line])=>[speaker,line.replace('六只老鼠','八只老鼠')]);
+ DIALOGUES.contract[19]=['薇蕾娜','先把通行纸收好。还有一件事：出门前去找鲁恩，先做庭院实战，再到地下找伊登试一试。'];
+ DIALOGUES.contract.push(['诺恩','你担心我应付不来？'],['薇蕾娜','我知道你会打，可这回你还得带着一个不肯配合的人撤走。遇上围堵，光顾着往前冲可不行。我想先看看你会怎么应对。'],['诺恩','好，我先去试炼。'],['薇蕾娜','回来让鲁恩告诉我结果。饭也记得吃，奥伦从早上就炖着了。']);
+ DIALOGUES.contract.splice(19,0,['薇蕾娜','这份封套是鲁恩备的维护班次。进城交给北街的托马，他会核对你的登记，再告诉你礼拜厅的入口。别把封蜡碰坏了。']);
  DIALOGUES.c1Conversation=[['旁白','把眼前的事记清楚。']];
  const giverMap=(g,id)=>{const giver=C1_GIVERS[id];if(giver==='saint')return g.saint?.visible||(g.chapter>=3&&g.chapter<5)?g.map:'alley';return Object.keys(MAPS).find(map=>MAPS[map].npcs.some(n=>n.id===giver))||C1_QUESTS[id]?.map;};
- const names={c1Readiness:'庭院实战',c1ExitDrill:'旧廊的试炼守卫',v12Water:'缓解旧伤的药',c1CanalPrep:'清除渠鼠，确认退路',c1CanalBreak:'闸口已清',c1RunePatrol:'沿线讨伐'};
+ const names={c1Readiness:'出发前的试炼',c1ExitDrill:'旧廊的试炼守卫',v12Water:'药箱里的备用药',c1CanalPrep:'清除渠鼠，确认退路',c1CanalBreak:'闸口已清',c1RunePatrol:'沿线讨伐'};
  for(const q of Object.values(C1_QUESTS)){if(names[q.id])q.name=names[q.id];if(q.id==='copper')q.target='lotti';if(q.id==='c1Readiness')q.target='c1-moss-1';if(q.id==='c1ExitDrill')q.target='c1-trial-warden';if(q.id==='c1CanalPrep')q.target='c1-valve-rat';QUESTS[q.id]={...QUESTS[q.id],...q,giver:C1_GIVERS[q.id]||q.target,desc:C1_ACCEPT_TEXT[q.id]||q.name};}
  const P=RPG.prototype,old={};for(const k of ['ready','complete','apply','choose','npcOptions','useProp','canDoor','objective','questGoal','available','claimPacing','requestDeparture','targets','marker','ensureMap','enter','update','damage','restore'])old[k]=P[k];
  P.c1Count=function(id,part){return part?c1State(this).journey.parts[id]?.[part]||0:id==='rats'?Math.min(8,this.flags.rats||0):count(this,id);};
@@ -90,12 +97,13 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
   const add=(label,action,state='daily')=>options.push({label,action,questState:state});
   for(const [qid,giver]of Object.entries(C1_GIVERS)){if(giver!==id||['rats','c1RunePatrol'].includes(qid)||done(this,qid))continue;
    const q=C1_QUESTS[qid],isActive=active(this,qid),ready=this.c1Ready(qid);if(!isActive&&!this.c1CanOffer(qid))continue;
-   add((ready?'交付：':isActive?'进度：':'接取：')+q.name,'c1:'+(ready?'claim':isActive?'progress':'accept')+':'+qid,ready?'ready':isActive?'waiting':'available');
+   const talk=C1_QUEST_TALKS[qid];
+   add(ready?'事情办好了，和你说说。 · '+q.name:isActive?'再问问'+q.name+'的事。':talk?.label||q.name,'c1:'+(ready?'claim':isActive?'progress':'accept')+':'+qid,ready?'ready':isActive?'waiting':'available');
   }
   if(C1_LOCAL_TALK[id])add('问问这里的情况。','c1:localTalk:'+id);
   if(id==='woman'&&this.c1Ready('herbs'))add('把三株银叶草先送给蕾娜。','c1:herbsWoman','ready');
-  if(id==='sister'&&this.chapter===2&&!done(this,'c1ExitDrill'))add('庭院实战与旧廊试炼怎么走？','c1:trainingBrief');
-  if(id==='c1rosa'){add('符文商店与核心兑换。','c1:shop','service');if(this.quests.c1RuneWear==='done'){const p=hPatrol(this);add(p?'沿线讨伐 · '+count(this,'c1RunePatrol')+'/8':'接取轮换地区讨伐。','c1:'+(this.c1Ready('c1RunePatrol')?'patrolClaim':p?'patrolProgress':'patrolAccept'),this.c1Ready('c1RunePatrol')?'ready':p?'waiting':'available');}}
+  if(id==='sister'&&this.chapter===2&&!done(this,'c1ExitDrill'))add('你为什么一定要我先去试炼？','c1:trainingBrief');
+  if(id==='c1rosa'){add('符文商店与核心兑换。','c1:shop','service');if(this.quests.c1RuneWear==='done'){const p=hPatrol(this);add(p?'说说运料路线的情况。':'运料的路最近还太平吗？','c1:'+(this.c1Ready('c1RunePatrol')?'patrolClaim':p?'patrolProgress':'patrolAccept'),this.c1Ready('c1RunePatrol')?'ready':p?'waiting':'available');}}
   if(active(this,'farewell')&&this.flags.departureReady)options=options.map(o=>o.action?.startsWith('goodbye:')?{...o,questState:'ready'}:o);
   // A current story contact is an actionable handoff as well as a reward claim.
   return sortQuestOptions(this,id,options);
@@ -104,33 +112,46 @@ export function installC1Quests(RPG,{QUESTS,DIALOGUES,MAPS}){
   const p=this.props.find(p=>p.id===id);if(p){return '';}
   return questMarkerForOptions(this.npcOptions(id));
  };
- P.choose=function(action){if(this.chapter<5&&acceptAliases[action])return this.choose('c1:accept:'+acceptAliases[action]);if(this.chapter<5&&submitAliases[action])return this.choose(action==='herbsWoman'?'c1:herbsWoman':'c1:claim:'+submitAliases[action]);
-  if(this.chapter<5&&action==='ratsAccept'&&!this.quests.rats){this.c1Accept('rats');chat(this,[[C1_NPC_NAMES.steward,C1_ACCEPT_TEXT.rats]]);return;}
-  if(this.chapter<5&&action==='ratProgress'){chat(this,[[C1_NPC_NAMES.steward,this.questGoal('rats').text]]);return;}
+ P.choose=function(action){if(this.pending&&this.chapter<5)return false;
+  if(this.chapter<5&&acceptAliases[action])return this.choose('c1:accept:'+acceptAliases[action]);if(this.chapter<5&&submitAliases[action])return this.choose(action==='herbsWoman'?'c1:herbsWoman':'c1:claim:'+submitAliases[action]);
+  if(this.chapter<5&&action==='ratsAccept'&&!this.quests.rats)return this.choose('c1:accept:rats');
+  if(this.chapter<5&&action==='ratProgress')return this.choose('c1:progress:rats');
+  if(this.chapter<5&&['oldTalk','oldWell'].includes(action)&&!active(this,'c1ClockMemory')&&!done(this,'c1ClockMemory')&&(action==='oldWell'||this.flags.oldTalk)){this.flags.oldTalk=(this.flags.oldTalk||0)+1;return this.choose('c1:accept:c1ClockMemory');}
   if(!action.startsWith('c1:'))return old.choose.call(this,action);const [,verb,id]=action.split(':');
   if(verb==='localTalk'&&C1_LOCAL_TALK[id]){chat(this,[[C1_PEOPLE[id].name,C1_LOCAL_TALK[id]]]);return;}
-  if(verb==='accept'){if(!this.c1Accept(id))return;if(EXPERIENCE_QUEST_SCENES[id]){this.beginScene(EXPERIENCE_QUEST_SCENES[id][0]);return;}if(id==='c1GateCheck'){this.beginScene('c1GateBrief','c1:completeGateBrief');return;}chat(this,[[C1_NPC_NAMES[C1_GIVERS[id]]||'旁白',C1_ACCEPT_TEXT[id]||C1_QUESTS[id]?.name]]);return;}
-  if(verb==='progress'){chat(this,[[C1_NPC_NAMES[C1_GIVERS[id]]||'旁白',this.questGoal(id)?.text||'这件事已经记下。']]);return;}
-  if(verb==='claim'){if(!this.c1Ready(id))return false;if(id==='v12NorthDelivery'){this.beginScene('c1NorthBrief','c1:completeNorthBrief');return true;}if(id==='c1GateCheck'){this.beginScene('c1GateBrief','c1:completeGateBrief');return true;}if(EXPERIENCE_QUEST_SCENES[id]){const scene=steps(this,id).legacyEvidence?(id==='c1CryptRepair'?'c1RepairLegacyReturn':'c1VaultLegacyReturn'):EXPERIENCE_QUEST_SCENES[id][1];this.beginScene(scene,'c1:localReport:'+id);return true;}const tx=this.c1Claim(id);if(tx)chat(this,[[C1_NPC_NAMES[C1_GIVERS[id]]||'旁白',(C1_STORY_RETURN[id]||({c1RuneWear:'符片边上全是齿印，是渠鼠拖走的。修好后这个核心给你。',c1RuneKiln:'翼尘和巢里的沉积一致。夜翼已除，烟道可以重新清通了。',echo:'传动带是守兽撕坏的。机芯还完好，修理铺能重新开工。',c1ClockMemory:'是哥哥的刻名。谢谢你替我把它带回来。',v12CourierRoad:'车道安全了。你到城门车棚歇一晚，天亮再进城。',c1AlchemistSamples:'三份样本有相同沉积。请洛缇先封好废液，旧渠水别再入口。'})[id]||'我已记下这件事。报酬收好。')]]);this.c1SyncQuests();return tx;}
-  if(verb==='herbsWoman'){if(this.c1Ready('herbs')){this.c1Claim('herbs','woman');chat(this,[['蕾娜','有这些药就能先熬过今晚。谢谢你。']]);}return;}
-  if(verb==='trainingBrief'){chat(this,[['薇蕾娜','肩膀还僵，就先从后院的苔壳兽练起。'],['鲁恩','先来我这里接取庭院清理。八只处理完回来复核伤口，我再介绍地下接待室的伊登。'],['薇蕾娜','看它起手再侧移，别站着硬接。']]);return;}
+  if(verb==='accept'){if(active(this,id)||!this.c1CanOffer(id))return false;if(id==='c1CanalBreak'&&this.flags.captainDefeated&&this.states.canal&&!this.states.canal.enemies.some(e=>!e.dead)){this.beginScene('c1CanalAlreadyClear','c1:acceptAfterTalk:c1CanalBreak');return true;}if(id==='v12NorthDelivery'&&c1State(this).worldChanges.envelope){this.beginScene('c1NorthBrief','c1:completeNorthBrief');return true;}if(id==='c1GateCheck'){this.beginScene('c1GateBrief','c1:completeGateBrief');return true;}const scene=EXPERIENCE_QUEST_SCENES[id]?.[0]||(C1_QUEST_TALKS[id]?.offer?c1QuestScene(id,'offer'):null);if(!scene)return false;this.beginScene(scene,'c1:acceptAfterTalk:'+id);return true;}
+  if(verb==='progress'){if(!active(this,id))return false;if(C1_QUEST_TALKS[id]?.progress){this.beginScene(c1QuestScene(id,'progress'));return true;}if(id==='c1GateCheck'){this.beginScene('c1GateBrief');return true;}return false;}
+  if(verb==='claim'){
+   if(!this.c1Ready(id))return false;
+   if(id==='v12NorthDelivery'){this.beginScene('c1NorthBrief','c1:completeNorthBrief');return true;}
+   if(id==='c1GateCheck'){this.beginScene('c1GateBrief','c1:completeGateBrief');return true;}
+   if(EXPERIENCE_QUEST_SCENES[id]){const scene=steps(this,id).legacyEvidence?(id==='c1CryptRepair'?'c1RepairLegacyReturn':'c1VaultLegacyReturn'):EXPERIENCE_QUEST_SCENES[id][1];this.beginScene(scene,'c1:localReport:'+id);return true;}
+   const scene=id==='c1ClockMemory'?'oldReturn':C1_QUEST_TALKS[id]?.report?c1QuestScene(id,'report'):null;
+   if(!scene)return false;this.beginScene(scene,'c1:reportAfterTalk:'+id);return true;
+  }
+  if(verb==='herbsWoman'){if(this.c1Ready('herbs'))this.beginScene('c1HerbsToLena','c1:reportAfterTalk:herbs:woman');return;}
+  if(verb==='trainingBrief'){this.beginScene('c1TrainingReason');return;}
   if(verb==='northVerify')return this.choose('c1:claim:v12NorthDelivery');
   if(verb==='gateVerify')return this.choose('c1:'+(!active(this,'c1GateCheck')?'accept':'claim')+':c1GateCheck');
   if(verb==='shop'){this.emit('mechanism',{kind:'c1-shop'});return;}
   if(verb==='samples')return this.choose('c1:claim:c1AlchemistSamples');
   if(verb==='waterTalk')return this.choose('c1:'+(this.c1Ready('v12Water')?'claim':'progress')+':v12Water');
-  if(verb==='patrolAccept'){const h=c1State(this);if(h.merchant.activePatrol||this.quests.c1RuneWear!=='done')return;const sequence=++h.merchant.patrolSequence;h.merchant.activePatrol={sequence,route:(sequence-1)%2,diagnosed:false,repaired:false,verified:false};h.journey.counts.c1RunePatrol=0;this.quests.c1RunePatrol='active';chat(this,[['罗萨',(sequence%2?'旧王道与磨坊':'溪边林地与废窑')+'沿线清除八只野兽。数量记满后回来领核心。']]);this.saveEvent();return;}
-  if(verb==='patrolClaim'){const tx=this.c1Claim('c1RunePatrol');if(tx)chat(this,[['罗萨','八只沿线野兽都处理了，运料的人可以继续走。这枚核心是约好的报酬；有下一段路需要照看时，再来问我。']]);return tx;}
-  if(verb==='patrolProgress')return this.choose('c1:progress:c1RunePatrol');
+  if(verb==='patrolAccept'){const h=c1State(this);if(h.merchant.activePatrol||this.quests.c1RuneWear!=='done')return;this.beginScene(h.merchant.patrolSequence%2?'c1PatrolGrove':'c1PatrolRoad','c1:patrolAfterTalk');return true;}
+  if(verb==='patrolClaim'){if(!this.c1Ready('c1RunePatrol'))return false;this.beginScene('c1PatrolReturn','c1:reportAfterTalk:c1RunePatrol');return true;}
+  if(verb==='patrolProgress'){if(hPatrol(this))this.beginScene('c1PatrolProgress');return;}
  };
  P.apply=function(action){const id=typeof action==='string'?action:action?.id;
-  if(id==='c1:completeNorthBrief'){if(this.c1Ready('v12NorthDelivery'))this.c1Claim('v12NorthDelivery');if(done(this,'v12NorthDelivery')&&!done(this,'c1GateCheck')){this.c1Accept('c1GateCheck');this.c1Claim('c1GateCheck');}return;}
-  if(id==='c1:completeGateBrief'){if(this.c1Ready('c1GateCheck'))this.c1Claim('c1GateCheck');return;}
+  if(id?.startsWith('c1:acceptAfterTalk:'))return this.c1Accept(id.slice(19));
+  if(id?.startsWith('c1:reportAfterTalk:')){const [, ,quest,choice]=id.split(':');return this.c1Claim(quest,choice);}
+  if(id==='c1:patrolAfterTalk'){const h=c1State(this);if(h.merchant.activePatrol||this.quests.c1RuneWear!=='done')return;const sequence=++h.merchant.patrolSequence;h.merchant.activePatrol={sequence,route:(sequence-1)%2,diagnosed:false,repaired:false,verified:false};h.journey.counts.c1RunePatrol=0;this.quests.c1RunePatrol='active';this.saveEvent();return;}
+  if(id==='c1:privateTalkDone'){this.flags.c1Viewed={...this.flags.c1Viewed,c1HiddenPairArrangement:true};delete this.flags.c1PrivateTalk;this.saveEvent();return;}
+  if(id==='c1:completeNorthBrief'){this.c1Accept('v12NorthDelivery');if(this.c1Ready('v12NorthDelivery'))this.c1Claim('v12NorthDelivery');if(done(this,'v12NorthDelivery')&&!done(this,'c1GateCheck')){this.c1Accept('c1GateCheck');this.c1Claim('c1GateCheck');}return;}
+  if(id==='c1:completeGateBrief'){this.c1Accept('c1GateCheck');if(this.c1Ready('c1GateCheck'))this.c1Claim('c1GateCheck');return;}
   if(id?.startsWith('c1:localReport:'))return this.c1Claim(id.slice(15));
   if(id?.startsWith('c1:inspect:')){const site=EXPERIENCE_INSPECTIONS[id.slice(11)];if(site&&active(this,site.quest))steps(this,site.quest)[site.step]=true;this.saveEvent();return;}
 if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id==='herbsWoman'?'woman':null);if(id==='c1:samples')return this.c1Claim('c1AlchemistSamples');
   const phase=this.chapter,result=old.apply.call(this,action),h=c1State(this);
-  if(id==='contractAccept'&&phase===1&&this.chapter===2)h.worldChanges.envelope=true;
+  if(id==='contractAccept'&&phase===1&&this.chapter===2){h.worldChanges.envelope=true;if(!this.flags.c1Viewed?.c1HiddenPairArrangement)this.flags.c1PrivateTalk='awaitingExit';}
   if((id==='oldClue'||id==='oldReturn')&&this.flags.rumor&&!done(this,'c1ClockMemory'))this.c1Accept('c1ClockMemory');
   if(id?.startsWith('goodbye-')&&this.chapter===4&&this.flags[id])this.c1Claim('farewell');
   this.c1SyncQuests();return result;
@@ -139,11 +160,11 @@ if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id===
   if(this.chapter<5&&this.map==='canal'&&this.enemies.some(e=>!e.dead&&e.type==='captain'))return '追缉官的盾阵封住了闸口，河岸上已经没有可绕行的空隙。';
   if(this.chapter<5&&d.to==='c1TrialVault'&&!done(this,'c1CryptRepair'))return '库门的断线还在冒火，铁闩卡死了。赫莎守着二层入口的工具桌，她熟悉这里的走线。';
   if(this.chapter<5&&!h.legacyReadinessBypass){
-   if(['c1DrillGallery','c1TrialCrypt'].includes(d.to)&&!done(this,'c1Readiness'))return '肩伤一用力就发紧，地下的旧守卫可不会留手。鲁恩还在会馆等着检查你的伤口。';
+   if(['c1DrillGallery','c1TrialCrypt'].includes(d.to)&&!done(this,'c1Readiness'))return '伊登还没有放开旧廊的铁闩。先完成薇蕾娜安排的庭院实战，再回会馆找鲁恩说明经过。';
    if((this.map==='warehouse'&&d.to==='c1DrillGallery'||this.map==='c1DrillGallery'&&d.to==='warehouse')&&!done(this,'c1ExitDrill'))return '货梯便门从另一面上了闩。伊登不愿让失控守卫闯进粮仓。';
    if(this.map==='hall'&&d.to==='road'&&this.chapter===2&&!done(this,'c1ExitDrill'))return '会馆的出行车还没备好。伊登正为地下的鼠患与失控守卫忙得脱不开身。';
    if(this.map==='road'&&d.to==='town'&&this.chapter===2&&(!done(this,'v12CourierRoad')||!h.worldChanges.morning))return '城门已经落闩，守门人不肯冒着兽患在夜里放行。车棚附近的阿林熟悉车队和开门时辰。';
-   if(d.to==='chapel'&&this.chapter===2){const id=['c1Readiness','c1ExitDrill','v12CourierRoad','c1LoomBrief','v12NorthDelivery','c1GateCheck','c1CanalPrep'].find(id=>!done(this,id));if(id)return ({c1Readiness:'肩伤还没稳住，贸然混入礼拜人群太容易露出破绽。',c1ExitDrill:'地下的骚乱还牵着会馆的人手，你的接应还没有着落。',v12CourierRoad:'进城的车队尚未登记，门卫对陌生面孔格外警惕。',c1LoomBrief:'衣甲的破口太显眼。罗萨留在缀纹工坊，知道怎么补得不惹人注意。',v12NorthDelivery:'前厅守卫正在核对会馆的维护班次。托马还没收到鲁恩的封套。',c1GateCheck:'北侧前厅有人值守，贸然走过去容易被盘问。托马还在北街等着叮嘱你。',c1CanalPrep:'北渠侧门的木料被啃空了，连退路都不稳妥。托马的检修班还不敢上桥。'})[id];}
+   if(d.to==='chapel'&&this.chapter===2){const id=['c1Readiness','c1ExitDrill','v12CourierRoad','c1LoomBrief','v12NorthDelivery','c1GateCheck','c1CanalPrep'].find(id=>!done(this,id));if(id)return ({c1Readiness:'薇蕾娜要先确认你能应付围堵。庭院实战还没向鲁恩复核，现在不能仓促动身。',c1ExitDrill:'地下的骚乱还牵着会馆的人手，你的接应还没有着落。',v12CourierRoad:'进城的车队尚未登记，门卫对陌生面孔格外警惕。',c1LoomBrief:'衣甲的破口太显眼。罗萨留在缀纹工坊，知道怎么补得不惹人注意。',v12NorthDelivery:'前厅守卫正在核对会馆的维护班次。托马还没收到鲁恩的封套。',c1GateCheck:'北侧前厅有人值守，贸然走过去容易被盘问。托马还在北街等着叮嘱你。',c1CanalPrep:'北渠侧门的木料被啃空了，连退路都不稳妥。托马的检修班还不敢上桥。'})[id];}
    if(['town','c1ReedKiln'].includes(this.map)&&d.to==='c1NorthWalk'&&!done(this,'v12NorthDelivery'))return '检修栅门上了锁，外侧挂着维护班的木牌。北街的托马负责保管钥匙。';
    if(this.map==='c1NorthWalk'&&d.to==='c1ReedKiln'&&!done(this,'v12NorthDelivery'))return '窑道的检修栅门锁着，钥匙还在托马手里。';
    if((this.map==='c1NorthWalk'&&d.to==='alley'||this.map==='alley'&&d.to==='c1NorthWalk')&&!done(this,'c1CanalPrep'))return '侧门下的支木被鼠群啃空了，踏上去就吱呀作响。检修班还在托马那里等消息。';
@@ -215,9 +236,10 @@ if(this.chapter<5&&submitAliases[id])return this.c1Claim(submitAliases[id],id===
  };
  P.damage=function(e,...args){const alive=!e.dead,rats=this.flags.rats,result=old.damage.call(this,e,...args);if(alive&&e.dead){if(this.map==='warehouse'&&e.type==='rat')this.flags.rats=active(this,'rats')?Math.min(8,(rats||0)+1):rats;this.c1CreditKill(e);}return result;};
  P.ensureMap=function(id){const r=old.ensureMap.call(this,id);if(c1Map(id)&&['herbs','c1CampHerbs'].some(qid=>active(this,qid)))this.c1SeedResources(id);return r;};
- P.enter=function(id,...args){const r=old.enter.call(this,id,...args);if(this.map===id&&c1Map(id)){this.c1SyncQuests();this.repairEntities();}return r;};
+ P.c1PrivateTalkTick=function(){if(this.flags.c1PrivateTalk!=='exited'||this.flags.c1Viewed?.c1HiddenPairArrangement||this.map==='hall'||this.chapter!==2||!experienceSceneSafe(this))return false;this.beginScene('c1HiddenPairArrangement','c1:privateTalkDone');return true;};
+ P.enter=function(id,...args){const from=this.map,r=old.enter.call(this,id,...args);if(this.map===id&&c1Map(id)){this.c1SyncQuests();this.repairEntities();if(from==='hall'&&id!=='hall'&&this.flags.c1PrivateTalk==='awaitingExit')this.flags.c1PrivateTalk='exited';this.c1PrivateTalkTick();}return r;};
  P.restore=function(...args){const r=old.restore.apply(this,args);this.c1SyncQuests();return r;};
- P.update=function(dt,input={}){const running=this.active&&!this.pending&&!this.transition,before={x:this.p.x,y:this.p.y},r=old.update.call(this,dt,input);if(running&&this.chapter<5){const moving=Math.hypot(this.p.x-before.x,this.p.y-before.y)>.01,combat=this.p.attackAnim>0&&this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<450);if(moving||combat)c1State(this).journey.clock+=dt;this.c1SyncQuests();}return r;};
+ P.update=function(dt,input={}){if(this.c1PrivateTalkTick())return;const running=this.active&&!this.pending&&!this.transition,before={x:this.p.x,y:this.p.y},r=old.update.call(this,dt,input);if(running&&this.chapter<5){const moving=Math.hypot(this.p.x-before.x,this.p.y-before.y)>.01,combat=this.p.attackAnim>0&&this.enemies.some(e=>!e.dead&&Math.hypot(e.x-this.p.x,e.y-this.p.y)<450);if(moving||combat)c1State(this).journey.clock+=dt;this.c1SyncQuests();}return r;};
  P.c1Morning=function(){if(this.map!=='road'||!done(this,'v12CourierRoad'))return false;c1State(this).worldChanges.morning=true;chat(this,[['旁白','车棚挡住夜雨。诺恩把通行纸收进干燥的内袋。'],['旁白','天亮，白榆城开门。离午钟还有一段时间。']]);this.saveEvent();return true;};
 }
 function hPatrol(g){return c1State(g).merchant.activePatrol;}

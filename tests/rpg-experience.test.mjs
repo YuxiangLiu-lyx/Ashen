@@ -66,7 +66,7 @@ test('vault reward needs the warden and actual ledger; reloading cannot duplicat
 });
 test('nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff',()=>{
  const g=game();g.chapter=2;g.quests.c1Readiness='done';enter(g,'c1TrialCrypt');g.c1Accept('c1CryptRepair');const p=g.props.find(p=>p.id==='c1-crypt-cable'),e=g.enemies[0];Object.assign(e,{x:p.interactX+70,y:p.interactY});assert.equal(inspect(g,p.id),false);
- kill(g);g.choose('c1:accept:c1CryptRepair');assert.equal(g.pending.id,'c1RepairAccept');const flow=new StoryFlow(g,DIALOGUES[g.pending.id]);flow.advance();flow.advance();const copy=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(copy.pending.line,2);const restored=new StoryFlow(copy,DIALOGUES[copy.pending.id]);assert.equal(restored.index,2);finish(copy);assert.equal(copy.c1Ready('c1CryptRepair'),false);
+ kill(g);delete g.quests.c1CryptRepair;g.choose('c1:accept:c1CryptRepair');assert.equal(g.pending.id,'c1RepairAccept');const flow=new StoryFlow(g,DIALOGUES[g.pending.id]);flow.advance();flow.advance();const copy=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(copy.pending.line,2);const restored=new StoryFlow(copy,DIALOGUES[copy.pending.id]);assert.equal(restored.index,2);finish(copy);assert.equal(copy.c1Ready('c1CryptRepair'),false);
 });
 test('one north-gate briefing settles both original payments after reading/skip, exactly once',()=>{
  const g=game();g.chapter=2;g.quests.c1CommissionBrief='done';g.quests.v12CourierRoad='done';g.c1Expansion.worldChanges.envelope=true;enter(g,'town');g.c1Accept('v12NorthDelivery');const gold=g.p.gold;g.choose('c1:claim:v12NorthDelivery');assert.equal(g.pending.id,'c1NorthBrief');assert.equal(g.p.gold,gold);

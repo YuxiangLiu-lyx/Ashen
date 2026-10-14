@@ -172,8 +172,8 @@ function showScene(){if(!g.pending)return;mode='dialogue';g.active=false;reset()
 function refreshSceneArtV19(){if(mode==='dialogue'&&flow&&!flow.finished)renderScene();}
 function renderScene(){
  if(!flow||flow.finished)return;cine=flow.cine;sceneToken++;sceneShownAt=performance.now();
- const hidden=!!flow.c1Tail;
- const label=hidden?(flow.c1Tail.id==='c1HiddenPairArrangement'?'稍后 · 灰烛会馆':''):NARRATIVE_SCENE_LABELS_V9[flow.id]||(flow.id==='saintBrief'?'次日清晨 · 礼拜厅':flow.id==='aside'?'稍早 · 会馆议事间':cine?.map==='chamber'?'与此同时 · 庄园内室':MAPS[cine?.map||g.map].name);
+ const hidden=!!flow.c1Tail||flow.id==='c1HiddenPairArrangement';
+ const label=hidden?'稍后 · 灰烛会馆':NARRATIVE_SCENE_LABELS_V9[flow.id]||(flow.id==='saintBrief'?'次日清晨 · 礼拜厅':flow.id==='aside'?'稍早 · 会馆议事间':cine?.map==='chamber'?'与此同时 · 庄园内室':MAPS[cine?.map||g.map].name);
  if(flow.phase==='action'){
   const heldArt=sceneIllustrationV19(flow,SCENE_ILLUSTRATIONS_V20),heldHTML=storyIllustrationHTMLV19(heldArt);
   const previous=flow.lines[flow.index-1];
@@ -184,7 +184,7 @@ function renderScene(){
  }
  const [speaker,line]=flow.current;if(!cine&&!hidden){const id=Object.keys(npcNames).find(k=>npcNames[k].endsWith(speaker));if(id)g.faceNPC(id);}
  const art=hidden?null:sceneIllustrationV19(flow,SCENE_ILLUSTRATIONS_V20),artHTML=storyIllustrationHTMLV19(art);
- ui.innerHTML=`<div class="dialogue-wrap ${hidden?'backstage-dialogue':''} ${['ch2TargetBefore','ch2TargetAfter'].includes(flow.id)?'court-dialogue':''} ${artHTML?'story-illustrated-v19':''}">${artHTML||portraitHTML(speaker)}${label?`<p class="scene-label">${escape(label)}</p>`:''}<section class="dialogue-card"><div class="dialogue-copy">${speaker?`<p class="speaker">${escape(speaker)}</p>`:''}<p class="line">${escape(line)}</p><div class="dialogue-bottom"><span>${speaker==='旁白'?'':' '}</span>${testSkipButton()}<button data-act="next" data-scene-token="${sceneToken}">继续 ▸</button></div></div></section></div>`;
+ ui.innerHTML=`<div class="dialogue-wrap ${['ch2TargetBefore','ch2TargetAfter'].includes(flow.id)?'court-dialogue':''} ${artHTML?'story-illustrated-v19':''}">${artHTML||portraitHTML(speaker)}${label?`<p class="scene-label">${escape(label)}</p>`:''}<section class="dialogue-card"><div class="dialogue-copy">${speaker?`<p class="speaker">${escape(speaker)}</p>`:''}<p class="line">${escape(line)}</p><div class="dialogue-bottom"><span>${speaker==='旁白'?'':' '}</span>${testSkipButton()}<button data-act="next" data-scene-token="${sceneToken}">继续 ▸</button></div></div></section></div>`;
 }
 function testSkipButton(){return isStoryTestV25(g)?`<button data-act="test-skip" title="跳过当前主线步骤；对白中跳过当前连续对白">${g.pending?'跳过当前对白':'跳过主线步骤'}</button>`:'';}
 function skipTestStep(){

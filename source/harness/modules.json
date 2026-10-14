@@ -564,6 +564,8 @@
         "npc事件"
       ],
       "entries": [
+        "dist/chapter-one-quest-dialogues.js",
+        "dist/chapter-one-private-staging.js",
         "dist/world-dialogues-v29.js",
         "dist/chengli-text-v27.js",
         "dist/data-v14.js",
@@ -601,7 +603,8 @@
         "docs/harness/CHAPTER*",
         "dist/rpg-experience-triggers.js",
         "dist/rpg-chapter-three.js",
-        "dist/rpg-chapter-three-data.js"
+        "dist/rpg-chapter-three-data.js",
+        "dist/chapter-one-private-staging.js"
       ],
       "rules": [
         "docs/harness/STORY.md",
@@ -617,7 +620,8 @@
         "node --test tests/world-v29.test.mjs",
         "node --test tests/chapter-one-incremental.test.mjs",
         "node --test tests/ch12-bugs.test.mjs",
-        "python3 tools/harness/check.py --tier narrative"
+        "python3 tools/harness/check.py --tier narrative",
+        "node --test tests/c1-story-flow.test.mjs"
       ]
     },
     {
@@ -1009,6 +1013,7 @@
         "chapter 1"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_STORY_FLOW.md",
         "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
         "docs/harness/CHAPTER_01.md"
       ],
@@ -1016,7 +1021,7 @@
         "docs/harness/NARRATIVE_WORKFLOW.md",
         "docs/harness/STORY.md"
       ],
-      "risk": "第一章1.0按全游戏体验新授权实施；保留原刺杀、私谈、知识边界和旧档，不恢复撤回的0.1/0.2大重构。后续章按独立任务逐章实施。"
+      "risk": "第一章1.1按当前用户要求重写任务交代和真实离场私谈，诺恩无既定肩伤；保留1.0玩法与主线结果及旧档。"
     },
     {
       "patterns": [

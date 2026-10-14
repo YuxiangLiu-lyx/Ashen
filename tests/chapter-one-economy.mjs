@@ -43,7 +43,7 @@ export function journey(cls='shadow',route='main_only',seed=42){
  use('c1DrillGallery');use('warehouse');use('hall');if(all)claim('steward','v12Water');use('steward');choose('rest');
  use('road');accept('courier','v12CourierRoad');if(side)accept('courier','letter');fight();claim('courier','v12CourierRoad');
  if(side){for(let n=0;!g.c1Ready('letter')&&n<8;n++){use('hall');waitActive();use('road');fight();}claim('courier','letter');}
- use('c1-shelter');g.c1Morning();finish();use('town');grow();buy(5);accept('watch','v12NorthDelivery');claim('watch','v12NorthDelivery');assert.equal(g.quests.c1GateCheck,'done');accept('watch','c1CanalPrep');
+ use('c1-shelter');g.c1Morning();finish();use('town');grow();buy(5);accept('watch','v12NorthDelivery');assert.equal(g.quests.v12NorthDelivery,'done');assert.equal(g.quests.c1GateCheck,'done');accept('watch','c1CanalPrep');
  if(all){accept('herbalist','herbs');accept('oldwoman','c1ClockMemory');accept('dolly','lantern');}
  use('workshop');if(all){accept('lotti','copper');accept('lotti','echo');}use('c1LoomRoom');accept('c1rosa','c1LoomBrief');craft();claim('c1rosa','c1LoomBrief');
  if(side)accept('c1rosa','c1RuneWear');if(all){accept('c1rosa','c1RuneKiln');accept('c1saido','c1AlchemistSamples');}

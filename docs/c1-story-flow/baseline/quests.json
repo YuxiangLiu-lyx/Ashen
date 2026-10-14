@@ -1,0 +1,358 @@
+{
+  "rats": {
+    "id": "rats",
+    "name": "库房异响",
+    "xp": 65,
+    "gold": 25,
+    "map": "hall",
+    "target": "steward",
+    "requires": [],
+    "index": 1,
+    "type": "主线"
+  },
+  "c1CommissionBrief": {
+    "id": "c1CommissionBrief",
+    "name": "委托与行前准备",
+    "xp": 15,
+    "gold": 10,
+    "map": "hall",
+    "target": "sister",
+    "requires": [
+      "rats"
+    ],
+    "index": 2,
+    "type": "主线"
+  },
+  "c1Readiness": {
+    "id": "c1Readiness",
+    "name": "庭院实战",
+    "xp": 20,
+    "gold": 12,
+    "map": "c1TrainingYard",
+    "target": "c1-moss-1",
+    "requires": [
+      "c1CommissionBrief"
+    ],
+    "index": 3,
+    "type": "主线"
+  },
+  "c1ExitDrill": {
+    "id": "c1ExitDrill",
+    "name": "旧廊的试炼守卫",
+    "xp": 20,
+    "gold": 12,
+    "map": "c1DrillGallery",
+    "target": "c1-trial-warden",
+    "requires": [
+      "c1Readiness"
+    ],
+    "index": 4,
+    "type": "主线"
+  },
+  "c1LoomBrief": {
+    "id": "c1LoomBrief",
+    "name": "看清手上的纹路",
+    "xp": 15,
+    "gold": 10,
+    "map": "c1LoomRoom",
+    "target": "c1-loom",
+    "requires": [
+      "v12CourierRoad"
+    ],
+    "index": 5,
+    "type": "主线"
+  },
+  "v12CourierRoad": {
+    "id": "v12CourierRoad",
+    "name": "旧王道巡查",
+    "xp": 45,
+    "gold": 15,
+    "map": "road",
+    "target": "courier",
+    "requires": [
+      "c1ExitDrill"
+    ],
+    "index": 6,
+    "type": "主线"
+  },
+  "v12NorthDelivery": {
+    "id": "v12NorthDelivery",
+    "name": "维护班次的封套",
+    "xp": 25,
+    "gold": 10,
+    "map": "town",
+    "target": "watch",
+    "requires": [
+      "c1CommissionBrief"
+    ],
+    "index": 7,
+    "type": "主线"
+  },
+  "c1GateCheck": {
+    "id": "c1GateCheck",
+    "name": "午钟后的门",
+    "xp": 20,
+    "gold": 10,
+    "map": "town",
+    "target": "watch",
+    "requires": [
+      "v12CourierRoad"
+    ],
+    "index": 8,
+    "type": "主线"
+  },
+  "c1CanalPrep": {
+    "id": "c1CanalPrep",
+    "name": "清除渠鼠，确认退路",
+    "xp": 20,
+    "gold": 12,
+    "map": "c1NorthWalk",
+    "target": "c1-valve-rat",
+    "requires": [
+      "v12NorthDelivery"
+    ],
+    "index": 9,
+    "type": "主线"
+  },
+  "c1Assassination": {
+    "id": "c1Assassination",
+    "name": "午钟",
+    "xp": 65,
+    "gold": 20,
+    "map": "chapel",
+    "target": "chapel",
+    "requires": [
+      "c1LoomBrief",
+      "v12NorthDelivery",
+      "c1GateCheck",
+      "c1CanalPrep"
+    ],
+    "index": 10,
+    "type": "主线"
+  },
+  "c1CanalBreak": {
+    "id": "c1CanalBreak",
+    "name": "闸口已清",
+    "xp": 15,
+    "gold": 15,
+    "map": "canal",
+    "target": "c1-sluice",
+    "requires": [
+      "c1Assassination"
+    ],
+    "index": 11,
+    "type": "主线"
+  },
+  "c1Departure": {
+    "id": "c1Departure",
+    "name": "离城",
+    "xp": 100,
+    "gold": 45,
+    "map": "canal",
+    "target": "end",
+    "requires": [
+      "c1CanalBreak"
+    ],
+    "index": 12,
+    "type": "主线"
+  },
+  "oil": {
+    "id": "oil",
+    "name": "不漏的灯",
+    "xp": 30,
+    "gold": 15,
+    "map": "hall",
+    "target": "steward",
+    "type": "支线"
+  },
+  "v12Water": {
+    "id": "v12Water",
+    "name": "缓解旧伤的药",
+    "xp": 20,
+    "gold": 5,
+    "map": "hall",
+    "target": "steward",
+    "type": "支线"
+  },
+  "letter": {
+    "id": "letter",
+    "name": "被水浸过的信",
+    "xp": 40,
+    "gold": 20,
+    "map": "road",
+    "target": "courier",
+    "type": "支线"
+  },
+  "herbs": {
+    "id": "herbs",
+    "name": "先给谁的药",
+    "xp": 45,
+    "gold": 20,
+    "map": "town",
+    "target": "herbalist",
+    "type": "支线"
+  },
+  "lantern": {
+    "id": "lantern",
+    "name": "晚归的路",
+    "xp": 35,
+    "gold": 12,
+    "map": "town",
+    "target": "dolly",
+    "type": "支线"
+  },
+  "copper": {
+    "id": "copper",
+    "name": "铜圈传力",
+    "xp": 30,
+    "gold": 12,
+    "map": "workshop",
+    "target": "lotti",
+    "type": "支线"
+  },
+  "echo": {
+    "id": "echo",
+    "name": "旧机芯的回声",
+    "xp": 45,
+    "gold": 20,
+    "map": "workshop",
+    "target": "lotti",
+    "type": "支线"
+  },
+  "c1ClockMemory": {
+    "id": "c1ClockMemory",
+    "name": "留在石下的名字",
+    "xp": 30,
+    "gold": 15,
+    "map": "town",
+    "target": "oldwoman",
+    "type": "支线"
+  },
+  "farewell": {
+    "id": "farewell",
+    "name": "临行之前",
+    "xp": 10,
+    "gold": 5,
+    "map": "town",
+    "target": "dolly",
+    "type": "支线"
+  },
+  "c1RuneWear": {
+    "id": "c1RuneWear",
+    "name": "走偏的纹路",
+    "xp": 30,
+    "gold": 18,
+    "map": "c1LoomRoom",
+    "target": "c1rosa",
+    "type": "支线"
+  },
+  "c1RuneKiln": {
+    "id": "c1RuneKiln",
+    "name": "窑里不该有的风",
+    "xp": 35,
+    "gold": 20,
+    "map": "c1LoomRoom",
+    "target": "c1rosa",
+    "type": "支线"
+  },
+  "c1AlchemistSamples": {
+    "id": "c1AlchemistSamples",
+    "name": "三处异变",
+    "xp": 50,
+    "gold": 30,
+    "map": "c1LoomRoom",
+    "target": "c1saido",
+    "type": "支线"
+  },
+  "c1CryptRepair": {
+    "id": "c1CryptRepair",
+    "name": "蓄能廊的断响",
+    "map": "c1TrialCrypt",
+    "target": "c1hesha",
+    "requires": [
+      "c1Readiness"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1VaultWatch": {
+    "id": "c1VaultWatch",
+    "name": "封存库最后的看守",
+    "map": "c1TrialVault",
+    "target": "c1venn",
+    "requires": [
+      "c1CryptRepair"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1CampHunt": {
+    "id": "c1CampHunt",
+    "name": "让背柴的人回来",
+    "map": "c1RiversideCamp",
+    "target": "c1blake",
+    "requires": [
+      "c1ExitDrill"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1CampHerbs": {
+    "id": "c1CampHerbs",
+    "name": "营地的退热药",
+    "map": "c1RiversideCamp",
+    "target": "c1eve",
+    "requires": [
+      "c1ExitDrill"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1KilnRoost": {
+    "id": "c1KilnRoost",
+    "name": "窑工回家的路",
+    "map": "c1KilnCourt",
+    "target": "c1mada",
+    "requires": [
+      "c1ExitDrill"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1TrialSalvage": {
+    "id": "c1TrialSalvage",
+    "name": "还能用的铆钉",
+    "map": "c1TrialFoyer",
+    "target": "c1iden",
+    "requires": [
+      "c1Readiness"
+    ],
+    "xp": 30,
+    "gold": 14,
+    "type": "支线"
+  },
+  "c1RunePatrol": {
+    "id": "c1RunePatrol",
+    "name": "沿线讨伐",
+    "xp": 10,
+    "gold": 18,
+    "map": "c1LoomRoom",
+    "target": "c1rosa",
+    "type": "支线",
+    "routes": [
+      [
+        "road",
+        "millpath"
+      ],
+      [
+        "grove",
+        "c1ReedKiln"
+      ]
+    ]
+  }
+}

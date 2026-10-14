@@ -71,7 +71,7 @@ try{
    if(s.tail)seen.add(s.tail.line);if(s.phase==='dialogue')await clickNext();await delay(280);
   }
   const final=await b.evaluate('__C1.state()');assert.equal(final.pending,null,id+' completion');
-  assert.equal(final.chapter,id==='contract'?2:3);assert.equal(seen.size,id==='contract'?11:0);report.fullScenes.push({id,hiddenLines:[...seen],final});
+  assert.equal(final.chapter,id==='contract'?2:3);assert.equal(seen.size,0);if(id==='contract')assert.equal(final.flags.c1PrivateTalk,'awaitingExit');report.fullScenes.push({id,hiddenLines:[...seen],final});
  }
  assert.equal(await b.evaluate("document.querySelectorAll('[data-act=c1-replay],.c1-cinema-ui').length"),0);
  assert.equal(b.requests.filter(p=>/chapter-one-cinematic|c1-incremental\/(chapel|seal-echo)/.test(p)).length,0);

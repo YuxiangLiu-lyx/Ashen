@@ -4,7 +4,7 @@ export const C1_VERSION=4;
 export const C1_MAIN=[
  ['rats','库房异响',65,25,'hall','steward',[]],
  ['c1CommissionBrief','委托与行前准备',15,10,'hall','sister',['rats']],
- ['c1Readiness','久行归来的例检',20,12,'c1TrainingYard','c1-record',['c1CommissionBrief']],
+ ['c1Readiness','出发前的试炼',20,12,'c1TrainingYard','c1-record',['c1CommissionBrief']],
  ['c1ExitDrill','带负重走出试炼廊',20,12,'c1DrillGallery','c1-drill-exit',['c1Readiness']],
  ['c1LoomBrief','看清手上的纹路',15,10,'c1LoomRoom','c1-loom',['v12CourierRoad']],
  ['v12CourierRoad','旧王道巡查',45,15,'road','courier',['c1ExitDrill']],
@@ -16,7 +16,7 @@ export const C1_MAIN=[
  ['c1Departure','离城',100,45,'canal','end',['c1CanalBreak']]
 ].map(([id,name,xp,gold,map,target,requires],i)=>({id,name,xp,gold,map,target,requires,index:i+1,type:'主线'}));
 export const C1_SIDE=[
- ['oil','不漏的灯',30,15,'hall','steward'],['v12Water','炉边的旧伤',20,5,'hall','steward'],
+ ['oil','不漏的灯',30,15,'hall','steward'],['v12Water','药箱里的备用药',20,5,'hall','steward'],
  ['letter','被水浸过的信',40,20,'road','courier'],['herbs','先给谁的药',45,20,'town','herbalist'],
  ['lantern','晚归的路',35,12,'town','dolly'],['copper','铜圈传力',30,12,'workshop','repair-bench'],
  ['echo','旧机芯的回声',45,20,'workshop','lotti'],['c1ClockMemory','留在石下的名字',30,15,'town','oldwoman'],
