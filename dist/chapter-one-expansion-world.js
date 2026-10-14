@@ -1,3 +1,4 @@
+import {EXPERIENCE_DUNGEONS,EXPERIENCE_CACHES} from './rpg-experience-exploration.js';
 import {C1_PEOPLE} from './chapter-one-story-world.js';
 import {C1_NEW_MAPS} from './chapter-one-expansion-data.js';
 import {c1State} from './chapter-one-expansion-save.js';
@@ -17,6 +18,7 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  create('c1ReedKiln','苇湾废窑',false,[],[['bat',550,760,'c1-kiln-bat-a'],['bat',760,580,'c1-kiln-bat-b'],['bat',1030,460,'c1-kiln-bat-c'],['bat',1280,620,'c1-kiln-bat-d'],['bat',1200,760,'c1-kiln-bat-e']]);
  for(const [id,name,safe]of [['c1TrialFoyer','地下接待室',true],['c1TrialCrypt','二层蓄能廊',false],['c1TrialVault','三层封存库',false],['c1RiversideCamp','河畔营地',true],['c1KilnCourt','窑工院',true]])create(id,name,safe,[],[]);
  for(const [id,p]of Object.entries(C1_PEOPLE)){const xy={c1iden:[530,530],c1hesha:[280,855],c1venn:[285,845],c1blake:[455,530],c1eve:[1130,900],c1mada:[465,540]}[id];MAPS[p.map].npcs.push(npc(id,p.name,...xy,4));}
+ for(const [id,spawns]of Object.entries(EXPERIENCE_DUNGEONS))MAPS[id].spawns=spawns.map(s=>[...s]);
  const join=(a,b,ax,ay,bx,by)=>{MAPS[a].doors.push(door(b,ax,ay,bx,by,MAPS[b].name));MAPS[b].doors.push(door(a,bx,by,ax,ay,MAPS[a].name));};
  join('hall','c1TrainingYard',180,560,220,820);join('c1TrainingYard','c1TrialFoyer',1360,860,220,870);join('c1TrialFoyer','c1DrillGallery',1360,520,220,870);join('c1TrialFoyer','c1TrialCrypt',1020,880,210,905);join('c1TrialCrypt','c1TrialVault',1380,870,210,915);join('c1DrillGallery','warehouse',1350,860,240,870);
  join('workshop','c1LoomRoom',1340,740,230,850);join('town','c1NorthWalk',1100,220,230,850);join('c1NorthWalk','alley',1370,850,480,870);join('grove','c1ReedKiln',1390,540,230,870);
@@ -32,6 +34,9 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  MAPS.millpath.spawns.push(['wolf',1150,830,'c1-mill-wolf-2'],['wolf',710,350,'c1-mill-wolf-3']);
  const keep={hall:['hallbook','hallpot'],warehouse:['crack','frost','wbox1','wbox2'],road:[],town:['well','townbook'],chapel:[],alley:['alleycrate'],canal:['canalbox'],grove:['stone'],guestroom:['guest-journal','guest-basin','guest-bunk'],millpath:['mill-barrel'],echo:['echo-machine','echo-valve','v29-echo-core'],workshop:['repair-bench','reset-bench','v29-repair-core']};
  for(const [id,ids]of Object.entries(keep))MAPS[id].props=MAPS[id].props.filter(p=>ids.includes(p.id));
+ for(const [id,c]of Object.entries(EXPERIENCE_CACHES))MAPS[c.map].props.push(prop(id,c.label,c.x,c.y,'c1:cache',{c1Art:['Furnishings',4,75,65],c1Box:[c.x-27,c.y-22,54,22],interactX:c.x,interactY:c.y+45}));
+ MAPS.c1TrialCrypt.props.push(prop('c1-crypt-cable','供能机接头',540,330,'c1:inspect',{c1Art:['Utilities',14,135,70],c1Box:[493,300,94,30],interactX:540,interactY:390}),prop('c1-crypt-drain','回水槽接缝',1200,350,'c1:inspect',{c1Art:['Objects',2,220,65],c1Box:[1123,320,154,30],interactX:1200,interactY:410}));
+ MAPS.c1TrialVault.props.push(prop('c1-vault-ledger','东厅封存清册',1180,300,'c1:inspect',{c1Art:['Furnishings',2,210,170],c1Box:[1106,270,147,30],interactX:1180,interactY:360}));
  MAPS.road.props.push(prop('c1-shelter','城门外车棚 · 歇到天亮',1330,440,'c1:shelter',{c1Art:['Objects',10,80,48],interactX:1330,interactY:495}));
  MAPS.c1LoomRoom.props.push(prop('c1-loom','缀纹机 · 比较与制作',780,520,'c1:loom',{c1Art:['loom',0,145,185],c1Box:[725,440,110,80],interactX:780,interactY:575}));
  for(const [map,sites]of Object.entries(C1_RESOURCE_SITES))sites.forEach(([x,y],i)=>MAPS[map].props.push(prop('c1-herb-'+i,'银叶草',x,y,'c1:herb',{type:'herb',c1Resource:true,c1Art:['Furnishings',8,48,42]})));
@@ -55,8 +60,10 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
  C1_FURNITURE.warehouse=C1_FURNITURE.warehouse.filter(o=>o.sheet!=='chapterSettlement');
  C1_FURNITURE.guestroom=C1_FURNITURE.guestroom.filter(o=>!(o.sheet==='chapterUtilities'&&o.asset===0));
  C1_FURNITURE.road=C1_FURNITURE.road.filter(o=>!(o.sheet==='chapterObjects'&&o.asset===10));
+ C1_FURNITURE.c1TrialCrypt=C1_FURNITURE.c1TrialCrypt.filter(o=>!(o.sheet==='chapterUtilities'&&o.asset===14&&o.x===540)&&!(o.sheet==='chapterObjects'&&o.asset===2&&o.x===1200));
+ C1_FURNITURE.c1TrialVault=C1_FURNITURE.c1TrialVault.filter(o=>!(o.sheet==='chapterFurnishings'&&o.asset===2&&o.x===1180));
  C1_FURNITURE.echo=C1_FURNITURE.echo.filter(o=>o.sheet!=='chapterSettlement');
- for(const id of C1_MAPS){const m=MAPS[id],layout=C1_LAYOUTS[id];m.c1Layout=9;m.sub=layout.space;
+ for(const id of C1_MAPS){const m=MAPS[id],layout=C1_LAYOUTS[id];m.c1Layout=EXPERIENCE_DUNGEONS[id]?10:9;m.sub=layout.space;
   const boundary=c1Boundary(id);BOUNDARIES[id]=boundary;WATERS[id]=(layout.water||[]).map(b=>[...b]);delete BRIDGES[id];
   SCENERY[id]=(C1_FURNITURE[id]||[]).map((o,i)=>({...o,id:'c1-furniture-'+id+'-'+i}));
   m.blocks=[...boundary,...SCENERY[id].map(o=>o.box),...m.props.flatMap(p=>p.c1Box?[p.c1Box]:[])];
@@ -69,7 +76,7 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
   if(id==='c1TrainingYard')fill('rat','c1-moss-',8,s=>s[3]?.startsWith('c1-moss-'));
   if(id==='c1DrillGallery')fill('rat','c1-sentry-',8,s=>s[3]?.startsWith('c1-sentry-'));
   if(id==='c1TrialCrypt')fill('rat','c1-crypt-',8,()=>true);
-  if(id==='c1TrialVault'){fill('rat','c1-vault-sentry-',8,()=>true);m.spawns.push(['wolf',1280,510,'c1-vault-warden']);}
+  if(id==='c1TrialVault'&&!EXPERIENCE_DUNGEONS[id]){fill('rat','c1-vault-sentry-',8,()=>true);m.spawns.push(['wolf',1280,510,'c1-vault-warden']);}
   if(id==='road')fill('wolf','c1-road-beast-',8,s=>['rat','wolf'].includes(s[0]));
   if(id==='grove')fill('wolf','c1-grove-beast-',8,s=>['rat','wolf','bat'].includes(s[0])&&!s[3]?.includes('elite'));
   if(id==='c1NorthWalk'){fill('rat','c1-north-rat-',8,s=>s[0]==='rat');fill('bat','c1-north-bat-',8,s=>s[0]==='bat');}
@@ -79,14 +86,14 @@ export function configureC1World({MAPS,SCENERY,BOUNDARIES}){
   if(m.encounters)m.encounters=[];
   m.ambientActors=(m.ambientActors||[]).filter((a,i)=>i<2&&!(m.blocks.some(([x,y,w,h])=>a.x>x-20&&a.x<x+w+20&&a.y>y-20&&a.y<y+h+20)));
   for(const d of m.doors){const floors={hall:0,warehouse:0,c1TrainingYard:0,c1TrialFoyer:1,c1DrillGallery:1,c1TrialCrypt:2,c1TrialVault:3};if(floors[id]!==undefined&&floors[d.to]!==undefined&&floors[id]!==floors[d.to])d.c1Stair=floors[d.to]>floors[id]?'down':'up';d.manualOnly=true;d.c1Exit=true;d.x=Math.max(175,Math.min(1425,d.x));d.y=Math.max(225,Math.min(935,d.y));if(id==='town'&&d.to==='chapel')d.y=290;}
-  for(const p of m.props){p.c1Layout=9;p.geometryV26=false;p.collisionV281=false;}
+  for(const p of m.props){p.c1Layout=m.c1Layout;p.geometryV26=false;p.collisionV281=false;}
  }
 }
 export function installC1World(RPG){
  const P=RPG.prototype,enter=P.enter,ensure=P.ensureMap,restore=P.restore,pathDirection=P.pathDirection;
  function align(g,id){if(!c1Map(id)||!g.states[id])return;const st=g.states[id],m=worldMaps[id];
   const previous=new Map(st.props.map(p=>[p.id,p]));st.props=m.props.map(p=>({...previous.get(p.id),...p,hp:previous.get(p.id)?.hp??(p.action?999:18),used:previous.get(p.id)?.used||false,broken:previous.get(p.id)?.broken||false}));
-  if(st.c1Layout!==9){st.c1Layout=9;for(const [i,s]of m.spawns.entries()){const key=s[3]||id+'-'+i;if(!st.enemies.some(e=>e.id===key))st.enemies.push(g.enemy(s[0],s[1],s[2],key));}
+  if(st.c1Layout!==m.c1Layout){st.c1Layout=m.c1Layout;for(const [i,s]of m.spawns.entries()){const key=s[3]||id+'-'+i;if(!st.enemies.some(e=>e.id===key))st.enemies.push(g.enemy(s[0],s[1],s[2],key));}
    for(const e of st.enemies){const spawn=m.spawns.find(s=>(s[3]||id+'-'+m.spawns.indexOf(s))===e.id);if(e.id.startsWith('c1-crypt-')){delete e.c1Species;e.label='啃线鼠';}if(spawn)Object.assign(e,{x:spawn[1],y:spawn[2],homeX:spawn[1],homeY:spawn[2],roamTarget:null,leashBounds:null,activationBounds:null});}for(const k of Object.keys(g.npcPoses||{}))if(k.startsWith(id+':'))delete g.npcPoses[k];}
  }
  P.ensureMap=function(id){const r=ensure.call(this,id);align(this,id);return r;};

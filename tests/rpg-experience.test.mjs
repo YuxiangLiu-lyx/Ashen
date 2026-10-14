@@ -3,6 +3,16 @@ import assert from 'node:assert/strict';
 import {RPG,stats,needXP} from '../dist/core-v14.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
 import {c1Panel,c1UIAction} from '../dist/chapter-one-expansion-ui.js';
+import {C1_QUESTS} from '../dist/chapter-one-expansion-data.js';
+import {DIALOGUES} from '../dist/data-v14.js';
+import {StoryFlow} from '../dist/story-flow-v14.js';
+import fs from 'node:fs';
+import {EXPERIENCE_CACHES,EXPERIENCE_DUNGEONS} from '../dist/rpg-experience-exploration.js';
+import {EXPERIENCE_INSPECTIONS} from '../dist/rpg-experience-dialogues.js';
+const finish=g=>{for(let i=0;g.pending&&i<80;i++)g.finishScene();g.active=true;};
+const enter=(g,map)=>{g.enter(map);finish(g);};
+const kill=g=>{for(const e of g.enemies)if(!e.dead)g.damage(e,99999);finish(g);};
+const inspect=(g,id)=>{const p=g.props.find(p=>p.id===id);g.relocate(p.interactX,p.interactY);return g.useProp(id);};
 const game=()=>{const g=new RPG('shadow',null,()=>.9);g.pending=null;g.active=true;return g;};
 const near=(g,id)=>{const n=g.npcs.find(n=>n.id===id);g.relocate(n.x,n.y+55);};
 test('overkill behind a vulnerable enemy never serializes negative health',()=>{const g=game();g.map='c1DrillGallery';g.ensureMap(g.map);const e=g.enemies[0];e.angle=0;g.p.x=e.x-60;g.p.y=e.y;g.damage(e,99999);assert.equal(e.hp,0);assert.equal(e.dead,true);parseSave(JSON.stringify(g.snapshot()));});
@@ -39,4 +49,46 @@ test('actual service panel buys/equips/sells, rest and potion restore real resou
  const n=g.p.items.hp;c1UIAction(g,'outfit-potion:clerk:hp');assert.equal(g.p.items.hp,n+1);assert.equal(g.p.gold,74);
  g.chapter=2;g.enter('c1TrialFoyer');g.pending=null;near(g,'c1iden');g.p.hp=10;g.p.mp=1;assert.ok(g.experienceRest('c1iden'));assert.equal(g.p.hp,stats(g.p).hp);assert.equal(g.p.mp,stats(g.p).mp);assert.equal(g.p.gold,74);
  g.pending=null;g.chapter=3;assert.equal(g.experienceBuyPotion('c1iden','hp'),false);assert.equal(g.experienceRest('c1iden'),false);
+});
+test('repair uses physical findings and earlier warden evidence, without a second kill quota',()=>{
+ const g=game();g.chapter=2;g.quests.c1Readiness='done';enter(g,'c1DrillGallery');kill(g);enter(g,'c1TrialCrypt');kill(g);
+ assert.equal(inspect(g,'c1-crypt-cable'),false,'must receive the commission');g.c1Accept('c1CryptRepair');
+ assert.equal(g.c1Ready('c1CryptRepair'),false);assert.ok(inspect(g,'c1-crypt-cable'));assert.equal(g.c1Expansion.questSteps.c1CryptRepair.a,undefined,'finding commits at scene completion');
+ const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));finish(r);assert.equal(r.c1Expansion.questSteps.c1CryptRepair.a,true);assert.equal(r.c1Ready('c1CryptRepair'),false);assert.equal(inspect(r,'c1-crypt-cable'),false);
+ assert.ok(inspect(r,'c1-crypt-drain'));finish(r);assert.ok(r.c1Ready('c1CryptRepair'));const gold=r.p.gold;r.choose('c1:claim:c1CryptRepair');assert.equal(r.p.gold,gold);finish(r);assert.equal(r.p.gold,gold+14);assert.equal(r.c1Expansion.worldChanges.leakFixed,true);assert.equal(r.quests.c1CryptRepair,'done');
+ r.apply('c1:localReport:c1CryptRepair');assert.equal(r.p.gold,gold+14);assert.doesNotThrow(()=>parseSave(JSON.stringify(r.snapshot())));
+});
+test('vault reward needs the warden and actual ledger; reloading cannot duplicate medicine',()=>{
+ const g=game();g.chapter=2;g.quests.c1CryptRepair='done';enter(g,'c1TrialVault');g.c1Accept('c1VaultWatch');assert.equal(inspect(g,'c1-vault-ledger'),false);kill(g);assert.equal(g.c1Ready('c1VaultWatch'),false);assert.ok(inspect(g,'c1-vault-ledger'));finish(g);assert.ok(g.c1Ready('c1VaultWatch'));
+ const hp=g.p.items.hp,gold=g.p.gold;g.choose('c1:claim:c1VaultWatch');const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));finish(r);assert.equal(r.p.items.hp,hp+2);assert.equal(r.p.gold,gold+14);r.apply('c1:localReport:c1VaultWatch');assert.equal(r.p.items.hp,hp+2);assert.equal(r.p.gold,gold+14);
+});
+test('nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff',()=>{
+ const g=game();g.chapter=2;g.quests.c1Readiness='done';enter(g,'c1TrialCrypt');g.c1Accept('c1CryptRepair');const p=g.props.find(p=>p.id==='c1-crypt-cable'),e=g.enemies[0];Object.assign(e,{x:p.interactX+70,y:p.interactY});assert.equal(inspect(g,p.id),false);
+ kill(g);g.choose('c1:accept:c1CryptRepair');assert.equal(g.pending.id,'c1RepairAccept');const flow=new StoryFlow(g,DIALOGUES[g.pending.id]);flow.advance();flow.advance();const copy=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(copy.pending.line,2);const restored=new StoryFlow(copy,DIALOGUES[copy.pending.id]);assert.equal(restored.index,2);finish(copy);assert.equal(copy.c1Ready('c1CryptRepair'),false);
+});
+test('one north-gate briefing settles both original payments after reading/skip, exactly once',()=>{
+ const g=game();g.chapter=2;g.quests.c1CommissionBrief='done';g.quests.v12CourierRoad='done';g.c1Expansion.worldChanges.envelope=true;enter(g,'town');g.c1Accept('v12NorthDelivery');const gold=g.p.gold;g.choose('c1:claim:v12NorthDelivery');assert.equal(g.pending.id,'c1NorthBrief');assert.equal(g.p.gold,gold);
+ const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));finish(r);const expected=C1_QUESTS.v12NorthDelivery.gold+C1_QUESTS.c1GateCheck.gold;assert.equal(r.p.gold,gold+expected);assert.equal(r.quests.c1GateCheck,'done');assert.equal(r.flags.gateXP,true);assert.ok(r.c1Expansion.claimLedger['quest:v12NorthDelivery']);assert.ok(r.c1Expansion.claimLedger['quest:c1GateCheck']);r.apply('c1:completeNorthBrief');assert.equal(r.p.gold,gold+expected);
+ const old=game();old.chapter=2;old.quests.v12CourierRoad='done';old.quests.v12NorthDelivery='done';enter(old,'town');const before=old.p.gold;old.choose('c1:accept:c1GateCheck');assert.equal(old.pending.id,'c1GateBrief');finish(old);assert.equal(old.p.gold,before+10);assert.equal(old.quests.c1GateCheck,'done');
+});
+test('schema4 ready local work stays payable, partial kills are retained, migration pays nothing',()=>{
+ for(const id of ['c1CryptRepair','c1VaultWatch'])for(const ready of [true,false]){
+  const g=game();g.chapter=2;g.quests[id]='active';enter(g,id==='c1CryptRepair'?'c1TrialCrypt':'c1TrialVault');kill(g);const s=g.snapshot();s.c1Expansion.schema=4;s.c1Expansion.journey.revision=9;
+  s.c1Expansion.journey.parts[id]=id==='c1CryptRepair'?{cableRats:8,sentries:ready?8:3}:{vaultGuards:ready?8:3,cableRats:8};const gold=s.p.gold,ledger=structuredClone(s.c1Expansion.claimLedger);const r=new RPG('shadow',parseSave(JSON.stringify(s)));assert.equal(r.c1Expansion.schema,5);assert.equal(r.c1Ready(id),ready);assert.equal(r.p.gold,gold);assert.deepEqual(r.c1Expansion.claimLedger,ledger);assert.deepEqual(r.c1Expansion.journey.parts[id],s.c1Expansion.journey.parts[id]);assert.ok(r.enemies.every(e=>e.dead));
+  if(ready){r.choose('c1:claim:'+id);assert.match(r.pending.id,/LegacyReturn$/);finish(r);assert.equal(r.p.gold,gold+14);}assert.doesNotThrow(()=>parseSave(JSON.stringify(r.snapshot())));
+ }
+});
+test('each underground entrance reaches new investigation and cache targets using real movement',()=>{
+ const report=[];for(const map of Object.keys(EXPERIENCE_DUNGEONS)){
+  const g=game();g.chapter=2;g.quests.c1Readiness='done';enter(g,map);kill(g);g.c1Accept('c1CryptRepair');if(map==='c1TrialVault'){g.quests.c1CryptRepair='done';g.c1Accept('c1VaultWatch');}
+  const targets=g.targets(),ids=[...Object.entries(EXPERIENCE_INSPECTIONS),...Object.entries(EXPERIENCE_CACHES)].filter(([,v])=>v.map===map).map(([id])=>id);let routes=0;
+  for(const id of ids){const t=targets.find(t=>t.id===id);assert.ok(t,map+'/'+id);for(const door of targets.filter(t=>t.kind==='door')){g.relocate(door.x,door.y);for(const p of g.routeTo(t,g.p)){let n=0;while(Math.hypot(g.p.x-p.x,g.p.y-p.y)>4&&n++<300){const d=Math.hypot(g.p.x-p.x,g.p.y-p.y),r=Math.min(8,d);assert.ok(g.moveActor(g.p,g.p.x+(p.x-g.p.x)/d*r,g.p.y+(p.y-g.p.y)/d*r)!==false);assert.ok(!g.blocked(g.p.x,g.p.y));}assert.ok(n<300,map+'/'+id);}assert.ok(Math.hypot(g.p.x-t.x,g.p.y-t.y)<35,map+'/'+id);routes++;}}
+  report.push({map,targets:ids,routes,scope:'isolated killed-enemy fixtures; actual routeTo/moveActor, no combat-completion claim'});
+ }
+ const dir=process.env.ASHEN_C1_EVIDENCE||'docs/rpg-experience/c1/content-space';fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(dir+'/NEW_TARGET_MOVEMENT.json',JSON.stringify(report,null,2)+'\n');
+});
+test('exploration caches contain real usable supplies/materials and remain empty after reload',()=>{
+ for(const [id,c]of Object.entries(EXPERIENCE_CACHES)){
+  const g=game();g.chapter=2;enter(g,c.map);kill(g);const before={...g.p.items};assert.ok(inspect(g,id));for(const [item,n]of Object.entries(c.items))assert.equal(g.p.items[item],(before[item]||0)+n);const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(inspect(r,id),false);for(const [item,n]of Object.entries(c.items))assert.equal(r.p.items[item],(before[item]||0)+n);assert.ok(!r.targets().some(t=>t.id===id));
+ }
 });

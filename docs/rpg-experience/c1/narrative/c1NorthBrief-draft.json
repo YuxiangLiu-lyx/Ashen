@@ -1,0 +1,105 @@
+{
+  "chapter": "R01",
+  "scene": "c1NorthBrief",
+  "at": "contract",
+  "actors": [
+    "toma",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/rpg-experience-dialogues.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md"
+    ]
+  },
+  "brief": {
+    "information": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+    "purposes": "托马登记维护人员并避免误入；诺恩问入口和检修路线。",
+    "outcome": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+    "causality": "收封套、核班次、询正门、说明北侧前厅，再提坏支木；两件同地交接成为一场。",
+    "emotional_basis": "托马只认维护身份，未被赋予刺杀计划或薇蕾娜私谈知识。",
+    "gameplay_handoff": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+  },
+  "lines": [
+    {
+      "speaker": "toma",
+      "text": "鲁恩的封套？给我。嗯，班次对得上，我把你的名字记进去了。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "礼拜厅还是从正门进？",
+      "claims": [],
+      "no_fact_reason": "诺恩是在询问行动条件，问句不把未知事项当作已知事实。"
+    },
+    {
+      "speaker": "toma",
+      "text": "午钟后正门就落闩。你走北侧前厅，把维护班的来意告诉值守的人，别跟着礼拜的人往中间挤。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    },
+    {
+      "speaker": "noen",
+      "text": "北渠的检修道能走吗？",
+      "claims": [],
+      "no_fact_reason": "诺恩是在询问行动条件，问句不把未知事项当作已知事实。"
+    },
+    {
+      "speaker": "toma",
+      "text": "还不能。渠鼠把支木啃空了，我正等人清理。你若能帮忙，听我把坏木料的位置说清楚再去，别踩上去才发现下面是空的。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "托马登记维护人员并避免误入；诺恩问入口和检修路线。 诺恩会询问和判断，不只用冷淡短答。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "通读本场全部5行；收封套、核班次、询正门、说明北侧前厅，再提坏支木；两件同地交接成为一场。 问答承接具体对象，没有以“规矩/命运/真正的”替代实际交代。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "收封套、核班次、询正门、说明北侧前厅，再提坏支木；两件同地交接成为一场。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。 新静态ID不挪动原pending页码；旧动态pending.lines继续原样读完。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "获知者限定toma,noen及玩家；没有圣女或委托内幕。调查独白不向未在场NPC自动同步，回报场才说明结果。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本场只处理线路、器物/清册或维护登记，不新增长期阴谋伏笔；不改变既有私谈揭露上限。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "托马只认维护身份，未被赋予刺杀计划或薇蕾娜私谈知识。"
+    },
+    "reviewer": "Codex执行编辑；逐场读取正式人物档案、实际代码、采用稿及新全文，2026-10-14"
+  }
+}

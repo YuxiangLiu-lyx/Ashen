@@ -1,8 +1,8 @@
-import {C1_OBJECTIVES} from './chapter-one-objectives.js';
+import {C1_OBJECTIVES,C1_LEGACY_PARTS} from './chapter-one-objectives.js';
 import {C1_MAIN,C1_SIDE,C1_ELITES,C1_PARTS,C1_QUESTS,C1_RECIPES,C1_RUNES,C1_CORES,C1_GEAR} from './chapter-one-expansion-data.js';
 export const c1Clone=v=>JSON.parse(JSON.stringify(v));
-export const c1Journey=()=>({revision:9,counts:{},parts:{},kills:{},resources:{},clock:0,refresh:{},seed:3266489917});
-export function c1Fresh(){return {schema:4,journey:c1Journey(),mainStages:{},questSteps:{},claimLedger:{},crafting:{sequence:0,rngState:1597463007,transactions:{}},merchant:{patrolSequence:0,activePatrol:null},elite:{},samples:{c1PartJaw:false,c1PartTendon:false,c1PartMembrane:false,delivered:false},worldChanges:{},legacyReadinessBypass:false,escrow:[],economy:[],lootSeed:2654435769,materialSeed:2246822519};}
+export const c1Journey=()=>({revision:10,counts:{},parts:{},kills:{},resources:{},clock:0,refresh:{},seed:3266489917});
+export function c1Fresh(){return {schema:5,journey:c1Journey(),mainStages:{},questSteps:{},claimLedger:{},crafting:{sequence:0,rngState:1597463007,transactions:{}},merchant:{patrolSequence:0,activePatrol:null},elite:{},samples:{c1PartJaw:false,c1PartTendon:false,c1PartMembrane:false,delivered:false},worldChanges:{},legacyReadinessBypass:false,escrow:[],economy:[],lootSeed:2654435769,materialSeed:2246822519};}
 export const c1State=g=>{if(g.c1Expansion)return g.c1Expansion;const h=c1Fresh();
  // New saves get independent seeds without drawing from the combat RNG. Restores
  // and legacy migrations keep their serialized/deterministic seed values.
@@ -14,7 +14,7 @@ export function validateC1Save(s){
  const exact=(v,keys)=>object(v)&&Object.keys(v).every(k=>keys.includes(k))&&keys.every(k=>k in v);
  const finite=v=>Number.isFinite(v)&&v>=0;
  const allowed=Object.keys(c1Fresh()).filter(k=>h?.schema!==1||k!=='journey');
- if(!object(h)||![1,2,3,4].includes(h.schema)||Object.keys(h).some(k=>!allowed.includes(k))||allowed.some(k=>!(k in h)))throw Error('第一章扩充记录格式不正确。');
+ if(!object(h)||![1,2,3,4,5].includes(h.schema)||Object.keys(h).some(k=>!allowed.includes(k))||allowed.some(k=>!(k in h)))throw Error('第一章扩充记录格式不正确。');
  for(const k of ['mainStages','questSteps','claimLedger','crafting','merchant','elite','samples','worldChanges'])if(!object(h[k]))throw Error('第一章记录不完整：'+k);
  if(!uint(h.crafting.rngState)||!h.crafting.rngState||!uint(h.lootSeed)||!h.lootSeed||!uint(h.materialSeed)||!h.materialSeed||!uint(h.crafting.sequence)||!object(h.crafting.transactions)||!uint(h.merchant.patrolSequence)||typeof h.legacyReadinessBypass!=='boolean'||!Array.isArray(h.escrow)||!Array.isArray(h.economy))throw Error('第一章事务或随机记录不正确。');
  if(!exact(h.crafting,['sequence','rngState','transactions'])||!exact(h.merchant,['patrolSequence','activePatrol'])||!exact(h.samples,[...Object.keys(C1_PARTS),'delivered']))throw Error('第一章嵌套记录含未知字段。');
@@ -22,9 +22,9 @@ export function validateC1Save(s){
  const patrol=h.merchant.activePatrol;if(patrol!==null&&(!object(patrol)||Object.keys(patrol).some(k=>!['sequence','route','diagnosed','repaired','verified','walkedAway','repairPosition'].includes(k))||!uint(patrol.sequence)||patrol.sequence!==h.merchant.patrolSequence||![0,1].includes(patrol.route)||['diagnosed','repaired','verified'].some(k=>typeof patrol[k]!=='boolean')||patrol.walkedAway!==undefined&&typeof patrol.walkedAway!=='boolean'||patrol.repairPosition&&(!exact(patrol.repairPosition,['x','y'])||!finite(patrol.repairPosition.x)||!finite(patrol.repairPosition.y))))throw Error('巡检记录不正确。');
  const changes=['wallSealed','lampFixed','morning','envelope','drillDoor','pressure','plank','wrongValve','northDoor','herbGarden','runePattern','leakFixed','kilnIntake','kilnExhaust','kilnBackflow','kilnLadder','samplesSealed','sluice','loomGift'];
  for(const [k,v]of Object.entries(h.worldChanges))if(k.startsWith('patrol-')?!['patrol-road','patrol-mill','patrol-grove','patrol-kiln'].includes(k)||!uint(v):!changes.includes(k)||typeof v!=='boolean')throw Error('场景变更记录不正确。');
- if(h.schema>=2){const j=h.journey;if(!exact(j,['revision','counts','kills','resources','clock','refresh','seed',...(h.schema>=4?['parts']:[])])||j.revision!==(h.schema===2?7:h.schema===3?8:9)||!uint(j.seed)||!j.seed||!finite(j.clock))throw Error('首章任务记录不正确。');
+ if(h.schema>=2){const j=h.journey;if(!exact(j,['revision','counts','kills','resources','clock','refresh','seed',...(h.schema>=4?['parts']:[])])||j.revision!==(h.schema===2?7:h.schema===3?8:h.schema===4?9:10)||!uint(j.seed)||!j.seed||!finite(j.clock))throw Error('首章任务记录不正确。');
   for(const k of ['counts','kills','resources','refresh'])if(!object(j[k]))throw Error('首章任务记录缺失。');
-  if(h.schema>=4){if(!object(j.parts))throw Error('分层目标记录缺失。');for(const [id,parts]of Object.entries(j.parts))if(!C1_OBJECTIVES[id]?.parts||!object(parts)||Object.entries(parts).some(([key,n])=>!C1_OBJECTIVES[id].parts.some(p=>p.id===key&&uint(n)&&n<=p.count)))throw Error('分层目标数量不正确。');}
+  if(h.schema>=4){if(!object(j.parts))throw Error('分层目标记录缺失。');for(const [id,parts]of Object.entries(j.parts))if(!(C1_OBJECTIVES[id]?.parts||C1_LEGACY_PARTS[id])||!object(parts)||Object.entries(parts).some(([key,n])=>!(C1_OBJECTIVES[id]?.parts||C1_LEGACY_PARTS[id]).some(p=>p.id===key&&uint(n)&&n<=p.count)))throw Error('分层目标数量不正确。');}
   for(const [id,n]of Object.entries(j.counts))if(!C1_QUESTS[id]||!uint(n)||n>1000)throw Error('任务数量不正确。');
   for(const [id,n]of Object.entries(j.kills))if(!/^[A-Za-z0-9:_-]{1,160}$/.test(id)||!uint(n))throw Error('任务击杀序列不正确。');
   for(const [id,n]of Object.entries(j.refresh))if(!/^[A-Za-z0-9:_-]{1,160}$/.test(id)||!finite(n))throw Error('怪物恢复时间不正确。');
@@ -77,13 +77,21 @@ export function c1Migrate(g,s){
   const oldLimits={c1ExitDrill:8,c1CryptRepair:8,c1VaultWatch:8,c1CampHunt:8,c1TrialSalvage:5,c1CampHerbs:4};
   for(const [id,limit]of Object.entries(oldLimits)){
    const o=C1_OBJECTIVES[id],n=j.counts[id]||0;j.parts[id]={};let left=n;
-   for(const p of o.parts){j.parts[id][p.id]=Math.min(left,p.count);left=Math.max(0,left-p.count);}
-   const cause=!o.cause||Object.values(s.states||{}).some(st=>st.enemies?.some(e=>e.id===o.cause&&e.dead))||Object.keys(j.kills).some(key=>key.endsWith(':'+o.cause)&&j.kills[key]>0);
+   for(const p of (o.parts||C1_LEGACY_PARTS[id])){j.parts[id][p.id]=Math.min(left,p.count);left=Math.max(0,left-p.count);}
+   const cause=id==='c1CryptRepair'||!o.cause||Object.values(s.states||{}).some(st=>st.enemies?.some(e=>e.id===o.cause&&e.dead))||Object.keys(j.kills).some(key=>key.endsWith(':'+o.cause)&&j.kills[key]>0);
    if(s.quests?.[id]==='active'&&n>=limit&&cause&&o.kind!=='gather'){h.questSteps[id]||={};h.questSteps[id].legacyEvidence=true;}
   }
   // Evidence stays valid when the ordinary patrol is repopulated on a later entry.
   if(s.flags?.captainDefeated&&s.states?.canal&&!s.states.canal.enemies.some(e=>!e.dead)){h.questSteps.c1CanalBreak||={};h.questSteps.c1CanalBreak.cleared=true;}
   h.schema=4;j.revision=9;
+ }
+ if(h.schema<5){
+  for(const [id,parts]of Object.entries(C1_LEGACY_PARTS)){
+   const cause=id!=='c1VaultWatch'||Object.values(s.states||{}).some(st=>st.enemies?.some(e=>e.id==='c1-vault-warden'&&e.dead))||Object.keys(h.journey.kills).some(k=>k.endsWith(':c1-vault-warden')&&h.journey.kills[k]>0);
+   if(s.quests?.[id]==='active'&&cause&&parts.every(p=>(h.journey.parts[id]?.[p.id]||0)>=p.count)){h.questSteps[id]||={};h.questSteps[id].legacyEvidence=true;}
+  }
+  if(s.quests?.c1CryptRepair==='done')h.worldChanges.leakFixed=true;
+  h.schema=5;h.journey.revision=10;
  }
  return;}
  const h=g.c1Expansion=c1Fresh(),phase=s.chapter||0;h.legacyReadinessBypass=phase>=2;

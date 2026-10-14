@@ -8,13 +8,13 @@
       "file_sha256": "196925254963088eb85c06121680e0b339cfc83900ddca26c5f60cfccf86bc7c"
     },
     "runtime-c1-actions": {
-      "file_sha256": "2c496a360f9fbd2ec9b5f3c55afbbede612310704250a8a45e412adc9ea4690f"
+      "file_sha256": "0f08c5b91f911625d4e744a633e349607aac7b9580e07ea000f90455bd62b4be"
     },
     "runtime-c1-local": {
-      "file_sha256": "d206aa3529903fad8f9bdbcd4bfd455b8a1053a56df2b09adfa876340edcb871"
+      "file_sha256": "242d9ee99d6e4f0aaf0d27f8337b6b0befa299b2f92ef74be3ff4fc2a9792eb2"
     },
     "runtime-c1-objectives": {
-      "file_sha256": "e41b9c850ed9c9f01537dbaf387478e5765a0dc5b4b4667488dc0103062d42d6"
+      "file_sha256": "236f8760d134dfb6aa01d49d54eb5cb4e270b0c2f4077dd5bf4ab8edf010d073"
     },
     "runtime-c1-hidden": {
       "file_sha256": "240dafcf91dbdd04b220549b91dcdaaef9def67083613672748cdf779f7402e8",
@@ -558,6 +558,50 @@
     },
     "c1-runtime-baseline": {
       "file_sha256": "a0b089ae6659ad6a3b0c23f16521020df561fb02fa7f1fe6d93ddf6e827bc9a1"
+    },
+    "experience:c1RepairAccept": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "2df2975cbe1a067ab039800464cd6338462d97e7554f26b645f58c5c8a554302"
+    },
+    "experience:c1RepairCable": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "22439681d2fe0e37bc351699a7f4ddec1d8ad1ce54ef277227f63313314cd708"
+    },
+    "experience:c1RepairDrain": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "f61019702509b3170bf5db8ae2597e8077b2906fef323ab4285c35d373fea61b"
+    },
+    "experience:c1RepairReturn": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "515fe5df438469a8d6111989034df3830eb401e4afca49c44818b5f549c8a6e8"
+    },
+    "experience:c1RepairLegacyReturn": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "3eea6fa0dfb343d8bc494c184d74758c2fd7b5ee6a2c5b3c93478e04903ab175"
+    },
+    "experience:c1VaultAccept": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "5ecfa3a4e10d9bae386a56e419a2daefaa6d410eeda77bd6b6c33b6b41283582"
+    },
+    "experience:c1VaultLedger": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "397e31e3c28958cd83a9d7f7050eb1d16bbf630b3b3a461278d359e3a1ba3250"
+    },
+    "experience:c1VaultReturn": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "534e99338ed8572ff0b6c4391c589167165c2ce4db4f392d64e03fad7aff1f13"
+    },
+    "experience:c1VaultLegacyReturn": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "c47e917f3c701fdf8c6b72086261f1b263d2b14cdb0c598e78207882c399608d"
+    },
+    "experience:c1NorthBrief": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "553fb597e8ad99624ad1bc362bec4f40ac31d83c6f0db375100dfd004a0939c4"
+    },
+    "experience:c1GateBrief": {
+      "file_sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "scene_sha256": "aa25a4d97ab780b0ce63825a44bd6732f21ae992ba520a1398fcc3763b61305b"
     }
   },
   "history": [
@@ -1016,6 +1060,33 @@
         "c1-runtime-baseline"
       ],
       "note": "新用户授权1.0体验采用稿；0.9独立保留为运行基线，人物、刺杀、私谈知识及事件索引未改"
+    },
+    {
+      "commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "sources": [
+        "runtime-c1-actions",
+        "runtime-c1-local",
+        "runtime-c1-objectives",
+        "experience:c1RepairAccept",
+        "experience:c1RepairCable",
+        "experience:c1RepairDrain",
+        "experience:c1RepairReturn",
+        "experience:c1RepairLegacyReturn",
+        "experience:c1VaultAccept",
+        "experience:c1VaultLedger",
+        "experience:c1VaultReturn",
+        "experience:c1VaultLegacyReturn",
+        "experience:c1NorthBrief",
+        "experience:c1GateBrief"
+      ],
+      "note": "第一章1.0新增赫莎维修、维恩清册、托马合并交接11场。已核对生产调用和旧档分支：调查只在任务活动/目标满足/附近无战斗时提交，回报以pending.then结算；旧达标对白不声称新调查。六位原闲聊和刺杀/私谈未改，事件只向在场人和玩家揭露本地工作信息。"
+    },
+    {
+      "commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "sources": [
+        "runtime-c1-actions"
+      ],
+      "note": "追加调查物件、两个探索箱与迁移交付调用；当前11场内容与事实台账仍对应实际动作，原本地闲聊/幕后/刺杀不变。"
     }
   ]
 }

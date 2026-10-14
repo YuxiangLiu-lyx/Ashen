@@ -10,7 +10,10 @@
   "status": "RUNTIME",
   "sources": [
     "runtime-c1-local",
-    "runtime-c1-actions"
+    "runtime-c1-actions",
+    "experience:c1RepairAccept",
+    "experience:c1RepairReturn",
+    "experience:c1RepairLegacyReturn"
   ],
   "identity": {
     "summary": "蓄能廊维修工，修理构装体走线。",
@@ -26,7 +29,7 @@
   "limits": "UNRESOLVED",
   "flaws": "UNRESOLVED",
   "voice": {
-    "guidance": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+    "guidance": "关心具体故障位置和修理条件，会追问断线、漏水；谨慎来自带电走线的实际危险，不泛讲规矩。",
     "understanding": "UNRESOLVED",
     "emotional_expression": "UNRESOLVED",
     "humor": "UNRESOLVED",
@@ -35,7 +38,8 @@
     "reference": {
       "kind": "existing_runtime",
       "scene": null
-    }
+    },
+    "certainty": "PROVISIONAL：依第一章1.0已安装本地工作场景提炼，不能外推童年、立场与幕后知识。"
   },
   "initial_state": {
     "emotion": "UNRESOLVED",
@@ -46,7 +50,11 @@
   },
   "relationships": {},
   "future_growth": [],
-  "runtime_scenes": [],
+  "runtime_scenes": [
+    "c1RepairAccept",
+    "c1RepairReturn",
+    "c1RepairLegacyReturn"
+  ],
   "gaps": [
     "未由现行资料证明的年龄、童年、创伤、血统、终局不补全。",
     "有持续剧情时，写作前补足所涉事件状态及关系。"

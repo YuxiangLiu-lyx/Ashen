@@ -1,0 +1,71 @@
+{
+  "chapter": "R01",
+  "scene": "c1VaultLegacyReturn",
+  "at": "contract",
+  "actors": [
+    "venn",
+    "noen"
+  ],
+  "scope": {
+    "files": [
+      "dist/rpg-experience-dialogues.js",
+      "dist/chapter-one-story-world.js",
+      "dist/chapter-one-expansion-quests.js",
+      "dist/chapter-one-objectives.js",
+      "docs/harness/CHAPTER_01.md",
+      "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md"
+    ]
+  },
+  "brief": {
+    "information": "旧档清场已达标；维恩承诺自行取册，照常支付工钱和备用药，不捏造玩家取册行为。",
+    "purposes": "承接旧达标存档并支付原工钱及新备用药。",
+    "outcome": "旧档清场已达标；维恩承诺自行取册，照常支付工钱和备用药，不捏造玩家取册行为。",
+    "causality": "维恩说旧清场已记，清册自己取；没有把新取册动作安在玩家身上。",
+    "emotional_basis": "维恩不突然亲密或透露私谈，只交代自己负责的账物。",
+    "gameplay_handoff": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+  },
+  "lines": [
+    {
+      "speaker": "venn",
+      "text": "之前托你的清理已经办妥，我这边有记录。清册我会自己去取，工钱和备用药你先收好。回一层可以走西侧检修便道。",
+      "claims": [
+        {
+          "fact": "F-EXP-C1VAULTLEGACYRETURN",
+          "mode": "knows",
+          "disclosure": true
+        }
+      ]
+    }
+  ],
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "承接旧达标存档并支付原工钱及新备用药。 诺恩会询问和判断，不只用冷淡短答。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "通读本场全部1行；维恩说旧清场已记，清册自己取；没有把新取册动作安在玩家身上。 问答承接具体对象，没有以“规矩/命运/真正的”替代实际交代。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "维恩说旧清场已记，清册自己取；没有把新取册动作安在玩家身上。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。 新静态ID不挪动原pending页码；旧动态pending.lines继续原样读完。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "获知者限定venn,noen及玩家；没有圣女或委托内幕。调查独白不向未在场NPC自动同步，回报场才说明结果。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "本场只处理线路、器物/清册或维护登记，不新增长期阴谋伏笔；不改变既有私谈揭露上限。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "维恩不突然亲密或透露私谈，只交代自己负责的账物。"
+    },
+    "reviewer": "Codex执行编辑；逐场读取正式人物档案、实际代码、采用稿及新全文，2026-10-14"
+  }
+}

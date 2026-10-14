@@ -13,7 +13,7 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-14T06:07:34.250879+00:00",
-  "updated_at_utc": "2026-10-14T06:23:19.897193+00:00",
+  "updated_at_utc": "2026-10-14T11:20:56.911769+00:00",
   "decisions": [
     "采用当前全游戏新授权；先八章审计再第一章试点逐章推广；允许重评精英预算；旧重构不恢复，人工验收不伪造",
     "零武器禁止攻击；另设初始零攻击武器组。主线刺杀前5至6级，含本地支线10级；升级回满与重复入图奖励掩盖补给压力。后六章静态spawns为0不等于无战斗，须读取Saga动态任务"
@@ -121,6 +121,42 @@
       "output": "docs/harness/evidence/rpg-experience-20261014/005-baseline-groups.txt",
       "output_sha256": "ee1aeaa64080345d58407b4ee16ccdf200ed634693596cced3e43b29a94378fa",
       "timeout_seconds": 300.0
+    },
+    {
+      "label": "c1-content-space-visual",
+      "command": [
+        "env",
+        "ASHEN_C1_OUTPUT=docs/rpg-experience/c1/content-space/visual",
+        "node",
+        "tests/browser-chapter-one-map-quests.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:12:05.560956+00:00",
+      "finished_at_utc": "2026-10-14T11:12:25.899834+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "750737c6538b5153d533f2f525e652de5f405dec05dd9189ea48dcc2933f53cc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/006-c1-content-space-visual.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "c1-final-space-visual",
+      "command": [
+        "env",
+        "ASHEN_C1_OUTPUT=docs/rpg-experience/c1/content-space/visual-final",
+        "node",
+        "tests/browser-chapter-one-map-quests.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:20:37.687056+00:00",
+      "finished_at_utc": "2026-10-14T11:20:56.905754+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-experience-20261014/007-c1-final-space-visual.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
     }
   ],
   "stages": [

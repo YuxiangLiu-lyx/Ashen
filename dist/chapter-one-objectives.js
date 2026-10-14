@@ -36,8 +36,8 @@ export const C1_ACCEPT_TEXT={
 };
 
 Object.assign(C1_OBJECTIVES,{
- c1CryptRepair:{kind:'kill',map:'c1TrialCrypt',count:8,prefix:'c1-crypt-',name:'蓄能构装体'},
- c1VaultWatch:{kind:'kill',map:'c1TrialVault',count:8,prefix:'c1-vault-sentry-',cause:'c1-vault-warden',name:'封存库守卫'},
+ c1CryptRepair:{kind:'repair',map:'c1TrialCrypt',cause:'c1-trial-warden',name:'蓄能廊走线'},
+ c1VaultWatch:{kind:'investigate',map:'c1TrialVault',cause:'c1-vault-warden',name:'封存清册',inspect:'c1-vault-ledger'},
  c1CampHunt:{kind:'kill',map:'grove',count:8,types:['rat','wolf','bat'],name:'堵路野兽'},
  c1CampHerbs:{kind:'gather',map:'grove',maps:['grove','road'],count:4,name:'银叶草'},
  c1KilnRoost:{kind:'kill',map:'c1ReedKiln',count:8,types:['bat'],name:'窑蝠'},
@@ -51,11 +51,11 @@ const sentries={id:'sentries',map:'c1DrillGallery',count:8,prefix:'c1-sentry-',n
 const cableRats={id:'cableRats',map:'c1TrialCrypt',count:8,prefix:'c1-crypt-',name:'二层啃线鼠'};
 const layered={
  c1ExitDrill:[sentries,cableRats],
- c1CryptRepair:[cableRats,sentries],
- c1VaultWatch:[{id:'vaultGuards',map:'c1TrialVault',count:8,prefix:'c1-vault-sentry-',name:'三层封存库守卫'},cableRats],
  c1CampHunt:[{id:'millWolves',map:'millpath',count:8,types:['wolf'],name:'磨坊狼群'},{id:'kilnBats',map:'c1ReedKiln',count:8,types:['bat'],name:'废窑夜蝠'}],
  c1TrialSalvage:[{...sentries,id:'rivets',count:5,name:'完整铆钉',monster:'一层旧廊哨兵',chance:.7},{...cableRats,id:'wire',count:3,name:'完整导线',monster:'二层啃线鼠',chance:.7}],
  c1CampHerbs:[{id:'groveLeaves',map:'grove',count:2,name:'溪林银叶草'},{id:'roadLeaves',map:'road',count:2,name:'王道银叶草'}],
 };
 for(const [id,parts]of Object.entries(layered))Object.assign(C1_OBJECTIVES[id],{parts,count:parts.reduce((n,p)=>n+p.count,0)});
+// Retained solely to validate/migrate 0.8/0.9 progress; current objectives do not use these counters.
+export const C1_LEGACY_PARTS={c1CryptRepair:[cableRats,sentries],c1VaultWatch:[{id:'vaultGuards',count:8},cableRats]};
 export const c1ObjectiveParts=o=>o.parts?o.parts.map(p=>({kind:o.kind,...p})):[o];

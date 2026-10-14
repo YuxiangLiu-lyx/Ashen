@@ -1,0 +1,321 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1RepairReturn",
+    "actors": [
+      "hesha",
+      "noen"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "hesha": {
+      "name": "赫莎",
+      "base": "蓄能廊维修工，修理构装体走线。",
+      "voice": "关心具体故障位置和修理条件，会追问断线、漏水；谨慎来自带电走线的实际危险，不泛讲规矩。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "runtime-c1-local",
+        "runtime-c1-actions",
+        "experience:c1RepairAccept",
+        "experience:c1RepairReturn",
+        "experience:c1RepairLegacyReturn"
+      ],
+      "profile": "source/narrative/characters/hesha.json"
+    },
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "刺杀卡德兰，带圣女到驿站。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": [
+          "知道圣女不会自愿同行。"
+        ],
+        "last_change": "R01:contract"
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    }
+  },
+  "knowledge": {
+    "hesha": {},
+    "noen": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      }
+    },
+    "player": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-DOOR-CLAIM": {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-EXP-C1REPAIRRETURN": {
+      "id": "F-EXP-C1REPAIRRETURN",
+      "summary": "诺恩交代故障位置与已停过看守；赫莎修好库门供能线路，三层恢复通行。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairReturn"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "OPEN",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "记录真实差异，后续对白任务按当前八鼠目标改稿。本轮不重写。"
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1RepairReturn",
+    "position": "before",
+    "at": "R01:contract",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "0.6底稿的六鼠/旧训练叙述部分被0.8/0.9覆盖；contract仍提六只，与intro的八只有文案漂移，本轮不改。",
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+      "revision": "1.0",
+      "status": "DEV_FROZEN",
+      "implementation": "RPG体验试点开发中；0.9为保留运行基线；0.6人工节奏独立待验"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1RepairReturn",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "hesha",
+        "fact": "F-EXP-C1REPAIRRETURN",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-EXP-C1REPAIRRETURN",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-EXP-C1REPAIRRETURN",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "experience:c1RepairAccept": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairAccept:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairAccept",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairLegacyReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairLegacyReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairLegacyReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-local": {
+      "path": "dist/chapter-one-story-world.js",
+      "anchor": "export const C1_LOCAL_TALK",
+      "kind": "runtime"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/hesha.json",
+    "source/narrative/characters/noen.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5"
+}

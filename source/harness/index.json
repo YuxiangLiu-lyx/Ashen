@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "cad2add19b46e319475c28504e155322a9df687d",
-  "source_fingerprint": "b20bf54ffb40b8a42f9648042d81ea0d98d863048c7b1920e29a2eb1ee1c725f",
+  "basis_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+  "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "09b641fbe431864da77e9fb71cb1f5ead9f335925950bda57a1c1c54d1cf35f2",
@@ -603,8 +603,8 @@
       ]
     },
     "dist/chapter-one-expansion-quests.js": {
-      "sha256": "2c496a360f9fbd2ec9b5f3c55afbbede612310704250a8a45e412adc9ea4690f",
-      "bytes": 28396,
+      "sha256": "0f08c5b91f911625d4e744a633e349607aac7b9580e07ea000f90455bd62b4be",
+      "bytes": 31602,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
@@ -615,6 +615,8 @@
         "dist/equipment-v14.js",
         "dist/game-settings-v31.js",
         "dist/quest-service-v14.js",
+        "dist/rpg-experience-dialogues.js",
+        "dist/rpg-experience-exploration.js",
         "dist/story-data-v14.js"
       ],
       "symbols": [
@@ -624,6 +626,7 @@
         "active",
         "add",
         "alive",
+        "c",
         "causeDone",
         "causeNames",
         "chat",
@@ -662,8 +665,10 @@
         "reward",
         "roll",
         "running",
+        "s",
         "scene",
         "sequence",
+        "site",
         "steps",
         "submitAliases",
         "summary",
@@ -696,8 +701,8 @@
       ]
     },
     "dist/chapter-one-expansion-save.js": {
-      "sha256": "e09a7ea87012d372e323e116aec6cf791b6ec02536f8ed5145a33fc48b001475",
-      "bytes": 15437,
+      "sha256": "be2b6c48f0070d8e1506c8ef82bb9ebf8a1277dd92459439585f5a132d72cd29",
+      "bytes": 16133,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-objectives.js"
@@ -771,13 +776,14 @@
       ]
     },
     "dist/chapter-one-expansion-world.js": {
-      "sha256": "100fbaeff651e83e53e25157f097a2717d915ac9dfdac569d23e9d5b3c6f9845",
-      "bytes": 14386,
+      "sha256": "1515e0bdc913df979db3e36505bdc6e9ae8fad35445b1de645b9d2366294ea68",
+      "bytes": 15668,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-save.js",
         "dist/chapter-one-layout.js",
         "dist/chapter-one-story-world.js",
+        "dist/rpg-experience-exploration.js",
         "dist/world-v14.js"
       ],
       "symbols": [
@@ -838,8 +844,8 @@
       ]
     },
     "dist/chapter-one-layout.js": {
-      "sha256": "008660b100a0aa6dcc670bc2155f93344520437461411a0941de35b85c54b352",
-      "bytes": 9706,
+      "sha256": "34e6972cd2aa6267389082fe8c05786a0f876597a482adf69be939d149bf4c90",
+      "bytes": 10294,
       "imports": [],
       "symbols": [
         "C1_FURNITURE",
@@ -931,14 +937,15 @@
       ]
     },
     "dist/chapter-one-objectives.js": {
-      "sha256": "e41b9c850ed9c9f01537dbaf387478e5765a0dc5b4b4667488dc0103062d42d6",
-      "bytes": 6803,
+      "sha256": "236f8760d134dfb6aa01d49d54eb5cb4e270b0c2f4077dd5bf4ab8edf010d073",
+      "bytes": 6855,
       "imports": [
         "dist/chapter-one-story-world.js"
       ],
       "symbols": [
         "C1_ACCEPT_TEXT",
         "C1_GIVERS",
+        "C1_LEGACY_PARTS",
         "C1_NPC_NAMES",
         "C1_OBJECTIVES",
         "c1ObjectiveParts",
@@ -985,8 +992,8 @@
       ]
     },
     "dist/chapter-one-story-world.js": {
-      "sha256": "d206aa3529903fad8f9bdbcd4bfd455b8a1053a56df2b09adfa876340edcb871",
-      "bytes": 8145,
+      "sha256": "242d9ee99d6e4f0aaf0d27f8337b6b0befa299b2f92ef74be3ff4fc2a9792eb2",
+      "bytes": 7524,
       "imports": [],
       "symbols": [
         "C1_LOCAL_QUESTS",
@@ -4863,6 +4870,31 @@
         "combat"
       ]
     },
+    "dist/rpg-experience-dialogues.js": {
+      "sha256": "d19d9034d501c8c020cdcaea73932afdfc0a1f27398d4757b05b9d4e714aefc1",
+      "bytes": 4361,
+      "imports": [],
+      "symbols": [
+        "EXPERIENCE_DIALOGUES",
+        "EXPERIENCE_INSPECTIONS",
+        "EXPERIENCE_QUEST_SCENES"
+      ],
+      "modules": [
+        "story"
+      ]
+    },
+    "dist/rpg-experience-exploration.js": {
+      "sha256": "2f72cc339a818a43252cff16bef69ed3428a2db5e5efbb35d4250fa5fa778468",
+      "bytes": 1290,
+      "imports": [],
+      "symbols": [
+        "EXPERIENCE_CACHES",
+        "EXPERIENCE_DUNGEONS"
+      ],
+      "modules": [
+        "maps"
+      ]
+    },
     "dist/rpg-experience-services-ui.js": {
       "sha256": "5c769ada6e97187f64bf1c988f704ddb01ad04e94dcc8ce4f4475690332ff984",
       "bytes": 2748,
@@ -7086,8 +7118,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "4e0aac6c54dd2ac89ef8091e0d16f6bf0e8ce5ae73018b2a3e0adda010e6efc0",
-      "bytes": 26691,
+      "sha256": "8da3ce814e67c8d7111c5d5c45b2b4f232565b502272a5886629b6242402fc11",
+      "bytes": 26752,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7105,8 +7137,8 @@
       ]
     },
     "source/narrative/chapters/R01.json": {
-      "sha256": "54954fcb576ccd7c8cb52566556a4d95eaa3db568632147d7dac256d55380d86",
-      "bytes": 19310,
+      "sha256": "140cc7363cbf5ef706d380dede8049eb931d3c1c904829598729835dddb980b9",
+      "bytes": 35006,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7355,8 +7387,8 @@
       ]
     },
     "source/narrative/characters/hesha.json": {
-      "sha256": "7683392943c96dacc2375d5719aa2a35bfca11b4713b14ef5d897be4411d5f05",
-      "bytes": 1369,
+      "sha256": "1f50975d80f8e14dc50c2e39de343a451d5273f3ccb639d836a9610ee50bbc55",
+      "bytes": 1724,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7975,8 +8007,8 @@
       ]
     },
     "source/narrative/characters/toma.json": {
-      "sha256": "d3d0d69cb95c0c816bb92c4ab5feeae97a5f0d71352ef7d56b2c25fd9d6e5645",
-      "bytes": 1697,
+      "sha256": "067a03749b96558085ce820baca479f9304717c58b50da7ad220c63b4be09030",
+      "bytes": 1958,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7995,8 +8027,8 @@
       ]
     },
     "source/narrative/characters/venn.json": {
-      "sha256": "93399ed5316c4807b8f6838c70b26e6578f3a60798949d9d9fd01eda44351c7d",
-      "bytes": 1371,
+      "sha256": "0a0cf61819ad7083b2f42e8628a04d55ae1485ee96870ec4099bb21fd015cc06",
+      "bytes": 1723,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8085,8 +8117,8 @@
       ]
     },
     "source/narrative/runtime-index.json": {
-      "sha256": "5e7b09490d4aeb08083e8b95ebbb084c6bb557ccf2c4b1ddb254f760b077f779",
-      "bytes": 140578,
+      "sha256": "8129c37cb45fa2b77f1ca34da084c84bf24a0e118f006d958724b48e6c634cff",
+      "bytes": 142863,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8095,8 +8127,8 @@
       ]
     },
     "source/narrative/sources.json": {
-      "sha256": "808e51579a1ff88dc366d6b4d156e9f8252cf753a0ad7de0518856a9b3ea63f1",
-      "bytes": 37105,
+      "sha256": "bf320baffbe18e1107067b5cec0af93fe55173a1180022fcc8a5043b49c4f815",
+      "bytes": 40177,
       "imports": [],
       "symbols": [
         "C1_HIDDEN",
@@ -8112,8 +8144,8 @@
       ]
     },
     "source/narrative/sources.lock.json": {
-      "sha256": "eec0bd35647e586b9b6028f2a9c8feab38f463182f2476d127f5ed27c5b16319",
-      "bytes": 43227,
+      "sha256": "894a95a186112dec19abfc49dcce63864922b36d6a1c2330983447896cda560c",
+      "bytes": 46906,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8346,8 +8378,8 @@
       ]
     },
     "tests/browser-chapter-one-natural-batch.mjs": {
-      "sha256": "042ed8661c9229171494c3173da0c6a615043624bc85667853083d35409f3b19",
-      "bytes": 462,
+      "sha256": "d3e9f18ddaca7bd4dfef0553c0ec48374641bb8e7b56be611ffb7dfb64a7294f",
+      "bytes": 484,
       "imports": [],
       "symbols": [
         "p",
@@ -8359,8 +8391,8 @@
       ]
     },
     "tests/browser-chapter-one-natural.mjs": {
-      "sha256": "51b310f3d7c73f1cad2029b9356f91c1115c0e3443d7fcdf5264ac3faff79214",
-      "bytes": 12514,
+      "sha256": "bb5a45fca58b3afdeacfe1c1756bb81a8b6d6abefd2af49f0438b7b0a9bcae3a",
+      "bytes": 13212,
       "imports": [
         "tools/balance_lab/provenance.mjs",
         "tools/browser_session.mjs"
@@ -8389,6 +8421,7 @@
         "keys",
         "manor",
         "now",
+        "outfit",
         "p",
         "rats",
         "record",
@@ -8592,6 +8625,28 @@
         "build"
       ]
     },
+    "tests/browser-rpg-experience-services.mjs": {
+      "sha256": "29680cf3435eb84ccc64150c1e454c0d173ee6ed140b5338efeb48eb9d93e476",
+      "bytes": 4627,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "after",
+        "b",
+        "before",
+        "click",
+        "hook",
+        "out",
+        "p",
+        "pages",
+        "rested",
+        "state"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
     "tests/browser-web-play.py": {
       "sha256": "89e2b444c897d6205598e4c273c42200800a115962d7cc50d97b73f38bfc1f82",
       "bytes": 13491,
@@ -8701,8 +8756,8 @@
       ]
     },
     "tests/chapter-one-economy.mjs": {
-      "sha256": "c160351a996dc3c15e6dea9b115b1abed090e7a82937b96195f58a2c41af5b79",
-      "bytes": 13670,
+      "sha256": "2d6c54560b94ce15620fd09f93824b66486d8b96fcc5b1cdf8be56911f23d89b",
+      "bytes": 13720,
       "imports": [
         "dist/chapter-one-expansion-combat.js",
         "dist/chapter-one-expansion-data.js",
@@ -8730,6 +8785,7 @@
         "dir",
         "e",
         "es",
+        "failureDir",
         "fight",
         "finish",
         "fn",
@@ -8759,8 +8815,8 @@
       ]
     },
     "tests/chapter-one-economy.test.mjs": {
-      "sha256": "72e516431bc15a26759012d918c47354bf25d186932dbfcb115ed358cec6602e",
-      "bytes": 2799,
+      "sha256": "d79e276fc1748018fb04b76618a6d55812c0802748bbf4f3392e97dd37bb8d2e",
+      "bytes": 2829,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-story-world.js",
@@ -8820,8 +8876,8 @@
       ]
     },
     "tests/chapter-one-expansion.test.mjs": {
-      "sha256": "685ec1fd8a0325abf350653d2c0b906fd13451cd48329b390c24643be2061d91",
-      "bytes": 7688,
+      "sha256": "c2df074c038bca6c1ffa44cf4d8949d283c6530995d0c0ef6925e848461f891c",
+      "bytes": 7809,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
@@ -8915,8 +8971,8 @@
       "modules": []
     },
     "tests/chapter-one-layer-rules.test.mjs": {
-      "sha256": "e49f2d0a77455de383d40cde9abd9c807c9f2266e174f38e054396a1020fac0c",
-      "bytes": 10574,
+      "sha256": "ae6cc597aef79dba4e33961d4a5b6d12d5650448c56fa55f09c928fee823ceb9",
+      "bytes": 10745,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-ui.js",
@@ -8962,8 +9018,8 @@
       ]
     },
     "tests/chapter-one-map-quests.test.mjs": {
-      "sha256": "b376f2f88329e15c7690abe997d6826d7317af5bfe2165254c3280f66d47276c",
-      "bytes": 7109,
+      "sha256": "b8bbf5ccf8ab9eeeded892e4cd3bf7d2eeecce7f14940f02a0bb34d3bee830b1",
+      "bytes": 7230,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-layout.js",
@@ -9004,14 +9060,15 @@
       ]
     },
     "tests/chapter-one-story-world.test.mjs": {
-      "sha256": "b92aca85f4aaf6f5786faa2c3c2acae8c33c03d0261d69f108e9b5bb521487f3",
-      "bytes": 8278,
+      "sha256": "5fbe0b95ef49a57eb44cb45082e1bd91f6943673a19d399b58c63ea9a1707a30",
+      "bytes": 8698,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-objectives.js",
         "dist/chapter-one-story-world.js",
         "dist/core-v14.js",
         "dist/navigation-v14.js",
+        "dist/rpg-experience-dialogues.js",
         "dist/save-transfer-v14.js"
       ],
       "symbols": [
@@ -9341,12 +9398,17 @@
       "modules": []
     },
     "tests/rpg-experience.test.mjs": {
-      "sha256": "c97b88ba48cac32cddbbc80add31b10b5a71fdbced2918d6fdd6190bda203a68",
-      "bytes": 5270,
+      "sha256": "277207e3e84df1000509966da996c1de292fe956afabc48104861310f5dd4bca",
+      "bytes": 12974,
       "imports": [
+        "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-ui.js",
         "dist/core-v14.js",
-        "dist/save-transfer-v14.js"
+        "dist/data-v14.js",
+        "dist/rpg-experience-dialogues.js",
+        "dist/rpg-experience-exploration.js",
+        "dist/save-transfer-v14.js",
+        "dist/story-flow-v14.js"
       ],
       "symbols": [
         "a",
@@ -9355,16 +9417,38 @@
         "blocked",
         "copy",
         "count",
+        "d",
         "dead",
+        "dir",
+        "door",
         "e",
+        "enter",
+        "expected",
+        "finish",
+        "flow",
         "fresh",
         "front",
         "g",
         "game",
+        "gold",
+        "hp",
+        "id",
+        "inspect",
         "item",
+        "kill",
+        "map",
         "n",
         "near",
-        "save"
+        "old",
+        "p",
+        "r",
+        "ready",
+        "report",
+        "restored",
+        "s",
+        "save",
+        "t",
+        "targets"
       ],
       "modules": [
         "combat"

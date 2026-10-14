@@ -13,19 +13,22 @@
   ],
   "status": "in_progress",
   "created_at_utc": "2026-10-14T06:23:04.170640+00:00",
-  "updated_at_utc": "2026-10-14T10:53:51.539608+00:00",
+  "updated_at_utc": "2026-10-14T11:21:50.843219+00:00",
   "decisions": [
     "采用第一章1.0稿；地区固定敌人岗位，减少重复清图经验和升级全补满，保持旧档等级与奖励",
-    "005core为168/170，两个失败分别是过量伤害负HP存档缺陷和授权数值更改导致旧golden漂移；修复归零并保留旧golden，新12组逐事件精确回放；006相关回归通过，完整core待重跑；旧QA先压缩存档再恢复原件"
+    "005core为168/170，两个失败分别是过量伤害负HP存档缺陷和授权数值更改导致旧golden漂移；修复归零并保留旧golden，新12组逐事件精确回放；006相关回归通过，完整core待重跑；旧QA先压缩存档再恢复原件",
+    "赫莎改为两个现场调查点加看守停机证据；维恩改为深层看守与清册取回。schema5保留旧达标证据，不发迁移奖励。托马同一场交代维护身份与北门入口，结束时幂等支付两个原奖励。"
   ],
   "completed": [
-    "固定地区岗位、防护破绽、两地下看守招式、重复收益和升级有限恢复实现；四NPC行装药水休息服务实现；三职业主线至章二通过；288组对照正常行装响应策略36/36；7新单测通过"
+    "固定地区岗位、防护破绽、两地下看守招式、重复收益和升级有限恢复实现；四NPC行装药水休息服务实现；三职业主线至章二通过；288组对照正常行装响应策略36/36；7新单测通过",
+    "赫莎维修、维恩取册、托马合并交接已实现；schema5旧证据与结算幂等，11场对白七维审查及门禁通过；47项内容/空间、18条经济路线、14项探索状态和三视口真实UI通过。",
+    "三层内部房间/回廊/支路箱已落地，375条通用及16条新目标路线通过；最终22图截图已保存，审阅一二层微调结果。"
   ],
   "remaining": [
-    "任务内容、地图空间、剧情触发、完整专项集成、正常输入浏览器及可玩构建"
+    "三维最终签核仍需实战、角色图集与正常输入证据齐备，人工体验待验"
   ],
   "blockers": [],
-  "next": "任务与地图阶段：赫莎维修、维恩封存挑战、托马同地交接合并；保存叙事上下文与审查",
+  "next": "正常输入实战并补最终三维证据",
   "required_checks": [
     "verification"
   ],
@@ -174,6 +177,157 @@
       "output": "docs/harness/evidence/rpg-c1-20261014/008-combat-foundation-fast-fixed.txt",
       "output_sha256": "054e05e47194db90f1c04228f8871f522539ecc8b2f1b179e25ef5c52bca0084",
       "timeout_seconds": 180.0
+    },
+    {
+      "label": "local-content-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/rpg-experience.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-story-world.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T11:05:44.336346+00:00",
+      "finished_at_utc": "2026-10-14T11:05:44.703034+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "be8dfe029c2164aa0a886b64c42b5dd6fc42d7b8a1f5f0954a6e0419c74b4796",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/009-local-content-unit.txt",
+      "output_sha256": "0cbdb297ff9f05b06b877398bc070bc0449ada62e0f8680cbfc7cc6507e10f64",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "local-content-unit-fixed",
+      "command": [
+        "node",
+        "--test",
+        "tests/rpg-experience.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-story-world.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:06:34.382708+00:00",
+      "finished_at_utc": "2026-10-14T11:06:34.699286+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "114aad624f098a472522582b4f2ee2c89dceb53f201b11c22443f3d795583d5b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/010-local-content-unit-fixed.txt",
+      "output_sha256": "48c77bc2bee99005e31937476cc372666f8ac0c41f494f8e1d8c339107bc8415",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "content-and-space-unit",
+      "command": [
+        "env",
+        "ASHEN_C1_EVIDENCE=docs/rpg-experience/c1/content-space",
+        "node",
+        "--test",
+        "tests/rpg-experience.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-expansion.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:10:47.465329+00:00",
+      "finished_at_utc": "2026-10-14T11:10:48.322844+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "0319db4ed49f72416fe908e946527eb0da373e276756bccba2f85a23aa6e91c3",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/011-content-and-space-unit.txt",
+      "output_sha256": "25f2ffee0b528b55c8c5aeff20e6a26a9d6d522dd408bef8686058373e2d2162",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "content-space-economy",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/rpg-experience/c1/content-space/economy",
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:11:50.138704+00:00",
+      "finished_at_utc": "2026-10-14T11:12:38.451992+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "750737c6538b5153d533f2f525e652de5f405dec05dd9189ea48dcc2933f53cc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/012-content-space-economy.txt",
+      "output_sha256": "f562226c0f4e8f46750805b92787b8a007cbf6e216b8b32800ebc9e644b43e3b",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "exploration-and-ui",
+      "command": [
+        "sh",
+        "-c",
+        "node --test tests/rpg-experience.test.mjs && node tests/browser-rpg-experience-services.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T11:14:34.585807+00:00",
+      "finished_at_utc": "2026-10-14T11:14:44.254869+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "211248637852c45208e10dfb684d007a0d09bb9f81aea276725c1567d892a201",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/013-exploration-and-ui.txt",
+      "output_sha256": "8fa0723b9060c99e81d9c6397f4e47134708e88e4a5d74fae62d6e6b6289d88d",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "services-ui-pages",
+      "command": [
+        "env",
+        "ASHEN_SERVICE_OUTPUT=docs/rpg-experience/c1/services-ui-014",
+        "node",
+        "tests/browser-rpg-experience-services.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:15:11.129711+00:00",
+      "finished_at_utc": "2026-10-14T11:15:35.778350+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "14e3af45d9091f582510d8497ff9934f3f80646c1456599f87c81c5927cd67c1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/014-services-ui-pages.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "content-space-fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T11:18:38.605997+00:00",
+      "finished_at_utc": "2026-10-14T11:18:38.699592+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/015-content-space-fast.txt",
+      "output_sha256": "fa4fe0c3c833a6141ee7ab3f8e4119ece89c266c7114e8ebe2ae2f12c8f985bb",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "content-space-fast-fixed",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T11:20:19.212360+00:00",
+      "finished_at_utc": "2026-10-14T11:21:04.951738+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/rpg-c1-20261014/016-content-space-fast-fixed.txt",
+      "output_sha256": "39687e98ae39205c487509a5e7bafe699b2cf7cc459dc27d72839677c384fd1f",
+      "timeout_seconds": 180.0
     }
   ],
   "stages": [
@@ -192,6 +346,112 @@
       "head_commit": "cad2add19b46e319475c28504e155322a9df687d",
       "source_fingerprint": "ddfb28d530901d409617bb2eaf0e063c7b40bda461873ec2c766a1c627ec27f9",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-gear.js\n M dist/chapter-one-expansion-runtime.js\n M dist/chapter-one-expansion-ui.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-v30.test.mjs\n M tools/harness/check.py\n?? dist/rpg-experience-combat.js\n?? dist/rpg-experience-data.js\n?? dist/rpg-experience-services-ui.js\n?? dist/rpg-experience-services.js\n?? docs/harness/CHAPTER_01_RPG_EXPERIENCE.md\n?? docs/harness/evidence/rpg-c1-20261014/\n?? docs/harness/evidence/rpg-experience-20261014/\n?? docs/rpg-experience/\n?? source/tasks/active/rpg-c1-20261014.json\n?? source/tasks/active/rpg-experience-20261014.json\n?? tests/fixtures/rpg-experience-combat.json\n?? tests/rpg-experience.test.mjs\n?? tools/balance_lab/experience-audit.mjs"
+    },
+    {
+      "name": "local-content",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T11:21:50.706610+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-objectives.js\n M dist/chapter-one-story-world.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/hesha.json\n M source/narrative/characters/toma.json\n M source/narrative/characters/venn.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M source/tasks/active/rpg-c1-20261014.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/browser-chapter-one-natural-batch.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/rpg-experience.test.mjs\n?? dist/rpg-experience-dialogues.js\n?? dist/rpg-experience-exploration.js\n?? docs/harness/evidence/rpg-c1-20261014/009-local-content-unit.txt\n?? docs/harness/evidence/rpg-c1-20261014/010-local-content-unit-fixed.txt\n?? docs/harness/evidence/rpg-c1-20261014/011-content-and-space-unit.txt\n?? docs/harness/evidence/rpg-c1-20261014/012-content-space-economy.txt\n?? docs/harness/evidence/rpg-c1-20261014/013-exploration-and-ui.txt\n?? docs/harness/evidence/rpg-c1-20261014/014-services-ui-pages.txt\n?? docs/harness/evidence/rpg-c1-20261014/015-content-space-fast.txt\n?? docs/harness/evidence/rpg-c1-20261014/016-content-space-fast-fixed.txt\n?? docs/harness/evidence/rpg-experience-20261014/006-c1-content-space-visual.txt\n?? docs/harness/evidence/rpg-experience-20261014/007-c1-final-space-visual.txt\n?? docs/rpg-experience/c1/CONTENT_PROVENANCE_BEFORE_ACK.json\n?? docs/rpg-experience/c1/CONTENT_SCENES.json\n?? docs/rpg-experience/c1/CONTENT_SPACE_STATUS.md\n?? docs/rpg-experience/c1/content-space/\n?? docs/rpg-experience/c1/narrative/\n?? docs/rpg-experience/c1/services-ui-014/\n?? docs/rpg-experience/c1/services-ui/\n?? tests/browser-rpg-experience-services.mjs"
+    },
+    {
+      "name": "underground-space",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-14T11:21:50.802955+00:00",
+      "head_commit": "67d06c211181b53b3ff479f6e989ba0b36bcbb8c",
+      "source_fingerprint": "7649821993084bca4502ebc30de96937d73a8b62fe6e7a2abc246ab07cb5b2f5",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-quests.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-world.js\n M dist/chapter-one-layout.js\n M dist/chapter-one-objectives.js\n M dist/chapter-one-story-world.js\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/hesha.json\n M source/narrative/characters/toma.json\n M source/narrative/characters/venn.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M source/tasks/active/rpg-c1-20261014.json\n M source/tasks/active/rpg-experience-20261014.json\n M tests/browser-chapter-one-natural-batch.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/rpg-experience.test.mjs\n?? dist/rpg-experience-dialogues.js\n?? dist/rpg-experience-exploration.js\n?? docs/harness/evidence/rpg-c1-20261014/009-local-content-unit.txt\n?? docs/harness/evidence/rpg-c1-20261014/010-local-content-unit-fixed.txt\n?? docs/harness/evidence/rpg-c1-20261014/011-content-and-space-unit.txt\n?? docs/harness/evidence/rpg-c1-20261014/012-content-space-economy.txt\n?? docs/harness/evidence/rpg-c1-20261014/013-exploration-and-ui.txt\n?? docs/harness/evidence/rpg-c1-20261014/014-services-ui-pages.txt\n?? docs/harness/evidence/rpg-c1-20261014/015-content-space-fast.txt\n?? docs/harness/evidence/rpg-c1-20261014/016-content-space-fast-fixed.txt\n?? docs/harness/evidence/rpg-experience-20261014/006-c1-content-space-visual.txt\n?? docs/harness/evidence/rpg-experience-20261014/007-c1-final-space-visual.txt\n?? docs/rpg-experience/c1/CONTENT_PROVENANCE_BEFORE_ACK.json\n?? docs/rpg-experience/c1/CONTENT_SCENES.json\n?? docs/rpg-experience/c1/CONTENT_SPACE_STATUS.md\n?? docs/rpg-experience/c1/content-space/\n?? docs/rpg-experience/c1/narrative/\n?? docs/rpg-experience/c1/services-ui-014/\n?? docs/rpg-experience/c1/services-ui/\n?? tests/browser-rpg-experience-services.mjs"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1RepairAccept-context.json",
+      "context_sha256": "128439228996c1df7ee1a43f2e171926b73ab221612eb3b6456546d68cddf44f",
+      "draft": "docs/rpg-experience/c1/narrative/c1RepairAccept-draft.json",
+      "draft_sha256": "3e2c4422380322cac336ac13d33c72fc69d3de232ebbbb3f1b06ea5c00d9b76d",
+      "review": "docs/rpg-experience/c1/narrative/c1RepairAccept-review.json",
+      "review_sha256": "7f3eb6601a62a221d1e5215ef9a6d28791d7bb5f33b473f744b794b996e1241b"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1RepairCable-context.json",
+      "context_sha256": "fdf05af2b23b2551c6ad70fafe9d9037890dc650bd9b261d2e6fe42a36e69091",
+      "draft": "docs/rpg-experience/c1/narrative/c1RepairCable-draft.json",
+      "draft_sha256": "04c6acc4eeaece517b368cebb237699d5f33c929d6a1c41a439964fd8f5a69a1",
+      "review": "docs/rpg-experience/c1/narrative/c1RepairCable-review.json",
+      "review_sha256": "d0e8c9b90bde93e791952618c3aba8516d016c635cd75d7fc22dbe969e16d60e"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1RepairDrain-context.json",
+      "context_sha256": "4d711c3ec0d61a5fba8cc57028cfceec16da63f51a4a761e78ee32bdee63e402",
+      "draft": "docs/rpg-experience/c1/narrative/c1RepairDrain-draft.json",
+      "draft_sha256": "abcc98f86d1d7b5581513d273452aa013e3ac2e99b351d7ed2b784d2afe7c6e0",
+      "review": "docs/rpg-experience/c1/narrative/c1RepairDrain-review.json",
+      "review_sha256": "002d96dcdbf4b5647c38ba0c13cc4fe2966b0d42cc8fc351bcc433b09b0a7625"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1RepairReturn-context.json",
+      "context_sha256": "f0f0b324606ac1d3e3320b342fc1554858d72821e6511f4579d17c4244515dfa",
+      "draft": "docs/rpg-experience/c1/narrative/c1RepairReturn-draft.json",
+      "draft_sha256": "1afddc497c5337c31c8e5adf6244c18c5404db3980acf0aaccc383ed551d624d",
+      "review": "docs/rpg-experience/c1/narrative/c1RepairReturn-review.json",
+      "review_sha256": "f76c87affa1dccd987f7fb911526d772f85a8181a34b6a055b11e524298da8bc"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1RepairLegacyReturn-context.json",
+      "context_sha256": "045b9b810749803d7dff81cb20843aefa496ede95124256ee06dea1f22196873",
+      "draft": "docs/rpg-experience/c1/narrative/c1RepairLegacyReturn-draft.json",
+      "draft_sha256": "e52c2b8969f63c721e539cbb02689142fabfac48e4ac2b695f1914557900bdac",
+      "review": "docs/rpg-experience/c1/narrative/c1RepairLegacyReturn-review.json",
+      "review_sha256": "117041355624b2930e677696a265f6521b3985a99f6a80de7be8ddeb5530bab7"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1VaultAccept-context.json",
+      "context_sha256": "a9c4da628c279d054bd70192cd130df2de764ae7fbac88c19b2c55f82ac4f8ec",
+      "draft": "docs/rpg-experience/c1/narrative/c1VaultAccept-draft.json",
+      "draft_sha256": "f83fb93e76da3815b3727f5bbe0505bd8d0ad22ac45ea98f2001812db6a48b34",
+      "review": "docs/rpg-experience/c1/narrative/c1VaultAccept-review.json",
+      "review_sha256": "09648bec4bbc48d55e1958c3aafa90d314ef5e54a4094b212235d54366d59c16"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1VaultLedger-context.json",
+      "context_sha256": "ee8e2e6f9cae37f746e6c9b04ab2e8f40771f7c91eaf8973de7a8ed35e4a3496",
+      "draft": "docs/rpg-experience/c1/narrative/c1VaultLedger-draft.json",
+      "draft_sha256": "e34982e95c68b4d015d9f0b274f89519c3ea1c861c279ab5101c03c78e7accf4",
+      "review": "docs/rpg-experience/c1/narrative/c1VaultLedger-review.json",
+      "review_sha256": "756bbabda0d75b169a1e1f35bb00643a1292cee90ea193b81fe9b014de92ba6b"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1VaultReturn-context.json",
+      "context_sha256": "0ee667e6b1acf2116979407342c8cfc80a9394a032962275e40d6d2bbf90a28a",
+      "draft": "docs/rpg-experience/c1/narrative/c1VaultReturn-draft.json",
+      "draft_sha256": "95b6b3814d1732e38a3bae741cc8265c7bb792618a3358854681aaceaa9a13d8",
+      "review": "docs/rpg-experience/c1/narrative/c1VaultReturn-review.json",
+      "review_sha256": "e74461bbe9b8c99eccc3ce7877bbc334b72e1e12e23eb1fa6745c72135d55c36"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1VaultLegacyReturn-context.json",
+      "context_sha256": "b2474e90e0faa4954bfdcf617fd9023f56a12d2bbeb2dceff5c97d004eb8f640",
+      "draft": "docs/rpg-experience/c1/narrative/c1VaultLegacyReturn-draft.json",
+      "draft_sha256": "301e2f44d87d8fccdfbcf63dc63e37ab0195d8cf88aad7e33aa7b0a7904cf888",
+      "review": "docs/rpg-experience/c1/narrative/c1VaultLegacyReturn-review.json",
+      "review_sha256": "395affa2b4be18a5d15a8a7fa66a8330d49cfb72325df98bd5ce404f6e0deefd"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1NorthBrief-context.json",
+      "context_sha256": "29260f46bc9eb21d29c16508048cfedfc914a94c5b85f4cfa99ad19101362088",
+      "draft": "docs/rpg-experience/c1/narrative/c1NorthBrief-draft.json",
+      "draft_sha256": "4149ff579c98ddcbb47c3258b91f3b205b4c4c3e758b98e7ed982714a1307ff1",
+      "review": "docs/rpg-experience/c1/narrative/c1NorthBrief-review.json",
+      "review_sha256": "5f4e8680527844e292426b67b7a0f2ff5d061dcc4922f8e86ca29fbfa5fb7889"
+    },
+    {
+      "context": "docs/rpg-experience/c1/narrative/c1GateBrief-context.json",
+      "context_sha256": "2296c6901b9302e7fe04b9770c68c9067b22570bce89634c43119adf56aec201",
+      "draft": "docs/rpg-experience/c1/narrative/c1GateBrief-draft.json",
+      "draft_sha256": "2b1eaa75928e4569b16f25b8daf20e45e6958b826421d26f88205e7b0c5d4b05",
+      "review": "docs/rpg-experience/c1/narrative/c1GateBrief-review.json",
+      "review_sha256": "d2bcc0d386a52c7b9f5518fd801ad862381bb37e5362c5dba28c7cf4d97e2a09"
     }
   ]
 }

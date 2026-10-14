@@ -148,6 +148,127 @@
         "scene:chapterEnd"
       ],
       "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1REPAIRACCEPT",
+      "summary": "赫莎请诺恩查北侧供能机接头和东厅回水槽；一层看守停过即可，不要求重复清场。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairAccept"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1REPAIRCABLE",
+      "summary": "诺恩在供能机接头看到两股断线和齿印。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairCable"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1REPAIRDRAIN",
+      "summary": "诺恩看到回水槽裂缝，水沿线槽流向东墙。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairDrain"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1REPAIRRETURN",
+      "summary": "诺恩交代故障位置与已停过看守；赫莎修好库门供能线路，三层恢复通行。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairReturn"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1REPAIRLEGACYRETURN",
+      "summary": "旧档已完成的清理证据继续有效；赫莎自行检修线路，诺恩不声称做过新调查。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1RepairLegacyReturn"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1VAULTACCEPT",
+      "summary": "维恩请诺恩停下东厅看守，从北墙书架取回封存清册，告知作战空间与备用药报酬。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1VaultAccept"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1VAULTLEDGER",
+      "summary": "诺恩在东厅书架找到并带走封存清册。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1VaultLedger"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1VAULTRETURN",
+      "summary": "清册页码、封条完整；维恩支付工钱与两瓶备用药，提醒既有西侧检修便道。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1VaultReturn"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1VAULTLEGACYRETURN",
+      "summary": "旧档清场已达标；维恩承诺自行取册，照常支付工钱和备用药，不捏造玩家取册行为。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1VaultLegacyReturn"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1NORTHBRIEF",
+      "summary": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1NorthBrief"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-EXP-C1GATEBRIEF",
+      "summary": "用于旧档已交封套但未听入口交代；托马说明北侧前厅和损坏检修道，不重复收封套。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "experience:c1GateBrief"
+      ],
+      "risk_terms": []
     }
   ],
   "events": [
@@ -748,6 +869,417 @@
       "state_changes": {},
       "relationship_changes": {},
       "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。"
+    },
+    {
+      "id": "R01:c1RepairAccept",
+      "scene": "c1RepairAccept",
+      "order": 20,
+      "summary": "赫莎请诺恩查北侧供能机接头和东厅回水槽；一层看守停过即可，不要求重复清场。",
+      "participants": [
+        "hesha",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1RepairAccept",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "hesha",
+          "fact": "F-EXP-C1REPAIRACCEPT",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1REPAIRACCEPT",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1REPAIRACCEPT",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1RepairCable",
+      "scene": "c1RepairCable",
+      "order": 21,
+      "summary": "诺恩在供能机接头看到两股断线和齿印。",
+      "participants": [
+        "noen"
+      ],
+      "sources": [
+        "experience:c1RepairCable",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1REPAIRCABLE",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1REPAIRCABLE",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1RepairDrain",
+      "scene": "c1RepairDrain",
+      "order": 22,
+      "summary": "诺恩看到回水槽裂缝，水沿线槽流向东墙。",
+      "participants": [
+        "noen"
+      ],
+      "sources": [
+        "experience:c1RepairDrain",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1REPAIRDRAIN",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1REPAIRDRAIN",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1RepairReturn",
+      "scene": "c1RepairReturn",
+      "order": 23,
+      "summary": "诺恩交代故障位置与已停过看守；赫莎修好库门供能线路，三层恢复通行。",
+      "participants": [
+        "hesha",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1RepairReturn",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "hesha",
+          "fact": "F-EXP-C1REPAIRRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1REPAIRRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1REPAIRRETURN",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1RepairLegacyReturn",
+      "scene": "c1RepairLegacyReturn",
+      "order": 24,
+      "summary": "旧档已完成的清理证据继续有效；赫莎自行检修线路，诺恩不声称做过新调查。",
+      "participants": [
+        "hesha",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1RepairLegacyReturn",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "hesha",
+          "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1VaultAccept",
+      "scene": "c1VaultAccept",
+      "order": 25,
+      "summary": "维恩请诺恩停下东厅看守，从北墙书架取回封存清册，告知作战空间与备用药报酬。",
+      "participants": [
+        "venn",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1VaultAccept",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "venn",
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1VAULTACCEPT",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1VaultLedger",
+      "scene": "c1VaultLedger",
+      "order": 26,
+      "summary": "诺恩在东厅书架找到并带走封存清册。",
+      "participants": [
+        "noen"
+      ],
+      "sources": [
+        "experience:c1VaultLedger",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1VAULTLEDGER",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1VAULTLEDGER",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1VaultReturn",
+      "scene": "c1VaultReturn",
+      "order": 27,
+      "summary": "清册页码、封条完整；维恩支付工钱与两瓶备用药，提醒既有西侧检修便道。",
+      "participants": [
+        "venn",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1VaultReturn",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "venn",
+          "fact": "F-EXP-C1VAULTRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1VAULTRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1VAULTRETURN",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1VaultLegacyReturn",
+      "scene": "c1VaultLegacyReturn",
+      "order": 28,
+      "summary": "旧档清场已达标；维恩承诺自行取册，照常支付工钱和备用药，不捏造玩家取册行为。",
+      "participants": [
+        "venn",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1VaultLegacyReturn",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "venn",
+          "fact": "F-EXP-C1VAULTLEGACYRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1VAULTLEGACYRETURN",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1VAULTLEGACYRETURN",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1NorthBrief",
+      "scene": "c1NorthBrief",
+      "order": 29,
+      "summary": "托马收下维护班次封套并核对身份，告知午钟后从北侧前厅进入；北渠支木损坏需另接检修委托。",
+      "participants": [
+        "toma",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1NorthBrief",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "toma",
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1NORTHBRIEF",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
+    },
+    {
+      "id": "R01:c1GateBrief",
+      "scene": "c1GateBrief",
+      "order": 30,
+      "summary": "用于旧档已交封套但未听入口交代；托马说明北侧前厅和损坏检修道，不重复收封套。",
+      "participants": [
+        "toma",
+        "noen"
+      ],
+      "sources": [
+        "experience:c1GateBrief",
+        "runtime-c1-actions"
+      ],
+      "optional": true,
+      "grants": [
+        {
+          "actor": "toma",
+          "fact": "F-EXP-C1GATEBRIEF",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-EXP-C1GATEBRIEF",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-EXP-C1GATEBRIEF",
+          "mode": "knows"
+        }
+      ],
+      "state_changes": {},
+      "relationship_changes": {},
+      "stage_window": [
+        "R01:contract",
+        "R01:chapterEnd"
+      ],
+      "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。"
     }
   ],
   "gaps": [

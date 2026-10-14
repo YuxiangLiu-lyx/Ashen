@@ -1,0 +1,54 @@
+✔ overkill behind a vulnerable enemy never serializes negative health (14.134792ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.334ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.621167ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (6.123792ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (2.599042ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (2.4815ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.238125ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (6.492584ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (2.69475ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (2.623208ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (1.800167ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (10.325ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (61.275292ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (4.781708ms)
+ℹ tests 14
+ℹ suites 0
+ℹ pass 14
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 263.465
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
++ actual - expected
+
++ {
++   closing: false,
++   id: 'c1RepairAccept',
++   line: 3,
++   phase: 'dialogue',
++   then: null
++ }
+- null
+
+    at file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-rpg-experience-services.mjs:18:229 {
+  generatedMessage: true,
+  code: 'ERR_ASSERTION',
+  actual: {
+    id: 'c1RepairAccept',
+    then: null,
+    line: 3,
+    phase: 'dialogue',
+    closing: false
+  },
+  expected: null,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v25.2.1

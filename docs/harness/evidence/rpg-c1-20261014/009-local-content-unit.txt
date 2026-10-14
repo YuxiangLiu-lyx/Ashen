@@ -1,0 +1,81 @@
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (24.168541ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (6.319083ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (5.464583ms)
+✔ materials from each floor remain separate and one death generation receives one roll (2.758458ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (52.252792ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (2.045583ms)
+✔ two herb sources cannot be replaced with four leaves from one source (2.883917ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (13.1755ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (2.018875ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.908584ms)
+✔ story captain stays defeated while resident patrols return, and delivered escape stays delivered (1.322708ms)
+✖ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (2.966917ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (17.10575ms)
+✖ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (3.462833ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (2.647875ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (7.380208ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (3.95325ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (4.351125ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (3.481416ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (19.319417ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.265291ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.632208ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (5.197667ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.434625ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (2.325875ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.417333ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (5.803417ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (2.518667ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (2.217708ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (2.088084ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (10.668459ms)
+ℹ tests 31
+ℹ suites 0
+ℹ pass 29
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 273.456875
+
+✖ failing tests:
+
+test at tests/chapter-one-story-world.test.mjs:14:1
+✖ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (2.966917ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(C1_STORY_RETURN[q.id].length>20)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-story-world.test.mjs:14:575)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-story-world.test.mjs:16:1
+✖ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (3.462833ms)
+  AssertionError [ERR_ASSERTION]: v12NorthDelivery
+  
+  40 !== 50
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-story-world.test.mjs:16:1183)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 40,
+    expected: 50,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
