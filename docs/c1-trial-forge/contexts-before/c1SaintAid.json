@@ -1,0 +1,221 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "intro",
+    "actors": [
+      "elyria",
+      "dolly"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "elyria": {
+      "name": "艾莉娅",
+      "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+      "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+      "state": {
+        "emotion": "关心失踪家属和施粥安排，准备礼拜。",
+        "goals": [
+          "帮助等候的普通人并履行圣女职责。"
+        ],
+        "faction_view": "真诚信任教廷的救助。",
+        "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+        "conflicts": [
+          "想帮家属但无法保证找到失踪者。"
+        ]
+      },
+      "relationships": {},
+      "sources": [
+        "author-saint",
+        "scene:saintBrief",
+        "scene:ch2Terms",
+        "scene:ch2ExileEnd"
+      ],
+      "profile": "source/narrative/characters/elyria.json"
+    },
+    "dolly": {
+      "name": "朵莉",
+      "base": "已在最终运行表或地图NPC登记中出现；职责与经历需按下列来源逐场核对。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "scene:ambient_dolly_beforeAssassination",
+        "scene:ambient_dolly_afterAssassination"
+      ],
+      "profile": "source/narrative/characters/dolly.json"
+    }
+  },
+  "knowledge": {
+    "elyria": {},
+    "dolly": {},
+    "player": {}
+  },
+  "facts": {},
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "intro",
+    "position": "before",
+    "at": null,
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "revision": "1.2",
+      "status": "IMPLEMENTED",
+      "implementation": "四场关键交流、共享阅读操作与地下清晰立绘已接入并完成专项验证；完整交付记录见docs/c1-care-ui/ACCEPTANCE.md，真人反馈待验。"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "intro",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-saint": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 2. 艾莉娅的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:ambient_dolly_afterAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_dolly_afterAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ambient_dolly_beforeAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_dolly_beforeAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2ExileEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2ExileEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Terms": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Terms",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:saintBrief": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "saintBrief",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_CARE_UI.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/elyria.json",
+    "source/narrative/characters/dolly.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "51abd9cf0fa37ca2cc57517b276570a1eb65e646f53881c235dd7ee3ee3b46de"
+}

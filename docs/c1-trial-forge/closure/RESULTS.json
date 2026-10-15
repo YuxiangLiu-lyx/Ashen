@@ -1,0 +1,105 @@
+{
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+  "original_full_integration": {
+    "label": "integration",
+    "command": [
+      "python3",
+      "docs/c1-trial-forge/integration_only.py"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-10-14T23:13:06.730610+00:00",
+    "finished_at_utc": "2026-10-14T23:20:54.386708+00:00",
+    "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+    "source_fingerprint": "ab12ac5eda58fa1aef081ca2891de23e12348c2937e0cee40dbff4b3ed510943",
+    "sources_changed_during_check": false,
+    "output": "docs/harness/evidence/c1-trial-forge-20261014/012-integration.txt",
+    "output_sha256": "1d8cf005f220cc0c3eee8f620fceef714033d73ade1cb60c69f276383720be87",
+    "timeout_seconds": 1550.0
+  },
+  "changed_since_full_integration": [
+    "dist/chapter-one-expansion-ui.js",
+    "docs/harness/NARRATIVE_ARCHITECTURE.md",
+    "source/narrative/runtime-index.json",
+    "source/narrative/sources.lock.json"
+  ],
+  "reason": "Only completion feedback when the last rune is consumed and current architecture description changed. Combat, quests, maps, saves, narrative and all test drivers are byte-identical to full successful integration. Rechecked actual crafting UI on three viewports and legacy gift; rebuilt package.",
+  "groups": [
+    {
+      "name": "fast",
+      "steps": [
+        {
+          "command": [
+            "python3",
+            "tools/harness/check.py",
+            "--tier",
+            "fast"
+          ],
+          "exit_code": 1
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "affected",
+      "steps": [
+        {
+          "command": [
+            "node",
+            "--test",
+            "tests/chapter-one-crafting.test.mjs",
+            "tests/c1-trial-forge.test.mjs",
+            "tests/dialogue-hud.test.mjs"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "node",
+            "tests/browser-chapter-one-expansion.mjs"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            "node",
+            "docs/c1-trial-forge/facility-ui.mjs"
+          ],
+          "exit_code": 1
+        }
+      ],
+      "passed": false
+    },
+    {
+      "name": "package",
+      "steps": [
+        {
+          "command": [
+            ".venv/bin/python",
+            "tools/build_web_play.py",
+            "--output",
+            "qa-export/c1-trial-forge-final"
+          ],
+          "exit_code": 0
+        },
+        {
+          "command": [
+            ".venv/bin/python",
+            "tests/browser-web-play.py",
+            "--build",
+            "qa-export/c1-trial-forge-final",
+            "--out",
+            "docs/c1-trial-forge/package-final"
+          ],
+          "exit_code": 0
+        }
+      ],
+      "passed": true
+    }
+  ],
+  "evidence": {
+    "docs/c1-trial-forge/closure/affected.txt": "6451c2ffb498e2bb60387f80129c620d23ec4f35396cae8209c961f0680e37d4",
+    "docs/c1-trial-forge/closure/package.txt": "9c1e6a4a98361a1da00fbca4bd28930c74407745ca58702cadf1f90a81bc9b24",
+    "docs/c1-trial-forge/closure/fast.txt": "7909b12c32642a6229e30043bc2fb0e58dc0f1d284d89c9b3ca3150301cbb131"
+  },
+  "passed": false
+}

@@ -9,7 +9,7 @@
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 235,
+  "runtime_modules": 240,
   "runtime_stylesheets": 7,
   "runtime_images": 148,
   "runtime_resource_bytes": 325424338,
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "R01-R03 gameplay implemented. Current 67 Harness, 225 core and full integration pass. All existing R01-R08 main/side/daily dialogue received the contextual negative-imperative pass (111 scenes/167 edits). Shared enemy HUD and quest-item acceptance gates verified. Human prose, affection balance, pacing, aesthetics and touch comfort pending; historical 0.6 human task independent. R04-R08 gameplay expansion deferred. No website deployment.",
-  "checked_at_utc": "2026-10-14T21:39:08.756575+00:00",
+  "known_limits": "R01 1.3 trial/report/charity and randomized hall preparation implemented and technically verified. R01-R03 original gameplay retained beyond this scoped update; R04-R08 gameplay expansion deferred. Human prose, affection balance, pacing and fun pending; historical 0.6 human task independent. No website deployment.",
+  "checked_at_utc": "2026-10-15T00:04:00.104961+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -303,7 +303,7 @@
   "narrative_rebuild": {
     "version": "1.1",
     "task_id": "c1-story-flow-20261014",
-    "status": "前三章玩法技术交付保留；第一章1.1任务叙事与场景内私谈追加完成，真人阅读与节奏待验；第四至八章暂缓。",
+    "status": "第一章1.3整改技术验收完成；前三章原交付保留，后五章玩法暂缓，真人体验待验。",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,9 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "1.1",
+      "script_revision": "1.3",
       "script_status": "IMPLEMENTED",
-      "implementation": "任务背景、对白后接交和离场后会馆私谈已接入。最新技术证据及真人待验见docs/c1-story-flow/ACCEPTANCE.md。"
+      "implementation": "第一章1.3运行已实现：先试炼与独立Boss，回薇蕾娜处汇报后正式委托及随机整备；当前技术证据见docs/c1-trial-forge，真人待验。"
     },
     "chapter02": {
       "id": "V01C02",
@@ -965,5 +965,17 @@
     "verified_content_commit": "d59cd3e06513090552276b7eb9fbd0f32ccb9b97",
     "git_receipt": "docs/dialogue-hud/GIT_SAVE.json",
     "task_record": "source/tasks/archive/dialogue-hud-20261014.json"
+  },
+  "c1_trial_forge": {
+    "revision": "1.3",
+    "status": "implemented_technically_verified",
+    "task": "c1-trial-forge-20261014",
+    "scope": "Chapter1 only; report before approval; 5 elites + separate final trial Boss; hall potion/rune/core services; schema6",
+    "acceptance": "docs/c1-trial-forge/ACCEPTANCE.md",
+    "human": "pending",
+    "default_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
+    "elites": 5,
+    "trial_boss": "c1-final-examiner",
+    "save_schema": 6
   }
 }

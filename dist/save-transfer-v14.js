@@ -1,3 +1,4 @@
+import {migrateTrialSave} from './chapter-one-trial-save.js';
 import {validateC1Save} from './chapter-one-expansion-save.js';
 import {validateWorldSaveV29} from './world-runtime-v29.js';
 import {migrateDialogueSaveV26} from './dialogue-save-migration-v26.js';
@@ -29,7 +30,7 @@ export function exportSave(game){if(!game.canSave())throw new Error(game.saveBlo
 export function parseSave(text,depth=0){
  if(depth>1)throw new Error('离城前记录不能相互嵌套。');
  if(typeof text!=='string'||text.length>2000000)throw new Error('存档过大或内容为空。');
- const envelope=JSON.parse(text),s=migrateDialogueSaveV26(envelope?.format==='ashen-vow-save'?envelope.save:envelope);
+ const envelope=JSON.parse(text),s=migrateTrialSave(migrateDialogueSaveV26(envelope?.format==='ashen-vow-save'?envelope.save:envelope));
  if(!s||![2,3,4,5,6,7,8,9,10,11,12,13,14,15,16].includes(s.version)||!CLASSES[s.p?.cls]||!MAPS[s.map])throw new Error('这不是兼容的烬誓存档。');
  validateC1Save(s);validateWorldSaveV29(s);assertSupportedSavedProgressV23(s,DIALOGUES);validateSagaSaveV25(s);validateSagaSaveV26(s);
  validateCitySaveV18(s);validateHellActivitiesSaveV17(s);validateHellExpeditionsSaveV18(s);validateSaintBondSaveV17(s);validateSaintStorySaveV18(s);validateRomanceSaveV20(s);validateArrivalSaveV22(s);validateCityMomentsSaveV24(s);validateDiscoverySaveV19(s);validateHellActivitiesSaveV15(s);validateChapter5Save(s);validateMercenarySave(s);validateSystemsSave(s);if(!validMemoryResume(s))throw new Error('回忆检查点不完整。');validateChapter3Save(s);validateV11Save(s);validatePacingSave(s);

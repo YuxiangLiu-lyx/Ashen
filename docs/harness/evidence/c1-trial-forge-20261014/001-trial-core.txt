@@ -1,0 +1,61 @@
+✖ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (9.126875ms)
+✖ warehouse charity scene uses town actors and returns without giving Noen private knowledge (0.974459ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (12.111917ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.670125ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (7.203584ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (4.985ms)
+✖ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (2.054791ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 4
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 172.553666
+
+✖ failing tests:
+
+test at tests/c1-trial-forge.test.mjs:8:1
+✖ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (9.126875ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  + actual - expected
+  
+  + undefined
+  - false
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-trial-forge.test.mjs:8:837)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: false,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/c1-trial-forge.test.mjs:9:1
+✖ warehouse charity scene uses town actors and returns without giving Noen private knowledge (0.974459ms)
+  TypeError: Cannot read properties of null (reading 'id')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-trial-forge.test.mjs:9:191)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3)
+
+test at tests/c1-trial-forge.test.mjs:14:1
+✖ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (2.054791ms)
+  Error: 对白位置不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:58:335)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-trial-forge.test.mjs:14:352)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

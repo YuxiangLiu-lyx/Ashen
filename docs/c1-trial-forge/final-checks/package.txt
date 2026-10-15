@@ -1,0 +1,55 @@
+Assets prepared: 20/143
+Assets prepared: 40/143
+Assets prepared: 60/143
+Assets prepared: 80/143
+Assets prepared: 100/143
+Assets prepared: 120/143
+Assets prepared: 140/143
+{
+  "version": "30",
+  "source_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+  "source_dirty": true,
+  "runtime_input_sha256": "b84c411ac8f09e9511e3e953b5b20b68b598c1d14d8b8f742627ae8e19c24321",
+  "offline_filename": "Ashen-V28.1-Play.html",
+  "module_count": 240,
+  "image_count": 143,
+  "original_images_bytes": 318863123,
+  "web_images_bytes": 184246862,
+  "offline_html_bytes": 249958400,
+  "offline_sha256": "ad8795c7c5eee300e9804bbfd21f47088e8463101a889b831b8a640f5fabeb8c",
+  "original_dist_modified": false
+}
+Traceback (most recent call last):
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-web-play.py", line 151, in <module>
+    results.append(run_case(browser,(args.build/'Ashen-V28.1-Play.html').resolve().as_uri(),'offline-file',args.out,offline=True))
+                   ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-web-play.py", line 65, in run_case
+    page.wait_for_function("document.querySelector('img.portrait-art')?.naturalWidth>0")
+    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/sync_api/_generated.py", line 11595, in wait_for_function
+    self._sync(
+    ~~~~~~~~~~^
+        self._impl_obj.wait_for_function(
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+        )
+        ^
+    )
+    ^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/_impl/_sync_base.py", line 115, in _sync
+    return task.result()
+           ~~~~~~~~~~~^^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/_impl/_page.py", line 1110, in wait_for_function
+    return await self._main_frame.wait_for_function(**locals_to_params(locals()))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/_impl/_frame.py", line 878, in wait_for_function
+    await self._channel.send("waitForFunction", self._timeout, params)
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 69, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ...<3 lines>...
+    )
+    ^
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/.venv/lib/python3.13/site-packages/playwright/_impl/_connection.py", line 559, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.TimeoutError: Page.wait_for_function: Timeout 30000ms exceeded.

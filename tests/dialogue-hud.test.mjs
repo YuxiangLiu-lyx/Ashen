@@ -9,14 +9,15 @@ import {combatTarget,combatTargetName} from '../dist/combat-target-ui.js';
 import {C1_ELITES} from '../dist/chapter-one-expansion-data.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
 import {dialogueCorpus} from '../tools/harness/dialogue_corpus.mjs';
+const trial=JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/SCRIPT.json',import.meta.url))).scenes;
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/dialogue-hud/baseline/full-corpus.json',import.meta.url))).scenes;
 const clone=x=>structuredClone(x),finish=g=>{for(let n=0;g.pending&&n<20;n++)g.finishScene();};
 test('all static/dynamic providers are covered; only exact authored whole-scene revisions change',()=>{
- const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/dialogue-hud/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now),Object.keys(baseline));
+ const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
  for(const[id,b]of Object.entries(baseline)){
   const e=DIALOGUE_COPYEDITS.find(e=>e.key===id)||DIALOGUE_COPYEDITS.find(e=>JSON.stringify(e.before)===JSON.stringify(b.text));
   if(e){assert.deepEqual(e.before,b.text,id);assert.deepEqual(e.after.map(r=>r[0]),b.text.map(r=>r[0]),id);}
-  assert.deepEqual(now[id].text,e?.after||b.text,id);
+  assert.deepEqual(now[id].text,trial[id]||e?.after||b.text,id);
  }
 });
 test('every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration',()=>{
@@ -37,7 +38,7 @@ test('selected ordinary enemy takes priority; dead, distant, stale-map and disen
  g.target=null;assert.equal(combatTarget(g),boss);rat.aiState='COMBAT';assert.equal(combatTarget(g,boss),boss);boss.dead=true;assert.equal(combatTarget(g,boss),rat);rat.x=900;assert.equal(combatTarget(g,rat),null);g.enemies=[];assert.equal(combatTarget(g,rat),null);
 });
 test('all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once',()=>{
- for(const[id,c]of Object.entries(C1_ELITES)){
+ for(const[id,c]of Object.entries(C1_ELITES).filter(([,c])=>c.part)){
   const g=new RPG('shadow',null,()=>.44);g.chapter=2;g.enter(c.map,600,560);g.pending=null;const gold=g.p.gold;g.damage(g.enemies.find(e=>e.id===id),1e7);
   assert.equal(g.p.gold,gold+12);assert.ok(!g.c1Expansion.samples[c.part]);assert.ok(!g.c1Expansion.elite[id].firstPartGranted);
   g.quests.c1AlchemistSamples='active';g.enter('hall');g.enter(c.map);g.pending=null;g.damage(g.enemies.find(e=>e.id===id),1e7);assert.equal(g.c1Expansion.samples[c.part],true);

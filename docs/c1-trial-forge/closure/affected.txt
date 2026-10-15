@@ -1,0 +1,44 @@
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (25.75675ms)
+✔ warehouse charity scene uses town actors and returns without giving Noen private knowledge (3.121333ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (5.920834ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.652541ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (6.144541ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (4.31375ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (2.891417ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (24.228708ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (29.24825ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (8.065375ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.484292ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.844708ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.580833ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (1.941792ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.371209ms)
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (94.952667ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (73.69475ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (13.408959ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.169375ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (10.032167ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (6.019416ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (11.807292ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (5.563459ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (8.099542ms)
+✔ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (781.018167ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1167.275083
+file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43
+      async wait(expression,timeout=60000){const end=Date.now()+timeout;while(Date.now()<end){if(await evaluate(expression))return;await delay(100);}throw Error('Timed out: '+expression);},
+                                                                                                                                                           ^
+
+Error: Timed out: window.__SHOP?.ready()
+    at Object.wait (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tools/browser_session.mjs:43:156)
+    at runNextTicks (node:internal/process/task_queues:64:5)
+    at process.processTimers (node:internal/timers:538:9)
+    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/docs/c1-trial-forge/facility-ui.mjs:4:5
+
+Node.js v25.2.1

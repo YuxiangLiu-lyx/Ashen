@@ -1,0 +1,765 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "assassination",
+    "actors": [
+      "noen",
+      "elyria",
+      "cadlan",
+      "role_4ae25552de"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "核对维护身份和退路，执行委托并以自身安全为先。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": [
+          "知道圣女不会自愿同行。"
+        ],
+        "last_change": "R01:contract"
+      },
+      "relationships": {
+        "elyria": {
+          "trust": "尚未相识",
+          "affection": "未建立",
+          "caution": "UNRESOLVED",
+          "hostility": "未建立",
+          "dependence": "未建立",
+          "concealment": "UNRESOLVED",
+          "obligation": "UNRESOLVED",
+          "conflict": "UNRESOLVED"
+        }
+      },
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    },
+    "elyria": {
+      "name": "艾莉娅",
+      "base": "光明教廷圣女，真诚相信教廷在帮助人们。",
+      "voice": "认真问清事情，解释担心的原因，提出可行动的要求。善良不靠重复生命价值演讲。",
+      "state": {
+        "emotion": "关心失踪家属和施粥安排，准备礼拜。",
+        "goals": [
+          "帮助等候的普通人并履行圣女职责。"
+        ],
+        "faction_view": "真诚信任教廷的救助。",
+        "expression": "能够解释不安、询问消息，尚无后期政治认识。",
+        "conflicts": [
+          "想帮家属但无法保证找到失踪者。"
+        ]
+      },
+      "relationships": {
+        "noen": {
+          "trust": "尚未相识",
+          "affection": "未建立",
+          "caution": "UNRESOLVED",
+          "hostility": "未建立",
+          "dependence": "未建立",
+          "concealment": "UNRESOLVED",
+          "obligation": "UNRESOLVED",
+          "conflict": "UNRESOLVED"
+        },
+        "cadlan": {
+          "trust": "早期相信其职责与救助说法",
+          "affection": "UNRESOLVED",
+          "caution": "没有独立罪证",
+          "hostility": "UNRESOLVED",
+          "dependence": "UNRESOLVED",
+          "concealment": "UNRESOLVED",
+          "obligation": "UNRESOLVED",
+          "conflict": "UNRESOLVED"
+        }
+      },
+      "sources": [
+        "author-saint",
+        "scene:saintBrief",
+        "scene:ch2Terms",
+        "scene:ch2ExileEnd"
+      ],
+      "profile": "source/narrative/characters/elyria.json"
+    },
+    "cadlan": {
+      "name": "卡德兰",
+      "base": "光明教廷主祭，午钟刺杀目标；其言论中的指控并非客观事实。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "scene:saintBrief",
+        "scene:assassination"
+      ],
+      "profile": "source/narrative/characters/cadlan.json"
+    },
+    "role_4ae25552de": {
+      "name": "巡卫",
+      "base": "已在最终运行表或地图NPC登记中出现；职责与经历需按下列来源逐场核对。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "scene:assassination",
+        "scene:ch2SearchAside"
+      ],
+      "profile": "source/narrative/characters/role_4ae25552de.json"
+    }
+  },
+  "knowledge": {
+    "noen": {
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      },
+      "F-C1-13-C1TRIALREPORT": {
+        "mode": "knows",
+        "via": "R01:c1TrialReport"
+      },
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-13-CONTRACT": {
+        "mode": "knows",
+        "via": "R01:contract"
+      }
+    },
+    "elyria": {
+      "F-C1-13-C1SAINTAID": {
+        "mode": "knows",
+        "via": "R01:c1SaintAid"
+      },
+      "F-C1-MISSING": {
+        "mode": "knows",
+        "via": "R01:saintBrief"
+      },
+      "F-C1-BLAME": {
+        "mode": "believes",
+        "via": "R01:saintBrief"
+      }
+    },
+    "cadlan": {},
+    "role_4ae25552de": {},
+    "player": {
+      "F-C1-13-C1SAINTAID": {
+        "mode": "knows",
+        "via": "R01:c1SaintAid"
+      },
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      },
+      "F-C1-13-C1TRIALREPORT": {
+        "mode": "knows",
+        "via": "R01:c1TrialReport"
+      },
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-13-CONTRACT": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-ALT-DOOR": {
+        "mode": "knows",
+        "via": "R01:c1HiddenPairArrangement"
+      },
+      "F-C1-PROTECT": {
+        "mode": "knows",
+        "via": "R01:c1HiddenPairArrangement"
+      },
+      "F-C1-MISSING": {
+        "mode": "knows",
+        "via": "R01:saintBrief"
+      },
+      "F-C1-BLAME": {
+        "mode": "heard",
+        "via": "R01:saintBrief"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-PROTECT": {
+      "id": "F-C1-PROTECT",
+      "summary": "薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-ASSASSINATION": {
+      "id": "F-C1-13-ASSASSINATION",
+      "summary": "艾莉娅：卡德兰大人，厨房把热水送去了。那位母亲想在后排等礼拜结束，可以吗？；卡德兰：可以，让人给她搬把椅子。你手里拿的是今天要念的名单？；旁白：诺恩拿着通行纸，沿中间的过道走到长桌右侧。；卡德兰：修理铺送来的？器具放那边。等一下，你手里——；旁白：诺恩贴着桌角抢上一步，将短刃刺入卡德兰胸口。；艾莉娅：住手！；旁白：卡德兰踉跄着后退，倒在了桌边。艾莉娅上前一步，又停了下来。；艾莉娅：卡德兰大人，您看着我！我在这里，我马上替您止血！；诺恩：别过来，把法器放下。；艾莉娅：让开！他胸口的血止不住，我得马上施术。叫医师来，快去！；旁白：她举起法器。诺恩扣住她的手腕，把一道灰色封印压进腕内，刚亮起的光散了。；诺恩：封术印已经截断了你的圣术。放下法器，跟我走。；艾莉娅：为什么连救他也要拦？他刚才还在跟我说话！求你，让医师进来，他还躺在那里啊！；诺恩：护卫会去找医师。你跟我走，到侧门去。；旁白：巡卫冲进门来。诺恩把艾莉娅带到自己身前，握着她的手腕退向侧门。弩手抬起的手停在半空。；巡卫：站住！把圣女放开！；艾莉娅：别放箭！先救卡德兰大人，求你们快去看看他！；诺恩：把侧门打开。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:assassination"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-SEAL-OBSERVED": {
+      "id": "F-C1-SEAL-OBSERVED",
+      "summary": "诺恩与艾莉娅在刺杀中见到封术生效；运行标记saint-specific-seal不证明封印来源或万能效果。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "runtime-knowledge"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-ABDUCTION": {
+      "id": "F-C1-ABDUCTION",
+      "summary": "卡德兰被诺恩刺杀，圣女施救受阻、圣术被封，被强迫带走。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:assassination",
+        "scene:chapterEnd"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1SAINTAID": {
+      "id": "F-C1-13-C1SAINTAID",
+      "summary": "旁白：白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。；朵莉：圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。；艾莉娅：这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。；朵莉：南街贴了告示，可认字的人也少。明天我早点来，在路口给他们指路。；艾莉娅：我也来。你把粥放在这边吧，坐着的几位先送过去。我来分面包，今天剩下的够他们带一份回家吗？；朵莉：够。这一篮都留给这边，另一篮还在车上。您也吃一点？从早晨忙到现在，手都是凉的。；艾莉娅：谢谢，等我把这几份送完就吃。那位婆婆脚磨破了，回去要走很久，我想请厨房留些热水，再找辆顺路的车送她。；朵莉：我父亲下午正好往南街送货，我去跟他说。他听说是您托的事，肯定乐意。；艾莉娅：那太好了，我待会儿过去向他道谢。还得问清婆婆住在哪一户，送到家里，我们才好放心。；旁白：朵莉把热粥递到老人手中。艾莉娅扶稳碗底，等老人坐好了，才端起下一碗。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1SaintAid"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-ALT-DOOR": {
+      "id": "F-C1-ALT-DOOR",
+      "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": [
+        "别的办法解开",
+        "另一种开门",
+        "其他开门办法"
+      ],
+      "initial_holders": [
+        "vilerena"
+      ]
+    },
+    "F-C1-BLAME": {
+      "id": "F-C1-BLAME",
+      "summary": "卡德兰称黑暗教廷杀了奥斯文并将失踪案归责于其；只是其说法，未在该场核实。",
+      "truth": "unreliable_report",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": [
+        "黑暗教廷杀了奥斯文"
+      ]
+    },
+    "F-C1-13-CONTRACT": {
+      "id": "F-C1-13-CONTRACT",
+      "summary": "薇蕾娜：明天午钟，卡德兰主祭会在白榆城礼拜厅。画像夹在通行纸里，你先看看。；诺恩：确认过是他？；薇蕾娜：确认过，鲁恩的人今早刚回来。正门要验通行纸，侧门出去就是北门小巷。换岗的时辰也记在这里，一起带上。；诺恩：侧门能开？；薇蕾娜：能，从里面抽闩就行。另外，圣女艾莉娅也会到场，你得把她带出来。；诺恩：为什么要带圣女？；薇蕾娜：我们要进一扇门，得用她的圣徽才能打开。具体地点会送到灰石驿站，你带她去那里，接头人会给你路图。；诺恩：为什么不先查清地点？；薇蕾娜：地方已经查过了，但院里的人这两天还在换。等最后的消息到了，再把路图给你，免得你按旧图走。；诺恩：那接头人呢？名字也不能告诉我？；旁白：薇蕾娜停了一下，收回压着通行纸的手。；薇蕾娜：通行纸可能被搜走，接头人的名字不能写在上面。这次先照我的安排办。；诺恩：她不会自愿跟我走。；薇蕾娜：所以要带封术印。它只能封住圣术，你制住她就够了，别下重手。；诺恩：人我会带到。；薇蕾娜：鲁恩还备了一份维护班次的封套。进城后交给北街的托马，他核对过登记，就会告诉你礼拜厅的入口。；诺恩：我记下了。进城先交封套、核实入口，再看清北渠的退路。；薇蕾娜：通行纸和行路药都放在这里。你准备好了再走，我送你到门口。；诺恩：我先去看看罗萨的货，出门前再来跟你说一声。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-DOOR-CLAIM": {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-MISSING": {
+      "id": "F-C1-MISSING",
+      "summary": "失踪家属正在等消息，艾莉娅关心老人和姑娘们。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:saintBrief"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALREPORT": {
+      "id": "F-C1-13-C1TRIALREPORT",
+      "summary": "薇蕾娜：回来了。让我看看，袖口蹭了些灰，脸色倒还好。地下那具执卫难对付吗？；诺恩：它比旧廊的哨兵快，起手时会把盾抬高。我先绕开正面，等它冲过去再回身打；打到后面，也尽量把自己留在有路可退的位置。；薇蕾娜：你把它出手和停下来的时候都看清了，还能顾着身后的路。这趟地下走得很值，你处理这些情况已经稳当多了。；诺恩：硬抢没用。地下地方窄，我要是被挤到墙边，下一下就很难避开。；薇蕾娜：听你把这些说清楚，我心里踏实多了。那份委托，我同意交给你。；诺恩：你刚才一直在等结果？；薇蕾娜：当然。手里这页账我看了好几遍，门口一响就抬头。现在你人站在这里，我才有心思问它到底有多厉害。；诺恩：我下次回来先来找你，免得你等。；薇蕾娜：这可是你自己说的，我记着了。先坐一会儿，奥伦把饭热着。正好趁吃饭，我把出门的事跟你讲清楚。；旁白：薇蕾娜把桌边的纸挪到一旁。奥伦留的饭仍温着，诺恩吃过后，接过她递来的水。；薇蕾娜：出门前再看看西边那台装置。罗萨把缀纹机搬来了，除了配药，还能用核心和符文做装备。我已经请她替你把制装备的部分打开。；诺恩：核心要从哪里找？；薇蕾娜：装置上会挂材料订单，凑够它要的精粹，就能换到一枚。每次回收的核心不一样，先看清这次给什么，再决定做哪件。；诺恩：符文也是在那儿换？；薇蕾娜：符文向罗萨买。她手里的货随来货变，你可以看看当时有哪些，再挑合用的。核心、符文和工费凑齐，装置就能做；今天暂时用不上，也可以留着。；诺恩：我先看自己的装备哪里薄弱，再决定换什么。；薇蕾娜：嗯。还有一句，我要亲口跟你说：碰上应付不了的局面，先找路撤回来。事情可以重新安排，我最在意的是你能平安回来。；诺恩：我会先确认退路。要是带着人走不通，我会重新找机会，不硬闯。；薇蕾娜：好。你肯把自己的安危算进去，我才敢放手。来，把通行纸拿近些，我给你指地方。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialReport"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALINVITATION": {
+      "id": "F-C1-13-C1TRIALINVITATION",
+      "summary": "薇蕾娜：终于回来了。奥伦一直夸你干活利索，可我看你这满肩的木屑，倒像是在库房里住下了。；诺恩：最后一只钻进了夹墙，我拆了一块松板。墙后的洞已经找着，奥伦会找人补上。；薇蕾娜：过来一点，我替你拿掉。你站那么远，我还以为自己今天哪里惹你不高兴了。；诺恩：你手边还有墨水。我怕靠过去，木屑落进砚台里。；薇蕾娜：想得还挺周到。那我走过来，总可以了吧？；旁白：薇蕾娜绕过桌角，拈下他肩头的木屑。她看了一眼桌上的通行纸，却没有立即递给他。；诺恩：奥伦说你有事找我。是桌上那份委托？；薇蕾娜：嗯，要进城办一件危险的事，回来时还得带一个人。我知道你能打，可真遇上围堵，光顾着眼前的对手就容易吃亏。我想先看看你现在的身手。；诺恩：你想怎么试？；薇蕾娜：先去庭院找鲁恩，看看那些苔壳兽冲过来时，你怎么避开。随后去地下找伊登，他会带你认路，最后还有一具专门考应变的执卫。；诺恩：地下的构装体和庭院里的兽群，出手应该差得很远。我先摸清它们的动作，再找机会近身。；薇蕾娜：好，我想听的就是你怎么判断。练完回来亲口告诉我，我再决定这份委托能不能放心交给你。；诺恩：那你在这里等我？；薇蕾娜：我今天都在。奥伦炖了肉，我让他给你留一份。等你回来，陪我吃过饭再谈正事。；诺恩：你饿了就先吃。我还不知道地下要花多久。；薇蕾娜：这么认真地照顾我，我都快舍不得放你走了。放心，锅边总有我的份。你先去，回来让我看看这趟练得怎么样。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialInvitation"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [
+    {
+      "id": "SEED-DOOR",
+      "fact_ids": [
+        "F-C1-ALT-DOOR"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:c1HiddenPairArrangement",
+      "shown": [
+        "存在其他解法，但带圣女仍是上级安排。"
+      ],
+      "interpretations": {
+        "player": "知道存在替代办法",
+        "vilerena": "追问为什么仍要带人",
+        "rune": "称服从上面安排",
+        "noen": "未获知",
+        "elyria": "未获知"
+      },
+      "withheld": [
+        "具体办法、代价、上层目的"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+      ],
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ]
+    },
+    {
+      "id": "SEED-SEAL",
+      "fact_ids": [
+        "F-C1-SEAL-OBSERVED"
+      ],
+      "state": "planted",
+      "planted_at": "R01:assassination",
+      "shown": [
+        "封住圣术的实际效果"
+      ],
+      "interpretations": {
+        "noen": "会使用，未知来源全貌",
+        "elyria": "亲历圣术受阻",
+        "player": "看见封术效果"
+      },
+      "withheld": [
+        "来源、完整边界与解除条件的长期解释"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "需要后续实际证据，不能创造万能感应。"
+      ],
+      "sources": [
+        "scene:assassination",
+        "author-open"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "assassination",
+    "position": "before",
+    "at": null,
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+      "revision": "1.3",
+      "status": "DEV_FROZEN"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "assassination",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "noen",
+        "fact": "F-C1-ABDUCTION",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-C1-SEAL-OBSERVED",
+        "mode": "knows"
+      },
+      {
+        "actor": "elyria",
+        "fact": "F-C1-ABDUCTION",
+        "mode": "knows"
+      },
+      {
+        "actor": "elyria",
+        "fact": "F-C1-SEAL-OBSERVED",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-ABDUCTION",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-SEAL-OBSERVED",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-C1-13-ASSASSINATION",
+        "mode": "knows"
+      },
+      {
+        "actor": "elyria",
+        "fact": "F-C1-13-ASSASSINATION",
+        "mode": "knows"
+      },
+      {
+        "actor": "cadlan",
+        "fact": "F-C1-13-ASSASSINATION",
+        "mode": "knows"
+      },
+      {
+        "actor": "role_4ae25552de",
+        "fact": "F-C1-13-ASSASSINATION",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-13-ASSASSINATION",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "author-open": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 4. 不平凡背景与预言的开放性",
+      "kind": "unresolved"
+    },
+    "author-saint": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 2. 艾莉娅的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "c2-plan": {
+      "path": "docs/harness/CHAPTER_02.md",
+      "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+      "kind": "adopted_plan"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "runtime-knowledge": {
+      "path": "dist/core-v14.js",
+      "anchor": "if(sceneId==='darkExileV9')",
+      "kind": "runtime"
+    },
+    "scene:assassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "assassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2ExileEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2ExileEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2SearchAside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2SearchAside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Terms": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Terms",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:chapterEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "chapterEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:saintBrief": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "saintBrief",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    },
+    "trial:assassination": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "assassination"
+    },
+    "trial:c1SaintAid": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "trial:c1TrialInvitation": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    },
+    "trial:c1TrialReport": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialReport"
+    },
+    "trial:contract": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "contract"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/noen.json",
+    "source/narrative/characters/elyria.json",
+    "source/narrative/characters/cadlan.json",
+    "source/narrative/characters/role_4ae25552de.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+  "prewriting_context_archive": "docs/c1-trial-forge/contexts-before"
+}

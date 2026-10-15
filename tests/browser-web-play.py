@@ -58,7 +58,7 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     page.locator('[data-act="continue"]').click()
     checks += ['no_removed_cinematic_entry']
     module='@ashen/core-v14.js' if offline else './core-v14.js'
-    known_tail="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=1;g.enter('hall',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('contract','contractAccept');Object.assign(g.pending,{line:19,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenPairArrangement',line:1,revision:3}});return JSON.stringify(g.snapshot());}"""
+    known_tail="""async (module)=>{const {RPG}=await import(module);const g=new RPG('shadow',null,()=>.4);g.chapter=1;g.enter('hall',800,850);g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.beginScene('contract','contractAccept');Object.assign(g.pending,{line:19,phase:'dialogue',closing:true,c1Tail:{id:'c1HiddenPairArrangement',line:1,revision:3}});const s=g.snapshot();s.c1Expansion.schema=5;delete s.c1Expansion.preparation;return JSON.stringify(s);}"""
     raw_known=page.evaluate(known_tail,module)
     page.keyboard.press('Escape');page.locator('[data-act="import-save"]').click()
     page.locator('#saveTransfer').fill(raw_known);page.locator('[data-act="confirm-import"]').click()

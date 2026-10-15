@@ -1,0 +1,614 @@
+{
+  "schema": 1,
+  "id": "c1-trial-forge-20261014",
+  "goal": "第一章完整剧情与成长流程整改：库房圣女救民切镜、薇蕾娜试炼与汇报同意、独立试炼Boss和五精英讨伐、会馆前置商人与合成装置、初期全怪药材及药水制作、汇报后随机符文核心订单装备制作；保留刺杀结果、知识边界、旧档及后续章",
+  "acceptance": [
+    "新游戏正常输入完成库房切镜→试炼小Boss→薇蕾娜汇报→装备整备→入城称赞→原刺杀；两地下三外部精英及讨伐领奖一次；前后设施门禁/随机持久化/所有怪药材/制作事务/旧档通过；叙事七维、三维、三职业成长对照、完整integration和当前试玩包可重复验证，真人待验独立记录"
+  ],
+  "baseline_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+  "modules": [
+    "story",
+    "chapter01_expansion",
+    "chapter01_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-14T22:09:34.481962+00:00",
+  "updated_at_utc": "2026-10-15T00:07:32.166283+00:00",
+  "decisions": [
+    "先核对真实顺序并冻结第一章新稿；新任务不恢复旧0.1/0.2撤回实现。采用五只精英（地下2、外部3）加独立试炼Boss，剧情正式授权移至试炼回报。",
+    "旧集成测试中的阶段2/免费材料/三精英断言逐项按1.3更新，保留原始失败；迁移样本必须真实去除新schema字段，不能放宽校验。",
+    "009集成捕获章节注册版本未同步，包检查捕获旧尾段fixture误带schema6；已同步实际1.3注册并恢复真实schema5样本，不降低断言。",
+    "Harness反例会短暂改写真实文件，最终检查和打包已改顺序执行；014和016失败保留，017按精确输入与受影响范围完成恢复。"
+  ],
+  "completed": [
+    "真实运行对白/128图/三职业初档已保存；采用1.3章稿及新增事件登记，确定phase1试炼、回报后phase2正式委托，保留旧档授权。",
+    "22场1.3对白、会馆设施、schema6、五精英+独立Boss和随机交易已实现；7项专项全过，shadow实际生产移动战斗主线已通过。",
+    "22场七维编辑复核通过；三职业正常键鼠完成post/phase6；正式运行模块及新档UI逐项核验与当前一致，旧档试作入口另测。",
+    "22场141页对白及三职业正常键鼠通章通过；当前指纹67项Harness、完整集成复核、22图396条移动、324单体与54群战成长对照通过。六场景三维、22场七维和整章体验技术门禁通过，真人待验附观察表。离线/HTTP/手机包已更新默认路径，旧包完整保留，5174服务全部240脚本7样式一致；大型JSON逐字归档验证。"
+  ],
+  "remaining": [
+    "保存GitHub main与最终回执"
+  ],
+  "blockers": [],
+  "next": "核验归档和最终门禁，提交推送main后归档任务",
+  "required_checks": [
+    "fast",
+    "narrative",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "trial-core",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-trial-forge.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T22:26:42.127607+00:00",
+      "finished_at_utc": "2026-10-14T22:26:42.354588+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "7683bdefaa621229507a41a9e6810906240fe09a624c11ba5d6a346e856c340b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/001-trial-core.txt",
+      "output_sha256": "9007d942063ecc066037b635718b6aab837cdf4b8b75baad316c43f5251b42be",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "trial-core",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-trial-forge.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T22:27:53.189456+00:00",
+      "finished_at_utc": "2026-10-14T22:27:53.470741+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "952f0e70aaa2848b822aabef982fe329c8f30e394a8258039d6632d4355c0df2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/002-trial-core.txt",
+      "output_sha256": "a5a2e8a2161accca6c8ed5fa8bf074cf5f591723b273e598979f8e77a07e49da",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "core-audit",
+      "command": [
+        "node",
+        "--test",
+        "tests/presentation-v281.test.mjs",
+        "tests/balance-lab.test.mjs",
+        "tests/world-v29.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-test.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-chapter-three.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-trial-forge.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T22:28:25.269320+00:00",
+      "finished_at_utc": "2026-10-14T22:28:41.261314+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "952f0e70aaa2848b822aabef982fe329c8f30e394a8258039d6632d4355c0df2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/003-core-audit.txt",
+      "output_sha256": "21a5c041f08f7b620494a00c38c9502e767f08ef268b8535f2c1d153dbdabc1d",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "visual",
+      "command": [
+        "node",
+        "docs/c1-trial-forge/capture.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T22:30:40.000846+00:00",
+      "finished_at_utc": "2026-10-14T22:31:07.195770+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "f6e0f1219e85c210698fa1dabeb29600857f15bae1f06b7a1e09b384d61d9ce6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/004-visual.txt",
+      "output_sha256": "2f919ccbe959156e19daf3273f940d47dfa1c0a64fc1eb92f41cd3db65585816",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "economy-probe",
+      "command": [
+        "node",
+        "--input-type=module",
+        "-e",
+        "import{journey}from './tests/chapter-one-economy.mjs';journey('shadow','main_only',2654435769)"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T22:33:34.603121+00:00",
+      "finished_at_utc": "2026-10-14T22:33:36.391124+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "ef82bfa173536875844fc43000d94e65b8e0605eb386dc58d65297147675b5ae",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/005-economy-probe.txt",
+      "output_sha256": "282fdb66ee11f94c453f4a54baba1b7268f5c15138d8cd3036aba059addb765c",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "normal-shadow",
+      "command": [
+        "node",
+        "tests/browser-chapter-one-natural.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T22:34:58.775719+00:00",
+      "finished_at_utc": "2026-10-14T22:41:43.055305+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "0320b5372f176cdb6c6908f7f29c22a0f71d6e1e1d6e763d9685559ac6759007",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/006-normal-shadow.txt",
+      "output_sha256": "536c30954d5dd992173f5529c542367cf6f56f8002a60727436abedc2f60a851",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "visual-final",
+      "command": [
+        "node",
+        "docs/c1-trial-forge/capture.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T22:42:23.339388+00:00",
+      "finished_at_utc": "2026-10-14T22:42:50.239264+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "2e04937f8a9e6194553c751d4294abeeb8765f8fe5e8ab71742d36d81a2cc377",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/007-visual-final.txt",
+      "output_sha256": "2f919ccbe959156e19daf3273f940d47dfa1c0a64fc1eb92f41cd3db65585816",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "normal-three-classes",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/normal_inputs.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T22:44:03.813460+00:00",
+      "finished_at_utc": "2026-10-14T22:52:50.594227+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3391b869d4c8347197088ffbb481c6ae059d81144f679263a52f413fc227c8d3",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/008-normal-three-classes.txt",
+      "output_sha256": "42d697e25f43532dfcf035923f686791211c6b009072121d5c64441411a41a9d",
+      "timeout_seconds": 1250.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/final_checks.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T22:53:13.374798+00:00",
+      "finished_at_utc": "2026-10-14T22:58:53.045368+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "bdd8d91e6443936fc166c26e08bc7554a7710a24caa581f4c6410ed32d9dd4c9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/009-integration.txt",
+      "output_sha256": "70b783e135c2e218240e650fd525340964505251db6404bdcacd3bb23cc9fc24",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/final_checks.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T23:02:10.999522+00:00",
+      "finished_at_utc": "2026-10-14T23:08:45.224110+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "110acbb8d89f7e72177c3f23a9aed6e0de846e3497b33e96f823be17e22b68d9",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/010-integration.txt",
+      "output_sha256": "6f71b1d6a704594541b1b2d136c341a7d0068d2042adba4d3a903af1e6cbfacd",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "preparation-growth",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/post_checks.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T23:10:08.913348+00:00",
+      "finished_at_utc": "2026-10-14T23:10:44.981460+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "ab12ac5eda58fa1aef081ca2891de23e12348c2937e0cee40dbff4b3ed510943",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/011-preparation-growth.txt",
+      "output_sha256": "4bb94159eb71310d65e71bf3bcbc641978c02c004850068b3fc833a8d24b8596",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/integration_only.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T23:13:06.730610+00:00",
+      "finished_at_utc": "2026-10-14T23:20:54.386708+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "ab12ac5eda58fa1aef081ca2891de23e12348c2937e0cee40dbff4b3ed510943",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/012-integration.txt",
+      "output_sha256": "1d8cf005f220cc0c3eee8f620fceef714033d73ade1cb60c69f276383720be87",
+      "timeout_seconds": 1550.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T23:28:05.876366+00:00",
+      "finished_at_utc": "2026-10-14T23:28:52.032665+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "6e6f567d1276cca52847130fea7dfb2d0496b372c4a2849dff196e0735369430",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/013-fast.txt",
+      "output_sha256": "40c5243d04eb206892fa739dbfc61065e67b3b5f6c3865f963480d76eb429f0f",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/close_checks.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T23:34:01.789057+00:00",
+      "finished_at_utc": "2026-10-14T23:40:50.169846+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/014-integration.txt",
+      "output_sha256": "d2885ef000db4a60dbb9101c36e9e50f2d5196791890c2fd1bcbe5630e619c24",
+      "timeout_seconds": 700.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T23:47:43.994938+00:00",
+      "finished_at_utc": "2026-10-14T23:50:56.325012+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/015-fast.txt",
+      "output_sha256": "e8ece8f34a6e9f4c2114cb83e2b454b12a35368b3201acab520c60f130276783",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/recover_closure.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-14T23:53:18.466451+00:00",
+      "finished_at_utc": "2026-10-14T23:53:56.960748+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/016-integration.txt",
+      "output_sha256": "56e9dffd23c1d8ce82c9cbbe4c5f8ed408ab232c13bf7cbaa2c83295c77bc40b",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/recover_closure.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-14T23:57:44.229467+00:00",
+      "finished_at_utc": "2026-10-15T00:02:14.989030+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/017-integration.txt",
+      "output_sha256": "387e219a13837d598d395caa0fdbc0d093fb0df498562a670d0a91c2a71df462",
+      "timeout_seconds": 1100.0
+    },
+    {
+      "label": "narrative",
+      "command": [
+        "python3",
+        "tools/harness/narrative.py",
+        "audit",
+        "--live"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T00:04:08.638607+00:00",
+      "finished_at_utc": "2026-10-15T00:04:08.918407+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/018-narrative.txt",
+      "output_sha256": "16f616b6ace7c5f7e0f7feae1b58a93b3150499b1c7400ca6514ac00cdac4ad8",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "evidence-archive",
+      "command": [
+        "python3",
+        "docs/c1-trial-forge/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T00:06:58.421021+00:00",
+      "finished_at_utc": "2026-10-15T00:07:02.985456+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/019-evidence-archive.txt",
+      "output_sha256": "17a2938b6ff031b29303febcf76e3b4d2a3297a52148e81bce7853108f6fabe4",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "delivery-gates",
+      "command": [
+        "python3",
+        "-c",
+        "import subprocess,sys; commands=[['python3','docs/c1-trial-forge/RESTORE_EVIDENCE.py','--verify-only'],['python3','tools/harness/map_quality.py','--report','docs/c1-trial-forge/MAP_QUALITY.json','--base','9df5b53'],['python3','tools/harness/experience.py','--report','docs/c1-trial-forge/EXPERIENCE.json'],['python3','docs/c1-trial-forge/verify_local.py']]; [subprocess.run(c,check=True) for c in commands]"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T00:07:29.931488+00:00",
+      "finished_at_utc": "2026-10-15T00:07:32.160943+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-trial-forge-20261014/020-delivery-gates.txt",
+      "output_sha256": "b2ad898694c7b299f382e1e074c1106b7e60f305c01345550c24617a8ddd6270",
+      "timeout_seconds": 180.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T22:19:29.393421+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "73a7780d511969ed686f040709eb3562c17f9dc26dc2fbb835c44e882379e97a",
+      "worktree": "M .codex/progress.md\n M source/narrative/chapters/R01.json\n M source/narrative/sources.json\n?? docs/c1-trial-forge/\n?? docs/harness/CHAPTER_01_TRIAL_FORGE.md\n?? source/tasks/active/c1-trial-forge-20261014.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-14T23:02:10.820918+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "110acbb8d89f7e72177c3f23a9aed6e0de846e3497b33e96f823be17e22b68d9",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/cinematics-v14.js\n M dist/core-v14.js\n M dist/save-transfer-v14.js\n M dist/story-test-v31.js\n M docs/ch1-layer-rules/MOVEMENT.json\n M docs/ch1-layer-rules/NAVIGATION.json\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-c1-story-flow.mjs\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-dialogue-reader.mjs\n M tests/browser-web-play.py\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-crafting.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/dialogue-reader.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-experience.test.mjs\n?? dist/chapter-one-preparation-state.js\n?? dist/chapter-one-preparation-ui.js\n?? dist/chapter-one-trial-dialogues.js\n?? dist/chapter-one-trial-runtime.js\n?? dist/chapter-one-trial-save.js\n?? docs/c1-trial-forge/\n?? docs/harness/CHAPTER_01_TRIAL_FORGE.md\n?? docs/harness/evidence/c1-trial-forge-20261014/\n?? source/tasks/active/c1-trial-forge-20261014.json\n?? tests/c1-trial-forge.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T00:07:29.802225+00:00",
+      "head_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M AGENTS.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-save.js\n M dist/chapter-one-expansion-ui.js\n M dist/cinematics-v14.js\n M dist/core-v14.js\n M dist/save-transfer-v14.js\n M dist/story-test-v31.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-c1-story-flow.mjs\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-dialogue-reader.mjs\n M tests/browser-web-play.py\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-crafting.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-expansion.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/dialogue-reader.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c1-trial-forge-evidence/\n?? dist/chapter-one-preparation-state.js\n?? dist/chapter-one-preparation-ui.js\n?? dist/chapter-one-trial-dialogues.js\n?? dist/chapter-one-trial-runtime.js\n?? dist/chapter-one-trial-save.js\n?? docs/c1-trial-forge/\n?? docs/harness/CHAPTER_01_TRIAL_FORGE.md\n?? docs/harness/evidence/c1-trial-forge-20261014/\n?? source/tasks/active/c1-trial-forge-20261014.json\n?? tests/c1-trial-forge.test.mjs"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-trial-forge/reviews/c1SaintAid-context.json",
+      "context_sha256": "764c31c5ea7b8164c683c2133bb59b8fd6b61510d009b9475185670a8d3fa1cd",
+      "draft": "docs/c1-trial-forge/reviews/c1SaintAid-draft.json",
+      "draft_sha256": "7e18b7848454e9450044152b4f38123e32fece3102dd13aab088cb90436eb454",
+      "review": "docs/c1-trial-forge/reviews/c1SaintAid-review.json",
+      "review_sha256": "081b23a621b390d6ca1835a53ce79129dca299d7c5599f31529cee7dc8604fab"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1TrialInvitation-context.json",
+      "context_sha256": "4013d9574588572c035b01f2dc7cd2b6503e9a98b837b85c055019c25dd4b23b",
+      "draft": "docs/c1-trial-forge/reviews/c1TrialInvitation-draft.json",
+      "draft_sha256": "3966e983849fb115e812e9deece750979faa577d0bab0bfed359582443f3d8ea",
+      "review": "docs/c1-trial-forge/reviews/c1TrialInvitation-review.json",
+      "review_sha256": "23333147e805737955005ddf26877006db8bf1fe3223fa1c6ddf20d754b0ebb7"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1TrialReport-context.json",
+      "context_sha256": "2af7399a0f67db21fb43c45c759eafc8a1c8a62c23720a483d124c3c1160586b",
+      "draft": "docs/c1-trial-forge/reviews/c1TrialReport-draft.json",
+      "draft_sha256": "fd37f39e02a8ec8dd68a1b4b6555ae74852f9ca16305362bf4d893afac0d05f8",
+      "review": "docs/c1-trial-forge/reviews/c1TrialReport-review.json",
+      "review_sha256": "c24817b1781945961e66a2f2c67d6959a6314a4dd56ca4cf283c3653d4c98662"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1HuntOffer-context.json",
+      "context_sha256": "3ef1ec000dcbb91869c9e3226d21a83147bdd416ed4a0afbb0125a6b768882a5",
+      "draft": "docs/c1-trial-forge/reviews/c1HuntOffer-draft.json",
+      "draft_sha256": "6eb0ed7d937b65e1aaf66cccd0bee0563bc2c8bfd52183cdbfe33217c1074ece",
+      "review": "docs/c1-trial-forge/reviews/c1HuntOffer-review.json",
+      "review_sha256": "282eb09adeac19e065a8cc28fdf2e76d8ad4ca4f2dc503bbe8d2244bf84cf776"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1HuntProgress-context.json",
+      "context_sha256": "b3f3d6b32704b6ef636ab895c1efc7605755d9fb41f84480b28e597d076095ee",
+      "draft": "docs/c1-trial-forge/reviews/c1HuntProgress-draft.json",
+      "draft_sha256": "b771d2d074645a65917b075a923b3805e06575de80c334a3d0a1a2269f062d12",
+      "review": "docs/c1-trial-forge/reviews/c1HuntProgress-review.json",
+      "review_sha256": "f1747a44f3e867f70d36f3aca3d18c4f3aec45478916bc3cbc82570424298861"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1HuntReport-context.json",
+      "context_sha256": "8d1a2ec899b6ed4e61e2b727a8bb0f33766ce74ac0361a619122362fdabbf81b",
+      "draft": "docs/c1-trial-forge/reviews/c1HuntReport-draft.json",
+      "draft_sha256": "eb10fdf68dab36b6211bce2da4f6a79cef163208a6dd38e5c1819c24bae3f1a3",
+      "review": "docs/c1-trial-forge/reviews/c1HuntReport-review.json",
+      "review_sha256": "9d1486f70569f9dafabd332b6ef900f3779b1b9e72f97a1f46762f22db2cdb64"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1SupplyIntro-context.json",
+      "context_sha256": "c006d2b7464c4c693c383bc266ac77bef96dfababc03c973b17d14767d85726e",
+      "draft": "docs/c1-trial-forge/reviews/c1SupplyIntro-draft.json",
+      "draft_sha256": "4ef23be717bba45e88a28ef6f92b1d982f4b6cefdfc0a24f0053f5a5e977ed03",
+      "review": "docs/c1-trial-forge/reviews/c1SupplyIntro-review.json",
+      "review_sha256": "96433715e550e3561e0261526b4a6659ecbb05f73b1ca2ce600e2132f41e0646"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1CoreOrderOffer-context.json",
+      "context_sha256": "583f2daea7c9da7ed129bbc6d23333bee51143679d9cc4c79cb2f0d9886a5d68",
+      "draft": "docs/c1-trial-forge/reviews/c1CoreOrderOffer-draft.json",
+      "draft_sha256": "31c531b6e53296ef6f448ff7881019925a8435f3c53b3d9e353b98093c914141",
+      "review": "docs/c1-trial-forge/reviews/c1CoreOrderOffer-review.json",
+      "review_sha256": "3d0caf18c48bbcef79752f01f5f39a75b944c780ffdb9bb5ca28b4016373beca"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1TownDolly-context.json",
+      "context_sha256": "3d98593e21d7df911efce065f42598149032c560bbeb4b3c0098e4dda2042da2",
+      "draft": "docs/c1-trial-forge/reviews/c1TownDolly-draft.json",
+      "draft_sha256": "adaff242f03b3480886977d6daae05fa5ddb7e00b17acc7c2b19899a655527c2",
+      "review": "docs/c1-trial-forge/reviews/c1TownDolly-review.json",
+      "review_sha256": "18e320c21a435a1eafdbeb8b01bd611b91d83b1323e65b18c65cd4389f0c51d9"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1TownLena-context.json",
+      "context_sha256": "b64527f59ea7925a42df58f1813a49e15f6a133f775de1cc89b07b837bd6c92e",
+      "draft": "docs/c1-trial-forge/reviews/c1TownLena-draft.json",
+      "draft_sha256": "e6d823172e94dacbcca21bf7bc7b3f1c7c4e38cf47c0dcd0a093879bec65b5e2",
+      "review": "docs/c1-trial-forge/reviews/c1TownLena-review.json",
+      "review_sha256": "8345c8a7504bd7209b67bd3da2fa770abf084e5c86fb4151f7c9c78f5c070660"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1TrainingReason-context.json",
+      "context_sha256": "c498a0775727d9ed7335dae05413e00adec18ab89854eb436e355d34cb78ce33",
+      "draft": "docs/c1-trial-forge/reviews/c1TrainingReason-draft.json",
+      "draft_sha256": "960dbdaec2a69d698e647943d425befba0cef980d978c4803c07bb22414ae608",
+      "review": "docs/c1-trial-forge/reviews/c1TrainingReason-review.json",
+      "review_sha256": "4be433c2dfa126797b54fbb4af113d808ae5d99736e7012de82a9ae31411b23b"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1Readiness_offer-context.json",
+      "context_sha256": "dfa5607467dff67b48da00c45e491cc07877dfff8cc5b870a5a33a18014ddc90",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1Readiness_offer-draft.json",
+      "draft_sha256": "c0971ea46151ef1f93088a4d05d2c6462c2a8aec0baec9d7f7da988dfe4d4c4a",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1Readiness_offer-review.json",
+      "review_sha256": "789ee9be6d11c67d1d3cd11ac73d4ecb3209002e67e57df90435499ae5624517"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_offer-context.json",
+      "context_sha256": "3254f0fabdc1f4c142e23e46758b9327a8362ca9934830db480ca04abf6821a8",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_offer-draft.json",
+      "draft_sha256": "a498d371232a9ce139a2c7230cfda3fd1e22c5d1fce3b48538b6d89b4daa52b7",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_offer-review.json",
+      "review_sha256": "f816a9489ca12b11d179b0a376a25d0338e843739ea110f2563b3aa28305c14d"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_progress-context.json",
+      "context_sha256": "1edaea27cded7c02169de99b774623e03b5171e694c2ba960f3e18fa4d235746",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_progress-draft.json",
+      "draft_sha256": "721c536c61d17543a7294e73a05f8c0f0e1a912069dbb20819a921b1502dd194",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_progress-review.json",
+      "review_sha256": "45cc4142b141ab261086d5ff38f4c7fd44f4b8cd72d1b2be2a0c56976f56220b"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_offer-context.json",
+      "context_sha256": "015c4a4e6b29a200b485f0389054f45600b49a1dc8ca8f68b357bebdd017d777",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_offer-draft.json",
+      "draft_sha256": "92fdeda343fd69fd026ad6f49d4768810acc6f2d94ffd9b521dfe34d485ffef2",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_offer-review.json",
+      "review_sha256": "71892ab5a6bdc4d9274ca1da1d57df979b17414b1b6be8617d3eda80c2c76358"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_report-context.json",
+      "context_sha256": "8bf4bf3c71c9228480a87672a0059a4af8d7d3227a93f1259be6a1352f204605",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_report-draft.json",
+      "draft_sha256": "153287d408c80406d4dea18c1440a70dd2405947637377e06cbac8ba6decceaa",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1LoomBrief_report-review.json",
+      "review_sha256": "bf40a4c84ae32e4666629be69c6fc4e2201b7f63f09d7854b991170d9df9e94b"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/contract-context.json",
+      "context_sha256": "ebd018798d1539bbb2e0ce15ceee37de4cd5827f4f6b02353f3834c0432ee0f0",
+      "draft": "docs/c1-trial-forge/reviews/contract-draft.json",
+      "draft_sha256": "81a3880524f623aa3d52f2ef9a7313cf272b1cc564461871111ce8dbdd5b1291",
+      "review": "docs/c1-trial-forge/reviews/contract-review.json",
+      "review_sha256": "0035353ec099790c9d79f6f1e8f5e60b90ef94ba3e3c1e5654d8aaacaf544aed"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/assassination-context.json",
+      "context_sha256": "16ca96bdec6dbe86855600824c3c001eddb897dec00a77a8ab6af8032e28cc5f",
+      "draft": "docs/c1-trial-forge/reviews/assassination-draft.json",
+      "draft_sha256": "e71966a9ec3e9473df7aa7e253ccc2c432ecd01b45a373553080caf340ab27ee",
+      "review": "docs/c1-trial-forge/reviews/assassination-review.json",
+      "review_sha256": "27c7fb9ae66c7d5a427f1d7d47a7fc5bef9cdd2049d70e976a9fdfd3bf9c06e9"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_report-context.json",
+      "context_sha256": "4c8bf1453f629f532c910f12315e7c71e7eb4a91c7bd72a5dffa5466760920ce",
+      "draft": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_report-draft.json",
+      "draft_sha256": "53f119d1f8598a83465af96fe6d3775985f9663a7335716f826a0fb20421d176",
+      "review": "docs/c1-trial-forge/reviews/c1Talk_c1ExitDrill_report-review.json",
+      "review_sha256": "a6d42df4a203518330a0a35040c245f8e033d463131e8bd6712e9c881c7d07f2"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1RepairReturn-context.json",
+      "context_sha256": "ca8f9e7442f4723777e4a90f0f9a82d3e7af5743befc38abe357a15286ada089",
+      "draft": "docs/c1-trial-forge/reviews/c1RepairReturn-draft.json",
+      "draft_sha256": "488e16cbf0ea638eb890ede29a9f44df6278ce77d78d65dd96862de52e299dbf",
+      "review": "docs/c1-trial-forge/reviews/c1RepairReturn-review.json",
+      "review_sha256": "5dccfc1675f572f57724156740dd930016c61cc80cd874095565b7b3dadf761b"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/c1VaultAccept-context.json",
+      "context_sha256": "fdef1a5e8863721adaaa6897eb3cdb63c9c2c2cae8f9bd6f81d35ca48497b13a",
+      "draft": "docs/c1-trial-forge/reviews/c1VaultAccept-draft.json",
+      "draft_sha256": "4e13d8428e0f1dab5f68a349dd77bd645b2a79c140dbb681c2a9014800d22032",
+      "review": "docs/c1-trial-forge/reviews/c1VaultAccept-review.json",
+      "review_sha256": "b249d88ef862b0eb4dcafbe8c4d28ae596bc54b005495a875c2fe479b6432d30"
+    },
+    {
+      "context": "docs/c1-trial-forge/reviews/sisterBeforeDeparture-context.json",
+      "context_sha256": "aace8e47baac81ae8b3c49a24b04267b975fa8f517ba217d3c737e0c899376cf",
+      "draft": "docs/c1-trial-forge/reviews/sisterBeforeDeparture-draft.json",
+      "draft_sha256": "d32f8edce6433b2a08a02b53c3d2b1a545923686d9cac1ed5de457d7bb90f508",
+      "review": "docs/c1-trial-forge/reviews/sisterBeforeDeparture-review.json",
+      "review_sha256": "f4fc82eae5ca97042928e2b55cd660bcb8bdea080b62e87ce446df392799460e"
+    }
+  ],
+  "experience_requirement": {
+    "scopes": [],
+    "chapters": [
+      "R01"
+    ],
+    "kind": "scoped"
+  },
+  "experience_reviews": [
+    {
+      "path": "docs/c1-trial-forge/EXPERIENCE.json",
+      "sha256": "60b5c07cb49bc17b3526cfda98076cf41d96e806ebbefa36d3117c8953a05fe3",
+      "chapter": "R01"
+    }
+  ]
+}

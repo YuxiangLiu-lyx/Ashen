@@ -1,0 +1,12 @@
+fast ['python3', 'tools/harness/check.py', '--tier', 'fast']
+affected ['node', '--test', 'tests/chapter-one-crafting.test.mjs', 'tests/c1-trial-forge.test.mjs', 'tests/dialogue-hud.test.mjs']
+package ['.venv/bin/python', 'tools/build_web_play.py', '--output', 'qa-export/c1-trial-forge-final']
+affected ['node', 'tests/browser-chapter-one-expansion.mjs']
+affected ['node', 'docs/c1-trial-forge/facility-ui.mjs']
+package ['.venv/bin/python', 'tests/browser-web-play.py', '--build', 'qa-export/c1-trial-forge-final', '--out', 'docs/c1-trial-forge/package-final']
+[{"name": "fast", "steps": [{"command": ["python3", "tools/harness/check.py", "--tier", "fast"], "exit_code": 1}], "passed": false}, {"name": "affected", "steps": [{"command": ["node", "--test", "tests/chapter-one-crafting.test.mjs", "tests/c1-trial-forge.test.mjs", "tests/dialogue-hud.test.mjs"], "exit_code": 0}, {"command": ["node", "tests/browser-chapter-one-expansion.mjs"], "exit_code": 0}, {"command": ["node", "docs/c1-trial-forge/facility-ui.mjs"], "exit_code": 1}], "passed": false}, {"name": "package", "steps": [{"command": [".venv/bin/python", "tools/build_web_play.py", "--output", "qa-export/c1-trial-forge-final"], "exit_code": 0}, {"command": [".venv/bin/python", "tests/browser-web-play.py", "--build", "qa-export/c1-trial-forge-final", "--out", "docs/c1-trial-forge/package-final"], "exit_code": 0}], "passed": true}]
+Traceback (most recent call last):
+  File "/Users/liuyuxiang/Documents/Ashen/Ashen/docs/c1-trial-forge/close_checks.py", line 29, in <module>
+    (out/'RESULTS.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n');print(json.dumps(results),flush=True);assert report['passed']
+                                                                                                                                      ~~~~~~^^^^^^^^^^
+AssertionError

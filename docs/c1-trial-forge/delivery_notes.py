@@ -1,0 +1,45 @@
+import json,datetime
+from pathlib import Path
+P=Path('docs/c1-trial-forge');read=lambda p:json.loads(Path(p).read_text())
+assert read(P/'closure/RECOVERED.json')['passed'];assert read(P/'DEFAULT_BUILD.json')['status']=='verified-default';assert read(P/'LOCAL_SERVER.json')['status']=='passed'
+s=read('source/CURRENT_STATE.json');s['c1_trial_forge'].update(status='implemented_technically_verified',acceptance='docs/c1-trial-forge/ACCEPTANCE.md',human='pending',default_entry='qa-export/release-build/Ashen-V28.1-Play.html',elites=5,trial_boss='c1-final-examiner',save_schema=6)
+s['known_limits']='R01 1.3 trial/report/charity and randomized hall preparation implemented and technically verified. R01-R03 original gameplay retained beyond this scoped update; R04-R08 gameplay expansion deferred. Human prose, affection balance, pacing and fun pending; historical 0.6 human task independent. No website deployment.'
+s['checked_at_utc']=datetime.datetime.now(datetime.timezone.utc).isoformat();s['runtime_modules']=240;s['browser_interaction_retested']=True
+s['narrative_rebuild']['status']='第一章1.3整改技术验收完成；前三章原交付保留，后五章玩法暂缓，真人体验待验。'
+Path('source/CURRENT_STATE.json').write_text(json.dumps(s,ensure_ascii=False,indent=2)+'\n')
+text='''# 第一章1.3交付验收
+
+任务c1-trial-forge-20261014，基线9df5b53。仅第一章剧情、试炼、精英与会馆整备调整；既有第二章以后玩法和原件保留。技术验收通过，真人文风/难度/章长仍待验。
+
+## 已交付
+
+- 接鼠患进入库房，在安全入口切到真实白榆城场景，看见圣女和朵莉照料居民；结束回原位置，诺恩不凭空知道这段见闻。
+- 薇蕾娜先因担忧安排试炼，庭院与地下两层之后，挑战独立小Boss“终试执卫”；结束直接向她汇报。她听打法、确认成长、留饭，再正式批准委托并嘱咐受阻时先撤回。
+- 地下两名与城外三名精英，共五处。鲁恩在开场提供清路委托，接取后的五处击杀齐备才能一次领赏；终试Boss单列。
+- 罗萨与装置迁到开场会馆。初期开药水买卖/配制，普通有效怪物随机产出通用药用精粹；任务专属材料仍要求接取。汇报后开放持久随机符文现货与核心订单，成交/交付后补货，读档不刷新。
+- 入城与朵莉、蕾娜交谈能听到具体赞赏。暗杀18页行动和结果保留，圣女救人受阻的急切、愤怒、不解、伤心以实际对话展开。新改22场141页；其他597场静态正文保持。旧在播正文及原游标继续兼容。
+
+## 证据
+
+完整012 integration：67项Harness、225项核心、1620个原实战快照、浏览器表现/世界/前章/制作/对白/HUD通过。另有7项1.3专项；新三职业正常键鼠从标题完成至post/phase6，没有状态写入钩子。新324组精英/Boss与54组群战/连续地图对照保留同源存档、生产AI和升级恢复，不代表真人胜率。22图396条实际移动路线、六个受影响场景的三维判断见MAP_QUALITY.json。
+
+最后制作成功提示修订后，完整原集成与当前生产代码的差异逐项受控，只重测受影响UI、保存原失败记录，并重新构建包。证据在closure/RECOVERED.json；三视口真实触摸/鼠标配药、接单、买符文、制作与旧档试作均通过。普通UI通章使用的全部剧情/战斗/存档代码与当前一致；唯一后续UI变化及198个保存状态面板等价核验见NORMAL_REUSE.json。
+
+22场采用当前中文对白规范v2，完整逐句稿、写作前上下文、当前七维审查及三处合理否定祈使保留理由均已落盘。原暗杀演出逐字节保护，救民/私谈的知识隔离另核验。见DIALOGUE_REVIEW.md、SCRIPT.json和reviews。
+
+## 试玩
+
+默认文件：qa-export/release-build/Ashen-V28.1-Play.html。文件名沿用旧兼容名，内容由DEFAULT_BUILD.json的输入哈希确认。旧默认包完整保存在qa-export/release-build-before-trial-forge-20261014。
+
+仓库内执行 `python3 tools/serve.py --port 5174`，打开 http://127.0.0.1:5174/ 。现有5174服务的240个脚本和7份样式已逐项与当前文件比对。新建角色可完整体验1.3顺序；旧档已获委托的角色保留进度，不强迫重做试炼。GitHub保存不等于网站发布，本轮没有发布网站。
+
+## 保留的失败与限制
+
+旧阶段/旧免费材料/旧三精英断言、旧尾段样本误用新schema及输入驱动未等随行NPC菜单，均保存了失败日志后按真实新契约修复，没有削弱战斗或奖励断言。014并行Harness反例会临时改写源文件，造成偶发读取/加载失败；016的完整输入校验也拒绝了该期间生成的包。之后按序重新验证，并使用package-clean中实际验证且输入逐字一致的构建。
+
+实景复用原人物与构装体图集。进食、发粥通过现有场景、角色站位和对白表现，没有新增专用进食/手持碗动画。真人文风、亲昵分寸、找路、随机整备期待感与整体乐趣继续待验；观察表HUMAN_OBSERVATION.md。旧0.6人工节奏任务不因脚本通过而关闭。
+
+大型原始JSON将逐字节归档，截图、失败日志、稿件和审查直接保存；恢复命令 `python3 docs/c1-trial-forge/RESTORE_EVIDENCE.py`。本机原文件继续保留，归档manifest记录每个文件和分卷哈希。
+'''
+(P/'ACCEPTANCE.md').write_text(text)
+print('Acceptance and current state saved.')

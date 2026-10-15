@@ -1,0 +1,377 @@
+{
+  "schema": 2,
+  "chapter": "R01",
+  "kind": "chapter",
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+  "scopes": {
+    "combat": {
+      "growth_comparison": {
+        "status": "pass",
+        "reason": "同一实际路线存档分别使用初始武器零分配、正常行装和只用已拥有装备的优化行装。324组独立对抗及54组群战/连续地图。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
+            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          }
+        ]
+      },
+      "enemy_roles": {
+        "status": "pass",
+        "reason": "一层精英与三层精英采用重击预警；独立终试Boss使用盾击、重压和远程反击。Boss不计五精英名单。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
+            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          }
+        ]
+      },
+      "groups": {
+        "status": "pass",
+        "reason": "庭院八只、两层各八只与终点有不同处理目标；单图实验记录真实XP、升级恢复、承伤、药水和法力空窗。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
+            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          }
+        ]
+      },
+      "continuous_maps": {
+        "status": "pass",
+        "reason": "生产规则连续走王道、磨坊和溪林，不在地图间补满资源；正常UI含真实返程。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
+            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          }
+        ]
+      },
+      "elite_mechanics": {
+        "status": "pass",
+        "reason": "五精英加独立Boss分别实验，响应预警与硬打策略分开；不宣称脚本成功比例为真人胜率。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
+            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          }
+        ]
+      }
+    },
+    "exploration": {
+      "topology": {
+        "status": "pass",
+        "reason": "保留22图拓扑，解除三层对检修支线的主线依赖；回报指向薇蕾娜。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/MAP_QUALITY.json",
+            "sha256": "526210a484194274368528d434ac49713f8cf926429c182e5de31e51bd7df2c9"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
+            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
+          }
+        ]
+      },
+      "branch_value": {
+        "status": "pass",
+        "reason": "五处讨伐与维修/样本支线各有独立结果，最终Boss不替代精英；后续章不扩建。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/MAP_QUALITY.json",
+            "sha256": "526210a484194274368528d434ac49713f8cf926429c182e5de31e51bd7df2c9"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
+            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
+          }
+        ]
+      },
+      "space_and_visuals": {
+        "status": "pass",
+        "reason": "商人与机器前移，碰撞同步；西精英/东终试留出空间，实际截图与路径分别验收。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/MAP_QUALITY.json",
+            "sha256": "526210a484194274368528d434ac49713f8cf926429c182e5de31e51bd7df2c9"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
+            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
+          }
+        ]
+      }
+    },
+    "quests": {
+      "playable_process": {
+        "status": "pass",
+        "reason": "先谈缘由、再接取，清鼠→考核→亲口汇报→委托；五精英齐备一次付款。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/closure/affected-retry.txt",
+            "sha256": "13fac4284c0824fa9cac63ca707eff4e8328db76ca87da9e71645294e70cca7a"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/economy/shadow-local_work.json",
+            "sha256": "a3fc6697ef103620db3c6dbb1d60647e30009f1b8983bbb5e699fbc6778a4bc4"
+          },
+          {
+            "path": "docs/c1-trial-forge/DIALOGUE_REVIEW.md",
+            "sha256": "678f11a30b4b5459c4c0180db72e46c7feeaa1d6b069b2f8dc5d1e37a68717f1"
+          }
+        ]
+      },
+      "repetition_cost": {
+        "status": "pass",
+        "reason": "主线在会馆完成装备教学，不强迫去旧工坊领固定材料；完整支线仍需往返，会使用实际补给。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/closure/affected-retry.txt",
+            "sha256": "13fac4284c0824fa9cac63ca707eff4e8328db76ca87da9e71645294e70cca7a"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/economy/shadow-local_work.json",
+            "sha256": "a3fc6697ef103620db3c6dbb1d60647e30009f1b8983bbb5e699fbc6778a4bc4"
+          },
+          {
+            "path": "docs/c1-trial-forge/DIALOGUE_REVIEW.md",
+            "sha256": "678f11a30b4b5459c4c0180db72e46c7feeaa1d6b069b2f8dc5d1e37a68717f1"
+          }
+        ]
+      },
+      "world_result": {
+        "status": "pass",
+        "reason": "鲁恩安排维修/运货恢复，终试证明应变；核心订单交材料才产出，读档和重按不重领。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/closure/affected-retry.txt",
+            "sha256": "13fac4284c0824fa9cac63ca707eff4e8328db76ca87da9e71645294e70cca7a"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/economy/shadow-local_work.json",
+            "sha256": "a3fc6697ef103620db3c6dbb1d60647e30009f1b8983bbb5e699fbc6778a4bc4"
+          },
+          {
+            "path": "docs/c1-trial-forge/DIALOGUE_REVIEW.md",
+            "sha256": "678f11a30b4b5459c4c0180db72e46c7feeaa1d6b069b2f8dc5d1e37a68717f1"
+          }
+        ]
+      }
+    },
+    "services": {
+      "real_transactions": {
+        "status": "pass",
+        "reason": "三视口真实鼠标/触摸配药、接单、交付、随机购买和制作。旧免费材料按legacy路径保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/facility-ui/RESULT.json",
+            "sha256": "1cb4c6e699872d2f698512dadb98ce9371589cb7a9c29e72007c9ad552c83f7d"
+          },
+          {
+            "path": "docs/c1-trial-forge/closure/affected-retry.txt",
+            "sha256": "13fac4284c0824fa9cac63ca707eff4e8328db76ca87da9e71645294e70cca7a"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/economy/ember-repeat_patrol.json",
+            "sha256": "5349023c98b81e0e164162a4eecde37f0ee43c99af55abbf37023ebb116ba8c8"
+          }
+        ]
+      },
+      "resource_loop": {
+        "status": "pass",
+        "reason": "第一章普通有效击杀70%药用精粹；小/中药2/4份，1/2金币；批准后随机订单3—5份换核心，商店每次三枚符文，买后补货，存档不刷新。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/facility-ui/RESULT.json",
+            "sha256": "1cb4c6e699872d2f698512dadb98ce9371589cb7a9c29e72007c9ad552c83f7d"
+          },
+          {
+            "path": "docs/c1-trial-forge/closure/affected-retry.txt",
+            "sha256": "13fac4284c0824fa9cac63ca707eff4e8328db76ca87da9e71645294e70cca7a"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/economy/ember-repeat_patrol.json",
+            "sha256": "5349023c98b81e0e164162a4eecde37f0ee43c99af55abbf37023ebb116ba8c8"
+          }
+        ]
+      }
+    },
+    "pacing": {
+      "causality": {
+        "status": "pass",
+        "reason": "薇蕾娜因担忧安排试炼、从打法认识成长、留饭与正式授权；居民赞赏承接圣女救民。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/NARRATIVE_QA.json",
+            "sha256": "b2c612c9709c43e1cde6f6640c701d259442bbed34a67c816e1b97b111a8c512"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/flow/QA.json",
+            "sha256": "c843008aa79e6a049eae80635936f3afb24c9051d715f0cd5fecf29fccd88c43"
+          }
+        ]
+      },
+      "safe_triggers": {
+        "status": "pass",
+        "reason": "库房接任务后、安全入口、无其他对白/战斗时一次切镜；正式离场后原会馆私谈。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/NARRATIVE_QA.json",
+            "sha256": "b2c612c9709c43e1cde6f6640c701d259442bbed34a67c816e1b97b111a8c512"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/flow/QA.json",
+            "sha256": "c843008aa79e6a049eae80635936f3afb24c9051d715f0cd5fecf29fccd88c43"
+          }
+        ]
+      },
+      "knowledge_boundaries": {
+        "status": "pass",
+        "reason": "救民只让玩家看见；诺恩入城听居民描述。圣徽开门仍为传达的说法，私谈秘密不授予他。",
+        "evidence": [
+          {
+            "path": "docs/c1-trial-forge/NARRATIVE_QA.json",
+            "sha256": "b2c612c9709c43e1cde6f6640c701d259442bbed34a67c816e1b97b111a8c512"
+          },
+          {
+            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+          },
+          {
+            "path": "docs/c1-trial-forge/integration/flow/QA.json",
+            "sha256": "c843008aa79e6a049eae80635936f3afb24c9051d715f0cd5fecf29fccd88c43"
+          }
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "classes": [
+      "shadow",
+      "oath",
+      "ember"
+    ],
+    "cohorts": [
+      "starter",
+      "normal",
+      "optimized"
+    ],
+    "same_source_snapshot": true,
+    "production_rules": true,
+    "human_win_rate_claim": false
+  },
+  "normal_input": {
+    "shadow": {
+      "status": "pass",
+      "reason": "从标题新建，真实键鼠操作完成第一章；只读观察钩子，原记录与当前生产规则逐字核验，新修订只涉及制作成功提示。",
+      "evidence": [
+        {
+          "path": "docs/c1-trial-forge/natural-final/shadow/PLAY.json",
+          "sha256": "afcf17a05d87b82254e0a972e29ec0618e6f88e793a96a71d1fb3fe58b0496f8"
+        },
+        {
+          "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+          "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 6
+    },
+    "oath": {
+      "status": "pass",
+      "reason": "从标题新建，真实键鼠操作完成第一章；只读观察钩子，原记录与当前生产规则逐字核验，新修订只涉及制作成功提示。",
+      "evidence": [
+        {
+          "path": "docs/c1-trial-forge/natural-final/oath/PLAY.json",
+          "sha256": "1fd0d293e1124b58b0101cc0a1b8a97266d6ddc7dee1052ce0a64b9d407a90ae"
+        },
+        {
+          "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+          "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 6
+    },
+    "ember": {
+      "status": "pass",
+      "reason": "从标题新建，真实键鼠操作完成第一章；只读观察钩子，原记录与当前生产规则逐字核验，新修订只涉及制作成功提示。",
+      "evidence": [
+        {
+          "path": "docs/c1-trial-forge/natural-final/ember/PLAY.json",
+          "sha256": "dffc08f4d0521e2d592aa1415a0784a9651e1583b36599f8c49adbc7716f3319"
+        },
+        {
+          "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
+          "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 6
+    }
+  },
+  "compatibility": {
+    "status": "pass",
+    "reason": "225核心、7新专项、67Harness、完整integration及针对最后UI提示的补充回归通过。旧schema/在播全文、道具和奖励幂等保持；后续章兼容。",
+    "evidence": [
+      {
+        "path": "docs/c1-trial-forge/closure/RECOVERED.json",
+        "sha256": "ae9a22fb9e424aacb55bee3bb5728c62b25891665e12a5dd268d5cb6dc17db54"
+      },
+      {
+        "path": "docs/c1-trial-forge/INTEGRATION.json",
+        "sha256": "8a14d3bf917b03f3f637473cdb2bbdd56c619515331b9d018d2e751da09eba6e"
+      },
+      {
+        "path": "docs/c1-trial-forge/package-clean/WEB_QA.json",
+        "sha256": "8694a15579beb32c8b09ed78d249f4c7202f1c02c46c6c26363646ef0d0ac7ca"
+      }
+    ]
+  },
+  "human": {
+    "status": "pending",
+    "remaining": [
+      "真人初见路线和章长",
+      "对白自然度与亲昵分寸",
+      "精英/Boss难度和药水制作乐趣",
+      "随机现货/订单期待感"
+    ],
+    "playable_build": {
+      "path": "qa-export/release-build/Ashen-V28.1-Play.html",
+      "sha256": "3a8add7abd9d86b453f3b45ec61ac8202338b22a832b04b747910c644b5d72bb"
+    },
+    "observation_template": {
+      "path": "docs/c1-trial-forge/HUMAN_OBSERVATION.md",
+      "sha256": "b9ec0fd2d5577c7665057eabe695bfa7905b9fcb1820c8d9de94567ec568de79"
+    }
+  }
+}

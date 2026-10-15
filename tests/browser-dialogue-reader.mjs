@@ -2,11 +2,15 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {browserSession,delay} from '../tools/browser_session.mjs';
+import '../dist/core-v14.js';
+import {DIALOGUES} from '../dist/data-v14.js';
 import {C1_CARE_DIALOGUES} from '../dist/chapter-one-care-dialogues.js';
+import {C1_TRIAL_DIALOGUES} from '../dist/chapter-one-trial-dialogues.js';
+const READ_DIALOGUES=Object.fromEntries(Object.keys({...C1_CARE_DIALOGUES,...C1_TRIAL_DIALOGUES}).map(id=>[id,DIALOGUES[id]]));
 const out=path.resolve(process.env.ASHEN_READER_OUTPUT||'docs/c1-care-ui/browser');fs.mkdirSync(out,{recursive:true});
 const hook=`window.__READER={ready:()=>assetsReady,
  reset:()=>{flow=null;cine=null;flowPending=null;g=new RPG('shadow',null,()=>.44);g.chapter=2;g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];g.events=[];toastList=[];chapterCards.attach(g,{restored:true});SAVE='ashen-reader-isolated';play();},
- scene:async(id,line=0,action=false)=>{__READER.reset();if(id==='contract')g.chapter=1;g.beginScene(id,id==='contract'?'contractAccept':null);g.pending.line=line;g.events=[];showScene();if(!action){flow.cine?.fastForward();flow.update(0);renderScene();}draw();await Promise.all([...document.querySelectorAll('img')].map(i=>i.decode()));return __READER.state();},
+ scene:async(id,line=0,action=false)=>{__READER.reset();if(id==='contract'){g.chapter=1;g.c1Expansion.preparation.legacy=true;}g.beginScene(id,id==='contract'?'contractAccept':null);g.pending.line=line;g.events=[];showScene();if(!action){flow.cine?.fastForward();flow.update(0);renderScene();}draw();await Promise.all([...document.querySelectorAll('img')].map(i=>i.decode()));return __READER.state();},
  state:()=>({mode,phase:flow?.phase,live:flow?.readingIndex,shown:dialogueReader?.index,total:flow?.readingRows.length,review:dialogueReader?.reviewing,text:document.querySelector('.dialogue-card .line')?.textContent,pending:g.pending,map:g.map,x:g.p.x,y:g.p.y,chapter:g.chapter,flags:g.flags,ledger:g.c1Expansion.claimLedger,move:g.moveTo}),
  restore:()=>{start(JSON.parse(JSON.stringify(g.snapshot())));return __READER.state();},
  layout:()=>{const line=document.querySelector('.line'),card=document.querySelector('.dialogue-card');const rect=e=>{const r=e.getBoundingClientRect();return {x:r.x,y:r.y,w:r.width,h:r.height}};return {card:rect(card),line:rect(line),overflow:line.scrollHeight>line.clientHeight,buttons:[...document.querySelectorAll('.dialogue-bottom button')].map(b=>({text:b.textContent,...rect(b)})),images:[...document.querySelectorAll('img.portrait-art')].map(i=>({loaded:i.complete&&i.naturalWidth>0,w:i.naturalWidth,h:i.naturalHeight,alt:i.alt}))};},
@@ -40,10 +44,10 @@ try{
  for(const [width,height]of [[1440,980],[844,390],[390,844]]){
   await b.call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<900});await delay(200);
   let pages=0;
-  for(const [id,rows]of Object.entries(C1_CARE_DIALOGUES))for(let i=0;i<rows.length;i++){
+  for(const [id,rows]of Object.entries(READ_DIALOGUES))for(let i=0;i<rows.length;i++){
    await b.evaluate(`__READER.scene('${id}',${i})`);const l=await b.evaluate('__READER.layout()');assert.equal(l.overflow,false,id+':'+i);assert.ok(l.card.y>=0&&l.card.y+l.card.h<=height+1,JSON.stringify(l));for(const button of l.buttons)assert.ok(button.x>=0&&button.x+button.w<=width+1&&button.y+button.h<=height+1,JSON.stringify(l));assert.ok(l.images.every(p=>p.loaded));pages++;
   }
-  report.layouts.push({width,height,pages});await setup('contract',33);await b.shot(path.join(out,`care-${width}.png`));await button('previous');await b.shot(path.join(out,`review-${width}.png`));
+  report.layouts.push({width,height,pages});await setup('c1TrialReport',8);await b.shot(path.join(out,`care-${width}.png`));await button('previous');await b.shot(path.join(out,`review-${width}.png`));
   for(const [id,map]of [['c1iden','c1TrialFoyer'],['c1hesha','c1TrialCrypt'],['c1venn','c1TrialVault']]){const imgs=await b.evaluate(`__READER.npc('${id}','${map}')`);assert.ok(imgs.every(i=>i.w>=470&&i.h>=900),JSON.stringify(imgs));report.portraits.push({id,width,height,imgs});await b.shot(path.join(out,`${id}-${width}.png`));}
  }
  await setup();await b.call('Input.dispatchTouchEvent',{type:'touchStart',touchPoints:[{x:300,y:200}]});await b.call('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});await delay(300);assert.equal((await state()).live,1);report.input.push('real touch tap');

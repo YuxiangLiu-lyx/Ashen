@@ -1,0 +1,105 @@
+{
+  "status": "passed",
+  "errors": [],
+  "warnings": [
+    {
+      "code": "NEGATIVE_IMPERATIVE_SCENE",
+      "scene": "assassination",
+      "risk": {
+        "lines": 18,
+        "candidates": [
+          {
+            "line": 8,
+            "speaker": "noen",
+            "text": "别过来，把法器放下。",
+            "occurrences": [
+              {
+                "start": 0,
+                "end": 1,
+                "token": "别",
+                "form": "别",
+                "address_before": null
+              }
+            ]
+          },
+          {
+            "line": 16,
+            "speaker": "elyria",
+            "text": "别放箭！先救卡德兰大人，求你们快去看看他！",
+            "occurrences": [
+              {
+                "start": 0,
+                "end": 1,
+                "token": "别",
+                "form": "别",
+                "address_before": null
+              }
+            ]
+          }
+        ],
+        "clusters": [],
+        "repeated_across_speakers": true,
+        "instruction": "逐场核对关系、实际交流目的和正在阻止的动作。候选可能是陈述、询问或合理警告；数量不判定质量，不要求清零。"
+      }
+    }
+  ],
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+  "draft_sha256": "7c6232bd0faaa1f9773b3406cd1f49c5f227d453a4d782eddf1dbe500c8426ce",
+  "stage": {
+    "chapter": "R01",
+    "scene": "assassination",
+    "position": "before",
+    "at": null,
+    "coverage": "curated_mainline"
+  },
+  "editorial": {
+    "character": {
+      "verdict": "pass",
+      "evidence": "18页的行动及说话人顺序保持。艾莉娅先喊止血，再争取施术和医师；封术后质问为何连救人都阻止，抓住刚才仍在说话的事实请求救治；最后阻止放箭、求护卫查看伤者。急切、愤怒、不解和悲伤依次由具体事件引出，不插入抽象抒情或原谅。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "18页的行动及说话人顺序保持。艾莉娅先喊止血，再争取施术和医师；封术后质问为何连救人都阻止，抓住刚才仍在说话的事实请求救治；最后阻止放箭、求护卫查看伤者。急切、愤怒、不解和悲伤依次由具体事件引出，不插入抽象抒情或原谅。 已逐句阅读问答和承接；必要短问/急令由交流情境决定，不用词频代替编辑判断。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "18页的行动及说话人顺序保持。艾莉娅先喊止血，再争取施术和医师；封术后质问为何连救人都阻止，抓住刚才仍在说话的事实请求救治；最后阻止放箭、求护卫查看伤者。急切、愤怒、不解和悲伤依次由具体事件引出，不插入抽象抒情或原谅。 地点、任务对象和结果对照1.3调用者。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "原动作与then保持，旁白和演出按保全回归；后续仍强迫圣女撤离。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "本场在场者和玩家获得可观察交流；不传播薇蕾娜与鲁恩私谈、替代开门法、作者真相。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "原委托隐瞒、圣徽疑问及幕后私谈保留；本场新增内容服务眼前行动，没有提前回答原伏笔。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "18页的行动及说话人顺序保持。艾莉娅先喊止血，再争取施术和医师；封术后质问为何连救人都阻止，抓住刚才仍在说话的事实请求救治；最后阻止放箭、求护卫查看伤者。急切、愤怒、不解和悲伤依次由具体事件引出，不插入抽象抒情或原谅。 亲近或信任仅止于既有关系：薇蕾娜关怀诺恩，圣女救民；刺杀后仍愤怒且受迫。"
+    },
+    "reviewer": "Codex执行编辑，阅读实际全文与事件、角色、调用者；真人文风和节奏另待验。",
+    "negative_imperatives": {
+      "scene_judgment": "18页的行动及说话人顺序保持。艾莉娅先喊止血，再争取施术和医师；封术后质问为何连救人都阻止，抓住刚才仍在说话的事实请求救治；最后阻止放箭、求护卫查看伤者。急切、愤怒、不解和悲伤依次由具体事件引出，不插入抽象抒情或原谅。 只保留真实冲突/警告中的否定祈使，没有同场机械关怀或同声说教。",
+      "decisions": [
+        {
+          "line": 8,
+          "decision": "retain",
+          "reason": "刺杀者明确阻止对方接近和举起法器，现实冲突中的强制命令；保留原行动因果。"
+        },
+        {
+          "line": 16,
+          "decision": "retain",
+          "reason": "弩手已经抬手，艾莉娅紧急制止放箭以争取救人，是眼前危险警告。"
+        }
+      ]
+    }
+  },
+  "limits": [
+    "Claims are author annotations, not automated natural-language entailment.",
+    "Style diagnostics request contextual judgment; they do not ban phrases or score literature."
+  ]
+}

@@ -1,0 +1,67 @@
+✖ every authored request waits for its final page, survives import, and cannot overwrite another conversation (13.065708ms)
+✖ all reports defer rewards to completion and pay exactly once across import and retries (0.498583ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (3.418792ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (12.70625ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (2.173459ms)
+✖ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (22.120666ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.709167ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (4.815167ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (3.078834ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 6
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 219.622458
+
+✖ failing tests:
+
+test at tests/c1-story-flow.test.mjs:30:1
+✖ every authored request waits for its final page, survives import, and cannot overwrite another conversation (13.065708ms)
+  AssertionError [ERR_ASSERTION]: c1Readiness
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:32:79)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: null,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/c1-story-flow.test.mjs:37:1
+✖ all reports defer rewards to completion and pay exactly once across import and retries (0.498583ms)
+  AssertionError [ERR_ASSERTION]: c1Readiness
+      at ready (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:27:9)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:39:36)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/c1-story-flow.test.mjs:60:1
+✖ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (22.120666ms)
+  Error: 对白位置不正确。
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:59:335)
+      at restore (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:14:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:63:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

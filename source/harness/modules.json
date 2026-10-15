@@ -217,6 +217,9 @@
         "松动墙板"
       ],
       "entries": [
+        "dist/chapter-one-trial-runtime.js",
+        "dist/chapter-one-preparation-state.js",
+        "dist/chapter-one-preparation-ui.js",
         "docs/harness/CHAPTER_01_LAYER_RULES.md",
         "docs/harness/CHAPTER_01_STORY_WORLD.md",
         "docs/harness/CHAPTER_01_MAP_QUESTS.md",
@@ -265,7 +268,8 @@
         "node --test tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs",
         "node tests/browser-chapter-one-expansion.mjs",
         "node tools/balance_lab/chapter-one.mjs",
-        "node --test tests/chapter-one-layer-rules.test.mjs"
+        "node --test tests/chapter-one-layer-rules.test.mjs",
+        "node --test tests/c1-trial-forge.test.mjs"
       ]
     },
     {
@@ -564,6 +568,8 @@
         "npc事件"
       ],
       "entries": [
+        "dist/chapter-one-trial-dialogues.js",
+        "dist/chapter-one-trial-runtime.js",
         "dist/chapter-one-care-dialogues.js",
         "dist/chapter-one-care-save.js",
         "dist/dialogue-reader.js",
@@ -630,7 +636,8 @@
         "node --test tests/ch12-bugs.test.mjs",
         "python3 tools/harness/check.py --tier narrative",
         "node --test tests/c1-story-flow.test.mjs",
-        "node --test tests/dialogue-reader.test.mjs"
+        "node --test tests/dialogue-reader.test.mjs",
+        "node --test tests/c1-trial-forge.test.mjs"
       ]
     },
     {
@@ -830,6 +837,7 @@
         "菜单"
       ],
       "entries": [
+        "dist/chapter-one-preparation-ui.js",
         "dist/dialogue-reader.js",
         "dist/game-v14.js",
         "dist/display-v14.js",
@@ -851,7 +859,8 @@
       "tests": [
         "node --test tests/presentation-v281.test.mjs",
         "node tests/browser-presentation-v281.mjs",
-        "node --test tests/dialogue-reader.test.mjs"
+        "node --test tests/dialogue-reader.test.mjs",
+        "node --test tests/c1-trial-forge.test.mjs"
       ]
     },
     {
@@ -864,6 +873,8 @@
         "save"
       ],
       "entries": [
+        "dist/chapter-one-trial-save.js",
+        "dist/chapter-one-preparation-state.js",
         "dist/chapter-one-care-save.js",
         "dist/save-v14.js",
         "dist/save-protection-v23.js",
@@ -888,7 +899,8 @@
         "node --test tests/presentation-v281.test.mjs",
         "node --test tests/balance-lab.test.mjs",
         "node --test tests/world-v29.test.mjs",
-        "node --test tests/dialogue-reader.test.mjs"
+        "node --test tests/dialogue-reader.test.mjs",
+        "node --test tests/c1-trial-forge.test.mjs"
       ]
     },
     {
@@ -1015,7 +1027,8 @@
       "patterns": [],
       "safety": [],
       "tests": [
-        "python3 tools/harness/check.py --tier fast"
+        "python3 tools/harness/check.py --tier fast",
+        "node --test tests/c1-trial-forge.test.mjs"
       ],
       "id": "chapter01_plan",
       "keywords": [
@@ -1028,6 +1041,7 @@
         "chapter 1"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
         "docs/harness/CHAPTER_01_CARE_UI.md",
         "docs/harness/CHAPTER_01_STORY_FLOW.md",
         "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",

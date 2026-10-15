@@ -71,11 +71,16 @@ function earlyStep(g){
   if(!g.quests.rats){g.choose('ratsAccept');finishScenes(g);}
   go(g,'warehouse');finishScenes(g);clear(g);for(const id of ['c1-wall-hole','c1-board','c1-wall-seal'])if(g.props.some(p=>p.id===id))use(g,id);use(g,'crack');finishScenes(g);
   go(g,'hall');g.choose('ratsDone');break;
- case 1:go(g,'hall');g.choose('contractAccept');break;
+ case 1:{
+  if(!g.c1Expansion.preparation.started){go(g,'hall');g.choose('contractAccept');break;}
+  if(g.quests.c1Readiness!=='done'){go(g,'hall');g.choose('c1:accept:c1Readiness');finishScenes(g);go(g,'c1TrainingYard');clear(g);go(g,'hall');g.choose('c1:claim:c1Readiness');break;}
+  if(!g.c1TrialComplete()){go(g,'c1TrialFoyer');g.choose('c1:accept:c1ExitDrill');finishScenes(g);for(const map of ['c1DrillGallery','c1TrialCrypt','c1TrialVault']){go(g,map);finishScenes(g);clear(g);}}
+  go(g,'hall');g.choose('contractAccept');break;
+ }
  case 2:{
   // Test skip settles the real current objectives and giver reducers, one task
   // per step. It never relies on the retired auto-payment behavior.
-  const routes=[['c1Readiness','hall','c1TrainingYard'],['c1ExitDrill','c1TrialFoyer','c1DrillGallery'],['v12CourierRoad','road','road'],['v12NorthDelivery','town','town'],['c1GateCheck','town','town'],['c1CanalPrep','town','c1NorthWalk'],['c1LoomBrief','c1LoomRoom','c1LoomRoom']];
+  const routes=[['c1Readiness','hall','c1TrainingYard'],['c1ExitDrill','c1TrialFoyer','c1DrillGallery'],['v12CourierRoad','road','road'],['v12NorthDelivery','town','town'],['c1GateCheck','town','town'],['c1CanalPrep','town','c1NorthWalk'],['c1LoomBrief','hall','hall']];
   const next=routes.find(([id])=>g.quests[id]!=='done');
   if(next){const [id,giver,map]=next;go(g,giver);finishScenes(g);g.choose('c1:accept:'+id);finishScenes(g);go(g,map);finishScenes(g);
    if(id==='c1LoomBrief'){use(g,'c1-loom');c1UIAction(g,'preview');c1UIAction(g,'gift');}else if(['c1Readiness','c1ExitDrill','v12CourierRoad','c1CanalPrep'].includes(id)){clear(g);if(id==='c1ExitDrill'){go(g,'c1TrialCrypt');finishScenes(g);clear(g);}}

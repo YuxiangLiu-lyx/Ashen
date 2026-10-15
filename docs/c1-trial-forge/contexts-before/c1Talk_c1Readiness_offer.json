@@ -1,0 +1,407 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1Talk_c1Readiness_offer",
+    "actors": [
+      "rune",
+      "noen"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "rune": {
+      "name": "鲁恩",
+      "base": "会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。",
+      "voice": "事务信息具体，越权部分回避与道歉；不能用沉默推出他知道全部真相。",
+      "state": {
+        "emotion": "处理传令事务；对薇蕾娜的追问回避。",
+        "goals": [
+          "按上级安排传递任务。"
+        ],
+        "faction_view": "UNRESOLVED",
+        "expression": "能交代细节，遇越权问题不解释。",
+        "conflicts": []
+      },
+      "relationships": {
+        "noen": {
+          "trust": "UNRESOLVED",
+          "affection": "看着他长大",
+          "caution": "UNRESOLVED",
+          "hostility": "UNRESOLVED",
+          "dependence": "UNRESOLVED",
+          "concealment": "未解释上级计划",
+          "obligation": "UNRESOLVED",
+          "conflict": "UNRESOLVED"
+        }
+      },
+      "sources": [
+        "scene:aside",
+        "scene:clerkIdle",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "scene:contract",
+        "runtime-c1-actions"
+      ],
+      "profile": "source/narrative/characters/rune.json"
+    },
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "先进行庭院与地下试炼，核对维护身份和退路，再执行委托。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": [
+          "知道圣女不会自愿同行。"
+        ],
+        "last_change": "R01:contract"
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    }
+  },
+  "knowledge": {
+    "rune": {},
+    "noen": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-FLOW-PREPARATION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-FLOW-CONTRACT-SURFACE": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-CARE-CONTRACT": {
+        "mode": "knows",
+        "via": "R01:contract"
+      }
+    },
+    "player": {
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-FLOW-PREPARATION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-FLOW-CONTRACT-SURFACE": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-CARE-CONTRACT": {
+        "mode": "knows",
+        "via": "R01:contract"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-DOOR-CLAIM": {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-FLOW-C1TALK_C1READINESS_OFFER": {
+      "id": "F-C1-FLOW-C1TALK_C1READINESS_OFFER",
+      "summary": "鲁恩：她刚交代过。后院的苔壳兽钻进了棚下，八只挤在一起，已经啃坏几根柱脚。；诺恩：拿它们试身手？；鲁恩：它们会顶着甲壳冲人。你得看清哪只先动，再找空隙还手，不能只顾眼前那一只。；诺恩：明白。先清后院，再去地下？；鲁恩：先回来把经过告诉我。薇蕾娜担心你遇上围堵还会硬往前闯，她要我确认你应付得来，再让你去找伊登。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "flow:c1Talk_c1Readiness_offer"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-FLOW-CONTRACT-SURFACE": {
+      "id": "F-C1-FLOW-CONTRACT-SURFACE",
+      "summary": "清鼠后在会馆会面，诺恩肩上只有库房木屑；薇蕾娜递交通行纸与画像，说明午钟、换岗、路线和接头保密要求。这是收到的委托安排，不证明上层理由真实。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-FLOW-PREPARATION": {
+      "id": "F-C1-FLOW-PREPARATION",
+      "summary": "诺恩无既定肩伤。薇蕾娜担心带人撤离时应付围堵的能力，安排鲁恩和伊登的试炼；另交代鲁恩封套交北街托马核对维护班次。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-CARE-CONTRACT": {
+      "id": "F-C1-CARE-CONTRACT",
+      "summary": "保留目标、圣徽说法、封术印与封套；诺恩追问两场试炼的目的，薇蕾娜担心他带人撤离时忽略自身安全。熟人之间靠近和木屑的玩笑，接到练完留饭、出发前再见的约定；约饭是计划，未断言已经吃饭或完成试炼。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "c1-care-runtime",
+        "scene:contract"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1Talk_c1Readiness_offer",
+    "position": "before",
+    "at": "R01:contract",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "revision": "1.2",
+      "status": "IMPLEMENTED",
+      "implementation": "四场关键交流、共享阅读操作与地下清晰立绘已接入并完成专项验证；完整交付记录见docs/c1-care-ui/ACCEPTANCE.md，真人反馈待验。"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1Talk_c1Readiness_offer",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "rune",
+        "fact": "F-C1-FLOW-C1TALK_C1READINESS_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-C1-FLOW-C1TALK_C1READINESS_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-FLOW-C1TALK_C1READINESS_OFFER",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "flow:c1Talk_c1Readiness_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_offer"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:aside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "aside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:clerkIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "clerkIdle",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_CARE_UI.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/rune.json",
+    "source/narrative/characters/noen.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "51abd9cf0fa37ca2cc57517b276570a1eb65e646f53881c235dd7ee3ee3b46de"
+}

@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 import {browserSession,delay} from '../tools/browser_session.mjs';
+import {DIALOGUES} from '../dist/data-v14.js';
 import {C1_QUEST_DIALOGUES} from '../dist/chapter-one-quest-dialogues.js';
 const out=path.resolve(process.env.ASHEN_FLOW_OUTPUT||'docs/c1-story-flow/browser');fs.mkdirSync(out,{recursive:true});
 const hook=`
@@ -32,11 +33,11 @@ try{
  for(const [width,height]of [[1440,980],[844,390],[390,844]]){
   await b.call('Emulation.setDeviceMetricsOverride',{width,height,deviceScaleFactor:1,mobile:width<900});await delay(200);
   let pages=0;
-  for(const [id,rows]of Object.entries(C1_QUEST_DIALOGUES))for(let i=0;i<rows.length;i++){
+  for(const [id,rows]of Object.keys(C1_QUEST_DIALOGUES).map(id=>[id,DIALOGUES[id]]))for(let i=0;i<rows.length;i++){
    const l=await b.evaluate(`__FLOW.scene(${JSON.stringify(id)},${i})`);assert.ok(l.rect,id);assert.equal(l.overflow,false,id);assert.ok(l.rect.y>=0&&l.rect.y+l.rect.h<=height+1,id+JSON.stringify(l));assert.ok(l.portrait.every(p=>p.loaded),id);assert.equal(l.text,rows[i][1]);pages++;
   }
   report.layouts.push({width,height,scenes:Object.keys(C1_QUEST_DIALOGUES).length,pages});
-  await b.evaluate("__FLOW.scene('c1Talk_c1Readiness_offer',4)");await b.shot(path.join(out,`trial-${width}.png`));
+  await b.evaluate("__FLOW.scene('c1Talk_c1Readiness_offer',2)");await b.shot(path.join(out,`trial-${width}.png`));
   await b.evaluate("__FLOW.scene('c1Talk_herbs_offer',4)");await b.shot(path.join(out,`herbs-${width}.png`));
   await b.evaluate("__FLOW.scene('c1HiddenPairArrangement',3)");await b.shot(path.join(out,`meeting-rune-${width}.png`));
  }

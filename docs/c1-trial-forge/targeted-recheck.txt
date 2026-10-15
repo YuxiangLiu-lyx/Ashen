@@ -1,0 +1,130 @@
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (57.148292ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (36.028333ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (2.435959ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (9.249625ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (1.664417ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (49.494125ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.921292ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (5.293334ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (2.691208ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (3.89425ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (17.223459ms)
+✖ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (56.426167ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (968.255709ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (10.20775ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (50.868709ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (698.379ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (8.107708ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.08ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.028292ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.279458ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (16.424ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (7.327541ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (7.218417ms)
+✔ materials from each floor remain separate and one death generation receives one roll (4.54975ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (66.433625ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (2.218583ms)
+✔ two herb sources cannot be replaced with four leaves from one source (3.088375ms)
+✖ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (3.348333ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (2.124ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.83625ms)
+✔ story captain stays defeated while resident patrols return, and delivered escape stays delivered (2.131666ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.533291ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (23.3845ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (16.932041ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (4.727834ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (7.744833ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (5.749583ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (6.397041ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (6.31775ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (487.939625ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (8234.759625ms)
+✔ each later chapter start can skip to the final result without stuck quests (7246.481375ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (4.424958ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.23225ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (13.091583ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.170416ms)
+✔ read every previously reached commission page without changing pending, actors, knowledge or rewards (32.5655ms)
+✔ action phases cannot be advanced or rewound by reading controls (1.842ms)
+✔ quest accept and reward wait for live final page; going backward and forward never commits (5.820458ms)
+✔ legacy private tail has its own read-back rows and never exposes the earlier commission (2.613916ms)
+✔ all 45 old static positions migrate once by meaning, including direct/imported/nested saves (142.5945ms)
+✔ exact inline old dialogue text and new authored cursors survive import unchanged (27.668041ms)
+✔ four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact (2.694958ms)
+ℹ tests 53
+ℹ suites 0
+ℹ pass 50
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 16183.993
+
+✖ failing tests:
+
+test at tests/chapter-one-incremental.test.mjs:43:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (17.223459ms)
+  AssertionError [ERR_ASSERTION]: originalStaging/assassination
+  + actual - expected
+  
+  + '0dd1ebfe8da142b31f77b0cb17177ac07db21349582936decae88c45f92d9610'
+  - 'b9f689f2ba25f7a0709f5e849a759ce6d37bc9df7efd67988213f8130e1d77bb'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:55:11)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '0dd1ebfe8da142b31f77b0cb17177ac07db21349582936decae88c45f92d9610',
+    expected: 'b9f689f2ba25f7a0709f5e849a759ce6d37bc9df7efd67988213f8130e1d77bb',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-incremental.test.mjs:88:1
+✖ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (56.426167ms)
+  AssertionError [ERR_ASSERTION]: assassination
+  + actual - expected
+  
+  + '0dd1ebfe8da142b31f77b0cb17177ac07db21349582936decae88c45f92d9610'
+  - 'b9f689f2ba25f7a0709f5e849a759ce6d37bc9df7efd67988213f8130e1d77bb'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:97:69)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: '0dd1ebfe8da142b31f77b0cb17177ac07db21349582936decae88c45f92d9610',
+    expected: 'b9f689f2ba25f7a0709f5e849a759ce6d37bc9df7efd67988213f8130e1d77bb',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-layer-rules.test.mjs:42:1
+✖ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (3.348333ms)
+  AssertionError [ERR_ASSERTION]: c1ExitDrill
+  
+  false !== true
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:44:373)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

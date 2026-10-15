@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "3593637938fb83b4ac37ff846c7ddbc380097a0c",
-  "source_fingerprint": "f04b3d79e0073096c7bc1a9c5fcde967d384eb0f85261218d82dcede62ec6888",
+  "basis_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "d2e70f5777c5877620d36da25dada036b8628a777aa63617612054b8cb15390c",
@@ -96,8 +96,8 @@
       ]
     },
     "AGENTS.md": {
-      "sha256": "c35a6b8fcae7c8aaddfda12bd738bdcd9597d978016ff2eba225739cb742b919",
-      "bytes": 8660,
+      "sha256": "0151bbb76b90c28812300761c83dd1111c726be1944f6579e5f0692eafea9285",
+      "bytes": 9173,
       "imports": [],
       "symbols": [],
       "modules": []
@@ -497,8 +497,8 @@
       ]
     },
     "dist/chapter-one-expansion-combat.js": {
-      "sha256": "5b3f66949996749016ee5bac3e4fb397d739d8f182e4bc03f1b5d8259e37ca1d",
-      "bytes": 14962,
+      "sha256": "a4452dbee08c53a8be8a6e0330298b520f49e80d7644b6fa32f3df95cfcb58df",
+      "bytes": 14953,
       "imports": [
         "dist/balance-v14.js",
         "dist/chapter-one-expansion-data.js",
@@ -556,8 +556,8 @@
       ]
     },
     "dist/chapter-one-expansion-data.js": {
-      "sha256": "acaf8826769d883640d5e755f07619c271ff55a9261f6513f1b0db38818a9c17",
-      "bytes": 6201,
+      "sha256": "fe3a15422df83aad37e2bad7628ba488ec93638b48b84eae2110c481ceade807",
+      "bytes": 6601,
       "imports": [
         "dist/chapter-one-story-world.js"
       ],
@@ -738,11 +738,12 @@
       ]
     },
     "dist/chapter-one-expansion-save.js": {
-      "sha256": "be2b6c48f0070d8e1506c8ef82bb9ebf8a1277dd92459439585f5a132d72cd29",
-      "bytes": 16133,
+      "sha256": "aee97ffa7faf885a8bd50b27e5c0c8b5a926f2fc986536f9cb6d2b9894c2edf9",
+      "bytes": 16820,
       "imports": [
         "dist/chapter-one-expansion-data.js",
-        "dist/chapter-one-objectives.js"
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-preparation-state.js"
       ],
       "symbols": [
         "P",
@@ -768,6 +769,7 @@
         "item",
         "j",
         "k",
+        "legacyCause",
         "o",
         "object",
         "old",
@@ -792,13 +794,14 @@
       ]
     },
     "dist/chapter-one-expansion-ui.js": {
-      "sha256": "dd3702a179fb393ef125d80f0128e0ce0d40d9d8ad32157505885e0f3ed711b2",
-      "bytes": 10543,
+      "sha256": "c8c6ea7969b463dbe80d43fb37489ece41fbf985ea33dfd9acbd44cda7ee0fd4",
+      "bytes": 10527,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
         "dist/chapter-one-expansion-save.js",
         "dist/chapter-one-objectives.js",
+        "dist/chapter-one-preparation-ui.js",
         "dist/chapter-one-story-world.js",
         "dist/rpg-experience-services-ui.js"
       ],
@@ -998,6 +1001,47 @@
         "chapter01_expansion"
       ]
     },
+    "dist/chapter-one-preparation-state.js": {
+      "sha256": "32178adc8a1d5a203e6a78dc85d05a68e40001542702361c34fa402aef61d5fd",
+      "bytes": 1790,
+      "imports": [
+        "dist/chapter-one-expansion-data.js"
+      ],
+      "symbols": [
+        "c1PrepFresh",
+        "exact",
+        "o",
+        "obj",
+        "validatePreparation"
+      ],
+      "modules": [
+        "chapter01_expansion",
+        "save"
+      ]
+    },
+    "dist/chapter-one-preparation-ui.js": {
+      "sha256": "ffc5e836fadd632bd47b0a900879a219814d4f58cdae516a353d42f073301804",
+      "bytes": 2782,
+      "imports": [
+        "dist/chapter-one-expansion-data.js",
+        "dist/chapter-one-expansion-save.js",
+        "dist/chapter-one-trial-runtime.js",
+        "dist/systems-data-v14.js"
+      ],
+      "symbols": [
+        "button",
+        "o",
+        "p",
+        "preparationAction",
+        "preparationPanel",
+        "r",
+        "s"
+      ],
+      "modules": [
+        "chapter01_expansion",
+        "ui"
+      ]
+    },
     "dist/chapter-one-private-staging.js": {
       "sha256": "452570645a0ba0781f6c722449c90a697d35416341fb61edabbac8163c0d755a",
       "bytes": 486,
@@ -1074,6 +1118,95 @@
         "chapter01_expansion",
         "story",
         "maps"
+      ]
+    },
+    "dist/chapter-one-trial-dialogues.js": {
+      "sha256": "d05fe6f10f9a327d6f3edc63883b8ea75c69151fadbb0ac7901717fc823e2bb6",
+      "bytes": 17343,
+      "imports": [],
+      "symbols": [
+        "C1_TRIAL_DIALOGUES"
+      ],
+      "modules": [
+        "story"
+      ]
+    },
+    "dist/chapter-one-trial-runtime.js": {
+      "sha256": "eb431da48817e474fa38672427702ea67457e12073e3bcc6739bea696cf82ee1",
+      "bytes": 17842,
+      "imports": [
+        "dist/chapter-one-expansion-data.js",
+        "dist/chapter-one-expansion-save.js",
+        "dist/chapter-one-layout.js",
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-trial-dialogues.js",
+        "dist/chapter-one-trial-save.js",
+        "dist/cinematics-v14.js",
+        "dist/rpg-experience-data.js",
+        "dist/rpg-experience-triggers.js",
+        "dist/staging-v14.js",
+        "dist/systems-data-v14.js"
+      ],
+      "symbols": [
+        "C1_BREWS",
+        "C1_FINAL_BOSS",
+        "C1_MEDICINE",
+        "P",
+        "at",
+        "b",
+        "cfg",
+        "coreQ",
+        "done",
+        "e",
+        "h",
+        "hunt",
+        "id",
+        "installC1Trial",
+        "k",
+        "key",
+        "missing",
+        "n",
+        "npc",
+        "o",
+        "order",
+        "p",
+        "pair",
+        "pick",
+        "prep",
+        "r",
+        "random",
+        "rat",
+        "ratio",
+        "result",
+        "room",
+        "s",
+        "serial",
+        "st",
+        "stage",
+        "stock",
+        "tuneBoss",
+        "vault",
+        "verb"
+      ],
+      "modules": [
+        "chapter01_expansion",
+        "story"
+      ]
+    },
+    "dist/chapter-one-trial-save.js": {
+      "sha256": "a6679685f5c5199b5174e85fd54c9cb8901c52bbb9f057d93cef8c9abf311fe7",
+      "bytes": 14478,
+      "imports": [
+        "dist/chapter-one-care-save.js"
+      ],
+      "symbols": [
+        "LEGACY_ROWS",
+        "migrateTrialSave",
+        "p",
+        "q"
+      ],
+      "modules": [
+        "save"
       ]
     },
     "dist/chapter-runtime-v14.js": {
@@ -1944,8 +2077,8 @@
       ]
     },
     "dist/cinematics-v14.js": {
-      "sha256": "d1f56c33d94b5f2a24dd859d3af463c58841010b53a04136113b808167f68500",
-      "bytes": 6905,
+      "sha256": "08f217874d4850d3469d093eb0d7ee5ccd82dbda7e3b8eaa6fac0cdef5835ac2",
+      "bytes": 6984,
       "imports": [
         "dist/chapter-one-private-staging.js",
         "dist/chapter-staging-v14.js",
@@ -2386,8 +2519,8 @@
       "modules": []
     },
     "dist/core-v14.js": {
-      "sha256": "7e76992d0f098f145ada2c2f5c34444b420a0a5948de235e4a5c186bf062a663",
-      "bytes": 78550,
+      "sha256": "368d9f1cb13a939362b49c5cfc207dae35add1e13a5a71fd15133956b0bc188a",
+      "bytes": 78665,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -2395,6 +2528,7 @@
         "dist/chapter-one-expansion-runtime.js",
         "dist/chapter-one-interaction-v31.js",
         "dist/chapter-one-motion-v30.js",
+        "dist/chapter-one-trial-runtime.js",
         "dist/chapter-runtime-v14.js",
         "dist/chapter-staging-v14.js",
         "dist/chapter3-runtime-v14.js",
@@ -5993,10 +6127,11 @@
       ]
     },
     "dist/save-transfer-v14.js": {
-      "sha256": "3a7da961b92aafc74132d129aeeb8b762adc8f21bc47754409d598d4d3d24e1a",
-      "bytes": 8391,
+      "sha256": "97737c33ac80c05da0e5efc4e530726c6d234424ff415dfec281d1962c91e99a",
+      "bytes": 8471,
       "imports": [
         "dist/chapter-one-expansion-save.js",
+        "dist/chapter-one-trial-save.js",
         "dist/chapter3-save-v14.js",
         "dist/chapter5-runtime-v14.js",
         "dist/city-moments-v24.js",
@@ -6509,8 +6644,8 @@
       ]
     },
     "dist/story-test-v31.js": {
-      "sha256": "46e9c1d6d2878acc3c2517f4ea6c943d507a4e27aa048147a1e2b7b0cc536d98",
-      "bytes": 12289,
+      "sha256": "f2b806b228db7c0df5f4540282132a3d73b20b0d3326e6c25b1be9d46dca56c7",
+      "bytes": 12761,
       "imports": [
         "dist/chapter-one-dialogues-v31.js",
         "dist/chapter-one-expansion-ui.js",
@@ -6547,6 +6682,7 @@
         "go",
         "goal",
         "id",
+        "map",
         "next",
         "p",
         "pacing",
@@ -7170,8 +7306,8 @@
       "modules": []
     },
     "docs/harness/CHAPTER_01.md": {
-      "sha256": "28794d5c536b4fb22475cb31658fcc214b116c7e550ff1b0c4da441e13f1d2cf",
-      "bytes": 10465,
+      "sha256": "87e2eb506a952d35dd0c7f4f37e50a09c429d4a26c6e958aab679802c43e8f45",
+      "bytes": 10784,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7247,6 +7383,16 @@
       "modules": [
         "chapter01_expansion",
         "story"
+      ]
+    },
+    "docs/harness/CHAPTER_01_TRIAL_FORGE.md": {
+      "sha256": "5488e332e9e2f5fba7ac43977427aadd019c6dce2eaac136283ee89935b9f2df",
+      "bytes": 5331,
+      "imports": [],
+      "symbols": [],
+      "modules": [
+        "story",
+        "chapter01_plan"
       ]
     },
     "docs/harness/CHAPTER_02.md": {
@@ -7341,8 +7487,8 @@
       "modules": []
     },
     "docs/harness/NARRATIVE_ARCHITECTURE.md": {
-      "sha256": "527e709b9c7eb8d08d3e02af6114223161dcf00234d787000ec60aeee65ce28b",
-      "bytes": 6320,
+      "sha256": "0eca39767045a186c5e7550cd0a89e07a1ad4a205b298f2a76e5d181e8aec18a",
+      "bytes": 6556,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7478,8 +7624,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "11112ce1ce5ffd6452f9b64d494ecc8a6dc6623027fd07b5632810edf5b57ebb",
-      "bytes": 31943,
+      "sha256": "2d7146d4aae52bdc675583c2aab10c6f416d99cb63157bbceabbd08e59af737e",
+      "bytes": 32627,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7497,8 +7643,8 @@
       ]
     },
     "source/narrative/chapters/R01.json": {
-      "sha256": "f62dd83dac69c1770f59d1bd72e6c42d7e1f62b74b27d8b25e8bc5a5594efa8d",
-      "bytes": 180826,
+      "sha256": "a8d992244bbe12efaade3ef0806f2e49f242585f281af8a0c57109a643e227b1",
+      "bytes": 232322,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8477,8 +8623,8 @@
       ]
     },
     "source/narrative/runtime-index.json": {
-      "sha256": "7bbee7249cb6692139ec23cbab26035e8d827ca59578c58c1ac9ef6dc2eb7166",
-      "bytes": 160045,
+      "sha256": "d912b3b1c85da538651d6fee98315d5b182c4be0327a634c5f9d7d7e75880217",
+      "bytes": 162582,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8487,8 +8633,8 @@
       ]
     },
     "source/narrative/sources.json": {
-      "sha256": "1f01998eafedda5b6a2d957ba1f5676ed290be0945f6fd3beb7f5de70a9a571b",
-      "bytes": 63318,
+      "sha256": "597a0e1fd467dc1ef8d19ae7ff8070d0da0dcc85f7718dd308feeb8e07aca750",
+      "bytes": 68275,
       "imports": [],
       "symbols": [
         "C1_CARE_DIALOGUES",
@@ -8496,6 +8642,7 @@
         "C1_LOCAL_TALK",
         "C1_OBJECTIVES",
         "C1_QUEST_DIALOGUES",
+        "C1_TRIAL_DIALOGUES",
         "SAGA_NODES_V25",
         "scenes"
       ],
@@ -8505,8 +8652,8 @@
       ]
     },
     "source/narrative/sources.lock.json": {
-      "sha256": "f442f40e6c4efe15a4221d3bc320e569eb301ae2cfdab0db87dfb0ea5013ed6b",
-      "bytes": 94903,
+      "sha256": "b96e3a6f37ff82797ad1b898dafad92fd0a5e9de50fc48a5f8d8e96a60769818",
+      "bytes": 107136,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8608,11 +8755,12 @@
       ]
     },
     "tests/browser-c1-story-flow.mjs": {
-      "sha256": "49c2d3510594d904f2f2d73fa8db4ec9951bf9b18947c093ab4d75aefcbe4c56",
-      "bytes": 6013,
+      "sha256": "2640ef625877336859307bdf20a2e8b64a186308f462bd094ea69bf588d94821",
+      "bytes": 6085,
       "imports": [
         "dist/chapter-one-quest-dialogues.js",
         "dist/core-v14.js",
+        "dist/data-v14.js",
         "tools/browser_session.mjs"
       ],
       "symbols": [
@@ -8660,8 +8808,8 @@
       ]
     },
     "tests/browser-chapter-one-expansion.mjs": {
-      "sha256": "5e5273b6f250d9a73e31cf8c2971937b76df45faae34069b74a443daa7d3be2f",
-      "bytes": 8901,
+      "sha256": "567ccf7ad9aba3ef854abe8ba039d6428a04c2cd7adf04e2e286254076e9e772",
+      "bytes": 9046,
       "imports": [
         "dist/chapter-one-objectives.js",
         "tools/browser_session.mjs"
@@ -8778,9 +8926,10 @@
       ]
     },
     "tests/browser-chapter-one-natural.mjs": {
-      "sha256": "81b85c016447ceb96631ed26f7ebc39618f77929646ac99fd3c1ab1eaaa57707",
-      "bytes": 13665,
+      "sha256": "dc65952721f34086035b6db611cdea4f52790d66c4a977f397b2f50f82c3e1e0",
+      "bytes": 14643,
       "imports": [
+        "dist/chapter-one-expansion-data.js",
         "tools/balance_lab/provenance.mjs",
         "tools/browser_session.mjs"
       ],
@@ -8803,6 +8952,7 @@
         "hook",
         "i",
         "id",
+        "item",
         "k",
         "key",
         "keys",
@@ -8810,7 +8960,9 @@
         "now",
         "outfit",
         "p",
+        "prepareEquipment",
         "rats",
+        "recipe",
         "record",
         "route",
         "s",
@@ -8987,13 +9139,17 @@
       ]
     },
     "tests/browser-dialogue-reader.mjs": {
-      "sha256": "2695ab0a664b8df9f971f3c7752a581af45bb11d4b7de755b62d671e496ef603",
-      "bytes": 8945,
+      "sha256": "fa70182af011a37df328d96264f4d7daa6715dd0bce4101fc8f4d1ceb8c5bd48",
+      "bytes": 9266,
       "imports": [
         "dist/chapter-one-care-dialogues.js",
+        "dist/chapter-one-trial-dialogues.js",
+        "dist/core-v14.js",
+        "dist/data-v14.js",
         "tools/browser_session.mjs"
       ],
       "symbols": [
+        "READ_DIALOGUES",
         "act",
         "b",
         "before",
@@ -9157,8 +9313,8 @@
       ]
     },
     "tests/browser-web-play.py": {
-      "sha256": "89e2b444c897d6205598e4c273c42200800a115962d7cc50d97b73f38bfc1f82",
-      "bytes": 13491,
+      "sha256": "15025bd2e37cc926b839d7bdf867e866692033b7af6049e2f5c93d9de9eb2d36",
+      "bytes": 13557,
       "imports": [],
       "symbols": [
         "e",
@@ -9209,8 +9365,8 @@
       ]
     },
     "tests/c1-story-flow.test.mjs": {
-      "sha256": "168b54ced73406633edaae6a5c00a225c96c05641c0e504f4f37485b022d9fc8",
-      "bytes": 10193,
+      "sha256": "611d92fe7989c5d1b849115e2a8cbd4163a6013335cbf6310715ad8852771473",
+      "bytes": 10673,
       "imports": [
         "dist/chapter-one-dialogues-v31.js",
         "dist/chapter-one-expansion-data.js",
@@ -9251,8 +9407,45 @@
         "ready",
         "req",
         "restore",
+        "saved",
         "setup",
         "start"
+      ],
+      "modules": []
+    },
+    "tests/c1-trial-forge.test.mjs": {
+      "sha256": "476ee0699ed588c097aa78855703afe2277544510ebf08baf08bbcedb0de4d47",
+      "bytes": 8124,
+      "imports": [
+        "dist/chapter-one-dialogues-v31.js",
+        "dist/chapter-one-expansion-data.js",
+        "dist/chapter-one-expansion-ui.js",
+        "dist/chapter-one-objectives.js",
+        "dist/chapter-one-trial-runtime.js",
+        "dist/core-v14.js",
+        "dist/data-v14.js",
+        "dist/save-transfer-v14.js"
+      ],
+      "symbols": [
+        "all",
+        "bad",
+        "before",
+        "boss",
+        "cls",
+        "e",
+        "finish",
+        "fresh",
+        "g",
+        "gold",
+        "map",
+        "n",
+        "near",
+        "prepare",
+        "r",
+        "restore",
+        "s",
+        "saved",
+        "x"
       ],
       "modules": []
     },
@@ -9294,8 +9487,8 @@
       "modules": []
     },
     "tests/chapter-one-crafting.test.mjs": {
-      "sha256": "44bdb4012073ff10a46d5982db2504af2d758bd064a10ed69f8d747831e1eb4e",
-      "bytes": 5938,
+      "sha256": "30d4ea8aec232ead1f2d66adf4cbc01b74bf9cbc893852862187c948bfa97b47",
+      "bytes": 6002,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
@@ -9335,8 +9528,8 @@
       ]
     },
     "tests/chapter-one-economy.mjs": {
-      "sha256": "be6da211f860844590ebb8e039d13c5ed98775b2c650058f84ec937980db6eef",
-      "bytes": 13733,
+      "sha256": "4089333a61af05e9cfc022544001ab5e93fda607fbe029c6d8bc0e60bdba1ffb",
+      "bytes": 14651,
       "imports": [
         "dist/chapter-one-expansion-combat.js",
         "dist/chapter-one-expansion-data.js",
@@ -9358,9 +9551,9 @@
         "claim",
         "cls",
         "continueChapterTwo",
-        "core",
         "craft",
         "d",
+        "dest",
         "dir",
         "e",
         "es",
@@ -9375,13 +9568,18 @@
         "journey",
         "k",
         "local",
+        "m",
         "map",
         "old",
+        "order",
+        "queue",
         "r",
         "recipe",
+        "restock",
         "snapshot",
         "start",
         "startingMap",
+        "stock",
         "t",
         "tick",
         "townFarm",
@@ -9394,8 +9592,8 @@
       ]
     },
     "tests/chapter-one-economy.test.mjs": {
-      "sha256": "d79e276fc1748018fb04b76618a6d55812c0802748bbf4f3392e97dd37bb8d2e",
-      "bytes": 2829,
+      "sha256": "063d8c55efe9794749335e2e6eef487f8cb9421ddf7638c62287406feed2c158",
+      "bytes": 2888,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-story-world.js",
@@ -9403,21 +9601,21 @@
       ],
       "symbols": [
         "cls",
-        "e",
         "id",
         "latest",
         "out",
         "q",
         "r",
-        "route"
+        "route",
+        "seed"
       ],
       "modules": [
         "chapter01_expansion"
       ]
     },
     "tests/chapter-one-elites.test.mjs": {
-      "sha256": "fa15efd78007a2c99a5d003de487ee360048d78f896487ae7f5228fde71cb0dd",
-      "bytes": 6170,
+      "sha256": "9cebac8091aab8f1623dbaaa21ae07900ad2f6dfe70691dbf250c345551d8494",
+      "bytes": 6316,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-save.js",
@@ -9455,8 +9653,8 @@
       ]
     },
     "tests/chapter-one-expansion.test.mjs": {
-      "sha256": "c2df074c038bca6c1ffa44cf4d8949d283c6530995d0c0ef6925e848461f891c",
-      "bytes": 7809,
+      "sha256": "dcc2ecc86d1dc1c90b6a38687cd69156e23f22ec6e082abfa52a116a2fcedc0f",
+      "bytes": 7807,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
@@ -9496,8 +9694,8 @@
       ]
     },
     "tests/chapter-one-incremental.test.mjs": {
-      "sha256": "d97ae8e6f3f703ac0a3a00ae16ee12f65635d50b2f1e5b9cb41f1c830a831433",
-      "bytes": 18304,
+      "sha256": "a93309933a2b1e72dca3ed69a9702c7002b14e0cc5cce3de9d153535bcf89c60",
+      "bytes": 19092,
       "imports": [
         "dist/chapter-one-dialogues-v31.js",
         "dist/chapter-one-expansion-data.js",
@@ -9552,13 +9750,15 @@
         "revision",
         "saved",
         "spoken",
-        "t"
+        "t",
+        "trialScript",
+        "trialStageIds"
       ],
       "modules": []
     },
     "tests/chapter-one-layer-rules.test.mjs": {
-      "sha256": "87448d85de046cd6212f70352b947311e8f6ea6645227c999af52312adbe7148",
-      "bytes": 10811,
+      "sha256": "bc325cd434ccf7af77ffb9158f2a6dd74da7184158046a1fcac426a3e84da3fd",
+      "bytes": 11264,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-ui.js",
@@ -9604,8 +9804,8 @@
       ]
     },
     "tests/chapter-one-map-quests.test.mjs": {
-      "sha256": "b8bbf5ccf8ab9eeeded892e4cd3bf7d2eeecce7f14940f02a0bb34d3bee830b1",
-      "bytes": 7230,
+      "sha256": "c6802412fa2f266346007ab82cb6779c73c0ed4406330cc96dc61c93cccdd594",
+      "bytes": 7685,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-layout.js",
@@ -9646,8 +9846,8 @@
       ]
     },
     "tests/chapter-one-story-world.test.mjs": {
-      "sha256": "613c4d1944f645b9603d89a162108e0c5466af754402fe8419b7c46affcc7da7",
-      "bytes": 8757,
+      "sha256": "8f5339cc29e8f706b32d3de95db5424e96bb4a3dbad71fbdcf2b48b482688de6",
+      "bytes": 8988,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-objectives.js",
@@ -9832,8 +10032,8 @@
       "modules": []
     },
     "tests/dialogue-hud.test.mjs": {
-      "sha256": "d858ece778f4b2b9465a6d058778fb1da62c1666e1e0bbae367c2a2b14863946",
-      "bytes": 10826,
+      "sha256": "c77db2135240a97f4fcd06fe04a1ceabb20997af9c24f2f9e7a05c088a1439eb",
+      "bytes": 11028,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/combat-target-ui.js",
@@ -9871,6 +10071,7 @@
         "s",
         "saved",
         "t",
+        "trial",
         "visited",
         "x"
       ],
@@ -9879,8 +10080,8 @@
       ]
     },
     "tests/dialogue-reader.test.mjs": {
-      "sha256": "f87ce58aaa1d124e5f168c466165bd951473ff8e2ec82c414a3ef0ffc0820114",
-      "bytes": 6266,
+      "sha256": "6280f2305faa0f3350a7bce14517466d4ebc425371eac0d5745fd7bfa0b6bdff",
+      "bytes": 6476,
       "imports": [
         "dist/chapter-one-care-save.js",
         "dist/chapter-one-dialogues-v31.js",
@@ -9903,6 +10104,7 @@
         "nested",
         "old",
         "once",
+        "original",
         "paid",
         "r",
         "restored",
@@ -9915,15 +10117,17 @@
       "modules": []
     },
     "tests/fixtures/dialogue-copyedit-contract.mjs": {
-      "sha256": "cff64b7ef46dd23f367cdd9c453de9872a0958ecb91a2741c6304f58b1e8bb77",
-      "bytes": 515,
+      "sha256": "3c39d78c17e25e5bb0f529a0a49dadfd0e51b80c3a3f5a0a64c9322a9aba2069",
+      "bytes": 891,
       "imports": [
         "dist/dialogue-copyedits-data.js"
       ],
       "symbols": [
         "beforeCopyedit",
         "copyedited",
-        "e"
+        "e",
+        "legacy",
+        "trial"
       ],
       "modules": []
     },
@@ -10181,8 +10385,8 @@
       "modules": []
     },
     "tests/rpg-experience.test.mjs": {
-      "sha256": "12dce47820678a29f015a6f573450606b2e5fcbf7bb51449b020000304c4465b",
-      "bytes": 16482,
+      "sha256": "d1a79c214de89f5238b6502b78b481aa3e5ac4a183f191da6187921e07c70710",
+      "bytes": 17425,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-ui.js",
@@ -10989,147 +11193,151 @@
   "core_installer_order": [
     {
       "name": "installChapter3",
-      "line": 229
-    },
-    {
-      "name": "installChapter4",
       "line": 230
     },
     {
-      "name": "installPacing",
-      "line": 232
+      "name": "installChapter4",
+      "line": 231
     },
     {
-      "name": "installQuestService",
+      "name": "installPacing",
       "line": 233
     },
     {
+      "name": "installQuestService",
+      "line": 234
+    },
+    {
       "name": "installSystemsV13",
-      "line": 238
+      "line": 239
     },
     {
       "name": "installProgressionV14",
-      "line": 240
-    },
-    {
-      "name": "installChapter5",
       "line": 241
     },
     {
-      "name": "installMercenariesV14",
+      "name": "installChapter5",
       "line": 242
     },
     {
-      "name": "installMemoryV13",
+      "name": "installMercenariesV14",
       "line": 243
     },
     {
-      "name": "installHellActivitiesV15",
+      "name": "installMemoryV13",
       "line": 244
     },
     {
-      "name": "installDialogueTextV16",
-      "line": 246
+      "name": "installHellActivitiesV15",
+      "line": 245
     },
     {
-      "name": "installGrowthV17",
+      "name": "installDialogueTextV16",
       "line": 247
     },
     {
-      "name": "installHellActivitiesV17",
+      "name": "installGrowthV17",
       "line": 248
     },
     {
-      "name": "installSaintBondsV17",
+      "name": "installHellActivitiesV17",
       "line": 249
     },
     {
-      "name": "installHellExpeditionsV18",
+      "name": "installSaintBondsV17",
       "line": 250
     },
     {
-      "name": "installCityV18",
+      "name": "installHellExpeditionsV18",
       "line": 251
     },
     {
-      "name": "installDiscoveryV19",
-      "line": 253
+      "name": "installCityV18",
+      "line": 252
     },
     {
-      "name": "installSaintStoryV18",
+      "name": "installDiscoveryV19",
       "line": 254
     },
     {
+      "name": "installSaintStoryV18",
+      "line": 255
+    },
+    {
       "name": "installRomanceV20",
-      "line": 256
+      "line": 257
     },
     {
       "name": "installCombatInputV17",
-      "line": 259
-    },
-    {
-      "name": "installPartyRewardHooksV18",
       "line": 260
     },
     {
-      "name": "installArrivalV22",
+      "name": "installPartyRewardHooksV18",
       "line": 261
     },
     {
-      "name": "installCityMomentsV24",
+      "name": "installArrivalV22",
       "line": 262
     },
     {
+      "name": "installCityMomentsV24",
+      "line": 263
+    },
+    {
       "name": "installSagaV25",
-      "line": 267
+      "line": 268
     },
     {
       "name": "installPhysicalWorldV26",
-      "line": 271
+      "line": 272
     },
     {
       "name": "installSagaV26",
-      "line": 274
+      "line": 275
     },
     {
       "name": "installCombatOverhaulV28",
-      "line": 281
+      "line": 282
     },
     {
       "name": "installPresentationPhysicsV281",
-      "line": 283
+      "line": 284
     },
     {
       "name": "installWorldExplorationV29",
-      "line": 285
+      "line": 286
     },
     {
       "name": "installChapterOneMotionV30",
-      "line": 287
-    },
-    {
-      "name": "installChapterOneInteraction",
       "line": 288
     },
     {
-      "name": "installChapterOneExpansion",
-      "line": 290
+      "name": "installChapterOneInteraction",
+      "line": 289
     },
     {
-      "name": "installGameSettings",
+      "name": "installChapterOneExpansion",
       "line": 291
     },
     {
+      "name": "installGameSettings",
+      "line": 292
+    },
+    {
       "name": "installChapterTwoExperience",
-      "line": 293
+      "line": 294
     },
     {
       "name": "installChapterThreeCaves",
-      "line": 295
+      "line": 296
     },
     {
       "name": "installChapterThreeExperience",
-      "line": 296
+      "line": 297
+    },
+    {
+      "name": "installC1Trial",
+      "line": 301
     }
   ],
   "missing_imports": [],

@@ -58,3 +58,9 @@ export const C1_NEW_MAPS=['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1Nort
 export const C1_EFFECT_TEXT={skill:'主动技能直接伤害 +3%（同组取最高）',attack:'普攻直接伤害 +2%',directReduction:'直接承伤 ×0.98',speed:'移速 +3%',regen:'每秒法力恢复增加',mana:'最大法力 +8',opener:'目标生命高于70%时直接命中 +15%；冷却8秒',trail:'4秒未受伤后移速 +6%，受伤结束',killMana:'亲自击杀有效敌人恢复3 MP；冷却3秒',skillMana:'主动技能直接命中恢复2 MP；冷却8秒',threeHits:'3次有效普攻后下一主动技能首次直接命中 +12%；冷却8秒',potionGuard:'疗伤药后4秒承伤 ×0.92；冷却12秒',lowGuard:'生命低于35%时直接承伤 ×0.96',evasion:'避开实际威胁的重击后，6秒内下一主动技能首次直接命中 +18%；冷却10秒'};
 export function c1DropIndex(u){if(!Number.isFinite(u)||u<0||u>=1)throw Error('Invalid uniform draw');return u<.075?0:u<.15?1:-1;}
 export function c1CoreAt(u){return u<.4?'c1CoreBlade':u<.75?'c1CoreShell':'c1CoreConduit';}
+
+// Two underground elites are separate from the mandatory final trial Boss.
+Object.assign(C1_ELITES,{
+ "c1-trial-warden":{map:"c1DrillGallery",type:"wolf",name:"旧廊试炼守卫",hp:900,hit:18,heavy:29,wind:1.05,pool:["c1TrailBoots","c1FangWeapon"]},
+ "c1-vault-warden":{map:"c1TrialVault",type:"wolf",name:"封存看守",hp:1150,hit:22,heavy:34,wind:1.1,pool:["c1TrailBoots","c1FangWeapon"]}
+});

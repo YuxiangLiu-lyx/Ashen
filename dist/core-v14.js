@@ -1,3 +1,4 @@
+import {installC1Trial} from './chapter-one-trial-runtime.js';
 import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';
 import {installChapterThreeExperience} from './rpg-chapter-three.js';
 import {installChapterThreeCaves} from './rpg-chapter-three-world.js';
@@ -296,3 +297,5 @@ installChapterThreeCaves(RPG,{MAPS,SCENERY,BOUNDARIES});
 installChapterThreeExperience(RPG,{DIALOGUES,stats});
 
 installDialogueCopyedits(DIALOGUES);
+
+installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});

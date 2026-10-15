@@ -1,0 +1,88 @@
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (31.917125ms)
+✔ warehouse charity scene uses town actors and returns without giving Noen private knowledge (3.306875ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (6.019458ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.678875ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (6.525375ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (4.575333ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (3.60675ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (21.897292ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (23.101917ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.344875ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.367041ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.722208ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.686333ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (2.255708ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.517708ms)
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (2946.3285ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (74.564375ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (12.568667ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.161917ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (10.210125ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (4.956375ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (9.0465ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (5.530417ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (6.495458ms)
+✔ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (648.36525ms)
+ℹ tests 25
+ℹ suites 0
+ℹ pass 25
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3884.45475
+[
+  {
+    width: 1440,
+    height: 980,
+    input: 'mouse',
+    passed: true,
+    core: 'c1CoreShell',
+    rune: 'c1RuneMana',
+    gear: 'c1-crafted-1'
+  },
+  {
+    width: 844,
+    height: 390,
+    input: 'touch',
+    passed: true,
+    core: 'c1CoreShell',
+    rune: 'c1RuneWisdom',
+    gear: 'c1-crafted-1'
+  },
+  {
+    width: 390,
+    height: 844,
+    input: 'touch',
+    passed: true,
+    core: 'c1CoreConduit',
+    rune: 'c1RuneMana',
+    gear: 'c1-crafted-1'
+  }
+]
+[
+  {
+    class: 'shadow',
+    status: 'pass',
+    play_sha256: 'afcf17a05d87b82254e0a972e29ec0618e6f88e793a96a71d1fb3fe58b0496f8',
+    ending_phase: 6,
+    unchanged_panels: 66,
+    only_changed_runtime: [ 'dist/chapter-one-expansion-ui.js' ]
+  },
+  {
+    class: 'oath',
+    status: 'pass',
+    play_sha256: '1fd0d293e1124b58b0101cc0a1b8a97266d6ddc7dee1052ce0a64b9d407a90ae',
+    ending_phase: 6,
+    unchanged_panels: 66,
+    only_changed_runtime: [ 'dist/chapter-one-expansion-ui.js' ]
+  },
+  {
+    class: 'ember',
+    status: 'pass',
+    play_sha256: 'dffc08f4d0521e2d592aa1415a0784a9651e1583b36599f8c49adbc7716f3319',
+    ending_phase: 6,
+    unchanged_panels: 66,
+    only_changed_runtime: [ 'dist/chapter-one-expansion-ui.js' ]
+  }
+]

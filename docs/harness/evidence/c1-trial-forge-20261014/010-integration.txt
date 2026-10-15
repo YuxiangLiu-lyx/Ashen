@@ -1,0 +1,6 @@
+RUN integration ['python3', 'tools/harness/check.py', '--tier', 'integration']
+RUN focused ['node', '--test', 'tests/c1-trial-forge.test.mjs']
+RUN package ['.venv/bin/python', 'tests/browser-web-play.py', '--build', 'qa-export/c1-trial-forge-preview', '--out', 'docs/c1-trial-forge/package']
+RUN focused ['node', 'tests/browser-c1-story-flow.mjs']
+RUN focused ['node', 'docs/c1-trial-forge/capture.mjs']
+[{"name": "integration", "steps": [{"command": ["python3", "tools/harness/check.py", "--tier", "integration"], "exit_code": 1}], "passed": false}, {"name": "focused", "steps": [{"command": ["node", "--test", "tests/c1-trial-forge.test.mjs"], "exit_code": 0}, {"command": ["node", "tests/browser-c1-story-flow.mjs"], "exit_code": 0}, {"command": ["node", "docs/c1-trial-forge/capture.mjs"], "exit_code": 0}], "passed": true}, {"name": "package", "steps": [{"command": [".venv/bin/python", "tests/browser-web-play.py", "--build", "qa-export/c1-trial-forge-preview", "--out", "docs/c1-trial-forge/package"], "exit_code": 0}], "passed": true}]
