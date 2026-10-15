@@ -641,3 +641,19 @@
 - 阶段 delivery：complete；HEAD 16e80dd957f3b2a2a91e4dcc07ed884548786f0c
 - 最近检查：archive-verify，退出码 0；docs/harness/evidence/c1-restraint-20261015/029-archive-verify.txt
 <!-- /task:c1-restraint-20261015 -->
+
+<!-- task:c1-dialogue-voice-20261015 -->
+## 任务 c1-dialogue-voice-20261015
+- 状态：in_progress
+- 更新：2026-10-15T19:51:47.801723+00:00
+- 下一步：提交正文、叙事审查和验收资料
+- 任务记录：source/tasks/active/c1-dialogue-voice-20261015.json
+- 已完成：三场逐句稿已按Harness范例B和最新反馈重写；16/5/19页、说话人及木屑/吃饭/回桌动作节点保留。；只改三场正文，其余完整语料精确相等；七维审查通过，补上前一版真实全文旧档保全覆盖。；67 Harness、48相关回归、153页三视口及离线HTTP手机包全部通过；默认包和5174已同步，旧包完整保留。；默认试玩入口已更新；723条其他语料与全部玩法代码保持。
+- 待完成：GitHub main保存
+- 决定：本次只有一个对白数据文件改变，地图/战斗/设施/演出逻辑逐字保持；按专项验收，不重复上一轮战斗集成。
+- 阻塞：无
+- 阶段 writing：complete；HEAD bafee2e82152e062492e69488f51909e5ad6d040
+- 阶段 verification：complete；HEAD bafee2e82152e062492e69488f51909e5ad6d040
+- 阶段 delivery：in_progress；HEAD bafee2e82152e062492e69488f51909e5ad6d040
+- 最近检查：local-delivery，退出码 0；docs/harness/evidence/c1-dialogue-voice-20261015/002-local-delivery.txt
+<!-- /task:c1-dialogue-voice-20261015 -->

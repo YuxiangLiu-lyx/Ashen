@@ -35,8 +35,10 @@ test('edited conversations keep page roles and pending full-text saves retain th
  const original=fs.readFileSync('docs/c1-restraint/before/chapter-one-trial-dialogues.js.txt','utf8');const before=Function(original.replace('export const C1_TRIAL_DIALOGUES=', 'return '))();
  for(const [id,length]of [['c1TrialInvitation',16],['c1TrainingReason',5],['c1TrialReport',19]]){
   assert.equal(DIALOGUES[id].length,length);assert.deepEqual(DIALOGUES[id].map(r=>r[0]),before[id].map(r=>r[0]));
-  let g=new RPG('shadow');g.chapter=1;g.pending={id,line:2,then:null,lines:before[id]};
-  const r=reload(g);for(const field of ['id','line','lines','then'])assert.deepEqual(r.pending[field],g.pending[field],id+':'+field);
+  for(const lines of [before[id],JSON.parse(fs.readFileSync('docs/c1-restraint/SCRIPT.json')).scenes[id]]){
+   let g=new RPG('shadow');g.chapter=1;g.pending={id,line:2,then:null,lines};
+   const r=reload(g);for(const field of ['id','line','lines','then'])assert.deepEqual(r.pending[field],g.pending[field],id+':'+field);
+  }
  }
  const loom=MAPS.hall.props.find(p=>p.id==='c1-loom');assert.equal(loom.c1Art[3],100);assert.ok(MAPS.town.props.filter(p=>p.id.startsWith('c1-aid-')).length>=5);
 });

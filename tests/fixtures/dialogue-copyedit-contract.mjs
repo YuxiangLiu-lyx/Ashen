@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 const trial=JSON.parse(fs.readFileSync(new URL('../../docs/c1-trial-forge/SCRIPT.json',import.meta.url))).scenes;
 Object.assign(trial,JSON.parse(fs.readFileSync(new URL('../../docs/c1-restraint/SCRIPT.json',import.meta.url))).scenes);
+Object.assign(trial,JSON.parse(fs.readFileSync(new URL('../../docs/c1-dialogue-voice/SCRIPT.json',import.meta.url))).scenes);
 const legacy=JSON.parse(fs.readFileSync(new URL('../../docs/c1-trial-forge/baseline/dialogues.json',import.meta.url)));
 import assert from 'node:assert/strict';
 import {DIALOGUE_COPYEDITS} from '../../dist/dialogue-copyedits-data.js';

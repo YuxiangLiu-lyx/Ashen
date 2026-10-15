@@ -1,0 +1,120 @@
+{
+  "schema": 1,
+  "id": "c1-dialogue-voice-20261015",
+  "goal": "重写第一章薇蕾娜和诺恩的试炼邀请、追问、汇报台词：明确任务风险与多年成长，正常回应和日常调侃，避免先再套句、不是而是和别字祈使",
+  "acceptance": [
+    "三场对白自然说明风险和试炼；原页数说话人动作与旧档保持；其余对白不变；叙事审查、fast和对白浏览器回放通过，默认试玩包和GitHub main更新"
+  ],
+  "baseline_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-15T19:05:45.136007+00:00",
+  "updated_at_utc": "2026-10-15T19:51:47.801723+00:00",
+  "decisions": [
+    "本次只有一个对白数据文件改变，地图/战斗/设施/演出逻辑逐字保持；按专项验收，不重复上一轮战斗集成。"
+  ],
+  "completed": [
+    "三场逐句稿已按Harness范例B和最新反馈重写；16/5/19页、说话人及木屑/吃饭/回桌动作节点保留。",
+    "只改三场正文，其余完整语料精确相等；七维审查通过，补上前一版真实全文旧档保全覆盖。",
+    "67 Harness、48相关回归、153页三视口及离线HTTP手机包全部通过；默认包和5174已同步，旧包完整保留。",
+    "默认试玩入口已更新；723条其他语料与全部玩法代码保持。"
+  ],
+  "remaining": [
+    "GitHub main保存"
+  ],
+  "blockers": [],
+  "next": "提交正文、叙事审查和验收资料",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "docs/c1-dialogue-voice/verify.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T19:34:29.715904+00:00",
+      "finished_at_utc": "2026-10-15T19:37:16.655361+00:00",
+      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-dialogue-voice-20261015/001-verification.txt",
+      "output_sha256": "c60d404ca8ad186989406c3e25b76468b3ae53eb8798595d0046fdf181260310",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "local-delivery",
+      "command": [
+        "python3",
+        "docs/c1-dialogue-voice/deliver.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T19:49:29.672021+00:00",
+      "finished_at_utc": "2026-10-15T19:49:30.425710+00:00",
+      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-dialogue-voice-20261015/002-local-delivery.txt",
+      "output_sha256": "4fe6e00a21223b935718c7561200fc5211f26774f460e2becc38ace24841258b",
+      "timeout_seconds": 400.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "writing",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T19:14:56.341218+00:00",
+      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "source_fingerprint": "b8dbb3bed5a41f550a870df9def38a9a0d7861f1303a10af7f1681c507288da2",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-trial-dialogues.js\n M docs/harness/CHAPTER_01_RESTRAINT.md\n M docs/harness/DIALOGUE_STYLE.md\n?? docs/c1-dialogue-voice/\n?? source/tasks/active/c1-dialogue-voice-20261015.json"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T19:51:47.633270+00:00",
+      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-trial-dialogues.js\n M docs/harness/CHAPTER_01_RESTRAINT.md\n M docs/harness/DIALOGUE_STYLE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/c1-restraint.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? docs/c1-dialogue-voice/\n?? docs/harness/evidence/c1-dialogue-voice-20261015/\n?? source/tasks/active/c1-dialogue-voice-20261015.json"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-15T19:51:47.740908+00:00",
+      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
+      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-trial-dialogues.js\n M docs/harness/CHAPTER_01_RESTRAINT.md\n M docs/harness/DIALOGUE_STYLE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/c1-restraint.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? docs/c1-dialogue-voice/\n?? docs/harness/evidence/c1-dialogue-voice-20261015/\n?? source/tasks/active/c1-dialogue-voice-20261015.json"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-dialogue-voice/reviews/c1TrialInvitation-context.json",
+      "context_sha256": "9e98919478a9a93759f5f924377c0b754e7d5c621ed2d8fc9ebdce910736acf2",
+      "draft": "docs/c1-dialogue-voice/reviews/c1TrialInvitation-draft.json",
+      "draft_sha256": "70e5fb9e40edf5a5367cc37a70efcc2f00a5e195a6cf65c3a53d727620a0693d",
+      "review": "docs/c1-dialogue-voice/reviews/c1TrialInvitation-review.json",
+      "review_sha256": "a2a79477b71a92c949bc13686dbd581faeb07e01d103ac8d9294519fcaf98449"
+    },
+    {
+      "context": "docs/c1-dialogue-voice/reviews/c1TrainingReason-context.json",
+      "context_sha256": "17784c6e769a53b4e5c2e2cfc431f54e43c67305ccc7e492af849c932037a602",
+      "draft": "docs/c1-dialogue-voice/reviews/c1TrainingReason-draft.json",
+      "draft_sha256": "ce05a5e7a239c55b09ee93525c957bafcf583b1522e1f7c8ec0726a36f35acbc",
+      "review": "docs/c1-dialogue-voice/reviews/c1TrainingReason-review.json",
+      "review_sha256": "9f5ee5f19e3c3f69ff6555f3342df2859b199288d17d73a0c611245e3c742ed6"
+    },
+    {
+      "context": "docs/c1-dialogue-voice/reviews/c1TrialReport-context.json",
+      "context_sha256": "40bf54e779f51991a23797aaa51c51a8edfd837c4c5ba695c9cd3b4e8e262ae7",
+      "draft": "docs/c1-dialogue-voice/reviews/c1TrialReport-draft.json",
+      "draft_sha256": "d1faee251b1373b89e3aaef9ba665224bb171e451ab6017fecbfa9a10b67cc72",
+      "review": "docs/c1-dialogue-voice/reviews/c1TrialReport-review.json",
+      "review_sha256": "dbb80c4dbb2888df19991acd950e95837e3f20599c963d4ae82c0819267564f5"
+    }
+  ]
+}
