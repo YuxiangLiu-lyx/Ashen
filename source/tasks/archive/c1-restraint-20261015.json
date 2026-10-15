@@ -11,9 +11,9 @@
     "story",
     "ui"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-15T13:17:22.999156+00:00",
-  "updated_at_utc": "2026-10-15T16:15:01.339932+00:00",
+  "updated_at_utc": "2026-10-15T16:24:31.342119+00:00",
   "decisions": [
     "按当前前三章范围调整战斗；第一章设施、对白和救济画面；后五章不扩建，旧档与历史原件保留",
     "新耐久不回退；自动路线增加合法补给及观察全部攻击，保留失败死亡档，不将脚本胜率当真人难度",
@@ -25,13 +25,12 @@
     "五精英动作、Boss低调提示、前三章血量、格子详情、固定罗萨、机器尺寸与救济布置完成；55专项及真实第三章精英/弱怪重载验证通过",
     "新版36组精确战斗事件oracle独立保存；历史原件未改。新对白全文仅三场变化，其余语料完全一致。原经济路线缺少法力补给，已按实际商店/配药操作补足；局部回归通过",
     "fast、完整integration、三职业真实键鼠、离线HTTP手机、三维地图和局部experience已通过；失败样本及真人待验均保留。",
-    "默认包和5174逐字节验证；旧包完整保留，证据分卷已核验。"
+    "默认包和5174逐字节验证；旧包完整保留，证据分卷已核验。",
+    "实现16e80dd已上传GitHub main并ls-remote核对；默认试玩包及5174一致、旧包和全部原件保留。"
   ],
-  "remaining": [
-    "提交并推送GitHub main"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "Git diff/ignore/staged审查",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration"
@@ -582,11 +581,11 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-15T16:10:26.952837+00:00",
-      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T16:24:31.005170+00:00",
+      "head_commit": "16e80dd957f3b2a2a91e4dcc07ed884548786f0c",
       "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
-      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-dialogues.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M dist/rpg-chapter-two-data.js\n M dist/rpg-chapter-two.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/story-test-v31.js\n M dist/telegraphs-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-chapter-two.test.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c1-restraint-evidence/\n?? dist/encounter-restraint.js\n?? docs/c1-restraint/\n?? docs/harness/CHAPTER_01_RESTRAINT.md\n?? docs/harness/evidence/c1-restraint-20261015/\n?? source/tasks/active/c1-restraint-20261015.json\n?? tests/c1-restraint.test.mjs\n?? tests/fixtures/restraint-c1-combat.json\n?? tests/fixtures/restraint-c23-combat.json"
+      "worktree": "M docs/c1-restraint/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/c1-restraint/GIT_SAVE.json"
     }
   ],
   "narrative_reviews": [
@@ -636,5 +635,8 @@
       "sha256": "de1c12a9856d16f39dbb6a0383932d253ab5c65115e611ecbc2569fce68fa820",
       "chapter": "R03"
     }
-  ]
+  ],
+  "summary": "第一章1.4与前三章敌人耐久整改完成：差异化五精英、克制Boss、格子设施和女性罗萨、自然试炼交流及救济人群；完整技术验收和默认包交付通过，16e80dd已保存GitHub main并核验。真人体验待验，历史0.6门禁独立保留。",
+  "completed_at_utc": "2026-10-15T16:24:32.425173+00:00",
+  "verified_source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add"
 }

@@ -35,3 +35,5 @@
 观察新试炼交流和救济切镜请新开档；已获正式委托的旧档不强迫重做。真人待验见 [HUMAN_OBSERVATION.md](HUMAN_OBSERVATION.md)，R01服务/节奏/战斗及R02—R03战斗的局部报告已挂接任务，不冒充整章新一轮真人验收。
 
 重复的大型JSON快照按原字节分卷保存至 `archives/c1-restraint-evidence/`，原本地文件仍保留。运行 `python3 docs/c1-restraint/RESTORE_EVIDENCE.py` 恢复，`--verify-only`逐成员校验；截图、正文、日志和关键结论直接入库。GitHub保存状态另见GIT_SAVE.json；网站未发布。
+
+实现提交 `16e80dd957f3b2a2a91e4dcc07ed884548786f0c` 已推送GitHub main，`ls-remote`确认一致。最终任务回执另随文档提交保存。源码与手写文本无空白错误；原始失败TAP日志中的尾空格按哈希保留。
