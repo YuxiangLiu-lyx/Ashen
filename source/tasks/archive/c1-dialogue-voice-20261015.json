@@ -10,9 +10,9 @@
     "story",
     "chapter01_plan"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-15T19:05:45.136007+00:00",
-  "updated_at_utc": "2026-10-15T19:51:47.801723+00:00",
+  "updated_at_utc": "2026-10-15T19:53:21.110721+00:00",
   "decisions": [
     "本次只有一个对白数据文件改变，地图/战斗/设施/演出逻辑逐字保持；按专项验收，不重复上一轮战斗集成。"
   ],
@@ -20,13 +20,12 @@
     "三场逐句稿已按Harness范例B和最新反馈重写；16/5/19页、说话人及木屑/吃饭/回桌动作节点保留。",
     "只改三场正文，其余完整语料精确相等；七维审查通过，补上前一版真实全文旧档保全覆盖。",
     "67 Harness、48相关回归、153页三视口及离线HTTP手机包全部通过；默认包和5174已同步，旧包完整保留。",
-    "默认试玩入口已更新；723条其他语料与全部玩法代码保持。"
+    "默认试玩入口已更新；723条其他语料与全部玩法代码保持。",
+    "正文及技术验收已保存c7439c8，GitHub main经ls-remote核对；新版默认包和5174均已更新。"
   ],
-  "remaining": [
-    "GitHub main保存"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交正文、叙事审查和验收资料",
+  "next": "No required task work remains",
   "required_checks": [
     "verification"
   ],
@@ -84,11 +83,11 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-15T19:51:47.740908+00:00",
-      "head_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T19:53:21.042523+00:00",
+      "head_commit": "c7439c80020b978182fe3ad2e8eb9c5047963139",
       "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
-      "worktree": "M .codex/progress.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-trial-dialogues.js\n M docs/harness/CHAPTER_01_RESTRAINT.md\n M docs/harness/DIALOGUE_STYLE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/c1-restraint.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? docs/c1-dialogue-voice/\n?? docs/harness/evidence/c1-dialogue-voice-20261015/\n?? source/tasks/active/c1-dialogue-voice-20261015.json"
+      "worktree": "M source/CURRENT_STATE.json\n?? docs/c1-dialogue-voice/GIT_SAVE.json"
     }
   ],
   "narrative_reviews": [
@@ -116,5 +115,8 @@
       "review": "docs/c1-dialogue-voice/reviews/c1TrialReport-review.json",
       "review_sha256": "dbb80c4dbb2888df19991acd950e95837e3f20599c963d4ae82c0819267564f5"
     }
-  ]
+  ],
+  "summary": "依用户最新口吻要求重写三场试炼对白，明确风险和成长，诺恩自然答应，日常调侃取代流程复述。67 Harness、48相关回归、三视口对白和离线HTTP手机包通过，默认入口已更新。c7439c8保存GitHub main并核对；真人文风待反馈。",
+  "completed_at_utc": "2026-10-15T19:53:21.637742+00:00",
+  "verified_source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366"
 }

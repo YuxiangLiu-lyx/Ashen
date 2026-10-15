@@ -1,3 +1,5 @@
+2026-10-15最新完成：c1-dialogue-voice-20261015，重新润色三场薇蕾娜/诺恩试炼对白，明确风险和成长、自然答应及日常调侃；67 Harness、48专项及三视口/默认新包通过。c7439c8已保存GitHub main并核对，任务归档，文风待用户反馈。见docs/c1-dialogue-voice/ACCEPTANCE.md。
+
 2026-10-15最新完成：c1-restraint-20261015，第一章1.4表现整改及前三章敌人耐久，技术验收、三职业正常输入、默认试玩包和5174均已更新；16e80dd已上传GitHub main并核对，任务归档。真人文风/难度待验，后五章及旧0.6人工门禁保留。证据docs/c1-restraint/ACCEPTANCE.md。
 
 2026-10-14最新范围：用户只要求更新完前三章。R01—R03及Harness技术验收完成；默认包已提升，原0.9保留；真人体验仍待验，R04—R08暂缓。最终证据docs/rpg-experience/ACCEPTANCE.md；内容提交c7e60ba已推送GitHub main并ls-remote核对；本轮收尾归档，真人观察另待验。
@@ -644,16 +646,16 @@
 
 <!-- task:c1-dialogue-voice-20261015 -->
 ## 任务 c1-dialogue-voice-20261015
-- 状态：in_progress
-- 更新：2026-10-15T19:51:47.801723+00:00
-- 下一步：提交正文、叙事审查和验收资料
-- 任务记录：source/tasks/active/c1-dialogue-voice-20261015.json
-- 已完成：三场逐句稿已按Harness范例B和最新反馈重写；16/5/19页、说话人及木屑/吃饭/回桌动作节点保留。；只改三场正文，其余完整语料精确相等；七维审查通过，补上前一版真实全文旧档保全覆盖。；67 Harness、48相关回归、153页三视口及离线HTTP手机包全部通过；默认包和5174已同步，旧包完整保留。；默认试玩入口已更新；723条其他语料与全部玩法代码保持。
-- 待完成：GitHub main保存
+- 状态：complete
+- 更新：2026-10-15T19:53:21.110721+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/c1-dialogue-voice-20261015.json
+- 已完成：三场逐句稿已按Harness范例B和最新反馈重写；16/5/19页、说话人及木屑/吃饭/回桌动作节点保留。；只改三场正文，其余完整语料精确相等；七维审查通过，补上前一版真实全文旧档保全覆盖。；67 Harness、48相关回归、153页三视口及离线HTTP手机包全部通过；默认包和5174已同步，旧包完整保留。；默认试玩入口已更新；723条其他语料与全部玩法代码保持。；正文及技术验收已保存c7439c8，GitHub main经ls-remote核对；新版默认包和5174均已更新。
+- 待完成：无
 - 决定：本次只有一个对白数据文件改变，地图/战斗/设施/演出逻辑逐字保持；按专项验收，不重复上一轮战斗集成。
 - 阻塞：无
 - 阶段 writing：complete；HEAD bafee2e82152e062492e69488f51909e5ad6d040
 - 阶段 verification：complete；HEAD bafee2e82152e062492e69488f51909e5ad6d040
-- 阶段 delivery：in_progress；HEAD bafee2e82152e062492e69488f51909e5ad6d040
+- 阶段 delivery：complete；HEAD c7439c80020b978182fe3ad2e8eb9c5047963139
 - 最近检查：local-delivery，退出码 0；docs/harness/evidence/c1-dialogue-voice-20261015/002-local-delivery.txt
 <!-- /task:c1-dialogue-voice-20261015 -->
