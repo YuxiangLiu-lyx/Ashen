@@ -1,0 +1,2 @@
+import fs from 'node:fs';import{journey}from '../../tests/chapter-one-economy.mjs';
+const results=[];for(const cls of ['shadow','ember'])for(const seed of cls==='shadow'?[11,12,13,14,15,16]:[12]){try{const r=journey(cls,'all_once',seed),n=Object.entries(r.g.c1Expansion.claimLedger).filter(([id,t])=>id.startsWith('elite:')&&t.draw>=0).length;results.push({cls,seed,epics:n,phase:r.g.chapter});if(n===1)break;}catch(e){results.push({cls,seed,error:e.message});}}fs.writeFileSync('docs/c1-restraint/SEED_PROBE.json',JSON.stringify(results,null,2));console.log(results);

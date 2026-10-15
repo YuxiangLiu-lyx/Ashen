@@ -11,7 +11,7 @@ import {mapRoute} from '../dist/navigation-v14.js';
 const finish=g=>{for(let i=0;g.pending&&i<80;i++)g.finishScene();g.active=true;};
 const game=()=>{const g=new RPG('shadow',null,()=>.44);finish(g);g.chapter=2;Object.assign(g.c1Expansion.preparation,{started:true,approved:true});g.quests.c1CommissionBrief='done';g.quests.c1Readiness='done';return g;};
 const enter=(g,id)=>{g.enter(id,780,850);finish(g);};
-const killAll=g=>{for(const e of [...g.enemies])if(!e.dead)g.damage(e,1e4);finish(g);};
+const killAll=g=>{for(const e of [...g.enemies])if(!e.dead)g.damage(e,e.maxHP*100);finish(g);};
 const reload=g=>new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));
 
 test('available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable',()=>{

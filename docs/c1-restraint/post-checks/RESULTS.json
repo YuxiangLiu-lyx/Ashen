@@ -1,0 +1,95 @@
+[
+  {
+    "name": "natural",
+    "command": [
+      "python3",
+      "docs/c1-restraint/normal_inputs.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "combat",
+    "command": [
+      "env",
+      "ASHEN_RESTRAINT_COMBAT=docs/c1-restraint/COMBAT.json",
+      "node",
+      "docs/c1-restraint/compare_combat.mjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "c2",
+    "command": [
+      "node",
+      "docs/rpg-experience/c2/BASELINE_DRIVER.mjs",
+      "docs/c1-restraint/c2"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "c3-groups",
+    "command": [
+      "node",
+      "docs/rpg-experience/c3/ISOLATED_COMBAT.mjs",
+      "docs/c1-restraint/c3-groups"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "c3-bosses",
+    "command": [
+      "node",
+      "docs/rpg-experience/c3/BOSSES_FINAL.mjs",
+      "docs/c1-restraint/c3-bosses"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "facility",
+    "command": [
+      "node",
+      "docs/c1-restraint/facility-ui.mjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "visual",
+    "command": [
+      "env",
+      "ASHEN_RESTRAINT_VISUAL=docs/c1-restraint/visual",
+      "node",
+      "docs/c1-restraint/capture.mjs"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "combat-visual",
+    "command": [
+      "node",
+      "docs/c1-restraint/combat-visual.mjs"
+    ],
+    "exit_code": 1
+  },
+  {
+    "name": "package",
+    "command": [
+      "python3",
+      "docs/c1-restraint/build_package.py"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "targeted",
+    "command": [
+      "node",
+      "--test",
+      "tests/c1-restraint.test.mjs",
+      "tests/c1-trial-forge.test.mjs",
+      "tests/chapter-one-elites.test.mjs",
+      "tests/rpg-experience.test.mjs",
+      "tests/rpg-chapter-two.test.mjs",
+      "tests/rpg-chapter-three.test.mjs"
+    ],
+    "exit_code": 0
+  }
+]

@@ -31,16 +31,26 @@ export function installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){
  // Use the existing machine and merchant, with a clear approach from the hall's centre.
  const room=MAPS.c1LoomRoom,loom=room.props.find(p=>p.id==='c1-loom'),rosa=room.npcs.find(p=>p.id==='c1rosa');
  room.props=room.props.filter(p=>p!==loom);room.npcs=room.npcs.filter(p=>p!==rosa);room.blocks=room.blocks.filter(b=>JSON.stringify(b)!==JSON.stringify(loom.c1Box));room.c1Layout=11;
- Object.assign(loom,{x:370,y:480,interactX:370,interactY:535,c1Box:[315,400,110,80],c1Layout:11});MAPS.hall.props.push(loom);MAPS.hall.blocks.push(loom.c1Box);Object.assign(rosa,{x:610,y:360,angle:Math.PI/2});MAPS.hall.npcs.push(rosa);MAPS.hall.c1Layout=11;
+ Object.assign(loom,{x:370,y:480,interactX:370,interactY:535,c1Art:['loom',0,80,100],c1Box:[338,445,64,35],c1Layout:12});MAPS.hall.props.push(loom);MAPS.hall.blocks.push(loom.c1Box);Object.assign(rosa,{x:610,y:360,angle:Math.PI/2});MAPS.hall.npcs.push(rosa);MAPS.hall.c1Layout=12;
  // Separate west archival elite and east final arena. The passage remains open.
  const vault=MAPS.c1TrialVault;vault.spawns.find(s=>s[3]==='c1-vault-warden').splice(1,2,670,395);
  vault.spawns=vault.spawns.filter(s=>!['c1-vault-sentry-5','c1-vault-sentry-6'].includes(s[3]));vault.spawns.push(['wolf',1250,500,C1_FINAL_BOSS]);vault.c1Layout=11;
- EXPERIENCE_ROLES.trialFinal={...EXPERIENCE_ROLES.vaultWarden,hp:1350,damage:25,xp:65,gold:18,speed:125,aggro:320,reach:78,specialCD:4.8,moves:['shieldBash','heavySlam','rangedCounter'],multiplier:1.2};
+ EXPERIENCE_ROLES.trialFinal={...EXPERIENCE_ROLES.vaultWarden,hp:2970,damage:25,xp:65,gold:18,speed:125,aggro:320,reach:78,specialCooldown:5.2,moveOrder:['shieldBash','charge','heavySlam'],specialMultiplier:1.2};
  const pair={map:'hall',actors:{hero:[1080,735],sister:[1180,635]},beats:[{line:0,moves:[['hero',1080,670,.7]]}],conversationPairs:[[0,'hero','sister',110]]};
  STAGING.scenes.c1TrialLegacyContract=c1Clone(STAGING.scenes.contract);
  STAGING.scenes.c1TrialInvitation={...c1Clone(pair),beats:[...pair.beats,{line:5,moves:[['sister',1140,660,.5]]}]};
  STAGING.scenes.c1TrialReport={...c1Clone(pair),beats:[...pair.beats,{line:9,moves:[['hero',500,770,1],['sister',600,740,1]]},{line:18,moves:[['hero',1080,670,1],['sister',1180,635,1]]}],conversationPairs:[[0,'hero','sister',110],[9,'hero','sister',105],[18,'hero','sister',110]]};STAGING.scenes.contract=c1Clone(pair);
  STAGING.scenes.c1SaintAid={map:'town',actors:{saint:[710,620],dolly:[845,690],aidElder:[630,650],aidNeighbour:[580,700]},actorMeta:{aidElder:{sprite:7,faceTo:'saint'},aidNeighbour:{sprite:6,faceTo:'saint'}},commitActor:null,beats:[{line:0,moves:[['dolly',800,650,.8]]}],conversationPairs:[[0,'saint','dolly',100]]};
+ // A working food station: service table, resting elders, queue and supplies.
+ const relief=STAGING.scenes.c1SaintAid;
+ relief.actors={saint:[605,555],dolly:[735,535],aidElder:[425,595],aidNeighbour:[370,650],aidSeated:[510,610],aidWorker:[660,650],aidMother:[725,715],aidResident:[790,770],aidCook:[450,470]};
+ relief.actorMeta={aidElder:{sprite:7,pose:'seated',faceTo:'saint'},aidNeighbour:{sprite:6,faceTo:'aidElder'},aidSeated:{sprite:2,pose:'seated',faceTo:'saint'},aidWorker:{sprite:4,faceTo:'saint'},aidMother:{sprite:6,faceTo:'saint'},aidResident:{sprite:3,faceTo:'saint'},aidCook:{sprite:5,faceTo:'dolly'}};
+ relief.conversationPairs=[];relief.focus=[620,580];relief.faceTargets={saint:'dolly',dolly:'saint'};
+ relief.beats=[{line:0,moves:[['dolly',700,535,.8]]},{line:4,moves:[['saint',550,570,.7]],faceTargets:{saint:'aidElder',dolly:'aidWorker'}},{line:9,moves:[['dolly',600,610,.8],['saint',475,595,.7]],faceTargets:{saint:'aidElder',dolly:'aidSeated'}}];
+ const pieces=[['table','Objects',9,565,505,160,80,[505,480,120,25]],['bench','Furnishings',1,465,630,160,55,[405,610,120,20]],['stool','Objects',6,375,680,48,44,[358,665,34,15]],['water','Settlement',7,390,505,46,48,[373,485,34,20]],['supplies','Furnishings',5,315,515,85,42,[280,495,70,20]]];
+ for(const [key,sheet,index,x,y,w,h,box]of pieces){MAPS.town.props.push({id:'c1-aid-'+key,label:'',type:'scenery',x,y,c1Art:[sheet,index,w,h],c1Box:box,c1Layout:12,geometryV26:false,collisionV281:false});MAPS.town.blocks.push(box);}
+ MAPS.town.c1Layout=12;
+ for(const [id,index,x,y,w,h,depth]of [['aidBread',5,565,465,47,32,506],['aidCloth',6,515,471,33,26,506]]){relief.actors[id]=[x,y];relief.actorMeta[id]={renderAs:'prop',autoFace:false,v25Raster:{sheet:'romancePropsV20',index,w,h},depthY:depth};}
  for(const [scene,npc]of Object.entries({c1HuntOffer:'clerk',c1HuntProgress:'clerk',c1HuntReport:'clerk',c1SupplyIntro:'c1rosa',c1CoreOrderOffer:'c1rosa'})){
   const n=MAPS.hall.npcs.find(n=>n.id===npc);STAGING.scenes[scene]={map:'hall',actors:{hero:[n.x+80,n.y+70],[npc]:[n.x,n.y]},conversationPairs:[[0,'hero',npc,110]]};
  }
@@ -48,7 +58,7 @@ export function installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){
  for(const id of ['c1TrialInvitation','c1TrialReport','contract','c1SaintAid','c1HuntOffer','c1HuntProgress','c1HuntReport','c1SupplyIntro','c1CoreOrderOffer','c1TownDolly','c1TownLena']){const stage=STAGING.scenes[id];if(!stage)continue;stage.beats||=[];for(const b of stage.beats)b.moves||=[];stage.actorMeta||={};for(const key of Object.keys(stage.actors)){const npc=MAPS[stage.map].npcs.find(n=>n.id===key);if(npc)stage.actorMeta[key]={...stage.actorMeta[key],sprite:npc.sprite};}CINEMATIC_SCENES.add(id);}
  const rat=MAPS.warehouse.spawns.find(s=>s[3]==='c1-grain-rat-1');rat[1]=580;rat[2]=270;MAPS.warehouse.c1Layout=11;
  const P=RPG.prototype,old={};for(const k of ['restore','enemy','ensureMap','enter','update','choose','apply','npcOptions','canDoor','c1CanOffer','c1Ready','questGoal','objective','c1AtService','c1PropInteractive','useProp','c1Craft','c1FreeMaterials','c1Exchange','handleHellDeath','beginScene'])old[k]=P[k];
- function tuneBoss(e){if(e.id!==C1_FINAL_BOSS)return;const cfg=EXPERIENCE_ROLES.trialFinal;if(!e.c1FinalRevision){const ratio=e.hp/Math.max(1,e.maxHP);e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1FinalRevision=1;}Object.assign(e,{label:'终试执卫',c1Species:'vaultwarden',experienceRole:'trialFinal',experienceRevision:1,isBoss:true,elite:false,c1Custom:false,storyTag:'c1-final-trial',v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:65,v28RewardGold:18});}
+ function tuneBoss(e){if(e.id!==C1_FINAL_BOSS)return;const cfg=EXPERIENCE_ROLES.trialFinal;if(e.c1FinalRevision!==2){const ratio=e.hp/Math.max(1,e.maxHP);e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1FinalRevision=2;}Object.assign(e,{label:'终试执卫',c1Species:'vaultwarden',experienceRole:'trialFinal',experienceRevision:1,isBoss:true,elite:false,c1Custom:false,storyTag:'c1-final-trial',v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:65,v28RewardGold:18});}
  P.enemy=function(...args){const e=old.enemy.apply(this,args);tuneBoss(e);return e;};
  P.ensureMap=function(id){const r=old.ensureMap.call(this,id);for(const e of this.states[id]?.enemies||[])tuneBoss(e);return r;};
  P.restore=function(saved){const r=old.restore.call(this,migrateTrialSave(saved));for(const st of Object.values(this.states))for(const e of st.enemies)tuneBoss(e);return r;};

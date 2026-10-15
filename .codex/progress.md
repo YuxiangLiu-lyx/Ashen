@@ -622,3 +622,20 @@
 - 阶段 delivery：complete；HEAD 07ff9fdf15c228cf7bcd13448c36e1451da51cc2
 - 最近检查：delivery-gates，退出码 0；docs/harness/evidence/c1-trial-forge-20261014/020-delivery-gates.txt
 <!-- /task:c1-trial-forge-20261014 -->
+
+<!-- task:c1-restraint-20261015 -->
+## 任务 c1-restraint-20261015
+- 状态：in_progress
+- 更新：2026-10-15T16:15:01.339932+00:00
+- 下一步：Git diff/ignore/staged审查
+- 任务记录：source/tasks/active/c1-restraint-20261015.json
+- 已完成：已保存当前真实地图/碰撞/对白、324组单体和54组群战基线；定位统一放大特效、看守复用兽类逻辑及罗萨肖像缺映射；五精英身体起手、Boss细线预警、耐久第一轮实战正常行装全胜；格子详情与固定罗萨肖像已实现；1.4对白和救济布置已接入；五精英动作、Boss低调提示、前三章血量、格子详情、固定罗萨、机器尺寸与救济布置完成；55专项及真实第三章精英/弱怪重载验证通过；新版36组精确战斗事件oracle独立保存；历史原件未改。新对白全文仅三场变化，其余语料完全一致。原经济路线缺少法力补给，已按实际商店/配药操作补足；局部回归通过；fast、完整integration、三职业真实键鼠、离线HTTP手机、三维地图和局部experience已通过；失败样本及真人待验均保留。；默认包和5174逐字节验证；旧包完整保留，证据分卷已核验。
+- 待完成：提交并推送GitHub main
+- 决定：按当前前三章范围调整战斗；第一章设施、对白和救济画面；后五章不扩建，旧档与历史原件保留；新耐久不回退；自动路线增加合法补给及观察全部攻击，保留失败死亡档，不将脚本胜率当真人难度；第三章有限补给对照失败不当通关；旧隔离ensureMap碰撞超时与真实enter对照区分。
+- 阻塞：无
+- 阶段 audit：complete；HEAD 0b8c198f6fdf004f02670cb8cd533b6462bf4c3e
+- 阶段 implementation：complete；HEAD 0b8c198f6fdf004f02670cb8cd533b6462bf4c3e
+- 阶段 verification：complete；HEAD 0b8c198f6fdf004f02670cb8cd533b6462bf4c3e
+- 阶段 delivery：in_progress；HEAD 0b8c198f6fdf004f02670cb8cd533b6462bf4c3e
+- 最近检查：archive-verify，退出码 0；docs/harness/evidence/c1-restraint-20261015/029-archive-verify.txt
+<!-- /task:c1-restraint-20261015 -->

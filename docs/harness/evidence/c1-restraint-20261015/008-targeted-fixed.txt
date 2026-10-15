@@ -1,0 +1,108 @@
+✖ new durability preserves partial health and corpses over repeated loads and map queries (133.952084ms)
+✔ selecting a grid only reveals details; unavailable early services remain locked (0.919875ms)
+✔ elite has no floor VFX; boss outlines use actual radius, arc and locked line origin (0.225ms)
+✖ edited conversations keep page roles and pending full-text saves retain the original words (5.782333ms)
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (36.33575ms)
+✔ warehouse charity scene uses town actors and returns without giving Noen private knowledge (4.96775ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (6.89825ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.784917ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (11.061166ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (8.488209ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (3.384791ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.068208ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (19.723125ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (34.985709ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (3.166709ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (4.126083ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.236791ms)
+✔ five elites use distinct physical windups; wall stops a charge and there are no bat summons (9.114083ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (7.168417ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (9.591708ms)
+✔ XP earned after fatal damage cannot heal a dead actor; living level-up recovery remains (54.676333ms)
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (49.413ms)
+✔ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (21.927541ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (12.306917ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (4.169ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (15.017708ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (17.361708ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (3.638458ms)
+✔ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (41.276708ms)
+✔ repair is a lasting free rest result; both real locations, pending resume and actual reward remain correct (3.992666ms)
+✔ rest cannot be applied from another map, distant menu, dead player or through active threats (0.811208ms)
+✔ cellar supplies pay once only after a legal claim; full bag and legacy claimed boxes do not print medicine (4.440667ms)
+✔ authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore (7.82975ms)
+✔ front guard responds to position and skills, while DOT is not silently weakened (5.456334ms)
+✔ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (7.792125ms)
+✔ the well chain is a real one-time control tool and old pending mainline scenes remain readable (7.649208ms)
+✔ a deferred spillway conversation remains available after escaping and uses the real safe arrival (5.2725ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (23.646959ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.355ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.692875ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (8.876958ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.788042ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (3.493209ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.475291ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (7.406875ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (5.629667ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (4.477083ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (2.070084ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (13.139541ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (68.208375ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (5.298125ms)
+✔ elite migration preserves living health ratio, off-map deaths, and all settled rewards (4.988958ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (0.922333ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (0.5765ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (5.03925ms)
+ℹ tests 55
+ℹ suites 0
+ℹ pass 53
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 381.013959
+
+✖ failing tests:
+
+test at tests/c1-restraint.test.mjs:7:1
+✖ new durability preserves partial health and corpses over repeated loads and map queries (133.952084ms)
+  TypeError: Cannot read properties of undefined (reading 'spawns')
+      at RPG.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/core-v14.js:121:612)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter3-runtime-v14.js:73:41)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter4-runtime-v14.js:47:41)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/world-runtime-v29.js:46:50)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter-one-expansion-world.js:99:42)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter-one-expansion-quests.js:238:49)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter-one-expansion-combat.js:22:63)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/rpg-experience-combat.js:31:54)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/rpg-chapter-two.js:22:49)
+      at P.ensureMap (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/rpg-chapter-three-world.js:21:42)
+
+test at tests/c1-restraint.test.mjs:29:1
+✖ edited conversations keep page roles and pending full-text saves retain the original words (5.782333ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    {
+  +   c1CareRevision: 1,
+      closing: false,
+      id: 'c1TrainingReason',
+      line: 2,
+      lines: [
+        [
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-restraint.test.mjs:34:28)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: { id: 'c1TrainingReason', line: 2, then: null, lines: [ [Array], [Array], [Array], [Array], [Array] ], c1CareRevision: 1, phase: 'dialogue', closing: false },
+    expected: { id: 'c1TrainingReason', line: 2, then: null, lines: [ [Array], [Array], [Array], [Array], [Array] ], phase: 'dialogue', closing: false },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

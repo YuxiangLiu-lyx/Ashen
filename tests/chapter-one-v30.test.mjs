@@ -7,8 +7,8 @@ import {reactionV30,defeatsV30,motionPoseV30} from '../dist/chapter-one-motion-v
 import {chapterOneV30,drawChapterStrikeV30,chapterSceneryArtV30,chapterGuardFrameV30} from '../dist/chapter-one-art-v30.js';
 import {worldOperationV29} from '../dist/world-runtime-v29.js';
 
-test('12 real combat fixtures retain the authorized RPG 1.0 damage, resource, cooldown and RNG events',()=>{
- const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/rpg-experience-combat.json',import.meta.url)));
+test('12 real combat fixtures retain the authorized 1.4 durability damage, resource, cooldown and RNG events',()=>{
+ const baseline=JSON.parse(fs.readFileSync(new URL('./fixtures/restraint-c1-combat.json',import.meta.url)));
  // Reproduce the original six-spawn setup, whose enemy construction consumes
  // RNG before the isolated duel. Production now has eight rats by authorization;
  // The original V29 fixture stays on disk as historical evidence. User-authorized

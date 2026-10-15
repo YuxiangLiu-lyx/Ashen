@@ -43,7 +43,7 @@ export function drawC1Prop(c,bank,g,p,people=[]){
 // Readable enemy windups use the game's painted dust/impact images, never floor polygons.
 export function drawC1Telegraph(c,t,bank){if(!t||!bank)return;const f=bank.frame('combatFX',1);if(!f)return;const width=t.r?2*t.r:t.length||120,height=t.shape==='rect'?t.width:width*.65;c.save();c.globalAlpha=.48;c.translate(t.x,t.y);c.rotate(t.a||0);bank.draw(c,'combatFX',1,t.shape==='rect'?width/2:0,height/2,width,height);c.restore();}
 export function drawC1World(c,g,bank){if(c1Map(g.map)){const plan=C1_LAYOUTS[g.map];for(const d of g.targets().filter(t=>t.kind==='door')){const outside=plan.outdoor;if(d.c1Stair)bank.draw(c,'c1Walls',d.c1Stair==='down'?4:5,d.x,d.y+12,112,108);else if(outside)c1NaturalSprite(c,bank,5,d.x+38,d.y,42,88);else bank.draw(c,'chapterUtilities',6,d.x,d.y,80,125);if(Math.hypot(g.p.x-d.x,g.p.y-d.y)<240){c.save();c.textAlign='center';c.font='16px serif';c.fillStyle='#ecdfbf';c.shadowColor='#121913';c.shadowBlur=5;c.fillText(d.label||d.to,d.x,d.y+26);c.restore();}}}
- drawC1Telegraph(c,g.c1TrainingSession?.warning,bank);for(const e of g.enemies)if(!e.dead&&e.telegraph?.c1)drawC1Telegraph(c,e.telegraph,bank);
+ drawC1Telegraph(c,g.c1TrainingSession?.warning,bank);// Named elites communicate through their body windup, without a ground effect.
 }
 export function drawC1Target(c,e,bank){if(!e.c1Training)return false;if(bank)bank.draw(c,'chapterUtilities',16,e.x,e.y,65,105);return true;}
 export function drawC1Elite(){}

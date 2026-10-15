@@ -83,7 +83,7 @@ function earlyStep(g){
   const routes=[['c1Readiness','hall','c1TrainingYard'],['c1ExitDrill','c1TrialFoyer','c1DrillGallery'],['v12CourierRoad','road','road'],['v12NorthDelivery','town','town'],['c1GateCheck','town','town'],['c1CanalPrep','town','c1NorthWalk'],['c1LoomBrief','hall','hall']];
   const next=routes.find(([id])=>g.quests[id]!=='done');
   if(next){const [id,giver,map]=next;go(g,giver);finishScenes(g);g.choose('c1:accept:'+id);finishScenes(g);go(g,map);finishScenes(g);
-   if(id==='c1LoomBrief'){use(g,'c1-loom');c1UIAction(g,'preview');c1UIAction(g,'gift');}else if(['c1Readiness','c1ExitDrill','v12CourierRoad','c1CanalPrep'].includes(id)){clear(g);if(id==='c1ExitDrill'){go(g,'c1TrialCrypt');finishScenes(g);clear(g);}}
+   if(id==='c1LoomBrief'){use(g,'c1-loom');c1UIAction(g,'recipe:c1LoomWeapon');c1UIAction(g,'rune:c1RuneEdge');c1UIAction(g,'preview');c1UIAction(g,'gift');}else if(['c1Readiness','c1ExitDrill','v12CourierRoad','c1CanalPrep'].includes(id)){clear(g);if(id==='c1ExitDrill'){go(g,'c1TrialCrypt');finishScenes(g);clear(g);}}
    go(g,giver);g.choose('c1:claim:'+id);finishScenes(g);if(g.quests[id]!=='done')throw Error('章节测试交接尚未完成：'+id);
    if(id==='v12CourierRoad'){g.c1Morning();finishScenes(g);}return;
   }

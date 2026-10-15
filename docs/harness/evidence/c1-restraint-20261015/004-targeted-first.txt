@@ -1,0 +1,128 @@
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (32.846292ms)
+✖ warehouse charity scene uses town actors and returns without giving Noen private knowledge (1.879959ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (7.806291ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.978167ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (6.660917ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (5.386ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (3.517875ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.00625ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (13.052583ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (21.523459ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (3.681917ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (3.120584ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (3.311208ms)
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.284708ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.437667ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (5.836084ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (20.320334ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.282833ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.638375ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (5.449792ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.574125ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (2.56075ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.309ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (6.574666ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (2.909792ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (2.849666ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (1.883958ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (10.887208ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (3334.074292ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (13.9195ms)
+✖ elite migration preserves living health ratio, off-map deaths, and all settled rewards (7.37075ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (2.302833ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (2.006625ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (6.467625ms)
+ℹ tests 34
+ℹ suites 0
+ℹ pass 31
+ℹ fail 3
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3583.889834
+
+✖ failing tests:
+
+test at tests/c1-trial-forge.test.mjs:9:1
+✖ warehouse charity scene uses town actors and returns without giving Noen private knowledge (1.879959ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+  +   'aidBread',
+  +   'aidCloth',
+  +   'aidCook',
+      'aidElder',
+  +   'aidMother',
+      'aidNeighbour',
+  +   'aidResident',
+  +   'aidSeated',
+  +   'aidWorker',
+      'dolly',
+      'saint'
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-trial-forge.test.mjs:9:345)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [
+      'aidBread',    'aidCloth',
+      'aidCook',     'aidElder',
+      'aidMother',   'aidNeighbour',
+      'aidResident', 'aidSeated',
+      'aidWorker',   'dolly',
+      'saint'
+    ],
+    expected: [ 'aidElder', 'aidNeighbour', 'dolly', 'saint' ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-elites.test.mjs:11:1
+✖ rat wall recovery, wolf separately signaled follow-up and bat one-time weak adds (1.284708ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  1.7 !== 1.5
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-elites.test.mjs:12:286)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 1.7,
+    expected: 1.5,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/rpg-experience.test.mjs:98:1
+✖ elite migration preserves living health ratio, off-map deaths, and all settled rewards (7.37075ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  810 !== 450
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/rpg-experience.test.mjs:101:9)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 810,
+    expected: 450,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

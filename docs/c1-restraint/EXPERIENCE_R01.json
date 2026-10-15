@@ -1,0 +1,175 @@
+{
+  "schema": 2,
+  "chapter": "R01",
+  "kind": "scoped",
+  "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+  "scopes": {
+    "combat": {
+      "growth_comparison": {
+        "status": "pass",
+        "reason": "同源真实存档，starter/normal/optimized三职业生产规则对照；失败不剔除，统计不是玩家胜率。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/COMBAT.json",
+            "sha256": "7f8631e6e5abf306828e99d1579531fb82b70f5821ea21cbf9972c1576faf7e2"
+          }
+        ]
+      },
+      "enemy_roles": {
+        "status": "pass",
+        "reason": "普通怪、精英、Boss分别增加生命；保留伤害/奖励及原第三章怪物分工，第四至八章不改。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/COMBAT.json",
+            "sha256": "7f8631e6e5abf306828e99d1579531fb82b70f5821ea21cbf9972c1576faf7e2"
+          }
+        ]
+      },
+      "groups": {
+        "status": "pass",
+        "reason": "群怪对照保留输赢和资源消耗；第三章采用真实enter入口修正的270样本，旧ensureMap诊断单列。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/COMBAT.json",
+            "sha256": "7f8631e6e5abf306828e99d1579531fb82b70f5821ea21cbf9972c1576faf7e2"
+          }
+        ]
+      },
+      "continuous_maps": {
+        "status": "pass",
+        "reason": "连续路线共享有限药水与法力；三职业经济路线通过，第三章低准备连续遭遇仍有失败，难度真人待验。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/COMBAT.json",
+            "sha256": "7f8631e6e5abf306828e99d1579531fb82b70f5821ea21cbf9972c1576faf7e2"
+          }
+        ]
+      },
+      "elite_mechanics": {
+        "status": "pass",
+        "reason": "五精英追咬/肩撞/扑落/横盾/重锤有不同起手与恢复；Boss保留准确范围细线、短冲击。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/RESULTS.json",
+            "sha256": "f2693a410a922f2f0a1aa76ff53674baa449f5db7c5d393a514bb92ea052ac1b"
+          },
+          {
+            "path": "docs/c1-restraint/MAP_QUALITY.json",
+            "sha256": "a1248619978c5a8b7b9543ee2bf17adfca334686cdedd894ea68839936945184"
+          }
+        ]
+      }
+    },
+    "services": {
+      "real_transactions": {
+        "status": "pass",
+        "reason": "鼠标和触摸三视口：选择只显示详情，购买符文/接交核心订单/选配方并实际制作；原有费用及持久库存保持。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/facility-ui/RESULT.json",
+            "sha256": "15464cda461df65ddfe3f0abd53228c781db3ee7f351455be0b1218d0847ec50"
+          }
+        ]
+      },
+      "resource_loop": {
+        "status": "pass",
+        "reason": "18条三职业经济路线通过；补给使用已获金币/精粹和真实配药，未注入资源。旧对照与失败快照保留。",
+        "evidence": [
+          {
+            "path": "docs/harness/evidence/c1-restraint-20261015/020-integration.txt",
+            "sha256": "99b0b8b5474599b5767ac79fe1c1bfdc4b5e43167da1af480282bbb23d452cd6"
+          }
+        ]
+      }
+    },
+    "pacing": {
+      "causality": {
+        "status": "pass",
+        "reason": "三场邀请/追问/回报因果不变，保留16/5/19页与原动作索引；只去除点评和连续调情。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/CORPUS_COMPARISON.json",
+            "sha256": "f1a1d2e917093bc58293c1d4189561c66ee78953f0fdfa1fb62f860787f9f8ae"
+          },
+          {
+            "path": "docs/c1-restraint/REVIEW_BATCH.json",
+            "sha256": "28f0fb1d9fee8b7f5a326e4b8576fb625ec8fb9394541112adb6c0b79c41d116"
+          }
+        ]
+      },
+      "safe_triggers": {
+        "status": "pass",
+        "reason": "库房安全切镜、终试后回会馆吃饭及批准、真实离馆后私谈通过生产测试与三职业正常输入。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/harness/evidence/c1-restraint-20261015/023-final-browser-combat-package.txt",
+            "sha256": "2722bb6f5a9e7874aa1aa1c966d9df206211d5c69913d52a0c1b593e0da4d5e9"
+          }
+        ]
+      },
+      "knowledge_boundaries": {
+        "status": "pass",
+        "reason": "未透露圣女身份、刺杀结果或幕后超前知识；其余全量对白字节保持，旧进行中全文保全。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/CORPUS_COMPARISON.json",
+            "sha256": "f1a1d2e917093bc58293c1d4189561c66ee78953f0fdfa1fb62f860787f9f8ae"
+          },
+          {
+            "path": "docs/c1-restraint/REVIEW_BATCH.json",
+            "sha256": "28f0fb1d9fee8b7f5a326e4b8576fb625ec8fb9394541112adb6c0b79c41d116"
+          }
+        ]
+      }
+    }
+  },
+  "comparison": {
+    "classes": [
+      "shadow",
+      "oath",
+      "ember"
+    ],
+    "cohorts": [
+      "starter",
+      "normal",
+      "optimized"
+    ],
+    "same_source_snapshot": true,
+    "production_rules": true,
+    "human_win_rate_claim": false
+  },
+  "human": {
+    "status": "pending",
+    "remaining": [
+      "真人文风、精英动作可读性、Boss提示、增血后的节奏及设施手感"
+    ],
+    "playable_build": {
+      "path": "qa-export/release-build/Ashen-V28.1-Play.html",
+      "sha256": "0b291e557d8d5228327cc7b846510f8ec8bb33162ef3d077529977fabef9ea8e"
+    },
+    "observation_template": {
+      "path": "docs/c1-restraint/HUMAN_OBSERVATION.md",
+      "sha256": "7984c66e62f7689be63d202c8dfa68f1b5adadfc8432e1d158f67cb65f1a3e72"
+    }
+  }
+}

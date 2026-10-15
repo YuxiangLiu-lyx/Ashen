@@ -21,4 +21,4 @@ export function drawBossWarning(c,bank,e,time){
  }
  paintedFX(c,bank,family,phase,e.x+Math.cos(a)*27,e.y-38+Math.sin(a)*12,48+p*25,58+p*30,a,.75);c.restore();
 }
-export function bossTell(b){if(!b)return '';if(b.telegraph&&b.wind>0)return b.telegraph.label+' · '+(b.telegraph.shape==='line'?'离开两道光痕之间':b.telegraph.shape==='circle'?'走出地上的光圈':'移到首领侧后方');if(b.exposedUntil>0&&b.aiState==='COMBAT'&&b.cd>0)return '观察抬手与落点，重招结束后反击';return '普攻锁定命中 · 仅蓄力重招可走位避开';}
+export function bossTell(b){if(!b)return '';if(b.telegraph&&b.wind>0)return (b.telegraph.label||'蓄势')+' · '+(b.telegraph.shape==='line'?'侧移避开冲撞方向':b.telegraph.shape==='circle'?'离开落点范围':'移到对手侧后方');if(b.exposedUntil>0&&b.aiState==='COMBAT'&&b.cd>0)return '观察抬手与落点，重招结束后反击';return '普攻锁定命中 · 仅蓄力重招可走位避开';}

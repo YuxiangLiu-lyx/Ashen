@@ -8,7 +8,7 @@ function tune(g,e,map){
  if(map==='manor')e.groupId='c2-manor-wave';
  if(e.type!=='guard')return;
  const role=/alarm-1|wave2-guard$/.test(e.id)&&!e.id.includes('v9')?'c2Front':/v9-alarm-3|v9-wave2|guard1/.test(e.id)?'c2Thrower':'c2Pursuer',cfg=C2_ROLES[role];
- if(e.c2ExperienceRevision!==1){const ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c2ExperienceRevision=1;}
+ if(e.c2ExperienceRevision!==2){const ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c2ExperienceRevision=2;}
  e.experienceRole=role;e.v28DamageMultiplier=1;
 }
 const rewards={'quest-v9-dry-knot':24,'quest-v9-well-brow':28};

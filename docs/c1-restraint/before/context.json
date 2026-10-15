@@ -1,0 +1,179 @@
+{
+  "status": "budget_limited",
+  "task": "第一章剧情 薇蕾娜试炼对白",
+  "basis_commit": "9df5b53f1d03a70947d1796c93e96ced6c59dabd",
+  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter01_plan: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "722c56805d934a2de2043686763a22f7f09a4ee9b75904d5ef5b30e6fb717c40",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 章节剧情记录与开发流程",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "适用：剧情开发、章节重构、影响叙事的地图与演出任务。纯数值、工具或普通美术修复不因此加载完整世界观。当前运行事实仍由 `dist/` 与实测描述；用户的新方向是变更依据，策划稿不等于已实现内容。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "4. 读 [对白规范](DIALOGUE_STYLE.md) 与 [纯风格样本](DIALOGUE_STYLE_SAMPLES.md)。写清本场信息、每个人的行为目的、结果、因果与情绪依据、游戏动作和对话框交接，再生成文字。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "7. 记录完整 context、候选/已实施 draft、review，挂入 task.py；修改行数时另做 pending、staging 和存档专项。finish 检查叙事记录与来源新鲜度。仅工具维护且未改运行/章稿的任务不伪造对白审查。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策",
+          "truncated": true
+        },
+        {
+          "line": 21,
+          "text": "1",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 9183
+    }
+  ],
+  "excerpt_bytes": 1316,
+  "max_files": 20,
+  "budget_bytes": 2200,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R01"
+      ],
+      "scene": "c1TrialInvitation",
+      "actors": [
+        "vilerena"
+      ],
+      "stage_candidates": [],
+      "needs": []
+    },
+    "ready_to_write": false,
+    "budget_limited": true,
+    "deferred_sections": [
+      "characters",
+      "facts",
+      "seeds",
+      "conflicts",
+      "stage",
+      "runtime_reader",
+      "reveal_ceiling",
+      "provenance"
+    ],
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "knowledge": {
+      "vilerena": {
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:initial"
+        }
+      },
+      "player": {
+        "F-C1-13-C1SAINTAID": {
+          "mode": "knows",
+          "via": "R01:c1SaintAid"
+        }
+      }
+    },
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ]
+  },
+  "narrative_bytes": 884,
+  "total_context_bytes": 2200,
+  "deferred": [
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/vilerena.json",
+    "source/narrative/chapters/R01.json",
+    "docs/harness/STORY.md",
+    "dist/chapter-one-trial-dialogues.js",
+    "dist/chapter-one-trial-runtime.js",
+    "dist/chapter-one-care-dialogues.js",
+    "dist/chapter-one-care-save.js",
+    "dist/dialogue-reader.js",
+    "dist/chapter-one-quest-dialogues.js",
+    "dist/chapter-one-private-staging.js",
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "docs/harness/CHAPTER_01_CARE_UI.md",
+    "dist/data-v14.js",
+    "docs/harness/CHAPTER_01_STORY_FLOW.md",
+    "dist/dialogue-runtime-v16.js",
+    "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+    "dist/saga-runtime-v26.js",
+    "dist/story-flow-v14.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/dialogue-save-migration-v26.js",
+    "dist/rpg-experience-dialogues.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/c1-story-flow.test.mjs",
+    "node --test tests/c1-trial-forge.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/dialogue-reader.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "第一章1.2扩写亲昵关心，1.1任务交代与离场私谈保留；对白回看不改变实际剧情进度，保留旧档和原奖励。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

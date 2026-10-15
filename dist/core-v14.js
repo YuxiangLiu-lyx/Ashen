@@ -1,3 +1,4 @@
+import {installEncounterRestraint} from './encounter-restraint.js';
 import {installC1Trial} from './chapter-one-trial-runtime.js';
 import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';
 import {installChapterThreeExperience} from './rpg-chapter-three.js';
@@ -299,3 +300,4 @@ installChapterThreeExperience(RPG,{DIALOGUES,stats});
 installDialogueCopyedits(DIALOGUES);
 
 installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});
+installEncounterRestraint(RPG);

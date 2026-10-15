@@ -1,0 +1,421 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1TrialReport",
+    "actors": [
+      "noen",
+      "vilerena"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "处理库房问题，听取委托。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": []
+      },
+      "relationships": {
+        "vilerena": {
+          "trust": "熟悉她的安排，但会追问消息",
+          "affection": "熟人亲近程度由对白体现，非恋爱确认",
+          "caution": "UNRESOLVED",
+          "hostility": "UNRESOLVED",
+          "dependence": "任务与撤路依赖她的信息",
+          "concealment": "UNRESOLVED",
+          "obligation": "UNRESOLVED",
+          "conflict": "尚未获知她的隐瞒"
+        }
+      },
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    },
+    "vilerena": {
+      "name": "薇蕾娜",
+      "base": "会馆中向诺恩交付安排、处理行动事务的重要人物。",
+      "voice": "成熟、自信、熟悉中有亲昵；事务和玩笑自然穿插，不每句暧昧。",
+      "state": {
+        "emotion": "熟悉诺恩，准备委托，关注行动安全。",
+        "goals": [
+          "交付任务、核对入口和退路。"
+        ],
+        "faction_view": "参与组织行动但非全部秘密的知情者。",
+        "expression": "能亲昵也能明确说明正事。",
+        "conflicts": [
+          "知道带走圣女另有安排，却没有向诺恩说明。"
+        ]
+      },
+      "relationships": {
+        "noen": {
+          "trust": "信其执行与承诺",
+          "affection": "长期熟悉且关心安危，未作恋爱确认",
+          "caution": "UNRESOLVED",
+          "hostility": "UNRESOLVED",
+          "dependence": "UNRESOLVED",
+          "concealment": "隐瞒同行安排",
+          "obligation": "参与培养与调度，应承担安排责任",
+          "conflict": "关心与利用同时存在"
+        }
+      },
+      "sources": [
+        "author-pair",
+        "scene:contract",
+        "runtime-c1-hidden",
+        "scene:darkCommissionV9",
+        "scene:darkExileV9",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/vilerena.json"
+    }
+  },
+  "knowledge": {
+    "noen": {
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      }
+    },
+    "vilerena": {
+      "F-C1-ALT-DOOR": {
+        "mode": "knows",
+        "via": "R01:initial"
+      },
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      }
+    },
+    "player": {
+      "F-C1-13-C1SAINTAID": {
+        "mode": "knows",
+        "via": "R01:c1SaintAid"
+      },
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-13-C1TRIALREPORT": {
+      "id": "F-C1-13-C1TRIALREPORT",
+      "summary": "第一章1.4当前内容：薇蕾娜：回来了？先把袖子抬一下……只是蹭了灰。地下那具执卫怎么样？；诺恩：盾举得很高，我头几下都打在盾上。后来绕到侧面，等它冲过头再动手，就顺得多了。；薇蕾娜：它冲起来的时候，你站在哪边？伊登说东厅靠墙那一段挺窄。；诺恩：我把它引到中间了。墙边绕不开，我试了一次，就退出来换了位置。；薇蕾娜：那就好。这趟差事交给你，等会儿我把路线拿给你看。；诺恩：你一直在这里等？；薇蕾娜：账还摊着呢，可没看进去多少。听见门响了几次，都以为是你。；诺恩：伊登还托我带了话，维修班已经能进去了。让你等久了。；薇蕾娜：回来就好。先坐，饭还热着，我也去盛一碗。；旁白：薇蕾娜把桌边的纸挪开。两人吃过饭，诺恩放下空碗，接过她递来的水。；薇蕾娜：出门前去罗萨那儿看看。我让她把装置的缀纹部件打开了，你手里的材料可以拿来做装备。；诺恩：我捡到些精粹，核心还没有。；薇蕾娜：装置上有加工单，用精粹换。每次修好的核心不一样，单子上会写清给哪一种、要多少材料。；诺恩：符文也在那里换？；薇蕾娜：符文向罗萨买。她这回带了几种，你挑合用的。核心和符文齐了，再付一点工费，就能做。；诺恩：我去看一眼，先把身上缺的补上。；薇蕾娜：还有，城里要是走不通，就回来找我。差事可以另想办法，我不想等来你出事的消息。；诺恩：我会看清退路。带着人过不去，就换个时候走。；薇蕾娜：嗯。把碗放着吧，通行纸在这里，我给你指出入口。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialReport"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1SAINTAID": {
+      "id": "F-C1-13-C1SAINTAID",
+      "summary": "旁白：白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。；朵莉：圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。；艾莉娅：这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。；朵莉：南街贴了告示，可认字的人也少。明天我早点来，在路口给他们指路。；艾莉娅：我也来。你把粥放在这边吧，坐着的几位先送过去。我来分面包，今天剩下的够他们带一份回家吗？；朵莉：够。这一篮都留给这边，另一篮还在车上。您也吃一点？从早晨忙到现在，手都是凉的。；艾莉娅：谢谢，等我把这几份送完就吃。那位婆婆脚磨破了，回去要走很久，我想请厨房留些热水，再找辆顺路的车送她。；朵莉：我父亲下午正好往南街送货，我去跟他说。他听说是您托的事，肯定乐意。；艾莉娅：那太好了，我待会儿过去向他道谢。还得问清婆婆住在哪一户，送到家里，我们才好放心。；旁白：朵莉把热粥递到老人手中。艾莉娅扶稳碗底，等老人坐好了，才端起下一碗。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1SaintAid"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALINVITATION": {
+      "id": "F-C1-13-C1TRIALINVITATION",
+      "summary": "第一章1.4当前内容：薇蕾娜：库房收拾好了？奥伦刚才经过，笑得连胡子都翘起来了。；诺恩：粮袋搬回去了。最后一只躲在夹墙里，我拆了块松板才找到，墙洞留给他找人补。；薇蕾娜：难怪肩上还有木屑。站着让我看看，领口里是不是也落了？；诺恩：我拍过了，大概没拍干净。；薇蕾娜：背过来一点。这儿还粘着一片。；旁白：薇蕾娜绕过桌角，替他拈掉领口的木屑。回身时，她把桌上的通行纸往手边收了收。；诺恩：奥伦说你找我。又有委托？；薇蕾娜：有一趟进城的差事，还得带个人回来。我原本想让你去，可临到要交给你，又有点放心不下。；诺恩：城里出了什么事？；薇蕾娜：那边护卫多，撤出来时可能会被堵住。你先去鲁恩那里，清一清庭院的苔壳兽，再到地下找伊登。他留了一具终试执卫，我想让你试试。；诺恩：先试身手，再定让我去不去？；薇蕾娜：嗯。你跟鲁恩练得多，彼此的招式都熟。我想看看换个对手、换条窄路，你应付起来怎么样。等你回来，我们再谈这份委托。；诺恩：行。我先去找鲁恩，地下那边也问清楚。你今天还出去吗？；薇蕾娜：就在这里。奥伦炖了肉，我让他留着，回来一起吃。；诺恩：地下要是耽搁久了，你就先吃。；薇蕾娜：好，我饿了会去盛。你回来直接来找我，厨房那份我替你留着。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialInvitation"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-ALT-DOOR": {
+      "id": "F-C1-ALT-DOOR",
+      "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "runtime-c1-hidden"
+      ],
+      "risk_terms": [
+        "别的办法解开",
+        "另一种开门",
+        "其他开门办法"
+      ],
+      "initial_holders": [
+        "vilerena"
+      ]
+    }
+  },
+  "seeds": [
+    {
+      "id": "SEED-DOOR",
+      "fact_ids": [
+        "F-C1-ALT-DOOR"
+      ],
+      "state": "partially_revealed",
+      "planted_at": "R01:c1HiddenPairArrangement",
+      "shown": [
+        "存在其他解法，但带圣女仍是上级安排。"
+      ],
+      "interpretations": {
+        "player": "知道存在替代办法",
+        "vilerena": "追问为什么仍要带人",
+        "rune": "称服从上面安排",
+        "noen": "未获知",
+        "elyria": "未获知"
+      },
+      "withheld": [
+        "具体办法、代价、上层目的"
+      ],
+      "payoff": {
+        "chapter": null,
+        "status": "UNRESOLVED"
+      },
+      "consequences": [
+        "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+      ],
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ]
+    }
+  ],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1TrialReport",
+    "position": "before",
+    "at": null,
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "revision": "1.4",
+      "status": "IMPLEMENTED"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1TrialReport",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "noen",
+        "fact": "F-C1-13-C1TRIALREPORT",
+        "mode": "knows"
+      },
+      {
+        "actor": "vilerena",
+        "fact": "F-C1-13-C1TRIALREPORT",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-13-C1TRIALREPORT",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "author-pair": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+      "kind": "user_confirmed"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "c2-plan": {
+      "path": "docs/harness/CHAPTER_02.md",
+      "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+      "kind": "adopted_plan"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkCommissionV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkCommissionV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkExileV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkExileV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    },
+    "trial:c1SaintAid": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "trial:c1TrialInvitation": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    },
+    "trial:c1TrialReport": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialReport"
+    }
+  },
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_RESTRAINT.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/noen.json",
+    "source/narrative/characters/vilerena.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+  "prewriting_context_archive": "docs/c1-restraint/before/invitation-context.json; other existing 1.3 scenes/role boundaries retained from docs/c1-trial-forge/contexts-before"
+}

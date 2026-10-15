@@ -1,0 +1,640 @@
+{
+  "schema": 1,
+  "id": "c1-restraint-20261015",
+  "goal": "优化精英和Boss差异化低调表现及怪物血量；缩小会馆装置、格子预览交易界面、固定女性商人；自然试炼对白与充实救济场景",
+  "acceptance": [
+    "真实生产战斗前后对照、三视口交易详情与旧档回归、试炼对白七维审查、会馆与救济场景三维验证、集成与默认试玩包更新、GitHub main保存"
+  ],
+  "baseline_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+  "modules": [
+    "lab",
+    "story",
+    "ui"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-15T13:17:22.999156+00:00",
+  "updated_at_utc": "2026-10-15T16:15:01.339932+00:00",
+  "decisions": [
+    "按当前前三章范围调整战斗；第一章设施、对白和救济画面；后五章不扩建，旧档与历史原件保留",
+    "新耐久不回退；自动路线增加合法补给及观察全部攻击，保留失败死亡档，不将脚本胜率当真人难度",
+    "第三章有限补给对照失败不当通关；旧隔离ensureMap碰撞超时与真实enter对照区分。"
+  ],
+  "completed": [
+    "已保存当前真实地图/碰撞/对白、324组单体和54组群战基线；定位统一放大特效、看守复用兽类逻辑及罗萨肖像缺映射",
+    "五精英身体起手、Boss细线预警、耐久第一轮实战正常行装全胜；格子详情与固定罗萨肖像已实现；1.4对白和救济布置已接入",
+    "五精英动作、Boss低调提示、前三章血量、格子详情、固定罗萨、机器尺寸与救济布置完成；55专项及真实第三章精英/弱怪重载验证通过",
+    "新版36组精确战斗事件oracle独立保存；历史原件未改。新对白全文仅三场变化，其余语料完全一致。原经济路线缺少法力补给，已按实际商店/配药操作补足；局部回归通过",
+    "fast、完整integration、三职业真实键鼠、离线HTTP手机、三维地图和局部experience已通过；失败样本及真人待验均保留。",
+    "默认包和5174逐字节验证；旧包完整保留，证据分卷已核验。"
+  ],
+  "remaining": [
+    "提交并推送GitHub main"
+  ],
+  "blockers": [],
+  "next": "Git diff/ignore/staged审查",
+  "required_checks": [
+    "fast",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "baseline-visual",
+      "command": [
+        "node",
+        "docs/c1-restraint/capture.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T13:18:36.576926+00:00",
+      "finished_at_utc": "2026-10-15T13:19:58.107340+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/001-baseline-visual.txt",
+      "output_sha256": "2f919ccbe959156e19daf3273f940d47dfa1c0a64fc1eb92f41cd3db65585816",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "baseline-combat",
+      "command": [
+        "node",
+        "docs/c1-restraint/compare_combat.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T13:20:21.844162+00:00",
+      "finished_at_utc": "2026-10-15T13:20:39.552392+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/002-baseline-combat.txt",
+      "output_sha256": "f3a8bfcc8df0284ccbfa64d90ea21cfd77df312213e943f50210d2132383e749",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "combat-first",
+      "command": [
+        "env",
+        "ASHEN_RESTRAINT_COMBAT=docs/c1-restraint/COMBAT.json",
+        "node",
+        "docs/c1-restraint/compare_combat.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T13:34:22.652722+00:00",
+      "finished_at_utc": "2026-10-15T13:34:44.585424+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "93db790cc07d2db4f3555f74f690bd5ee7853d6a8e9bfddfd36c9b79def8c05a",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/003-combat-first.txt",
+      "output_sha256": "0162c10a932d54785d1662e7e5edb4eaf9f12aed830a5bd2593e1bfc34c67a38",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "targeted-first",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/rpg-experience.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T13:54:01.736917+00:00",
+      "finished_at_utc": "2026-10-15T13:54:05.423643+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "ff3d2345ba0126a5db03b3610874263c6ad5ee0b8ef78ff848203e881ce5d812",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/004-targeted-first.txt",
+      "output_sha256": "52f8970e5a4cf69f5e3fb9b4562cccafedb040f86843dbc9ccc9bef89b764245",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "visual-first",
+      "command": [
+        "env",
+        "ASHEN_RESTRAINT_VISUAL=docs/c1-restraint/visual",
+        "node",
+        "docs/c1-restraint/capture.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T13:58:42.293101+00:00",
+      "finished_at_utc": "2026-10-15T13:59:24.201148+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "0386cf21822e17d3d2127bec46c65ee49ef12cfadec8e10e7ec3f9a358dfad42",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/005-visual-first.txt",
+      "output_sha256": "2f919ccbe959156e19daf3273f940d47dfa1c0a64fc1eb92f41cd3db65585816",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "facility-ui",
+      "command": [
+        "node",
+        "docs/c1-restraint/facility-ui.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:07:18.288331+00:00",
+      "finished_at_utc": "2026-10-15T14:07:50.266275+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "4949e52d3f5ef5c3acc4bcf7e76c029904ce7a33704deb95d054292f8504016e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/006-facility-ui.txt",
+      "output_sha256": "5ac6e115d77cbf307478b02e30574b5854086ca9b85a36f1906f925a81b2d585",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "targeted",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-chapter-three.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:29:17.621269+00:00",
+      "finished_at_utc": "2026-10-15T14:29:34.661537+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "4fae1e8baaf3fd51006ed554ffd3e099746274fb3174c8d6ce8c21072e2f5fc8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/007-targeted.txt",
+      "output_sha256": "e78c04b4ec4c864592aae03610609e15cdc7139f00df7324915932b6fd20e91e",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "targeted-fixed",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-chapter-three.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:34:57.374804+00:00",
+      "finished_at_utc": "2026-10-15T14:34:57.851631+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "f176fc302fef390cc3da41bea305cc80026e48723a9ee6c0a85315509e56e593",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/008-targeted-fixed.txt",
+      "output_sha256": "75426530de49dbbeb10b2df31d2951b6f9b4bf07add36dbab000ea67d5096f6c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "targeted-final",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-chapter-three.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:35:39.194360+00:00",
+      "finished_at_utc": "2026-10-15T14:35:39.610346+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "166a4f79daef30a56c085d4cc1ac5b01b856447a004a89d35b821f7b1610a24c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/009-targeted-final.txt",
+      "output_sha256": "b7d97c12e72100b8e3a8ac01f06abc4ce2f13e086fd32d7181a7e3e320206251",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "durability-final",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:37:49.908763+00:00",
+      "finished_at_utc": "2026-10-15T14:37:50.223609+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "27ffc812eb16877273e7d9ef46302cb9e73abdfe204081b49e6361ab2a8cbdd7",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/010-durability-final.txt",
+      "output_sha256": "ab817bdcc1176d0db96b6afa34899cf79f59772a00c097f9efe6b57d56019617",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "durability-verified",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:38:06.845215+00:00",
+      "finished_at_utc": "2026-10-15T14:38:07.215996+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "17f536033f36c579aeb1befd4e8b0ebd061e8f779c6ad02492505e2d60e4eb3c",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/011-durability-verified.txt",
+      "output_sha256": "52eaaf446eed25ea7fbe4c1d665813ff0f6460a8882a2b6c147082c4446788b0",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/integration_only.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:38:22.426250+00:00",
+      "finished_at_utc": "2026-10-15T14:38:23.377328+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d7e60042d3ecd805f218b46f979319c6e0a6aa75fef7ae2a3be2d57a1875aa47",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/012-integration.txt",
+      "output_sha256": "83dca73f4e40bfd05d9b1497cd10c516b87fbe140680c3d637c6ecd9111b8900",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/integration_only.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:38:58.028196+00:00",
+      "finished_at_utc": "2026-10-15T14:38:58.178120+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "62bb11fa673bf05f1a27f695dffef8d6b50de5744dfd14e83051dc6f00af22f2",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/013-integration.txt",
+      "output_sha256": "7b290f863421b4df51dea032a34e15e12f1da6059e66de6c9a4fe08d2c8d65c9",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/integration_only.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:39:54.889051+00:00",
+      "finished_at_utc": "2026-10-15T14:43:03.148214+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "62ecf295804b14cc17aa6d67f34950a5f8fe2f82adeb3e767020ca3cc889d5be",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/014-integration.txt",
+      "output_sha256": "d2717e3c17150cabd4a52dba42a6fa00f4a9226816eb975903cab3df4f742bf5",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/integration_only.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:44:15.712018+00:00",
+      "finished_at_utc": "2026-10-15T14:46:04.048217+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "ba4f2633ed6a7ce229b6ccc518e8594096d068ec2b6099cd38ecd95e340d704b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/015-integration.txt",
+      "output_sha256": "d90e28ba50f930fbd8998da7d19fd5f39f3fb8aef6158bee3415200d0797dc43",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "adapted-contracts",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c1-restraint/economy",
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/dialogue-reader.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:49:26.514975+00:00",
+      "finished_at_utc": "2026-10-15T14:50:24.318568+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "3ed9d26fe899d42d8f9b519187d4f788ac37e372ae42668c92e66bdb74750c62",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/016-adapted-contracts.txt",
+      "output_sha256": "02205c421827618b43768c61071c42eba57af2494147568399aa1ddc6d07f670",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "supply-probe",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c1-restraint/economy-probe",
+        "node",
+        "docs/c1-restraint/probe_economy.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:51:38.276531+00:00",
+      "finished_at_utc": "2026-10-15T14:51:48.123806+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "7a6bf0359e36c6706426624b8e23cfee12d529f219c3de28706030ee62a4848b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/017-supply-probe.txt",
+      "output_sha256": "433c417f3d6a932ed60b929072ccb2c41f9c6de11d5785ef03d86d38249fef2f",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "economy",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c1-restraint/economy",
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T14:52:16.171698+00:00",
+      "finished_at_utc": "2026-10-15T14:53:28.684053+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "a10f14136868d5eb8ccfd426456a40e13ed4d89c02e2b5d5c2a140a9056dc311",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/018-economy.txt",
+      "output_sha256": "62511693bf4825a4098b8dc6c0012b3ad547abbfa1a1908eeab5292e44d86d74",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "local-supply",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c1-restraint/economy",
+        "node",
+        "--test",
+        "--test-name-pattern",
+        "ember local_work",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:54:38.017342+00:00",
+      "finished_at_utc": "2026-10-15T14:54:43.968436+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "4dd4dd75b483f83ac5c85a9f7f9ec305886f9e99453e9c84dccc478476f19ca0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/019-local-supply.txt",
+      "output_sha256": "cbf1a064c5e8447aa1c1bd296acd9aeb6ba71a698bda35cbee5301672eeab364",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/integration_only.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T14:55:07.962440+00:00",
+      "finished_at_utc": "2026-10-15T15:03:47.364342+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "4dd4dd75b483f83ac5c85a9f7f9ec305886f9e99453e9c84dccc478476f19ca0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/020-integration.txt",
+      "output_sha256": "99b0b8b5474599b5767ac79fe1c1bfdc4b5e43167da1af480282bbb23d452cd6",
+      "timeout_seconds": 1800.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:06:12.397289+00:00",
+      "finished_at_utc": "2026-10-15T15:06:59.747688+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/021-fast.txt",
+      "output_sha256": "23276a0e1105ea76188618bed46fc3ba6c49a0c8d23f3176df11e2a43e47b877",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-restraint/verify_integration_reuse.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:06:59.821194+00:00",
+      "finished_at_utc": "2026-10-15T15:06:59.915587+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/022-integration.txt",
+      "output_sha256": "1e17ce2eabcf37ba25f3ba0592bd5a0e90bb48607641730b21a3d0cd77bb9163",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "final-browser-combat-package",
+      "command": [
+        "python3",
+        "docs/c1-restraint/post_checks.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-15T15:06:59.991115+00:00",
+      "finished_at_utc": "2026-10-15T15:17:00.139399+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/023-final-browser-combat-package.txt",
+      "output_sha256": "2722bb6f5a9e7874aa1aa1c966d9df206211d5c69913d52a0c1b593e0da4d5e9",
+      "timeout_seconds": 1500.0
+    },
+    {
+      "label": "capture-recovery",
+      "command": [
+        "python3",
+        "docs/c1-restraint/recover_checks.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:20:46.469274+00:00",
+      "finished_at_utc": "2026-10-15T15:21:12.144612+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/024-capture-recovery.txt",
+      "output_sha256": "3c504887c8c405a5346d7e964677b0ad0961233a7bd0976d91541e4f3f92028d",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "entry-combat",
+      "command": [
+        "python3",
+        "docs/c1-restraint/entry_checks.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:30:10.264239+00:00",
+      "finished_at_utc": "2026-10-15T15:30:46.448184+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/025-entry-combat.txt",
+      "output_sha256": "d7bcbab56109b8dc3bc8dc6f9d607381a0f449508753a1d84836b0f8756dfebe",
+      "timeout_seconds": 400.0
+    },
+    {
+      "label": "local-delivery",
+      "command": [
+        "python3",
+        "docs/c1-restraint/deliver_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:33:20.155646+00:00",
+      "finished_at_utc": "2026-10-15T15:33:21.084100+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/026-local-delivery.txt",
+      "output_sha256": "bad8bb51ba10d97e1f430e5c82034b8d845d41abe7e87ea9294cab3dbc2c136e",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "0b8c198"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:53:30.716007+00:00",
+      "finished_at_utc": "2026-10-15T15:53:30.989105+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/027-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "archive-evidence",
+      "command": [
+        "python3",
+        "docs/c1-restraint/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T15:53:31.064842+00:00",
+      "finished_at_utc": "2026-10-15T15:53:33.387517+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/028-archive-evidence.txt",
+      "output_sha256": "9318d195ea67a2b5e8e4815d5c3aedb65cbc1693108815da7a7199d231ef34f5",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "archive-verify",
+      "command": [
+        "python3",
+        "docs/c1-restraint/RESTORE_EVIDENCE.py",
+        "--verify-only"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-15T16:15:00.879840+00:00",
+      "finished_at_utc": "2026-10-15T16:15:01.334266+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-restraint-20261015/029-archive-verify.txt",
+      "output_sha256": "9318d195ea67a2b5e8e4815d5c3aedb65cbc1693108815da7a7199d231ef34f5",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T13:21:32.006156+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
+      "worktree": "M .codex/progress.md\n?? docs/c1-restraint/\n?? docs/harness/evidence/c1-restraint-20261015/\n?? source/tasks/active/c1-restraint-20261015.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T14:38:57.892340+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "62bb11fa673bf05f1a27f695dffef8d6b50de5744dfd14e83051dc6f00af22f2",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-dialogues.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M dist/rpg-chapter-two-data.js\n M dist/rpg-chapter-two.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/story-test-v31.js\n M dist/telegraphs-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/rpg-chapter-two.test.mjs\n M tests/rpg-experience.test.mjs\n?? dist/encounter-restraint.js\n?? docs/c1-restraint/\n?? docs/harness/CHAPTER_01_RESTRAINT.md\n?? docs/harness/evidence/c1-restraint-20261015/\n?? source/tasks/active/c1-restraint-20261015.json\n?? tests/c1-restraint.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-15T16:10:26.768355+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-dialogues.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M dist/rpg-chapter-two-data.js\n M dist/rpg-chapter-two.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/story-test-v31.js\n M dist/telegraphs-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-chapter-two.test.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c1-restraint-evidence/\n?? dist/encounter-restraint.js\n?? docs/c1-restraint/\n?? docs/harness/CHAPTER_01_RESTRAINT.md\n?? docs/harness/evidence/c1-restraint-20261015/\n?? source/tasks/active/c1-restraint-20261015.json\n?? tests/c1-restraint.test.mjs\n?? tests/fixtures/restraint-c1-combat.json\n?? tests/fixtures/restraint-c23-combat.json"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-15T16:10:26.952837+00:00",
+      "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+      "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-dialogues.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M dist/rpg-chapter-two-data.js\n M dist/rpg-chapter-two.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/story-test-v31.js\n M dist/telegraphs-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-chapter-one-expansion.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-economy.test.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-chapter-two.test.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c1-restraint-evidence/\n?? dist/encounter-restraint.js\n?? docs/c1-restraint/\n?? docs/harness/CHAPTER_01_RESTRAINT.md\n?? docs/harness/evidence/c1-restraint-20261015/\n?? source/tasks/active/c1-restraint-20261015.json\n?? tests/c1-restraint.test.mjs\n?? tests/fixtures/restraint-c1-combat.json\n?? tests/fixtures/restraint-c23-combat.json"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-restraint/reviews/c1TrialInvitation-context.json",
+      "context_sha256": "781101bacd622b9c85f714eee4441a6732715dc27c9d994b2d552c9904d264c7",
+      "draft": "docs/c1-restraint/reviews/c1TrialInvitation-draft.json",
+      "draft_sha256": "1cf886ee08f64e2205bedc88bd72dad6ac75e88841d8f6d7d46aa37ec714ba02",
+      "review": "docs/c1-restraint/reviews/c1TrialInvitation-review.json",
+      "review_sha256": "4872df5b8205b4444658d1b631ebe2ad76449d5b5ac6216d07a6cc719347144e"
+    },
+    {
+      "context": "docs/c1-restraint/reviews/c1TrainingReason-context.json",
+      "context_sha256": "eb83de1e29d7a70f5d31179813ddd888dcb347a82af2b76733073fe5ea85b396",
+      "draft": "docs/c1-restraint/reviews/c1TrainingReason-draft.json",
+      "draft_sha256": "37b1070f3ee75359ff7d3f714895dcbc4b0274028243255fc38b596a5495198d",
+      "review": "docs/c1-restraint/reviews/c1TrainingReason-review.json",
+      "review_sha256": "6772962a342e2197cb37331c9734fc0fb50e326078b7519fb31e89c7e786f262"
+    },
+    {
+      "context": "docs/c1-restraint/reviews/c1TrialReport-context.json",
+      "context_sha256": "f40aeb353a270d6dc7ff70b0f73ebd8d6ad3c5575708fbad801bb958687904af",
+      "draft": "docs/c1-restraint/reviews/c1TrialReport-draft.json",
+      "draft_sha256": "e2fc3e9da6b22c85e858e67f1eab7c1278b295c83265aaf1d522893797c07c76",
+      "review": "docs/c1-restraint/reviews/c1TrialReport-review.json",
+      "review_sha256": "271a8eac6f069dc36b3653459e28f9458fa077f44b3719687974a500526e4b05"
+    }
+  ],
+  "experience_requirement": {
+    "scopes": [],
+    "chapters": [],
+    "kind": "scoped"
+  },
+  "experience_reviews": [
+    {
+      "path": "docs/c1-restraint/EXPERIENCE_R01.json",
+      "sha256": "f4f6ff5f67c9d390dc497ab713b45e00238fe259cbc723b7a5372d43e9d61a0d",
+      "chapter": "R01"
+    },
+    {
+      "path": "docs/c1-restraint/EXPERIENCE_R02.json",
+      "sha256": "bdb10e7992d3aa35fffe82ddb6f2dfeb3a68a60dea0dc0ee522c8e4d1fb64e5b",
+      "chapter": "R02"
+    },
+    {
+      "path": "docs/c1-restraint/EXPERIENCE_R03.json",
+      "sha256": "de1c12a9856d16f39dbb6a0383932d253ab5c65115e611ecbc2569fce68fa820",
+      "chapter": "R03"
+    }
+  ]
+}

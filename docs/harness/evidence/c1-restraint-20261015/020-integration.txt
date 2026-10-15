@@ -1,0 +1,3661 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/narrative.py audit --live
+{
+  "status": "passed",
+  "errors": [],
+  "warnings": [
+    {
+      "id": "DIFF-C2-EXILE",
+      "kind": "implementation_gap",
+      "status": "OPEN",
+      "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+      "sources": [
+        "runtime-knowledge",
+        "scene:darkExileV9",
+        "author-pair",
+        "c2-difference"
+      ],
+      "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+    },
+    {
+      "id": "DIFF-C2-VILERENA-DOOR",
+      "kind": "outdated_plan_detail",
+      "status": "OPEN",
+      "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ],
+      "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+    },
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "counts": {
+    "characters": 87,
+    "chapters": 8,
+    "events": 173,
+    "facts": 156,
+    "seeds": 4
+  },
+  "limits": [
+    "Literary quality and unannotated implications require contextual editorial review.",
+    "Known runtime/intent differences are reported, not silently rewritten."
+  ]
+}
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_batch_evidence_rejects_missing_duplicate_and_outside_paths (test_dialogue_style.DialogueStyleTests.test_batch_evidence_rejects_missing_duplicate_and_outside_paths) ... ok
+test_copyedit_cannot_be_general_readiness_or_change_speakers_pages_or_unreviewed_lines (test_dialogue_style.DialogueStyleTests.test_copyedit_cannot_be_general_readiness_or_change_speakers_pages_or_unreviewed_lines) ... ok
+test_corpus_counts_include_scenes_without_candidates (test_dialogue_style.DialogueStyleTests.test_corpus_counts_include_scenes_without_candidates) ... ok
+test_emergency_commands_are_candidates_not_automatic_failures (test_dialogue_style.DialogueStyleTests.test_emergency_commands_are_candidates_not_automatic_failures) ... ok
+test_search_does_not_misread_common_words_or_questions (test_dialogue_style.DialogueStyleTests.test_search_does_not_misread_common_words_or_questions) ... ok
+test_design_routing_and_ordinary_fix_boundaries (test_experience.ExperienceTests.test_design_routing_and_ordinary_fix_boundaries) ... ok
+test_human_pending_and_final_chapter_cannot_be_misrepresented (test_experience.ExperienceTests.test_human_pending_and_final_chapter_cannot_be_misrepresented) ... ok
+test_missing_stale_tampered_or_synthetic_play_cannot_pass (test_experience.ExperienceTests.test_missing_stale_tampered_or_synthetic_play_cannot_pass) ... ok
+test_runtime_chapters_keep_legacy_receipts_without_assigning_literary_chapters (test_experience.ExperienceTests.test_runtime_chapters_keep_legacy_receipts_without_assigning_literary_chapters) ... ok
+test_task_finish_requires_requested_chapters_and_retained_report_hash (test_experience.ExperienceTests.test_task_finish_requires_requested_chapters_and_retained_report_hash) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_persistent_game_settings_routes_to_rules_and_real_contracts (test_harness.RoutingTests.test_persistent_game_settings_routes_to_rules_and_real_contracts) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_absent_character_cannot_speak_even_without_fact_claim (test_narrative_harness.NarrativeCounterexampleTests.test_absent_character_cannot_speak_even_without_fact_claim) ... ok
+test_changed_chapter_cannot_finish_without_review_but_tools_can (test_narrative_harness.NarrativeCounterexampleTests.test_changed_chapter_cannot_finish_without_review_but_tools_can) ... ok
+test_data_only_canon_error_also_blocks_task_finish (test_narrative_harness.NarrativeCounterexampleTests.test_data_only_canon_error_also_blocks_task_finish) ... ok
+test_dynamic_context_reader_executes_actual_local_actions (test_narrative_harness.NarrativeCounterexampleTests.test_dynamic_context_reader_executes_actual_local_actions) ... ok
+test_exact_runtime_reader_uses_final_overrides (test_narrative_harness.NarrativeCounterexampleTests.test_exact_runtime_reader_uses_final_overrides) ... ok
+test_examples_and_withdrawn_sources_cannot_support_canon (test_narrative_harness.NarrativeCounterexampleTests.test_examples_and_withdrawn_sources_cannot_support_canon) ... ok
+test_future_event_and_outline_cannot_be_promoted (test_narrative_harness.NarrativeCounterexampleTests.test_future_event_and_outline_cannot_be_promoted) ... ok
+test_generic_data_dialogue_change_also_requires_review (test_narrative_harness.NarrativeCounterexampleTests.test_generic_data_dialogue_change_also_requires_review) ... ok
+test_grant_to_absent_hero_and_plan_promotion_fail (test_narrative_harness.NarrativeCounterexampleTests.test_grant_to_absent_hero_and_plan_promotion_fail) ... ok
+test_new_unregistered_npc_and_invalid_source_are_reported (test_narrative_harness.NarrativeCounterexampleTests.test_new_unregistered_npc_and_invalid_source_are_reported) ... ok
+test_real_task_attach_finish_and_tampered_evidence_gate (test_narrative_harness.NarrativeCounterexampleTests.test_real_task_attach_finish_and_tampered_evidence_gate) ... ok
+test_review_blocks_future_plan_and_report_as_truth (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_future_plan_and_report_as_truth) ... ok
+test_review_blocks_hero_leak_and_premature_player_reveal (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_hero_leak_and_premature_player_reveal) ... ok
+test_source_drift_survives_reindex_and_blocks_context (test_narrative_harness.NarrativeCounterexampleTests.test_source_drift_survives_reindex_and_blocks_context) ... ok
+test_style_warning_is_not_a_literary_failure (test_narrative_harness.NarrativeCounterexampleTests.test_style_warning_is_not_a_literary_failure) ... ok
+test_budget_reports_omissions_and_honors_utf8_bytes (test_narrative_harness.NarrativeEndToEndTests.test_budget_reports_omissions_and_honors_utf8_bytes) ... ok
+test_chapter_states_and_directional_relationships_change_by_events (test_narrative_harness.NarrativeEndToEndTests.test_chapter_states_and_directional_relationships_change_by_events) ... ok
+test_collision_task_does_not_load_narrative (test_narrative_harness.NarrativeEndToEndTests.test_collision_task_does_not_load_narrative) ... ok
+test_invalid_chapter_scene_pair_fails_cli (test_narrative_harness.NarrativeEndToEndTests.test_invalid_chapter_scene_pair_fails_cli) ... ok
+test_later_runtime_is_partial_and_not_a_new_literary_plan (test_narrative_harness.NarrativeEndToEndTests.test_later_runtime_is_partial_and_not_a_new_literary_plan) ... ok
+test_live_export_matches_current_records (test_narrative_harness.NarrativeEndToEndTests.test_live_export_matches_current_records) ... ok
+test_optional_episodes_require_timestamp_and_do_not_advance_plot (test_narrative_harness.NarrativeEndToEndTests.test_optional_episodes_require_timestamp_and_do_not_advance_plot) ... ok
+test_player_sees_private_scene_heroes_do_not (test_narrative_harness.NarrativeEndToEndTests.test_player_sees_private_scene_heroes_do_not) ... ok
+test_real_cli_daily_context_requires_time_then_resolves (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_daily_context_requires_time_then_resolves) ... ok
+test_real_cli_locates_requested_characters_and_style (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_locates_requested_characters_and_style) ... ok
+test_same_characters_do_not_receive_planned_betrayal (test_narrative_harness.NarrativeEndToEndTests.test_same_characters_do_not_receive_planned_betrayal) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 67 tests in 46.719s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 241 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-one-layer-rules.test.mjs tests/chapter-test.test.mjs tests/rpg-experience.test.mjs tests/rpg-chapter-two.test.mjs tests/rpg-chapter-three.test.mjs tests/c1-story-flow.test.mjs tests/dialogue-reader.test.mjs tests/dialogue-hud.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (1043.354125ms)
+✔ all base classes run real ordinary, elite and boss encounters (1266.826542ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (80.779459ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (1.059708ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (1.87375ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (105.775791ms)
+✔ real AI damage, resources and distinct policies affect outcomes (341.815042ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.295291ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.388584ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.156333ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.112625ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.075709ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.082583ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (6.698208ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (0.483167ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.482167ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (0.815125ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (2.1735ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (2.304791ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (588.315083ms)
+✔ distribution separates censored fights and reports confidence interval (59.0685ms)
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (215.644541ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (64.127958ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (7.4225ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (34.200084ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (2.124833ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (150.806875ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.804916ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (5.714833ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (5.934583ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (77.737834ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (91.557834ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.546375ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.44925ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.818458ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.588292ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (55.192625ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (2.072625ms)
+shadow main_only trial-boss-entry c1TrialVault 3 42
+shadow main_only trial-reported hall 5 129
+shadow main_only prepared town 6 174
+shadow main_only captain-entry canal 6 202
+shadow main_only captain-done canal 7 221
+shadow main_only chapter-one-end post 7 281
+shadow main_only bridge-entry bridge 7 153
+shadow main_only manor-entry manor 7 188
+shadow main_only manor-exit spillway 8 218
+shadow main_only chapter-two-end hellGate 8 288
+shadow typical trial-boss-entry c1TrialVault 4 67
+shadow typical trial-reported hall 5 156
+shadow typical prepared town 7 227
+shadow typical captain-entry canal 7 257
+shadow typical captain-done canal 7 277
+shadow typical chapter-one-end post 8 337
+shadow typical bridge-entry bridge 8 209
+shadow typical manor-entry manor 8 244
+shadow typical manor-exit spillway 8 274
+shadow typical chapter-two-end hellGate 9 344
+shadow all_once trial-boss-entry c1TrialVault 4 67
+shadow all_once trial-reported hall 5 156
+shadow all_once rat-entry grove 7 252
+shadow all_once bat-entry c1ReedKiln 7 286
+shadow all_once warden-entry echo 8 375
+shadow all_once prepared town 9 559
+shadow all_once captain-entry canal 10 591
+shadow all_once captain-done canal 10 612
+shadow all_once chapter-one-end post 10 683
+shadow all_once bridge-entry bridge 10 555
+shadow all_once manor-entry manor 10 591
+shadow all_once manor-exit spillway 11 627
+shadow all_once chapter-two-end hellGate 11 704
+shadow repeat_patrol trial-boss-entry c1TrialVault 4 67
+shadow repeat_patrol trial-reported hall 5 156
+shadow repeat_patrol rat-entry grove 7 252
+shadow repeat_patrol bat-entry c1ReedKiln 7 286
+shadow repeat_patrol warden-entry echo 8 375
+shadow repeat_patrol patrol-1 hall 10 549
+shadow repeat_patrol patrol-2 hall 11 644
+shadow repeat_patrol patrol-3 hall 11 643
+shadow repeat_patrol patrol-4 hall 12 770
+shadow repeat_patrol patrol-5 hall 12 745
+shadow repeat_patrol prepared town 12 762
+shadow repeat_patrol captain-entry canal 12 788
+shadow repeat_patrol captain-done canal 13 810
+shadow repeat_patrol chapter-one-end post 13 881
+shadow repeat_patrol bridge-entry bridge 13 753
+shadow repeat_patrol manor-entry manor 13 812
+shadow repeat_patrol manor-exit spillway 13 854
+shadow repeat_patrol chapter-two-end hellGate 14 958
+shadow local_work trial-boss-entry c1TrialVault 4 67
+shadow local_work trial-reported hall 5 156
+shadow local_work vault-entry c1TrialVault 5 176
+shadow local_work underground-reported c1TrialFoyer 6 225
+shadow local_work rat-entry grove 8 309
+shadow local_work bat-entry c1ReedKiln 8 382
+shadow local_work camp-and-kiln-reported c1ReedKiln 9 432
+shadow local_work warden-entry echo 9 501
+shadow local_work prepared town 10 695
+shadow local_work captain-entry canal 10 721
+shadow local_work captain-done canal 11 742
+shadow local_work chapter-one-end post 11 813
+shadow local_work bridge-entry bridge 11 685
+shadow local_work manor-entry manor 11 721
+shadow local_work manor-exit spillway 11 757
+shadow local_work chapter-two-end hellGate 12 834
+oath main_only trial-boss-entry c1TrialVault 3 42
+oath main_only trial-reported hall 5 128
+oath main_only prepared town 6 146
+oath main_only captain-entry canal 6 174
+oath main_only captain-done canal 7 193
+oath main_only chapter-one-end post 7 253
+oath main_only bridge-entry bridge 7 125
+oath main_only manor-entry manor 7 160
+oath main_only manor-exit spillway 8 190
+oath main_only chapter-two-end hellGate 8 260
+oath typical trial-boss-entry c1TrialVault 4 63
+oath typical trial-reported hall 5 150
+oath typical prepared town 7 194
+oath typical captain-entry canal 7 224
+oath typical captain-done canal 7 244
+oath typical chapter-one-end post 8 304
+oath typical bridge-entry bridge 8 176
+oath typical manor-entry manor 8 211
+oath typical manor-exit spillway 8 246
+oath typical chapter-two-end hellGate 9 316
+oath all_once trial-boss-entry c1TrialVault 4 63
+oath all_once trial-reported hall 5 150
+oath all_once rat-entry grove 7 218
+oath all_once bat-entry c1ReedKiln 7 252
+oath all_once warden-entry echo 8 347
+oath all_once prepared town 9 519
+oath all_once captain-entry canal 10 551
+oath all_once captain-done canal 10 572
+oath all_once chapter-one-end post 10 643
+oath all_once bridge-entry bridge 10 515
+oath all_once manor-entry manor 10 557
+oath all_once manor-exit spillway 11 593
+oath all_once chapter-two-end hellGate 11 670
+oath repeat_patrol trial-boss-entry c1TrialVault 4 63
+oath repeat_patrol trial-reported hall 5 150
+oath repeat_patrol rat-entry grove 7 218
+oath repeat_patrol bat-entry c1ReedKiln 7 252
+oath repeat_patrol warden-entry echo 8 347
+oath repeat_patrol patrol-1 hall 10 569
+oath repeat_patrol patrol-2 hall 11 684
+oath repeat_patrol patrol-3 hall 11 719
+oath repeat_patrol patrol-4 hall 12 834
+oath repeat_patrol patrol-5 hall 12 880
+oath repeat_patrol prepared town 12 888
+oath repeat_patrol captain-entry canal 12 920
+oath repeat_patrol captain-done canal 12 941
+oath repeat_patrol chapter-one-end post 13 1012
+oath repeat_patrol bridge-entry bridge 13 884
+oath repeat_patrol manor-entry manor 13 926
+oath repeat_patrol manor-exit spillway 13 988
+oath repeat_patrol chapter-two-end hellGate 13 1082
+oath local_work trial-boss-entry c1TrialVault 4 63
+oath local_work trial-reported hall 5 149
+oath local_work vault-entry c1TrialVault 5 164
+oath local_work underground-reported c1TrialFoyer 5 213
+oath local_work rat-entry grove 7 280
+oath local_work bat-entry c1ReedKiln 8 354
+oath local_work camp-and-kiln-reported c1ReedKiln 9 404
+oath local_work warden-entry echo 9 473
+oath local_work prepared town 10 635
+oath local_work captain-entry canal 10 667
+oath local_work captain-done canal 11 688
+oath local_work chapter-one-end post 11 759
+oath local_work bridge-entry bridge 11 631
+oath local_work manor-entry manor 11 673
+oath local_work manor-exit spillway 11 709
+oath local_work chapter-two-end hellGate 12 786
+ember main_only trial-boss-entry c1TrialVault 3 40
+ember main_only trial-reported hall 5 127
+ember main_only prepared town 6 147
+ember main_only captain-entry canal 6 175
+ember main_only captain-done canal 7 194
+ember main_only chapter-one-end post 7 254
+ember main_only bridge-entry bridge 7 126
+ember main_only manor-entry manor 7 161
+ember main_only manor-exit spillway 8 191
+ember main_only chapter-two-end hellGate 8 261
+ember typical trial-boss-entry c1TrialVault 4 63
+ember typical trial-reported hall 5 149
+ember typical prepared town 7 190
+ember typical captain-entry canal 7 220
+ember typical captain-done canal 7 243
+ember typical chapter-one-end post 8 303
+ember typical bridge-entry bridge 8 175
+ember typical manor-entry manor 8 210
+ember typical manor-exit spillway 8 240
+ember typical chapter-two-end hellGate 9 310
+ember all_once trial-boss-entry c1TrialVault 4 63
+ember all_once trial-reported hall 5 149
+ember all_once rat-entry grove 7 213
+ember all_once bat-entry c1ReedKiln 7 247
+ember all_once warden-entry echo 8 341
+ember all_once prepared town 9 569
+ember all_once captain-entry canal 10 599
+ember all_once captain-done canal 10 620
+ember all_once chapter-one-end post 10 691
+ember all_once bridge-entry bridge 10 563
+ember all_once manor-entry manor 10 599
+ember all_once manor-exit spillway 11 641
+ember all_once chapter-two-end hellGate 11 718
+ember repeat_patrol trial-boss-entry c1TrialVault 4 63
+ember repeat_patrol trial-reported hall 5 149
+ember repeat_patrol rat-entry grove 7 213
+ember repeat_patrol bat-entry c1ReedKiln 7 247
+ember repeat_patrol warden-entry echo 8 341
+ember repeat_patrol patrol-1 hall 10 598
+ember repeat_patrol patrol-2 hall 10 703
+ember repeat_patrol patrol-3 hall 11 714
+ember repeat_patrol patrol-4 hall 11 828
+ember repeat_patrol patrol-5 hall 12 874
+ember repeat_patrol prepared town 12 881
+ember repeat_patrol captain-entry canal 12 913
+ember repeat_patrol captain-done canal 12 938
+ember repeat_patrol chapter-one-end post 12 1009
+ember repeat_patrol bridge-entry bridge 12 881
+ember repeat_patrol manor-entry manor 12 923
+ember repeat_patrol manor-exit spillway 13 967
+ember repeat_patrol chapter-two-end hellGate 13 1051
+ember local_work trial-boss-entry c1TrialVault 4 63
+ember local_work trial-reported hall 5 149
+ember local_work vault-entry c1TrialVault 5 164
+ember local_work underground-reported c1TrialFoyer 5 213
+ember local_work rat-entry grove 7 304
+ember local_work bat-entry c1ReedKiln 8 378
+ember local_work camp-and-kiln-reported c1ReedKiln 9 428
+ember local_work warden-entry echo 9 495
+ember local_work prepared town 10 688
+ember local_work captain-entry canal 10 720
+ember local_work captain-done canal 10 747
+ember local_work chapter-one-end post 11 818
+ember local_work bridge-entry bridge 11 690
+ember local_work manor-entry manor 11 732
+ember local_work manor-exit spillway 11 768
+ember local_work chapter-two-end hellGate 12 845
+shadow all_once trial-boss-entry c1TrialVault 4 57
+shadow all_once trial-reported hall 5 145
+shadow all_once rat-entry grove 7 242
+shadow all_once bat-entry c1ReedKiln 7 276
+shadow all_once warden-entry echo 8 363
+shadow all_once prepared town 9 501
+shadow all_once captain-entry canal 10 527
+shadow all_once captain-done canal 10 548
+shadow all_once chapter-one-end post 10 619
+shadow all_once bridge-entry bridge 10 491
+shadow all_once manor-entry manor 10 533
+shadow all_once manor-exit spillway 11 569
+shadow all_once chapter-two-end hellGate 11 646
+oath all_once trial-boss-entry c1TrialVault 4 55
+oath all_once trial-reported hall 5 142
+oath all_once rat-entry grove 7 213
+oath all_once bat-entry c1ReedKiln 7 247
+oath all_once warden-entry echo 8 336
+oath all_once prepared town 9 499
+oath all_once captain-entry canal 10 531
+oath all_once captain-done canal 10 552
+oath all_once chapter-one-end post 10 623
+oath all_once bridge-entry bridge 10 495
+oath all_once manor-entry manor 10 537
+oath all_once manor-exit spillway 11 573
+oath all_once chapter-two-end hellGate 11 650
+ember all_once trial-boss-entry c1TrialVault 4 54
+ember all_once trial-reported hall 5 141
+ember all_once rat-entry grove 7 225
+ember all_once bat-entry c1ReedKiln 7 259
+ember all_once warden-entry echo 8 350
+ember all_once prepared town 9 524
+ember all_once captain-entry canal 10 554
+ember all_once captain-done canal 10 575
+ember all_once chapter-one-end post 10 646
+ember all_once bridge-entry bridge 10 518
+ember all_once manor-entry manor 10 554
+ember all_once manor-exit spillway 11 590
+ember all_once chapter-two-end hellGate 11 667
+✔ shadow main_only actual campaign economy and second-chapter carry (3692.100542ms)
+✔ shadow typical actual campaign economy and second-chapter carry (2540.712625ms)
+✔ shadow all_once actual campaign economy and second-chapter carry (3566.905583ms)
+✔ shadow repeat_patrol actual campaign economy and second-chapter carry (7138.362917ms)
+✔ shadow local_work actual campaign economy and second-chapter carry (3938.001834ms)
+✔ oath main_only actual campaign economy and second-chapter carry (2465.683458ms)
+✔ oath typical actual campaign economy and second-chapter carry (2632.113917ms)
+✔ oath all_once actual campaign economy and second-chapter carry (3861.952958ms)
+✔ oath repeat_patrol actual campaign economy and second-chapter carry (7138.581834ms)
+✔ oath local_work actual campaign economy and second-chapter carry (4309.981458ms)
+✔ ember main_only actual campaign economy and second-chapter carry (3001.917542ms)
+✔ ember typical actual campaign economy and second-chapter carry (3419.488ms)
+✔ ember all_once actual campaign economy and second-chapter carry (4698.177083ms)
+✔ ember repeat_patrol actual campaign economy and second-chapter carry (8258.871625ms)
+✔ ember local_work actual campaign economy and second-chapter carry (5617.54975ms)
+✔ shadow full route with exactly one exclusive epic carries through chapter two (3285.062375ms)
+✔ oath full route with exactly one exclusive epic carries through chapter two (3815.126792ms)
+✔ ember full route with exactly one exclusive epic carries through chapter two (4548.359375ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (1.554542ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (7.921125ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (151.234375ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (3.94775ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (2.7005ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.154208ms)
+✔ five elites use distinct physical windups; wall stops a charge and there are no bat summons (8.050625ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (13.080791ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (19.624416ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (3.027417ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (647.862041ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (100.335125ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (12.1225ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (43.41ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (1.240666ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (5.637666ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (4.326417ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (6.45925ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (29.540291ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (213.98625ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (2219.818917ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (9.823958ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (53.626333ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (741.571958ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (8.578167ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1.525416ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.443334ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.284917ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (62.090958ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (22.651333ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (28.756541ms)
+✔ materials from each floor remain separate and one death generation receives one roll (14.136209ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (194.543125ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (30.15825ms)
+✔ two herb sources cannot be replaced with four leaves from one source (3.080375ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (38.654083ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (2.230375ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (0.88275ms)
+✔ story captain stays defeated while resident patrols return, and delivered escape stays delivered (2.210209ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (66.923292ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (2.38275ms)
+✔ real reentry refreshes ordinary enemies without idle time and creates new kill credit (15.4995ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (18.479416ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (15.60825ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.500917ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (18.409833ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (1682.506709ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (1.728167ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (29.121375ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (34.768ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (6.194167ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (48.470125ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (5.36675ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (5.525625ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (3.32325ms)
+✔ 12 real combat fixtures retain the authorized 1.4 durability damage, resource, cooldown and RNG events (929.253458ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (24.559125ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.201542ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.119875ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (3.123542ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (1.098417ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.116583ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (1495.494959ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (9871.076375ms)
+✔ each later chapter start can skip to the final result without stuck quests (8062.323792ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (4.808875ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.4815ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (15.427792ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.751709ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (72.054208ms)
+✔ 118-map navigation baseline stays exact outside authorized C1 layouts and the two audited C3 caves (2040.602667ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (8.12275ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (11.669666ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.436875ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (38.013ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (12.1065ms)
+✔ 21 maps keep exact baseline geometry; two authorized C3 caves keep exits, identities and reachable targets (535.989417ms)
+✔ 24 adopted 1.4 seeded encounters preserve full combat, reward, cooldown and RNG event streams (1243.569209ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (15.998458ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.391ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (7.58025ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.245291ms)
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (289.162625ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (227.4355ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (43.332917ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.187125ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (47.675084ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (4.877875ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (18.214209ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (49.431375ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (22.125166ms)
+✔ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (1209.154083ms)
+✔ read every previously reached commission page without changing pending, actors, knowledge or rewards (158.016417ms)
+✔ action phases cannot be advanced or rewound by reading controls (0.606167ms)
+✔ quest accept and reward wait for live final page; going backward and forward never commits (3.921416ms)
+✔ legacy private tail has its own read-back rows and never exposes the earlier commission (0.920208ms)
+✔ all 45 old static positions migrate once by meaning, including direct/imported/nested saves (459.430625ms)
+✔ exact inline old dialogue text and new authored cursors survive import unchanged (115.166958ms)
+✔ four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact (9.660667ms)
+✔ native species is independent of V28 player-level skin fields (0.622583ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.227583ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.133541ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (0.085875ms)
+✔ footprint validation and segment clipping handle boundaries (0.125833ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.158417ms)
+✔ arch posts block sides without sealing the central doorway (0.084333ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (2.437125ms)
+✔ walk phase advances with travelled distance, not wall time (0.219584ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.404042ms)
+✔ resting/carry transfers never receive fake walking limbs (0.094625ms)
+✔ all 24 rare gear IDs have appearance signatures (0.104042ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.355958ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.347ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.340875ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (63.996667ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (44.334ms)
+✔ all nine later-chapter/class checkpoints construct and restore (822.672375ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (545.71775ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (22.9855ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.362208ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.133583ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.144292ms)
+✔ XP earned after fatal damage cannot heal a dead actor; living level-up recovery remains (63.77325ms)
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (87.884125ms)
+✔ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (114.248375ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (50.0435ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (16.260459ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (45.096542ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (18.781333ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (25.409291ms)
+✔ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (89.12575ms)
+✔ repair is a lasting free rest result; both real locations, pending resume and actual reward remain correct (6.602792ms)
+✔ rest cannot be applied from another map, distant menu, dead player or through active threats (0.760916ms)
+✔ cellar supplies pay once only after a legal claim; full bag and legacy claimed boxes do not print medicine (4.222625ms)
+✔ authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore (48.4585ms)
+✔ front guard responds to position and skills, while DOT is not silently weakened (5.626083ms)
+✔ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (8.904167ms)
+✔ the well chain is a real one-time control tool and old pending mainline scenes remain readable (5.280542ms)
+✔ a deferred spillway conversation remains available after escaping and uses the real safe arrival (39.359917ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (36.647625ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.352375ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.75675ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (20.514125ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.792667ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (2.819166ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.345875ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (16.433834ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (3.528083ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (7.839666ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (8.800334ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (16.062834ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (140.10675ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (10.191125ms)
+✔ elite migration preserves living health ratio, off-map deaths, and all settled rewards (11.884458ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (0.741333ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (0.573791ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (23.442959ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (119.113ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (3.163042ms)
+✔ distance and a real occluding wall reject immediate interaction (6.56625ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (8.834792ms)
+✔ acceptance before extraction, return once and persistent state (36.64125ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (4.503958ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (19.091333ms)
+✔ new state round trips and rejects malformed records; old state remains optional (22.317958ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.588958ms)
+✔ legacy player in a new footprint is repaired only during restore (2.53625ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (0.779583ms)
+✔ baseline navigation is retained outside C1 and the two explicitly authored C3 caves (942.386291ms)
+ℹ tests 225
+ℹ suites 0
+ℹ pass 225
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 78333.069042
+RUN: node tools/balance_lab/chapter-one.mjs
+[
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.195000000004427,
+      7.350000000005252,
+      6.615000000004727,
+      7.350000000005252,
+      6.090000000004352,
+      5.775000000004127,
+      6.685000000004777,
+      6.615000000004727,
+      7.490000000005352,
+      6.615000000004727,
+      7.105000000005077,
+      7.035000000005027
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.885000000007778,
+      10.745000000007678,
+      10.850000000007753,
+      10.430000000007453,
+      10.780000000007703,
+      10.150000000007253,
+      10.955000000007828,
+      10.500000000007503,
+      10.920000000007803,
+      10.465000000007478,
+      10.955000000007828,
+      10.815000000007728
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.195000000004427,
+      7.350000000005252,
+      6.615000000004727,
+      7.350000000005252,
+      6.090000000004352,
+      5.775000000004127,
+      6.685000000004777,
+      6.615000000004727,
+      7.490000000005352,
+      6.615000000004727,
+      7.105000000005077,
+      7.035000000005027
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.660000000006903,
+      9.695000000006928,
+      9.870000000007053,
+      10.080000000007203,
+      9.345000000006678,
+      9.695000000006928,
+      9.660000000006903,
+      9.555000000006828,
+      8.890000000006353,
+      10.045000000007178,
+      10.045000000007178,
+      10.220000000007303
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.935000000008529,
+      11.690000000008354,
+      11.515000000008229,
+      12.215000000008729,
+      11.515000000008229,
+      11.690000000008354,
+      11.900000000008504,
+      11.515000000008229,
+      11.690000000008354,
+      11.725000000008379,
+      11.655000000008329,
+      12.355000000008829
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.660000000006903,
+      9.695000000006928,
+      9.870000000007053,
+      10.080000000007203,
+      9.345000000006678,
+      9.695000000006928,
+      9.660000000006903,
+      9.555000000006828,
+      8.890000000006353,
+      10.045000000007178,
+      10.045000000007178,
+      10.220000000007303
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.330000000005953,
+      8.365000000005978,
+      9.205000000006578,
+      8.610000000006153,
+      8.960000000006403,
+      7.420000000005302,
+      8.295000000005928,
+      8.470000000006053,
+      8.610000000006153,
+      8.435000000006028,
+      8.540000000006103,
+      8.645000000006178
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.165000000007979,
+      12.145000000008679,
+      11.025000000007878,
+      12.180000000008704,
+      11.060000000007904,
+      11.095000000007929,
+      11.235000000008029,
+      10.360000000007403,
+      11.200000000008004,
+      11.865000000008479,
+      11.585000000008279,
+      12.215000000008729
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.330000000005953,
+      8.365000000005978,
+      9.205000000006578,
+      8.610000000006153,
+      8.960000000006403,
+      7.420000000005302,
+      8.295000000005928,
+      8.470000000006053,
+      8.610000000006153,
+      8.435000000006028,
+      8.540000000006103,
+      8.645000000006178
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      21.000000000015007,
+      20.510000000014657,
+      19.880000000014206,
+      20.370000000014556,
+      20.300000000014506,
+      20.54500000001468,
+      20.47500000001463,
+      20.26500000001448,
+      20.650000000014757,
+      20.930000000014957,
+      20.54500000001468,
+      20.370000000014556
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      24.640000000017608,
+      26.67000000001906,
+      21.840000000015607,
+      24.675000000017633,
+      22.960000000016407,
+      23.415000000016732,
+      26.32000000001881,
+      22.505000000016082,
+      23.485000000016782,
+      24.885000000017783,
+      24.990000000017858,
+      22.960000000016407
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      21.000000000015007,
+      20.510000000014657,
+      19.880000000014206,
+      20.370000000014556,
+      20.300000000014506,
+      20.54500000001468,
+      20.47500000001463,
+      20.26500000001448,
+      20.650000000014757,
+      20.930000000014957,
+      20.54500000001468,
+      20.370000000014556
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.61500000001473,
+      20.61500000001473,
+      20.68500000001478,
+      20.790000000014857,
+      20.650000000014757,
+      20.68500000001478,
+      20.61500000001473,
+      20.580000000014707,
+      20.790000000014857,
+      20.650000000014757,
+      20.82500000001488,
+      20.61500000001473
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      22.015000000015732,
+      27.16000000001941,
+      22.295000000015932,
+      22.400000000016007,
+      21.770000000015557,
+      26.81000000001916,
+      26.635000000019033,
+      22.820000000016307,
+      22.190000000015857,
+      28.49000000002036,
+      23.345000000016682,
+      21.805000000015582
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.61500000001473,
+      20.61500000001473,
+      20.68500000001478,
+      20.790000000014857,
+      20.650000000014757,
+      20.68500000001478,
+      20.61500000001473,
+      20.580000000014707,
+      20.790000000014857,
+      20.650000000014757,
+      20.82500000001488,
+      20.61500000001473
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.775000000004127,
+      6.930000000004952,
+      5.775000000004127,
+      6.510000000004652,
+      5.355000000003827,
+      5.355000000003827,
+      5.845000000004177,
+      5.775000000004127,
+      6.650000000004752,
+      6.195000000004427,
+      6.265000000004477,
+      6.195000000004427
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.380000000006703,
+      9.275000000006628,
+      8.400000000006003,
+      8.715000000006228,
+      9.135000000006528,
+      8.890000000006353,
+      9.450000000006753,
+      8.785000000006278,
+      9.415000000006728,
+      8.750000000006253,
+      9.450000000006753,
+      8.750000000006253
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.775000000004127,
+      6.930000000004952,
+      5.775000000004127,
+      6.510000000004652,
+      5.355000000003827,
+      5.355000000003827,
+      5.845000000004177,
+      5.775000000004127,
+      6.650000000004752,
+      6.195000000004427,
+      6.265000000004477,
+      6.195000000004427
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.380000000006703,
+      9.485000000006778,
+      9.170000000006553,
+      10.150000000007253,
+      8.995000000006428,
+      9.905000000007078,
+      9.380000000006703,
+      9.275000000006628,
+      8.540000000006103,
+      9.835000000007028,
+      9.870000000007053,
+      10.255000000007328
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.970000000008554,
+      12.180000000008704,
+      11.130000000007954,
+      12.390000000008854,
+      11.760000000008404,
+      12.180000000008704,
+      11.550000000008254,
+      10.850000000007753,
+      11.620000000008304,
+      12.180000000008704,
+      12.145000000008679,
+      11.970000000008554
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.380000000006703,
+      9.485000000006778,
+      9.170000000006553,
+      10.150000000007253,
+      8.995000000006428,
+      9.905000000007078,
+      9.380000000006703,
+      9.275000000006628,
+      8.540000000006103,
+      9.835000000007028,
+      9.870000000007053,
+      10.255000000007328
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.490000000005352,
+      8.365000000005978,
+      8.505000000006078,
+      8.400000000006003,
+      8.120000000005803,
+      6.580000000004702,
+      7.315000000005227,
+      8.120000000005803,
+      8.365000000005978,
+      8.120000000005803,
+      8.295000000005928,
+      8.435000000006028
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.465000000007478,
+      10.465000000007478,
+      9.975000000007128,
+      10.920000000007803,
+      10.360000000007403,
+      9.975000000007128,
+      10.150000000007253,
+      10.150000000007253,
+      11.060000000007904,
+      10.535000000007528,
+      10.535000000007528,
+      10.955000000007828
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.490000000005352,
+      8.365000000005978,
+      8.505000000006078,
+      8.400000000006003,
+      8.120000000005803,
+      6.580000000004702,
+      7.315000000005227,
+      8.120000000005803,
+      8.365000000005978,
+      8.120000000005803,
+      8.295000000005928,
+      8.435000000006028
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.300000000014506,
+      19.42500000001388,
+      19.040000000013606,
+      20.300000000014506,
+      20.300000000014506,
+      20.33500000001453,
+      19.390000000013856,
+      20.300000000014506,
+      20.440000000014606,
+      20.300000000014506,
+      20.26500000001448,
+      20.300000000014506
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      21.980000000015707,
+      23.310000000016657,
+      20.930000000014957,
+      21.560000000015407,
+      21.595000000015432,
+      22.050000000015757,
+      24.360000000017408,
+      21.560000000015407,
+      21.31500000001523,
+      23.275000000016632,
+      21.350000000015257,
+      21.31500000001523
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.300000000014506,
+      19.42500000001388,
+      19.040000000013606,
+      20.300000000014506,
+      20.300000000014506,
+      20.33500000001453,
+      19.390000000013856,
+      20.300000000014506,
+      20.440000000014606,
+      20.300000000014506,
+      20.26500000001448,
+      20.300000000014506
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.75500000001483,
+      20.68500000001478,
+      20.40500000001458,
+      20.510000000014657,
+      20.510000000014657,
+      20.82500000001488,
+      20.89500000001493,
+      20.510000000014657,
+      20.650000000014757,
+      20.790000000014857,
+      20.40500000001458,
+      20.75500000001483
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      26.39000000001886,
+      24.605000000017583,
+      25.97000000001856,
+      25.375000000018133,
+      26.075000000018633,
+      27.30000000001951,
+      27.405000000019584,
+      25.690000000018358,
+      26.565000000018983,
+      26.88000000001921,
+      25.97000000001856,
+      25.690000000018358
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.75500000001483,
+      20.68500000001478,
+      20.40500000001458,
+      20.510000000014657,
+      20.510000000014657,
+      20.82500000001488,
+      20.89500000001493,
+      20.510000000014657,
+      20.650000000014757,
+      20.790000000014857,
+      20.40500000001458,
+      20.75500000001483
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.214999999995257,
+      5.144999999995321,
+      5.144999999995321,
+      5.249999999995225,
+      5.039999999995416,
+      5.144999999995321,
+      5.144999999995321,
+      5.039999999995416,
+      4.8999999999955435,
+      5.039999999995416,
+      5.144999999995321,
+      5.214999999995257
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999993538,
+      6.439999999994143,
+      6.089999999994461,
+      7.139999999993506,
+      7.2099999999934425,
+      8.889999999991915,
+      6.404999999994175,
+      6.754999999993856,
+      6.474999999994111,
+      8.854999999991946,
+      6.859999999993761,
+      6.929999999993697
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.214999999995257,
+      5.144999999995321,
+      5.144999999995321,
+      5.249999999995225,
+      5.039999999995416,
+      5.144999999995321,
+      5.144999999995321,
+      5.039999999995416,
+      4.8999999999955435,
+      5.039999999995416,
+      5.144999999995321,
+      5.214999999995257
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.45499999999322,
+      7.489999999993188,
+      6.544999999994047,
+      7.06999999999357,
+      7.489999999993188,
+      6.929999999993697,
+      6.754999999993856,
+      7.104999999993538,
+      6.439999999994143,
+      6.719999999993888,
+      7.384999999993283,
+      7.034999999993602
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.49999999999045,
+      10.49999999999045,
+      9.799999999991087,
+      10.49999999999045,
+      10.49999999999045,
+      9.3449999999915,
+      10.49999999999045,
+      10.49999999999045,
+      9.099999999991724,
+      9.659999999991214,
+      10.49999999999045,
+      10.49999999999045
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.45499999999322,
+      7.489999999993188,
+      6.544999999994047,
+      7.06999999999357,
+      7.489999999993188,
+      6.929999999993697,
+      6.754999999993856,
+      7.104999999993538,
+      6.439999999994143,
+      6.719999999993888,
+      7.384999999993283,
+      7.034999999993602
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.844999999994684,
+      5.844999999994684,
+      6.019999999994525,
+      5.844999999994684,
+      6.019999999994525,
+      6.894999999993729,
+      6.054999999994493,
+      5.984999999994557,
+      6.754999999993856,
+      6.859999999993761,
+      6.019999999994525,
+      5.844999999994684
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.079999999990832,
+      9.904999999990991,
+      9.16999999999166,
+      10.674999999990291,
+      10.49999999999045,
+      10.149999999990769,
+      10.49999999999045,
+      10.464999999990482,
+      9.064999999991755,
+      10.1149999999908,
+      10.009999999990896,
+      10.079999999990832
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      5.844999999994684,
+      5.844999999994684,
+      6.019999999994525,
+      5.844999999994684,
+      6.019999999994525,
+      6.894999999993729,
+      6.054999999994493,
+      5.984999999994557,
+      6.754999999993856,
+      6.859999999993761,
+      6.019999999994525,
+      5.844999999994684
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      15.364999999986026,
+      14.90999999998644,
+      11.409999999989623,
+      14.489999999986821,
+      14.90999999998644,
+      15.154999999986217,
+      14.489999999986821,
+      15.154999999986217,
+      15.259999999986121,
+      15.364999999986026,
+      15.119999999986248,
+      15.364999999986026
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      19.10999999998262,
+      18.024999999983606,
+      17.989999999983638,
+      19.564999999982206,
+      18.33999999998332,
+      18.33999999998332,
+      16.554999999984943,
+      18.30499999998335,
+      18.059999999983575,
+      19.214999999982524,
+      19.039999999982683,
+      19.529999999982238
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      15.364999999986026,
+      14.90999999998644,
+      11.409999999989623,
+      14.489999999986821,
+      14.90999999998644,
+      15.154999999986217,
+      14.489999999986821,
+      15.154999999986217,
+      15.259999999986121,
+      15.364999999986026,
+      15.119999999986248,
+      15.364999999986026
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      18.12999999998351,
+      18.094999999983543,
+      17.079999999984466,
+      17.77999999998383,
+      18.024999999983606,
+      17.849999999983766,
+      17.079999999984466,
+      17.254999999984307,
+      17.919999999983702,
+      18.794999999982906,
+      18.479999999983193,
+      19.10999999998262
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      20.64999999998122,
+      19.739999999982047,
+      20.43999999998141,
+      21.03499999998087,
+      21.104999999980805,
+      20.719999999981155,
+      20.05499999998176,
+      20.719999999981155,
+      20.82499999998106,
+      20.719999999981155,
+      21.279999999980646,
+      20.64999999998122
+    ]
+  },
+  {
+    "cls": "shadow",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/shadow-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      18.12999999998351,
+      18.094999999983543,
+      17.079999999984466,
+      17.77999999998383,
+      18.024999999983606,
+      17.849999999983766,
+      17.079999999984466,
+      17.254999999984307,
+      17.919999999983702,
+      18.794999999982906,
+      18.479999999983193,
+      19.10999999998262
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.555000000006828,
+      9.590000000006853,
+      9.485000000006778,
+      9.590000000006853,
+      9.485000000006778,
+      8.890000000006353,
+      9.030000000006453,
+      9.065000000006478,
+      9.590000000006853,
+      9.030000000006453,
+      9.625000000006878,
+      9.625000000006878
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.585000000008279,
+      11.130000000007954,
+      11.445000000008179,
+      11.165000000007979,
+      11.480000000008204,
+      10.920000000007803,
+      11.655000000008329,
+      10.640000000007603,
+      11.620000000008304,
+      11.200000000008004,
+      11.655000000008329,
+      11.200000000008004
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.555000000006828,
+      9.590000000006853,
+      9.485000000006778,
+      9.590000000006853,
+      9.485000000006778,
+      8.890000000006353,
+      9.030000000006453,
+      9.065000000006478,
+      9.590000000006853,
+      9.030000000006453,
+      9.625000000006878,
+      9.625000000006878
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.535000000007528,
+      10.500000000007503,
+      10.290000000007353,
+      10.290000000007353,
+      10.465000000007478,
+      10.500000000007503,
+      10.290000000007353,
+      10.290000000007353,
+      10.605000000007578,
+      10.465000000007478,
+      10.465000000007478,
+      10.290000000007353
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      14.910000000010655,
+      13.510000000009654,
+      13.61500000000973,
+      14.10500000001008,
+      13.930000000009954,
+      14.700000000010505,
+      13.860000000009904,
+      13.860000000009904,
+      14.45500000001033,
+      13.930000000009954,
+      13.96500000000998,
+      14.24500000001018
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.535000000007528,
+      10.500000000007503,
+      10.290000000007353,
+      10.290000000007353,
+      10.465000000007478,
+      10.500000000007503,
+      10.290000000007353,
+      10.290000000007353,
+      10.605000000007578,
+      10.465000000007478,
+      10.465000000007478,
+      10.290000000007353
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      12.98500000000928,
+      13.090000000009354,
+      12.390000000008854,
+      13.090000000009354,
+      12.390000000008854,
+      12.390000000008854,
+      13.090000000009354,
+      12.565000000008979,
+      12.98500000000928,
+      12.530000000008954,
+      13.090000000009354,
+      13.12500000000938
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      13.510000000009654,
+      14.840000000010605,
+      13.510000000009654,
+      14.87500000001063,
+      13.510000000009654,
+      12.320000000008804,
+      14.770000000010555,
+      14.350000000010255,
+      13.54500000000968,
+      14.910000000010655,
+      14.770000000010555,
+      14.910000000010655
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      12.98500000000928,
+      13.090000000009354,
+      12.390000000008854,
+      13.090000000009354,
+      12.390000000008854,
+      12.390000000008854,
+      13.090000000009354,
+      12.565000000008979,
+      12.98500000000928,
+      12.530000000008954,
+      13.090000000009354,
+      13.12500000000938
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      30.345000000021685,
+      28.455000000020334,
+      29.015000000020734,
+      30.345000000021685,
+      30.38000000002171,
+      27.265000000019484,
+      28.42000000002031,
+      30.345000000021685,
+      25.655000000018333,
+      29.40000000002101,
+      30.66000000002191,
+      29.645000000021184
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      30.73000000002196,
+      30.555000000021835,
+      30.66000000002191,
+      32.76000000002341,
+      33.425000000023886,
+      29.645000000021184,
+      29.925000000021384,
+      32.20000000002301,
+      29.75000000002126,
+      30.45000000002176,
+      30.66000000002191,
+      30.73000000002196
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      50.08500000003579,
+      50.680000000036216,
+      48.05500000003434,
+      49.52500000003539,
+      50.190000000035866,
+      49.280000000035216,
+      50.050000000035766,
+      49.560000000035416,
+      49.980000000035716,
+      49.87500000003564,
+      49.420000000035316,
+      48.89500000003494
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      41.72000000002981,
+      43.08500000003079,
+      41.72000000002981,
+      40.63500000002904,
+      41.33500000002954,
+      45.53500000003254,
+      42.87500000003064,
+      39.93500000002854,
+      41.93000000002996,
+      45.53500000003254,
+      41.93000000002996,
+      41.72000000002981
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.065000000006478,
+      8.995000000006428,
+      8.995000000006428,
+      8.995000000006428,
+      8.995000000006428,
+      8.295000000005928,
+      8.435000000006028,
+      9.065000000006478,
+      9.100000000006503,
+      9.030000000006453,
+      9.135000000006528,
+      9.030000000006453
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      12.495000000008929,
+      12.635000000009029,
+      11.935000000008529,
+      12.250000000008754,
+      12.390000000008854,
+      11.725000000008379,
+      11.865000000008479,
+      11.620000000008304,
+      12.530000000008954,
+      11.585000000008279,
+      12.565000000008979,
+      12.285000000008779
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.575000000006128,
+      8.995000000006428,
+      8.435000000006028,
+      8.995000000006428,
+      8.470000000006053,
+      8.505000000006078,
+      8.645000000006178,
+      9.065000000006478,
+      8.610000000006153,
+      9.030000000006453,
+      8.645000000006178,
+      9.030000000006453
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353,
+      10.290000000007353
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      14.45500000001033,
+      16.13500000001153,
+      13.720000000009804,
+      16.170000000011555,
+      16.06500000001148,
+      16.13500000001153,
+      14.420000000010305,
+      15.29500000001093,
+      16.240000000011605,
+      15.36500000001098,
+      16.100000000011505,
+      15.120000000010805
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      13.510000000009654,
+      13.26500000000948,
+      12.740000000009104,
+      13.33500000000953,
+      13.230000000009454,
+      14.000000000010004,
+      13.47500000000963,
+      13.930000000009954,
+      13.440000000009604,
+      13.930000000009954,
+      13.96500000000998,
+      13.440000000009604
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.900000000008504,
+      12.600000000009004,
+      11.900000000008504,
+      12.600000000009004,
+      11.900000000008504,
+      11.200000000008004,
+      11.900000000008504,
+      10.570000000007553,
+      11.900000000008504,
+      10.535000000007528,
+      12.600000000009004,
+      12.635000000009029
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      13.510000000009654,
+      14.66500000001048,
+      13.790000000009854,
+      14.910000000010655,
+      13.82500000000988,
+      13.47500000000963,
+      13.89500000000993,
+      13.510000000009654,
+      13.54500000000968,
+      13.510000000009654,
+      14.59500000001043,
+      14.910000000010655
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.900000000008504,
+      13.89500000000993,
+      11.900000000008504,
+      13.89500000000993,
+      11.900000000008504,
+      11.200000000008004,
+      13.89500000000993,
+      13.370000000009554,
+      11.900000000008504,
+      13.89500000000993,
+      13.89500000000993,
+      13.89500000000993
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      26.32000000001881,
+      28.105000000020084,
+      25.97000000001856,
+      27.545000000019684,
+      29.575000000021134,
+      27.37000000001956,
+      26.32000000001881,
+      28.35000000002026,
+      27.055000000019334,
+      28.525000000020384,
+      27.755000000019834,
+      26.915000000019234
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      44.13500000003154,
+      42.770000000030564,
+      42.38500000003029,
+      42.980000000030714,
+      44.240000000031614,
+      43.85500000003134,
+      42.73500000003054,
+      44.20500000003159,
+      43.960000000031414,
+      43.820000000031314,
+      44.06500000003149,
+      44.13500000003154
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      35.42000000002531,
+      38.46500000002749,
+      34.65000000002476,
+      37.62500000002689,
+      37.13500000002654,
+      39.55000000002826,
+      35.49000000002536,
+      34.30000000002451,
+      35.245000000025186,
+      41.12500000002939,
+      37.52000000002681,
+      35.42000000002531
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      29.435000000003924,
+      27.79000000000542,
+      28.315000000004943,
+      30.345000000003097,
+      30.345000000003097,
+      25.34000000000765,
+      27.755000000005452,
+      30.345000000003097,
+      29.71500000000367,
+      27.650000000005548,
+      29.50500000000386,
+      28.315000000004943
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      45.53499999998928,
+      45.70999999998912,
+      44.76499999998998,
+      45.56999999998925,
+      45.639999999989186,
+      44.694999999990046,
+      44.27499999999043,
+      44.904999999989855,
+      45.35999999998944,
+      45.39499999998941,
+      45.464999999989345,
+      44.83499999998992
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      38.67499999999552,
+      39.549999999994725,
+      37.41499999999667,
+      38.70999999999549,
+      40.17999999999415,
+      40.24999999999409,
+      38.9199999999953,
+      39.58499999999469,
+      39.09499999999514,
+      40.94999999999345,
+      39.19999999999504,
+      38.07999999999606
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.7899999999938245,
+      7.384999999993283,
+      6.719999999993888,
+      6.824999999993793,
+      7.349999999993315,
+      5.249999999995225,
+      6.649999999993952,
+      7.349999999993315,
+      6.649999999993952,
+      6.649999999993952,
+      7.4199999999932515,
+      7.489999999993188
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.164999999989845,
+      11.584999999989464,
+      11.09499999998991,
+      11.199999999989814,
+      11.549999999989495,
+      10.954999999990036,
+      11.549999999989495,
+      11.234999999989782,
+      10.989999999990005,
+      10.919999999990068,
+      11.09499999998991,
+      11.164999999989845
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      6.7899999999938245,
+      7.384999999993283,
+      6.719999999993888,
+      6.824999999993793,
+      7.349999999993315,
+      5.249999999995225,
+      6.649999999993952,
+      7.349999999993315,
+      6.649999999993952,
+      6.649999999993952,
+      7.4199999999932515,
+      7.489999999993188
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.239999999991596,
+      9.55499999999131,
+      9.16999999999166,
+      9.869999999991023,
+      9.484999999991373,
+      8.889999999991915,
+      9.519999999991342,
+      9.904999999990991,
+      8.994999999991819,
+      9.72999999999115,
+      9.16999999999166,
+      9.239999999991596
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.514999999989527,
+      11.724999999989336,
+      11.514999999989527,
+      11.514999999989527,
+      11.724999999989336,
+      11.514999999989527,
+      11.514999999989527,
+      11.514999999989527,
+      11.514999999989527,
+      12.03999999998905,
+      11.514999999989527,
+      11.514999999989527
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.239999999991596,
+      9.55499999999131,
+      9.16999999999166,
+      9.869999999991023,
+      9.484999999991373,
+      8.889999999991915,
+      9.519999999991342,
+      9.904999999990991,
+      8.994999999991819,
+      9.72999999999115,
+      9.16999999999166,
+      9.239999999991596
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.589999999991278,
+      10.1149999999908,
+      7.489999999993188,
+      9.624999999991246,
+      10.044999999990864,
+      8.924999999991883,
+      10.079999999990832,
+      10.044999999990864,
+      8.959999999991851,
+      9.659999999991214,
+      8.22499999999252,
+      10.044999999990864
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      11.514999999989527,
+      11.969999999989113,
+      11.514999999989527,
+      11.514999999989527,
+      11.899999999989177,
+      11.514999999989527,
+      11.514999999989527,
+      11.864999999989209,
+      11.514999999989527,
+      12.004999999989082,
+      11.514999999989527,
+      11.514999999989527
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      9.589999999991278,
+      10.1149999999908,
+      7.489999999993188,
+      9.624999999991246,
+      10.044999999990864,
+      8.924999999991883,
+      10.079999999990832,
+      10.044999999990864,
+      8.959999999991851,
+      9.659999999991214,
+      8.22499999999252,
+      10.044999999990864
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      20.474999999981378,
+      20.509999999981346,
+      20.509999999981346,
+      20.964999999980932,
+      21.734999999980232,
+      21.349999999980582,
+      20.509999999981346,
+      20.544999999981314,
+      20.754999999981123,
+      21.454999999980487,
+      20.859999999981028,
+      20.929999999980964
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      31.184999999971637,
+      33.704999999969345,
+      31.184999999971637,
+      31.604999999971255,
+      31.67499999997119,
+      31.184999999971637,
+      32.969999999970014,
+      31.184999999971637,
+      32.79499999997017,
+      31.184999999971637,
+      32.89999999997008,
+      31.569999999971287
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      29.189999999973452,
+      30.134999999972592,
+      28.419999999974152,
+      29.22499999997342,
+      30.274999999972465,
+      28.909999999973707,
+      29.469999999973197,
+      27.85999999997466,
+      28.314999999974248,
+      30.134999999972592,
+      29.119999999973516,
+      29.189999999973452
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      25.19999999997708,
+      24.954999999977304,
+      25.129999999977144,
+      25.23499999997705,
+      26.494999999975903,
+      20.26499999998157,
+      23.729999999978418,
+      25.269999999977017,
+      25.19999999997708,
+      21.454999999980487,
+      25.129999999977144,
+      25.19999999997708
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      38.674999999964825,
+      37.97499999996546,
+      37.86999999996556,
+      37.58999999996581,
+      37.65999999996575,
+      37.65999999996575,
+      37.379999999966,
+      37.02999999996632,
+      38.35999999996511,
+      37.79999999996562,
+      38.464999999965016,
+      37.939999999965494
+    ]
+  },
+  {
+    "cls": "oath",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/oath-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      37.344999999966035,
+      36.014999999967245,
+      36.67999999996664,
+      35.419999999967786,
+      36.08499999996718,
+      33.319999999969696,
+      35.48999999996772,
+      34.859999999968295,
+      35.90999999996734,
+      33.914999999969154,
+      37.2749999999661,
+      37.344999999966035
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      12.425000000008879,
+      11.340000000008104,
+      11.480000000008204,
+      11.340000000008104,
+      11.515000000008229,
+      11.550000000008254,
+      11.655000000008329,
+      11.340000000008104,
+      12.460000000008904,
+      11.340000000008104,
+      13.090000000009354,
+      11.340000000008104
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      13.720000000009804,
+      13.860000000009904,
+      15.50500000001108,
+      13.89500000000993,
+      13.47500000000963,
+      13.720000000009804,
+      13.19500000000943,
+      13.33500000000953,
+      13.75500000000983,
+      13.930000000009954,
+      13.790000000009854,
+      13.930000000009954
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      12.425000000008879,
+      11.340000000008104,
+      11.480000000008204,
+      11.340000000008104,
+      11.515000000008229,
+      11.550000000008254,
+      11.655000000008329,
+      11.340000000008104,
+      12.460000000008904,
+      11.340000000008104,
+      13.090000000009354,
+      11.340000000008104
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      15.050000000010755,
+      14.66500000001048,
+      12.845000000009179,
+      14.700000000010505,
+      15.22500000001088,
+      14.66500000001048,
+      14.420000000010305,
+      15.120000000010805,
+      14.52500000001038,
+      14.560000000010405,
+      14.700000000010505,
+      13.47500000000963
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      16.83500000001203,
+      17.920000000012806,
+      16.240000000011605,
+      17.95500000001283,
+      17.18500000001228,
+      17.920000000012806,
+      16.800000000012005,
+      18.970000000013556,
+      19.56500000001398,
+      16.55500000001183,
+      17.220000000012305,
+      16.76500000001198
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      15.050000000010755,
+      14.66500000001048,
+      12.845000000009179,
+      14.700000000010505,
+      15.22500000001088,
+      14.66500000001048,
+      14.420000000010305,
+      15.120000000010805,
+      14.52500000001038,
+      14.560000000010405,
+      14.700000000010505,
+      13.47500000000963
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      17.88500000001278,
+      17.04500000001218,
+      17.74500000001268,
+      17.25500000001233,
+      17.780000000012706,
+      17.080000000012205,
+      16.100000000011505,
+      15.680000000011205,
+      17.010000000012155,
+      15.960000000011405,
+      16.97500000001213,
+      17.25500000001233
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      20.61500000001473,
+      19.63500000001403,
+      20.47500000001463,
+      19.670000000014056,
+      20.510000000014657,
+      19.91500000001423,
+      20.54500000001468,
+      19.14500000001368,
+      20.510000000014657,
+      19.70500000001408,
+      20.54500000001468,
+      19.70500000001408
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      17.88500000001278,
+      17.04500000001218,
+      17.74500000001268,
+      17.25500000001233,
+      17.780000000012706,
+      17.080000000012205,
+      16.100000000011505,
+      15.680000000011205,
+      17.010000000012155,
+      15.960000000011405,
+      16.97500000001213,
+      17.25500000001233
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      28.00000000002001,
+      29.82000000002131,
+      27.755000000019834,
+      28.245000000020184,
+      28.28000000002021,
+      28.00000000002001,
+      29.19000000002086,
+      28.00000000002001,
+      28.00000000002001,
+      28.00000000002001,
+      28.245000000020184,
+      28.00000000002001
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "captain-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      44.72999999995932,
+      46.09499999995808,
+      44.72999999995932,
+      45.359999999958745,
+      46.79499999995744,
+      44.72999999995932,
+      44.69499999995935,
+      44.72999999995932,
+      45.359999999958745,
+      45.359999999958745,
+      44.72999999995932,
+      45.359999999958745
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "main_only",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-main_only.json",
+    "milestone": "manor-entry",
+    "winRate": 0.16666666666666666,
+    "ttk": [
+      44.69499999995935,
+      44.72999999995932
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.8849999999901,
+      10.079999999990832,
+      10.359999999990578,
+      10.044999999990864,
+      10.394999999990546,
+      10.1149999999908,
+      10.009999999990896,
+      9.274999999991564,
+      10.219999999990705,
+      9.449999999991405,
+      10.254999999990673,
+      10.044999999990864
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      13.299999999987904,
+      15.994999999985453,
+      13.75499999998749,
+      15.959999999985484,
+      13.789999999987458,
+      14.174999999987108,
+      12.564999999988572,
+      12.80999999998835,
+      13.299999999987904,
+      13.544999999987681,
+      13.299999999987904,
+      14.454999999986853
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.8849999999901,
+      10.079999999990832,
+      10.359999999990578,
+      10.044999999990864,
+      10.394999999990546,
+      10.1149999999908,
+      10.009999999990896,
+      9.274999999991564,
+      10.219999999990705,
+      9.449999999991405,
+      10.254999999990673,
+      10.044999999990864
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      15.08499999998628,
+      15.29499999998609,
+      14.90999999998644,
+      15.08499999998628,
+      15.154999999986217,
+      15.29499999998609,
+      15.154999999986217,
+      14.804999999986535,
+      14.769999999986567,
+      14.734999999986599,
+      15.259999999986121,
+      14.944999999986408
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      18.93499999998278,
+      19.66999999998211,
+      17.464999999984116,
+      19.70499999998208,
+      18.864999999982842,
+      19.66999999998211,
+      18.269999999983384,
+      18.30499999998335,
+      19.004999999982715,
+      17.989999999983638,
+      18.89999999998281,
+      18.829999999982874
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      15.08499999998628,
+      15.29499999998609,
+      14.90999999998644,
+      15.08499999998628,
+      15.154999999986217,
+      15.29499999998609,
+      15.154999999986217,
+      14.804999999986535,
+      14.769999999986567,
+      14.734999999986599,
+      15.259999999986121,
+      14.944999999986408
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      17.39499999998418,
+      16.06499999998539,
+      17.00999999998453,
+      15.994999999985453,
+      16.659999999984848,
+      16.659999999984848,
+      15.994999999985453,
+      15.85499999998558,
+      16.659999999984848,
+      15.819999999985612,
+      16.659999999984848,
+      16.02999999998542
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      21.349999999980582,
+      21.454999999980487,
+      21.20999999998071,
+      21.55999999998039,
+      21.97999999998001,
+      19.84499999998195,
+      20.369999999981474,
+      17.95499999998367,
+      21.55999999998039,
+      21.069999999980837,
+      20.754999999981123,
+      21.454999999980487
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      17.39499999998418,
+      16.06499999998539,
+      17.00999999998453,
+      15.994999999985453,
+      16.659999999984848,
+      16.659999999984848,
+      15.994999999985453,
+      15.85499999998558,
+      16.659999999984848,
+      15.819999999985612,
+      16.659999999984848,
+      16.02999999998542
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      26.14499999997622,
+      28.174999999974375,
+      25.37499999997692,
+      26.704999999975712,
+      26.94999999997549,
+      25.96999999997638,
+      28.06999999997447,
+      26.14499999997622,
+      26.14499999997622,
+      26.14499999997622,
+      26.704999999975712,
+      26.14499999997622
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 0.8333333333333334,
+    "ttk": [
+      35.94499999996731,
+      34.78999999996836,
+      36.189999999967085,
+      35.48999999996772,
+      36.25999999996702,
+      35.52499999996769,
+      35.94499999996731,
+      35.94499999996731,
+      36.189999999967085,
+      35.94499999996731
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      26.14499999997622,
+      28.174999999974375,
+      25.37499999997692,
+      26.704999999975712,
+      26.94999999997549,
+      25.96999999997638,
+      28.06999999997447,
+      26.14499999997622,
+      26.14499999997622,
+      26.14499999997622,
+      26.704999999975712,
+      26.14499999997622
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      44.204999999959796,
+      45.67499999995846,
+      43.469999999960464,
+      44.65999999995938,
+      44.239999999959764,
+      44.204999999959796,
+      44.16999999995983,
+      44.239999999959764,
+      44.204999999959796,
+      44.239999999959764,
+      44.204999999959796,
+      44.204999999959796
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 0,
+    "ttk": []
+  },
+  {
+    "cls": "ember",
+    "route": "typical",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-typical.json",
+    "milestone": "manor-entry",
+    "winRate": 0.4166666666666667,
+    "ttk": [
+      44.204999999959796,
+      43.469999999960464,
+      44.16999999995983,
+      44.239999999959764,
+      44.204999999959796
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999993538,
+      7.104999999993538,
+      7.034999999993602,
+      7.034999999993602,
+      7.104999999993538,
+      7.034999999993602,
+      7.104999999993538,
+      7.104999999993538,
+      7.139999999993506,
+      7.244999999993411,
+      7.139999999993506,
+      7.104999999993538
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.874999999992838,
+      8.119999999992615,
+      7.874999999992838,
+      7.874999999992838,
+      8.049999999992679,
+      9.484999999991373,
+      7.874999999992838,
+      8.01499999999271,
+      7.874999999992838,
+      9.274999999991564,
+      7.874999999992838,
+      7.874999999992838
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "rat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999993538,
+      7.104999999993538,
+      7.034999999993602,
+      7.034999999993602,
+      7.104999999993538,
+      7.034999999993602,
+      7.104999999993538,
+      7.104999999993538,
+      7.139999999993506,
+      7.244999999993411,
+      7.139999999993506,
+      7.104999999993538
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999993538,
+      10.639999999990323,
+      8.049999999992679,
+      7.104999999993538,
+      7.83999999999287,
+      8.749999999992042,
+      8.504999999992265,
+      7.104999999993538,
+      7.874999999992838,
+      9.3449999999915,
+      9.3449999999915,
+      7.104999999993538
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      10.32499999999061,
+      10.8849999999901,
+      10.254999999990673,
+      10.359999999990578,
+      10.814999999990164,
+      10.919999999990068,
+      10.254999999990673,
+      10.814999999990164,
+      9.519999999991342,
+      11.374999999989654,
+      10.254999999990673,
+      10.32499999999061
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "warden",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      7.104999999993538,
+      10.639999999990323,
+      8.049999999992679,
+      7.104999999993538,
+      7.83999999999287,
+      8.749999999992042,
+      8.504999999992265,
+      7.104999999993538,
+      7.874999999992838,
+      9.3449999999915,
+      9.3449999999915,
+      7.104999999993538
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.434999999992328,
+      10.1149999999908,
+      10.009999999990896,
+      9.974999999990928,
+      10.254999999990673,
+      9.764999999991119,
+      10.254999999990673,
+      10.009999999990896,
+      9.904999999990991,
+      9.904999999990991,
+      10.009999999990896,
+      9.93999999999096
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      15.67999999998574,
+      15.714999999985707,
+      15.714999999985707,
+      15.714999999985707,
+      15.644999999985771,
+      12.494999999988636,
+      15.67999999998574,
+      16.20499999998526,
+      15.609999999985803,
+      13.089999999988095,
+      15.714999999985707,
+      15.67999999998574
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bat",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "prepared",
+    "winRate": 1,
+    "ttk": [
+      8.434999999992328,
+      10.1149999999908,
+      10.009999999990896,
+      9.974999999990928,
+      10.254999999990673,
+      9.764999999991119,
+      10.254999999990673,
+      10.009999999990896,
+      9.904999999990991,
+      9.904999999990991,
+      10.009999999990896,
+      9.93999999999096
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      17.60499999998399,
+      18.794999999982906,
+      17.254999999984307,
+      18.30499999998335,
+      18.30499999998335,
+      18.12999999998351,
+      18.30499999998335,
+      18.12999999998351,
+      18.12999999998351,
+      18.30499999998335,
+      18.12999999998351,
+      18.12999999998351
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      25.339999999976953,
+      26.249999999976126,
+      23.86999999997829,
+      26.389999999976,
+      26.109999999976253,
+      26.074999999976285,
+      27.47499999997501,
+      25.339999999976953,
+      26.074999999976285,
+      26.074999999976285,
+      26.074999999976285,
+      26.074999999976285
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "captain",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "captain-entry",
+    "winRate": 1,
+    "ttk": [
+      17.60499999998399,
+      18.794999999982906,
+      17.254999999984307,
+      18.30499999998335,
+      18.30499999998335,
+      18.12999999998351,
+      18.30499999998335,
+      18.12999999998351,
+      18.12999999998351,
+      18.30499999998335,
+      18.12999999998351,
+      18.12999999998351
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "full",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      38.674999999964825,
+      40.599999999963075,
+      39.234999999964316,
+      39.37499999996419,
+      39.33999999996422,
+      38.499999999964984,
+      39.30499999996425,
+      39.30499999996425,
+      39.234999999964316,
+      39.37499999996419,
+      38.674999999964825,
+      39.234999999964316
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "low_mana",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      54.28499999995063,
+      54.319999999950596,
+      54.28499999995063,
+      54.80999999995015,
+      55.54499999994948,
+      54.914999999950055,
+      54.28499999995063,
+      54.914999999950055,
+      54.28499999995063,
+      54.914999999950055,
+      54.914999999950055,
+      54.914999999950055
+    ]
+  },
+  {
+    "cls": "ember",
+    "route": "all_once",
+    "encounter": "bren",
+    "condition": "no_potions",
+    "source": "docs/c1-restraint/integration/economy/ember-all_once.json",
+    "milestone": "manor-entry",
+    "winRate": 1,
+    "ttk": [
+      38.674999999964825,
+      40.599999999963075,
+      39.234999999964316,
+      39.37499999996419,
+      39.33999999996422,
+      38.499999999964984,
+      39.30499999996425,
+      39.30499999996425,
+      39.234999999964316,
+      39.37499999996419,
+      38.674999999964825,
+      39.234999999964316
+    ]
+  }
+]
+RUN: node tests/browser-presentation-v281.mjs
+Browser QA passed: 16 checks, 350 resource requests, no runtime exceptions.
+RUN: node tests/browser-balance-lab.mjs
+{"passed":true,"fixtureCount":14,"exactFullEventParity":true}
+RUN: node tests/browser-world-v29.mjs
+Journey: entered millpath
+Journey: entered echo
+Journey: manually extracted core
+Journey: returned core to Lotti
+World visual capture: 4 maps; baseline: false
+RUN: node tests/browser-chapter-one-v30.mjs
+Captured 11 chapter-one maps; browser errors: 0
+RUN: node tests/browser-chapter23.mjs
+Captured 23 chapter-two/three maps; browser errors: 0
+RUN: node tests/browser-chapter123.mjs
+{"maps":35,"scenery":457,"props":96,"clicks":6,"errors":[]}
+RUN: node tests/browser-chapter-one-expansion.mjs
+RUN: node tests/browser-dialogue-reader.mjs
+{"status":"passed","input":["background click","text click","portrait area","history is read only; reload uses live cursor","rapid double click advances once","drag does not advance","keyboard activates focused Previous","left/right keyboard","cinematic action cannot be skipped by click","entire commission with actual clicks and uninterrupted cinematic beats","accept transaction commits at live final page only","claim transaction commits at live final page only","real touch tap","later chapter ch2Arrival","later chapter ch3Arrival","later chapter v25C8Dawn"],"layouts":[{"width":1440,"height":980,"pages":153},{"width":844,"height":390,"pages":153},{"width":390,"height":844,"pages":153}],"portraits":[{"id":"c1iden","width":1440,"height":980,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":1440,"height":980,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":1440,"height":980,"imgs":[{"w":512,"h":930}]},{"id":"c1iden","width":844,"height":390,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":844,"height":390,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":844,"height":390,"imgs":[{"w":512,"h":930}]},{"id":"c1iden","width":390,"height":844,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":390,"height":844,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":390,"height":844,"imgs":[{"w":512,"h":930}]}]}
+RUN: node tests/browser-dialogue-hud.mjs
+HUD: six real mouse/touch selections, health/death/engagement/map changes and three viewport layouts passed.
+PASS tier: integration

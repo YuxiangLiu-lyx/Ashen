@@ -1,12 +1,625 @@
 {
   "schema": 1,
-  "source_fingerprint": "3e1fc912fd7e8496856659ab9ff86925eccff35a9c72b0b124f56a32fac40ec1",
-  "reviewer": "Codex逐张查看会馆、库房、工坊、地下两层、城镇救民实景、碰撞图、原构装体与锁甲执卫图集、餐桌会面及手机制作。",
+  "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
   "reviewed_paths": [
-    "dist/cinematics-v14.js",
-    "dist/core-v14.js"
+    "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-natural-art.js",
+    "dist/core-v14.js",
+    "dist/encounter-restraint.js",
+    "dist/game-v14.js",
+    "dist/presentation-v17.css"
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/hall.png",
+            "sha256": "698a09784ce6fa89964e85a727ad099b631dd36eb0c2d1cba70af94b1e67d6a3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/hall-collision.png",
+            "sha256": "e48cf1852b3495b39ebe54b6b684439297075cd0189acffd0468c9b2379f0aa8"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "装置80×100，接近家具尺度；商人、工作台、餐桌分区，四门及交互点保留通行。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/hall.png",
+            "sha256": "698a09784ce6fa89964e85a727ad099b631dd36eb0c2d1cba70af94b1e67d6a3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/hall-collision.png",
+            "sha256": "e48cf1852b3495b39ebe54b6b684439297075cd0189acffd0468c9b2379f0aa8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "罗萨场景与面板固定同一女性原帧；薇蕾娜及主角沿用原图与成年尺度。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/hall.png",
+            "sha256": "698a09784ce6fa89964e85a727ad099b631dd36eb0c2d1cba70af94b1e67d6a3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/hall-collision.png",
+            "sha256": "e48cf1852b3495b39ebe54b6b684439297075cd0189acffd0468c9b2379f0aa8"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "town",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/town.png",
+            "sha256": "d3fbf6f4a7d8ba1c57c5a738c4cdd44b3cfd1d85390f38dbe7ef8b323b71899f"
+          },
+          {
+            "path": "docs/c1-restraint/visual/town-collision.png",
+            "sha256": "f0e9f38e18bff249c624cf1ce705524109dd1412d827ed1e7249671d9f439810"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1SaintAid.png",
+            "sha256": "2b91302dcb110543fdaae834743dff758efdf7df2eda9da1b333fd5d9e05b612"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "发饭桌、面包与布、长凳、小凳、水罐和粮袋围成救济角；9名演出人物分散等候，井边及主路留空。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/town.png",
+            "sha256": "d3fbf6f4a7d8ba1c57c5a738c4cdd44b3cfd1d85390f38dbe7ef8b323b71899f"
+          },
+          {
+            "path": "docs/c1-restraint/visual/town-collision.png",
+            "sha256": "f0e9f38e18bff249c624cf1ce705524109dd1412d827ed1e7249671d9f439810"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1SaintAid.png",
+            "sha256": "2b91302dcb110543fdaae834743dff758efdf7df2eda9da1b333fd5d9e05b612"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "厨娘绿围裙与朵莉红裙分开；老人/居民/母亲保留原人物图集。圣女用原柔和形象，无新增坐下或递碗专用动画。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/town.png",
+            "sha256": "d3fbf6f4a7d8ba1c57c5a738c4cdd44b3cfd1d85390f38dbe7ef8b323b71899f"
+          },
+          {
+            "path": "docs/c1-restraint/visual/town-collision.png",
+            "sha256": "f0e9f38e18bff249c624cf1ce705524109dd1412d827ed1e7249671d9f439810"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1SaintAid.png",
+            "sha256": "2b91302dcb110543fdaae834743dff758efdf7df2eda9da1b333fd5d9e05b612"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warehouse",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/warehouse.png",
+            "sha256": "0e37b8f0b38e9385a9ff16a684cd52b57bab816c50c34efe7c6801b3e7ef6643"
+          },
+          {
+            "path": "docs/c1-restraint/visual/warehouse-collision.png",
+            "sha256": "ea53ff5411ac86ef6a31819d1ea1fea8fe309af081160aeb2f86e8c6dc277f54"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原粮袋箱笼和通道保持，库房安全切镜无战斗突入。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/warehouse.png",
+            "sha256": "0e37b8f0b38e9385a9ff16a684cd52b57bab816c50c34efe7c6801b3e7ef6643"
+          },
+          {
+            "path": "docs/c1-restraint/visual/warehouse-collision.png",
+            "sha256": "ea53ff5411ac86ef6a31819d1ea1fea8fe309af081160aeb2f86e8c6dc277f54"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原鼠、诺恩及安全剧情保留；普通怪仅提高耐久。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/warehouse.png",
+            "sha256": "0e37b8f0b38e9385a9ff16a684cd52b57bab816c50c34efe7c6801b3e7ef6643"
+          },
+          {
+            "path": "docs/c1-restraint/visual/warehouse-collision.png",
+            "sha256": "ea53ff5411ac86ef6a31819d1ea1fea8fe309af081160aeb2f86e8c6dc277f54"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1LoomRoom",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom.png",
+            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom-collision.png",
+            "sha256": "0c492e5b04ad6a627a9e454ff99244e21ebf38042b323289d52259d39bbc44e9"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原工坊陈设与通路保留；会馆是初期服务入口。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom.png",
+            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom-collision.png",
+            "sha256": "0c492e5b04ad6a627a9e454ff99244e21ebf38042b323289d52259d39bbc44e9"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原工匠角色不替换；格子制作界面三视口通过。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom.png",
+            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1LoomRoom-collision.png",
+            "sha256": "0c492e5b04ad6a627a9e454ff99244e21ebf38042b323289d52259d39bbc44e9"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1DrillGallery",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery.png",
+            "sha256": "71759ec3bdc40ad00e3db4b227a6fcfdc2367f0c210904e4cff64785bf48d78c"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery-collision.png",
+            "sha256": "29e0c816a6d06c5f55fc0ca0718d3d9e17c86ce37ed13771d424cc95551135dc"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原旧廊通道不改，精英提盾横击依靠身体动作；无地面巨型图案。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery.png",
+            "sha256": "71759ec3bdc40ad00e3db4b227a6fcfdc2367f0c210904e4cff64785bf48d78c"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery-collision.png",
+            "sha256": "29e0c816a6d06c5f55fc0ca0718d3d9e17c86ce37ed13771d424cc95551135dc"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "木石构装体原画、脚锚及宽肩轮廓保持；盾击与重锤职责分开。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery.png",
+            "sha256": "71759ec3bdc40ad00e3db4b227a6fcfdc2367f0c210904e4cff64785bf48d78c"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1DrillGallery-collision.png",
+            "sha256": "29e0c816a6d06c5f55fc0ca0718d3d9e17c86ce37ed13771d424cc95551135dc"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "22图389条实际moveActor路线通过；三职业正常键鼠第一章完成。红绿碰撞图与实际游戏截图分别检查，正文限制保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/integration/navigation/MOVEMENT.json",
+            "sha256": "c24e1af18f895bfd4a4f124f6273939a01532fa0866b73218752937547a030d1"
+          },
+          {
+            "path": "docs/c1-restraint/natural-final/RESULTS.json",
+            "sha256": "32e9e4cc80a1903c6eff03c0eb22d3b146622148b7c461f3b027080e713948a6"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault.png",
+            "sha256": "9a163e383c6482c61952311a58c3752dc211ea54b8947d907529071d5531f63a"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault-collision.png",
+            "sha256": "133051bc7df185e722c58b7fb2706e54bd12a78007fb05b3a19c6d72df6baac6"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原书架、箱笼、连接廊保留；西室精英守位重击，东厅独立终试Boss有细线扇面和落点。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault.png",
+            "sha256": "9a163e383c6482c61952311a58c3752dc211ea54b8947d907529071d5531f63a"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault-collision.png",
+            "sha256": "133051bc7df185e722c58b7fb2706e54bd12a78007fb05b3a19c6d72df6baac6"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "封存守卫与终试执卫各保留原图；未拿新特效替代角色差异。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault.png",
+            "sha256": "9a163e383c6482c61952311a58c3752dc211ea54b8947d907529071d5531f63a"
+          },
+          {
+            "path": "docs/c1-restraint/visual/c1TrialVault-collision.png",
+            "sha256": "133051bc7df185e722c58b7fb2706e54bd12a78007fb05b3a19c6d72df6baac6"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "grove",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-rat.png",
+            "sha256": "1695d34136f5678e33c41418695583d160978e343c915da0b4f6885aba289669"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-rat.png",
+            "sha256": "1695d34136f5678e33c41418695583d160978e343c915da0b4f6885aba289669"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-rat.png",
+            "sha256": "1695d34136f5678e33c41418695583d160978e343c915da0b4f6885aba289669"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "echo",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/echo-warden.png",
+            "sha256": "255a6a109190992329ab6ecb74866d30fc18f1b1f53dafe27d553bb37f197163"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/echo-warden.png",
+            "sha256": "255a6a109190992329ab6ecb74866d30fc18f1b1f53dafe27d553bb37f197163"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/echo-warden.png",
+            "sha256": "255a6a109190992329ab6ecb74866d30fc18f1b1f53dafe27d553bb37f197163"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1ReedKiln",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-bat.png",
+            "sha256": "c0c9f075b2866a183cefd5389b93a470bd5ca95747ceb0b27fdbeeebd904121f"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-bat.png",
+            "sha256": "c0c9f075b2866a183cefd5389b93a470bd5ca95747ceb0b27fdbeeebd904121f"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/c1-elite-bat.png",
+            "sha256": "c0c9f075b2866a183cefd5389b93a470bd5ca95747ceb0b27fdbeeebd904121f"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "canal",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/captain.png",
+            "sha256": "a42df6998d93166aea300a5cff49ccb5dbb214f8b37d47d0928de45dd86e597c"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/captain.png",
+            "sha256": "a42df6998d93166aea300a5cff49ccb5dbb214f8b37d47d0928de45dd86e597c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/captain.png",
+            "sha256": "a42df6998d93166aea300a5cff49ccb5dbb214f8b37d47d0928de45dd86e597c"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellQuarry",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-ironScuttler.png",
+            "sha256": "c8658d094fd6022223e849d854df8be33491f22916f747fb40514bc3af4e6281"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-ironScuttler.png",
+            "sha256": "c8658d094fd6022223e849d854df8be33491f22916f747fb40514bc3af4e6281"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-ironScuttler.png",
+            "sha256": "c8658d094fd6022223e849d854df8be33491f22916f747fb40514bc3af4e6281"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hellSluice",
+      "playability": {
+        "status": "pass",
+        "reason": "仅改敌人耐久与攻击表现；使用生产AI采集起手、同源三职业战斗与原入口放置修正，战斗失败保留。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/COMBAT_COMPARISON.json",
+            "sha256": "3ecf0880c460d904606108a90018ffd16cd4def2be6b9072458163e74d232805"
+          },
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-furnaceSentinel.png",
+            "sha256": "2409956ea21f86adbc3c9f2c131950dc6c0d0992dc0a8c98d34cbf7d380ba3d9"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "原场景和碰撞未改；精英无地面特效，Boss细线沿真实攻击几何；截图没有大面积发光填充。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-furnaceSentinel.png",
+            "sha256": "2409956ea21f86adbc3c9f2c131950dc6c0d0992dc0a8c98d34cbf7d380ba3d9"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "原敌人图集及比例保留，狼压肩、蝠收翼、追缉官持盾、蟹钳与炉刃可由身体识别。",
+        "evidence": [
+          {
+            "path": "docs/c1-restraint/combat-visual/v11-boss-furnaceSentinel.png",
+            "sha256": "2409956ea21f86adbc3c9f2c131950dc6c0d0992dc0a8c98d34cbf7d380ba3d9"
+          },
+          {
+            "path": "docs/c1-restraint/ASSET_INTEGRITY.json",
+            "sha256": "61f307c5558f42e49f48290fefc044928221aeb350646b076d6068a54342b00d"
+          }
+        ]
+      }
+    }
   ],
   "assets": [
+    {
+      "path": "dist/assets/c1-map-quests/artisans.png",
+      "sha256": "103fce6a29a5619718ff74bc3ed430516db18db1196c9a03d325d4e859f2979d"
+    },
+    {
+      "path": "dist/assets/c1-map-quests/loom.png",
+      "sha256": "7f0a6264987a5f8516c452ae42d1ce0969d52dac2760975f37e6151fdddcba84"
+    },
     {
       "path": "dist/assets/c1-map-quests/trial-construct.png",
       "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
@@ -16,413 +629,14 @@
       "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
     },
     {
-      "path": "dist/assets/v6/vilerena-world-v6.png",
-      "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
-    },
-    {
-      "path": "dist/assets/v6/vilerena-portrait-v6.png",
-      "sha256": "d5e086c22544cdc1f9343333d82045f2569a92b4341e3e7a7f0cc9dcd7d6bedc"
-    },
-    {
       "path": "dist/assets/v4/actors-world.png",
       "sha256": "761447478e44de6979b20a60b0ec7dce32195b1f591091ecb0349c56f6ed9207"
-    },
-    {
-      "path": "dist/assets/c1-care-ui/underground-portraits.png",
-      "sha256": "95178a5e7a76097a2e335ee31d575d266254e13d38e5b02c12c0f2227b76ee7c"
     }
   ],
-  "maps": [
-    {
-      "id": "hall",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/hall-collision.png",
-            "sha256": "ed5d5c122d0d4ae2a9a3b2dcea4095697473a07c972a2151d593fa042017a2d4"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "商人与机器在会馆西侧，作业台、炉火、餐桌和委托区分开；薇蕾娜与诺恩从任务交流走到餐桌附近，留饭通过旁白推进，未做进食动画。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/hall.png",
-            "sha256": "849aa49d3ba48dc8b3285b98c8e026614ed35f4c5b7bf0e161710378eb7e0e88"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialReport-meal.png",
-            "sha256": "2ef859a4f2f6a76917e69a574a0daa2ee0915862c603e28df35ff5cbf4fc0e05"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "罗萨原行走形象、薇蕾娜黑紫长裙与诺恩原像保持；新位置没有缩放人物。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialReport-meal.png",
-            "sha256": "2ef859a4f2f6a76917e69a574a0daa2ee0915862c603e28df35ff5cbf4fc0e05"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    },
-    {
-      "id": "warehouse",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/warehouse-collision.png",
-            "sha256": "18b64bbdf3212686544ee7224a1480379ff8092f78e1725311c799ca43b868bd"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "粮袋、粮架和墙洞维持鼠患来由；入口附近一只鼠移远，救民切镜从安全处开始，结束回原位置。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/warehouse.png",
-            "sha256": "646955d8d86473cd9794f55ad9771385646d140c0711e7dc2d6faa65bc552219"
-          },
-          {
-            "path": "docs/c1-trial-forge/natural-final/shadow/02-warehouse.png",
-            "sha256": "65d0f5f227ab3ac6ae12126275f9d3775452fca58b1374ef4dccada2185b6e38"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "库房原鼠群与诺恩形象不变；切镜不在库房凭空放入圣女。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/natural-final/shadow/02-warehouse.png",
-            "sha256": "65d0f5f227ab3ac6ae12126275f9d3775452fca58b1374ef4dccada2185b6e38"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1LoomRoom",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1LoomRoom-collision.png",
-            "sha256": "0c492e5b04ad6a627a9e454ff99244e21ebf38042b323289d52259d39bbc44e9"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "移出罗萨与机器后保留赛铎、工具台和书架，房间仍服务样本研究；旧机器碰撞一并移走。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1LoomRoom.png",
-            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1LoomRoom.png",
-            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "赛铎原人物和炼金岗位保留，未以另一套贴图代替。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1LoomRoom.png",
-            "sha256": "b6c0728ebfc8d5ad794b5cbda7b9bd4bbfc62c97f69a57777942e3a74a35eda3"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1DrillGallery",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1DrillGallery-collision.png",
-            "sha256": "5c326ae051455a3d8adf8709e297431cf8671061ff741bb3ed8386b05c44b7f8"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "一层通道和栏杆保持，旧试炼守卫独立列入精英讨伐；普通八哨兵与精英的计数分开。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1DrillGallery.png",
-            "sha256": "c46caa7b753bb4b41263c1e704a9129e8746e387fb588dce108edae6d5ea1a59"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1DrillGallery.png",
-            "sha256": "c46caa7b753bb4b41263c1e704a9129e8746e387fb588dce108edae6d5ea1a59"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "采用原石质构装体图集，石块关节、蓝缝及八帧脚锚保持；精英有原体型与独立名称。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1DrillGallery.png",
-            "sha256": "c46caa7b753bb4b41263c1e704a9129e8746e387fb588dce108edae6d5ea1a59"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    },
-    {
-      "id": "c1TrialVault",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialVault-collision.png",
-            "sha256": "e6e6eb85c8adda8cd5f11f0a55271f88fd40d6f3a98b99114a765edb0a6e31f5"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "西侧封存看守与东侧终试执卫分开；东厅减少两名普通守卫留出考核空间，两侧回廊、书架和账桌可解释岗位。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialVault.png",
-            "sha256": "bfc62a95d26289b24e5c7dd034e0331cba4da459f43b1b6b7a0a9611653efc80"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialVault.png",
-            "sha256": "bfc62a95d26289b24e5c7dd034e0331cba4da459f43b1b6b7a0a9611653efc80"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "沿用原锁甲执卫图集，封存精英与终试Boss使用同类机构外观；角色类型、任务身份、Boss条和技能程序分开，不冒称新增独立美术。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1TrialVault.png",
-            "sha256": "bfc62a95d26289b24e5c7dd034e0331cba4da459f43b1b6b7a0a9611653efc80"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    },
-    {
-      "id": "town",
-      "playability": {
-        "status": "pass",
-        "reason": "22图共396条实际moveActor路线通过，目标无不可达点；三职业正常输入通章。此图碰撞图与实际战斗/服务另核验。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/NAVIGATION.json",
-            "sha256": "6f8b239c24b700291995c661bf804f781cb367806946cbcd7b360fa87c83b579"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/navigation/MOVEMENT.json",
-            "sha256": "8435fb57d959340ef5d7244ff7c1c5eb448f74a2694bd0d21327778b55fde8a0"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/town-collision.png",
-            "sha256": "c334aacb4313e12a0e23547a572224a6ece0227f6ad93554903d52a076b55b60"
-          },
-          {
-            "path": "docs/c1-trial-forge/NORMAL_REUSE.json",
-            "sha256": "2bb3c4cb2fb6f9f83188bea6cf1750771dcd7e9abd9a0efdd45a9ec82a2ab1f1"
-          },
-          {
-            "path": "docs/c1-trial-forge/COMBAT_COMPARISON.json",
-            "sha256": "01672a60ce35c001eac53e576ee0996532180f0323918a7e21291ca2c356b48a"
-          }
-        ]
-      },
-      "scene_credibility": {
-        "status": "pass",
-        "reason": "救民场景在旧集市井旁的开放空地，有圣女、朵莉和居民；食篮/接碗由正文交代，未制作手持粥碗专用动画。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/town.png",
-            "sha256": "1a8868649382a5299aa377238f6caa2f5a26f592d745066b66c11daed7194274"
-          },
-          {
-            "path": "docs/c1-trial-forge/visual/c1SaintAid.png",
-            "sha256": "97e8887631e0094935a2905bcbb2f91b1e41bd89b160ecffbb0c0dc7e9212971"
-          },
-          {
-            "path": "docs/c1-trial-forge/baseline/maps.json",
-            "sha256": "12364b20ff158c571c74502c4ea744613afd922cf1b3603508aa3076bd6685a4"
-          }
-        ]
-      },
-      "character_consistency": {
-        "status": "pass",
-        "reason": "圣女原柔和形象、朵莉及两居民原图保持；诺恩未出现在切镜中，居民后续称赞才向他提供见闻。",
-        "evidence": [
-          {
-            "path": "docs/c1-trial-forge/visual/c1SaintAid.png",
-            "sha256": "97e8887631e0094935a2905bcbb2f91b1e41bd89b160ecffbb0c0dc7e9212971"
-          },
-          {
-            "path": "docs/c1-trial-forge/integration/reader/QA.json",
-            "sha256": "15cb954fbbf2705ae83a690c34bb300796ef3cce008bd3dec3be90b2b3e71c41"
-          },
-          {
-            "path": "docs/c1-trial-forge/ASSET_INTEGRITY.json",
-            "sha256": "e09667ac2c6ad9523bb33491b3d0480bc01e52f4a9c3278143f15502da5bcc1f"
-          }
-        ]
-      }
-    }
-  ],
-  "limits": "隔离截图、自动路径/战斗事实及执行编辑视觉判断分别记录；新造型未生成，进食/发粥由原场景人物与对白表现；真人审美和节奏待验。"
+  "reviewer": "Codex visual inspection and production runtime evidence, not human acceptance",
+  "limits": [
+    "Physical layout edits are hall and town; shared combat rendering reviewed with nine actual attack windups.",
+    "Navigation is actual movement in isolated fixtures; normal-input and production battle evidence are separate.",
+    "C3 direct ensureMap diagnostic timeouts are not map-entry evidence; c3-entry resolves every sample without moving enemies manually."
+  ]
 }

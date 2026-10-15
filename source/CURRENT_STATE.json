@@ -9,7 +9,7 @@
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 240,
+  "runtime_modules": 241,
   "runtime_stylesheets": 7,
   "runtime_images": 148,
   "runtime_resource_bytes": 325424338,
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "R01 1.3 trial/report/charity and randomized hall preparation implemented and technically verified. R01-R03 original gameplay retained beyond this scoped update; R04-R08 gameplay expansion deferred. Human prose, affection balance, pacing and fun pending; historical 0.6 human task independent. No website deployment.",
-  "checked_at_utc": "2026-10-15T00:15:16.413072+00:00",
+  "known_limits": "R01 1.4 scoped refinement and R01-R03 endurance technically verified. Human prose, readability, difficulty, pacing and fun remain pending; finite-supply C3 scripted losses retained. R04-R08 unchanged. Historical 0.6 human task independent. No website deployment.",
+  "checked_at_utc": "2026-10-15T16:06:04.801761+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -301,9 +301,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "1.3",
-    "task_id": "c1-trial-forge-20261014",
-    "status": "第一章1.3整改技术验收完成；前三章原交付保留，后五章玩法暂缓，真人体验待验。",
+    "version": "1.4",
+    "task_id": "c1-restraint-20261015",
+    "status": "第一章1.4技术验收完成，默认试玩入口已更新；前三章耐久调整，后五章保持，真人文风和难度待验。",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,9 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "1.3",
+      "script_revision": "1.4",
       "script_status": "IMPLEMENTED",
-      "implementation": "第一章1.3运行已实现：先试炼与独立Boss，回薇蕾娜处汇报后正式委托及随机整备；当前技术证据见docs/c1-trial-forge，真人待验。"
+      "implementation": "第一章1.4运行已实现：五精英动作、克制Boss提示、格子详情与固定女性商人、自然试炼交流与救济布置。1.3主线及旧档保留；本轮技术证据见docs/c1-restraint，真人待验。"
     },
     "chapter02": {
       "id": "V01C02",
@@ -331,7 +331,7 @@
       "Saint confrontation is cinematic only, no new playable combat",
       "Current0.5 implementation is recorded in chapter01_voice_revision; prior chapter01_dialogue_revision0.4 and chapter01_incremental0.3 are historical."
     ],
-    "evidence": "docs/c1-trial-forge/ACCEPTANCE.md",
+    "evidence": "docs/c1-restraint/ACCEPTANCE.md",
     "previous_plan": {
       "version": "0.1",
       "task_id": "narrative-harness-20261010",
@@ -371,12 +371,11 @@
       "git_receipt": "docs/harness/acceptance/NARRATIVE_GIT_SAVE.json",
       "adoption": "0.1 and frozen pilot0.2 withdrawn; preserve rollback records; use independent incremental0.3"
     },
-    "implementation_scope": "0.9 layered multi-source objectives, five bidirectional routes, entry refresh and general quest conventions; original budgets and later authored chapters retained",
+    "implementation_scope": "R01-R03 endurance and restrained enemy effects; R01 five physical elite attacks, grid facilities, female merchant, trial dialogue and charity staging",
     "preserve": [
-      "original assassination and 0.5 known-speaker dialogue/portraits",
-      "106 maps outside chapter one",
-      "chapter boundaries and completion effects",
-      "three original elite budgets, classes, crafting and fixed quest rewards"
+      "original assassination, private conversation and all other dialogue",
+      "prior saves, rewards, progression and original assets",
+      "R04-R08 runtime and historical manuscripts"
     ],
     "rollback_report": {
       "source": "user report plus fetched rollback history",
@@ -385,8 +384,8 @@
       "preserved_commit": "6b388c7bf07b531bdf39b924ef8e6ab2b8851357",
       "limit": "This documentation task performs no runtime rollback and does not resume withdrawn reconstruction"
     },
-    "checked_at_utc": "2026-10-13T08:57:07.526944+00:00",
-    "harness_tests_passed": 31,
+    "checked_at_utc": "2026-10-15T16:06:04.801761+00:00",
+    "harness_tests_passed": 67,
     "git_receipt": "docs/ch1-layer-rules/GIT_SAVE.json",
     "previous_adopted_revision": {
       "version": "0.5",
@@ -401,7 +400,16 @@
       }
     },
     "remote_verified_commit": "fdca9d627cbaff405c82237a602ab462940d03e6",
-    "remote_verified_at_utc": "2026-10-13T09:09:43.459731+00:00"
+    "remote_verified_at_utc": "2026-10-13T09:09:43.459731+00:00",
+    "historical_0_9_scope": {
+      "implementation_scope": "0.9 layered multi-source objectives, five bidirectional routes, entry refresh and general quest conventions; original budgets and later authored chapters retained",
+      "preserve": [
+        "original assassination and 0.5 known-speaker dialogue/portraits",
+        "106 maps outside chapter one",
+        "chapter boundaries and completion effects",
+        "three original elite budgets, classes, crafting and fixed quest rewards"
+      ]
+    }
   },
   "rollback": {
     "task_id": "rollback-v30-20261010",
@@ -980,5 +988,18 @@
     "verified_content_commit": "07ff9fdf15c228cf7bcd13448c36e1451da51cc2",
     "git_receipt": "docs/c1-trial-forge/GIT_SAVE.json",
     "task_record": "source/tasks/archive/c1-trial-forge-20261014.json"
+  },
+  "restraint_1_4": {
+    "task": "c1-restraint-20261015",
+    "adopted": "docs/harness/CHAPTER_01_RESTRAINT.md",
+    "status": "technical verification complete; default playable package promoted and previous build preserved; Git synchronization next",
+    "scope": "R01-R03 endurance and restrained enemy effects; R01 five physical elite attacks, grid facilities, female merchant, trial dialogue and charity staging",
+    "human_status": "pending: prose, combat readability, difficulty and pacing",
+    "acceptance": "docs/c1-restraint/ACCEPTANCE.md",
+    "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+    "default_build": "docs/c1-restraint/DEFAULT_BUILD.json",
+    "local_server": "docs/c1-restraint/LOCAL_SERVER.json",
+    "map_quality": "docs/c1-restraint/MAP_QUALITY.json",
+    "human_observation": "docs/c1-restraint/HUMAN_OBSERVATION.md"
   }
 }

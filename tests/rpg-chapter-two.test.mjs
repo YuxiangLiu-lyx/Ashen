@@ -1,5 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';
 import {RPG,stats,MAPS} from '../dist/core-v14.js';import {parseSave} from '../dist/save-transfer-v14.js';
+import {C2_ROLES} from '../dist/rpg-chapter-two-data.js';
 import {DIALOGUES} from '../dist/data-v14.js';import {StoryFlow} from '../dist/story-flow-v14.js';
 import {takePumpReward} from '../dist/chapter-runtime-v14.js';import {experienceServicePanel} from '../dist/rpg-experience-services-ui.js';
 const game=(cls='shadow')=>{const g=new RPG(cls,null,()=>.44);g.chapter=7;g.enter('inn');g.pending=null;g.active=true;g.flags.chapterCardsV17=[1,2,3,4,5,6,7,8];return g;};
@@ -29,8 +30,8 @@ test('cellar supplies pay once only after a legal claim; full bag and legacy cla
 });
 test('authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore',()=>{
  const g=game();g.enter('manor');finish(g);g.apply('ch2_alarm');const es=g.enemies;assert.equal(new Set(es.map(e=>e.experienceRole)).size,3);assert.ok(es.every(e=>e.groupId==='c2-manor-wave'));
- const e=es[0],f=es[1];e.hp=e.maxHP/2;g.damage(f,99999);const snap=g.snapshot();delete snap.states.manor.enemies[0].c2ExperienceRevision;snap.states.manor.enemies[0].maxHP=240;snap.states.manor.enemies[0].hp=120;const r=new RPG('shadow',parseSave(JSON.stringify(snap)));assert.equal(r.enemies[0].hp,165);assert.ok(r.enemies[1].dead);assert.equal(r.p.gold,snap.p.gold);
- r.enter('spillway');const q=restore(r);assert.ok(q.states.manor.enemies[1].dead);assert.equal(q.states.manor.enemies[0].hp,165);
+ const e=es[0],f=es[1];e.hp=e.maxHP/2;g.damage(f,99999);const snap=g.snapshot();delete snap.states.manor.enemies[0].c2ExperienceRevision;snap.states.manor.enemies[0].maxHP=240;snap.states.manor.enemies[0].hp=120;const r=new RPG('shadow',parseSave(JSON.stringify(snap)));assert.equal(r.enemies[0].hp,Math.round(C2_ROLES.c2Front.hp/2));assert.ok(r.enemies[1].dead);assert.equal(r.p.gold,snap.p.gold);
+ r.enter('spillway');const q=restore(r);assert.ok(q.states.manor.enemies[1].dead);assert.equal(q.states.manor.enemies[0].hp,Math.round(C2_ROLES.c2Front.hp/2));
 });
 test('front guard responds to position and skills, while DOT is not silently weakened',()=>{
  const g=game();g.enter('manor');finish(g);g.apply('ch2_alarm');const e=g.enemies[0];e.angle=0;

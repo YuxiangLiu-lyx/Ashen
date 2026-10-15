@@ -1,0 +1,42 @@
+{
+  "passed": true,
+  "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+  "full_integration": {
+    "label": "integration",
+    "command": [
+      "python3",
+      "docs/c1-restraint/integration_only.py"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-10-15T14:55:07.962440+00:00",
+    "finished_at_utc": "2026-10-15T15:03:47.364342+00:00",
+    "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+    "source_fingerprint": "4dd4dd75b483f83ac5c85a9f7f9ec305886f9e99453e9c84dccc478476f19ca0",
+    "sources_changed_during_check": false,
+    "output": "docs/harness/evidence/c1-restraint-20261015/020-integration.txt",
+    "output_sha256": "99b0b8b5474599b5767ac79fe1c1bfdc4b5e43167da1af480282bbb23d452cd6",
+    "timeout_seconds": 1800.0
+  },
+  "current_fast": {
+    "label": "fast",
+    "command": [
+      "python3",
+      "tools/harness/check.py",
+      "--tier",
+      "fast"
+    ],
+    "exit_code": 0,
+    "started_at_utc": "2026-10-15T15:06:12.397289+00:00",
+    "finished_at_utc": "2026-10-15T15:06:59.747688+00:00",
+    "head_commit": "0b8c198f6fdf004f02670cb8cd533b6462bf4c3e",
+    "source_fingerprint": "d25ac2a89037cf078a1d9a83efe7613863e7d40b802697c294d3d18797a02add",
+    "sources_changed_during_check": false,
+    "output": "docs/harness/evidence/c1-restraint-20261015/021-fast.txt",
+    "output_sha256": "23276a0e1105ea76188618bed46fc3ba6c49a0c8d23f3176df11e2a43e47b877",
+    "timeout_seconds": 300.0
+  },
+  "only_change": [
+    "source/harness/modules.json"
+  ],
+  "reason": "Two bare test filenames in recommendations now have node --test. Every runtime module, asset mapping, test, oracle and narrative source is byte-identical to the complete passing integration. Current Harness/health/narrative checks were rerun; the recommendation correction cannot alter runtime execution."
+}

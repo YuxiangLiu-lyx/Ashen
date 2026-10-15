@@ -1,0 +1,9 @@
+// Actual before/after UI preparation snapshots at the same level; production combat only.
+import fs from 'node:fs';import assert from 'node:assert/strict';
+import {groupExperiment,cohort} from '../../tools/balance_lab/experience-audit.mjs';
+import {simulateSnapshot} from '../../tools/balance_lab/chapter-one.mjs';
+import {provenance,sha} from '../../tools/balance_lab/provenance.mjs';
+const report={provenance:provenance(),sources:[],runs:[],limits:['Two actual UI snapshots before/after buying weapon and hat and allocating already-earned points, not equipment alone.','Same level within each pair; full HP/MP and 2+2 potions at sequence start only; detached simulation placement, not human play.']};
+for(const cls of ['shadow','oath','ember'])for(const stage of ['01-post-import','02-relay-outfit']){const file=`docs/rpg-experience/c2/natural-005/${cls}/${stage}-save.json`,raw=fs.readFileSync(file),s=JSON.parse(raw);report.sources.push({cls,stage,path:file,sha256:sha(raw),level:s.p.level});Object.assign(s.flags,{postArrival:true,bridgeSeen:true,courtSeen:true,targetCutaway:true,spillSeen:true,v9CellarVisited:true,v9WellVisited:true});for(const seed of [7300,7301,7302]){report.runs.push({cls,stage,kind:'continuous',...groupExperiment(s,{kind:'normal',seed,policy:'responsive',maps:['bridge','bridgecellar','wellcrypt','spillway']})});report.runs.push({cls,stage,kind:'bren',...simulateSnapshot(cohort(s,'normal',seed).snapshot(),'bren',seed,'full','responsive')});}}
+assert.ok(report.runs.every(r=>['win','loss'].includes(r.outcome)));for(const cls of ['shadow','oath','ember'])assert.equal(report.sources.find(s=>s.cls===cls).level,report.sources.filter(s=>s.cls===cls)[1].level);
+fs.writeFileSync('docs/c1-restraint/C2_PREPARATION_COMBAT.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({resolved:report.runs.length}));

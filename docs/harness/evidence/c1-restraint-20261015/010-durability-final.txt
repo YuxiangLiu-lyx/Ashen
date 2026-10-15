@@ -1,0 +1,33 @@
+✖ new durability preserves partial health and corpses over repeated loads and map queries (102.161792ms)
+✔ selecting a grid only reveals details; unavailable early services remain locked (0.952791ms)
+✔ elite has no floor VFX; boss outlines use actual radius, arc and locked line origin (0.213ms)
+✔ edited conversations keep page roles and pending full-text saves retain the original words (6.276458ms)
+ℹ tests 4
+ℹ suites 0
+ℹ pass 3
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 249.543291
+
+✖ failing tests:
+
+test at tests/c1-restraint.test.mjs:7:1
+✖ new durability preserves partial health and corpses over repeated loads and map queries (102.161792ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(elites.length)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-restraint.test.mjs:16:101)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 0,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

@@ -10,10 +10,11 @@ import {C1_ELITES} from '../dist/chapter-one-expansion-data.js';
 import {parseSave} from '../dist/save-transfer-v14.js';
 import {dialogueCorpus} from '../tools/harness/dialogue_corpus.mjs';
 const trial=JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/SCRIPT.json',import.meta.url))).scenes;
+Object.assign(trial,JSON.parse(fs.readFileSync(new URL('../docs/c1-restraint/SCRIPT.json',import.meta.url))).scenes);
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/dialogue-hud/baseline/full-corpus.json',import.meta.url))).scenes;
 const clone=x=>structuredClone(x),finish=g=>{for(let n=0;g.pending&&n<20;n++)g.finishScene();};
 test('all static/dynamic providers are covered; only exact authored whole-scene revisions change',()=>{
- const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
+ const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c1-restraint/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
  for(const[id,b]of Object.entries(baseline)){
   const e=DIALOGUE_COPYEDITS.find(e=>e.key===id)||DIALOGUE_COPYEDITS.find(e=>JSON.stringify(e.before)===JSON.stringify(b.text));
   if(e){assert.deepEqual(e.before,b.text,id);assert.deepEqual(e.after.map(r=>r[0]),b.text.map(r=>r[0]),id);}

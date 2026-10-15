@@ -98,7 +98,7 @@ test('exploration caches contain real usable supplies/materials and remain empty
 test('elite migration preserves living health ratio, off-map deaths, and all settled rewards',()=>{
  const g=game();g.chapter=2;Object.assign(g.c1Expansion.preparation,{started:true,approved:true});enter(g,'grove');const e=g.enemies.find(e=>e.id==='c1-elite-rat');
  e.maxHP=540;e.hp=270;e.c1Tuned=true;delete e.c1CombatRevision;const saved=parseSave(JSON.stringify(g.snapshot())),r=new RPG('shadow',saved,()=>.9);
- assert.equal(r.enemies.find(x=>x.id===e.id).hp,450);assert.equal(r.enemies.find(x=>x.id===e.id).maxHP,900);const twice=new RPG('shadow',parseSave(JSON.stringify(r.snapshot())),()=>.9);assert.equal(twice.enemies.find(x=>x.id===e.id).hp,450);
+ assert.equal(r.enemies.find(x=>x.id===e.id).hp,810);assert.equal(r.enemies.find(x=>x.id===e.id).maxHP,1620);const twice=new RPG('shadow',parseSave(JSON.stringify(r.snapshot())),()=>.9);assert.equal(twice.enemies.find(x=>x.id===e.id).hp,810);
  r.damage(r.enemies.find(x=>x.id===e.id),99999);const ledger=structuredClone(r.c1Expansion.claimLedger),gold=r.p.gold;r.enter('hall');const death=r.snapshot();delete death.states.grove.enemies.find(x=>x.id===e.id).c1CombatRevision;const restored=new RPG('shadow',parseSave(JSON.stringify(death)),()=>.9);assert.ok(restored.states.grove.enemies.find(x=>x.id===e.id).dead);assert.equal(restored.p.gold,gold);assert.deepEqual(restored.c1Expansion.claimLedger,ledger);
 });
 test('charging rat protects its front while recovery rewards a counterattack; DOT is unchanged',()=>{

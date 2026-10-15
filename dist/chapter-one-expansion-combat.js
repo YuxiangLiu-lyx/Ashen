@@ -4,10 +4,17 @@ import {C1_ELITES,c1DropIndex} from './chapter-one-expansion-data.js';
 import {c1State,c1Random,c1Clone} from './chapter-one-expansion-save.js';
 import {c1Item,c1Effects} from './chapter-one-expansion-gear.js';
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);
+export const C1_ATTACK_STYLES={
+ 'c1-elite-rat':{label:'俯身追咬',shape:'line',length:125,width:42,wind:.7,speed:440,walk:150,reach:160,recovery:1.1},
+ 'echo-warden':{label:'压肩冲撞',shape:'line',length:245,width:58,wind:1,speed:560,walk:112,reach:285,recovery:1.7},
+ 'c1-elite-bat':{label:'收翼扑落',shape:'line',length:175,width:44,wind:.85,speed:420,walk:140,reach:205,recovery:1.4},
+ 'c1-trial-warden':{label:'提盾横击',shape:'cone',r:108,arc:.72,wind:.95,walk:96,reach:112,recovery:1.8},
+ 'c1-vault-warden':{label:'举锤砸地',shape:'circle',r:118,wind:1.2,walk:72,reach:128,recovery:2.1}
+};
 const steps=(g,id)=>c1State(g).questSteps[id]||(c1State(g).questSteps[id]={});
 export function c1Encounter(g,id){const h=c1State(g);return h.elite[id]||(h.elite[id]={killSequence:0,aliveGeneration:1,lastKill:0,outsideActiveSeconds:0,leftAfterKill:false,firstPartGranted:false,lootResult:null});}
 export function c1Danger(t,p){if(!t)return false;if(t.shape==='circle')return distance(t,p)<t.r;if(t.shape==='cone')return distance(t,p)<t.r&&Math.cos(Math.atan2(p.y-t.y,p.x-t.x)-t.a)>Math.cos(t.arc);const dx=p.x-t.x,dy=p.y-t.y,along=dx*Math.cos(t.a)+dy*Math.sin(t.a),across=Math.abs(-dx*Math.sin(t.a)+dy*Math.cos(t.a));return along>-18&&along<t.length&&across<t.width/2+12;}
-function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));if(!e.c1Tuned||e.c1CombatRevision!==2){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;e.c1CombatRevision=2;}
+function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));if(!e.c1Tuned||e.c1CombatRevision!==3){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;e.c1CombatRevision=3;}
  Object.assign(e,{label:cfg.name,elite:true,isBoss:false,c1Custom:true,c1Generation:e.c1Generation||h.aliveGeneration,v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:35,v28RewardGold:12,v13Tuned:true});}
 export function installC1Combat(RPG,{stats,MAPS}){
  const P=RPG.prototype,old={};for(const k of ['ensureMap','enemy','enter','update','damage','handleHellDeath','dropCombatLoot','snapshot','restore','respawn','skill','enemyHit'])old[k]=P[k];
@@ -50,31 +57,33 @@ export function installC1Combat(RPG,{stats,MAPS}){
    const t=e.telegraph;if(t&&['heavySlam','chainSlam','charge','shieldBash','wolfLunge','wolfSweep','chainSweep'].includes(t.kind)&&c1Danger(t,this.p)&&this.clearLine(e,this.p,false))t.c1Threatened=true;
    return false;
   }
-  const cfg=C1_ELITES[e.id],p=this.p;e.stun=Math.max(0,e.stun-dt);e.slow=Math.max(0,(e.slow||0)-dt);e.bleedTime=Math.max(0,e.bleedTime-dt);if(!e.bleedTime)e.bleed=0;e.dot-=dt;if(e.dot<=0){e.dot=1;if(e.bleed||e.burn)this.damage(e,e.bleed*B.bleedTickDamage+(e.burn||0)*B.burnTickDamage,'dot');e.burn=Math.max(0,e.burn-1);}if(e.dead)return true;
+  const cfg=C1_ELITES[e.id],style=C1_ATTACK_STYLES[e.id],p=this.p;e.stun=Math.max(0,e.stun-dt);e.slow=Math.max(0,(e.slow||0)-dt);e.bleedTime=Math.max(0,e.bleedTime-dt);if(!e.bleedTime)e.bleed=0;e.dot-=dt;if(e.dot<=0){e.dot=1;if(e.bleed||e.burn)this.damage(e,e.bleed*B.bleedTickDamage+(e.burn||0)*B.burnTickDamage,'dot');e.burn=Math.max(0,e.burn-1);}if(e.dead)return true;
   e.attackAnim=Math.max(0,(e.attackAnim||0)-dt);e.cd=Math.max(0,e.cd-dt);e.c1Recovery=Math.max(0,(e.c1Recovery||0)-dt);e.anim=(e.anim||0)+dt*5;e.moving=false;
   if(e.stun>0||e.c1Recovery>0)return true;
-  if(e.c1Charge){const a=e.c1Charge,oldX=e.x,oldY=e.y;this.moveActor(e,e.x+Math.cos(a.a)*650*dt,e.y+Math.sin(a.a)*650*dt,false);a.life-=dt;
+  if(e.c1Charge){const a=e.c1Charge,oldX=e.x,oldY=e.y;this.moveActor(e,e.x+Math.cos(a.a)*(a.speed||560)*dt,e.y+Math.sin(a.a)*(a.speed||560)*dt,false);a.life-=dt;
    if(!a.hit&&distance(e,p)<48&&this.clearLine(e,p,false)){a.hit=true;this.hurt(cfg.heavy);}
-   if(Math.hypot(e.x-oldX,e.y-oldY)<dt*120||a.life<=0){const wall=Math.hypot(e.x-oldX,e.y-oldY)<dt*120;e.c1Charge=null;if(a.threatened&&!a.hit)this.c1EvadedThreat();e.c1Recovery=e.c1Follow?0:wall&&e.type==='rat'?1.5:1.2;e.cd=e.c1Follow?0:1.3;if(wall)this.text('撞击硬直',e.x,e.y-95);}
+   if(Math.hypot(e.x-oldX,e.y-oldY)<dt*120||a.life<=0){const wall=Math.hypot(e.x-oldX,e.y-oldY)<dt*120;e.c1Charge=null;if(a.threatened&&!a.hit)this.c1EvadedThreat();e.c1Recovery=wall?Math.max(1.7,style.recovery):style.recovery;e.cd=1.5;if(wall)this.text('撞击硬直',e.x,e.y-95);}
    return true;
   }
   if(e.telegraph){const t=e.telegraph;t.life-=dt;e.wind=t.life;t.threatened=t.threatened||(c1Danger(t,p)&&this.clearLine(e,p,false));if(t.life>0)return true;
    e.telegraph=null;e.wind=0;e.attackAnim=.35;
-   if(t.shape==='line'){e.c1Charge={a:t.a,life:t.length/650,hit:false,threatened:t.threatened};}
-   else{const hit=c1Danger(t,p)&&this.clearLine(e,p,false);if(hit)this.hurt(cfg.heavy);else if(t.threatened)this.c1EvadedThreat();e.c1Recovery=1.3;e.cd=1.8;}
-   if(e.type==='wolf'&&e.hp<e.maxHP*.5&&!e.c1Second){e.c1Second=true;e.c1Follow=.65;}else e.c1Second=false;
+   if(t.shape==='line'){e.c1Charge={a:t.a,life:t.length/style.speed,speed:style.speed,hit:false,threatened:t.threatened};}
+   else{const hit=c1Danger(t,p)&&this.clearLine(e,p,false);if(hit)this.hurt(cfg.heavy);else if(t.threatened)this.c1EvadedThreat();e.c1Recovery=style.recovery;e.cd=1.8;}
    return true;
   }
-  if(e.type==='bat'&&e.hp<e.maxHP*.5&&!e.c1Summoned){e.c1Summoned=true;for(const dy of [-70,70]){const at=this.safePoint(e.x-130,e.y+dy),add=this.enemy('bat',at.x,at.y,'c1-weak-bat-'+dy);Object.assign(add,{maxHP:80,hp:80,c1NoReward:true,storyTag:'c1-weak',v28RewardXP:0,v28RewardGold:0});this.enemies.push(add);}this.say('夜翼只唤来这一对弱蝠，绕窑柱挡住声波。');}
   const d=distance(e,p);if(d>550&&e.aiState!=='COMBAT')return true;if(d>750){e.aiState='IDLE';return true;}e.aiState='COMBAT';e.angle=Math.atan2(p.y-e.y,p.x-e.x);
-  if(e.cd<=0&&d<410&&this.clearLine(e,p,false)){
+  if(e.cd<=0&&d<style.reach&&this.clearLine(e,p,false)){
    e.c1Pattern=(e.c1Pattern||0)+1;
    if(e.c1Pattern%3===0&&d<75){this.hurt(cfg.hit);e.attackAnim=.3;e.cd=1.5;return true;}
-   const wind=e.c1Follow||cfg.wind;e.c1Follow=0;e.wind=wind;e.windMax=wind;
-   e.telegraph={shape:e.type==='bat'?'cone':'line',x:e.x,y:e.y,a:e.angle,r:320,arc:.65,length:e.type==='rat'?360:290,width:60,life:wind,max:wind,threatened:false,c1:true};e.cd=2.7;
-   this.text(e.type==='bat'?'声波 · 绕柱':e.type==='rat'?'冲撞 · 引向石墩':'压身 · 侧移',e.x,e.y-105,'#e6bf85');return true;
+   const wind=style.wind;e.wind=wind;e.windMax=wind;
+   e.telegraph={...style,x:e.x,y:e.y,a:e.angle,life:wind,max:wind,threatened:false,c1:true};e.cd=2.4;
+   return true;
   }
-  if(d>65){const dir=this.pathDirection(e,p);if(dir){const speed=(e.slow>0?55:105)*dt;this.moveActor(e,e.x+dir.x*speed,e.y+dir.y*speed,false);e.moving=true;}}
+  if(d>65){let target=p;
+   // The bat approaches from alternating sides; the archive guardian holds its ground.
+   if(e.id==='c1-elite-bat'&&d>150){const side=(e.c1Pattern||0)%2?1:-1;target={x:p.x+Math.cos(e.angle+side*1.15)*95,y:p.y+Math.sin(e.angle+side*1.15)*95};}
+   if(e.id!=='c1-vault-warden'||d<260){const dir=this.pathDirection(e,target);if(dir){const speed=(e.slow>0?style.walk*.5:style.walk)*dt;this.moveActor(e,e.x+dir.x*speed,e.y+dir.y*speed,false);e.moving=true;}}
+  }
   return true;
  };
  P.enemyHit=function(e){const t=e.telegraph,threatened=t?.c1Threatened===true,outside=t&&!c1Danger(t,this.p);const result=old.enemyHit.call(this,e);if(threatened){if(e.action)e.action.c1Threatened=true;else if(outside&&!e.dead)this.c1EvadedThreat();}return result;};

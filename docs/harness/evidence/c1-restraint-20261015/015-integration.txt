@@ -1,0 +1,1285 @@
+Health: live references, module inventory, version, task evidence and archive part sizes verified
+Verified 116 materialized original assets; derivative hashes covered by Node regressions
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/narrative.py audit --live
+{
+  "status": "passed",
+  "errors": [],
+  "warnings": [
+    {
+      "id": "DIFF-C2-EXILE",
+      "kind": "implementation_gap",
+      "status": "OPEN",
+      "summary": "当前exile-was-unplanned及会馆对白，与已定作者接应骗局不同。",
+      "sources": [
+        "runtime-knowledge",
+        "scene:darkExileV9",
+        "author-pair",
+        "c2-difference"
+      ],
+      "resolution": "描述当前运行按旧解释；未来实施追加B时同时更新对白、知识标记和pending迁移。此轮不更改。"
+    },
+    {
+      "id": "DIFF-C2-VILERENA-DOOR",
+      "kind": "outdated_plan_detail",
+      "status": "OPEN",
+      "summary": "第一章0.5私谈已让薇蕾娜知道另有开门办法；第二章0.3追加A及知识表仍局部写她在场外不知。",
+      "sources": [
+        "runtime-c1-hidden",
+        "c2-plan"
+      ],
+      "resolution": "保持R01获得的知识；不扩大为具体解法或地狱计划。下一次第二章采用需修稿。"
+    },
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "counts": {
+    "characters": 87,
+    "chapters": 8,
+    "events": 173,
+    "facts": 156,
+    "seeds": 4
+  },
+  "limits": [
+    "Literary quality and unannotated implications require contextual editorial review.",
+    "Known runtime/intent differences are reported, not silently rewritten."
+  ]
+}
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+test_expansion_routing_and_real_core_commands (test_chapter_quality.ChapterQualityTests.test_expansion_routing_and_real_core_commands) ... ok
+test_no_state_replay_or_missing_evidence_can_pass (test_chapter_quality.ChapterQualityTests.test_no_state_replay_or_missing_evidence_can_pass) ... ok
+test_batch_evidence_rejects_missing_duplicate_and_outside_paths (test_dialogue_style.DialogueStyleTests.test_batch_evidence_rejects_missing_duplicate_and_outside_paths) ... ok
+test_copyedit_cannot_be_general_readiness_or_change_speakers_pages_or_unreviewed_lines (test_dialogue_style.DialogueStyleTests.test_copyedit_cannot_be_general_readiness_or_change_speakers_pages_or_unreviewed_lines) ... ok
+test_corpus_counts_include_scenes_without_candidates (test_dialogue_style.DialogueStyleTests.test_corpus_counts_include_scenes_without_candidates) ... ok
+test_emergency_commands_are_candidates_not_automatic_failures (test_dialogue_style.DialogueStyleTests.test_emergency_commands_are_candidates_not_automatic_failures) ... ok
+test_search_does_not_misread_common_words_or_questions (test_dialogue_style.DialogueStyleTests.test_search_does_not_misread_common_words_or_questions) ... ok
+test_design_routing_and_ordinary_fix_boundaries (test_experience.ExperienceTests.test_design_routing_and_ordinary_fix_boundaries) ... ok
+test_human_pending_and_final_chapter_cannot_be_misrepresented (test_experience.ExperienceTests.test_human_pending_and_final_chapter_cannot_be_misrepresented) ... ok
+test_missing_stale_tampered_or_synthetic_play_cannot_pass (test_experience.ExperienceTests.test_missing_stale_tampered_or_synthetic_play_cannot_pass) ... ok
+test_runtime_chapters_keep_legacy_receipts_without_assigning_literary_chapters (test_experience.ExperienceTests.test_runtime_chapters_keep_legacy_receipts_without_assigning_literary_chapters) ... ok
+test_task_finish_requires_requested_chapters_and_retained_report_hash (test_experience.ExperienceTests.test_task_finish_requires_requested_chapters_and_retained_report_hash) ... ok
+test_changes_during_command_invalidate_evidence (test_harness.IsolatedStateTests.test_changes_during_command_invalidate_evidence) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_concurrent_task_writers_cannot_overwrite_results (test_harness.IsolatedStateTests.test_concurrent_task_writers_cannot_overwrite_results) ... ok
+test_failure_is_real_not_passed_prose (test_harness.IsolatedStateTests.test_failure_is_real_not_passed_prose) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_interrupted_check_not_assumed_success_or_overwritten (test_harness.IsolatedStateTests.test_interrupted_check_not_assumed_success_or_overwritten) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/003-core.txt
+ok
+test_modified_moved_new_files_never_use_stale_index (test_harness.IsolatedStateTests.test_modified_moved_new_files_never_use_stale_index) ... ok
+test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan (test_harness.IsolatedStateTests.test_progress_survives_reload_and_preserves_other_tasks_and_manual_plan) ... ok
+test_resume_integrity_code_version_and_tamper (test_harness.IsolatedStateTests.test_resume_integrity_code_version_and_tamper) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_task_path_rejects_traversal (test_harness.IsolatedStateTests.test_task_path_rejects_traversal) ... ok
+test_timeout_preserves_partial_log_and_requires_successful_rerun (test_harness.IsolatedStateTests.test_timeout_preserves_partial_log_and_requires_successful_rerun) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+Running core; log: docs/harness/evidence/fixture/002-core.txt
+ok
+test_unfinished_stage_prevents_completion (test_harness.IsolatedStateTests.test_unfinished_stage_prevents_completion) ... Running core; log: docs/harness/evidence/fixture/001-core.txt
+ok
+test_budget_defers_explicitly (test_harness.RoutingTests.test_budget_defers_explicitly) ... ok
+test_chapter5_rewards_does_not_load_story_art_or_history (test_harness.RoutingTests.test_chapter5_rewards_does_not_load_story_art_or_history) ... ok
+test_map_presentation_excludes_combat_economy (test_harness.RoutingTests.test_map_presentation_excludes_combat_economy) ... ok
+test_multiline_imports_and_embedded_browser_hooks_are_distinct (test_harness.RoutingTests.test_multiline_imports_and_embedded_browser_hooks_are_distinct) ... ok
+test_persistent_game_settings_routes_to_rules_and_real_contracts (test_harness.RoutingTests.test_persistent_game_settings_routes_to_rules_and_real_contracts) ... ok
+test_precise_symbol_search_and_unknown (test_harness.RoutingTests.test_precise_symbol_search_and_unknown) ... ok
+test_scope_recommends_runtime_regression_and_lab (test_harness.RoutingTests.test_scope_recommends_runtime_regression_and_lab) ... ok
+test_shadow_combo_discovers_actual_overlays_career_and_save (test_harness.RoutingTests.test_shadow_combo_discovers_actual_overlays_career_and_save) ... ok
+test_six_discoverable_scoped_skills_and_valid_references (test_harness.RoutingTests.test_six_discoverable_scoped_skills_and_valid_references) ... ok
+test_each_dimension_independent_and_artifact_integrity (test_map_quality.MapQualityTests.test_each_dimension_independent_and_artifact_integrity) ... ok
+test_empty_and_stale_reviews_fail (test_map_quality.MapQualityTests.test_empty_and_stale_reviews_fail) ... ok
+test_geometry_renderer_resources_trigger_but_text_does_not (test_map_quality.MapQualityTests.test_geometry_renderer_resources_trigger_but_text_does_not) ... ok
+test_absent_character_cannot_speak_even_without_fact_claim (test_narrative_harness.NarrativeCounterexampleTests.test_absent_character_cannot_speak_even_without_fact_claim) ... ok
+test_changed_chapter_cannot_finish_without_review_but_tools_can (test_narrative_harness.NarrativeCounterexampleTests.test_changed_chapter_cannot_finish_without_review_but_tools_can) ... ok
+test_data_only_canon_error_also_blocks_task_finish (test_narrative_harness.NarrativeCounterexampleTests.test_data_only_canon_error_also_blocks_task_finish) ... ok
+test_dynamic_context_reader_executes_actual_local_actions (test_narrative_harness.NarrativeCounterexampleTests.test_dynamic_context_reader_executes_actual_local_actions) ... ok
+test_exact_runtime_reader_uses_final_overrides (test_narrative_harness.NarrativeCounterexampleTests.test_exact_runtime_reader_uses_final_overrides) ... ok
+test_examples_and_withdrawn_sources_cannot_support_canon (test_narrative_harness.NarrativeCounterexampleTests.test_examples_and_withdrawn_sources_cannot_support_canon) ... ok
+test_future_event_and_outline_cannot_be_promoted (test_narrative_harness.NarrativeCounterexampleTests.test_future_event_and_outline_cannot_be_promoted) ... ok
+test_generic_data_dialogue_change_also_requires_review (test_narrative_harness.NarrativeCounterexampleTests.test_generic_data_dialogue_change_also_requires_review) ... ok
+test_grant_to_absent_hero_and_plan_promotion_fail (test_narrative_harness.NarrativeCounterexampleTests.test_grant_to_absent_hero_and_plan_promotion_fail) ... ok
+test_new_unregistered_npc_and_invalid_source_are_reported (test_narrative_harness.NarrativeCounterexampleTests.test_new_unregistered_npc_and_invalid_source_are_reported) ... ok
+test_real_task_attach_finish_and_tampered_evidence_gate (test_narrative_harness.NarrativeCounterexampleTests.test_real_task_attach_finish_and_tampered_evidence_gate) ... ok
+test_review_blocks_future_plan_and_report_as_truth (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_future_plan_and_report_as_truth) ... ok
+test_review_blocks_hero_leak_and_premature_player_reveal (test_narrative_harness.NarrativeCounterexampleTests.test_review_blocks_hero_leak_and_premature_player_reveal) ... ok
+test_source_drift_survives_reindex_and_blocks_context (test_narrative_harness.NarrativeCounterexampleTests.test_source_drift_survives_reindex_and_blocks_context) ... ok
+test_style_warning_is_not_a_literary_failure (test_narrative_harness.NarrativeCounterexampleTests.test_style_warning_is_not_a_literary_failure) ... ok
+test_budget_reports_omissions_and_honors_utf8_bytes (test_narrative_harness.NarrativeEndToEndTests.test_budget_reports_omissions_and_honors_utf8_bytes) ... ok
+test_chapter_states_and_directional_relationships_change_by_events (test_narrative_harness.NarrativeEndToEndTests.test_chapter_states_and_directional_relationships_change_by_events) ... ok
+test_collision_task_does_not_load_narrative (test_narrative_harness.NarrativeEndToEndTests.test_collision_task_does_not_load_narrative) ... ok
+test_invalid_chapter_scene_pair_fails_cli (test_narrative_harness.NarrativeEndToEndTests.test_invalid_chapter_scene_pair_fails_cli) ... ok
+test_later_runtime_is_partial_and_not_a_new_literary_plan (test_narrative_harness.NarrativeEndToEndTests.test_later_runtime_is_partial_and_not_a_new_literary_plan) ... ok
+test_live_export_matches_current_records (test_narrative_harness.NarrativeEndToEndTests.test_live_export_matches_current_records) ... ok
+test_optional_episodes_require_timestamp_and_do_not_advance_plot (test_narrative_harness.NarrativeEndToEndTests.test_optional_episodes_require_timestamp_and_do_not_advance_plot) ... ok
+test_player_sees_private_scene_heroes_do_not (test_narrative_harness.NarrativeEndToEndTests.test_player_sees_private_scene_heroes_do_not) ... ok
+test_real_cli_daily_context_requires_time_then_resolves (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_daily_context_requires_time_then_resolves) ... ok
+test_real_cli_locates_requested_characters_and_style (test_narrative_harness.NarrativeEndToEndTests.test_real_cli_locates_requested_characters_and_style) ... ok
+test_same_characters_do_not_receive_planned_betrayal (test_narrative_harness.NarrativeEndToEndTests.test_same_characters_do_not_receive_planned_betrayal) ... ok
+test_architecture_and_character_aliases_are_discoverable (test_narrative_routing.NarrativeRoutingTests.test_architecture_and_character_aliases_are_discoverable) ... ok
+test_budget_defers_chapter_instead_of_claiming_it_was_read (test_narrative_routing.NarrativeRoutingTests.test_budget_defers_chapter_instead_of_claiming_it_was_read) ... ok
+test_new_narrative_links_resolve_within_repository (test_narrative_routing.NarrativeRoutingTests.test_new_narrative_links_resolve_within_repository) ... ok
+test_registry_and_state_reference_same_script_revisions (test_narrative_routing.NarrativeRoutingTests.test_registry_and_state_reference_same_script_revisions) ... ok
+test_specific_chapters_find_separate_full_script_entries (test_narrative_routing.NarrativeRoutingTests.test_specific_chapters_find_separate_full_script_entries) ... ok
+test_vision_is_available_only_on_explicit_matching_intent (test_narrative_routing.NarrativeRoutingTests.test_vision_is_available_only_on_explicit_matching_intent) ... ok
+test_withdrawn_cinematic_design_is_not_an_active_context (test_narrative_routing.NarrativeRoutingTests.test_withdrawn_cinematic_design_is_not_an_active_context) ... ok
+
+----------------------------------------------------------------------
+Ran 67 tests in 46.243s
+
+OK
+RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+Parsed 241 runtime modules; failures: 0
+RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-one-layer-rules.test.mjs tests/chapter-test.test.mjs tests/rpg-experience.test.mjs tests/rpg-chapter-two.test.mjs tests/rpg-chapter-three.test.mjs tests/c1-story-flow.test.mjs tests/dialogue-reader.test.mjs tests/dialogue-hud.test.mjs
+✔ same seeds replay complete combat metrics and events exactly (722.930125ms)
+✔ all base classes run real ordinary, elite and boss encounters (783.211958ms)
+✔ direct real RPG q matches experiment first cast damage/cost/cooldown (69.840417ms)
+✔ base bleed and e consume real stacks; boss damage differs from ordinary (1.004875ms)
+✔ career bleed uses separate real thirty-stack state and harvest consumes it (2.919917ms)
+✔ insufficient mana/action cooldown reject casts without false simulated uses (100.21625ms)
+✔ real AI damage, resources and distinct policies affect outcomes (316.989709ms)
+✔ invalid fixtures reject unknown enemies/skills/allocations, not silent guard fallback (0.325709ms)
+✔ V28 exact tier boundaries, no future tier relative to max player/enemy level (0.424708ms)
+✔ V28 high-level old-map and kill-time tier are recorded existing behavior (0.208708ms)
+✔ V28 1% threshold, once-only roll and scripted exclusions (0.107625ms)
+✔ V28 ownership includes gear, inventory and pending rewards; saturated pool has no drop (0.070917ms)
+✔ V28 legacy restore preserves HP ratio, dead state and does not tune twice (0.088375ms)
+✔ real save roundtrip retains V28 markers, build and HP ratio (5.76325ms)
+✔ full inventory rare gear follows real conversion behavior, not fictitious reward queue (0.492416ms)
+✔ enchant proc excludes DOT and proc; storm chain stays finite and on cooldown (0.475042ms)
+✔ real reprisal cannot exceed three charges or retrigger inside one second (0.996ms)
+✔ effects exposes base/career apply-consume and runtime-enforced proc guard descriptions (1.842125ms)
+✔ economy real rewards and one-time claim retry, free craft, injected prerequisites (2.406583ms)
+✔ all economy paths execute; resource deficits and repeated callbacks remain visible (571.061917ms)
+✔ distribution separates censored fights and reports confidence interval (58.185708ms)
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (241.291292ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (136.858584ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.652334ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (9.575375ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (6.237083ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (83.926917ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.789667ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (22.627209ms)
+✔ Iden local conversation uses the actual foyer menu and persists without inventing an injury (4.522042ms)
+✔ craft commits one deterministic instance and fee across duplicate calls and reload (148.372458ms)
+✔ preview does not roll or consume; all recipe/rune ranges match actual stats (81.565167ms)
+✔ 59/60 bag, two alchemy pieces, durable escrow, no auto-cash and no second charge (3.3385ms)
+✔ two independently crafted instances persist, no template deduplication and no sell arbitrage (0.384792ms)
+✔ deduplicated fixed effects, half offhand weapon attack, unequip and restore without residual stats (0.766458ms)
+✔ invalid orders, insufficient material and canceled previews preserve original state (0.556333ms)
+✔ training restores rage, shields and temporary combat buffs on exit and saved restore (2.061ms)
+✔ single swing cannot count three enemies as three attacks; same cast cannot refund twice after cooldown (1.959208ms)
+shadow main_only trial-boss-entry c1TrialVault 3 69
+shadow typical trial-boss-entry c1TrialVault 4 94
+shadow typical trial-reported hall 5 183
+shadow typical prepared town 7 253
+shadow typical captain-entry canal 7 283
+shadow typical captain-done canal 7 303
+shadow typical chapter-one-end post 8 363
+shadow typical bridge-entry bridge 8 235
+shadow typical manor-entry manor 8 270
+shadow typical manor-exit spillway 8 300
+shadow typical chapter-two-end hellGate 9 370
+shadow all_once trial-boss-entry c1TrialVault 4 94
+shadow all_once trial-reported hall 5 183
+shadow all_once rat-entry grove 7 278
+shadow all_once bat-entry c1ReedKiln 7 312
+shadow all_once warden-entry echo 8 399
+shadow all_once prepared town 9 620
+shadow all_once captain-entry canal 10 652
+shadow all_once captain-done canal 10 673
+shadow all_once chapter-one-end post 10 744
+shadow all_once bridge-entry bridge 10 616
+shadow all_once manor-entry manor 10 658
+shadow all_once manor-exit spillway 11 694
+shadow all_once chapter-two-end hellGate 11 771
+shadow repeat_patrol trial-boss-entry c1TrialVault 4 94
+shadow repeat_patrol trial-reported hall 5 183
+shadow repeat_patrol rat-entry grove 7 278
+shadow repeat_patrol bat-entry c1ReedKiln 7 312
+shadow repeat_patrol warden-entry echo 8 399
+shadow repeat_patrol patrol-1 hall 10 623
+shadow repeat_patrol patrol-2 hall 11 680
+shadow repeat_patrol patrol-3 hall 11 631
+shadow repeat_patrol patrol-4 hall 12 711
+shadow repeat_patrol patrol-5 hall 12 709
+shadow repeat_patrol prepared town 12 717
+shadow repeat_patrol captain-entry canal 12 743
+shadow repeat_patrol captain-done canal 13 764
+shadow repeat_patrol chapter-one-end post 13 835
+shadow repeat_patrol bridge-entry bridge 13 707
+shadow repeat_patrol manor-entry manor 13 776
+shadow repeat_patrol manor-exit spillway 13 818
+shadow repeat_patrol chapter-two-end hellGate 14 902
+shadow local_work trial-boss-entry c1TrialVault 4 94
+shadow local_work trial-reported hall 5 183
+shadow local_work vault-entry c1TrialVault 5 209
+shadow local_work underground-reported c1TrialFoyer 6 258
+shadow local_work rat-entry grove 8 344
+shadow local_work bat-entry c1ReedKiln 8 417
+oath main_only trial-boss-entry c1TrialVault 3 69
+oath main_only trial-reported hall 5 155
+oath main_only prepared town 6 197
+oath main_only captain-entry canal 6 225
+oath main_only captain-done canal 7 244
+oath main_only chapter-one-end post 7 304
+oath main_only bridge-entry bridge 7 176
+oath main_only manor-entry manor 7 211
+oath main_only manor-exit spillway 8 241
+oath main_only chapter-two-end hellGate 8 311
+oath typical trial-boss-entry c1TrialVault 4 90
+oath typical trial-reported hall 5 177
+oath typical prepared town 7 247
+oath typical captain-entry canal 7 277
+oath typical captain-done canal 7 297
+oath typical chapter-one-end post 8 357
+oath typical bridge-entry bridge 8 229
+oath typical manor-entry manor 8 264
+oath typical manor-exit spillway 8 294
+oath typical chapter-two-end hellGate 9 364
+oath all_once trial-boss-entry c1TrialVault 4 90
+oath all_once trial-reported hall 5 177
+oath all_once rat-entry grove 7 271
+oath all_once bat-entry c1ReedKiln 7 305
+oath all_once warden-entry echo 8 395
+oath all_once prepared town 9 593
+oath all_once captain-entry canal 10 625
+oath all_once captain-done canal 10 646
+oath all_once chapter-one-end post 10 717
+oath all_once bridge-entry bridge 10 589
+oath all_once manor-entry manor 10 625
+oath all_once manor-exit spillway 11 661
+oath all_once chapter-two-end hellGate 11 738
+oath repeat_patrol trial-boss-entry c1TrialVault 4 90
+oath repeat_patrol trial-reported hall 5 177
+oath repeat_patrol rat-entry grove 7 271
+oath repeat_patrol bat-entry c1ReedKiln 7 305
+oath repeat_patrol warden-entry echo 8 395
+oath repeat_patrol patrol-1 hall 10 633
+oath repeat_patrol patrol-2 hall 10 751
+oath repeat_patrol patrol-3 hall 11 822
+oath repeat_patrol patrol-4 hall 12 940
+oath repeat_patrol patrol-5 hall 12 1012
+oath repeat_patrol prepared town 12 1018
+oath repeat_patrol captain-entry canal 12 1050
+oath repeat_patrol captain-done canal 12 1071
+oath repeat_patrol chapter-one-end post 13 1142
+oath repeat_patrol bridge-entry bridge 13 1014
+oath repeat_patrol manor-entry manor 13 1063
+oath repeat_patrol manor-exit spillway 13 1105
+oath repeat_patrol chapter-two-end hellGate 13 1189
+oath local_work trial-boss-entry c1TrialVault 4 90
+oath local_work trial-reported hall 5 177
+oath local_work vault-entry c1TrialVault 5 199
+oath local_work underground-reported c1TrialFoyer 5 248
+oath local_work rat-entry grove 7 335
+oath local_work bat-entry c1ReedKiln 8 408
+oath local_work camp-and-kiln-reported c1ReedKiln 8 458
+oath local_work warden-entry echo 9 534
+oath local_work prepared town 10 767
+oath local_work captain-entry canal 10 799
+oath local_work captain-done canal 11 820
+oath local_work chapter-one-end post 11 891
+oath local_work bridge-entry bridge 11 763
+oath local_work manor-entry manor 11 805
+oath local_work manor-exit spillway 11 841
+oath local_work chapter-two-end hellGate 12 918
+ember main_only trial-boss-entry c1TrialVault 3 67
+ember typical trial-boss-entry c1TrialVault 4 90
+ember typical trial-reported hall 5 176
+ember all_once trial-boss-entry c1TrialVault 4 90
+ember all_once trial-reported hall 5 176
+ember repeat_patrol trial-boss-entry c1TrialVault 4 90
+ember repeat_patrol trial-reported hall 5 176
+ember local_work trial-boss-entry c1TrialVault 4 90
+shadow all_once trial-boss-entry c1TrialVault 4 85
+shadow all_once trial-reported hall 5 174
+shadow all_once rat-entry grove 7 236
+shadow all_once bat-entry c1ReedKiln 7 270
+shadow all_once warden-entry echo 8 358
+shadow all_once prepared town 9 535
+shadow all_once captain-entry canal 10 561
+shadow all_once captain-done canal 10 582
+shadow all_once chapter-one-end post 10 653
+oath all_once trial-boss-entry c1TrialVault 4 82
+oath all_once trial-reported hall 5 169
+oath all_once rat-entry grove 7 267
+oath all_once bat-entry c1ReedKiln 7 301
+oath all_once warden-entry echo 8 393
+oath all_once prepared town 9 623
+oath all_once captain-entry canal 10 653
+oath all_once captain-done canal 10 674
+oath all_once chapter-one-end post 10 745
+oath all_once bridge-entry bridge 10 617
+oath all_once manor-entry manor 10 659
+oath all_once manor-exit spillway 11 695
+oath all_once chapter-two-end hellGate 11 772
+ember all_once trial-boss-entry c1TrialVault 4 81
+ember all_once trial-reported hall 5 167
+ember all_once rat-entry grove 7 262
+ember all_once bat-entry c1ReedKiln 7 296
+ember all_once warden-entry echo 8 385
+ember all_once prepared town 9 523
+ember all_once captain-entry canal 10 553
+ember all_once captain-done canal 10 574
+ember all_once chapter-one-end post 10 645
+ember all_once bridge-entry bridge 10 517
+ember all_once manor-entry manor 10 559
+ember all_once manor-exit spillway 11 598
+ember all_once chapter-two-end hellGate 11 675
+✖ shadow main_only actual campaign economy and second-chapter carry (1725.577125ms)
+✔ shadow typical actual campaign economy and second-chapter carry (2565.603708ms)
+✔ shadow all_once actual campaign economy and second-chapter carry (3675.554292ms)
+✔ shadow repeat_patrol actual campaign economy and second-chapter carry (7341.149333ms)
+✖ shadow local_work actual campaign economy and second-chapter carry (2497.472458ms)
+✔ oath main_only actual campaign economy and second-chapter carry (2624.458ms)
+✔ oath typical actual campaign economy and second-chapter carry (2683.527583ms)
+✔ oath all_once actual campaign economy and second-chapter carry (4025.87725ms)
+✔ oath repeat_patrol actual campaign economy and second-chapter carry (7498.937667ms)
+✔ oath local_work actual campaign economy and second-chapter carry (4464.793208ms)
+✖ ember main_only actual campaign economy and second-chapter carry (1208.156125ms)
+✖ ember typical actual campaign economy and second-chapter carry (1774.393458ms)
+✖ ember all_once actual campaign economy and second-chapter carry (1755.280541ms)
+✖ ember repeat_patrol actual campaign economy and second-chapter carry (1746.124417ms)
+✖ ember local_work actual campaign economy and second-chapter carry (1657.632667ms)
+✖ shadow full route with exactly one exclusive epic carries through chapter two (2736.724583ms)
+✔ oath full route with exactly one exclusive epic carries through chapter two (3914.953833ms)
+✔ ember full route with exactly one exclusive epic carries through chapter two (5055.843042ms)
+actual xorshift seed 2654435769, 100000 samples: [ 7224, 7445, 85331 ]
+✔ exact half-open 7.5% intervals and stratified 10,000 inputs (5.284042ms)
+✔ seeded actual RNG distribution is separate from stratified deterministic inputs (11.761083ms)
+✔ each elite has final custom budget, one kill transaction and independent guaranteed part (122.275083ms)
+✔ real reentry respawns an elite immediately; reading the same save does not (3.549708ms)
+✔ old guardian core remains manually collectible and never refreshed with elite (6.450625ms)
+✔ captain reward targets canal ID only; ch2-bren original boots remain (2.330709ms)
+✔ five elites use distinct physical windups; wall stops a charge and there are no bat summons (6.209166ms)
+✔ owned exclusive A can drop A again; bag-full kill persists its exact escrow instance (3.629417ms)
+✔ an elite interrupted before its first attack retains a finite timer and importable death save (16.793625ms)
+✔ numeric source preserves twelve main/side awards and exact 128-map adjacency (8.030958ms)
+✔ twenty-two authored layouts have connected entrances and targets; two bridges cross real water (469.807667ms)
+✔ three classes, no sidequest or crafted equipment: combat, daylight and clear north route unlock chapel (101.996541ms)
+✔ temporary copper gear and skills leave no save, exit or defeat residue (3.195625ms)
+✔ old phase2/3/4/5/12 saves keep position, level, money and readiness waivers; no late sample supplement (17.051875ms)
+✔ one voluntary farewell pays once and old rewarded sidequests never pay again (0.388041ms)
+✔ transaction rollback and strict nested validation preserve original on invalid data (26.40825ms)
+✔ seal requires a resolved threatened heavy attack; target practice and basic swings cannot prime it (0.860375ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (6080.701667ms)
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (18.868083ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (49.940083ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (1018.674083ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (9.601792ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (56.203333ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (753.710833ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (8.491333ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (1801.315ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (3.698791ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.275166ms)
+✔ available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable (82.546459ms)
+✔ default main tracking survives side acceptance; explicit side tracking and cancel survive save (13.139833ms)
+✔ cross-floor kill counters cannot be substituted; all ordinary source targets are 7–10 (38.379459ms)
+✔ materials from each floor remain separate and one death generation receives one roll (2.982542ms)
+✔ each actual entry repopulates residents irrespective of quests; load, same-map enter and ensureMap do not (142.271667ms)
+✔ elite reentry advances payout generation but sample and quest report are one-time (42.392208ms)
+✔ two herb sources cannot be replaced with four leaves from one source (12.507042ms)
+✔ 0.8 complete/partial objectives migrate without payments, lost credit or reviving dead enemies (12.171833ms)
+✔ new cross-links are reciprocal and locked branches cannot shortcut main access; denials are diegetic (9.635916ms)
+✔ all first-chapter task-facing text omits drop percentages and fixed wait countdowns (6.633292ms)
+✖ story captain stays defeated while resident patrols return, and delivered escape stays delivered (2.272208ms)
+✔ quest props are absent from targets until acceptance; gathering stays consumed across save (83.537208ms)
+✔ preacceptance kills pay no task materials; only matching species count, one credit per generation (9.243542ms)
+✔ real reentry refreshes ordinary enemies without idle time and creates new kill credit (2.373292ms)
+✔ gold question marks represent a claim that succeeds immediately, including full bag escrow (58.079542ms)
+✔ schema 1 visited map migration retains rewards and supplies missing ordinary spawns (20.915958ms)
+✔ new nested journey validation rejects forged resource indices, seeds and counters (1.341916ms)
+✔ all twenty-two maps use manual exits and each authored exit resolves to a real target (6.415792ms)
+✔ real movement solver walks every entrance to every available endpoint in twenty-two maps (1227.58275ms)
+✔ all ordinary kill goals require 7–10, unique causes stay separate; added rewards do not alter the original budget (0.51575ms)
+✔ new main quests never auto accept or auto pay; each handoff has the correct giver map (65.826084ms)
+✔ every ready giver exposes a submit action that pays once; unaccepted goals cannot produce a gold mark (25.987041ms)
+✔ killing the trial warden alone is insufficient; eight ordinary sentries and a report are required (10.656417ms)
+✔ schema 2 completed evidence stays deliverable without silent payment or resetting dead monsters (10.974042ms)
+✔ two gathering requests use physical plants only after acceptance and persist their shared harvest (10.023ms)
+✔ close actors on opposite sides of a corner continue the final path steps instead of stalling (6.794542ms)
+✔ investigations, rotating patrol, original rats and final chase give payable gold marks (4.735833ms)
+✖ 12 real combat fixtures retain the authorized RPG 1.0 damage, resource, cooldown and RNG events (133.495792ms)
+✔ hit reactions and defeats are transient, emitted once, sorted at the feet, and cleared on enter (7.747084ms)
+✔ first chapter uses physical creature types and distinguishes windup, strike, recoil and fall (0.189667ms)
+✔ ordinary cut metadata takes the restrained trail; magical skills keep their own art (0.11475ms)
+✔ instant valve action accepts the real nearby target without a second update or save lock (9.020375ms)
+✔ live V29 non-demo audit correction only changes the retired arcade table, preserving the original record (4484.631875ms)
+✔ guard sprites use directional foot-contact walk frames and distinct windup/strike/recovery (0.25725ms)
+✔ 24 chapter/class starts keep chapter, class, position, pending dialogue and isolated slot through validated saves (1066.297708ms)
+✔ all three classes skip from chapter one through eight with every intermediate save validated (9251.521375ms)
+✔ each later chapter start can skip to the final result without stuck quests (7663.855083ms)
+✔ normal sessions reject skip; test export is rejected by normal import; normal save stays unchanged (4.44825ms)
+✔ test damage kills normal and boss enemies once; normal damage and invalid hits retain original behavior (4.381042ms)
+✔ immune hero/saint, mana costs, and scripted fifth-chapter setback remain intact (15.55325ms)
+✔ real melee and projectile attacks kill only after hitting; no-weapon and mana gates still work (2.467708ms)
+✔ runtime independently enumerates all 35 original maps and ten explicitly authorized chapter-one additions (33.735542ms)
+✔ 118-map navigation baseline stays exact outside authorized C1 layouts and the two audited C3 caves (1537.279375ms)
+✔ original chapter geometry, exits, encounters and object identities remain intact (13.361625ms)
+✔ notice migrates visited old saves without moving actors or resetting claims (10.371834ms)
+✔ quest-state art and scenery hosts avoid duplicate props without affecting late chapters (0.489208ms)
+✔ every native enemy and story boss keeps reactions transient through save/restore (36.284583ms)
+✔ new atlases remain available with their reviewed hashes and generation provenance (3316.239291ms)
+✔ 21 maps keep exact baseline geometry; two authorized C3 caves keep exits, identities and reachable targets (4795.083625ms)
+✖ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (13.171958ms)
+✔ water interaction migration repairs visited old maps without moving actors or resetting claims (11.090834ms)
+✔ near water interaction enters its original scene and distant interaction remains rejected (2.439166ms)
+✔ chapter 2/3 reactions and defeat poses remain transient across save, restore and map entry (8.591292ms)
+✔ native hell walk contacts, full strikes and recovery are distinct, with species-specific body weight (0.25325ms)
+✖ all static/dynamic providers are covered; only exact authored whole-scene revisions change (111.012792ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (188.40075ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (27.525833ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.202834ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (47.189083ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (5.075666ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (50.330708ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (6.1785ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (8.814125ms)
+✔ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (938.722625ms)
+✔ read every previously reached commission page without changing pending, actors, knowledge or rewards (64.1965ms)
+✔ action phases cannot be advanced or rewound by reading controls (3.897167ms)
+✔ quest accept and reward wait for live final page; going backward and forward never commits (6.875208ms)
+✔ legacy private tail has its own read-back rows and never exposes the earlier commission (1.292834ms)
+✔ all 45 old static positions migrate once by meaning, including direct/imported/nested saves (277.581959ms)
+✔ exact inline old dialogue text and new authored cursors survive import unchanged (55.476834ms)
+✖ four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact (10.058334ms)
+✔ native species is independent of V28 player-level skin fields (6.479291ms)
+✔ boss identities have meaningful silhouettes rather than a common guard (0.574667ms)
+✔ small creatures, humans and bosses use separate bounded scales (0.588792ms)
+✔ foot-space depth contract preserves flat ground and explicit pivots (1.186792ms)
+✔ footprint validation and segment clipping handle boundaries (0.329708ms)
+✔ missing trees, basins and beds get footprints; authored boxes remain authoritative (0.356542ms)
+✔ arch posts block sides without sealing the central doorway (0.196959ms)
+✔ actor sweep cannot tunnel through a narrow obstacle (3.509875ms)
+✔ walk phase advances with travelled distance, not wall time (0.226291ms)
+✔ moving a companion accumulates gait distance and enemy movement is not double-counted (0.338ms)
+✔ resting/carry transfers never receive fake walking limbs (0.072959ms)
+✔ all 24 rare gear IDs have appearance signatures (0.0725ms)
+✔ weapon types and offhand-only rarity survive appearance projection (0.294ms)
+✔ special weapon appearances produce distinct geometry with balanced canvas state (0.305291ms)
+✔ fitted gear preserves face clearance and finite per-frame coordinates (0.599833ms)
+✔ chapter 8 CG references, preload and HTML are disabled; other chapters keep illustrations (0.675041ms)
+✔ all 118 map registries load; no previously open doorway becomes blocked (42.821916ms)
+✔ all nine later-chapter/class checkpoints construct and restore (698.125209ms)
+✔ 27 medical, seating and chapter 8 scenes retain executable stage routes (250.481292ms)
+✔ derived atlases have matching dimensions and exact SHA256 manifest (2846.368292ms)
+✔ large actor clearance expands existing unboxed furniture for movement and paths (0.433167ms)
+✔ unnamed runtime furniture has stable per-object IDs for selective seat transfers (0.176417ms)
+✔ spawn repair rescues active companions but preserves downed and seated transfers (0.171583ms)
+✔ XP earned after fatal damage cannot heal a dead actor; living level-up recovery remains (58.56275ms)
+✔ class crafting improves actual stats, keeps costs, and queues a full-bag unique without losing it (83.843834ms)
+✔ legacy forged gear migrates upward across shared and frozen actors without duplication or healing (36.835292ms)
+✔ herb service requires the completed two-site task, real doctor and one pending payment (14.216458ms)
+✔ safe doctor rest is correctly priced, full resources are not charged, and old medical materials stay distinct (32.270458ms)
+✔ required deferred rescue survives save and does not overwrite pending or replay twice (33.586625ms)
+✔ two cave layouts migrate locations once while retaining death, HP, used props and original exits (25.943875ms)
+✔ forge menu shows the actual result and equipped comparison and cannot spend missing materials (4.544959ms)
+✔ relay counter compares actual stats, buys/equips/sells; phase, capacity and duplicate guards hold (30.058834ms)
+✔ repair is a lasting free rest result; both real locations, pending resume and actual reward remain correct (4.761208ms)
+✔ rest cannot be applied from another map, distant menu, dead player or through active threats (0.902917ms)
+✔ cellar supplies pay once only after a legal claim; full bag and legacy claimed boxes do not print medicine (5.078708ms)
+✔ authored guard roles cooperate and preserve off-map deaths, health ratio, XP and claims on restore (10.490542ms)
+✔ front guard responds to position and skills, while DOT is not silently weakened (2.562541ms)
+✔ unsafe automatic arrivals and east-court cutaway defer, survive save, and retain original audience knowledge (29.003541ms)
+✔ the well chain is a real one-time control tool and old pending mainline scenes remain readable (14.949084ms)
+✔ a deferred spillway conversation remains available after escaping and uses the real safe arrival (2.83075ms)
+✔ overkill behind a vulnerable enemy never serializes negative health (12.854166ms)
+✔ regional roles stay fixed at high level; other chapters retain their profiles (0.303459ms)
+✔ construct facing and a real skill hit create different counterattack windows (0.814875ms)
+✔ repeat entry retains quest evidence, gives less XP and load keeps injuries/death (5.850417ms)
+✔ level-up restores a bounded amount in chapter one without stripping level or AP (1.635542ms)
+✔ outfitter purchase is near, affordable, capacity-safe and idempotent after loading (4.390625ms)
+✔ actual service panel buys/equips/sells, rest and potion restore real resources (1.403625ms)
+✔ repair uses physical findings and earlier warden evidence, without a second kill quota (6.374ms)
+✔ vault reward needs the warden and actual ledger; reloading cannot duplicate medicine (12.993125ms)
+✔ nearby combat blocks inspection; stopping/reloading mid-scene keeps the actual page and handoff (15.418916ms)
+✔ one north-gate briefing settles both original payments after reading/skip, exactly once (2.356708ms)
+✔ schema4 ready local work stays payable, partial kills are retained, migration pays nothing (25.078792ms)
+✔ each underground entrance reaches new investigation and cache targets using real movement (81.760833ms)
+✔ exploration caches contain real usable supplies/materials and remain empty after reload (5.141875ms)
+✔ elite migration preserves living health ratio, off-map deaths, and all settled rewards (19.023208ms)
+✔ charging rat protects its front while recovery rewards a counterattack; DOT is unchanged (0.816333ms)
+✔ automatic scene registry uses real stages and keeps the saint cutaway away from hero knowledge (0.582709ms)
+✔ unsafe entrance defers its scene, reload and a safe tick restore it exactly once (4.451166ms)
+✔ all four demo maps connect every visible exit, NPC and actionable object (78.504416ms)
+✔ interaction commits immediately, faces the object and leaves movement/save policy unlocked (3.00325ms)
+✔ distance and a real occluding wall reject immediate interaction (4.436625ms)
+✔ warden death opens a physical claim, and surviving enemies prevent extraction (4.764625ms)
+✔ acceptance before extraction, return once and persistent state (9.156ms)
+✔ front-slot choice is independent, bag-full retry and repeated claims stay safe (1.035083ms)
+✔ legacy active/completed/core-claimed/pending-dialogue saves migrate without resetting progress (8.58025ms)
+✔ new state round trips and rejects malformed records; old state remains optional (2.497166ms)
+✔ new dialogue IDs coexist with legacy cursors and never summon an absent companion (0.228916ms)
+✔ legacy player in a new footprint is repaired only during restore (1.388583ms)
+✔ opt-in guestroom rest keeps its old result and ends at the original position (0.671458ms)
+✔ baseline navigation is retained outside C1 and the two explicitly authored C3 caves (774.214458ms)
+ℹ tests 225
+ℹ suites 0
+ℹ pass 211
+ℹ fail 14
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 59398.290917
+
+✖ failing tests:
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ shadow main_only actual campaign economy and second-chapter carry (1725.577125ms)
+  Error: Death main_only c1TrialVault combat:c1TrialVault
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:40:464)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ shadow local_work actual campaign economy and second-chapter carry (2497.472458ms)
+  Error: Death local_work c1ReedKiln combat:c1ReedKiln
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:55:43)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ ember main_only actual campaign economy and second-chapter carry (1208.156125ms)
+  Error: Death main_only c1TrialVault combat:c1TrialVault
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:40:464)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ ember typical actual campaign economy and second-chapter carry (1774.393458ms)
+  Error: Death typical c1DrillGallery combat:c1DrillGallery
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:21:284)
+      at use (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:22:710)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:43:24)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ ember all_once actual campaign economy and second-chapter carry (1755.280541ms)
+  Error: Death all_once c1DrillGallery combat:c1DrillGallery
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:21:284)
+      at use (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:22:710)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:43:24)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ ember repeat_patrol actual campaign economy and second-chapter carry (1746.124417ms)
+  Error: Death repeat_patrol c1DrillGallery combat:c1DrillGallery
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:21:284)
+      at use (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:22:710)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:43:24)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+
+test at tests/chapter-one-economy.test.mjs:3:127
+✖ ember local_work actual campaign economy and second-chapter carry (1657.632667ms)
+  Error: Death local_work c1TrialVault combat:c1TrialVault
+      at tick (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:18:95)
+      at fight (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:20:741)
+      at journey (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.mjs:40:464)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:4:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/chapter-one-economy.test.mjs:15:44
+✖ shadow full route with exactly one exclusive epic carries through chapter two (2736.724583ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  2 !== 1
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-economy.test.mjs:16:72)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 2,
+    expected: 1,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-incremental.test.mjs:43:1
+✖ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (18.868083ms)
+  AssertionError [ERR_ASSERTION]: dist/core-v14.js
+  + actual - expected
+  
+  + 'b60bdd363b4a67427b17552fb17dfedceb0cb7663e868e46693e2c38bea2d7cf'
+  - '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d'
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-incremental.test.mjs:85:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: 'b60bdd363b4a67427b17552fb17dfedceb0cb7663e868e46693e2c38bea2d7cf',
+    expected: '59f3ea5fc57f8d2d4825e9e814a59aa8ba67177ee575de613c3e7d42e27df87d',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-layer-rules.test.mjs:60:1
+✖ story captain stays defeated while resident patrols return, and delivered escape stays delivered (2.272208ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  3 !== 4
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-layer-rules.test.mjs:60:273)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 3,
+    expected: 4,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter-one-v30.test.mjs:10:1
+✖ 12 real combat fixtures retain the authorized RPG 1.0 damage, resource, cooldown and RNG events (133.495792ms)
+  AssertionError [ERR_ASSERTION]: shadow/rat
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      config: {
+        attrs: {
+          dex: 0,
+          str: 0,
+  ...
+      },
+  +   elapsed: 0.525,
+  -   elapsed: 0.275,
+      events: [
+        {
+          enemy: 'rat',
+  +       maxHP: 126,
+  -       maxHP: 84,
+          player: {
+            affixes: [],
+            atk: 42.5,
+            attackRate: 0.4,
+            crit: 0.08249999999999999,
+  ...
+          amount: 76,
+  +       hp: 50,
+  -       hp: 8,
+          kind: 'skill',
+          origin: 'q',
+          target: 'lab-rat',
+          time: 0,
+          type: 'damage'
+  ...
+        {
+  +       amount: 43,
+  +       hp: 7,
+  -       amount: 8,
+  -       hp: 0,
+          kind: 'hit',
+          origin: 'attack',
+          target: 'lab-rat',
+          time: 0.275,
+          type: 'damage'
+  ...
+        },
+  +     {
+  +       amount: 7,
+  +       hp: 0,
+  +       kind: 'skill',
+  +       origin: 'e',
+  +       target: 'lab-rat',
+  +       time: 0.5,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 7,
+  +       key: 'e',
+  +       mp: 59.279075,
+  +       mpSpent: 17,
+  +       time: 0.5,
+  +       type: 'use'
+  +     }
+      ],
+      limits: [
+        'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated',
+        'Strategies are scripted input policies, not measured human skill or full-chapter completion rates',
+        'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time',
+  ...
+      metrics: {
+  +     damage: 126,
+  -     damage: 84,
+        damageByKind: {
+  +       hit: 43,
+  +       skill: 83
+  -       hit: 8,
+  -       skill: 76
+        },
+        damageBySource: {
+  +       attack: 43,
+  +       e: 7,
+  -       attack: 8,
+          q: 76
+        },
+        damageReceived: 0,
+  +     dps: 240,
+  -     dps: 305.454545,
+        enemyAttacks: 0,
+  +     enemyInitialHP: 126,
+  -     enemyInitialHP: 84,
+        enemyRemainingHP: 0,
+        maxBleed: 3,
+  +     mpSpent: 29,
+  +     peakOneSecondDamage: 126,
+  -     mpSpent: 12,
+  -     peakOneSecondDamage: 84,
+        remainingHP: 231,
+  +     remainingMP: 59.281362,
+  -     remainingMP: 76.154787,
+        shieldAbsorbed: 0,
+        uses: {
+          attack: 1,
+  +       e: 1,
+          q: 1
+        }
+      },
+      outcome: 'win',
+  +   ttk: 0.525
+  -   ttk: 0.275
+    }
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter-one-v30.test.mjs:18:93)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: {
+      config: { cls: 'shadow', level: 3, map: 'warehouse', enemy: 'rat', seed: 42, duration: 30, dt: 0.025, strategy: 'combo', gearRarity: 'common', skills: [Object], attrs: [Object], potions: false, x: 760, y: 730 },
+      outcome: 'win',
+      elapsed: 0.525,
+      ttk: 0.525,
+      metrics: { damage: 126, damageReceived: 0, dps: 240, peakOneSecondDamage: 126, remainingHP: 231, remainingMP: 59.281362, mpSpent: 29, shieldAbsorbed: 0, maxBleed: 3, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 126, enemyRemainingHP: 0, enemyAttacks: 0 },
+      events: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ]
+    },
+    expected: { config: { cls: 'shadow', level: 3, map: 'warehouse', enemy: 'rat', seed: 42, duration: 30, dt: 0.025, strategy: 'combo', gearRarity: 'common', skills: [Object], attrs: [Object], potions: false, x: 760, y: 730 }, outcome: 'win', elapsed: 0.275, ttk: 0.275, metrics: { damage: 84, damageReceived: 0, dps: 305.454545, peakOneSecondDamage: 84, remainingHP: 231, remainingMP: 76.154787, mpSpent: 12, shieldAbsorbed: 0, maxBleed: 3, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 84, enemyRemainingHP: 0, enemyAttacks: 0 }, events: [ [Object], [Object], [Object], [Object], [Object] ], limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/chapter23-v30.test.mjs:23:1
+✖ 24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams (13.171958ms)
+  AssertionError [ERR_ASSERTION]: shadow/guard
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      config: {
+        attrs: {
+          dex: 0,
+          str: 0,
+  ...
+      },
+  +   elapsed: 0.525,
+  -   elapsed: 0.275,
+      events: [
+        {
+          enemy: 'guard',
+  +       maxHP: 465,
+  -       maxHP: 321,
+          player: {
+            affixes: [
+              'echo',
+              'fire',
+              'mercy',
+  ...
+          amount: 270,
+  +       hp: 195,
+  -       hp: 51,
+          kind: 'skill',
+          origin: 'q',
+          target: 'lab-guard',
+          time: 0,
+          type: 'damage'
+  ...
+        {
+  +       amount: 135,
+  +       hp: 60,
+  -       amount: 51,
+  -       hp: 0,
+          kind: 'hit',
+          origin: 'attack',
+          target: 'lab-guard',
+          time: 0.275,
+          type: 'damage'
+  ...
+        },
+  +     {
+  +       amount: 60,
+  +       hp: 0,
+  +       kind: 'skill',
+  +       origin: 'e',
+  +       target: 'lab-guard',
+  +       time: 0.5,
+  +       type: 'damage'
+  +     },
+  +     {
+  +       cooldown: 7,
+  +       key: 'e',
+  +       mp: 65.279075,
+  +       mpSpent: 17,
+  +       time: 0.5,
+  +       type: 'use'
+  +     }
+      ],
+      limits: [
+        'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated',
+        'Strategies are scripted input policies, not measured human skill or full-chapter completion rates',
+        'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time',
+  ...
+      metrics: {
+  +     damage: 465,
+  -     damage: 321,
+        damageByKind: {
+  +       hit: 135,
+  +       skill: 330
+  -       hit: 51,
+  -       skill: 270
+        },
+        damageBySource: {
+  +       attack: 135,
+  +       e: 60,
+  -       attack: 51,
+          q: 270
+        },
+        damageReceived: 0,
+  +     dps: 885.714286,
+  -     dps: 1167.272727,
+        enemyAttacks: 0,
+  +     enemyInitialHP: 465,
+  -     enemyInitialHP: 321,
+        enemyRemainingHP: 0,
+        maxBleed: 3,
+  +     mpSpent: 29,
+  +     peakOneSecondDamage: 465,
+  -     mpSpent: 12,
+  -     peakOneSecondDamage: 321,
+        remainingHP: 321,
+  +     remainingMP: 65.281362,
+  -     remainingMP: 82.154787,
+        shieldAbsorbed: 0,
+        uses: {
+          attack: 1,
+  +       e: 1,
+          q: 1
+        }
+      },
+      outcome: 'win',
+  +   ttk: 0.525
+  -   ttk: 0.275
+    }
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/chapter23-v30.test.mjs:29:10)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:358:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: {
+      config: { cls: 'shadow', level: 6, map: 'spillway', enemy: 'guard', seed: 42, duration: 25, dt: 0.025, strategy: 'combo', gearRarity: 'rare', skills: [Object], attrs: [Object], potions: false, x: 850, y: 700 },
+      outcome: 'win',
+      elapsed: 0.525,
+      ttk: 0.525,
+      metrics: { damage: 465, damageReceived: 0, dps: 885.714286, peakOneSecondDamage: 465, remainingHP: 321, remainingMP: 65.281362, mpSpent: 29, shieldAbsorbed: 0, maxBleed: 3, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 465, enemyRemainingHP: 0, enemyAttacks: 0 },
+      events: [
+        [Object], [Object],
+        [Object], [Object],
+        [Object], [Object],
+        [Object]
+      ],
+      limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ]
+    },
+    expected: { config: { cls: 'shadow', level: 6, map: 'spillway', enemy: 'guard', seed: 42, duration: 25, dt: 0.025, strategy: 'combo', gearRarity: 'rare', skills: [Object], attrs: [Object], potions: false, x: 850, y: 700 }, outcome: 'win', elapsed: 0.275, ttk: 0.275, metrics: { damage: 321, damageReceived: 0, dps: 1167.272727, peakOneSecondDamage: 321, remainingHP: 321, remainingMP: 82.154787, mpSpent: 12, shieldAbsorbed: 0, maxBleed: 3, uses: [Object], damageByKind: [Object], damageBySource: [Object], enemyInitialHP: 321, enemyRemainingHP: 0, enemyAttacks: 0 }, events: [ [Object], [Object], [Object], [Object], [Object] ], limits: [ 'Isolated encounters in a real map; authored crowds, campaign reachability and scene chains are not simulated', 'Strategies are scripted input policies, not measured human skill or full-chapter completion rates', 'Fixed dt <= 0.035 includes runtime hitstop; TTK is simulation clock, not device wall time', 'Starting levels, ranks, gear and career activity unlocks are synthetic explicit fixtures, not proven obtainable paths', 'Random generic equipment IDs include Date.now in runtime; lab canonicalizes IDs at obtainGear only, with identical stats/RNG draws', 'Damage is effective HP loss, excluding overkill; nested proc damage is counted once; projectile skill attribution is unresolved' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dialogue-hud.test.mjs:15:1
+✖ all static/dynamic providers are covered; only exact authored whole-scene revisions change (111.012792ms)
+  AssertionError [ERR_ASSERTION]: saved corpus must equal live installed providers
+  + actual - expected
+  ... Skipped lines
+  
+    {
+      limits: [
+        'Static registration and explicit producer fixtures enumerate authored text; campaign reachability is a separate check.',
+        'Historical migration before-text is not current playable dialogue.',
+        'UI buttons, combat toasts, item descriptions and procedure-generated counts are outside spoken dialogue.'
+  ...
+        c1TrainingReason: {
+  +       sha256: '13626d68b878061148819779dfa01be8709b600833af977754f71fc8ad799b16',
+  -       sha256: '95a9de804719b31e284e2b9648c4af8d2de6a7d0f46c114db04e95b1ab3e820e',
+          source: 'installed:DIALOGUES',
+          text: [
+            [
+              '诺恩',
+  +           '鲁恩平时也看我练，怎么还要去地下？'
+  -           '你为什么选庭院和地下这两处？'
+            ],
+            [
+              '薇蕾娜',
+  +           '他熟悉你的习惯，知道什么时候该收手。地下那些构装体可不会让着你，路也窄。让你去试一趟，我才好决定城里的差事。'
+  -           '鲁恩在庭院能看清你怎样应付冲撞。地下的路窄，构装体又不按人的习惯出手，两处都走过，才知道遇上陌生的敌人时，你能不能给自己留出退路。'
+            ],
+            [
+              '诺恩',
+  +           '明白了。我先问伊登哪些还在运转，清完回来找你。'
+  -           '明白。我会把经过记住，回来告诉你。'
+            ],
+            [
+              '薇蕾娜',
+  +           '嗯。我就在会馆，要是那边有事耽搁，托伊登给我捎句话。'
+  -           '我等你。刚才给你留饭都没这么痛快答应，看来还是谈试炼容易把你留下。'
+            ],
+            [
+              '诺恩',
+  +           '好。饭也给我留着，我会回来吃。'
+  -           '饭我也会回来吃。我只是想先问清楚。'
+            ]
+          ]
+        },
+        c1TrialInvitation: {
+  +       sha256: '9609e41e0c5f1f9bdc20c52c609b54ce89cac2bc98eb0ae02ecdd8ebb7fc7c8b',
+  -       sha256: '1cf27cc8e47c41a08ceeba8731a44d6d411300f5871deda084a5d1f165bef36f',
+          source: 'installed:DIALOGUES',
+          text: [
+            [
+              '薇蕾娜',
+  +           '库房收拾好了？奥伦刚才经过，笑得连胡子都翘起来了。'
+  -           '终于回来了。奥伦一直夸你干活利索，可我看你这满肩的木屑，倒像是在库房里住下了。'
+            ],
+            [
+              '诺恩',
+  +           '粮袋搬回去了。最后一只躲在夹墙里，我拆了块松板才找到，墙洞留给他找人补。'
+  -           '最后一只钻进了夹墙，我拆了一块松板。墙后的洞已经找着，奥伦会找人补上。'
+            ],
+            [
+              '薇蕾娜',
+  +           '难怪肩上还有木屑。站着让我看看，领口里是不是也落了？'
+  -           '过来一点，我替你拿掉。你站那么远，我还以为自己今天哪里惹你不高兴了。'
+            ],
+            [
+              '诺恩',
+  +           '我拍过了，大概没拍干净。'
+  -           '你手边还有墨水。我怕靠过去，木屑落进砚台里。'
+            ],
+            [
+              '薇蕾娜',
+  +           '背过来一点。这儿还粘着一片。'
+  -           '想得还挺周到。那我走过来，总可以了吧？'
+            ],
+            [
+              '旁白',
+  +           '薇蕾娜绕过桌角，替他拈掉领口的木屑。回身时，她把桌上的通行纸往手边收了收。'
+  -           '薇蕾娜绕过桌角，拈下他肩头的木屑。她看了一眼桌上的通行纸，却没有立即递给他。'
+            ],
+            [
+              '诺恩',
+  +           '奥伦说你找我。又有委托？'
+  -           '奥伦说你有事找我。是桌上那份委托？'
+            ],
+            [
+              '薇蕾娜',
+  +           '有一趟进城的差事，还得带个人回来。我原本想让你去，可临到要交给你，又有点放心不下。'
+  -           '嗯，要进城办一件危险的事，回来时还得带一个人。我知道你能打，可真遇上围堵，光顾着眼前的对手就容易吃亏。我想先看看你现在的身手。'
+            ],
+            [
+              '诺恩',
+  +           '城里出了什么事？'
+  -           '你想怎么试？'
+            ],
+            [
+              '薇蕾娜',
+  +           '那边护卫多，撤出来时可能会被堵住。你先去鲁恩那里，清一清庭院的苔壳兽，再到地下找伊登。他留了一具终试执卫，我想让你试试。'
+  -           '先去庭院找鲁恩，看看那些苔壳兽冲过来时，你怎么避开。随后去地下找伊登，他会带你认路，最后还有一具专门考应变的执卫。'
+            ],
+            [
+              '诺恩',
+  +           '先试身手，再定让我去不去？'
+  -           '地下的构装体和庭院里的兽群，出手应该差得很远。我先摸清它们的动作，再找机会近身。'
+            ],
+            [
+              '薇蕾娜',
+  +           '嗯。你跟鲁恩练得多，彼此的招式都熟。我想看看换个对手、换条窄路，你应付起来怎么样。等你回来，我们再谈这份委托。'
+  -           '好，我想听的就是你怎么判断。练完回来亲口告诉我，我再决定这份委托能不能放心交给你。'
+            ],
+            [
+              '诺恩',
+  +           '行。我先去找鲁恩，地下那边也问清楚。你今天还出去吗？'
+  -           '那你在这里等我？'
+            ],
+            [
+              '薇蕾娜',
+  +           '就在这里。奥伦炖了肉，我让他留着，回来一起吃。'
+  -           '我今天都在。奥伦炖了肉，我让他给你留一份。等你回来，陪我吃过饭再谈正事。'
+            ],
+            [
+              '诺恩',
+  +           '地下要是耽搁久了，你就先吃。'
+  -           '你饿了就先吃。我还不知道地下要花多久。'
+            ],
+            [
+              '薇蕾娜',
+  +           '好，我饿了会去盛。你回来直接来找我，厨房那份我替你留着。'
+  -           '这么认真地照顾我，我都快舍不得放你走了。放心，锅边总有我的份。你先去，回来让我看看这趟练得怎么样。'
+            ]
+          ]
+        },
+        c1TrialReport: {
+  +       sha256: 'e8e6fbeb03dc20c44d9e9b760dd7677ff47cde2286aed16e46901e9223d96384',
+  -       sha256: '76b2fdd82c7c1692ff0eba0ed10c7dbff9e8950c62fc668ab849fa98ab2305f1',
+          source: 'installed:DIALOGUES',
+          text: [
+            [
+              '薇蕾娜',
+  +           '回来了？先把袖子抬一下……只是蹭了灰。地下那具执卫怎么样？'
+  -           '回来了。让我看看，袖口蹭了些灰，脸色倒还好。地下那具执卫难对付吗？'
+            ],
+            [
+              '诺恩',
+  +           '盾举得很高，我头几下都打在盾上。后来绕到侧面，等它冲过头再动手，就顺得多了。'
+  -           '它比旧廊的哨兵快，起手时会把盾抬高。我先绕开正面，等它冲过去再回身打；打到后面，也尽量把自己留在有路可退的位置。'
+            ],
+            [
+              '薇蕾娜',
+  +           '它冲起来的时候，你站在哪边？伊登说东厅靠墙那一段挺窄。'
+  -           '你把它出手和停下来的时候都看清了，还能顾着身后的路。这趟地下走得很值，你处理这些情况已经稳当多了。'
+            ],
+            [
+              '诺恩',
+  +           '我把它引到中间了。墙边绕不开，我试了一次，就退出来换了位置。'
+  -           '硬抢没用。地下地方窄，我要是被挤到墙边，下一下就很难避开。'
+            ],
+            [
+              '薇蕾娜',
+  +           '那就好。这趟差事交给你，等会儿我把路线拿给你看。'
+  -           '听你把这些说清楚，我心里踏实多了。那份委托，我同意交给你。'
+            ],
+            [
+              '诺恩',
+  +           '你一直在这里等？'
+  -           '你刚才一直在等结果？'
+            ],
+            [
+              '薇蕾娜',
+  +           '账还摊着呢，可没看进去多少。听见门响了几次，都以为是你。'
+  -           '当然。手里这页账我看了好几遍，门口一响就抬头。现在你人站在这里，我才有心思问它到底有多厉害。'
+            ],
+            [
+              '诺恩',
+  +           '伊登还托我带了话，维修班已经能进去了。让你等久了。'
+  -           '我下次回来先来找你，免得你等。'
+            ],
+            [
+              '薇蕾娜',
+  +           '回来就好。先坐，饭还热着，我也去盛一碗。'
+  -           '这可是你自己说的，我记着了。先坐一会儿，奥伦把饭热着。正好趁吃饭，我把出门的事跟你讲清楚。'
+            ],
+            [
+              '旁白',
+  +           '薇蕾娜把桌边的纸挪开。两人吃过饭，诺恩放下空碗，接过她递来的水。'
+  -           '薇蕾娜把桌边的纸挪到一旁。奥伦留的饭仍温着，诺恩吃过后，接过她递来的水。'
+            ],
+            [
+              '薇蕾娜',
+  +           '出门前去罗萨那儿看看。我让她把装置的缀纹部件打开了，你手里的材料可以拿来做装备。'
+  -           '出门前再看看西边那台装置。罗萨把缀纹机搬来了，除了配药，还能用核心和符文做装备。我已经请她替你把制装备的部分打开。'
+            ],
+            [
+              '诺恩',
+  +           '我捡到些精粹，核心还没有。'
+  -           '核心要从哪里找？'
+            ],
+            [
+              '薇蕾娜',
+  +           '装置上有加工单，用精粹换。每次修好的核心不一样，单子上会写清给哪一种、要多少材料。'
+  -           '装置上会挂材料订单，凑够它要的精粹，就能换到一枚。每次回收的核心不一样，先看清这次给什么，再决定做哪件。'
+            ],
+            [
+              '诺恩',
+  +           '符文也在那里换？'
+  -           '符文也是在那儿换？'
+            ],
+            [
+              '薇蕾娜',
+  +           '符文向罗萨买。她这回带了几种，你挑合用的。核心和符文齐了，再付一点工费，就能做。'
+  -           '符文向罗萨买。她手里的货随来货变，你可以看看当时有哪些，再挑合用的。核心、符文和工费凑齐，装置就能做；今天暂时用不上，也可以留着。'
+            ],
+            [
+              '诺恩',
+  +           '我去看一眼，先把身上缺的补上。'
+  -           '我先看自己的装备哪里薄弱，再决定换什么。'
+            ],
+            [
+              '薇蕾娜',
+  +           '还有，城里要是走不通，就回来找我。差事可以另想办法，我不想等来你出事的消息。'
+  -           '嗯。还有一句，我要亲口跟你说：碰上应付不了的局面，先找路撤回来。事情可以重新安排，我最在意的是你能平安回来。'
+            ],
+            [
+              '诺恩',
+  +           '我会看清退路。带着人过不去，就换个时候走。'
+  -           '我会先确认退路。要是带着人走不通，我会重新找机会，不硬闯。'
+            ],
+            [
+              '薇蕾娜',
+  +           '嗯。把碗放着吧，通行纸在这里，我给你指出入口。'
+  -           '好。你肯把自己的安危算进去，我才敢放手。来，把通行纸拿近些，我给你指地方。'
+            ]
+          ]
+        },
+        c1VaultAccept: {
+          sha256: 'b23b88b6e7df9134c6e486555e04a44119b9529a5a37659af40816de12a50ebb',
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/dialogue-hud.test.mjs:16:39)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.start (node:internal/test_runner/test:1003:17)
+      at startSubtestAfterBootstrap (node:internal/test_runner/harness:358:17) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: { schema: 1, scenes: { intro: [Object], ratAccept: [Object], ratDone: [Object], aside: [Object], contract: [Object], saintBrief: [Object], assassination: [Object], canalStart: [Object], chapterEnd: [Object], sisterIdle: [Object], clerkIdle: [Object], courierAccept: [Object], courierDone: [Object], herbsAccept: [Object], herbSelf: [Object], herbWoman: [Object], old1: [Object], old2: [Object], secret: [Object], oldReturn: [Object], watch: [Object], oilDone: [Object], hostile: [Object], ambient_steward_beforeAssassination: [Object], ambient_steward_afterAssassination: [Object], ambient_steward_chapterComplete: [Object], ambient_sister_beforeAssassination: [Object], ambient_sister_afterAssassination: [Object], ambient_sister_chapterComplete: [Object], ambient_clerk_beforeAssassination: [Object], ambient_clerk_afterAssassination: [Object], ambient_clerk_chapterComplete: [Object], ambient_courier_beforeAssassination: [Object], ambient_courier_afterAssassination: [Object], ambient_courier_chapterComplete: [Object], ambient_herbalist_beforeAssassination: [Object], ambient_herbalist_afterAssassination: [Object], ambient_herbalist_chapterComplete: [Object], ambient_woman_beforeAssassination: [Object], ambient_woman_afterAssassination: [Object], ambient_woman_chapterComplete: [Object], ambient_oldwoman_beforeAssassination: [Object], ambient_oldwoman_afterAssassination: [Object], ambient_oldwoman_chapterComplete: [Object], ambient_watch_beforeAssassination: [Object], ambient_watch_afterAssassination: [Object], ambient_watch_chapterComplete: [Object], ambient_dolly_beforeAssassination: [Object], ambient_dolly_afterAssassination: [Object], ambient_dolly_chapterComplete: [Object], lanternAccept: [Object], lanternWatchBefore: [Object], lanternWatchAfter: [Object], lanternGuess: [Object], lanternStale: [Object], lanternReturnBefore: [Object], lanternReturnAfter: [Object], lanternAfterHelp: [Object], saintSealTalk: [Object], saintSealEarly: [Object], saintRoadEarly: [Object], saintRoadTalk: [Object], saintGateWarning: [Object], saintWaitHostile: [Object], womanMedicineReceived: [Object], oldWellFollowup: [Object], oilAcceptTalk: [Object], ratProgressTalk: [Object], letterProgressTalk: [Object], herbHintTalk: [Object], restTalk: [Object], watchClosed: [Object], guestTravelNote: [Object], guestWash: [Object], guestRest: [Object], workshopNotice: [Object], practiceBenchFirst: [Object], practiceBenchWaiting: [Object], practiceCopperFound: [Object], practiceBenchComplete: [Object], practiceBenchAfter: [Object], millOldPractice: [Object], millWheel: [Object], watchPracticeBefore: [Object], watchPracticeAfter: [Object], oldWorkshopTalk: [Object], saintGuestroom: [Object], saintWorkshop: [Object], sisterBeforeDeparture: [Object], sisterAfterBell: [Object], sisterAfterEscape: [Object], lottieGreeting: [Object], lottieWork: [Object], lottieFoundFirst: [Object], lottieProgress: [Object], lottieCoreReturn: [Object], lottieCuring: [Object], lottieResetReady: [Object], lottieIdle: [Object], waterworksLog: [Object], waterworksWheel: [Object], echoMachineLocked: [Object], echoMachineIntro: [Object], echoBookChosen: [Object], echoGearChosen: [Object], echoMachineAfter: [Object], echoMachineReserved: [Object], farewellSteward: [Object], farewellSister: [Object], farewellDolly: [Object], farewellDollyUnfinished: [Object], farewellLottie: [Object], saintFarewellWait: [Object], farewellLottieUnfinished: [Object], echoValveBefore: [Object], echoValveAfter: [Object], echoCrystalLocked: [Object], echoCoreFound: [Object], echoNoReward: [Object], resetBenchLocked: [Object], saintCave: [Object], ch2Arrival: [Object], ch2Relay: [Object], ch2Terms: [Object], ch2SearchAside: [Object], ch2Bridge: [Object], ch2OuterCourt: [Object], ch2TargetBefore: [Object], ch2InnerDoor: [Object], ch2Alarm: [Object], ch2Breakout: [Object], ch2TargetAfter: [Object], ch2Spillway: [Object], ch2ExileApproach: [Object], ch2PursuitStops: [Object], ch2ExileEnd: [Object], selineWork: [Object], selineWorkProgress: [Object], selinePoleFound: [Object], selineWorkReturn: [Object], selineWorkDone: [Object], selineIdleBefore: [Object], selineIdleAfter: [Object], saintPostIdle: [Object], saintInnIdle: [Object], postWashstand: [Object], postTrainingRack: [Object], ch1SisterBoots: [Object], ch1LottieLedger: [Object], ch1DollyFitting: [Object], selineRewardMedicine: [Object], selineRewardWrap: [Object], selineWorkLockedByAlarm: [Object], selineFoundFirst: [Object], saintEscapeOnly: [Object], saintAlarmOnly: [Object], innRestTalk: [Object], bridgeWatchIdle: [Object], saintGateOnly: [Object], v9PostWheel: [Object], v9CartRope: [Object], v9CellarOpen: [Object], v9CellarFirst: [Object], v9TollFound: [Object], v9TollScale: [Object], v9BridgeWater: [Object], v9WellRim: [Object], v9WellOpen: [Object], v9WardenFirst: [Object], v9WardenChain: [Object], v9WardenReward: [Object], v9Waterline: [Object], v9DryNiche: [Object], darkCommissionV9: [Object], darkExileV9: [Object], ch3Arrival: [Object], ch3ChainTrack: [Object], ch3Souls: [Object], ch3Wound: [Object], ch3Unseal: [Object], ch3RescueCart: [Object], ch3Doctor: [Object], ch3MedicineDeparture: [Object], ch3SaltGrotto: [Object], ch3SaltGather: [Object], ch3WorkshopLamp: [Object], ch3MineCrystal: [Object], ch3Treatment: [Object], ch3Wake: [Object], ch3CampDeparture: [Object], ch3Pass: [Object], ch3ArenaBefore: [Object], ch3ArenaAfter: [Object], ch3End: [Object], ch3MachineAccept: [Object], ch3MachineProgress: [Object], ch3MachineSpringFound: [Object], ch3MachineReturn: [Object], ch3MachineFirstUse: [Object], ch3FerryAccept: [Object], ch3FerryWreck: [Object], ch3FerryReturn: [Object], ch3FerryRelic: [Object], ch3FerryBook: [Object], ch3DoctorIdleSaint: [Object], ch3DoctorIdleHero: [Object], ch3MechanicIdle: [Object], ch3SaintAfterRecovery: [Object], ch3SaintSoulQuestion: [Object], ch3MinerIdle: [Object], ch3ReturnLamp: [Object], ch3CampFarewell: [Object], ch3AdvanceIntro: [Object], ch3AdvanceBoss1Before: [Object], ch3AdvanceBoss1After: [Object], ch3AdvanceRest: [Object], ch3AdvanceBoss2Before: [Object], ch3AdvanceBoss2After: [Object], ch3TeachingIntro: [Object], ch3TeachingPractice: [Object], ch3TeachingRepeat: [Object], ch4Arrival: [Object], ch4CampWelcome: [Object], ch4SmithLesson: [Object], ch4SmithReturn: [Object], ch4Boss1Before: [Object], ch4Boss1After: [Object], ch4Boss2Before: [Object], ch4Boss2After: [Object], ch4Boss3Before: [Object], ch4Boss3After: [Object], ch4SealedDoor: [Object], ch4Rest: [Object], ch4End: [Object], ch4Merchant: [Object], _v12Quest: [Object], v13BedRest: [Object], ch5ForgeWorkAccept: [Object], ch5ForgeWorkReturn: [Object], ch5DewWorkAccept: [Object], ch5DewWorkReturn: [Object], ch5NamesAccept: [Object], ch5NamesReturn: [Object], ch5RoadLetter: [Object], ch5HomeMark: [Object], ch5QuarryCache: [Object], ch5Arrival: [Object], ch5MentorBefore: [Object], ch5CareerTeach: [Object], ch5MentorAfter: [Object], ch5MentorDaily: [Object], ch5FirstGate: [Object], ch5Setback: [Object], ch5CityArrival: [Object], ch5ArchiveFirst: [Object], ch5ArchiveWork: [Object], ch5ArchiveReturn: [Object], ch5ArchiveDaily: [Object], ch5SmithFirst: [Object], ch5SmithWork: [Object], ch5SmithReturn: [Object], ch5SetCrafted: [Object], ch5SmithDaily: [Object], ch5AlchemyFirst: [Object], ch5AlchemyWork: [Object], ch5AlchemyReturn: [Object], ch5AlchemyDaily: [Object], ch5RecruiterFirst: [Object], ch5RecruiterContract: [Object], ch5RecruiterWork: [Object], ch5RecruiterReturn: [Object], ch5RecruiterDaily: [Object], ch5TavernFirst: [Object], ch5TavernSaint: [Object], ch5TavernDrink: [Object], ch5TavernRefuse: [Object], ch5TavernMusic: [Object], ch5BarkeepDaily: [Object], ch5TrainingFirst: [Object], ch5ArcadeFirst: [Object], ch5ArcadeWin: [Object], ch5ArcadeLose: [Object], ch5ReturnGate: [Object], ch5BossVictory: [Object], ch5CityFarewell: [Object], ch5ExteriorOrder: [Object], ch5Exit: [Object], 'c5-saint-after-job': [Object], 'c5-saint-after-treasure': [Object], 'c5-saint-night-talk': [Object], ch4V13Private: [Object], ch4V13Village: [Object], ch4V13Orders: [Object], ch4V13Summon: [Object], ch4V13Rescue: [Object], ch4V13BloodReady: [Object], ch4V13BloodAfter: [Object], ch4V13Notice: [Object], ch4V13PrivateAfter: [Object], ch4V13Return: [Object], ch4V14Investigation: [Object], ch4V13DoorAfter: [Object], v17BondDrinkIntro0: [Object], v17BondDrinkIntro1: [Object], v17BondDrinkIntro2: [Object], v17BondDrinkWine: [Object], v17BondDrinkFlower: [Object], v17BondDrinkQuiet0: [Object], v17BondDrinkQuiet1: [Object], v17BondDrinkWound0: [Object], v17BondDrinkWound1: [Object], v17BondGameIntro0: [Object], v17BondGameIntro1: [Object], v17BondGameIntro2: [Object], v17BondGameWin: [Object], v17BondGamePatient: [Object], v17BondPracticeIntro0: [Object], v17BondPracticeIntro1: [Object], v17BondPracticeIntro2: [Object], v17BondPracticeGuard: [Object], v17BondPracticeStep: [Object], v17BondPracticeStrike: [Object], v17BondPracticeWrongGuard: [Object], v17BondPracticeWrongStep: [Object], v17BondPracticeWrongStrike: [Object], v17BondPracticeTooSoon: [Object], v17BondPracticeTooLate: [Object], v17BondPracticeDone: [Object], v17BondMilestonedrink: [Object], v17BondMilestonegame: [Object], v17BondMilestonepractice: [Object], v18CityBreadStart: [Object], v18CityBreadFound: [Object], v18CityBreadFinish: [Object], v18CityBreadAfter: [Object], v18CityChimeStart: [Object], v18CityChimeFound: [Object], v18CityChimeSoft: [Object], v18CityChimeClear: [Object], v18CityChimeInstalled: [Object], v18CityChimeFinish: [Object], v18CityChimeAfter: [Object], v18CityMintStart: [Object], v18CityMintLeaves: [Object], v18CityMintDew: [Object], v18CityMintFinish: [Object], v18CityMintAfter: [Object], v18CityQuayRail: [Object], v18CityRainBasin: [Object], v18CityRibbons: [Object], v18CityMender: [Object], v18CitySamples: [Object], v18CityStars: [Object], v18CityBellRope: [Object], v18CityGuestWash: [Object], v18CityGuestWindow: [Object], v18CityGuestLedger: [Object], v18CityGuestBed: [Object], v19DiscoveryTune: [Object], v19DiscoveryTuneReturn: [Object], v19DiscoveryForge: [Object], v19DiscoveryForgeReturn: [Object], v19DiscoveryMarket: [Object], v19DiscoveryWater: [Object], v19DiscoveryNightBasket: [Object], v19DiscoveryBell: [Object], v18SaintMarketA: [Object], v18SaintMarketB: [Object], v18SaintRiddleA: [Object], v18SaintRiddleB: [Object], v18SaintCardsA: [Object], v18SaintCardsLeft: [Object], v18SaintCardsRight: [Object], v18SaintCardsB: [Object], v18SaintBreadA: [Object], v18SaintBreadB: [Object], v18SaintPracticeA: [Object], v18SaintPracticeB: [Object], v18SaintRainA: [Object], v18SaintRainB: [Object], v18SaintRoofA: [Object], v18SaintRoofB: [Object], v18SaintCupsA: [Object], v18SaintCupsWine: [Object], v18SaintCupsFlower: [Object], v18SaintCupsB: [Object], v18SaintPastWine: [Object], v18SaintPastFlower: [Object], v18SaintPastA: [Object], v18SaintPastB: [Object], v18SaintCareWine: [Object], v18SaintCareFlower: [Object], v18SaintCareA: [Object], v18SaintCareB: [Object], v18SaintMorningA: [Object], v18SaintMorningB: [Object], v18SaintWorkshopA: [Object], v18SaintWorkshopB: [Object], v18SaintLanternA: [Object], v18SaintLanternB: [Object], v18SaintDepartureA: [Object], v18SaintDepartureB: [Object], v18SaintRestbread: [Object], v18SaintRestcare: [Object], v20RomanceTavernA: [Object], v20RomanceTavernB: [Object], v20RomanceTavernC: [Object], v20RomanceBridgeA: [Object], v20RomanceBridgeB: [Object], v20RomanceBridgeC: [Object], v20RomanceMarketA: [Object], v20RomanceMarketB: [Object], v20RomanceMarketC: [Object], v20RomanceGardenA: [Object], v20RomanceGardenB: [Object], v20RomanceGardenC: [Object], v20RomanceStarsA: [Object], v20RomanceStarsB: [Object], v20RomanceStarsC: [Object], v20RomanceArcadeA: [Object], v20RomanceArcadeB: [Object], v20RomanceArcadeC: [Object], v22CityArrival: [Object], v24MomentFountainA: [Object], v24MomentFountainB: [Object], v24MomentBookA: [Object], v24MomentBookB: [Object], v24MomentLampA: [Object], v24MomentLampB: [Object], c6v25Musician: [Object], c6v25Checkpoint: [Object], c6v25Gather: [Object], c6v25Disguise: [Object], c6v25Village: [Object], c6v25Tax: [Object], c6v25Conscription: [Object], c6v25Rescue: [Object], c6v25Departure: [Object], c6v25NightTalk: [Object], c7v25Confide: [Object], c7v25ContractOne: [Object], c7v25FirstEscape: [Object], c7v25ContractTwo: [Object], c7v25Granary: [Object], c7v25Odric: [Object], c7v25OdricFarewell: [Object], c7v25Martha: [Object], c7v25MarthaFarewell: [Object], c7v25Severin: [Object], c7v25SeverinFarewell: [Object], c7v25Truth: [Object], v25C8Pursuit: [Object], v25C8Defeat: [Object], v25C8Sanctuary: [Object], v25C8Lodging: [Object], v25C8Dawn: [Object], v25C8StoneAfter: [Object], v25C8MirrorAfter: [Object], v25C8TrialRescue: [Object], v25C8Recovery: [Object], v25C8Table: [Object], v25C8Warning: [Object], v25C8Hold: [Object], v25C8Bind: [Object], v25C8After: [Object], v25C8Farewell: [Object], v25C8SpiritCup: [Object], v25C8SpiritPractice: [Object], v25C8SpiritBoundary: [Object], v25C8SpiritCompanions: [Object], c6v26BorrowedRoofIntro: [Object], c6v26BorrowedRoofHerbs: [Object], c6v26BorrowedRoofBoards: [Object], c6v26BorrowedRoofComplete: [Object], c6v26MissingNamesIntro: [Object], c6v26MissingNamesReceipts: [Object], c6v26MissingNamesSeals: [Object], c6v26MissingNamesComplete: [Object], c6v26LastWagonIntro: [Object], c6v26LastWagonKeys: [Object], c6v26LastWagonBelongings: [Object], c6v26LastWagonComplete: [Object], c6v26LastFerryIntro: [Object], c6v26LastFerryReeds: [Object], c6v26LastFerryTools: [Object], c6v26LastFerryComplete: [Object], c7v26SecondWagonIntro: [Object], c7v26SecondWagonAxles: [Object], c7v26SecondWagonWedges: [Object], c7v26SecondWagonComplete: [Object], c7v26MedicineRoundsIntro: [Object], c7v26MedicineRoundsHerbs: [Object], c7v26MedicineRoundsPackets: [Object], c7v26MedicineRoundsComplete: [Object], c8v26WindowMorning: [Object], c8v26WindowThread: [Object], c8v26WindowReady: [Object], c8v26LettersRequest: [Object], c8v26LettersBench: [Object], c8v26LettersAnswer: [Object], c8v26NotesAtGate: [Object], c8v26NotesWarmCup: [Object], c8v26NotesCorrection: [Object], c8v26BreakfastList: [Object], c8v26BreakfastDough: [Object], c8v26BreakfastTable: [Object], v29EchoSeparateCore: [Object], v29RoadSign: [Object], v29MillTracks: [Object], v29MillChannel: [Object], v29EchoNotes: [Object], v29EchoNeedNotes: [Object], v29EchoCoreTaken: [Object], v29LottieWork: [Object], v29LottieReturn: [Object], v29LottieFoundReturn: [Object], v29RepairCuring: [Object], v29RepairReady: [Object], c1RepairAccept: [Object], c1RepairCable: [Object], c1RepairDrain: [Object], c1RepairReturn: [Object], c1RepairLegacyReturn: [Object], c1VaultAccept: [Object], c1VaultLedger: [Object], c1VaultReturn: [Object], c1VaultLegacyReturn: [Object], c1NorthBrief: [Object], c1GateBrief: [Object], c1CanalAlreadyClear: [Object], c1TrainingReason: [Object], c1HerbsToLena: [Object], c1PatrolRoad: [Object], c1PatrolGrove: [Object], c1PatrolProgress: [Object], c1PatrolReturn: [Object], c1Talk_rats_offer: [Object], c1Talk_rats_progress: [Object], c1Talk_c1Readiness_offer: [Object], c1Talk_c1Readiness_progress: [Object], c1Talk_c1Readiness_report: [Object], c1Talk_c1ExitDrill_offer: [Object], c1Talk_c1ExitDrill_progress: [Object], c1Talk_c1ExitDrill_report: [Object], c1Talk_v12CourierRoad_offer: [Object], c1Talk_v12CourierRoad_progress: [Object], c1Talk_v12CourierRoad_report: [Object], c1Talk_c1LoomBrief_offer: [Object], c1Talk_c1LoomBrief_progress: [Object], c1Talk_c1LoomBrief_report: [Object], c1Talk_v12NorthDelivery_offer: [Object], c1Talk_v12NorthDelivery_progress: [Object], c1Talk_c1CanalPrep_offer: [Object], c1Talk_c1CanalPrep_progress: [Object], c1Talk_c1CanalPrep_report: [Object], c1Talk_c1CanalBreak_offer: [Object], c1Talk_c1CanalBreak_progress: [Object], c1Talk_c1CanalBreak_report: [Object], c1Talk_oil_offer: [Object], c1Talk_oil_progress: [Object], c1Talk_oil_report: [Object], c1Talk_v12Water_offer: [Object], c1Talk_v12Water_progress: [Object], c1Talk_v12Water_report: [Object], c1Talk_letter_offer: [Object], c1Talk_letter_progress: [Object], c1Talk_letter_report: [Object], c1Talk_herbs_offer: [Object], c1Talk_herbs_progress: [Object], c1Talk_herbs_report: [Object], c1Talk_lantern_offer: [Object], c1Talk_lantern_progress: [Object], c1Talk_lantern_report: [Object], c1Talk_copper_offer: [Object], c1Talk_copper_progress: [Object], c1Talk_copper_report: [Object], c1Talk_echo_offer: [Object], c1Talk_echo_progress: [Object], c1Talk_echo_report: [Object], c1Talk_c1ClockMemory_offer: [Object], c1Talk_c1ClockMemory_progress: [Object], c1Talk_c1RuneWear_offer: [Object], c1Talk_c1RuneWear_progress: [Object], c1Talk_c1RuneWear_report: [Object], c1Talk_c1RuneKiln_offer: [Object], c1Talk_c1RuneKiln_progress: [Object], c1Talk_c1RuneKiln_report: [Object], c1Talk_c1AlchemistSamples_offer: [Object], c1Talk_c1AlchemistSamples_progress: [Object], c1Talk_c1AlchemistSamples_report: [Object], c1Talk_c1CampHunt_offer: [Object], c1Talk_c1CampHunt_progress: [Object], c1Talk_c1CampHunt_report: [Object], c1Talk_c1CampHerbs_offer: [Object], c1Talk_c1CampHerbs_progress: [Object], c1Talk_c1CampHerbs_report: [Object], c1Talk_c1KilnRoost_offer: [Object], c1Talk_c1KilnRoost_progress: [Object], c1Talk_c1KilnRoost_report: [Object], c1Talk_c1TrialSalvage_offer: [Object], c1Talk_c1TrialSalvage_progress: [Object], c1Talk_c1TrialSalvage_report: [Object], c1Talk_c1CryptRepair_progress: [Object], c1Talk_c1VaultWatch_progress: [Object], c1HiddenPairArrangement: [Object], c1Conversation: [Object], c2PumpRest: [Object], c3HerbMedicine: [Object], c3BrewMedicine: [Object], c1SaintAid: [Object], c1TrialInvitation: [Object], c1TrialReport: [Object], c1HuntOffer: [Object], c1HuntProgress: [Object], c1HuntReport: [Object], c1SupplyIntro: [Object], c1CoreOrderOffer: [Object], c1TownDolly: [Object], c1TownLena: [Object], 'pacing:v12Water:accept': [Object], 'pacing:v12Water:progress': [Object], 'pacing:v12Water:goal:0': [Object], 'pacing:v12Water:complete': [Object], 'pacing:v12Water:after': [Object], 'pacing:v12CourierRoad:accept': [Object], 'pacing:v12CourierRoad:progress': [Object], 'pacing:v12CourierRoad:complete': [Object], 'pacing:v12CourierRoad:after': [Object], 'pacing:v12NorthDelivery:accept': [Object], 'pacing:v12NorthDelivery:progress': [Object], 'pacing:v12NorthDelivery:complete': [Object], 'pacing:v12NorthDelivery:after': [Object], 'pacing:v12WatchHours:accept': [Object], 'pacing:v12WatchHours:progress': [Object], 'pacing:v12WatchHours:complete': [Object], 'pacing:v12WatchHours:after': [Object], 'pacing:v12QuietRoom:accept': [Object], 'pacing:v12QuietRoom:progress': [Object], 'pacing:v12QuietRoom:goal:0': [Object], 'pacing:v12QuietRoom:complete': [Object], 'pacing:v12QuietRoom:after': [Object], 'pacing:v12CartBuckles:accept': [Object], 'pacing:v12CartBuckles:progress': [Object], 'pacing:v12CartBuckles:complete': [Object], 'pacing:v12CartBuckles:after': [Object], 'pacing:v12LoanedLamp:accept': [Object], 'pacing:v12LoanedLamp:progress': [Object], 'pacing:v12LoanedLamp:complete': [Object], 'pacing:v12LoanedLamp:after': [Object], 'pacing:v12WarmHerbs:accept': [Object], 'pacing:v12WarmHerbs:progress': [Object], 'pacing:v12WarmHerbs:goal:0': [Object], 'pacing:v12WarmHerbs:goal:1': [Object], 'pacing:v12WarmHerbs:complete': [Object], 'pacing:v12WarmHerbs:after': [Object], 'pacing:v12LampShields:accept': [Object], 'pacing:v12LampShields:progress': [Object], 'pacing:v12LampShields:goal:0': [Object], 'pacing:v12LampShields:complete': [Object], 'pacing:v12LampShields:after': [Object], 'pacing:v12LampShields:recovered': [Object], 'pacing:v12CleanBottles:accept': [Object], 'pacing:v12CleanBottles:progress': [Object], 'pacing:v12CleanBottles:goal:0': [Object], 'pacing:v12CleanBottles:goal:1': [Object], 'pacing:v12CleanBottles:complete': [Object], 'pacing:v12CleanBottles:after': [Object], 'pacing:v12HearthStones:accept': [Object], 'pacing:v12HearthStones:progress': [Object], 'pacing:v12HearthStones:goal:0': [Object], 'pacing:v12HearthStones:goal:1': [Object], 'pacing:v12HearthStones:complete': [Object], 'pacing:v12HearthStones:after': [Object], 'pacing:v12ForgeRivets:accept': [Object], 'pacing:v12ForgeRivets:progress': [Object], 'pacing:v12ForgeRivets:complete': [Object], 'pacing:v12ForgeRivets:after': [Object], 'controlled:ch3FerryAccept:saint': [Object], 'controlled:ch3FerryWreck:saint': [Object], 'controlled:ch3FerryReturn:saint': [Object], 'controlled:ch3FerryRelic:saint': [Object], 'controlled:ch3FerryBook:saint': [Object], 'controlled:ch3MinerIdle:saint': [Object], 'controlled:ch3ReturnLamp:saint': [Object], 'local:c1iden': [Object], 'local:c1hesha': [Object], 'local:c1venn': [Object], 'local:c1blake': [Object], 'local:c1eve': [Object], 'local:c1mada': [Object], 'progress:ch5ForgeWork': [Object], 'progress:ch5DewWork': [Object], 'progress:ch5Names': [Object], 'inline:ch3:doctorIdle': [Object], 'inline:ch3:ferrymanIdle': [Object], 'inline:ch3:drawkeeperIdle': [Object], 'inline:ch3:saintIdle': [Object], 'inline:ch3:returnLamp': [Object], 'inline:ch3:rest': [Object], 'inline:ch3:ferryFixed': [Object], 'inline:ch3:mechanistIdle:shadow': [Object], 'inline:ch3:mechanistIdle:saint': [Object], 'inline:ch4:directions': [Object], 'inline:ch4:merchantTalk': [Object], 'inline:ch4:innTalk': [Object], 'inline:ch5:music': [Object], 'literal:dist/chapter4-runtime-v14.js:0': [Object], 'literal:dist/chapter4-runtime-v14.js:1': [Object], 'literal:dist/chapter4-runtime-v14.js:2': [Object], 'literal:dist/chapter4-runtime-v14.js:3': [Object], 'literal:dist/chapter4-runtime-v14.js:4': [Object], 'literal:dist/chapter4-runtime-v14.js:5': [Object], 'spoken:dist/core-v14.js:0': [Object], 'spoken:dist/core-v14.js:1': [Object], 'spoken:dist/core-v14.js:2': [Object], 'spoken:dist/core-v14.js:3': [Object], 'inline:c1:morning': [Object], 'explore:repairShelf:2': [Object], 'explore:repairInvoice:2': [Object], 'explore:millDoor:2': [Object], 'explore:repairShelf:3': [Object], 'explore:repairInvoice:3': [Object], 'explore:millDoor:3': [Object], 'inline:ch2:sign': [Object], 'inline:ch3:tomb:shadow': [Object], 'inline:ch3:tomb:saint': [Object] }, limits: [ 'Static registration and explicit producer fixtures enumerate authored text; campaign reachability is a separate check.', 'Historical migration before-text is not current playable dialogue.', 'UI buttons, combat toasts, item descriptions and procedure-generated counts are outside spoken dialogue.' ] },
+    expected: { schema: 1, scenes: { intro: [Object], ratAccept: [Object], ratDone: [Object], aside: [Object], contract: [Object], saintBrief: [Object], assassination: [Object], canalStart: [Object], chapterEnd: [Object], sisterIdle: [Object], clerkIdle: [Object], courierAccept: [Object], courierDone: [Object], herbsAccept: [Object], herbSelf: [Object], herbWoman: [Object], old1: [Object], old2: [Object], secret: [Object], oldReturn: [Object], watch: [Object], oilDone: [Object], hostile: [Object], ambient_steward_beforeAssassination: [Object], ambient_steward_afterAssassination: [Object], ambient_steward_chapterComplete: [Object], ambient_sister_beforeAssassination: [Object], ambient_sister_afterAssassination: [Object], ambient_sister_chapterComplete: [Object], ambient_clerk_beforeAssassination: [Object], ambient_clerk_afterAssassination: [Object], ambient_clerk_chapterComplete: [Object], ambient_courier_beforeAssassination: [Object], ambient_courier_afterAssassination: [Object], ambient_courier_chapterComplete: [Object], ambient_herbalist_beforeAssassination: [Object], ambient_herbalist_afterAssassination: [Object], ambient_herbalist_chapterComplete: [Object], ambient_woman_beforeAssassination: [Object], ambient_woman_afterAssassination: [Object], ambient_woman_chapterComplete: [Object], ambient_oldwoman_beforeAssassination: [Object], ambient_oldwoman_afterAssassination: [Object], ambient_oldwoman_chapterComplete: [Object], ambient_watch_beforeAssassination: [Object], ambient_watch_afterAssassination: [Object], ambient_watch_chapterComplete: [Object], ambient_dolly_beforeAssassination: [Object], ambient_dolly_afterAssassination: [Object], ambient_dolly_chapterComplete: [Object], lanternAccept: [Object], lanternWatchBefore: [Object], lanternWatchAfter: [Object], lanternGuess: [Object], lanternStale: [Object], lanternReturnBefore: [Object], lanternReturnAfter: [Object], lanternAfterHelp: [Object], saintSealTalk: [Object], saintSealEarly: [Object], saintRoadEarly: [Object], saintRoadTalk: [Object], saintGateWarning: [Object], saintWaitHostile: [Object], womanMedicineReceived: [Object], oldWellFollowup: [Object], oilAcceptTalk: [Object], ratProgressTalk: [Object], letterProgressTalk: [Object], herbHintTalk: [Object], restTalk: [Object], watchClosed: [Object], guestTravelNote: [Object], guestWash: [Object], guestRest: [Object], workshopNotice: [Object], practiceBenchFirst: [Object], practiceBenchWaiting: [Object], practiceCopperFound: [Object], practiceBenchComplete: [Object], practiceBenchAfter: [Object], millOldPractice: [Object], millWheel: [Object], watchPracticeBefore: [Object], watchPracticeAfter: [Object], oldWorkshopTalk: [Object], saintGuestroom: [Object], saintWorkshop: [Object], sisterBeforeDeparture: [Object], sisterAfterBell: [Object], sisterAfterEscape: [Object], lottieGreeting: [Object], lottieWork: [Object], lottieFoundFirst: [Object], lottieProgress: [Object], lottieCoreReturn: [Object], lottieCuring: [Object], lottieResetReady: [Object], lottieIdle: [Object], waterworksLog: [Object], waterworksWheel: [Object], echoMachineLocked: [Object], echoMachineIntro: [Object], echoBookChosen: [Object], echoGearChosen: [Object], echoMachineAfter: [Object], echoMachineReserved: [Object], farewellSteward: [Object], farewellSister: [Object], farewellDolly: [Object], farewellDollyUnfinished: [Object], farewellLottie: [Object], saintFarewellWait: [Object], farewellLottieUnfinished: [Object], echoValveBefore: [Object], echoValveAfter: [Object], echoCrystalLocked: [Object], echoCoreFound: [Object], echoNoReward: [Object], resetBenchLocked: [Object], saintCave: [Object], ch2Arrival: [Object], ch2Relay: [Object], ch2Terms: [Object], ch2SearchAside: [Object], ch2Bridge: [Object], ch2OuterCourt: [Object], ch2TargetBefore: [Object], ch2InnerDoor: [Object], ch2Alarm: [Object], ch2Breakout: [Object], ch2TargetAfter: [Object], ch2Spillway: [Object], ch2ExileApproach: [Object], ch2PursuitStops: [Object], ch2ExileEnd: [Object], selineWork: [Object], selineWorkProgress: [Object], selinePoleFound: [Object], selineWorkReturn: [Object], selineWorkDone: [Object], selineIdleBefore: [Object], selineIdleAfter: [Object], saintPostIdle: [Object], saintInnIdle: [Object], postWashstand: [Object], postTrainingRack: [Object], ch1SisterBoots: [Object], ch1LottieLedger: [Object], ch1DollyFitting: [Object], selineRewardMedicine: [Object], selineRewardWrap: [Object], selineWorkLockedByAlarm: [Object], selineFoundFirst: [Object], saintEscapeOnly: [Object], saintAlarmOnly: [Object], innRestTalk: [Object], bridgeWatchIdle: [Object], saintGateOnly: [Object], v9PostWheel: [Object], v9CartRope: [Object], v9CellarOpen: [Object], v9CellarFirst: [Object], v9TollFound: [Object], v9TollScale: [Object], v9BridgeWater: [Object], v9WellRim: [Object], v9WellOpen: [Object], v9WardenFirst: [Object], v9WardenChain: [Object], v9WardenReward: [Object], v9Waterline: [Object], v9DryNiche: [Object], darkCommissionV9: [Object], darkExileV9: [Object], ch3Arrival: [Object], ch3ChainTrack: [Object], ch3Souls: [Object], ch3Wound: [Object], ch3Unseal: [Object], ch3RescueCart: [Object], ch3Doctor: [Object], ch3MedicineDeparture: [Object], ch3SaltGrotto: [Object], ch3SaltGather: [Object], ch3WorkshopLamp: [Object], ch3MineCrystal: [Object], ch3Treatment: [Object], ch3Wake: [Object], ch3CampDeparture: [Object], ch3Pass: [Object], ch3ArenaBefore: [Object], ch3ArenaAfter: [Object], ch3End: [Object], ch3MachineAccept: [Object], ch3MachineProgress: [Object], ch3MachineSpringFound: [Object], ch3MachineReturn: [Object], ch3MachineFirstUse: [Object], ch3FerryAccept: [Object], ch3FerryWreck: [Object], ch3FerryReturn: [Object], ch3FerryRelic: [Object], ch3FerryBook: [Object], ch3DoctorIdleSaint: [Object], ch3DoctorIdleHero: [Object], ch3MechanicIdle: [Object], ch3SaintAfterRecovery: [Object], ch3SaintSoulQuestion: [Object], ch3MinerIdle: [Object], ch3ReturnLamp: [Object], ch3CampFarewell: [Object], ch3AdvanceIntro: [Object], ch3AdvanceBoss1Before: [Object], ch3AdvanceBoss1After: [Object], ch3AdvanceRest: [Object], ch3AdvanceBoss2Before: [Object], ch3AdvanceBoss2After: [Object], ch3TeachingIntro: [Object], ch3TeachingPractice: [Object], ch3TeachingRepeat: [Object], ch4Arrival: [Object], ch4CampWelcome: [Object], ch4SmithLesson: [Object], ch4SmithReturn: [Object], ch4Boss1Before: [Object], ch4Boss1After: [Object], ch4Boss2Before: [Object], ch4Boss2After: [Object], ch4Boss3Before: [Object], ch4Boss3After: [Object], ch4SealedDoor: [Object], ch4Rest: [Object], ch4End: [Object], ch4Merchant: [Object], _v12Quest: [Object], v13BedRest: [Object], ch5ForgeWorkAccept: [Object], ch5ForgeWorkReturn: [Object], ch5DewWorkAccept: [Object], ch5DewWorkReturn: [Object], ch5NamesAccept: [Object], ch5NamesReturn: [Object], ch5RoadLetter: [Object], ch5HomeMark: [Object], ch5QuarryCache: [Object], ch5Arrival: [Object], ch5MentorBefore: [Object], ch5CareerTeach: [Object], ch5MentorAfter: [Object], ch5MentorDaily: [Object], ch5FirstGate: [Object], ch5Setback: [Object], ch5CityArrival: [Object], ch5ArchiveFirst: [Object], ch5ArchiveWork: [Object], ch5ArchiveReturn: [Object], ch5ArchiveDaily: [Object], ch5SmithFirst: [Object], ch5SmithWork: [Object], ch5SmithReturn: [Object], ch5SetCrafted: [Object], ch5SmithDaily: [Object], ch5AlchemyFirst: [Object], ch5AlchemyWork: [Object], ch5AlchemyReturn: [Object], ch5AlchemyDaily: [Object], ch5RecruiterFirst: [Object], ch5RecruiterContract: [Object], ch5RecruiterWork: [Object], ch5RecruiterReturn: [Object], ch5RecruiterDaily: [Object], ch5TavernFirst: [Object], ch5TavernSaint: [Object], ch5TavernDrink: [Object], ch5TavernRefuse: [Object], ch5TavernMusic: [Object], ch5BarkeepDaily: [Object], ch5TrainingFirst: [Object], ch5ArcadeFirst: [Object], ch5ArcadeWin: [Object], ch5ArcadeLose: [Object], ch5ReturnGate: [Object], ch5BossVictory: [Object], ch5CityFarewell: [Object], ch5ExteriorOrder: [Object], ch5Exit: [Object], 'c5-saint-after-job': [Object], 'c5-saint-after-treasure': [Object], 'c5-saint-night-talk': [Object], ch4V13Private: [Object], ch4V13Village: [Object], ch4V13Orders: [Object], ch4V13Summon: [Object], ch4V13Rescue: [Object], ch4V13BloodReady: [Object], ch4V13BloodAfter: [Object], ch4V13Notice: [Object], ch4V13PrivateAfter: [Object], ch4V13Return: [Object], ch4V14Investigation: [Object], ch4V13DoorAfter: [Object], v17BondDrinkIntro0: [Object], v17BondDrinkIntro1: [Object], v17BondDrinkIntro2: [Object], v17BondDrinkWine: [Object], v17BondDrinkFlower: [Object], v17BondDrinkQuiet0: [Object], v17BondDrinkQuiet1: [Object], v17BondDrinkWound0: [Object], v17BondDrinkWound1: [Object], v17BondGameIntro0: [Object], v17BondGameIntro1: [Object], v17BondGameIntro2: [Object], v17BondGameWin: [Object], v17BondGamePatient: [Object], v17BondPracticeIntro0: [Object], v17BondPracticeIntro1: [Object], v17BondPracticeIntro2: [Object], v17BondPracticeGuard: [Object], v17BondPracticeStep: [Object], v17BondPracticeStrike: [Object], v17BondPracticeWrongGuard: [Object], v17BondPracticeWrongStep: [Object], v17BondPracticeWrongStrike: [Object], v17BondPracticeTooSoon: [Object], v17BondPracticeTooLate: [Object], v17BondPracticeDone: [Object], v17BondMilestonedrink: [Object], v17BondMilestonegame: [Object], v17BondMilestonepractice: [Object], v18CityBreadStart: [Object], v18CityBreadFound: [Object], v18CityBreadFinish: [Object], v18CityBreadAfter: [Object], v18CityChimeStart: [Object], v18CityChimeFound: [Object], v18CityChimeSoft: [Object], v18CityChimeClear: [Object], v18CityChimeInstalled: [Object], v18CityChimeFinish: [Object], v18CityChimeAfter: [Object], v18CityMintStart: [Object], v18CityMintLeaves: [Object], v18CityMintDew: [Object], v18CityMintFinish: [Object], v18CityMintAfter: [Object], v18CityQuayRail: [Object], v18CityRainBasin: [Object], v18CityRibbons: [Object], v18CityMender: [Object], v18CitySamples: [Object], v18CityStars: [Object], v18CityBellRope: [Object], v18CityGuestWash: [Object], v18CityGuestWindow: [Object], v18CityGuestLedger: [Object], v18CityGuestBed: [Object], v19DiscoveryTune: [Object], v19DiscoveryTuneReturn: [Object], v19DiscoveryForge: [Object], v19DiscoveryForgeReturn: [Object], v19DiscoveryMarket: [Object], v19DiscoveryWater: [Object], v19DiscoveryNightBasket: [Object], v19DiscoveryBell: [Object], v18SaintMarketA: [Object], v18SaintMarketB: [Object], v18SaintRiddleA: [Object], v18SaintRiddleB: [Object], v18SaintCardsA: [Object], v18SaintCardsLeft: [Object], v18SaintCardsRight: [Object], v18SaintCardsB: [Object], v18SaintBreadA: [Object], v18SaintBreadB: [Object], v18SaintPracticeA: [Object], v18SaintPracticeB: [Object], v18SaintRainA: [Object], v18SaintRainB: [Object], v18SaintRoofA: [Object], v18SaintRoofB: [Object], v18SaintCupsA: [Object], v18SaintCupsWine: [Object], v18SaintCupsFlower: [Object], v18SaintCupsB: [Object], v18SaintPastWine: [Object], v18SaintPastFlower: [Object], v18SaintPastA: [Object], v18SaintPastB: [Object], v18SaintCareWine: [Object], v18SaintCareFlower: [Object], v18SaintCareA: [Object], v18SaintCareB: [Object], v18SaintMorningA: [Object], v18SaintMorningB: [Object], v18SaintWorkshopA: [Object], v18SaintWorkshopB: [Object], v18SaintLanternA: [Object], v18SaintLanternB: [Object], v18SaintDepartureA: [Object], v18SaintDepartureB: [Object], v18SaintRestbread: [Object], v18SaintRestcare: [Object], v20RomanceTavernA: [Object], v20RomanceTavernB: [Object], v20RomanceTavernC: [Object], v20RomanceBridgeA: [Object], v20RomanceBridgeB: [Object], v20RomanceBridgeC: [Object], v20RomanceMarketA: [Object], v20RomanceMarketB: [Object], v20RomanceMarketC: [Object], v20RomanceGardenA: [Object], v20RomanceGardenB: [Object], v20RomanceGardenC: [Object], v20RomanceStarsA: [Object], v20RomanceStarsB: [Object], v20RomanceStarsC: [Object], v20RomanceArcadeA: [Object], v20RomanceArcadeB: [Object], v20RomanceArcadeC: [Object], v22CityArrival: [Object], v24MomentFountainA: [Object], v24MomentFountainB: [Object], v24MomentBookA: [Object], v24MomentBookB: [Object], v24MomentLampA: [Object], v24MomentLampB: [Object], c6v25Musician: [Object], c6v25Checkpoint: [Object], c6v25Gather: [Object], c6v25Disguise: [Object], c6v25Village: [Object], c6v25Tax: [Object], c6v25Conscription: [Object], c6v25Rescue: [Object], c6v25Departure: [Object], c6v25NightTalk: [Object], c7v25Confide: [Object], c7v25ContractOne: [Object], c7v25FirstEscape: [Object], c7v25ContractTwo: [Object], c7v25Granary: [Object], c7v25Odric: [Object], c7v25OdricFarewell: [Object], c7v25Martha: [Object], c7v25MarthaFarewell: [Object], c7v25Severin: [Object], c7v25SeverinFarewell: [Object], c7v25Truth: [Object], v25C8Pursuit: [Object], v25C8Defeat: [Object], v25C8Sanctuary: [Object], v25C8Lodging: [Object], v25C8Dawn: [Object], v25C8StoneAfter: [Object], v25C8MirrorAfter: [Object], v25C8TrialRescue: [Object], v25C8Recovery: [Object], v25C8Table: [Object], v25C8Warning: [Object], v25C8Hold: [Object], v25C8Bind: [Object], v25C8After: [Object], v25C8Farewell: [Object], v25C8SpiritCup: [Object], v25C8SpiritPractice: [Object], v25C8SpiritBoundary: [Object], v25C8SpiritCompanions: [Object], c6v26BorrowedRoofIntro: [Object], c6v26BorrowedRoofHerbs: [Object], c6v26BorrowedRoofBoards: [Object], c6v26BorrowedRoofComplete: [Object], c6v26MissingNamesIntro: [Object], c6v26MissingNamesReceipts: [Object], c6v26MissingNamesSeals: [Object], c6v26MissingNamesComplete: [Object], c6v26LastWagonIntro: [Object], c6v26LastWagonKeys: [Object], c6v26LastWagonBelongings: [Object], c6v26LastWagonComplete: [Object], c6v26LastFerryIntro: [Object], c6v26LastFerryReeds: [Object], c6v26LastFerryTools: [Object], c6v26LastFerryComplete: [Object], c7v26SecondWagonIntro: [Object], c7v26SecondWagonAxles: [Object], c7v26SecondWagonWedges: [Object], c7v26SecondWagonComplete: [Object], c7v26MedicineRoundsIntro: [Object], c7v26MedicineRoundsHerbs: [Object], c7v26MedicineRoundsPackets: [Object], c7v26MedicineRoundsComplete: [Object], c8v26WindowMorning: [Object], c8v26WindowThread: [Object], c8v26WindowReady: [Object], c8v26LettersRequest: [Object], c8v26LettersBench: [Object], c8v26LettersAnswer: [Object], c8v26NotesAtGate: [Object], c8v26NotesWarmCup: [Object], c8v26NotesCorrection: [Object], c8v26BreakfastList: [Object], c8v26BreakfastDough: [Object], c8v26BreakfastTable: [Object], v29EchoSeparateCore: [Object], v29RoadSign: [Object], v29MillTracks: [Object], v29MillChannel: [Object], v29EchoNotes: [Object], v29EchoNeedNotes: [Object], v29EchoCoreTaken: [Object], v29LottieWork: [Object], v29LottieReturn: [Object], v29LottieFoundReturn: [Object], v29RepairCuring: [Object], v29RepairReady: [Object], c1RepairAccept: [Object], c1RepairCable: [Object], c1RepairDrain: [Object], c1RepairReturn: [Object], c1RepairLegacyReturn: [Object], c1VaultAccept: [Object], c1VaultLedger: [Object], c1VaultReturn: [Object], c1VaultLegacyReturn: [Object], c1NorthBrief: [Object], c1GateBrief: [Object], c1CanalAlreadyClear: [Object], c1TrainingReason: [Object], c1HerbsToLena: [Object], c1PatrolRoad: [Object], c1PatrolGrove: [Object], c1PatrolProgress: [Object], c1PatrolReturn: [Object], c1Talk_rats_offer: [Object], c1Talk_rats_progress: [Object], c1Talk_c1Readiness_offer: [Object], c1Talk_c1Readiness_progress: [Object], c1Talk_c1Readiness_report: [Object], c1Talk_c1ExitDrill_offer: [Object], c1Talk_c1ExitDrill_progress: [Object], c1Talk_c1ExitDrill_report: [Object], c1Talk_v12CourierRoad_offer: [Object], c1Talk_v12CourierRoad_progress: [Object], c1Talk_v12CourierRoad_report: [Object], c1Talk_c1LoomBrief_offer: [Object], c1Talk_c1LoomBrief_progress: [Object], c1Talk_c1LoomBrief_report: [Object], c1Talk_v12NorthDelivery_offer: [Object], c1Talk_v12NorthDelivery_progress: [Object], c1Talk_c1CanalPrep_offer: [Object], c1Talk_c1CanalPrep_progress: [Object], c1Talk_c1CanalPrep_report: [Object], c1Talk_c1CanalBreak_offer: [Object], c1Talk_c1CanalBreak_progress: [Object], c1Talk_c1CanalBreak_report: [Object], c1Talk_oil_offer: [Object], c1Talk_oil_progress: [Object], c1Talk_oil_report: [Object], c1Talk_v12Water_offer: [Object], c1Talk_v12Water_progress: [Object], c1Talk_v12Water_report: [Object], c1Talk_letter_offer: [Object], c1Talk_letter_progress: [Object], c1Talk_letter_report: [Object], c1Talk_herbs_offer: [Object], c1Talk_herbs_progress: [Object], c1Talk_herbs_report: [Object], c1Talk_lantern_offer: [Object], c1Talk_lantern_progress: [Object], c1Talk_lantern_report: [Object], c1Talk_copper_offer: [Object], c1Talk_copper_progress: [Object], c1Talk_copper_report: [Object], c1Talk_echo_offer: [Object], c1Talk_echo_progress: [Object], c1Talk_echo_report: [Object], c1Talk_c1ClockMemory_offer: [Object], c1Talk_c1ClockMemory_progress: [Object], c1Talk_c1RuneWear_offer: [Object], c1Talk_c1RuneWear_progress: [Object], c1Talk_c1RuneWear_report: [Object], c1Talk_c1RuneKiln_offer: [Object], c1Talk_c1RuneKiln_progress: [Object], c1Talk_c1RuneKiln_report: [Object], c1Talk_c1AlchemistSamples_offer: [Object], c1Talk_c1AlchemistSamples_progress: [Object], c1Talk_c1AlchemistSamples_report: [Object], c1Talk_c1CampHunt_offer: [Object], c1Talk_c1CampHunt_progress: [Object], c1Talk_c1CampHunt_report: [Object], c1Talk_c1CampHerbs_offer: [Object], c1Talk_c1CampHerbs_progress: [Object], c1Talk_c1CampHerbs_report: [Object], c1Talk_c1KilnRoost_offer: [Object], c1Talk_c1KilnRoost_progress: [Object], c1Talk_c1KilnRoost_report: [Object], c1Talk_c1TrialSalvage_offer: [Object], c1Talk_c1TrialSalvage_progress: [Object], c1Talk_c1TrialSalvage_report: [Object], c1Talk_c1CryptRepair_progress: [Object], c1Talk_c1VaultWatch_progress: [Object], c1HiddenPairArrangement: [Object], c1Conversation: [Object], c2PumpRest: [Object], c3HerbMedicine: [Object], c3BrewMedicine: [Object], c1SaintAid: [Object], c1TrialInvitation: [Object], c1TrialReport: [Object], c1HuntOffer: [Object], c1HuntProgress: [Object], c1HuntReport: [Object], c1SupplyIntro: [Object], c1CoreOrderOffer: [Object], c1TownDolly: [Object], c1TownLena: [Object], 'pacing:v12Water:accept': [Object], 'pacing:v12Water:progress': [Object], 'pacing:v12Water:goal:0': [Object], 'pacing:v12Water:complete': [Object], 'pacing:v12Water:after': [Object], 'pacing:v12CourierRoad:accept': [Object], 'pacing:v12CourierRoad:progress': [Object], 'pacing:v12CourierRoad:complete': [Object], 'pacing:v12CourierRoad:after': [Object], 'pacing:v12NorthDelivery:accept': [Object], 'pacing:v12NorthDelivery:progress': [Object], 'pacing:v12NorthDelivery:complete': [Object], 'pacing:v12NorthDelivery:after': [Object], 'pacing:v12WatchHours:accept': [Object], 'pacing:v12WatchHours:progress': [Object], 'pacing:v12WatchHours:complete': [Object], 'pacing:v12WatchHours:after': [Object], 'pacing:v12QuietRoom:accept': [Object], 'pacing:v12QuietRoom:progress': [Object], 'pacing:v12QuietRoom:goal:0': [Object], 'pacing:v12QuietRoom:complete': [Object], 'pacing:v12QuietRoom:after': [Object], 'pacing:v12CartBuckles:accept': [Object], 'pacing:v12CartBuckles:progress': [Object], 'pacing:v12CartBuckles:complete': [Object], 'pacing:v12CartBuckles:after': [Object], 'pacing:v12LoanedLamp:accept': [Object], 'pacing:v12LoanedLamp:progress': [Object], 'pacing:v12LoanedLamp:complete': [Object], 'pacing:v12LoanedLamp:after': [Object], 'pacing:v12WarmHerbs:accept': [Object], 'pacing:v12WarmHerbs:progress': [Object], 'pacing:v12WarmHerbs:goal:0': [Object], 'pacing:v12WarmHerbs:goal:1': [Object], 'pacing:v12WarmHerbs:complete': [Object], 'pacing:v12WarmHerbs:after': [Object], 'pacing:v12LampShields:accept': [Object], 'pacing:v12LampShields:progress': [Object], 'pacing:v12LampShields:goal:0': [Object], 'pacing:v12LampShields:complete': [Object], 'pacing:v12LampShields:after': [Object], 'pacing:v12LampShields:recovered': [Object], 'pacing:v12CleanBottles:accept': [Object], 'pacing:v12CleanBottles:progress': [Object], 'pacing:v12CleanBottles:goal:0': [Object], 'pacing:v12CleanBottles:goal:1': [Object], 'pacing:v12CleanBottles:complete': [Object], 'pacing:v12CleanBottles:after': [Object], 'pacing:v12HearthStones:accept': [Object], 'pacing:v12HearthStones:progress': [Object], 'pacing:v12HearthStones:goal:0': [Object], 'pacing:v12HearthStones:goal:1': [Object], 'pacing:v12HearthStones:complete': [Object], 'pacing:v12HearthStones:after': [Object], 'pacing:v12ForgeRivets:accept': [Object], 'pacing:v12ForgeRivets:progress': [Object], 'pacing:v12ForgeRivets:complete': [Object], 'pacing:v12ForgeRivets:after': [Object], 'controlled:ch3FerryAccept:saint': [Object], 'controlled:ch3FerryWreck:saint': [Object], 'controlled:ch3FerryReturn:saint': [Object], 'controlled:ch3FerryRelic:saint': [Object], 'controlled:ch3FerryBook:saint': [Object], 'controlled:ch3MinerIdle:saint': [Object], 'controlled:ch3ReturnLamp:saint': [Object], 'local:c1iden': [Object], 'local:c1hesha': [Object], 'local:c1venn': [Object], 'local:c1blake': [Object], 'local:c1eve': [Object], 'local:c1mada': [Object], 'progress:ch5ForgeWork': [Object], 'progress:ch5DewWork': [Object], 'progress:ch5Names': [Object], 'inline:ch3:doctorIdle': [Object], 'inline:ch3:ferrymanIdle': [Object], 'inline:ch3:drawkeeperIdle': [Object], 'inline:ch3:saintIdle': [Object], 'inline:ch3:returnLamp': [Object], 'inline:ch3:rest': [Object], 'inline:ch3:ferryFixed': [Object], 'inline:ch3:mechanistIdle:shadow': [Object], 'inline:ch3:mechanistIdle:saint': [Object], 'inline:ch4:directions': [Object], 'inline:ch4:merchantTalk': [Object], 'inline:ch4:innTalk': [Object], 'inline:ch5:music': [Object], 'literal:dist/chapter4-runtime-v14.js:0': [Object], 'literal:dist/chapter4-runtime-v14.js:1': [Object], 'literal:dist/chapter4-runtime-v14.js:2': [Object], 'literal:dist/chapter4-runtime-v14.js:3': [Object], 'literal:dist/chapter4-runtime-v14.js:4': [Object], 'literal:dist/chapter4-runtime-v14.js:5': [Object], 'spoken:dist/core-v14.js:0': [Object], 'spoken:dist/core-v14.js:1': [Object], 'spoken:dist/core-v14.js:2': [Object], 'spoken:dist/core-v14.js:3': [Object], 'inline:c1:morning': [Object], 'explore:repairShelf:2': [Object], 'explore:repairInvoice:2': [Object], 'explore:millDoor:2': [Object], 'explore:repairShelf:3': [Object], 'explore:repairInvoice:3': [Object], 'explore:millDoor:3': [Object], 'inline:ch2:sign': [Object], 'inline:ch3:tomb:shadow': [Object], 'inline:ch3:tomb:saint': [Object] }, limits: [ 'Static registration and explicit producer fixtures enumerate authored text; campaign reachability is a separate check.', 'Historical migration before-text is not current playable dialogue.', 'UI buttons, combat toasts, item descriptions and procedure-generated counts are outside spoken dialogue.' ] },
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+
+test at tests/dialogue-reader.test.mjs:62:1
+✖ four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact (10.058334ms)
+  AssertionError [ERR_ASSERTION]: c1TrainingReason
+  + actual - expected
+  
+    [
+      [
+        '诺恩',
+  +     '鲁恩平时也看我练，怎么还要去地下？'
+  -     '你为什么选庭院和地下这两处？'
+      ],
+      [
+        '薇蕾娜',
+  +     '他熟悉你的习惯，知道什么时候该收手。地下那些构装体可不会让着你，路也窄。让你去试一趟，我才好决定城里的差事。'
+  -     '鲁恩在庭院能看清你怎样应付冲撞。地下的路窄，构装体又不按人的习惯出手，两处都走过，才知道遇上陌生的敌人时，你能不能给自己留出退路。'
+      ],
+      [
+        '诺恩',
+  +     '明白了。我先问伊登哪些还在运转，清完回来找你。'
+  -     '明白。我会把经过记住，回来告诉你。'
+      ],
+      [
+        '薇蕾娜',
+  +     '嗯。我就在会馆，要是那边有事耽搁，托伊登给我捎句话。'
+  -     '我等你。刚才给你留饭都没这么痛快答应，看来还是谈试炼容易把你留下。'
+      ],
+      [
+        '诺恩',
+  +     '好。饭也给我留着，我会回来吃。'
+  -     '饭我也会回来吃。我只是想先问清楚。'
+      ]
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/dialogue-reader.test.mjs:63:62)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: [ [ '诺恩', '鲁恩平时也看我练，怎么还要去地下？' ], [ '薇蕾娜', '他熟悉你的习惯，知道什么时候该收手。地下那些构装体可不会让着你，路也窄。让你去试一趟，我才好决定城里的差事。' ], [ '诺恩', '明白了。我先问伊登哪些还在运转，清完回来找你。' ], [ '薇蕾娜', '嗯。我就在会馆，要是那边有事耽搁，托伊登给我捎句话。' ], [ '诺恩', '好。饭也给我留着，我会回来吃。' ] ],
+    expected: [ [ '诺恩', '你为什么选庭院和地下这两处？' ], [ '薇蕾娜', '鲁恩在庭院能看清你怎样应付冲撞。地下的路窄，构装体又不按人的习惯出手，两处都走过，才知道遇上陌生的敌人时，你能不能给自己留出退路。' ], [ '诺恩', '明白。我会把经过记住，回来告诉你。' ], [ '薇蕾娜', '我等你。刚才给你留饭都没这么痛快答应，看来还是谈试炼容易把你留下。' ], [ '诺恩', '饭我也会回来吃。我只是想先问清楚。' ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }
+FAILED with exit 1

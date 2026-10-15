@@ -17,7 +17,7 @@ function roleFor(e,map){
 function tune(g,e,map){
  if(!inChapterOne(g,map))return;
  const role=roleFor(e,map),cfg=EXPERIENCE_ROLES[role];if(!cfg)return;
- if(e.experienceRevision!==1){const ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.experienceRevision=1;}
+ if(e.experienceRevision!==2){const ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.experienceRevision=2;}
  e.experienceRole=role;e.v28DamageMultiplier=1;e.v15BossStats='custom';
  if(cfg.isBoss){e.isBoss=true;e.elite=true;}
  // Keep respawns and all quest credit. Repeated entries no longer print full XP.

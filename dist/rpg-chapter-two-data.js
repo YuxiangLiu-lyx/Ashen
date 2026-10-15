@@ -1,8 +1,8 @@
 // Authored chapter-two roles: fixed budgets, existing guard bodies and attacks.
 export const C2_ROLES={
- c2Front:{hp:330,damage:20,speed:146,aggro:300,reach:68,wind:.62,cooldown:1.7,leash:610,guardFront:.65,guardRear:1.12,dotMultiplier:1,rangedReach:0},
- c2Pursuer:{hp:260,damage:22,speed:192,aggro:310,reach:62,wind:.55,cooldown:1.5,leash:650,rangedReach:0},
- c2Thrower:{hp:220,damage:18,speed:145,aggro:350,reach:58,wind:.6,cooldown:1.7,leash:610,rangedReach:380,rangedWind:.9,rangedCooldown:4.8},
+ c2Front:{hp:478,damage:20,speed:146,aggro:300,reach:68,wind:.62,cooldown:1.7,leash:610,guardFront:.65,guardRear:1.12,dotMultiplier:1,rangedReach:0},
+ c2Pursuer:{hp:377,damage:22,speed:192,aggro:310,reach:62,wind:.55,cooldown:1.5,leash:650,rangedReach:0},
+ c2Thrower:{hp:319,damage:18,speed:145,aggro:350,reach:58,wind:.6,cooldown:1.7,leash:610,rangedReach:380,rangedWind:.9,rangedCooldown:4.8},
 };
 export const C2_STOCK={
  relayWeapon:{name:'驿站整修武器',slot:'weapon',atk:24,hp:0,cost:85,minLevel:5},

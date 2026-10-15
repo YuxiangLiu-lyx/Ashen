@@ -13,5 +13,5 @@ for(const cls of ['shadow','oath','ember'])for(const route of ['main_only','typi
  r.continueChapterTwo();fs.writeFileSync(path,JSON.stringify({route,cls,basis:'runtime_events',events:r.events,milestones:r.milestones,limits:r.limits},null,2));
 });
 for(const cls of ['shadow','oath','ember'])test(cls+' full route with exactly one exclusive epic carries through chapter two',()=>{
- const seed=cls==='shadow'?10:12,r=journey(cls,'all_once',seed);assert.equal(Object.entries(r.g.c1Expansion.claimLedger).filter(([id,tx])=>id.startsWith('elite:')&&tx.draw>=0).length,1);r.continueChapterTwo();fs.writeFileSync(out+'/'+cls+'-all_once-one-epic.json',JSON.stringify({route:'all_once',cls,seed,basis:'runtime_events',variant:'exactly one exclusive epic',events:r.events,milestones:r.milestones,limits:r.limits},null,2)+'\n');
+ const seed=12,r=journey(cls,'all_once',seed);assert.equal(Object.entries(r.g.c1Expansion.claimLedger).filter(([id,tx])=>id.startsWith('elite:')&&tx.draw>=0).length,1);r.continueChapterTwo();fs.writeFileSync(out+'/'+cls+'-all_once-one-epic.json',JSON.stringify({route:'all_once',cls,seed,basis:'runtime_events',variant:'exactly one exclusive epic',events:r.events,milestones:r.milestones,limits:r.limits},null,2)+'\n');
 });

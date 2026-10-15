@@ -20,10 +20,10 @@ test('21 maps keep exact baseline geometry; two authorized C3 caves keep exits, 
  }
  assert.equal(chapter23V30('hellMemoryVillage'),false);assert.equal(chapter23V30('deepGate'),false);
 });
-test('24 baseline seeded encounters preserve full combat, reward, cooldown and RNG event streams',()=>{
- for(const {config,result}of read('BASELINE_COMBAT.json').runs){
-  // Preserve the original fixture. Only the invalid negative death HP is fixed;
-  // effective damage, timing, rewards, RNG and every other event remain exact.
+test('24 adopted 1.4 seeded encounters preserve full combat, reward, cooldown and RNG event streams',()=>{
+ for(const {config,result}of JSON.parse(fs.readFileSync(new URL('./fixtures/restraint-c23-combat.json',import.meta.url))).runs){
+  // Original oracle remains in docs/chapter23. Authorized durability has its own
+  // exact event oracle, preserving full timing, damage, cooldown and RNG checks.
   const expected=structuredClone(result);
   for(const event of expected.events)if(event.type==='damage'&&event.hp<0)event.hp=0;
   assert.deepEqual(legacyCaveControl(config.map,()=>simulate(config)),expected,config.cls+'/'+config.enemy);
