@@ -5,7 +5,7 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_rpg_three_chapters_with_all_current_dialogue_and_enemy_hud",
+  "snapshot_type": "v30_rpg_three_chapters_with_c1_character_flow",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
@@ -20,7 +20,7 @@
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
   "known_limits": "R01 1.5 full chapter dialogue review, gradual trial briefing, task ordering and merchant appearance technically verified. Human literary voice, appearance, difficulty, pacing and fun remain pending; historical 0.6 human gate independent. R04-R08 unchanged; no website deployment.",
-  "checked_at_utc": "2026-10-16T06:28:20.686519+00:00",
+  "checked_at_utc": "2026-10-16T06:50:54.186894+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "c7439c80020b978182fe3ad2e8eb9c5047963139",
+  "runtime_source_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -301,9 +301,9 @@
     "documentation_commit_resolution": "git log -1 --format=%H -- docs/chapter123/GIT_SAVE.json source/CURRENT_STATE.json .codex/progress.md"
   },
   "narrative_rebuild": {
-    "version": "1.4",
-    "task_id": "c1-restraint-20261015",
-    "status": "第一章1.4技术验收完成，默认试玩入口已更新；前三章耐久调整，后五章保持，真人文风和难度待验。",
+    "version": "1.5",
+    "task_id": "c1-character-flow-20261016",
+    "status": "第一章1.5技术验收、默认包和GitHub保存完成；整章对白、逐轮试炼、任务优先与商人新形象。真人文风和审美待验。",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -311,9 +311,9 @@
     "chapter01": {
       "id": "V01C01",
       "script": "docs/harness/CHAPTER_01.md",
-      "script_revision": "1.4",
+      "script_revision": "1.5",
       "script_status": "IMPLEMENTED",
-      "implementation": "第一章1.4运行已实现：五精英动作、克制Boss提示、格子详情与固定女性商人、自然试炼交流与救济布置。1.3主线及旧档保留；本轮技术证据见docs/c1-restraint，真人待验。"
+      "implementation": "263场审读、142场295句修订；薇蕾娜亲昵关心、鲁恩逐轮交接、任务优先、新女性商人统一称商人。诺恩姓名按用户确认保留。1.4战斗、1.3动作结果和旧档保留。"
     },
     "chapter02": {
       "id": "V01C02",
@@ -331,7 +331,7 @@
       "Saint confrontation is cinematic only, no new playable combat",
       "Current0.5 implementation is recorded in chapter01_voice_revision; prior chapter01_dialogue_revision0.4 and chapter01_incremental0.3 are historical."
     ],
-    "evidence": "docs/c1-restraint/ACCEPTANCE.md",
+    "evidence": "docs/c1-character-flow/ACCEPTANCE.md",
     "previous_plan": {
       "version": "0.1",
       "task_id": "narrative-harness-20261010",
@@ -399,8 +399,8 @@
         "implementation": "0.5 implemented and all scoped validation passed; current verification docs/ch1-voice/ACCEPTANCE.md, task ch1-voice-20261012"
       }
     },
-    "remote_verified_commit": "16e80dd957f3b2a2a91e4dcc07ed884548786f0c",
-    "remote_verified_at_utc": "2026-10-15T16:24:30.966924+00:00",
+    "remote_verified_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
+    "remote_verified_at_utc": "2026-10-16T06:50:54.186894+00:00",
     "historical_0_9_scope": {
       "implementation_scope": "0.9 layered multi-source objectives, five bidirectional routes, entry refresh and general quest conventions; original budgets and later authored chapters retained",
       "preserve": [
@@ -415,7 +415,22 @@
       "remote_verified_commit": "fdca9d627cbaff405c82237a602ab462940d03e6",
       "remote_verified_at_utc": "2026-10-13T09:09:43.459731+00:00"
     },
-    "latest_dialogue_revision": "docs/c1-dialogue-voice/ACCEPTANCE.md"
+    "latest_dialogue_revision": "docs/c1-character-flow/ACCEPTANCE.md",
+    "historical_1_4_state": {
+      "version": "1.4",
+      "task_id": "c1-restraint-20261015",
+      "status": "第一章1.4技术验收完成，默认试玩入口已更新；前三章耐久调整，后五章保持，真人文风和难度待验。",
+      "chapter01": {
+        "id": "V01C01",
+        "script": "docs/harness/CHAPTER_01.md",
+        "script_revision": "1.4",
+        "script_status": "IMPLEMENTED",
+        "implementation": "第一章1.4运行已实现：五精英动作、克制Boss提示、格子详情与固定女性商人、自然试炼交流与救济布置。1.3主线及旧档保留；本轮技术证据见docs/c1-restraint，真人待验。"
+      },
+      "evidence": "docs/c1-restraint/ACCEPTANCE.md",
+      "remote_verified_commit": "16e80dd957f3b2a2a91e4dcc07ed884548786f0c",
+      "remote_verified_at_utc": "2026-10-15T16:24:30.966924+00:00"
+    }
   },
   "rollback": {
     "task_id": "rollback-v30-20261010",
@@ -1029,7 +1044,7 @@
   },
   "c1_character_flow": {
     "task": "c1-character-flow-20261016",
-    "status": "technical verification complete; default package promoted; GitHub save pending",
+    "status": "technical verification complete; default package promoted; implementation saved and verified on GitHub main",
     "adopted": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
     "script": "docs/c1-character-flow/SCRIPT.json",
     "readable_script": "docs/c1-character-flow/DIALOGUE_REVIEW.md",
@@ -1043,6 +1058,9 @@
     "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
     "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
     "default_entry": "qa-export/release-build/Ashen-V28.1-Play.html",
-    "git_receipt": "docs/c1-character-flow/GIT_SAVE.json"
+    "git_receipt": "docs/c1-character-flow/GIT_SAVE.json",
+    "implementation_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
+    "remote_verified_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
+    "remote_verified_at_utc": "2026-10-16T06:50:54.186894+00:00"
   }
 }

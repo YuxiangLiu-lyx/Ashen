@@ -10,9 +10,9 @@
     "story",
     "chapter01_plan"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-16T04:24:47.772800+00:00",
-  "updated_at_utc": "2026-10-16T06:27:24.976214+00:00",
+  "updated_at_utc": "2026-10-16T06:50:54.392461+00:00",
   "decisions": [
     "采用第一章1.5增量稿；覆盖整章所有对白，保留战斗经济和后章；逐轮试炼单独做事件审查",
     "保全润色使用copyedit门禁；试炼揭露顺序、商人显示名及少数内容调整另用正常事件七维审查，非以copyedit授权新增事实。",
@@ -22,13 +22,12 @@
     "Git远端已同步；真实全语料基线、技能、人物与风格范例已核对",
     "263个第一章文本变体逐场审读，142场295行改写；25场采用正常事件审查；商人新资产与任务优先排序接入；实际菜单交易和九条会馆移动路线通过",
     "完整263场文本审读及142场修改已落盘；来源、角色、事件与商人残留显示名已核对",
-    "最终67 Harness、52专项、225核心及完整集成通过；263场1020页三视口、会馆三维与默认离线/HTTP/手机包通过；5174逐字节核对"
+    "最终67 Harness、52专项、225核心及完整集成通过；263场1020页三视口、会馆三维与默认离线/HTTP/手机包通过；5174逐字节核对",
+    "实现a93fa0f已推送GitHub main并以ls-remote核对；默认新包、原包保留、当前状态和Git回执已保存"
   ],
-  "remaining": [
-    "GitHub main保存并核验远端"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "审查差异、提交推送和归档回执",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration"
@@ -448,6 +447,14 @@
       "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
       "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
       "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/rosa.json\n M source/narrative/characters/vilerena.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? dist/assets/c1-character-flow/\n?? dist/chapter-one-conversations-data.js\n?? dist/chapter-one-conversations.js\n?? docs/c1-character-flow/\n?? docs/harness/CHAPTER_01_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-character-flow-20261016/\n?? source/tasks/active/c1-character-flow-20261016.json\n?? tests/browser-c1-character-flow.mjs\n?? tests/c1-character-flow.test.mjs"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T06:50:54.247702+00:00",
+      "head_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "worktree": "M .codex/progress.md\n M docs/c1-character-flow/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/c1-character-flow/GIT_SAVE.json"
     }
   ],
   "narrative_mode": "copyedit",
@@ -1588,5 +1595,8 @@
       "review": "docs/c1-character-flow/reviews/141-c1Talk_c1RuneWear_progress-review.json",
       "review_sha256": "682cfd1dced9b10ebee1308da9c9056afec405b585bdf6ca2746682c9f91a9ca"
     }
-  ]
+  ],
+  "summary": "第一章1.5整章对白与人物语气、逐轮试炼、任务优先及商人新形象完成；最终技术回归、默认包与GitHub保存通过，真人文风审美待验",
+  "completed_at_utc": "2026-10-16T06:51:12.999925+00:00",
+  "verified_source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859"
 }

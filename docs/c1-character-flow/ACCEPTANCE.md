@@ -19,3 +19,5 @@
 最终源码指纹`4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859`。新包已验证离线/HTTP/手机入口及开始、移动、战斗、装备、存档导出和章节测试，默认入口已更新为`qa-export/release-build/Ashen-V28.1-Play.html`；上一包保留在`qa-export/release-build-before-character-flow-20261016`。243个JS、7个CSS及商人原图已与5174本地服务逐字节核对。构建指纹与包SHA见[DEFAULT_BUILD.json](DEFAULT_BUILD.json)，本地服务见[LOCAL_SERVER.json](LOCAL_SERVER.json)。全篇可读稿见[DIALOGUE_REVIEW.md](DIALOGUE_REVIEW.md)。
 
 保存审查：原始失败日志001中Node断言打印了两行空格，为保留任务日志SHA不改原输出；其余源码和正文的空白检查通过。全部新图、原始证据和生成说明纳入Git，个人存档及本地构建仍按既有规则留在本机。
+
+实现提交`a93fa0fcb239d00c931d9a19bc4c9fa0be47db92`已保存GitHub main并用ls-remote核对。任务收尾与此回执另存后续文档提交，推送后再次核验。见[GIT_SAVE.json](GIT_SAVE.json)。

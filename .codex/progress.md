@@ -1,4 +1,4 @@
-2026-10-16本轮：第一章1.5 c1-character-flow-20261016；263场全文审读、142场295句修订，任务优先、逐轮试炼、商人新形象与统一显示名；67 Harness、52专项、225核心及完整集成和新默认包通过；正在保存GitHub main。用户确认沿用诺恩。真人文风/审美待验，见docs/c1-character-flow/ACCEPTANCE.md。
+2026-10-16本轮：第一章1.5 c1-character-flow-20261016；263场全文审读、142场295句修订，任务优先、逐轮试炼、商人新形象与统一显示名；67 Harness、52专项、225核心及完整集成和新默认包通过；实现a93fa0f已上传GitHub main并核验，任务收尾归档。用户确认沿用诺恩。真人文风/审美待验，见docs/c1-character-flow/ACCEPTANCE.md。
 
 2026-10-15最新完成：c1-dialogue-voice-20261015，重新润色三场薇蕾娜/诺恩试炼对白，明确风险和成长、自然答应及日常调侃；67 Harness、48专项及三视口/默认新包通过。c7439c8已保存GitHub main并核对，任务归档，文风待用户反馈。见docs/c1-dialogue-voice/ACCEPTANCE.md。
 
@@ -664,16 +664,17 @@
 
 <!-- task:c1-character-flow-20261016 -->
 ## 任务 c1-character-flow-20261016
-- 状态：in_progress
-- 更新：2026-10-16T06:27:24.976214+00:00
-- 下一步：审查差异、提交推送和归档回执
-- 任务记录：source/tasks/active/c1-character-flow-20261016.json
-- 已完成：Git远端已同步；真实全语料基线、技能、人物与风格范例已核对；263个第一章文本变体逐场审读，142场295行改写；25场采用正常事件审查；商人新资产与任务优先排序接入；实际菜单交易和九条会馆移动路线通过；完整263场文本审读及142场修改已落盘；来源、角色、事件与商人残留显示名已核对；最终67 Harness、52专项、225核心及完整集成通过；263场1020页三视口、会馆三维与默认离线/HTTP/手机包通过；5174逐字节核对
-- 待完成：GitHub main保存并核验远端
+- 状态：complete
+- 更新：2026-10-16T06:50:54.392461+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/c1-character-flow-20261016.json
+- 已完成：Git远端已同步；真实全语料基线、技能、人物与风格范例已核对；263个第一章文本变体逐场审读，142场295行改写；25场采用正常事件审查；商人新资产与任务优先排序接入；实际菜单交易和九条会馆移动路线通过；完整263场文本审读及142场修改已落盘；来源、角色、事件与商人残留显示名已核对；最终67 Harness、52专项、225核心及完整集成通过；263场1020页三视口、会馆三维与默认离线/HTTP/手机包通过；5174逐字节核对；实现a93fa0f已推送GitHub main并以ls-remote核对；默认新包、原包保留、当前状态和Git回执已保存
+- 待完成：无
 - 决定：采用第一章1.5增量稿；覆盖整章所有对白，保留战斗经济和后章；逐轮试炼单独做事件审查；保全润色使用copyedit门禁；试炼揭露顺序、商人显示名及少数内容调整另用正常事件七维审查，非以copyedit授权新增事实。；用户已确认男主沿用诺恩；真人文风、审美和节奏独立待验
 - 阻塞：无
 - 阶段 audit：complete；HEAD 875c1855d37b398d2ca4a8b83586037553a5399d
 - 阶段 implementation：complete；HEAD 875c1855d37b398d2ca4a8b83586037553a5399d
 - 阶段 verification：complete；HEAD 875c1855d37b398d2ca4a8b83586037553a5399d
+- 阶段 delivery：complete；HEAD a93fa0fcb239d00c931d9a19bc4c9fa0be47db92
 - 最近检查：map-quality，退出码 0；docs/harness/evidence/c1-character-flow-20261016/022-map-quality.txt
 <!-- /task:c1-character-flow-20261016 -->
