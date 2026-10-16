@@ -1,0 +1,166 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2Relay",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "e8d514d4f8355f3639c57c8aa288b231704d5ce146b9347e307ed9587ad06e71",
+  "before": [
+    [
+      "塞琳",
+      "先让我看看你的封口。右边有个缺角，里面还有道细线。"
+    ],
+    [
+      "诺恩",
+      "对得上，是谁送来的？"
+    ],
+    [
+      "塞琳",
+      "鲁恩的人，来的时候全身都湿透了。信就在桌上。"
+    ],
+    [
+      "诺恩",
+      "赫斯特，灰桥的粮税监理……他的事是谁查的？"
+    ],
+    [
+      "塞琳",
+      "鲁恩亲自核过。原件送回会馆了，我这儿只有画像和进庄园的路图。"
+    ],
+    [
+      "诺恩",
+      "他现在在哪儿？"
+    ],
+    [
+      "塞琳",
+      "枯井庄园。过了灰桥，沿北面的围墙走，西侧运柴门傍晚不落锁。但进了院子，内门还是打不开。"
+    ],
+    [
+      "诺恩",
+      "这就是带圣女来的原因？"
+    ],
+    [
+      "塞琳",
+      "内门只认圣女本人戴着的圣徽，得她亲手靠近铜盘才行。光拿走徽章没用。"
+    ],
+    [
+      "诺恩",
+      "她现在用不了圣术，还能开门？"
+    ],
+    [
+      "塞琳",
+      "能。铜盘认的是她本人戴着的圣徽，不用另外施法，原信写得很清楚。"
+    ],
+    [
+      "诺恩",
+      "信和路图我都带走。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "seline",
+      "path": "docs/c2-optimization/before/narrative-state/characters/seline.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "接头核验、目标来源和验门方式逐问逐答；保留圣女本人佩戴、亲手靠近和不需施术。",
+    "relationship": {
+      "participants": [
+        "塞琳",
+        "诺恩"
+      ],
+      "judgment": "接头核验、目标来源和验门方式逐问逐答；保留圣女本人佩戴、亲手靠近和不需施术。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2Relay",
+        "scene": "ch2Relay",
+        "order": 3,
+        "summary": "后屋领取目标与验门解释",
+        "participants": [
+          "noen",
+          "seline"
+        ],
+        "sources": [
+          "scene:ch2Relay"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          },
+          {
+            "actor": "seline",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "e8d514d4f8355f3639c57c8aa288b231704d5ce146b9347e307ed9587ad06e71"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2Relay",
+        "scene": "ch2Relay",
+        "order": 3,
+        "summary": "后屋领取目标与验门解释",
+        "participants": [
+          "noen",
+          "seline"
+        ],
+        "sources": [
+          "scene:ch2Relay"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          },
+          {
+            "actor": "seline",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-TARGET",
+            "mode": "believes"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

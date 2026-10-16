@@ -678,3 +678,35 @@
 - 阶段 delivery：complete；HEAD a93fa0fcb239d00c931d9a19bc4c9fa0be47db92
 - 最近检查：map-quality，退出码 0；docs/harness/evidence/c1-character-flow-20261016/022-map-quality.txt
 <!-- /task:c1-character-flow-20261016 -->
+
+<!-- task:c2-optimization-20261016 -->
+## 任务 c2-optimization-20261016
+- 状态：in_progress
+- 更新：2026-10-16T14:03:42.219649+00:00
+- 下一步：提交已验收内容并推送main
+- 任务记录：source/tasks/active/c2-optimization-20261016.json
+- 已完成：完整64场310页已审读，43场104句具体修订稿落盘；真实基线5项检查通过，采用0.5增量稿；43场104句修订、分步任务目标及任务优先、寄卖格子详情已接入；全文提供者、旧全文档、交易及三职业第二章正常输入通过；67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。
+- 待完成：Git提交与远端核验
+- 决定：采用按章增量；不恢复旧0.3追加A/B或撤回大重构，先核对当前全章实际文本与服务；计划docs/c2-optimization/PLAN.md
+- 阻塞：无
+- 阶段 audit：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 implementation：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 verification：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 最近检查：map-quality，退出码 0；docs/harness/evidence/c2-optimization-20261016/021-map-quality.txt
+<!-- /task:c2-optimization-20261016 -->
+
+<!-- task:c1-endurance-20261016 -->
+## 任务 c1-endurance-20261016
+- 状态：in_progress
+- 更新：2026-10-16T14:03:15.587301+00:00
+- 下一步：提交已验收内容并推送main
+- 任务记录：source/tasks/active/c1-endurance-20261016.json
+- 已完成：三个等级全部第一章生成样本及324单体/54群战真实基线已保存；采用1.6稿；普通怪1.5倍、精英Boss2.5倍及按比例旧档迁移完成；324单体54群战、三职业试炼与18经济路线均已实测，保留所有失败与补给成本。；306个HP样本与死亡/比例迁移通过；三职业正常路线含合法补给接续成功，324单体54群战保留全部胜负；当前fast/core、三维、默认包与5174通过。
+- 待完成：Git提交与远端核验
+- 决定：普通怪当前生命乘1.5；精英和Boss当前生命至少乘2.5，训练靶不算实战敌人；旧档按剩余比例迁移；与第二章共享本轮基线，附同一43场保全润色审查以覆盖共同安装器；本任务自身只改HP和迁移。
+- 阻塞：无
+- 阶段 audit：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 implementation：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 verification：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 最近检查：core，退出码 0；docs/harness/evidence/c1-endurance-20261016/019-core.txt
+<!-- /task:c1-endurance-20261016 -->

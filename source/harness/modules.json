@@ -350,9 +350,12 @@
         "bleed",
         "shadow",
         "暗影",
-        "敌人"
+        "敌人",
+        "血量",
+        "耐久"
       ],
       "entries": [
+        "docs/harness/CHAPTER_01_ENDURANCE.md",
         "dist/encounter-restraint.js",
         "dist/core-v14.js",
         "dist/balance-v14.js",
@@ -379,7 +382,8 @@
         "dist/rank-scaling*",
         "dist/chapter-one-motion*",
         "dist/rpg-experience-data.js",
-        "tests/rpg-experience.test.mjs"
+        "tests/rpg-experience.test.mjs",
+        "tests/c1-endurance.test.mjs"
       ],
       "rules": [
         "docs/harness/COMBAT.md",
@@ -399,7 +403,8 @@
         "node --test tests/chapter-one-v30.test.mjs",
         "node --test tests/chapter23-v30.test.mjs",
         "node --test tests/rpg-experience.test.mjs",
-        "node --test tests/c1-restraint.test.mjs"
+        "node --test tests/c1-restraint.test.mjs",
+        "node --test tests/c1-endurance.test.mjs"
       ]
     },
     {
@@ -1063,12 +1068,15 @@
     },
     {
       "patterns": [
-        "dist/rpg-chapter-two*.js"
+        "dist/rpg-chapter-two*.js",
+        "dist/chapter-two-conversations*.js",
+        "tests/c2-optimization.test.mjs"
       ],
       "safety": [],
       "tests": [
         "python3 tools/harness/check.py --tier fast",
-        "node --test tests/rpg-chapter-two.test.mjs"
+        "node --test tests/rpg-chapter-two.test.mjs",
+        "node --test tests/c2-optimization.test.mjs"
       ],
       "id": "chapter02_plan",
       "keywords": [
@@ -1081,6 +1089,9 @@
         "chapter 2"
       ],
       "entries": [
+        "docs/harness/CHAPTER_02_CHARACTER_FLOW.md",
+        "dist/chapter-two-conversations.js",
+        "dist/chapter-two-conversations-data.js",
         "docs/harness/CHAPTER_02.md",
         "docs/harness/CHAPTER_02_RPG_EXPERIENCE.md",
         "dist/rpg-chapter-two.js"
@@ -1089,7 +1100,7 @@
         "docs/harness/NARRATIVE_WORKFLOW.md",
         "docs/harness/STORY.md"
       ],
-      "risk": "第二章0.4玩法按全游戏新授权实施；原主线、知识边界和旧档保留，0.3追加A/B未采用。"
+      "risk": "第二章0.5按第一章标准优化全文与交接/服务；旧0.3追加A/B未自动恢复，旧档与原结果保留。"
     },
     {
       "patterns": [],

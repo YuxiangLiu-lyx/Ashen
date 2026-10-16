@@ -1,0 +1,852 @@
+{
+  "status": "budget_limited",
+  "task": "第一章战斗精英Boss血量耐久",
+  "basis_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "combat"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "722c56805d934a2de2043686763a22f7f09a4ee9b75904d5ef5b30e6fb717c40",
+      "excerpts": [
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "5. 实现、回放、实际游玩、存档迁移验收后，更新为 `IMPLEMENTED`，登记真实入口、文件与证据。未开发章仍保持原状态，不能因第一章完成而宣称前两章都已实装。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.3仍只策划。两章记录分别见 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，不再有独立分镜开发prompt。长期世界观不扩大本轮范围。",
+          "truncated": false
+        },
+        {
+          "line": 31,
+          "text": "局部增强的章稿可采用“完整主线记录＋现有最终场景ID与对白来源＋本轮增量逐句稿”；保留对白无需另写一遍。开发记录只冻结",
+          "truncated": true
+        },
+        {
+          "line": 57,
+          "text": "##",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 9183
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "docs/harness/COMBAT.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "8e911de953956d179294b06bf331c01cf35a3f04cc8801f7bbfc8ade4a7799a4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 战斗与构建约束",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "## 第一章0.6采用范围（2026-10-12）",
+          "truncated": false
+        },
+        {
+          "line": 14,
+          "text": "首章三职业训练借用装仅训练会话有效，快照还原原装。三个命名精英最终预算与两段扑击/直线冲撞/绕柱声波见规格；35XP/12金不得叠V28倍率。制作和专属装备直接伤害效果不影响DOT/proc/反伤，同组取最高；封缄要求实际受到威胁且避开已结算重击。后续章节战斗不调平。 [规格](CHAPTER_01_EXPANSION.md)。旧0.1/0.2全面重构继续暂停，第二章0.3仅策划。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2070
+    },
+    {
+      "path": "docs/v28/COMBAT_OVERHAUL.md",
+      "reasons": [
+        "combat: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "c4e2c4ff882a577d719da212c4f3bcc96758c832cd52da72f1b2bd64cb7ced6a",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "V28 的战斗修改遵循三个原则：普通怪的强度必须随进度明显增长；Boss 需要玩家先完成技能、属性与装备配置后再挑战；稀有掉落要有惊喜但不能让前期提前拿到后期装备。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "每一进度层包含兽类、灵体、人形三种战斗身份，共 8 层 × 3 = 24：",
+          "truncated": false
+        },
+        {
+          "line": 31,
+          "text": "- 经验与金币随强化幅度做小幅补偿，避免战斗时长增加却没有收益。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3618
+    },
+    {
+      "path": "dist/chapter-one-conversations.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "c9864c7a69e6d22d8222c9312ba6f3a44972a4fe7134eb2a3b9962340b0c5a14",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {C1_CONVERSATIONS} from './chapter-one-conversations-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {C1_HIDDEN} from './chapter-one-dialogues-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {C1_LOCAL_TALK} from './chapter-one-story-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {C1_NPC_NAMES} from './chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {V12_PACING} from './pacing-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// Install after the trial overlay. Keep shared arrays and saved full-text pages;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "// only newly opened dialogue uses this edition. Actor IDs and quest commits stay stable.",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1875
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "f695ef4ecc0888e899a534b15aeafc3a140953f801900b7d4c79334f55c20001",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章1.5 · 熟人的话与逐轮试炼",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "验收：完整第一章语料审读记录；前后信息/人物对照；逐轮任务状态与选项排序；商人一致性真实截图；现有正文和存档兼容专项、集成、默认包。真人文风待验。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1896
+    },
+    {
+      "path": "dist/chapter-one-conversations-data.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "d4eca1f71630a40601310ca2bd2152790b950dc50a887c90c0543638e9284d60",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Adopted R01 1.5. Full before/after and editorial review: docs/c1-character-flow/SCRIPT.json.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const C1_CONVERSATIONS=[",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " {",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"key\": \"c1TrialInvitation\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"static\": true,",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  \"rows\": [",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "   [",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"薇蕾娜\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 76531
+    },
+    {
+      "path": "dist/encounter-restraint.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "ecb99a7dbd9d00783d1f43725ca353fc03492333f921a5b2afc1b4bf85073c92",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {profileForEnemy} from './balance-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {C1_MAPS} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {CHAPTER_TWO_MAPS_V30,CHAPTER_THREE_MAPS_V30} from './chapter23-design-v30.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 3999
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "7a0a0b15a7ab87ff795813d740179a67976042dc7fe9b171135ea219a2f29997",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.4 · 克制表现与日常交流",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "技术验收：新旧档、三职业实际战斗、正常UI交易与章节回归、三视口、地图三维和对白七维。真人文风、节奏与趣味继续待验。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2827
+    },
+    {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8247612506cf7c3615c0be62248c81089b7dfb32e18f3b95b46bf1e59c461b9c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Adopted chapter 1.3 with the three trial conversations revised by chapter 1.4. Installed after the preservation-only copyedit overlay.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const C1_TRIAL_DIALOGUES={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " c1SaintAid:[",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " ['旁白','白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。'],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " ['朵莉','圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。'],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " ['艾莉娅','这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。'],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " ['朵莉','南街贴了告示，可认字的人也少。明天我早点来，在路口给他们指路。'],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " ['艾莉娅','我也来。你把粥放在这边吧，坐着的几位先送过去。我来分面包，今天剩下的够他们带一份回家吗？'],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 16128
+    },
+    {
+      "path": "dist/core-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8074dc5469927a88a8e048a6a7d4d9d110c58d8eac7651a2915730dacf8e09fc",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {installC1Conversations} from './chapter-one-conversations.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {installEncounterRestraint} from './encounter-restraint.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {installC1Trial} from './chapter-one-trial-runtime.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {installChapterThreeExperience} from './rpg-chapter-three.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {installChapterThreeCaves} from './rpg-chapter-three-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {installChapterTwoExperience} from './rpg-chapter-two.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {installGameSettings} from './game-settings-v31.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 78895
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "5488e332e9e2f5fba7ac43977427aadd019c6dce2eaac136283ee89935b9f2df",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.3 · 试炼、回报与会馆整备",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "鲁恩交代庭院八只苔壳兽；回报后找地下伊登。伊登说明一层哨兵、二层鼠患与终点考核。原试炼守卫及封存看守改为两只可选命名精英，和外面裂齿渠鼠、灰脊守兽、苇窑夜翼组成五精英讨伐。三层可由已通过庭院的诺恩进入，赫莎维修支线不再是主线前置。终点新增独立小Boss“终试执卫”，固定地区强度、蓄势/冲击/反击窗口；不计入精英任务。完成原两层清理和小Boss后直接回会馆向薇蕾娜汇报。她通过具体战斗经过感受到诺恩成长，批准委托；先吃饭，再交代通行纸、卡德兰、圣徽说法、封术印和灰石驿站。她明确关心他的安全，解释受阻时先撤回，并给予装备整备指引。正式提交只在最后一页，一次性结算原奖励。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "刺杀保留18页说话人和动作时点。艾莉娅从查看伤者、急求救治，到封术后愤怒、不解与悲伤；最后仍要求护卫先救卡德兰。诺恩仍实施杀人与挟持，不增加圣女战斗或亲近。其他主支线核对新顺序、地图、器物与任务缘由；无关正文保留最新语言专项结果。",
+          "truncated": false
+        },
+        {
+          "line": 23,
+          "text": "初期罗萨只售小/中疗伤药和清醒药；装置只开放药水合成及说明。第一章每个正常怪物独立有70%概率掉一份通用“药用精粹”，召唤物/无奖励练习目标不产出；击杀代次去重。通用制作材料不属于任务物品，任务独占材料仍遵守接取门禁。小药2精粹、中药4精粹，工费分别1/2金；沿用正式药水效果与冷却。",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "实际地图截图、碰撞可达、原画及战斗分别验收；三职业正常输入、低/正常培养实战、接前接后掉落、库存/订单读档及重",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 5331
+    },
+    {
+      "path": "dist/balance-v14.js",
+      "reasons": [
+        "combat: task matched 战斗; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "f2a2e7ffcab9c66d8f2dc68ce40410df75ad1c4d3605cdcec74cc74589af7e67",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {CH5_BOSS_MOVES} from './chapter5-world-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {MEMORY_BOSS,MEMORY_MOVES} from './memory-combat-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {TRIAL_FLOORS} from './systems-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {V11_BOSS_PROFILES,V11_BOSS_MOVES,V11_DEEP_ENEMY_PROFILES} from './combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {HELL_ENEMY_PROFILES,HELL_BOSS_MOVES} from './chapter3-combat-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// V9 combat numbers. Distances are world pixels; player artwork is 84px tall.",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "export const COMBAT_BALANCE = Object.freeze({",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  mageAttackRange:336, mageAttackSpeed:500, mageAttackRate:.64,",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6084
+    },
+    {
+      "path": "dist/chapter-one-trial-runtime.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "8f642131e50400d4fdb87d00c301d1f52d7d217ec8c7f4dfb1165bcd13f509d6",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {sortQuestOptions} from './quest-service-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {migrateTrialSave} from './chapter-one-trial-save.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {C1_TRIAL_DIALOGUES} from './chapter-one-trial-dialogues.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {C1_QUESTS,C1_SIDE,C1_ELITES,C1_RUNES,C1_CORES} from './chapter-one-expansion-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {C1_OBJECTIVES,C1_GIVERS} from './chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {C1_MAPS} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {c1State,c1Clone} from './chapter-one-expansion-save.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19729
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "c528ecfd980a6fb784703e1c07a18a687b3ffb69da53ab964b88ea05af84535f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.2 · 熟人的关心与对白回看",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4216
+    },
+    {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 99,
+      "category": "current_code",
+      "sha256": "ff2028a9db99b6723931aafdca2d2e614d013858cb9cf4359575e043c4f72f00",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Adopted chapter 1.2; exact script and editorial evidence: docs/c1-care-ui.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const C1_CARE_DIALOGUES={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " \"contract\": [",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  [",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "   \"总算舍得来见我了。奥伦说你在库房忙了一上午，我还想着，要不要亲自过去把你领回来。\"",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  ],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  [",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 8927
+    }
+  ],
+  "excerpt_bytes": 9609,
+  "max_files": 16,
+  "budget_bytes": 24000,
+  "deferred": [
+    "dist/skills-v14.js",
+    "docs/harness/CHAPTER_01_STORY_FLOW.md",
+    "dist/chapter-one-care-save.js",
+    "dist/enemy-ai-v14.js",
+    "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+    "dist/combat-overhaul-v28.js",
+    "dist/dialogue-reader.js",
+    "docs/harness/CHAPTER_01.md",
+    "dist/chapter-one-quest-dialogues.js",
+    "dist/combat-input-v17.js",
+    "dist/chapter-one-private-staging.js",
+    "dist/chapter3-skills-v14.js",
+    "dist/dialogue-save-migration-v26.js",
+    "dist/enchantments-v14.js",
+    "dist/equipment-v14.js",
+    "dist/growth-v14.js",
+    "dist/save-protection-v23.js",
+    "dist/progression-data-v14.js",
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "dist/progression-runtime-v14.js",
+    "dist/chapter-one-motion-v30.js",
+    "dist/data-v14.js",
+    "dist/chapter-one-expansion-combat.js",
+    "dist/dialogue-runtime-v16.js",
+    "dist/rpg-experience-data.js",
+    "dist/saga-runtime-v26.js",
+    "dist/rpg-experience-combat.js",
+    "dist/story-flow-v14.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/rpg-experience-dialogues.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/balance-lab.test.mjs",
+    "node --test tests/c1-restraint.test.mjs",
+    "node --test tests/c1-story-flow.test.mjs",
+    "node --test tests/c1-trial-forge.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/chapter-one-v30.test.mjs",
+    "node --test tests/chapter23-v30.test.mjs",
+    "node --test tests/dialogue-reader.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/rpg-experience.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-balance-lab.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "第一章1.2扩写亲昵关心，1.1任务交代与离场私谈保留；对白回看不改变实际剧情进度，保留旧档和原奖励。",
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "V15/V17/V28 包装及 Boss 防御/DOT 抗性；瞬态输入不能进存档；未授权不改平衡。"
+  ],
+  "installer_order": [
+    {
+      "name": "installChapter3",
+      "line": 232
+    },
+    {
+      "name": "installChapter4",
+      "line": 233
+    },
+    {
+      "name": "installPacing",
+      "line": 235
+    },
+    {
+      "name": "installQuestService",
+      "line": 236
+    },
+    {
+      "name": "installSystemsV13",
+      "line": 241
+    },
+    {
+      "name": "installProgressionV14",
+      "line": 243
+    },
+    {
+      "name": "installChapter5",
+      "line": 244
+    },
+    {
+      "name": "installMercenariesV14",
+      "line": 245
+    },
+    {
+      "name": "installMemoryV13",
+      "line": 246
+    },
+    {
+      "name": "installHellActivitiesV15",
+      "line": 247
+    },
+    {
+      "name": "installDialogueTextV16",
+      "line": 249
+    },
+    {
+      "name": "installGrowthV17",
+      "line": 250
+    },
+    {
+      "name": "installHellActivitiesV17",
+      "line": 251
+    },
+    {
+      "name": "installSaintBondsV17",
+      "line": 252
+    },
+    {
+      "name": "installHellExpeditionsV18",
+      "line": 253
+    },
+    {
+      "name": "installCityV18",
+      "line": 254
+    },
+    {
+      "name": "installDiscoveryV19",
+      "line": 256
+    },
+    {
+      "name": "installSaintStoryV18",
+      "line": 257
+    },
+    {
+      "name": "installRomanceV20",
+      "line": 259
+    },
+    {
+      "name": "installCombatInputV17",
+      "line": 262
+    },
+    {
+      "name": "installPartyRewardHooksV18",
+      "line": 263
+    },
+    {
+      "name": "installArrivalV22",
+      "line": 264
+    },
+    {
+      "name": "installCityMomentsV24",
+      "line": 265
+    },
+    {
+      "name": "installSagaV25",
+      "line": 270
+    },
+    {
+      "name": "installPhysicalWorldV26",
+      "line": 274
+    },
+    {
+      "name": "installSagaV26",
+      "line": 277
+    },
+    {
+      "name": "installCombatOverhaulV28",
+      "line": 284
+    },
+    {
+      "name": "installPresentationPhysicsV281",
+      "line": 286
+    },
+    {
+      "name": "installWorldExplorationV29",
+      "line": 288
+    },
+    {
+      "name": "installChapterOneMotionV30",
+      "line": 290
+    },
+    {
+      "name": "installChapterOneInteraction",
+      "line": 291
+    },
+    {
+      "name": "installChapterOneExpansion",
+      "line": 293
+    },
+    {
+      "name": "installGameSettings",
+      "line": 294
+    },
+    {
+      "name": "installChapterTwoExperience",
+      "line": 296
+    },
+    {
+      "name": "installChapterThreeCaves",
+      "line": 298
+    },
+    {
+      "name": "installChapterThreeExperience",
+      "line": 299
+    },
+    {
+      "name": "installC1Trial",
+      "line": 303
+    },
+    {
+      "name": "installEncounterRestraint",
+      "line": 304
+    },
+    {
+      "name": "installC1Conversations",
+      "line": 305
+    }
+  ],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

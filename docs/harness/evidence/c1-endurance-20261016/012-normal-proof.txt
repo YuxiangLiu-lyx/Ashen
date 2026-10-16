@@ -1,0 +1,100 @@
+{
+  "passed": true,
+  "runs": [
+    {
+      "chapter": 1,
+      "class": "shadow",
+      "path": "docs/c1-endurance/natural-prepared/shadow/PLAY.json",
+      "sha256": "ad6162b63e2089510230ed22a4c3585a6b93d0aa847ea81dd5c2518389283e64",
+      "ending_phase": 6,
+      "changed_runtime_files": [
+        "dist/chapter-two-conversations-data.js"
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": null,
+      "prefix_evidence": null
+    },
+    {
+      "chapter": 1,
+      "class": "oath",
+      "path": "docs/c1-endurance/natural-prepared/oath/PLAY.json",
+      "sha256": "2f04fe05d99c2831d18e6f1fee3802d0bd6a44699bfead1736045b911beb42e2",
+      "ending_phase": 6,
+      "changed_runtime_files": [
+        "dist/chapter-two-conversations-data.js"
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": null,
+      "prefix_evidence": null
+    },
+    {
+      "chapter": 1,
+      "class": "ember",
+      "path": "docs/c1-endurance/natural-resumed/ember/PLAY.json",
+      "sha256": "4a01cb2912eaf2b3eb800cc32e9fa19432400657fe5ac7df4513300c20b87b04",
+      "ending_phase": 6,
+      "changed_runtime_files": [],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": {
+        "path": "docs/c1-endurance/natural-resumed-captain-loss/ember/09-north-save.json",
+        "sha256": "ca0aac1258a24c8f769c62e3000b2d0b64a8946111896ba6e10724d3bd6010e5"
+      },
+      "prefix_evidence": "docs/c1-endurance/natural-resumed-captain-loss/ember/PROGRESS.json"
+    },
+    {
+      "chapter": 2,
+      "class": "shadow",
+      "path": "docs/c2-optimization/natural-initial/shadow/PLAY.json",
+      "sha256": "4e17f37e985ae487a98b7f30171db9efc95dbcb13f21b9057862986c48b5a2e9",
+      "ending_phase": 12,
+      "changed_runtime_files": [
+        "dist/chapter-two-conversations-data.js"
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": {
+        "path": "docs/rpg-experience/c1/natural-final/shadow/15-post-save.json",
+        "sha256": "6461b36a8f56f985f5bddc77e3e0bf020530d202a0e5639a8a3e2de3bd932720"
+      },
+      "prefix_evidence": null
+    },
+    {
+      "chapter": 2,
+      "class": "oath",
+      "path": "docs/c2-optimization/natural-initial/oath/PLAY.json",
+      "sha256": "a7cc616a5cdcb6f6247f6fcedbc5635d205546c8d30c917331fcb4076e161100",
+      "ending_phase": 12,
+      "changed_runtime_files": [
+        "dist/chapter-two-conversations-data.js"
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": {
+        "path": "docs/rpg-experience/c1/natural-final/oath/15-post-save.json",
+        "sha256": "781a309a6d19adb11b3855a8b8b1f03f04fc5bf645a93c06e2e87a12fd7d0c44"
+      },
+      "prefix_evidence": null
+    },
+    {
+      "chapter": 2,
+      "class": "ember",
+      "path": "docs/c2-optimization/natural-initial/ember/PLAY.json",
+      "sha256": "0938372d21bbc8398ced36d465da4475249dffa6a6e028d465fc374eebac7f0a",
+      "ending_phase": 12,
+      "changed_runtime_files": [
+        "dist/chapter-two-conversations-data.js"
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "resumed_from": {
+        "path": "docs/rpg-experience/c1/natural-final/ember/15-post-save.json",
+        "sha256": "f86e63b879aee8fd2506ce98598b973a7f335987e2752ff2b39fb78d2592414d"
+      },
+      "prefix_evidence": null
+    }
+  ],
+  "reason": "All production modules and AI/HP/quests/services/install order are byte-identical to the normal-input runs except two C2-only sentence cleanups. No C1 text changed. Final all-page browser and corpus producer checks cover the final wording. Ember completed the trial from title, then the harness stopped at a disabled crafting button because materials were insufficient; its unchanged exported save was imported through the normal UI, missing materials were earned in the warehouse, and the route continued. The connected segments and all failed scripts are preserved, including a later captain loss followed by a normal-UI restart from the unchanged north-route checkpoint with legal brewing and a purchased road weapon. Runtime provenance from each original run was checked, not overwritten."
+}

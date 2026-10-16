@@ -1,0 +1,222 @@
+{
+  "kind": "copyedit_context",
+  "scene": "darkExileV9",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "7c2c06f1c4f90467ae24f2215e6c2fa35e7430edb6806f89d9b5907b2e3cf75c",
+  "before": [
+    [
+      "旁白",
+      "稍后，会馆。急信只写到流放界碑。再往东，纸上没有一处标记。"
+    ],
+    [
+      "鲁恩",
+      "桥口的人看见他们过了界碑。庄园内门没开，赫斯特还活着。至于禁地里面，谁也报不上来。"
+    ],
+    [
+      "薇蕾娜",
+      "我们给他留的是南沟的退路，怎么会进禁地？西面的口子是谁封的？"
+    ],
+    [
+      "鲁恩",
+      "警钟一响，桥岗就增了人。等信送到我手里，他们已经被逼着往东走了。"
+    ],
+    [
+      "薇蕾娜",
+      "去找熟悉界碑的人，带上药和绳子，先到外沿接应。总不能坐在这儿等着收他的死讯。"
+    ],
+    [
+      "鲁恩",
+      "人我去找。不过圣女还跟他在一起，外沿的观察点，我想继续留着。"
+    ],
+    [
+      "薇蕾娜",
+      "他们都进禁地了，你还想看什么反应？鲁恩，先想办法把他带回来！"
+    ],
+    [
+      "鲁恩",
+      "我会派人去。那些观察点就在外沿，接着守，有动静也能早点报给我们。"
+    ],
+    [
+      "薇蕾娜",
+      "好，但有人出来就先接人，别急着问话。"
+    ],
+    [
+      "鲁恩",
+      "我这就去。不管接没接到，天黑前都会让他们回信。"
+    ],
+    [
+      "旁白",
+      "鲁恩收起急信，从侧门离开。桌上那张通往庄园的路图还摊着，东面的尽头只画到界碑。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "rune",
+      "path": "docs/c2-optimization/before/narrative-state/characters/rune.json",
+      "coverage": "partial_important"
+    },
+    {
+      "id": "vilerena",
+      "path": "docs/c2-optimization/before/narrative-state/characters/vilerena.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "急报只到碑外，薇蕾娜急切源于诺恩失联；保留现行撤路解释与救援，不提前实装接应骗局。",
+    "relationship": {
+      "participants": [
+        "鲁恩",
+        "薇蕾娜"
+      ],
+      "judgment": "急报只到碑外，薇蕾娜急切源于诺恩失联；保留现行撤路解释与救援，不提前实装接应骗局。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:darkExileV9",
+        "scene": "darkExileV9",
+        "order": 17,
+        "summary": "会馆获知最后可见位置，派外沿接应",
+        "participants": [
+          "vilerena",
+          "rune"
+        ],
+        "sources": [
+          "scene:darkExileV9"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "player",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {
+          "vilerena": {
+            "emotion": "担心、急切，优先救诺恩。",
+            "goals": [
+              "找熟悉界碑的人带药绳到外沿接人。"
+            ],
+            "conflicts": [
+              "当前是退路失效的解释；未发生新版接应骗局核实。"
+            ]
+          },
+          "rune": {
+            "goals": [
+              "派人接应并保留观察点。"
+            ]
+          }
+        },
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "7c2c06f1c4f90467ae24f2215e6c2fa35e7430edb6806f89d9b5907b2e3cf75c"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:darkExileV9",
+        "scene": "darkExileV9",
+        "order": 17,
+        "summary": "会馆获知最后可见位置，派外沿接应",
+        "participants": [
+          "vilerena",
+          "rune"
+        ],
+        "sources": [
+          "scene:darkExileV9"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "player",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-EXILE-ACCOUNT",
+            "mode": "believes"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-RESCUE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {
+          "vilerena": {
+            "emotion": "担心、急切，优先救诺恩。",
+            "goals": [
+              "找熟悉界碑的人带药绳到外沿接人。"
+            ],
+            "conflicts": [
+              "当前是退路失效的解释；未发生新版接应骗局核实。"
+            ]
+          },
+          "rune": {
+            "goals": [
+              "派人接应并保留观察点。"
+            ]
+          }
+        },
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

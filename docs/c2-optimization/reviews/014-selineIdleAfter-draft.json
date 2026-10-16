@@ -1,0 +1,123 @@
+{
+  "kind": "copyedit",
+  "style_policy_version": 2,
+  "chapter": "R02",
+  "scene": "selineIdleAfter",
+  "context": "docs/c2-optimization/reviews/014-selineIdleAfter-context.json",
+  "corpus": "docs/c2-optimization/CURRENT_CORPUS.json",
+  "semantic_change": false,
+  "rows": [
+    [
+      "塞琳",
+      "水泵好用了，刚洗完一盆床单。这回连院门都没出。"
+    ],
+    [
+      "诺恩",
+      "横销还牢吗？松了会把孔磨大。"
+    ],
+    [
+      "塞琳",
+      "刚刚看过，牢着呢。那块蓝布也洗干净了，我想留下补窗帘。"
+    ],
+    [
+      "诺恩",
+      "你留着用吧，我还有油布。"
+    ],
+    [
+      "塞琳",
+      "那我就留下了。你披风上的扣子也快松了，我这儿有针，要用吗？"
+    ],
+    [
+      "诺恩",
+      "借我一根粗针，我自己缝。"
+    ]
+  ],
+  "line_judgments": [
+    {
+      "line": 0,
+      "before": [
+        "塞琳",
+        "那泵一直好好的，刚洗完一盆床单，连院门都不用出。"
+      ],
+      "after": [
+        "塞琳",
+        "水泵好用了，刚洗完一盆床单。这回连院门都没出。"
+      ],
+      "reason": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。",
+      "preserves_information": true
+    },
+    {
+      "line": 2,
+      "before": [
+        "塞琳",
+        "早上才看过，牢着呢。包工具那块蓝布我也洗干净了，正好能补窗帘。"
+      ],
+      "after": [
+        "塞琳",
+        "刚刚看过，牢着呢。那块蓝布也洗干净了，我想留下补窗帘。"
+      ],
+      "reason": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。",
+      "preserves_information": true
+    },
+    {
+      "line": 4,
+      "before": [
+        "塞琳",
+        "那我就不用另裁了。哎，你的披风扣子也松了，我这儿有针，要不要拿去缝缝？"
+      ],
+      "after": [
+        "塞琳",
+        "那我就留下了。你披风上的扣子也快松了，我这儿有针，要用吗？"
+      ],
+      "reason": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。",
+      "preserves_information": true
+    }
+  ],
+  "editorial": {
+    "reviewer": "Codex执行编辑，已阅读全文；真人文风反馈待验",
+    "character": {
+      "verdict": "pass",
+      "evidence": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。 逐页检查提问和回应，不用换同义祈使或拆短句规避风格要求。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。 核对目标、路线、材料数、原报酬及未得到答案的部分。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "玩家独享的观察安排和内室恶行保持各自视角；替代开门法及无接应作者方向不借润色成为主角知识。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "negative_imperatives": {
+      "scene_judgment": "闲聊紧接修泵也能成立：用刚才检查替代虚构隔夜；蓝布用途和借针的原结果保留。 合理制止、拒绝和警报命令保留，不追求否定词清零。",
+      "decisions": []
+    }
+  },
+  "scope": {
+    "files": [
+      "dist/chapter-two-conversations-data.js",
+      "dist/chapter-two-conversations.js",
+      "dist/core-v14.js",
+      "docs/harness/CHAPTER_02_CHARACTER_FLOW.md",
+      "docs/harness/CHAPTER_02.md",
+      "docs/harness/CHAPTER_01_ENDURANCE.md"
+    ],
+    "dynamic_check_label": "producer-current"
+  },
+  "adopted_script": "docs/c2-optimization/SCRIPT.json"
+}

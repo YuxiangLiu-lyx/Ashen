@@ -4,12 +4,13 @@ import{C1_MAPS}from '../dist/chapter-one-layout.js';import{QUEST_PRIORITY}from '
 import{C1_OBJECTIVES}from '../dist/chapter-one-objectives.js';import{C1_FINAL_BOSS}from '../dist/chapter-one-trial-runtime.js';
 import{parseSave}from '../dist/save-transfer-v14.js';import{dialogueCorpus}from '../tools/harness/dialogue_corpus.mjs';
 const script=JSON.parse(fs.readFileSync('docs/c1-character-flow/SCRIPT.json'));const before=JSON.parse(fs.readFileSync('docs/c1-character-flow/before/CORPUS.json')).scenes;
+const second=new Map(JSON.parse(fs.readFileSync('docs/c2-optimization/SCRIPT.json')).entries.map(e=>[e.key,e]));
 const finish=g=>{for(let i=0;g.pending&&i<20;i++)g.finishScene();assert.equal(g.pending,null);};
 const load=g=>new RPG('shadow',parseSave(JSON.stringify(g.snapshot())),()=>.44);
 test('full chapter edit matches adopted script, keeps page beats and all other chapter text',()=>{
  const corpus=dialogueCorpus().scenes,entries=new Map(script.entries.map(e=>[e.key,e]));
  for(const [id,old]of Object.entries(before)){
-  const e=entries.get(id);assert.deepEqual(corpus[id].text,e?.after||old.text,id);if(e){assert.equal(e.after.length,old.text.length,id);assert.deepEqual(e.after.map(r=>r[0]),old.text.map(r=>r[0]==='罗萨'?'商人':r[0]),id);}
+  const e=entries.get(id),later=second.get(id);if(later)assert.deepEqual(later.before,e?.after||old.text,id+' chapter-two exact baseline');assert.deepEqual(corpus[id].text,later?.after||e?.after||old.text,id);if(e){assert.equal(e.after.length,old.text.length,id);assert.deepEqual(e.after.map(r=>r[0]),old.text.map(r=>r[0]==='罗萨'?'商人':r[0]),id);}
  }
  assert.equal(script.reviewed.length,263);assert.equal(entries.size,142);
  for(const id of script.reviewed)assert.doesNotMatch(JSON.stringify(corpus[id].text),/罗萨/,id);

@@ -1,0 +1,413 @@
+{
+  "error": "AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:\n\n  assert.ok(door)\n\n    at walk (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-world-v29.mjs:62:107)\n    at async file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/browser-world-v29.mjs:80:79",
+  "state": {
+    "mode": "play",
+    "map": "echo",
+    "x": 461.2435207836766,
+    "y": 515.2224553860393,
+    "hp": 188.75999999999988,
+    "mp": 78.36324310000202,
+    "active": true,
+    "pending": null,
+    "flags": {
+      "rats": 8,
+      "crack": true,
+      "pass": true,
+      "c1Viewed": {
+        "c1HiddenPairArrangement": true
+      },
+      "worldV29": {
+        "schema": 1,
+        "seen": [
+          "mill-warning",
+          "pipe-warning"
+        ]
+      },
+      "cityIntro": true,
+      "gateTalk": true,
+      "gateXP": true,
+      "lottiMet": true,
+      "echoLog": true,
+      "chapterCardsV17": [
+        1
+      ],
+      "echoBookOrder": [
+        "fireboltBook",
+        "tetherBook",
+        "cleaveBook",
+        "frostBook",
+        "sprintBook"
+      ]
+    },
+    "quests": {
+      "rats": "done",
+      "c1Readiness": "done",
+      "c1ExitDrill": "done",
+      "contract": "active",
+      "c1CommissionBrief": "done",
+      "c1LoomBrief": "done",
+      "v12CourierRoad": "done",
+      "v12NorthDelivery": "done",
+      "c1GateCheck": "done",
+      "c1CanalPrep": "done",
+      "echo": "active"
+    },
+    "world": {
+      "schema": 1,
+      "seen": [
+        "mill-warning",
+        "pipe-warning"
+      ]
+    },
+    "transition": null,
+    "moveTo": null,
+    "target": "echo-0",
+    "auto": true
+  },
+  "data": {
+    "map": {
+      "name": "回水机房",
+      "sub": "入口间 · 检修廊 · 守兽后槽",
+      "atlas": "interior",
+      "cell": 3,
+      "ground": "stone",
+      "doors": [
+        {
+          "x": 300,
+          "y": 890,
+          "to": "millpath",
+          "tx": 1180,
+          "ty": 800,
+          "label": "旧磨坊小径",
+          "manualOnly": true,
+          "c1Exit": true
+        }
+      ],
+      "npcs": [],
+      "spawns": [
+        [
+          "bat",
+          480,
+          440,
+          "echo-0"
+        ],
+        [
+          "wolf",
+          1130,
+          740,
+          "echo-1"
+        ],
+        [
+          "wolf",
+          1170,
+          500,
+          "echo-warden"
+        ]
+      ],
+      "blocks": [
+        [
+          0,
+          0,
+          1600,
+          180
+        ],
+        [
+          0,
+          180,
+          960,
+          40
+        ],
+        [
+          1460,
+          180,
+          140,
+          740
+        ],
+        [
+          0,
+          220,
+          420,
+          400
+        ],
+        [
+          900,
+          220,
+          60,
+          200
+        ],
+        [
+          0,
+          620,
+          180,
+          360
+        ],
+        [
+          900,
+          680,
+          60,
+          120
+        ],
+        [
+          700,
+          800,
+          260,
+          120
+        ],
+        [
+          700,
+          920,
+          900,
+          60
+        ],
+        [
+          0,
+          980,
+          1600,
+          100
+        ],
+        [
+          989.5,
+          666,
+          141,
+          34
+        ],
+        [
+          769.5,
+          316,
+          141,
+          34
+        ],
+        [
+          550,
+          360,
+          100,
+          30
+        ],
+        [
+          357.5,
+          795,
+          85,
+          35
+        ]
+      ],
+      "props": [
+        {
+          "id": "echo-machine",
+          "action": "echoMachine",
+          "type": "machine",
+          "x": 1280,
+          "y": 330,
+          "interactX": 1280,
+          "interactY": 425,
+          "label": "旧回声机",
+          "worldInteractionV29": {
+            "duration": 0.5
+          },
+          "c1Art": [
+            "Settlement",
+            10,
+            175,
+            165
+          ],
+          "c1Layout": 9,
+          "geometryV26": false,
+          "collisionV281": false
+        },
+        {
+          "id": "echo-valve",
+          "action": "echoValve",
+          "type": "wheel",
+          "x": 880,
+          "y": 725,
+          "interactX": 880,
+          "interactY": 725,
+          "label": "配重泄压阀",
+          "worldInteractionV29": {
+            "duration": 0.65
+          },
+          "c1Art": [
+            "Furnishings",
+            11,
+            56,
+            76
+          ],
+          "c1Layout": 9,
+          "geometryV26": false,
+          "collisionV281": false
+        },
+        {
+          "id": "v29-echo-core",
+          "action": "v29EchoCore",
+          "type": "book",
+          "x": 1200,
+          "y": 405,
+          "label": "后槽里的黄铜心轴",
+          "art": {
+            "sheet": "mechanisms",
+            "index": 7,
+            "w": 48,
+            "h": 34
+          },
+          "worldInteractionV29": {
+            "duration": 0.75
+          },
+          "interactX": 1200,
+          "interactY": 405,
+          "depthY": 391,
+          "c1Art": [
+            "Utilities",
+            14,
+            65,
+            38
+          ],
+          "c1Layout": 9,
+          "geometryV26": false,
+          "collisionV281": false
+        }
+      ],
+      "encounters": [],
+      "worldV4": true,
+      "worldLayoutV29": 1,
+      "c1Layout": 9,
+      "ambientActors": []
+    },
+    "scenery": [
+      {
+        "sheet": "chapterArchitecture",
+        "asset": 4,
+        "x": 1060,
+        "y": 700,
+        "w": 150,
+        "h": 78,
+        "box": [
+          989.5,
+          666,
+          141,
+          34
+        ],
+        "c1Authored": true,
+        "collisionV281": false,
+        "id": "c1-furniture-echo-0"
+      },
+      {
+        "sheet": "chapterArchitecture",
+        "asset": 4,
+        "x": 840,
+        "y": 350,
+        "w": 150,
+        "h": 78,
+        "box": [
+          769.5,
+          316,
+          141,
+          34
+        ],
+        "c1Authored": true,
+        "collisionV281": false,
+        "id": "c1-furniture-echo-1"
+      },
+      {
+        "sheet": "chapterUtilities",
+        "asset": 14,
+        "x": 600,
+        "y": 390,
+        "w": 130,
+        "h": 70,
+        "box": [
+          550,
+          360,
+          100,
+          30
+        ],
+        "c1Authored": true,
+        "collisionV281": false,
+        "id": "c1-furniture-echo-2"
+      },
+      {
+        "sheet": "chapterObjects",
+        "asset": 5,
+        "x": 400,
+        "y": 830,
+        "w": 115,
+        "h": 135,
+        "box": [
+          357.5,
+          795,
+          85,
+          35
+        ],
+        "c1Authored": true,
+        "collisionV281": false,
+        "id": "c1-furniture-echo-3"
+      }
+    ],
+    "targets": [
+      {
+        "id": "echo-valve",
+        "action": "echoValve",
+        "type": "wheel",
+        "x": 880,
+        "y": 725,
+        "interactX": 880,
+        "interactY": 725,
+        "label": "配重泄压阀",
+        "worldInteractionV29": {
+          "duration": 0.65
+        },
+        "c1Art": [
+          "Furnishings",
+          11,
+          56,
+          76
+        ],
+        "c1Layout": 9,
+        "geometryV26": false,
+        "collisionV281": false,
+        "hp": 999,
+        "used": false,
+        "broken": false,
+        "drawX": 880,
+        "drawY": 725,
+        "kind": "prop"
+      },
+      {
+        "x": 300,
+        "y": 890,
+        "to": "millpath",
+        "tx": 1180,
+        "ty": 800,
+        "label": "旧磨坊小径",
+        "manualOnly": true,
+        "c1Exit": true,
+        "id": "millpath",
+        "kind": "door"
+      }
+    ],
+    "enemy": [
+      {
+        "id": "echo-0",
+        "type": "bat",
+        "x": 468.74363211080833,
+        "y": 485.14342065949546,
+        "hp": 0,
+        "dead": true
+      },
+      {
+        "id": "echo-1",
+        "type": "wolf",
+        "x": 1068.0458686962736,
+        "y": 764.5293758438775,
+        "hp": 663,
+        "dead": false
+      },
+      {
+        "id": "echo-warden",
+        "type": "wolf",
+        "x": 1170,
+        "y": 500,
+        "hp": 5625,
+        "dead": false
+      }
+    ]
+  }
+}

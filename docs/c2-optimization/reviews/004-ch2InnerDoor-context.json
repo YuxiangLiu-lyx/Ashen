@@ -1,0 +1,166 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2InnerDoor",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "f34d563bf3d713317a4683bfc264995dc88324b04350748f85aa7e087e12f8dd",
+  "before": [
+    [
+      "诺恩",
+      "把圣徽靠近铜盘，门就能开。"
+    ],
+    [
+      "艾莉娅",
+      "我再求你一次，把刀收起来，跟我去见守卫。我会请他们先听你把话说完。"
+    ],
+    [
+      "诺恩",
+      "我不会去受审。把门打开，你就不用管了。"
+    ],
+    [
+      "艾莉娅",
+      "怎么能不管？我一开门，你就要去杀人。这事我做不到。"
+    ],
+    [
+      "诺恩",
+      "艾莉娅，就剩这道门了。"
+    ],
+    [
+      "艾莉娅",
+      "那就别往前了。现在回头还来得及。"
+    ],
+    [
+      "诺恩",
+      "别碰铃绳——"
+    ],
+    [
+      "艾莉娅",
+      "守卫！我是艾莉娅，在内门这边！有人要刺杀监理，快来人！"
+    ],
+    [
+      "巡卫",
+      "圣女大人？布伦队长，人就在内门！"
+    ],
+    [
+      "艾莉娅",
+      "拦住他，别开内门！请尽量活捉，我会留下作证！"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "role_4ae25552de",
+      "path": "docs/c2-optimization/before/narrative-state/characters/role_4ae25552de.json",
+      "coverage": "lightweight"
+    }
+  ],
+  "scene_context": {
+    "purpose": "保留求审、拒绝、铃绳、求救和活捉的全部动作；删去重复把责任推给开门人的空话。",
+    "relationship": {
+      "participants": [
+        "诺恩",
+        "艾莉娅",
+        "巡卫"
+      ],
+      "judgment": "保留求审、拒绝、铃绳、求救和活捉的全部动作；删去重复把责任推给开门人的空话。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2InnerDoor",
+        "scene": "ch2InnerDoor",
+        "order": 9,
+        "summary": "圣女拒绝并拉响警报",
+        "participants": [
+          "noen",
+          "elyria",
+          "role_4ae25552de"
+        ],
+        "sources": [
+          "scene:ch2InnerDoor"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          },
+          {
+            "actor": "elyria",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "f34d563bf3d713317a4683bfc264995dc88324b04350748f85aa7e087e12f8dd"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2InnerDoor",
+        "scene": "ch2InnerDoor",
+        "order": 9,
+        "summary": "圣女拒绝并拉响警报",
+        "participants": [
+          "noen",
+          "elyria",
+          "role_4ae25552de"
+        ],
+        "sources": [
+          "scene:ch2InnerDoor"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          },
+          {
+            "actor": "elyria",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-REFUSAL",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

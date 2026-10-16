@@ -1,0 +1,244 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2Spillway",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "ea143f832084ca8ed2044b90d854b2d3aa7980a9a3a5be0de31a37a5f17fe562",
+  "before": [
+    [
+      "艾莉娅",
+      "上面就是灰桥，我能从那里跟他们回去。你已经进不了内门了，放我走吧。"
+    ],
+    [
+      "诺恩",
+      "桥口封了，上面还有弩手。"
+    ],
+    [
+      "艾莉娅",
+      "他们不会对我放箭，让我过去。"
+    ],
+    [
+      "诺恩",
+      "他们会向你打听驿站的事。"
+    ],
+    [
+      "艾莉娅",
+      "为了这个，你就要一直带着我逃？你答应过，只办这一件事。"
+    ],
+    [
+      "诺恩",
+      "答应过。可现在放你回去，驿站的人也会被找上。"
+    ],
+    [
+      "艾莉娅",
+      "那也不是你把我留下的理由。我从没答应过，用别人的命换自己回去！"
+    ],
+    [
+      "诺恩",
+      "是我不守信。现在不能放你回去。"
+    ],
+    [
+      "艾莉娅",
+      "那我不会再等你答应了。我会自己找机会回去，你再要伤人，我也一样会拦着。"
+    ],
+    [
+      "巡卫",
+      "沟里有脚印！往下搜，别漏了石壁后面！"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "role_4ae25552de",
+      "path": "docs/c2-optimization/before/narrative-state/characters/role_4ae25552de.json",
+      "coverage": "lightweight"
+    }
+  ],
+  "scene_context": {
+    "purpose": "违约争执保留驿站暴露这个真实动机，艾莉娅不接受诺恩替她决定。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩",
+        "巡卫"
+      ],
+      "judgment": "违约争执保留驿站暴露这个真实动机，艾莉娅不接受诺恩替她决定。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2Spillway",
+        "scene": "ch2Spillway",
+        "order": 13,
+        "summary": "泄水口拒绝释放，诺恩承认违约",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2Spillway"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          },
+          {
+            "actor": "elyria",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {
+          "noen": {
+            "goals": [
+              "撤离并避免驿站暴露。"
+            ],
+            "conflicts": [
+              "承认违约，继续控制艾莉娅。"
+            ]
+          },
+          "elyria": {
+            "goals": [
+              "自己找机会回去，阻止伤人。"
+            ],
+            "emotion": "不再等诺恩兑现承诺。"
+          }
+        },
+        "relationship_changes": {
+          "elyria": {
+            "noen": {
+              "trust": "承诺已经破裂",
+              "affection": "UNRESOLVED",
+              "caution": "UNRESOLVED",
+              "hostility": "继续反抗",
+              "dependence": "危险处境被迫共行",
+              "concealment": "UNRESOLVED",
+              "obligation": "UNRESOLVED",
+              "conflict": "拒绝以别人生命换自由"
+            }
+          },
+          "noen": {
+            "elyria": {
+              "trust": "UNRESOLVED",
+              "affection": "UNRESOLVED",
+              "caution": "UNRESOLVED",
+              "hostility": "UNRESOLVED",
+              "dependence": "共同逃亡但仍有控制",
+              "concealment": "UNRESOLVED",
+              "obligation": "UNRESOLVED",
+              "conflict": "知道自己违约仍不释放"
+            }
+          }
+        }
+      },
+      "baseline_sha256": "ea143f832084ca8ed2044b90d854b2d3aa7980a9a3a5be0de31a37a5f17fe562"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2Spillway",
+        "scene": "ch2Spillway",
+        "order": 13,
+        "summary": "泄水口拒绝释放，诺恩承认违约",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2Spillway"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          },
+          {
+            "actor": "elyria",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C2-BROKEN-PROMISE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {
+          "noen": {
+            "goals": [
+              "撤离并避免驿站暴露。"
+            ],
+            "conflicts": [
+              "承认违约，继续控制艾莉娅。"
+            ]
+          },
+          "elyria": {
+            "goals": [
+              "自己找机会回去，阻止伤人。"
+            ],
+            "emotion": "不再等诺恩兑现承诺。"
+          }
+        },
+        "relationship_changes": {
+          "elyria": {
+            "noen": {
+              "trust": "承诺已经破裂",
+              "affection": "UNRESOLVED",
+              "caution": "UNRESOLVED",
+              "hostility": "继续反抗",
+              "dependence": "危险处境被迫共行",
+              "concealment": "UNRESOLVED",
+              "obligation": "UNRESOLVED",
+              "conflict": "拒绝以别人生命换自由"
+            }
+          },
+          "noen": {
+            "elyria": {
+              "trust": "UNRESOLVED",
+              "affection": "UNRESOLVED",
+              "caution": "UNRESOLVED",
+              "hostility": "UNRESOLVED",
+              "dependence": "共同逃亡但仍有控制",
+              "concealment": "UNRESOLVED",
+              "obligation": "UNRESOLVED",
+              "conflict": "知道自己违约仍不释放"
+            }
+          }
+        }
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

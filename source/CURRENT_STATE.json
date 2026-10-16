@@ -5,11 +5,11 @@
   "published_runtime_commit": "4b582d7133f21b6f16a478264884f10c4a6e58c1",
   "repository": "https://github.com/YuxiangLiu-lyx/Ashen",
   "branch": "main",
-  "snapshot_type": "v30_rpg_three_chapters_with_c1_character_flow",
+  "snapshot_type": "v30_c2_character_flow_c1_endurance",
   "runtime_directory": "dist",
   "runtime_assets": "archives/runtime-assets.manifest.json",
   "history_archive": "archives/library-originals.manifest.json",
-  "runtime_modules": 243,
+  "runtime_modules": 245,
   "runtime_stylesheets": 7,
   "runtime_images": 149,
   "runtime_resource_bytes": 328274579,
@@ -19,8 +19,8 @@
   "original_latest_development_source_documents_recovered": false,
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
-  "known_limits": "R01 1.5 full chapter dialogue review, gradual trial briefing, task ordering and merchant appearance technically verified. Human literary voice, appearance, difficulty, pacing and fun remain pending; historical 0.6 human gate independent. R04-R08 unchanged; no website deployment.",
-  "checked_at_utc": "2026-10-16T06:50:54.186894+00:00",
+  "known_limits": "R02 0.5 and R01 1.6 technically verified. Human voice, first-chapter endurance difficulty, pacing and fun pending; historical 0.6 gate independent. No website deployed.",
+  "checked_at_utc": "2026-10-16T13:52:31.541251+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Current integration, three-viewport enemy HUD and dialogue navigation, 167 edited pages per viewport, exact legacy text migration, default offline/HTTP/mobile build and all 5174 JS/CSS bytes passed.",
+  "browser_qa_status": "Current full integration plus second-chapter 64 scenes / 310 pages at three viewports, three-class normal UI routes in both chapters, service transactions, maps, offline/HTTP/mobile build and local 5174 byte checks passed. Ember C1 proof joins the original normal new-game run to a normal-UI import of its unchanged checkpoint after a harness crafting-material assumption.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -303,7 +303,7 @@
   "narrative_rebuild": {
     "version": "1.5",
     "task_id": "c1-character-flow-20261016",
-    "status": "第一章1.5技术验收、默认包和GitHub保存完成；整章对白、逐轮试炼、任务优先与商人新形象。真人文风和审美待验。",
+    "status": "第一章人物1.5、耐久1.6与第二章0.5已实装；本轮验证见c2-optimization/ACCEPTANCE，真人文风难度节奏待验。",
     "world_vision": "docs/harness/WORLD_VISION.md",
     "world_vision_loading": "optional; explicit world-building query only",
     "architecture_registry": "docs/harness/NARRATIVE_ARCHITECTURE.md",
@@ -313,14 +313,15 @@
       "script": "docs/harness/CHAPTER_01.md",
       "script_revision": "1.5",
       "script_status": "IMPLEMENTED",
-      "implementation": "263场审读、142场295句修订；薇蕾娜亲昵关心、鲁恩逐轮交接、任务优先、新女性商人统一称商人。诺恩姓名按用户确认保留。1.4战斗、1.3动作结果和旧档保留。"
+      "implementation": "263场审读、142场295句修订；薇蕾娜亲昵关心、鲁恩逐轮交接、任务优先、新女性商人统一称商人。诺恩姓名按用户确认保留。1.4战斗、1.3动作结果和旧档保留。",
+      "combat_revision": "1.6"
     },
     "chapter02": {
       "id": "V01C02",
       "script": "docs/harness/CHAPTER_02.md",
-      "script_revision": "0.4",
+      "script_revision": "0.5",
       "script_status": "IMPLEMENTED",
-      "implementation": "0.4 gameplay technically verified; original mainline retained, A/B not adopted; human pacing pending"
+      "implementation": "64场全文审读、43场104句修订；逐步任务提示、任务优先和寄卖格子详情；旧0.3 A/B未采用。"
     },
     "runtime_changed": true,
     "product_version_changed": false,
@@ -1062,5 +1063,25 @@
     "implementation_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
     "remote_verified_commit": "a93fa0fcb239d00c931d9a19bc4c9fa0be47db92",
     "remote_verified_at_utc": "2026-10-16T06:50:54.186894+00:00"
+  },
+  "c2_optimization_20261016": {
+    "status": "technical_verification_complete_local_build_promoted_git_pending",
+    "chapter_plan": "docs/harness/CHAPTER_02_CHARACTER_FLOW.md",
+    "evidence": "docs/c2-optimization/ACCEPTANCE.md",
+    "c1_hp_multipliers": {
+      "ordinary": 1.5,
+      "elite_and_boss": 2.5
+    },
+    "baseline": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+    "default_build": "docs/c2-optimization/DEFAULT_BUILD.json",
+    "normal_input": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+    "map_quality": "docs/c2-optimization/MAP_QUALITY.json",
+    "experience": [
+      "docs/c2-optimization/EXPERIENCE_R01.json",
+      "docs/c2-optimization/EXPERIENCE_R02.json"
+    ],
+    "human_status": "pending",
+    "human_observation": "docs/c2-optimization/HUMAN_OBSERVATION.md",
+    "website_published": false
   }
 }

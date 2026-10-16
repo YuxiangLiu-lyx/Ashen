@@ -1,3 +1,5 @@
+2026-10-16本轮：第二章0.5按第一章优化64场对白审读、任务交接和寄卖格子详情；第一章1.6普通怪生命增加50%，精英/Boss增加150%至2.5倍，旧档按残血比例迁移。实现、验收结果及默认包回执见docs/c2-optimization/ACCEPTANCE.md与docs/c1-endurance/ACCEPTANCE.md；真人文风/难度/节奏待验。原主线结果和后章保持，未发布网站。
+
 2026-10-14当前交付：前三章RPG体验升级（R01—R03），第四至八章按用户最新指令暂缓。战斗成长、地下探索、任务结果、真实设施与安全剧情触发已实施；技术证据及真人待验见../docs/rpg-experience/ACCEPTANCE.md。默认离线入口为qa-export/release-build/Ashen-V28.1-Play.html；旧包保存在qa-export/release-build-before-rpg-three-20261014，文件名沿用旧版。GitHub保存与网站发布分开；下面旧记录保留为历史。
 
 # 项目指令定位

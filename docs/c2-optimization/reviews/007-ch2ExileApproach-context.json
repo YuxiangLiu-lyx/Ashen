@@ -1,0 +1,132 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2ExileApproach",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "f5692c39a4240a441661791c0cbcdae664446870f1dbc939e5591f1cff720c1f",
+  "before": [
+    [
+      "艾莉娅",
+      "前面那是……停下，不能再往前走了！"
+    ],
+    [
+      "诺恩",
+      "你认识？"
+    ],
+    [
+      "艾莉娅",
+      "是流放界碑，教会的路书上写过，过去就是禁地。"
+    ],
+    [
+      "诺恩",
+      "从另一边能出去吗？"
+    ],
+    [
+      "艾莉娅",
+      "路书里没有回程的记载，教会记录过的入境者也一个都没回来。不能拿命去试。"
+    ],
+    [
+      "诺恩",
+      "巡卫已经追进沟里了，回不去。"
+    ],
+    [
+      "艾莉娅",
+      "他们要抓的是你，我还能求他们停手。真进了禁地，我们还能找谁？"
+    ],
+    [
+      "巡卫",
+      "看见了！就在界碑前！"
+    ],
+    [
+      "诺恩",
+      "被看见了，先过界碑！"
+    ],
+    [
+      "艾莉娅",
+      "诺恩，放开！那是禁地，我不能进去！"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "role_4ae25552de",
+      "path": "docs/c2-optimization/before/narrative-state/characters/role_4ae25552de.json",
+      "coverage": "lightweight"
+    }
+  ],
+  "scene_context": {
+    "purpose": "解释路书记载与眼前追兵的矛盾；保持被强迫越界的结果，不让圣女默许。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩",
+        "巡卫"
+      ],
+      "judgment": "解释路书记载与眼前追兵的矛盾；保持被强迫越界的结果，不让圣女默许。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2ExileApproach",
+        "scene": "ch2ExileApproach",
+        "order": 14,
+        "summary": "界碑前圣女警告禁地，男主强迫越界",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2ExileApproach"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "f5692c39a4240a441661791c0cbcdae664446870f1dbc939e5591f1cff720c1f"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2ExileApproach",
+        "scene": "ch2ExileApproach",
+        "order": 14,
+        "summary": "界碑前圣女警告禁地，男主强迫越界",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2ExileApproach"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

@@ -1,0 +1,85 @@
+{
+  "exit_code": 0,
+  "scope": "Full integration command coverage: exact successful prefix from 013 plus rerun of world and every subsequent browser command",
+  "reused_check": {
+    "label": "integration",
+    "command": [
+      "python3",
+      "docs/c2-optimization/integration.py"
+    ],
+    "exit_code": 1,
+    "started_at_utc": "2026-10-16T13:19:55.707785+00:00",
+    "finished_at_utc": "2026-10-16T13:27:17.453480+00:00",
+    "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+    "source_fingerprint": "0babc1ceeb77fdb48b96fa1dd6b2da64191c86cac3f79f189210a0545294f899",
+    "sources_changed_during_check": false,
+    "output": "docs/harness/evidence/c2-optimization-20261016/013-integration.txt",
+    "output_sha256": "bb89d2a473fe5004df540d310a2cad5c767b73cc5797078d908de637135a71ee",
+    "timeout_seconds": 1560.0
+  },
+  "reused_commands": [
+    "/opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/narrative.py audit --live",
+    "/opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v",
+    "/opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py",
+    "node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-one-layer-rules.test.mjs tests/chapter-test.test.mjs tests/rpg-experience.test.mjs tests/rpg-chapter-two.test.mjs tests/rpg-chapter-three.test.mjs tests/c1-story-flow.test.mjs tests/dialogue-reader.test.mjs tests/dialogue-hud.test.mjs",
+    "node tools/balance_lab/chapter-one.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "node tests/browser-balance-lab.mjs"
+  ],
+  "changed_inputs": [
+    "tests/browser-world-v29.mjs"
+  ],
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "checks": [
+    {
+      "command": [
+        "node",
+        "tests/browser-world-v29.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter-one-v30.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter23.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter123.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-chapter-one-expansion.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-dialogue-reader.mjs"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "node",
+        "tests/browser-dialogue-hud.mjs"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "historical_navigation_restored": true
+}

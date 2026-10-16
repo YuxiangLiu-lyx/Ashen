@@ -1,0 +1,148 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2ExileEnd",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "d8f1fc6d63352906d3fd3d4b75afca2b2241dc46e39b91781646a8b5bf10a29f",
+  "before": [
+    [
+      "艾莉娅",
+      "他们停下了……连守卫都不敢进来。诺恩，得想办法回去。"
+    ],
+    [
+      "诺恩",
+      "先走远点，追兵还看得见我们。"
+    ],
+    [
+      "艾莉娅",
+      "松手，我手腕都麻了！我会自己找出口，不会站在这里等死，可这不代表我答应跟你走。"
+    ],
+    [
+      "诺恩",
+      "好，我松手。扶着石阶站稳，脚下有苔。"
+    ],
+    [
+      "艾莉娅",
+      "我自己会当心。先找到出口，出去以后，你得跟我回教堂把话说清楚。"
+    ],
+    [
+      "诺恩",
+      "等雾淡些，我先看看哪里能走。"
+    ],
+    [
+      "艾莉娅",
+      "雾里有什么，你也不知道，对不对？"
+    ],
+    [
+      "诺恩",
+      "看不清。石阶还连着，我先往下探探。"
+    ],
+    [
+      "旁白",
+      "界碑后的脚步声停了。更深的雾里，传来一次沉重的金属拖动声。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "松手是有限的动作改变，艾莉娅仍要求回教堂说清责任；避免连续先后安排替代交流。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩"
+      ],
+      "judgment": "松手是有限的动作改变，艾莉娅仍要求回教堂说清责任；避免连续先后安排替代交流。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2ExileEnd",
+        "scene": "ch2ExileEnd",
+        "order": 16,
+        "summary": "男主松手；艾莉娅说自己寻找出口不代表答应同行。",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2ExileEnd"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {
+          "noen": {
+            "goals": [
+              "寻找雾中能走的路。"
+            ],
+            "expression": "松手与提醒脚下仅是局部行为，未成为成熟爱人。"
+          },
+          "elyria": {
+            "goals": [
+              "寻找出口，出去后要求诺恩回教堂说明。"
+            ],
+            "emotion": "拒绝把求生等同答应同行。"
+          }
+        },
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "d8f1fc6d63352906d3fd3d4b75afca2b2241dc46e39b91781646a8b5bf10a29f"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2ExileEnd",
+        "scene": "ch2ExileEnd",
+        "order": 16,
+        "summary": "男主松手；艾莉娅说自己寻找出口不代表答应同行。",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2ExileEnd"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {
+          "noen": {
+            "goals": [
+              "寻找雾中能走的路。"
+            ],
+            "expression": "松手与提醒脚下仅是局部行为，未成为成熟爱人。"
+          },
+          "elyria": {
+            "goals": [
+              "寻找出口，出去后要求诺恩回教堂说明。"
+            ],
+            "emotion": "拒绝把求生等同答应同行。"
+          }
+        },
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

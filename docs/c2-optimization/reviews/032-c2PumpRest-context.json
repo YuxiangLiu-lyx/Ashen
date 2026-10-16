@@ -1,0 +1,140 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c2PumpRest",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "1fff9f9a315331a2d8d4d38646a77870ac2094d318687034ec3819d4b53ee88f",
+  "before": [
+    [
+      "塞琳",
+      "泵修好了，我也不用一趟趟去街口提水。你们坐吧，热水自己倒。你们离开驿站之前，歇脚就不收钱了。"
+    ],
+    [
+      "诺恩",
+      "炉子还得烧着。你上次可不是这么说的。"
+    ],
+    [
+      "塞琳",
+      "你替我省了半天力气，我请你喝壶热水，还算得过账。坐稳些，左边那条凳腿有点晃。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "seline",
+      "path": "docs/c2-optimization/before/narrative-state/characters/seline.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "免费休息来自修泵节省劳力，诺恩记得旧报价，塞琳拿实际账目打趣。",
+    "relationship": {
+      "participants": [
+        "塞琳",
+        "诺恩"
+      ],
+      "judgment": "免费休息来自修泵节省劳力，诺恩记得旧报价，塞琳拿实际账目打趣。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:c2PumpRest",
+        "scene": "c2PumpRest",
+        "order": 18,
+        "summary": "修泵后塞琳以节省提水劳力为由免收离开驿站前的歇脚费；诺恩记得旧报价，二人谈的是实际工钱与热水。",
+        "participants": [
+          "seline",
+          "noen"
+        ],
+        "sources": [
+          "experience:c2PumpRest"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "seline",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R02:ch2Arrival",
+          "R02:ch2InnerDoor"
+        ],
+        "trigger": "仅在inn、phase5–7、pumpFixed且实际柜台/炉边近处安全时选择休息；沿用ch2_paid_rest完成后结算。新ID不挪旧innRestTalk行号。"
+      },
+      "baseline_sha256": "1fff9f9a315331a2d8d4d38646a77870ac2094d318687034ec3819d4b53ee88f"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:c2PumpRest",
+        "scene": "c2PumpRest",
+        "order": 18,
+        "summary": "修泵后塞琳以节省提水劳力为由免收离开驿站前的歇脚费；诺恩记得旧报价，二人谈的是实际工钱与热水。",
+        "participants": [
+          "seline",
+          "noen"
+        ],
+        "sources": [
+          "experience:c2PumpRest"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "seline",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C2PUMPREST",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R02:ch2Arrival",
+          "R02:ch2InnerDoor"
+        ],
+        "trigger": "仅在inn、phase5–7、pumpFixed且实际柜台/炉边近处安全时选择休息；沿用ch2_paid_rest完成后结算。新ID不挪旧innRestTalk行号。"
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

@@ -26,7 +26,7 @@ window.__WORLD_QA={ready:()=>assetsReady,
  },
  overview(){scale=Math.min(w/1600,h/1080);ui.style.visibility='hidden';notice.style.visibility='hidden';draw();},
  live(){resize();ui.style.visibility='visible';notice.style.visibility='visible';play();g.active=true;},
- state(){return {mode,map:g?.map,x:g?.p.x,y:g?.p.y,hp:g?.p.hp,mp:g?.p.mp,active:g?.active,pending:g?.pending,flags:g?.flags,quests:g?.quests,world:g?.flags.worldV29,transition:g?.transition,moveTo:g?.moveTo,target:g?.target,auto};},
+ state(){return {mode,map:g?.map,x:g?.p.x,y:g?.p.y,hp:g?.p.hp,mp:g?.p.mp,maxHP:g?stats(g.p).hp:null,items:g?.p.items,active:g?.active,pending:g?.pending,flags:g?.flags,quests:g?.quests,world:g?.flags.worldV29,transition:g?.transition,moveTo:g?.moveTo,target:g?.target,auto};},
  point(x,y){return {x:w/2+(x-view.x)*scale,y:h/2+(y-view.y)*scale};},
  snapshot(){return structuredClone(g.snapshot());},
  load(s){start(s);return this.state();},
@@ -59,6 +59,7 @@ try{
    async function walk(x,y,expectedMap=null){
     if((await state()).mode==='dialogue')await dialogue();
     const original=(await state()).map;
+    if(expectedMap===original)return; // Combat pursuit can already cross the requested portal.
     if(expectedMap){const door=await browser.evaluate(`${Q}.door(${JSON.stringify(expectedMap)})`);assert.ok(door);x=door.x;y=door.y;}
     const p=await browser.evaluate(`${Q}.point(${x},${y})`);
     if(p.x>50&&p.x<1390&&p.y>80&&p.y<860)await browser.click(p.x,p.y);else await browser.evaluate(`${Q}.walk(${x},${y})`);
@@ -74,7 +75,7 @@ try{
     if(expectedMap)await browser.wait(`${Q}.state().map===${JSON.stringify(expectedMap)}`,8000);
    }
    async function object(id){const p=await browser.evaluate(`${Q}.interactPoint(${JSON.stringify(id)})`);assert.ok(p,id);await browser.click(p.x,p.y);await delay(1100);}
-   async function fight(range=520){const deadline=Date.now()+65000;let n=0;while(Date.now()<deadline){const s=await state();let enemies=(await browser.evaluate(Q+'.enemies()')).filter(e=>Math.hypot(e.x-s.x,e.y-s.y)<range);if(!enemies.length)return;assert.ok(s.hp>0,'Player died in real combat');const e=enemies.sort((a,b)=>Math.hypot(a.x-s.x,a.y-s.y)-Math.hypot(b.x-s.x,b.y-s.y))[0];if(Math.hypot(e.x-s.x,e.y-s.y)>340){await walk(e.x,e.y);continue;}const p=await browser.evaluate(`${Q}.point(${e.x},${e.y-30})`);await browser.click(p.x,p.y);if(n%3===0){await browser.key('1');await browser.key('1',false);}if(n%7===0){await browser.key('2');await browser.key('2',false);}if(s.hp<100){await browser.key('4');await browser.key('4',false);}await delay(650);n++;}throw Error('Combat timed out');}
+   async function fight(range=520){const deadline=Date.now()+240000;let n=0;while(Date.now()<deadline){const s=await state();let enemies=(await browser.evaluate(Q+'.enemies()')).filter(e=>Math.hypot(e.x-s.x,e.y-s.y)<range);if(!enemies.length)return;assert.ok(s.hp>0,'Player died in real combat');const e=enemies.sort((a,b)=>Math.hypot(a.x-s.x,a.y-s.y)-Math.hypot(b.x-s.x,b.y-s.y))[0];if(Math.hypot(e.x-s.x,e.y-s.y)>340){await walk(e.x,e.y);continue;}const p=await browser.evaluate(`${Q}.point(${e.x},${e.y-30})`);await browser.click(p.x,p.y);if(n%3===0){await browser.key('1');await browser.key('1',false);}if(n%7===0){await browser.key('2');await browser.key('2',false);}if(s.hp<s.maxHP*.6&&s.items.hp){await browser.key('4');await browser.key('4',false);}await delay(650);n++;}throw Error('Combat timed out');}
    await walk(960,560);await fight();await browser.shot(path.join(out,'journey-road.png'));
    await walk(1050,860,'millpath');journey.millEntry=await state();console.log('Journey: entered millpath');
    await walk(780,580);await fight(650);await walk(1200,800);await fight(600);await walk(1180,865,'echo');journey.echoEntry=await state();console.log('Journey: entered echo');
@@ -82,7 +83,7 @@ try{
    await walk(1050,570);await fight(800);assert.ok(!(await state()).flags.echoCoreFound);await browser.shot(path.join(out,'journey-clear.png'));
    await walk(1200,425);if(!(await state()).flags.echoCoreFound){await object('v29-echo-core');assert.equal((await state()).pending?.id,'v29EchoCoreTaken');}await dialogue();assert.ok((await state()).flags.echoCoreFound);journey.coreTaken=await state();console.log('Journey: manually extracted core');
    await walk(1280,425);await object('echo-machine');await dialogue();await button('[data-echo-reward="gear"]');await dialogue();journey.rewardTaken=await state();
-   await walk(300,885,'millpath');await walk(800,230,'road');await walk(1430,540,'town');await walk(1180,520,'workshop');
+   await walk(300,885,'millpath');await fight(1400);await walk(800,230,'road');await fight(1400);await walk(1430,540,'town');await walk(1180,520,'workshop');
    await walk(920,645);await object('lotti');await browser.wait(`${Q}.state().mode==='npc'`);await button('[data-choice="c1:claim:echo"]');await dialogue();assert.equal((await state()).quests.echo,'done');journey.completed=await state();console.log('Journey: returned core to Lotti');
    await browser.evaluate(Q+'.overview()');await browser.shot(path.join(out,'workshop-completed.png'));await browser.evaluate(Q+'.live()');
    const loaded=await browser.evaluate(Q+'.safeLoad()');assert.equal(loaded.quests.echo,'done');assert.equal(loaded.flags.echoChoice,'gear');journey.reloaded=loaded;journey.telemetry=await browser.evaluate(Q+'.travel()');

@@ -1,0 +1,68 @@
+✔ all chapter-one authored encounters increase from shipped final HP, independent of player level (11.362875ms)
+✔ legacy visited enemies preserve death and health ratio through repeated restores, no repeated multiplication or rewards (30.554208ms)
+✖ dynamic captain migrates from prior endurance maximum and leaves chapter-two/three/later enemies unchanged (11.997625ms)
+ℹ tests 3
+ℹ suites 0
+ℹ pass 2
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 201.819125
+
+✖ failing tests:
+
+test at tests/c1-endurance.test.mjs:25:1
+✖ dynamic captain migrates from prior endurance maximum and leaves chapter-two/three/later enemies unchanged (11.997625ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      [
+        4650,
+        4650
+      ],
+  +   [
+  +     151,
+  +     151
+  +   ],
+  +   [
+  +     151,
+  +     151
+  +   ],
+  +   [
+  +     167,
+  +     167
+  +   ],
+  +   [
+  +     325,
+  +     325
+  +   ],
+  +   [
+  +     325,
+  +     325
+  +   ],
+  +   [
+  +     167,
+  +     167
+  +   ],
+  +   [
+  +     151,
+  +     151
+  +   ]
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-endurance.test.mjs:35:88)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [ 4650, 4650 ], [ 151, 151 ], [ 151, 151 ], [ 167, 167 ], [ 325, 325 ], [ 325, 325 ], [ 167, 167 ], [ 151, 151 ] ],
+    expected: [ [ 4650, 4650 ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

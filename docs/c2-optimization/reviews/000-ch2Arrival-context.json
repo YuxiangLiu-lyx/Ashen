@@ -1,0 +1,126 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2Arrival",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "d881441653f49e34ee3b0624aebe43b02389e277bea701f77073dda1ccdbd404",
+  "before": [
+    [
+      "艾莉娅",
+      "灰石驿站到了。你答应过我的话，还记得吧？教堂里那些人还在等我回去。"
+    ],
+    [
+      "诺恩",
+      "接头人在旅店，见过她就告诉你接下来做什么。"
+    ],
+    [
+      "艾莉娅",
+      "我已经跟你走到这里了，你总该把事情说清楚。我还要被你带着走多久？"
+    ],
+    [
+      "诺恩",
+      "先去门檐下，马车在往后倒。"
+    ],
+    [
+      "艾莉娅",
+      "老人家，往台阶上站一点，当心车轮压着篮子。……我只是扶他一下，别拉我。"
+    ],
+    [
+      "塞琳",
+      "两位也往旁边让让，马夫看不见这边。门檐下有地方，别靠着车轮站。"
+    ],
+    [
+      "诺恩",
+      "我们来取一封灰蜡封口的信。"
+    ],
+    [
+      "塞琳",
+      "在后屋呢。你来得这么晚，我都想着再添盏灯了。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "seline",
+      "path": "docs/c2-optimization/before/narrative-state/characters/seline.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "抵达后继续追问放人承诺；老人和倒车是当下危险，塞琳让出门檐再说明信的位置。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩",
+        "塞琳"
+      ],
+      "judgment": "抵达后继续追问放人承诺；老人和倒车是当下危险，塞琳让出门檐再说明信的位置。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2Arrival",
+        "scene": "ch2Arrival",
+        "order": 1,
+        "summary": "圣女仍帮助普通人，塞琳指向后屋",
+        "participants": [
+          "noen",
+          "elyria",
+          "seline"
+        ],
+        "sources": [
+          "scene:ch2Arrival"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "d881441653f49e34ee3b0624aebe43b02389e277bea701f77073dda1ccdbd404"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2Arrival",
+        "scene": "ch2Arrival",
+        "order": 1,
+        "summary": "圣女仍帮助普通人，塞琳指向后屋",
+        "participants": [
+          "noen",
+          "elyria",
+          "seline"
+        ],
+        "sources": [
+          "scene:ch2Arrival"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

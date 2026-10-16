@@ -1,0 +1,158 @@
+{
+  "kind": "copyedit_context",
+  "scene": "darkCommissionV9",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "79f190cbc29ab47005e935d8863b5318a90dd891f34091b2b272d4d2c390e835",
+  "before": [
+    [
+      "旁白",
+      "与此同时，会馆。灰石驿站的回执送到桌边，送信的人已经退了出去。"
+    ],
+    [
+      "鲁恩",
+      "回信到了。塞琳那边只收到了画像和路图，剩下那一页还在我们这里。"
+    ],
+    [
+      "薇蕾娜",
+      "留着吧。她负责接头就够了，不用再问他一路上说过什么。"
+    ],
+    [
+      "鲁恩",
+      "可你让她把两个人都送去庄园。只是为了一道门，用得着绕这么大一圈？"
+    ],
+    [
+      "薇蕾娜",
+      "我想看看，身边多了个不肯听他的，他会怎么办。谁也说不准。"
+    ],
+    [
+      "鲁恩",
+      "等诺恩回来，问你为什么不提前说，你怎么答？"
+    ],
+    [
+      "薇蕾娜",
+      "他要是知道我们在看，就会一路揣摩我们的意思。那还看得出什么？"
+    ],
+    [
+      "鲁恩",
+      "那也得让他知道怎么撤。南沟这两天进过水，我还没拿到重新丈量的结果。"
+    ],
+    [
+      "薇蕾娜",
+      "让人再去一趟，查清了就给塞琳送信。退路一定得留好。"
+    ],
+    [
+      "旁白",
+      "鲁恩把回执放到待送的纸上。薇蕾娜仍站在桌边，没有去碰柜里那一页。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "rune",
+      "path": "docs/c2-optimization/before/narrative-state/characters/rune.json",
+      "coverage": "partial_important"
+    },
+    {
+      "id": "vilerena",
+      "path": "docs/c2-optimization/before/narrative-state/characters/vilerena.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "事务交谈保留观察安排与隐瞒，薇蕾娜要求实际核查撤路，关心不变成空泛考核。",
+    "relationship": {
+      "participants": [
+        "鲁恩",
+        "薇蕾娜"
+      ],
+      "judgment": "事务交谈保留观察安排与隐瞒，薇蕾娜要求实际核查撤路，关心不变成空泛考核。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:darkCommissionV9",
+        "scene": "darkCommissionV9",
+        "order": 4,
+        "summary": "会馆观察安排切镜",
+        "participants": [
+          "vilerena",
+          "rune"
+        ],
+        "sources": [
+          "scene:darkCommissionV9"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "player",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "79f190cbc29ab47005e935d8863b5318a90dd891f34091b2b272d4d2c390e835"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:darkCommissionV9",
+        "scene": "darkCommissionV9",
+        "order": 4,
+        "summary": "会馆观察安排切镜",
+        "participants": [
+          "vilerena",
+          "rune"
+        ],
+        "sources": [
+          "scene:darkCommissionV9"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "player",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C2-OBSERVE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

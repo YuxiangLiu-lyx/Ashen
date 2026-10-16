@@ -49,9 +49,9 @@ export const C1_GEAR={
  c1CaptainSeal:{name:'追缉官的封缄',slot:'relic',atk:1,hp:18,effect:'evasion'}
 };
 export const C1_ELITES={
- 'c1-elite-rat':{name:'裂齿渠鼠',type:'rat',map:'grove',hp:1620,hit:24,heavy:42,wind:.9,part:'c1PartJaw',pool:['c1FangWeapon','c1TrailBoots'],x:1150,y:540},
- 'echo-warden':{name:'灰脊守兽',type:'wolf',map:'echo',hp:2250,hit:29,heavy:46,wind:1,part:'c1PartTendon',pool:['c1EchoHood','c1QuietRing']},
- 'c1-elite-bat':{name:'苇窑夜翼',type:'bat',map:'c1ReedKiln',hp:1890,hit:25,heavy:40,wind:.9,part:'c1PartMembrane',pool:['c1WingGloves','c1VeinChest'],x:1140,y:450}
+ 'c1-elite-rat':{name:'裂齿渠鼠',type:'rat',map:'grove',hp:4050,hit:24,heavy:42,wind:.9,part:'c1PartJaw',pool:['c1FangWeapon','c1TrailBoots'],x:1150,y:540},
+ 'echo-warden':{name:'灰脊守兽',type:'wolf',map:'echo',hp:5625,hit:29,heavy:46,wind:1,part:'c1PartTendon',pool:['c1EchoHood','c1QuietRing']},
+ 'c1-elite-bat':{name:'苇窑夜翼',type:'bat',map:'c1ReedKiln',hp:4725,hit:25,heavy:40,wind:.9,part:'c1PartMembrane',pool:['c1WingGloves','c1VeinChest'],x:1140,y:450}
 };
 export const C1_PARTS={c1PartJaw:'裂齿下颌',c1PartTendon:'灰脊腱束',c1PartMembrane:'夜翼膜片'};
 export const C1_NEW_MAPS=['c1TrainingYard','c1DrillGallery','c1LoomRoom','c1NorthWalk','c1ReedKiln','c1TrialFoyer','c1TrialCrypt','c1TrialVault','c1RiversideCamp','c1KilnCourt'];
@@ -61,6 +61,6 @@ export function c1CoreAt(u){return u<.4?'c1CoreBlade':u<.75?'c1CoreShell':'c1Cor
 
 // Two underground elites are separate from the mandatory final trial Boss.
 Object.assign(C1_ELITES,{
- "c1-trial-warden":{map:"c1DrillGallery",type:"wolf",name:"旧廊试炼守卫",hp:1620,hit:18,heavy:29,wind:1.05,pool:["c1TrailBoots","c1FangWeapon"]},
- "c1-vault-warden":{map:"c1TrialVault",type:"wolf",name:"封存看守",hp:2070,hit:22,heavy:34,wind:1.1,pool:["c1TrailBoots","c1FangWeapon"]}
+ "c1-trial-warden":{map:"c1DrillGallery",type:"wolf",name:"旧廊试炼守卫",hp:4050,hit:18,heavy:29,wind:1.05,pool:["c1TrailBoots","c1FangWeapon"]},
+ "c1-vault-warden":{map:"c1TrialVault",type:"wolf",name:"封存看守",hp:5175,hit:22,heavy:34,wind:1.1,pool:["c1TrailBoots","c1FangWeapon"]}
 });

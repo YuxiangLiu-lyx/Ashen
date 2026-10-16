@@ -1,0 +1,26 @@
+REUSED actual successful prefix from docs/harness/evidence/c2-optimization-20261016/013-integration.txt; only changed input is the later browser-world test.
+REUSED RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/narrative.py audit --live
+REUSED RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 -m unittest discover -s tests/harness -v
+REUSED RUN: /opt/homebrew/opt/python@3.13/bin/python3.13 tools/harness/runtime_audit.py
+REUSED RUN: node --test tests/presentation-v281.test.mjs tests/balance-lab.test.mjs tests/world-v29.test.mjs tests/chapter-one-v30.test.mjs tests/chapter23-v30.test.mjs tests/chapter123-v30.test.mjs tests/chapter-one-incremental.test.mjs tests/chapter-one-expansion.test.mjs tests/chapter-one-crafting.test.mjs tests/chapter-one-elites.test.mjs tests/chapter-one-economy.test.mjs tests/chapter-one-map-quests.test.mjs tests/chapter-one-story-world.test.mjs tests/chapter-one-layer-rules.test.mjs tests/chapter-test.test.mjs tests/rpg-experience.test.mjs tests/rpg-chapter-two.test.mjs tests/rpg-chapter-three.test.mjs tests/c1-story-flow.test.mjs tests/dialogue-reader.test.mjs tests/dialogue-hud.test.mjs
+REUSED RUN: node tools/balance_lab/chapter-one.mjs
+REUSED RUN: node tests/browser-presentation-v281.mjs
+REUSED RUN: node tests/browser-balance-lab.mjs
+RUN: node tests/browser-world-v29.mjs
+Journey: entered millpath
+Journey: entered echo
+Journey: manually extracted core
+Journey: returned core to Lotti
+World visual capture: 4 maps; baseline: false
+RUN: node tests/browser-chapter-one-v30.mjs
+Captured 11 chapter-one maps; browser errors: 0
+RUN: node tests/browser-chapter23.mjs
+Captured 23 chapter-two/three maps; browser errors: 0
+RUN: node tests/browser-chapter123.mjs
+{"maps":35,"scenery":457,"props":96,"clicks":6,"errors":[]}
+RUN: node tests/browser-chapter-one-expansion.mjs
+RUN: node tests/browser-dialogue-reader.mjs
+{"status":"passed","input":["background click","text click","portrait area","history is read only; reload uses live cursor","rapid double click advances once","drag does not advance","keyboard activates focused Previous","left/right keyboard","cinematic action cannot be skipped by click","entire commission with actual clicks and uninterrupted cinematic beats","accept transaction commits at live final page only","claim transaction commits at live final page only","real touch tap","later chapter ch2Arrival","later chapter ch3Arrival","later chapter v25C8Dawn"],"layouts":[{"width":1440,"height":980,"pages":153},{"width":844,"height":390,"pages":153},{"width":390,"height":844,"pages":153}],"portraits":[{"id":"c1iden","width":1440,"height":980,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":1440,"height":980,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":1440,"height":980,"imgs":[{"w":512,"h":930}]},{"id":"c1iden","width":844,"height":390,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":844,"height":390,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":844,"height":390,"imgs":[{"w":512,"h":930}]},{"id":"c1iden","width":390,"height":844,"imgs":[{"w":512,"h":950}]},{"id":"c1hesha","width":390,"height":844,"imgs":[{"w":477,"h":941}]},{"id":"c1venn","width":390,"height":844,"imgs":[{"w":512,"h":930}]}]}
+RUN: node tests/browser-dialogue-hud.mjs
+HUD: six real mouse/touch selections, health/death/engagement/map changes and three viewport layouts passed.
+PASS tier: integration (verified successful prefix plus full remaining commands)

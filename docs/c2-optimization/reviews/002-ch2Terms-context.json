@@ -1,0 +1,156 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2Terms",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "40e1726a512855de9d5df8876f83fbef0198af72d08db46390f494aaf40b4a75",
+  "before": [
+    [
+      "艾莉娅",
+      "说完了就告诉我，你到底要我做什么？"
+    ],
+    [
+      "诺恩",
+      "去枯井庄园，替我开道门。"
+    ],
+    [
+      "艾莉娅",
+      "那是赫斯特监理住的地方。你要进去杀他？"
+    ],
+    [
+      "诺恩",
+      "是。"
+    ],
+    [
+      "艾莉娅",
+      "赫斯特监理替教会征粮，施粥点也靠他供粮。你又听了谁的话，要杀这样一个人？"
+    ],
+    [
+      "诺恩",
+      "你只管开门，不用动手。"
+    ],
+    [
+      "艾莉娅",
+      "我给你开了门，你就要去杀人！是我亲手把凶手放进去的，怎么会跟我无关？"
+    ],
+    [
+      "诺恩",
+      "等我办完事，就放你回去。"
+    ],
+    [
+      "艾莉娅",
+      "你一开始就打算好了。把我带到这里，逼我拿他的命换自己回去，是不是？"
+    ],
+    [
+      "诺恩",
+      "这里人多，出去说。"
+    ],
+    [
+      "艾莉娅",
+      "我不会替你开门。把刀收起来，我们还有别的办法。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "艾莉娅明确拒绝协助刺杀；诺恩提出原有放人条件并回避争论，不把她的反抗写成说教。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩"
+      ],
+      "judgment": "艾莉娅明确拒绝协助刺杀；诺恩提出原有放人条件并回避争论，不把她的反抗写成说教。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2Terms",
+        "scene": "ch2Terms",
+        "order": 5,
+        "summary": "诺恩告知刺杀，圣女拒绝为杀人开门",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2Terms"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "elyria",
+            "fact": "F-C2-TARGET",
+            "mode": "heard"
+          }
+        ],
+        "state_changes": {
+          "elyria": {
+            "emotion": "反对被迫助杀。",
+            "goals": [
+              "拒绝开门，劝阻诺恩。"
+            ]
+          }
+        },
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "40e1726a512855de9d5df8876f83fbef0198af72d08db46390f494aaf40b4a75"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2Terms",
+        "scene": "ch2Terms",
+        "order": 5,
+        "summary": "诺恩告知刺杀，圣女拒绝为杀人开门",
+        "participants": [
+          "noen",
+          "elyria"
+        ],
+        "sources": [
+          "scene:ch2Terms"
+        ],
+        "optional": false,
+        "grants": [
+          {
+            "actor": "elyria",
+            "fact": "F-C2-TARGET",
+            "mode": "heard"
+          }
+        ],
+        "state_changes": {
+          "elyria": {
+            "emotion": "反对被迫助杀。",
+            "goals": [
+              "拒绝开门，劝阻诺恩。"
+            ]
+          }
+        },
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

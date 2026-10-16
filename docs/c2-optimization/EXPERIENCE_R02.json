@@ -1,0 +1,366 @@
+{
+  "schema": 2,
+  "chapter": "R02",
+  "kind": "chapter",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "comparison": {
+    "classes": [
+      "shadow",
+      "oath",
+      "ember"
+    ],
+    "cohorts": [
+      "starter",
+      "normal",
+      "optimized"
+    ],
+    "same_source_snapshot": true,
+    "production_rules": true,
+    "human_win_rate_claim": false
+  },
+  "human": {
+    "status": "pending",
+    "remaining": [
+      "真人文风、第一章增血后的招式轮次/补给负担、第二章节奏与乐趣"
+    ],
+    "playable_build": {
+      "path": "qa-export/release-build/Ashen-V28.1-Play.html",
+      "sha256": "6eab27c21dc5ee59b0f0b071964770c45dfbca075e31915653b3e7a9babbd1b6"
+    },
+    "observation_template": {
+      "path": "docs/c2-optimization/HUMAN_OBSERVATION.md",
+      "sha256": "279d0644858c09cf1b74bb4e62159c1455d7daf63348897d676639678bc11ccf"
+    }
+  },
+  "scopes": {
+    "combat": {
+      "growth_comparison": {
+        "status": "pass",
+        "reason": "同源合法初装/常规/现有装备优化三组，各三职业。保留失败；隔离Lab不限为全胜，不当真人胜率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/combat/COMBAT.json",
+            "sha256": "af6749575ff7d96c79dcec256ee8954630a840a4f82cf6600908d7e7c330edba"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "enemy_roles": {
+        "status": "pass",
+        "reason": "第一章普通怪1.5倍、精英Boss2.5倍；既有岗位、伤害和奖励保持。第二章敌人预算与岗位保持，仍使用真实战斗验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/combat/COMBAT.json",
+            "sha256": "af6749575ff7d96c79dcec256ee8954630a840a4f82cf6600908d7e7c330edba"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "groups": {
+        "status": "pass",
+        "reason": "普通与精英群战记录耗时、胜负和资源消耗；孤立满资源对照与真实路线分别列出。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/combat/COMBAT.json",
+            "sha256": "af6749575ff7d96c79dcec256ee8954630a840a4f82cf6600908d7e7c330edba"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "continuous_maps": {
+        "status": "pass",
+        "reason": "连续遭遇共享资源；正常UI使用已有配药/休息/商店，失败死亡档保留。资源没有通过测试钩子补充。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/combat/COMBAT.json",
+            "sha256": "af6749575ff7d96c79dcec256ee8954630a840a4f82cf6600908d7e7c330edba"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "elite_mechanics": {
+        "status": "pass",
+        "reason": "第一章增加招式轮数机会，原攻击模式和克制提示保持；第二章守卫/布伦与井兽沿用既有机制。无固定分钟数或真人难度通过承诺。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/combat/COMBAT.json",
+            "sha256": "af6749575ff7d96c79dcec256ee8954630a840a4f82cf6600908d7e7c330edba"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      }
+    },
+    "exploration": {
+      "topology": {
+        "status": "pass",
+        "reason": "原主路和两处暗室完整保留，八图73条真实移动路线覆盖入口到目标。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          },
+          {
+            "path": "docs/c2-optimization/MAP_QUALITY.json",
+            "sha256": "878024119b2d730233f04d508b76a7900a4b32fec9bb9213f9767abddb31c269"
+          }
+        ]
+      },
+      "branch_value": {
+        "status": "pass",
+        "reason": "修泵免费休息、桥下补给、井兽奖励与旧链控制有真实效果；三职业实际使用。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          },
+          {
+            "path": "docs/c2-optimization/MAP_QUALITY.json",
+            "sha256": "878024119b2d730233f04d508b76a7900a4b32fec9bb9213f9767abddb31c269"
+          }
+        ]
+      },
+      "space_and_visuals": {
+        "status": "pass",
+        "reason": "当前全景/碰撞/角色帧分别审查；原128图定义相等。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          },
+          {
+            "path": "docs/c2-optimization/MAP_QUALITY.json",
+            "sha256": "878024119b2d730233f04d508b76a7900a4b32fec9bb9213f9767abddb31c269"
+          }
+        ]
+      }
+    },
+    "quests": {
+      "playable_process": {
+        "status": "pass",
+        "reason": "查验任务分接取/待问/问毕目标，水泵与铜扣先接再收集/交付，末页才结算。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "repetition_cost": {
+        "status": "pass",
+        "reason": "菜单任务优先，同级主线在前，已知信息不再反复完整讲解；不新增强制跑腿。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "world_result": {
+        "status": "pass",
+        "reason": "泵修复换免费休息，报警暂停旅店任务，布伦死/赫斯特活和越界结果保持。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      }
+    },
+    "services": {
+      "real_transactions": {
+        "status": "pass",
+        "reason": "寄卖格子只选择不扣款，真实购买/装备/出售与回执覆盖缺钱/满包/等级/远离/重载；三视口实际UI通过。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/services-final/QA.json",
+            "sha256": "2ae6bf21204c8712806361a47080e7d5f0cd18c7ce7203cd7dbb09d0c52db50d"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "resource_loop": {
+        "status": "pass",
+        "reason": "装备、药物、休息与支线报酬构成既有资源循环，不凭空加钱；第一章补给费用纳入经济账本。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/services-final/QA.json",
+            "sha256": "2ae6bf21204c8712806361a47080e7d5f0cd18c7ce7203cd7dbb09d0c52db50d"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      }
+    },
+    "pacing": {
+      "causality": {
+        "status": "pass",
+        "reason": "64场全文审读，43场104句修订；接头、查岗、验门拒绝、报警、突围和越界顺序保持。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "safe_triggers": {
+        "status": "pass",
+        "reason": "0.4安全延迟触发及跨图兜底回归，正常UI没有对话覆盖正在进行的任务提交。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "knowledge_boundaries": {
+        "status": "pass",
+        "reason": "独立内室和会馆切镜属于玩家视角；主角不凭润色得知幕后来历，旧0.3追加A/B继续未采用。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/CHAPTER_AUDIT.json",
+            "sha256": "487b62cfc177a3e644136a72955a5c4f0c623df4959fa6fb4d348a9a1255ca2c"
+          },
+          {
+            "path": "docs/c2-optimization/CHECKS.json",
+            "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      }
+    }
+  },
+  "normal_input": {
+    "shadow": {
+      "status": "pass",
+      "reason": "真实UI导入第一章完结档，三职业走主线与可选支路到第三章入口；最终两句文风清理有严格生产输入等价核对。",
+      "evidence": [
+        {
+          "path": "docs/c2-optimization/natural-initial/shadow/PLAY.json",
+          "sha256": "4e17f37e985ae487a98b7f30171db9efc95dbcb13f21b9057862986c48b5a2e9"
+        },
+        {
+          "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+          "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 12
+    },
+    "oath": {
+      "status": "pass",
+      "reason": "真实UI导入第一章完结档，三职业走主线与可选支路到第三章入口；最终两句文风清理有严格生产输入等价核对。",
+      "evidence": [
+        {
+          "path": "docs/c2-optimization/natural-initial/oath/PLAY.json",
+          "sha256": "a7cc616a5cdcb6f6247f6fcedbc5635d205546c8d30c917331fcb4076e161100"
+        },
+        {
+          "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+          "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 12
+    },
+    "ember": {
+      "status": "pass",
+      "reason": "真实UI导入第一章完结档，三职业走主线与可选支路到第三章入口；最终两句文风清理有严格生产输入等价核对。",
+      "evidence": [
+        {
+          "path": "docs/c2-optimization/natural-initial/ember/PLAY.json",
+          "sha256": "0938372d21bbc8398ced36d465da4475249dffa6a6e028d465fc374eebac7f0a"
+        },
+        {
+          "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+          "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+        }
+      ],
+      "input_method": "normal_ui",
+      "state_mutation_hooks": false,
+      "ending_phase": 12
+    }
+  },
+  "compatibility": {
+    "status": "pass",
+    "reason": "完整旧正文游标、末页提交、章界奖励幂等与后章构造/存档回归通过；原全图定义保持。",
+    "evidence": [
+      {
+        "path": "docs/c2-optimization/CHECKS.json",
+        "sha256": "bc0d66d50ee44e01ef8769fd4eef513b3dbe165b88b76adc00b48e13a491b88f"
+      },
+      {
+        "path": "docs/c2-optimization/INTEGRATION.json",
+        "sha256": "6915046fc93342fd5406aea44bb525028b136a0d8b74828cc9beb6f0754bc5f2"
+      },
+      {
+        "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+        "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+      }
+    ]
+  }
+}

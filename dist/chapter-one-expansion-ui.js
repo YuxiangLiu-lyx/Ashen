@@ -9,7 +9,7 @@ const mapNames={c1TrialFoyer:'地下接待室',c1TrialCrypt:'二层蓄能廊',c1
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const button=(text,action,disabled=false)=>`<button data-c1="${action}" ${disabled?'disabled':''}>${esc(text)}</button>`;
 export function c1Panel(g,kind,ui={}){const h=c1State(g);let body='',title='缀纹工坊';
- if(kind.startsWith('c1-outfit:'))({title,body}=experienceServicePanel(g,kind.slice(10)));
+ if(kind.startsWith('c1-outfit:'))({title,body}=experienceServicePanel(g,kind.slice(10),ui));
  if(['c1-loom','c1-shop'].includes(kind))({title,body}=preparationPanel(g,kind,ui));
  if(kind==='c1-drill-assist'){title='鲁恩的练习记录';body='<p>已经响过两次警铃。可以保持原节奏，或把铃绳预警延长0.3秒。奖励相同。</p>'+button('正常演练','drill:normal')+button('辅助演练 · 预警+0.3秒','drill:assist');}
  if(kind==='c1-leak-diagnosis'){title='两片符纹的差别';body='<p>西片亮得平稳，东片从接头向外偏。机器本身并没有同向偏移。</p>'+button('收紧东侧接头','leak:joint')+button('重刻西片刻槽','leak:groove');}

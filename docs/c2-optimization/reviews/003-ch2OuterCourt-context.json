@@ -1,0 +1,132 @@
+{
+  "kind": "copyedit_context",
+  "scene": "ch2OuterCourt",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "7419692d82156b3e312125f3964a4c8d877ec6d56b3efe7ed4fd07b140df8f5f",
+  "before": [
+    [
+      "艾莉娅",
+      "连运柴门怎么走都查好了。你们早就准备周全了，还指望我什么也不问，就帮你开门？"
+    ],
+    [
+      "诺恩",
+      "路是接头人查的，沿墙去东边的内门。"
+    ],
+    [
+      "艾莉娅",
+      "我可以跟你走到门前，但我会把事情告诉守卫。我不能让里面的人就这么被你杀了。"
+    ],
+    [
+      "诺恩",
+      "你还在我手上，见不到守卫。"
+    ],
+    [
+      "巡卫",
+      "东廊那队，别全挤在屋檐底下，盯紧运柴门！"
+    ],
+    [
+      "布伦",
+      "再拨两个人守内门。圣女没找到之前，进出的人都记下来。"
+    ],
+    [
+      "艾莉娅",
+      "你听见了吧，他们还在找我。教会不会不管我的。"
+    ],
+    [
+      "诺恩",
+      "听见了。沿墙走，他们都去东廊了。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "role_4ae25552de",
+      "path": "docs/c2-optimization/before/narrative-state/characters/role_4ae25552de.json",
+      "coverage": "lightweight"
+    },
+    {
+      "id": "bren",
+      "path": "docs/c2-optimization/before/narrative-state/characters/bren.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "诺恩解释路图来源但仍强行控制；艾莉娅寄望守卫，不提前获知内室的暴行。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩",
+        "巡卫",
+        "布伦"
+      ],
+      "judgment": "诺恩解释路图来源但仍强行控制；艾莉娅寄望守卫，不提前获知内室的暴行。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": {
+        "id": "R02:ch2OuterCourt",
+        "scene": "ch2OuterCourt",
+        "order": 7,
+        "summary": "圣女仍想向守卫说明情况",
+        "participants": [
+          "noen",
+          "elyria",
+          "bren"
+        ],
+        "sources": [
+          "scene:ch2OuterCourt"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "baseline_sha256": "7419692d82156b3e312125f3964a4c8d877ec6d56b3efe7ed4fd07b140df8f5f"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R02:ch2OuterCourt",
+        "scene": "ch2OuterCourt",
+        "order": 7,
+        "summary": "圣女仍想向守卫说明情况",
+        "participants": [
+          "noen",
+          "elyria",
+          "bren"
+        ],
+        "sources": [
+          "scene:ch2OuterCourt"
+        ],
+        "optional": false,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {}
+      },
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

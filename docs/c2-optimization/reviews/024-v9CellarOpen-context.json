@@ -1,0 +1,66 @@
+{
+  "kind": "copyedit_context",
+  "scene": "v9CellarOpen",
+  "chapter": "R02",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "baseline_sha256": "73d7dc8f0a495535e10793b99d1aab2a877cb0f4305e1bdedf0b2dde7a19392e",
+  "before": [
+    [
+      "旁白",
+      "诺恩把绳索套进铁环，踩住墙根往后拉。石板露出一道缝，下面是一排窄小的踏孔。"
+    ],
+    [
+      "艾莉娅",
+      "下面有风，应该没有积满水。下去前先看看踏孔牢不牢。"
+    ],
+    [
+      "诺恩",
+      "第三级缺了半边，踩右侧，别把体重全压上去。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c2-optimization/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "elyria",
+      "path": "docs/c2-optimization/before/narrative-state/characters/elyria.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c2-optimization/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "探索警告对应踏孔缺损，避免双方各说一遍先检查；第三阶右侧动作保留。",
+    "relationship": {
+      "participants": [
+        "艾莉娅",
+        "诺恩"
+      ],
+      "judgment": "探索警告对应踏孔缺损，避免双方各说一遍先检查；第三阶右侧动作保留。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "known_information": {
+      "scope": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。",
+      "event": null,
+      "baseline_sha256": "73d7dc8f0a495535e10793b99d1aab2a877cb0f4305e1bdedf0b2dde7a19392e"
+    },
+    "retained_outcome": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": null,
+      "runtime": "dist/chapter-runtime-v14.js; dist/pacing-runtime-v14.js; dist/secrets-v14.js; dist/rpg-chapter-two.js"
+    },
+    "limitations": "同事件结果的保全文风修订，不补未登记的身世；第一章1.6同批采用文档只改数值，不改第一章正文。"
+  },
+  "prewriting_archive": "docs/c2-optimization/before/"
+}

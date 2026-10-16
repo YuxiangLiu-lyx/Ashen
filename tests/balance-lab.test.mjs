@@ -147,7 +147,8 @@ test('all economy paths execute; resource deficits and repeated callbacks remain
  assert.ok(economyExperiment({path:'failures'}).metrics.failedActions>0);
 });
 test('distribution separates censored fights and reports confidence interval',()=>{
- const runs=[simulate({enemy:'captain'}),simulate({enemy:'captain',duration:.025})];
+ const runs=[simulate({enemy:'rat',level:12}),simulate({enemy:'rat',level:12,duration:.025})];
+ assert.equal(runs[0].outcome,'win');assert.equal(runs[1].outcome,'timeout');
  const summary=summarize(runs);assert.equal(summary.winRate,.5);assert.equal(summary.outcomes.timeout,1);
  assert.ok(summary.winRateWilson95[0]<.5&&summary.winRateWilson95[1]>.5);
 });

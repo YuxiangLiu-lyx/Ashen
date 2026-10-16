@@ -1,0 +1,808 @@
+{
+  "schema": 1,
+  "id": "c2-optimization-20261016",
+  "goal": "根据当前第一章优化第二章：审读全章主支线和闲聊，完善任务缘由与逐步交接、任务选项优先、人物口吻、RPG探索与补给节奏，保留原主线结果和旧档",
+  "acceptance": [
+    "第二章完整采用稿和逐场审查；任务真实接交与奖励幂等；三职业正常输入通章；旧档及第三章以后兼容；专项集成与默认可玩包更新，真人文风节奏待验"
+  ],
+  "baseline_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+  "modules": [
+    "story",
+    "chapter01_plan",
+    "chapter02_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-16T12:21:07.600869+00:00",
+  "updated_at_utc": "2026-10-16T14:03:42.219649+00:00",
+  "decisions": [
+    "采用按章增量；不恢复旧0.3追加A/B或撤回大重构，先核对当前全章实际文本与服务；计划docs/c2-optimization/PLAN.md"
+  ],
+  "completed": [
+    "完整64场310页已审读，43场104句具体修订稿落盘；真实基线5项检查通过，采用0.5增量稿",
+    "43场104句修订、分步任务目标及任务优先、寄卖格子详情已接入；全文提供者、旧全文档、交易及三职业第二章正常输入通过",
+    "67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。"
+  ],
+  "remaining": [
+    "Git提交与远端核验"
+  ],
+  "blockers": [],
+  "next": "提交已验收内容并推送main",
+  "required_checks": [
+    "fast",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "chapter-two-special",
+      "command": [
+        "node",
+        "--test",
+        "tests/c2-optimization.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T12:32:23.382319+00:00",
+      "finished_at_utc": "2026-10-16T12:32:23.744364+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "29c92a3735a5a1bb965bf40e4012e2f2e57b7e0d8a7f599a5f7002531285bd70",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/001-chapter-two-special.txt",
+      "output_sha256": "66939d21e1cf0c6daf76152ec50eb3285345ecd8821f402f2317e29eb6aa8d1b",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "services-browser",
+      "command": [
+        "env",
+        "ASHEN_SERVICE_OUTPUT=docs/c2-optimization/services-ui",
+        "node",
+        "tests/browser-rpg-chapter-two-services.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T12:33:08.619235+00:00",
+      "finished_at_utc": "2026-10-16T12:33:30.196140+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "d3abfaae2c843e5258aa55be412a8bb7529f1215f6b045e1488df654303e93f6",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/c2-optimization-20261016/002-services-browser.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "normal-input",
+      "command": [
+        "env",
+        "ASHEN_C2_NATURAL=docs/c2-optimization/natural-initial",
+        "python3",
+        "docs/rpg-experience/c2/NORMAL_DRIVER.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T12:34:59.706988+00:00",
+      "finished_at_utc": "2026-10-16T12:41:54.708892+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "d68f41b6bd7674eca5e5661623f3cf1cf511cbe4550dde48a1b16944692607c0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/003-normal-input.txt",
+      "output_sha256": "42d697e25f43532dfcf035923f686791211c6b009072121d5c64441411a41a9d",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "diagnostics",
+      "command": [
+        "python3",
+        "docs/c2-optimization/diagnostics.py"
+      ],
+      "exit_code": 124,
+      "started_at_utc": "2026-10-16T12:46:29.712488+00:00",
+      "finished_at_utc": "2026-10-16T12:48:29.820822+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "740c27434c6628b86bde0a990ad24be2fab93f3d1ac2a85f31dbb5bb93497ac0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/004-diagnostics.txt",
+      "output_sha256": "ecb4c300e0346cfdafe4efeb295b6920b2cc48a98f23b56c262d2b3b13715d77",
+      "timeout_seconds": 1100.0
+    },
+    {
+      "label": "diagnostics",
+      "command": [
+        "python3",
+        "docs/c2-optimization/diagnostics.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T12:49:31.728220+00:00",
+      "finished_at_utc": "2026-10-16T12:49:50.996848+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "d0840908d8942fcbd166ac7d200b4f3814c5d098ef167c3ff0abe439519e0dbf",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/005-diagnostics.txt",
+      "output_sha256": "358d232510c1b7d414dbe33002d83c922c72984c273abc777dda3cf1319b08bd",
+      "timeout_seconds": 1100.0
+    },
+    {
+      "label": "diagnostics",
+      "command": [
+        "python3",
+        "docs/c2-optimization/diagnostics.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T12:50:40.962015+00:00",
+      "finished_at_utc": "2026-10-16T12:52:12.256556+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "f837d2adb752666afaa90ca3322f2c7b8d052b8e105112acc4ddfec3cd5c2f44",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/006-diagnostics.txt",
+      "output_sha256": "243edf7ac90263e4a5edb32a7c1791498c53fba1fffa0d4695b676ecf146a110",
+      "timeout_seconds": 1100.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c2-optimization/integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T12:52:31.897393+00:00",
+      "finished_at_utc": "2026-10-16T12:56:23.075496+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "f837d2adb752666afaa90ca3322f2c7b8d052b8e105112acc4ddfec3cd5c2f44",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/007-integration.txt",
+      "output_sha256": "68a70718f5278f501d06c29fc28b41abcd730fc22d274ff592cd27f3963fcc5c",
+      "timeout_seconds": 1560.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c2-optimization/integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T12:58:29.944376+00:00",
+      "finished_at_utc": "2026-10-16T13:00:07.048097+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "f7f5bcbe9a426671b4ef525300b482fd6f65a3bcc6b14c5dc42d97f4b9dfe05e",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/008-integration.txt",
+      "output_sha256": "e46e45b9a5a6e3e240981079d7a3d2ca84a917e099b842c2613e50a0b81ff83b",
+      "timeout_seconds": 1560.0
+    },
+    {
+      "label": "updated-contracts",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c2-optimization/economy-prepared",
+        "node",
+        "--test",
+        "tests/balance-lab.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T13:03:26.546238+00:00",
+      "finished_at_utc": "2026-10-16T13:03:36.993048+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "185f10b18148d0fdc91c1d9ec8f5cebe1e4eeb68caa95546e873a5c075932b06",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/009-updated-contracts.txt",
+      "output_sha256": "00d52feb4d699296d5605bb51b4217e6b5f2b8cc40e7aa71c9acb42bf64990b8",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "economy-preparation",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c2-optimization/economy-prepared-v2",
+        "node",
+        "--test",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/chapter-one-incremental.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T13:04:46.861913+00:00",
+      "finished_at_utc": "2026-10-16T13:06:13.963852+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "1420ffb04594265c613d226ba7e4d553307a4448d87b87f3d88ae546fff6ed7b",
+      "sources_changed_during_check": true,
+      "output": "docs/harness/evidence/c2-optimization-20261016/010-economy-preparation.txt",
+      "output_sha256": "809ad24aad6fb399ed031247f72ee49b403fd16130ed738df24da85961f008d6",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "ember-economy",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/c2-optimization/economy-prepared-v3",
+        "node",
+        "--test",
+        "--test-name-pattern",
+        "ember",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:07:45.910328+00:00",
+      "finished_at_utc": "2026-10-16T13:08:25.631133+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "7811347e6440805458f2e77123559e388670a8d7827e1f6a8c97485bf1d42b95",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/011-ember-economy.txt",
+      "output_sha256": "e1e3709dba0e34fc39f78c17d0df91f1a2815796e5a01c03fb37ff8def62786c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c2-optimization/integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T13:10:05.488428+00:00",
+      "finished_at_utc": "2026-10-16T13:16:01.279882+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "7811347e6440805458f2e77123559e388670a8d7827e1f6a8c97485bf1d42b95",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/012-integration.txt",
+      "output_sha256": "036c57f6f2cdfa2b2ca9c23f7d0a2140159a8587fcd94afc1bce5b0545610fea",
+      "timeout_seconds": 1560.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c2-optimization/integration.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T13:19:55.707785+00:00",
+      "finished_at_utc": "2026-10-16T13:27:17.453480+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "0babc1ceeb77fdb48b96fa1dd6b2da64191c86cac3f79f189210a0545294f899",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/013-integration.txt",
+      "output_sha256": "bb89d2a473fe5004df540d310a2cad5c767b73cc5797078d908de637135a71ee",
+      "timeout_seconds": 1560.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c2-optimization/integration_resume.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:29:13.984842+00:00",
+      "finished_at_utc": "2026-10-16T13:34:50.588588+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/014-integration.txt",
+      "output_sha256": "859750d17357277ba2807f599501088a2f2afb5556d39e6b6527f8c22dfe076f",
+      "timeout_seconds": 1560.0
+    },
+    {
+      "label": "baseline-provenance",
+      "command": [
+        "python3",
+        "docs/c2-optimization/check_baseline.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:34:52.195050+00:00",
+      "finished_at_utc": "2026-10-16T13:34:53.042242+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/015-baseline-provenance.txt",
+      "output_sha256": "61ab87faff0fc6a0f37cca1923294111bee0c01cff184884be40cf095d40b766",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "docs/c2-optimization/verify_current.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:34:53.123868+00:00",
+      "finished_at_utc": "2026-10-16T13:34:53.331179+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/016-producer-current.txt",
+      "output_sha256": "2a40919d6d5e3274038103a5dfb7fc8c3f05a462fd3fada66d777168a30d19c6",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "special",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-endurance.test.mjs",
+        "tests/c2-optimization.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-character-flow.test.mjs",
+        "tests/rpg-chapter-two.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:34:53.420173+00:00",
+      "finished_at_utc": "2026-10-16T13:34:53.995005+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/017-special.txt",
+      "output_sha256": "a0737d6d679f08c3ee8f0053470d87a6840aaac733e33cd9f216627d1fe15840",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "services-browser",
+      "command": [
+        "env",
+        "ASHEN_SERVICE_OUTPUT=docs/c2-optimization/services-final",
+        "node",
+        "tests/browser-rpg-chapter-two-services.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:34:54.090337+00:00",
+      "finished_at_utc": "2026-10-16T13:35:15.224020+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/018-services-browser.txt",
+      "output_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "c1-visual",
+      "command": [
+        "env",
+        "ASHEN_RESTRAINT_VISUAL=docs/c1-endurance/visual",
+        "node",
+        "docs/c1-restraint/capture.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:35:15.352887+00:00",
+      "finished_at_utc": "2026-10-16T13:35:50.643335+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/019-c1-visual.txt",
+      "output_sha256": "2f919ccbe959156e19daf3273f940d47dfa1c0a64fc1eb92f41cd3db65585816",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T13:35:50.764723+00:00",
+      "finished_at_utc": "2026-10-16T13:36:41.755113+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/020-fast.txt",
+      "output_sha256": "9fc942948170d78615efed4ca42f940d4693cb62daac67a0b959adeb420f1e7d",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--report",
+        "docs/c2-optimization/MAP_QUALITY.json",
+        "--base",
+        "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T14:03:15.658894+00:00",
+      "finished_at_utc": "2026-10-16T14:03:42.210102+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c2-optimization-20261016/021-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T12:28:59.212272+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "a286d7cb0f89062d313d61c87f98851c6c00d3e59415225d8297adfaf450b95f",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-trial-runtime.js\n M dist/encounter-restraint.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M docs/harness/CHAPTER_02.md\n?? docs/c1-endurance/\n?? docs/c2-optimization/\n?? docs/harness/CHAPTER_01_ENDURANCE.md\n?? docs/harness/CHAPTER_02_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-endurance-20261016/\n?? source/tasks/active/c1-endurance-20261016.json\n?? source/tasks/active/c2-optimization-20261016.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T12:52:31.624954+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "f837d2adb752666afaa90ca3322f2c7b8d052b8e105112acc4ddfec3cd5c2f44",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/encounter-restraint.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-chapter-two.mjs\n?? dist/chapter-two-conversations-data.js\n?? dist/chapter-two-conversations.js\n?? docs/c1-endurance/\n?? docs/c2-optimization/\n?? docs/harness/CHAPTER_01_ENDURANCE.md\n?? docs/harness/CHAPTER_02_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-endurance-20261016/\n?? docs/harness/evidence/c2-optimization-20261016/\n?? source/tasks/active/c1-endurance-20261016.json\n?? source/tasks/active/c2-optimization-20261016.json\n?? tests/c1-endurance.test.mjs\n?? tests/c2-optimization.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T14:03:15.399489+00:00",
+      "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/encounter-restraint.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/balance-lab.test.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-chapter-two.mjs\n M tests/browser-world-v29.mjs\n M tests/c1-character-flow.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c2-optimization-evidence/\n?? dist/chapter-two-conversations-data.js\n?? dist/chapter-two-conversations.js\n?? docs/c1-endurance/\n?? docs/c2-optimization/\n?? docs/harness/CHAPTER_01_ENDURANCE.md\n?? docs/harness/CHAPTER_02_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-endurance-20261016/\n?? docs/harness/evidence/c2-optimization-20261016/\n?? source/tasks/active/c1-endurance-20261016.json\n?? source/tasks/active/c2-optimization-20261016.json\n?? tests/c1-endurance.test.mjs\n?? tests/c2-optimization.test.mjs\n?? tests/fixtures/endurance-c1-combat.json"
+    }
+  ],
+  "narrative_mode": "copyedit",
+  "narrative_reviews": [
+    {
+      "context": "docs/c2-optimization/reviews/000-ch2Arrival-context.json",
+      "context_sha256": "6733b507f4bf42ac219158b2892ee73d324f6917c3b5e808c646f0d3b81925b1",
+      "draft": "docs/c2-optimization/reviews/000-ch2Arrival-draft.json",
+      "draft_sha256": "493b889fc9b3821eaa474a174a97086ab190af1a3013bf475d4f7e8f2551e9e9",
+      "review": "docs/c2-optimization/reviews/000-ch2Arrival-review.json",
+      "review_sha256": "ebca9ee0ff33cb0112cb01dcef9b4f4f6fa31ac740f71b9438851b4a923d91bc"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/001-ch2Relay-context.json",
+      "context_sha256": "431bb0024ccd325e2b58f8574fd33f8b52064ed1651af52bad1cf77f4774ec3f",
+      "draft": "docs/c2-optimization/reviews/001-ch2Relay-draft.json",
+      "draft_sha256": "67c024147d4d85054ea8065b7c179bbdb5a440cb85280723c1cc94c2dad5fb58",
+      "review": "docs/c2-optimization/reviews/001-ch2Relay-review.json",
+      "review_sha256": "0a3588e25cf54cbfef955de0ad881fc17c3a5d07617dbd26b74b9d8fbd38d14a"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/002-ch2Terms-context.json",
+      "context_sha256": "bb5507bc3afe07d8fdda2916f1a2335756ed35aa441ef35fce878455f713a9e0",
+      "draft": "docs/c2-optimization/reviews/002-ch2Terms-draft.json",
+      "draft_sha256": "b47552749f886052fe26a68aad350bd5cad958665cbe34931e17223ce8206beb",
+      "review": "docs/c2-optimization/reviews/002-ch2Terms-review.json",
+      "review_sha256": "c768544758e834df4015a25c63aa8625ea65154ad0ca3d4b5c540582cbf39dba"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/003-ch2OuterCourt-context.json",
+      "context_sha256": "c235586332ab1a82cafe33dc3fb08b06b9041e08c2a86a6a75dbf57e501ca237",
+      "draft": "docs/c2-optimization/reviews/003-ch2OuterCourt-draft.json",
+      "draft_sha256": "5222c52f67dd65aaadd4452665586f6673c40ffcf3e155b20127c3750cbd95bb",
+      "review": "docs/c2-optimization/reviews/003-ch2OuterCourt-review.json",
+      "review_sha256": "5a97f51af8dbbf1977918a56801b8cf4bd3043f9df557b66419f64f1d0f4c36c"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/004-ch2InnerDoor-context.json",
+      "context_sha256": "38e38ae9d77c4ff33000d4b6d8d2be555480893fadc92a8a4f5101a358a59684",
+      "draft": "docs/c2-optimization/reviews/004-ch2InnerDoor-draft.json",
+      "draft_sha256": "ecb533cb3586d72c01fbe639c6fc52678f0a786173579238c12b21f64f204b8c",
+      "review": "docs/c2-optimization/reviews/004-ch2InnerDoor-review.json",
+      "review_sha256": "465eb581a569b6bc290051f955417eb13a29f30e2bc8ca1aedb59a075f3238d6"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/005-ch2Breakout-context.json",
+      "context_sha256": "a5a2b45fe59dbb36076e8aa3c5e9bf2b9608f0608a0b84199a436846b940ece0",
+      "draft": "docs/c2-optimization/reviews/005-ch2Breakout-draft.json",
+      "draft_sha256": "841331b11e1dc1f4699878daa1f1737babd4fbb1b8e7253b8a9090cf5173a0a4",
+      "review": "docs/c2-optimization/reviews/005-ch2Breakout-review.json",
+      "review_sha256": "3c4fe9f6781c0b0c03ec8a1167febb198791793e76513cec5984b6929f34d15b"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/006-ch2Spillway-context.json",
+      "context_sha256": "73d5deeae27143df1cc9d2be72e3be25ca29768395666441b210bba58cdfed9f",
+      "draft": "docs/c2-optimization/reviews/006-ch2Spillway-draft.json",
+      "draft_sha256": "a5b4709373d6d46b6d3c377d61b537e27f259e786906bd199388ac4b253662a9",
+      "review": "docs/c2-optimization/reviews/006-ch2Spillway-review.json",
+      "review_sha256": "4ab9af5b892faf3eb6dfb46bbfe56337de96ce4d87d068ae2791a305afd95e6b"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/007-ch2ExileApproach-context.json",
+      "context_sha256": "35ff98490a50b55087407048309560d1c24225a846e1a681a3c6028a040c8b5f",
+      "draft": "docs/c2-optimization/reviews/007-ch2ExileApproach-draft.json",
+      "draft_sha256": "0e00515b705c10456c881befb219dde5d27f6f9caefd5b4dc051ba07e54dba43",
+      "review": "docs/c2-optimization/reviews/007-ch2ExileApproach-review.json",
+      "review_sha256": "8babdfc265fa92b79c43019277c855c634b65922f9842eb839c578a52a3f797b"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/008-ch2ExileEnd-context.json",
+      "context_sha256": "e09d23a7088106a1858bee195b83931cc546b4b5e573f9f42b5c2ebebd7ce9ec",
+      "draft": "docs/c2-optimization/reviews/008-ch2ExileEnd-draft.json",
+      "draft_sha256": "4f860708beec3a3c5f3185a0fa002494b4779373da509b8cdcc83d053fea2e92",
+      "review": "docs/c2-optimization/reviews/008-ch2ExileEnd-review.json",
+      "review_sha256": "66119efc5af1114b00a091148c1a2b865a6c985e6558ef0e62a8d963aca2471b"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/009-selineWork-context.json",
+      "context_sha256": "0e1b202e6f95e5f4862c44845a90338a5db073e0954da034e7a6ff8231b386c2",
+      "draft": "docs/c2-optimization/reviews/009-selineWork-draft.json",
+      "draft_sha256": "c77faf18852143b9503ac21c5fee815bd1951254410808c3c8e935e30a1f3a21",
+      "review": "docs/c2-optimization/reviews/009-selineWork-review.json",
+      "review_sha256": "05da0527f3af1decea68d372503e28886d29437479b84ea9fdbab5c93c9e1593"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/010-selineWorkProgress-context.json",
+      "context_sha256": "5966dc4089c9aafa02e03404b59b083a50bf2c0f8cdaef1795ffa61b80508a93",
+      "draft": "docs/c2-optimization/reviews/010-selineWorkProgress-draft.json",
+      "draft_sha256": "fc94a1bd3f183a5ea1dceec824522810897648c1513ebad1f9449f5145d5e8ee",
+      "review": "docs/c2-optimization/reviews/010-selineWorkProgress-review.json",
+      "review_sha256": "6c6d18209c2ad18a4afaf0a81f3bfe1c1890e79e85de3c1967dcfb8fbab3429a"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/011-selineWorkReturn-context.json",
+      "context_sha256": "34240552788c70a840a895d5958deaa70bbeea6379c9acfcb648570851413be6",
+      "draft": "docs/c2-optimization/reviews/011-selineWorkReturn-draft.json",
+      "draft_sha256": "e8f5a278efc2430d5aa4e51d3bfc7076ee1da37947ba69731fe3ab1868200f75",
+      "review": "docs/c2-optimization/reviews/011-selineWorkReturn-review.json",
+      "review_sha256": "5f1bb4f7aa6bbb832d3801a0067838e278f1f4e7a438be2a63440bd18a9dd6b0"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/012-selineWorkDone-context.json",
+      "context_sha256": "f78894387bee7e8f20e87b9dd8ecf1d1644ddfcaa8329dfdab4027365ac35b86",
+      "draft": "docs/c2-optimization/reviews/012-selineWorkDone-draft.json",
+      "draft_sha256": "6bdacdba0fec8e1aa441bea587b31b79d251970761b5de346cfb0c2d5ca8873f",
+      "review": "docs/c2-optimization/reviews/012-selineWorkDone-review.json",
+      "review_sha256": "441e02916c908acbcd7e0edd23b9dc9e630890c8906a15ac7788c556c629cf91"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/013-selineIdleBefore-context.json",
+      "context_sha256": "1297ae88baefd8ebe8fecdac99eb979c48459e38e49e62546e9dee6ff403b115",
+      "draft": "docs/c2-optimization/reviews/013-selineIdleBefore-draft.json",
+      "draft_sha256": "7afbb483429f743760438427b96b6297fdb54ee04720e6c0ceeb579651a58f83",
+      "review": "docs/c2-optimization/reviews/013-selineIdleBefore-review.json",
+      "review_sha256": "9b4dd4648cd8596cfe78d165b3a5153dfcb4440a554fcb88f7291e62fec5ec79"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/014-selineIdleAfter-context.json",
+      "context_sha256": "8769928eaafb1ba7af7536ea3b178044cb57ba8b93f3194abd9b534b5d966ed9",
+      "draft": "docs/c2-optimization/reviews/014-selineIdleAfter-draft.json",
+      "draft_sha256": "a6a592eb227120c3f864bb4b2a2cfd3951506f3b64f667a87a202de1edb9063b",
+      "review": "docs/c2-optimization/reviews/014-selineIdleAfter-review.json",
+      "review_sha256": "7bb66ed9393a3dc85d421107ffe1e576ba7568bddc3497d63e6321514f55c098"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/015-saintPostIdle-context.json",
+      "context_sha256": "e1117c9f5fcadb7b05a056b16b977631e3619728a43c5711f7701b6847919f19",
+      "draft": "docs/c2-optimization/reviews/015-saintPostIdle-draft.json",
+      "draft_sha256": "898944da1ec0a135b5e819e57091b7bad795e76b42d7611b2d0964f305facfe7",
+      "review": "docs/c2-optimization/reviews/015-saintPostIdle-review.json",
+      "review_sha256": "b8f485402fd5255c62cf231e2f6bef6e5dea6e49dee2c904cccb57be6fbf009f"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/016-saintInnIdle-context.json",
+      "context_sha256": "feb0665b8324b9f6c71ba6650ae773f20ed96cab7743d6d2d2665ae43c37ba8a",
+      "draft": "docs/c2-optimization/reviews/016-saintInnIdle-draft.json",
+      "draft_sha256": "ccd1b851e4d321eb3c23a5136b0dd35e88b11456af4c87f2ef7504885fe851e4",
+      "review": "docs/c2-optimization/reviews/016-saintInnIdle-review.json",
+      "review_sha256": "c38b9cbeca91fa44004b55d0c6601c7c2d5089d609dbfb1854c90ba59f6b0748"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/017-selineRewardMedicine-context.json",
+      "context_sha256": "3efbe7c4717e2721dd999a80e05fd9dc2a46e08cbc143e00d39285ed624a68de",
+      "draft": "docs/c2-optimization/reviews/017-selineRewardMedicine-draft.json",
+      "draft_sha256": "2910a84ab081f8cb75db0c6df76890a9bb640b5dd1e1662077e36ff67cdb5a37",
+      "review": "docs/c2-optimization/reviews/017-selineRewardMedicine-review.json",
+      "review_sha256": "73a15af7bc2acc373e09fed14f0fefac66e8094c7772f30d45222a0a887e7af6"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/018-selineRewardWrap-context.json",
+      "context_sha256": "adf41135681bd2ffa910cd214644b258556071d39e2504b04a1e25dc4c66a3b0",
+      "draft": "docs/c2-optimization/reviews/018-selineRewardWrap-draft.json",
+      "draft_sha256": "1651a32481a081a9c528ee8b9b210bac1d29fb5e32c2c23ab151ef748fa3e9fe",
+      "review": "docs/c2-optimization/reviews/018-selineRewardWrap-review.json",
+      "review_sha256": "af6cd99a7b98c2325e40dbc9f9f08310bb43bd4a14c0a41527f84f4672764a1c"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/019-selineFoundFirst-context.json",
+      "context_sha256": "deff78bb76ea2f2253417a759401ca1a2e76f0e54991cd9308c2f46a17e09aff",
+      "draft": "docs/c2-optimization/reviews/019-selineFoundFirst-draft.json",
+      "draft_sha256": "6fe15af61bb7ee82884c30c251dbe43f2fb6f7283bfdf0e6dcc54e553e4fb898",
+      "review": "docs/c2-optimization/reviews/019-selineFoundFirst-review.json",
+      "review_sha256": "09f3f043039d572c03242e340d987e9bd721b1566f0875ffe25d1539c4d49c7d"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/020-saintEscapeOnly-context.json",
+      "context_sha256": "0b6b07421c91f3f2a78e169018b375a622a391313a27a139a6cc03dbe80b88f8",
+      "draft": "docs/c2-optimization/reviews/020-saintEscapeOnly-draft.json",
+      "draft_sha256": "9f4523937c016855e4d5f6cbcdc10766084d9fd798149dc2867e1b85fc87654a",
+      "review": "docs/c2-optimization/reviews/020-saintEscapeOnly-review.json",
+      "review_sha256": "3c195d8043aeb0bb97439b633b491b0faa29e5496e904a1a801589e7f1822298"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/021-saintAlarmOnly-context.json",
+      "context_sha256": "39d96ea29790b88f37a3290a5d4024d27600e086c6f1f7f13c7ca0c4b291f19d",
+      "draft": "docs/c2-optimization/reviews/021-saintAlarmOnly-draft.json",
+      "draft_sha256": "382ea6a88beffde7be57f03a12ebb90aa9622f6e037fc8aed35cd28975f5110d",
+      "review": "docs/c2-optimization/reviews/021-saintAlarmOnly-review.json",
+      "review_sha256": "b1e21b3d1c187876b356e049e24a1428d204ae279a05b266abe50f223040db85"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/022-bridgeWatchIdle-context.json",
+      "context_sha256": "278ae75cc7e574fd95f4554c21d45366406c4d28da9f77cf880dfb25a5872223",
+      "draft": "docs/c2-optimization/reviews/022-bridgeWatchIdle-draft.json",
+      "draft_sha256": "00f91bed881cfa3586d036ecc7595527252c4d28f3322d86661292207896fbbb",
+      "review": "docs/c2-optimization/reviews/022-bridgeWatchIdle-review.json",
+      "review_sha256": "c7bb45eecf827e8a1355719db804fc054211a64d77fc9fd0e0444da672eef272"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/023-saintGateOnly-context.json",
+      "context_sha256": "a9ed20eb7630d19a62ae4775ccea86296cef12761d7a530e9dc12a725bc70211",
+      "draft": "docs/c2-optimization/reviews/023-saintGateOnly-draft.json",
+      "draft_sha256": "073c4a5491fbabca72520c83057bf20427e3b34efca53effebedca59b7ad2e28",
+      "review": "docs/c2-optimization/reviews/023-saintGateOnly-review.json",
+      "review_sha256": "54f68708b0fbf1463ef635e64c5162b8b647dd1b1edb22c5ea87a78846c6135d"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/024-v9CellarOpen-context.json",
+      "context_sha256": "6e3d14a580b474682112ce96571252131d5a5f85d087859a348172c4cc58db52",
+      "draft": "docs/c2-optimization/reviews/024-v9CellarOpen-draft.json",
+      "draft_sha256": "93a90c139d14210435eb06b327ea6aad54d2d944f2da8f53ae285792c9de63ca",
+      "review": "docs/c2-optimization/reviews/024-v9CellarOpen-review.json",
+      "review_sha256": "5af1b04c788095e7938a008bec8db8210172397eaa473e71fa9e3a2f47d36896"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/025-v9CellarFirst-context.json",
+      "context_sha256": "89a7a24cc1554bc22fe8d641d13750259fc66c2e401a040554da528c2ee285e7",
+      "draft": "docs/c2-optimization/reviews/025-v9CellarFirst-draft.json",
+      "draft_sha256": "1f01176a1c6c83c6f1a49cac999ef487daae3a8feaea6da334359ff6c393e778",
+      "review": "docs/c2-optimization/reviews/025-v9CellarFirst-review.json",
+      "review_sha256": "2976ae74c5c7ca415313865031e130fa7c9f7e44d972e3618932c851dc03ab41"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/026-v9TollFound-context.json",
+      "context_sha256": "24dcff31bb6387f2be4dfbac99cb18e688f4471cd9c9989e2b5765fff9af27f6",
+      "draft": "docs/c2-optimization/reviews/026-v9TollFound-draft.json",
+      "draft_sha256": "58954cfc2edb3dfd7fdba1516379c43d7ab5060c2075bb714d83779bb93345d4",
+      "review": "docs/c2-optimization/reviews/026-v9TollFound-review.json",
+      "review_sha256": "5b9e19218fed7952d8ca9a854287033c1defec802cfe84c5d2e183cdf1ec5fe2"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/027-v9WellOpen-context.json",
+      "context_sha256": "ef36907274907510f2980006af95d4e339d5d8fe2a9bd988a9c638e5dae732f2",
+      "draft": "docs/c2-optimization/reviews/027-v9WellOpen-draft.json",
+      "draft_sha256": "7241bad783e86fdbfaca03af914e42a86c1bd5135dd0467e63c434c9061488fd",
+      "review": "docs/c2-optimization/reviews/027-v9WellOpen-review.json",
+      "review_sha256": "8e584a27ae4dfd51467a5350b2b0d1d0d32d70b49d9573fa8ba5b2f6097b5e77"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/028-v9WardenReward-context.json",
+      "context_sha256": "2fcbbf77502cfa2ba05f55174a1ca0ae830b6da249c95b495ad8f067ba796dbd",
+      "draft": "docs/c2-optimization/reviews/028-v9WardenReward-draft.json",
+      "draft_sha256": "1da306a510459ee749dbc4b2bfd6965b56c8f60cf8927128e2e342b21ec71ab3",
+      "review": "docs/c2-optimization/reviews/028-v9WardenReward-review.json",
+      "review_sha256": "f5cd5aa6f1b6e643bcfcf2e89a2cd93a0f5245a1b10124c2c8e83665e0ed9106"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/029-v9DryNiche-context.json",
+      "context_sha256": "8efcda4e9de9434c812b594cef838faacfb6d4c3b92dfc2d6fee4e45c24c3d5b",
+      "draft": "docs/c2-optimization/reviews/029-v9DryNiche-draft.json",
+      "draft_sha256": "d97ae7f6ba74f14fd49c17c49bfd57953ad3426f4ef34528e490add9abc538db",
+      "review": "docs/c2-optimization/reviews/029-v9DryNiche-review.json",
+      "review_sha256": "b859b29c3257c5aad54be0114066fe94c9208621f7accba5ad83fd9ece148422"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/030-darkCommissionV9-context.json",
+      "context_sha256": "e23623c20816aff8e8bf610ebdc90f8a8877fb5d183f672471c01a705c1ee287",
+      "draft": "docs/c2-optimization/reviews/030-darkCommissionV9-draft.json",
+      "draft_sha256": "18a27be03e7a606b6e242e58baffb2482b8fdf4b8c87ee1b6fb6ba45435c1b5c",
+      "review": "docs/c2-optimization/reviews/030-darkCommissionV9-review.json",
+      "review_sha256": "a4794ebfdd2e15693d9124d584ea3044f95d0fe762ffcc134db50123b9a3cb25"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/031-darkExileV9-context.json",
+      "context_sha256": "a00e20218cb6dd704f8182b8af3faebb7720d3cb80c30a834b924eb9701b89a4",
+      "draft": "docs/c2-optimization/reviews/031-darkExileV9-draft.json",
+      "draft_sha256": "1a84e1c6edc08f247adb8ccae8fa4562f912e829fb3450081653f8b0394d0932",
+      "review": "docs/c2-optimization/reviews/031-darkExileV9-review.json",
+      "review_sha256": "e1808dd03a66bb5c50b04af7f02020b05595d0f9d9101b110f97cd1e28ae8809"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/032-c2PumpRest-context.json",
+      "context_sha256": "18de407255d137454479a42f855c17008b5df38c5c4d935097a7897846f0e39b",
+      "draft": "docs/c2-optimization/reviews/032-c2PumpRest-draft.json",
+      "draft_sha256": "1db417a144468b5f53878c1278a89a4a14fd012ed2656804d712ac8724d70acf",
+      "review": "docs/c2-optimization/reviews/032-c2PumpRest-review.json",
+      "review_sha256": "4ea7d9355fee0bf8fd03be2313cec3431889e352dba8b08c6c3af011e8353940"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/033-pacing-v12WatchHours-accept-context.json",
+      "context_sha256": "776204f603e4767ba2ca4f81c9849386f9959ed87b0299629874aa34cf7cb8db",
+      "draft": "docs/c2-optimization/reviews/033-pacing-v12WatchHours-accept-draft.json",
+      "draft_sha256": "6bbedd230fd5e45e3fd0b3afaa6d7726acf2b6d5e27dd2db648765d7bc44856c",
+      "review": "docs/c2-optimization/reviews/033-pacing-v12WatchHours-accept-review.json",
+      "review_sha256": "cd4497f89fa90e65cd9358378e8c6e01dd2f5ebc08664b709c163dce11ee3420"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/034-pacing-v12WatchHours-progress-context.json",
+      "context_sha256": "74cd81f17ad6348c6e3607aa168b8fec358d22d76eb25533752d8f0b0805807b",
+      "draft": "docs/c2-optimization/reviews/034-pacing-v12WatchHours-progress-draft.json",
+      "draft_sha256": "fb85603548ff08056439a471e14cbd6c394aab7cb74ffe3f24a7d86858c8f581",
+      "review": "docs/c2-optimization/reviews/034-pacing-v12WatchHours-progress-review.json",
+      "review_sha256": "14a855d043c8323c9d7d701b35f0d7813f9e0f1c1962eaced11d3fcc226ba53c"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/035-pacing-v12WatchHours-after-context.json",
+      "context_sha256": "c69461415b28c09651b2580de2a66375baeb71d927dc32ff47fffee6151f6622",
+      "draft": "docs/c2-optimization/reviews/035-pacing-v12WatchHours-after-draft.json",
+      "draft_sha256": "4145e5255ac53d28f2792eb09e1e1b91b9fa77ac72c0f99b64ec04d4a3427d67",
+      "review": "docs/c2-optimization/reviews/035-pacing-v12WatchHours-after-review.json",
+      "review_sha256": "21156e049cea7f781927763f358935b8ff92f2538cc684f7672a593ba8f10545"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/036-pacing-v12QuietRoom-accept-context.json",
+      "context_sha256": "55f90a4a8463744ac583387c9f615c84eb21532ee63e3a96e804b47a2a1d21e7",
+      "draft": "docs/c2-optimization/reviews/036-pacing-v12QuietRoom-accept-draft.json",
+      "draft_sha256": "340f7abaf2acf0178e101cce48e6338682b005bb52e6044893ec319043b5baf2",
+      "review": "docs/c2-optimization/reviews/036-pacing-v12QuietRoom-accept-review.json",
+      "review_sha256": "f7dd2b1948ca2f97d62955a7b94413d0962b6ba97c0234ad218fd6b4de679974"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/037-pacing-v12QuietRoom-progress-context.json",
+      "context_sha256": "0e5d91ff6ac1d01654c6b0f32c13a15d5cd3306e40eff16ab6b370fc9a5f4604",
+      "draft": "docs/c2-optimization/reviews/037-pacing-v12QuietRoom-progress-draft.json",
+      "draft_sha256": "844e13197e3ce78fb9833bc3708092819c044c50aeea9d7d623f26b6bfaaa6f0",
+      "review": "docs/c2-optimization/reviews/037-pacing-v12QuietRoom-progress-review.json",
+      "review_sha256": "f025aa010fd128653799e37675aba545868a46f1fd827f6099f4939f2b0278f7"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/038-pacing-v12QuietRoom-goal-0-context.json",
+      "context_sha256": "207166d3cd9e774c12131a6a9f7c8f61ce9412370f31ae2cbc2fa8e81e108866",
+      "draft": "docs/c2-optimization/reviews/038-pacing-v12QuietRoom-goal-0-draft.json",
+      "draft_sha256": "c66fd206135a284d777686093d6fe4c6f619a3926712683626aa09f78d603ea7",
+      "review": "docs/c2-optimization/reviews/038-pacing-v12QuietRoom-goal-0-review.json",
+      "review_sha256": "d8090eba9898200ef1ce87fbd8cbee424636eee7076bf265e88710e6ee9138b5"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/039-pacing-v12QuietRoom-complete-context.json",
+      "context_sha256": "4d2c1dd67fd04cb17beb237b9f57328be63e3cd03af319519bc5010f81b58d68",
+      "draft": "docs/c2-optimization/reviews/039-pacing-v12QuietRoom-complete-draft.json",
+      "draft_sha256": "58932c6d6995dfd9cc6f1978178082db5692905512276f1de15fe6738d96ba31",
+      "review": "docs/c2-optimization/reviews/039-pacing-v12QuietRoom-complete-review.json",
+      "review_sha256": "fac806f8e871f538700df6255a869f957edd0938d1562d8ebf928d550a483240"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/040-pacing-v12CartBuckles-accept-context.json",
+      "context_sha256": "2c76bb0867b72da25144ab5ca5b3e721fb36acabfcc5b75350d05ee1ff4e2079",
+      "draft": "docs/c2-optimization/reviews/040-pacing-v12CartBuckles-accept-draft.json",
+      "draft_sha256": "992e922a1edef7a5d23b8b5d0d452422f1e73dc400cfaadb843650f3131d8546",
+      "review": "docs/c2-optimization/reviews/040-pacing-v12CartBuckles-accept-review.json",
+      "review_sha256": "62b2c8393e66791237062c54f47c54d4a4e2b68bd754015f4e30eb1101a9142d"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/041-pacing-v12CartBuckles-progress-context.json",
+      "context_sha256": "4493561d7b848ce1053a42d2834cd97f6cf6a7ae72900f589155fd89c2b72e42",
+      "draft": "docs/c2-optimization/reviews/041-pacing-v12CartBuckles-progress-draft.json",
+      "draft_sha256": "e4950d5d869f3e4a62f4866386644ee091861f0300aa1d54825d768cc5a090af",
+      "review": "docs/c2-optimization/reviews/041-pacing-v12CartBuckles-progress-review.json",
+      "review_sha256": "80be0a3b3448c0e46a953d652f8dc937f1a73b79327fb5f9addf9cbbfc024535"
+    },
+    {
+      "context": "docs/c2-optimization/reviews/042-pacing-v12CartBuckles-complete-context.json",
+      "context_sha256": "630f4cdd80ff3fef9681e17056074f53c9eabbe32c49ec2e5d9ff90706ed5676",
+      "draft": "docs/c2-optimization/reviews/042-pacing-v12CartBuckles-complete-draft.json",
+      "draft_sha256": "a52f8df993aa2628e6f58ec073d8563715d37b76657a75d7227dca65b8c5b30b",
+      "review": "docs/c2-optimization/reviews/042-pacing-v12CartBuckles-complete-review.json",
+      "review_sha256": "da94b95d82b76fa633b70309c8dc8e8480fe5145a58e7d794b95e729cd32d708"
+    }
+  ],
+  "experience_requirement": {
+    "scopes": [],
+    "chapters": [
+      "R01",
+      "R02"
+    ],
+    "kind": "scoped"
+  },
+  "experience_reviews": [
+    {
+      "path": "docs/c2-optimization/EXPERIENCE_R02.json",
+      "sha256": "2a314dd98be80da823868ee86d0733db3ff457489a2f7b465b87e01611297378",
+      "chapter": "R02"
+    },
+    {
+      "path": "docs/c2-optimization/EXPERIENCE_R01.json",
+      "sha256": "a6442cffc1c75f88d6479fe1bc2e0581be5d3cd220ad895c9c6e192a3f09eef4",
+      "chapter": "R01"
+    }
+  ]
+}

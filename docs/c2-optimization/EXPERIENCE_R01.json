@@ -1,0 +1,109 @@
+{
+  "schema": 2,
+  "chapter": "R01",
+  "kind": "scoped",
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "comparison": {
+    "classes": [
+      "shadow",
+      "oath",
+      "ember"
+    ],
+    "cohorts": [
+      "starter",
+      "normal",
+      "optimized"
+    ],
+    "same_source_snapshot": true,
+    "production_rules": true,
+    "human_win_rate_claim": false
+  },
+  "human": {
+    "status": "pending",
+    "remaining": [
+      "真人文风、第一章增血后的招式轮次/补给负担、第二章节奏与乐趣"
+    ],
+    "playable_build": {
+      "path": "qa-export/release-build/Ashen-V28.1-Play.html",
+      "sha256": "6eab27c21dc5ee59b0f0b071964770c45dfbca075e31915653b3e7a9babbd1b6"
+    },
+    "observation_template": {
+      "path": "docs/c2-optimization/HUMAN_OBSERVATION.md",
+      "sha256": "279d0644858c09cf1b74bb4e62159c1455d7daf63348897d676639678bc11ccf"
+    }
+  },
+  "scopes": {
+    "combat": {
+      "growth_comparison": {
+        "status": "pass",
+        "reason": "同源合法初装/常规/现有装备优化三组，各三职业。保留失败；隔离Lab不限为全胜，不当真人胜率。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/COMBAT.json",
+            "sha256": "b471843c1fdc7829b36a749cc3086be3f4bf25170320b238b2993d134701b100"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "enemy_roles": {
+        "status": "pass",
+        "reason": "第一章普通怪1.5倍、精英Boss2.5倍；既有岗位、伤害和奖励保持。第二章敌人预算与岗位保持，仍使用真实战斗验证。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/COMBAT.json",
+            "sha256": "b471843c1fdc7829b36a749cc3086be3f4bf25170320b238b2993d134701b100"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "groups": {
+        "status": "pass",
+        "reason": "普通与精英群战记录耗时、胜负和资源消耗；孤立满资源对照与真实路线分别列出。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/COMBAT.json",
+            "sha256": "b471843c1fdc7829b36a749cc3086be3f4bf25170320b238b2993d134701b100"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "continuous_maps": {
+        "status": "pass",
+        "reason": "连续遭遇共享资源；正常UI使用已有配药/休息/商店，失败死亡档保留。资源没有通过测试钩子补充。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/COMBAT.json",
+            "sha256": "b471843c1fdc7829b36a749cc3086be3f4bf25170320b238b2993d134701b100"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "elite_mechanics": {
+        "status": "pass",
+        "reason": "第一章增加招式轮数机会，原攻击模式和克制提示保持；第二章守卫/布伦与井兽沿用既有机制。无固定分钟数或真人难度通过承诺。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/COMBAT.json",
+            "sha256": "b471843c1fdc7829b36a749cc3086be3f4bf25170320b238b2993d134701b100"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      }
+    }
+  }
+}

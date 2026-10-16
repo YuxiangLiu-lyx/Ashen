@@ -1,3 +1,5 @@
+2026-10-16：R02 / V01C02 当前增量采用[0.5人物与任务交接](CHAPTER_02_CHARACTER_FLOW.md)，IMPLEMENTED，c2-optimization-20261016；R01战斗采用[1.6耐久](CHAPTER_01_ENDURANCE.md)，IMPLEMENTED，人物对白1.5保持。
+
 2026-10-15 R01当前采用1.4：[克制表现与日常交流](CHAPTER_01_RESTRAINT.md)，IMPLEMENTED；保留1.3流程和知识边界，真人待验。
 
 2026-10-14 R01当前采用1.3：[试炼、回报与会馆整备](CHAPTER_01_TRIAL_FORGE.md)，运行已实装，真人待验。新增救民、五精英与独立Boss；正式委托及随机整备在试炼回报后开放。
@@ -36,8 +38,8 @@
 
 | 文学 ID | 卷 / 章 | 名称（工作名） | 剧情记录 | 状态 | 本轮实现范围 |
 | --- | --- | --- | --- | --- | --- |
-| V01C01 | 卷一 / 第一章 | 午钟之前 | [CHAPTER_01](CHAPTER_01.md) | IMPLEMENTED，稿版1.4；真人待验 | c1-restraint-20261015；低调战斗、格子详情、自然试炼交流和救济布置；保留原暗杀动作结果和离场私谈 |
-| V01C02 | 卷一 / 第二章 | 灰桥封路 | [CHAPTER_02](CHAPTER_02.md)；[0.4玩法稿](CHAPTER_02_RPG_EXPERIENCE.md) | IMPLEMENTED，稿版0.4 | rpg-c2-20261014；原主线保留，正常输入/完整集成/构建通过，真人节奏待验；0.3追加A/B未实施 |
+| V01C01 | 卷一 / 第一章 | 午钟之前 | [CHAPTER_01](CHAPTER_01.md)；[1.6耐久](CHAPTER_01_ENDURANCE.md) | IMPLEMENTED，人物稿版1.5、耐久1.6；真人待验 | c1-character-flow-20261016 / c1-endurance-20261016；逐轮交接与人物口吻、普通怪及精英Boss增血；原动作结果保持 |
+| V01C02 | 卷一 / 第二章 | 灰桥封路 | [CHAPTER_02](CHAPTER_02.md)；[0.5人物与任务](CHAPTER_02_CHARACTER_FLOW.md) | IMPLEMENTED，稿版0.5；真人待验 | c2-optimization-20261016；自然对白、任务分步交接及寄卖格子详情；原主线结果与0.4玩法保持，0.3追加A/B未实施 |
 | R03（运行章；文学ID未分配） | 地狱第三章 | 地狱入口与营地 | [1.0玩法稿](CHAPTER_03_RPG_EXPERIENCE.md) | IMPLEMENTED | rpg-c3-20261014；救治与不原谅保持，洞窟回路、制作与配药、安全触发已实施；真人待验 |
 | V01C03 及以后 | 待定 | 待定 | 尚未创建 | OUTLINE 空位 | 无实现授权 |
 

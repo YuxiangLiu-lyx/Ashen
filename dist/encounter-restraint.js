@@ -3,18 +3,26 @@ import {C1_MAPS} from './chapter-one-layout.js';
 import {CHAPTER_TWO_MAPS_V30,CHAPTER_THREE_MAPS_V30} from './chapter23-design-v30.js';
 
 const maps=new Set([...C1_MAPS,...CHAPTER_TWO_MAPS_V30,...CHAPTER_THREE_MAPS_V30]);
+const firstChapter=new Set(C1_MAPS);
 const isBoss=e=>!!e.isBoss||['captain','hellJailer'].includes(e.type)||!!profileForEnemy(e.type,e.id).isBoss;
 // Regional named roles keep their authored budgets in their original data tables.
 export function enduranceFactor(e,map){
  if(!maps.has(map)||e.c1Training||e.c1NoReward||e.c1Custom||e.experienceRole)return 1;
- return isBoss(e)?1.7:e.elite?1.65:1.45;
+ const previous=isBoss(e)?1.7:e.elite?1.65:1.45;
+ return previous*(firstChapter.has(map)?isBoss(e)||e.elite?2.5:1.5:1);
 }
 function tune(e,map){
  const factor=enduranceFactor(e,map);if(factor===1||!Number.isFinite(e.maxHP))return;
- if(e.endurance?.revision===1)return;
+ const chapterOne=firstChapter.has(map),revision=chapterOne?2:1;
+ if(e.endurance?.revision===revision)return;
  const ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP))),base=e.maxHP;
- e.maxHP=Math.round(base*factor);e.hp=e.dead||e.hp<=0?0:Math.max(1,Math.round(e.maxHP*ratio));
- e.endurance={revision:1,base,maxHP:e.maxHP};
+ // The 150% increase is relative to the already rounded, shipped maximum.
+ // A saved revision-1 enemy is already at that maximum, including weakened variants.
+ const boost=isBoss(e)||e.elite?2.5:1.5;
+ const previous=chapterOne?(e.endurance?.revision===1?base:Math.round(base*(isBoss(e)?1.7:e.elite?1.65:1.45))):base;
+ e.maxHP=chapterOne?Math.ceil(previous*boost):Math.round(base*factor);
+ e.hp=e.dead||e.hp<=0?0:Math.max(1,Math.round(e.maxHP*ratio));
+ e.endurance={revision,base:e.endurance?.base??base,maxHP:e.maxHP};
 }
 export function installEncounterRestraint(RPG){
  const P=RPG.prototype,old={};for(const key of ['enemy','ensureMap','restore'])old[key]=P[key];

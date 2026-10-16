@@ -14,7 +14,7 @@ export const C1_ATTACK_STYLES={
 const steps=(g,id)=>c1State(g).questSteps[id]||(c1State(g).questSteps[id]={});
 export function c1Encounter(g,id){const h=c1State(g);return h.elite[id]||(h.elite[id]={killSequence:0,aliveGeneration:1,lastKill:0,outsideActiveSeconds:0,leftAfterKill:false,firstPartGranted:false,lootResult:null});}
 export function c1Danger(t,p){if(!t)return false;if(t.shape==='circle')return distance(t,p)<t.r;if(t.shape==='cone')return distance(t,p)<t.r&&Math.cos(Math.atan2(p.y-t.y,p.x-t.x)-t.a)>Math.cos(t.arc);const dx=p.x-t.x,dy=p.y-t.y,along=dx*Math.cos(t.a)+dy*Math.sin(t.a),across=Math.abs(-dx*Math.sin(t.a)+dy*Math.cos(t.a));return along>-18&&along<t.length&&across<t.width/2+12;}
-function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));if(!e.c1Tuned||e.c1CombatRevision!==3){e.maxHP=cfg.hp;e.hp=e.dead?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;e.c1CombatRevision=3;}
+function tune(g,e){const cfg=C1_ELITES[e.id];if(!cfg)return;const h=c1Encounter(g,e.id),ratio=Math.max(0,Math.min(1,e.hp/Math.max(1,e.maxHP)));if(!e.c1Tuned||e.c1CombatRevision!==4){e.maxHP=cfg.hp;e.hp=e.dead||e.hp<=0?0:Math.max(1,Math.round(cfg.hp*ratio));e.c1Tuned=true;e.c1CombatRevision=4;}
  Object.assign(e,{label:cfg.name,elite:true,isBoss:false,c1Custom:true,c1Generation:e.c1Generation||h.aliveGeneration,v15BossStats:'custom',v28DamageMultiplier:1,v28RewardXP:35,v28RewardGold:12,v13Tuned:true});}
 export function installC1Combat(RPG,{stats,MAPS}){
  const P=RPG.prototype,old={};for(const k of ['ensureMap','enemy','enter','update','damage','handleHellDeath','dropCombatLoot','snapshot','restore','respawn','skill','enemyHit'])old[k]=P[k];

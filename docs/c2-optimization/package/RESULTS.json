@@ -1,0 +1,24 @@
+[
+  {
+    "name": "build",
+    "command": [
+      ".venv/bin/python",
+      "tools/build_web_play.py",
+      "--output",
+      "qa-export/c2-optimization-preview"
+    ],
+    "exit_code": 0
+  },
+  {
+    "name": "browser",
+    "command": [
+      ".venv/bin/python",
+      "tests/browser-web-play.py",
+      "--build",
+      "qa-export/c2-optimization-preview",
+      "--out",
+      "docs/c2-optimization/package"
+    ],
+    "exit_code": 0
+  }
+]

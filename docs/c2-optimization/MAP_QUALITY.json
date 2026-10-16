@@ -1,0 +1,947 @@
+{
+  "schema": 1,
+  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "reviewed_paths": [
+    "dist/core-v14.js",
+    "dist/encounter-restraint.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/v8/chapter-world-v8.png",
+      "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+    },
+    {
+      "path": "dist/assets/v30/guards.png",
+      "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+    },
+    {
+      "path": "dist/assets/c1-map-quests/trial-construct.png",
+      "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+    },
+    {
+      "path": "dist/assets/c1-story-world/vault-guardian.png",
+      "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+    }
+  ],
+  "maps": [
+    {
+      "id": "post",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "旅店门檐、货车和路牌围绕驿道布置，入口和旅店不被货物遮住。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/post.webp",
+            "sha256": "806cb685b297a75a1104a4093c2e593ba0ae321599d2917ad3d7b9bc524037a8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/post-collision.webp",
+            "sha256": "170bd592842ce1d5810e920db7ea37a63f2dbf3f14ea6b0a84a7f1df609d60ea"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/post.webp",
+            "sha256": "806cb685b297a75a1104a4093c2e593ba0ae321599d2917ad3d7b9bc524037a8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "inn",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "炉火、长凳、水泵和账桌用途可辨，塞琳柜台可从中央走道抵达。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/inn.webp",
+            "sha256": "3d06b7968daadf7cfd85440e6e3e5d75c93b702560590f151e8c889e1f7030e8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/inn-collision.webp",
+            "sha256": "5d547ef32c5d729db03ff9a4f26c0679be97d44121ade7064af5349ec8b90211"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/inn.webp",
+            "sha256": "3d06b7968daadf7cfd85440e6e3e5d75c93b702560590f151e8c889e1f7030e8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bridge",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "查验人群在上方岗哨两侧，南沟绕路与水道桥位可辨；原通路保持。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/bridge.webp",
+            "sha256": "09cc8e44e470aa1aedc690862e123e157ecf6580e0e57ed7e0aa362d8608f2e8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/bridge-collision.webp",
+            "sha256": "b62394d7452130aab2a25f942386bceb9250974026b4eeec8c867412c4edb996"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/bridge.webp",
+            "sha256": "09cc8e44e470aa1aedc690862e123e157ecf6580e0e57ed7e0aa362d8608f2e8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "bridgecellar",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "旧账桌、货物与石室对应废弃收费处，入口保留且物品有实体位置。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/bridgecellar.webp",
+            "sha256": "6b0ae5576d18516316bac95f027da021c297fa570cb2e711ddbdeeac811492b5"
+          },
+          {
+            "path": "docs/c2-optimization/maps/bridgecellar-collision.webp",
+            "sha256": "a5c8fef6d8175e4c280f34b7ec167f15f44a62f3360ae72c257a3b9784bd5462"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/bridgecellar.webp",
+            "sha256": "6b0ae5576d18516316bac95f027da021c297fa570cb2e711ddbdeeac811492b5"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "manor",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "围墙、运柴口、井和内门形成进院后检查内门的路线；报警波次有原遮挡物。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/manor.webp",
+            "sha256": "85ec44ac212db05dfc44107229d557a2e25dce6261431ff991c235872e678cf2"
+          },
+          {
+            "path": "docs/c2-optimization/maps/manor-collision.webp",
+            "sha256": "495de8034f3565c18a70deacbd9dc972ca18753887ae55be66abdd12e5ee28d9"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/manor.webp",
+            "sha256": "85ec44ac212db05dfc44107229d557a2e25dce6261431ff991c235872e678cf2"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "wellcrypt",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "石柱、旧链与守井兽区域对应战斗和机关，地面空隙与碰撞叠层一致。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/wellcrypt.webp",
+            "sha256": "c6bd985075391f7b91c11d859f3ff1df1876264176b6f33f29e317c5c07f4116"
+          },
+          {
+            "path": "docs/c2-optimization/maps/wellcrypt-collision.webp",
+            "sha256": "5bcf0062786652c228a37b20985e041dc86b7d588f0c457208839367d7a088c5"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/wellcrypt.webp",
+            "sha256": "c6bd985075391f7b91c11d859f3ff1df1876264176b6f33f29e317c5c07f4116"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "spillway",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "泄水装置、旧桥和守卫分布对应撤离路线，场地与门位保持。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/spillway.webp",
+            "sha256": "5bfeaafe9fc46ea8a951a2ead415b45c12d68ac65af3138e492bf5f259ca5ab8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/spillway-collision.webp",
+            "sha256": "7f2551d14ec9e9018916b5dbed27b136515dbcc133820b0df1aab18dda034761"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/spillway.webp",
+            "sha256": "5bfeaafe9fc46ea8a951a2ead415b45c12d68ac65af3138e492bf5f259ca5ab8"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "exile",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "界碑与右侧雾林区分城界和禁地，越界后去石阶的路径明确。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/exile.webp",
+            "sha256": "621617c1fc96b00e11e317411cd8340487edd7c3c3d2c24ac4ba1bb141e1f130"
+          },
+          {
+            "path": "docs/c2-optimization/maps/exile-collision.webp",
+            "sha256": "adc3c364b758ae70348902e3cbb6ccf4f44c01b9b3b84f79e31309a73abaf9b9"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/exile.webp",
+            "sha256": "621617c1fc96b00e11e317411cd8340487edd7c3c3d2c24ac4ba1bb141e1f130"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "chamber",
+      "playability": {
+        "status": "pass",
+        "reason": "完整128图生产定义与基线相等；八张可玩图73条实际移动路径与三职业正常输入覆盖主路、支路、撤离。内室仅是独立切镜，不纳入玩家寻路通过率。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c2-optimization/maps/NAVIGATION.json",
+            "sha256": "83825e3c4feeb83db98b3f424507901c1ba23e6f832bea6bcbd2d4e818895183"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "桌椅、壁炉、书架围出独立内室，演出专用，不把隔离截图中测试英雄的位置称运行正史。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/chamber.webp",
+            "sha256": "a1939ed4bda838c7db7718a78ed3af5f956f12112d35f8e285737b82489b3f3a"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chamber-collision.webp",
+            "sha256": "9babafaccba6194f079f8f8a9fd44e7ef617937f0386b94b2d2897a6aeb04a81"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "塞琳栗发红披肩灰蓝裙与原角色帧一致；巡卫盔甲、盾、脚锚及站/走/攻帧一致。沿用原资源，无新增角色美术。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/maps/chamber.webp",
+            "sha256": "a1939ed4bda838c7db7718a78ed3af5f956f12112d35f8e285737b82489b3f3a"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterBodies-frames.webp",
+            "sha256": "43a066d0421faae5efad41bf820cf5926ba4ebfd61933c0ad67fbf515c1cb1ac"
+          },
+          {
+            "path": "docs/c2-optimization/maps/chapterGuards-frames.webp",
+            "sha256": "9bd9df6c99cb0cd558256563a6b86e76c077dd463ec0f6117e534b8e41322eed"
+          },
+          {
+            "path": "dist/assets/v8/chapter-world-v8.png",
+            "sha256": "a0ffb1107f43fc7d513966747b194c87c3ca62dc8f5b252c064553260d89cd95"
+          },
+          {
+            "path": "dist/assets/v30/guards.png",
+            "sha256": "5e897d80d21c0f3ab648df908e02c882c01e76c0eaa093489a30836e4183d75d"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/hall-collision.json",
+            "sha256": "3205889c706009b51ba1ef925f688a8d3b7ec84dd678aab75eca7d7d3e83c556"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/hall.png",
+            "sha256": "938a5394908e29f4733ed5beb22be484a7a21657df99f8416a93c32c2361356e"
+          },
+          {
+            "path": "docs/c1-endurance/visual/hall-collision.png",
+            "sha256": "c4a9bbe35e5340ae3c8edfb920e35833760c56148cb56a5e95a5ebbbaa48d691"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/hall.png",
+            "sha256": "938a5394908e29f4733ed5beb22be484a7a21657df99f8416a93c32c2361356e"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "warehouse",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/warehouse-collision.json",
+            "sha256": "f6665dad055fe88c947b181fc47f2f46a277c3c877ab76026252eb87eaedc317"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/warehouse.png",
+            "sha256": "d5a493153884db025960bba9bb8ace073cb2915f1b767887d96d2ea7671ce5b9"
+          },
+          {
+            "path": "docs/c1-endurance/visual/warehouse-collision.png",
+            "sha256": "4a1c9c1a7ac0438b8e870c3c823d8aa0264882783771ce1ac64a662f87223ed2"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/warehouse.png",
+            "sha256": "d5a493153884db025960bba9bb8ace073cb2915f1b767887d96d2ea7671ce5b9"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1LoomRoom",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1LoomRoom-collision.json",
+            "sha256": "3c00409cfa78a04027dcd6080eb4ca3cf86ca43d6a6424b581cbaa58a3918cfe"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1LoomRoom.png",
+            "sha256": "1760f7841791a756f739adf1e3174cec294867f0eea6c6affced465142025354"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1LoomRoom-collision.png",
+            "sha256": "20737f36366750154bc9642781796ae2cb3f3c427945a82c883b04adb0ecfa78"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1LoomRoom.png",
+            "sha256": "1760f7841791a756f739adf1e3174cec294867f0eea6c6affced465142025354"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1DrillGallery",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1DrillGallery-collision.json",
+            "sha256": "83a6f74baab3b3165dbda2079072c05bb213389c6dd53e08361ebbf230534fbf"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1DrillGallery.png",
+            "sha256": "24eb3b2d9ca0d40774f6bfdc0794d40002ee82d98e9aa062c3203e2c3eb8881e"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1DrillGallery-collision.png",
+            "sha256": "c56cfef9beff1fabde3b853e0e20ebff8a2af5a270fd4707fff67ad5dc417d0c"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1DrillGallery.png",
+            "sha256": "24eb3b2d9ca0d40774f6bfdc0794d40002ee82d98e9aa062c3203e2c3eb8881e"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1TrialVault-collision.json",
+            "sha256": "26d555e67ceacd0924f5da2e3226eabdbb3737bccc1beaaec116e3460045713a"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1TrialVault.png",
+            "sha256": "e973be4142d4fd2b25e9c1eb3186fa9954dc38cd0a482b151a9cfb6bc4a87915"
+          },
+          {
+            "path": "docs/c1-endurance/visual/c1TrialVault-collision.png",
+            "sha256": "3d4b368e646d18974e04641e2eac31181f5a6cb14358e3340d25357f4aa1ea58"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/c1TrialVault.png",
+            "sha256": "e973be4142d4fd2b25e9c1eb3186fa9954dc38cd0a482b151a9cfb6bc4a87915"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    },
+    {
+      "id": "town",
+      "playability": {
+        "status": "pass",
+        "reason": "本轮仅血量改变；完整地图定义与基线相等，当前实际碰撞格/画面、第一章22图移动回归及三职业正常路线相互验证。",
+        "evidence": [
+          {
+            "path": "docs/c2-optimization/MAP_PRESERVATION.json",
+            "sha256": "1de80002e7922a46ab175041384e0994a73a224523c0348c673facc04e6e9f9d"
+          },
+          {
+            "path": "docs/c1-endurance/visual/town-collision.json",
+            "sha256": "63c76a9cf1ad299b8f54f1669717a3162336138d93966db7708e0a06b4ba0603"
+          },
+          {
+            "path": "docs/c2-optimization/integration/navigation/MOVEMENT.json",
+            "sha256": "ab185235e5cc20a30ada48b27e7a08d8bacf2ee02d29b76796091c98c733310a"
+          },
+          {
+            "path": "docs/c2-optimization/NORMAL_EQUIVALENCE.json",
+            "sha256": "89b7f27a61b674bcd74ad177deb3101d32ea06ecca01ad9489181001d8b53716"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际画面和碰撞叠层核对原建筑、家具和入口；没有因本轮HP迁移产生占路物件。试炼区保留构装体和独立终试区域，会馆/救济沿用当前1.5布置。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/town.png",
+            "sha256": "d3fbf6f4a7d8ba1c57c5a738c4cdd44b3cfd1d85390f38dbe7ef8b323b71899f"
+          },
+          {
+            "path": "docs/c1-endurance/visual/town-collision.png",
+            "sha256": "f0e9f38e18bff249c624cf1ce705524109dd1412d827ed1e7249671d9f439810"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "本轮增血沿用五精英身体起手和Boss细线提示；当前角色形态、体量、脚锚与原图一致，商人仍是第一章固定女性形象。",
+        "evidence": [
+          {
+            "path": "docs/c1-endurance/visual/town.png",
+            "sha256": "d3fbf6f4a7d8ba1c57c5a738c4cdd44b3cfd1d85390f38dbe7ef8b323b71899f"
+          },
+          {
+            "path": "dist/assets/c1-map-quests/trial-construct.png",
+            "sha256": "e2fd6bd81c861df5754ede84a63b5602958101cc53afd6042068398d75f313be"
+          },
+          {
+            "path": "dist/assets/c1-story-world/vault-guardian.png",
+            "sha256": "3feebe56e5d675ab5f86b077f9adc0ec51ade65a114c29597b01a1735d1263f1"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Conservative installer/renderer gate; no authored map geometry or assets changed. Current movement, renderer and combat evidence are distinct checks.",
+    "Automatic input is not human map credibility or difficulty approval; visual judgments are the executing editor’s inspection."
+  ]
+}

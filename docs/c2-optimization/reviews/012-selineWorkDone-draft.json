@@ -1,0 +1,140 @@
+{
+  "kind": "copyedit",
+  "style_policy_version": 2,
+  "chapter": "R02",
+  "scene": "selineWorkDone",
+  "context": "docs/c2-optimization/reviews/012-selineWorkDone-context.json",
+  "corpus": "docs/c2-optimization/CURRENT_CORPUS.json",
+  "semantic_change": false,
+  "rows": [
+    [
+      "塞琳",
+      "有水了！以后洗床单，总算能少跑几趟街口。"
+    ],
+    [
+      "诺恩",
+      "底座有点松。"
+    ],
+    [
+      "塞琳",
+      "明天拿石灰填上。我也该学着修这些小毛病了，总等人来帮忙，院里什么都耽误。"
+    ],
+    [
+      "诺恩",
+      "嗯。那工钱还是说好的数？"
+    ],
+    [
+      "塞琳",
+      "放心，二十五金，少不了你的。柜里还有药和皮衬绑带，再挑一样吧。"
+    ],
+    [
+      "诺恩",
+      "我看看。"
+    ],
+    [
+      "塞琳",
+      "都在柜里，你慢慢看。我去接盆水，这堆床单还等着呢。"
+    ]
+  ],
+  "line_judgments": [
+    {
+      "line": 0,
+      "before": [
+        "塞琳",
+        "出水了！总算不用去街口抬水，光洗床单就能少跑好几趟。"
+      ],
+      "after": [
+        "塞琳",
+        "有水了！以后洗床单，总算能少跑几趟街口。"
+      ],
+      "reason": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。",
+      "preserves_information": true
+    },
+    {
+      "line": 2,
+      "before": [
+        "塞琳",
+        "明天我拿石灰填一填。这点活也得自己学着做，总不能回回等你路过。"
+      ],
+      "after": [
+        "塞琳",
+        "明天拿石灰填上。我也该学着修这些小毛病了，总等人来帮忙，院里什么都耽误。"
+      ],
+      "reason": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。",
+      "preserves_information": true
+    },
+    {
+      "line": 3,
+      "before": [
+        "诺恩",
+        "那就好了。工钱还按说好的？"
+      ],
+      "after": [
+        "诺恩",
+        "嗯。那工钱还是说好的数？"
+      ],
+      "reason": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。",
+      "preserves_information": true
+    },
+    {
+      "line": 6,
+      "before": [
+        "塞琳",
+        "你干活倒是利索。下回再有这种活，我还找你。"
+      ],
+      "after": [
+        "塞琳",
+        "都在柜里，你慢慢看。我去接盆水，这堆床单还等着呢。"
+      ],
+      "reason": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。",
+      "preserves_information": true
+    }
+  ],
+  "editorial": {
+    "reviewer": "Codex执行编辑，已阅读全文；真人文风反馈待验",
+    "character": {
+      "verdict": "pass",
+      "evidence": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。"
+    },
+    "language": {
+      "verdict": "pass",
+      "evidence": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。 逐页检查提问和回应，不用换同义祈使或拆短句规避风格要求。"
+    },
+    "clarity": {
+      "verdict": "pass",
+      "evidence": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。 核对目标、路线、材料数、原报酬及未得到答案的部分。"
+    },
+    "continuity": {
+      "verdict": "pass",
+      "evidence": "同页数、同说话者序列与原动作/结算回调。主线顺序不变；水泵/问路/铜扣在原末页提交；旧pending自带全文保留，静态游标同页对应。章界只结算一次。"
+    },
+    "information_isolation": {
+      "verdict": "pass",
+      "evidence": "艾莉娅仍是被挟持者，求助不等于亲密；两位主角没有会馆及内室切镜的知识。鲁恩和薇蕾娜只能知道急信到界碑的报告。旧0.3追加A/B仍未实装。"
+    },
+    "foreshadowing": {
+      "verdict": "pass",
+      "evidence": "玩家独享的观察安排和内室恶行保持各自视角；替代开门法及无接应作者方向不借润色成为主角知识。"
+    },
+    "emotion_relationship": {
+      "verdict": "pass",
+      "evidence": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。 行动与情绪以当前被迫同行、旅店生计或急报为依据，不加新童年、恋爱或幕后真相。"
+    },
+    "negative_imperatives": {
+      "scene_judgment": "修复结果、25金和奖品选择保留；诺恩先确认实用结果，再问工钱。 合理制止、拒绝和警报命令保留，不追求否定词清零。",
+      "decisions": []
+    }
+  },
+  "scope": {
+    "files": [
+      "dist/chapter-two-conversations-data.js",
+      "dist/chapter-two-conversations.js",
+      "dist/core-v14.js",
+      "docs/harness/CHAPTER_02_CHARACTER_FLOW.md",
+      "docs/harness/CHAPTER_02.md",
+      "docs/harness/CHAPTER_01_ENDURANCE.md"
+    ],
+    "dynamic_check_label": "producer-current"
+  },
+  "adopted_script": "docs/c2-optimization/SCRIPT.json"
+}
