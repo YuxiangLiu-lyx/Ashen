@@ -74,5 +74,5 @@ test('original scenes outside adopted first-chapter care conversations stay byte
 });
 
 test('Iden local conversation uses the actual foyer menu and persists without inventing an injury',()=>{
- const g=setup('c1ExitDrill');assert.ok(g.npcOptions('c1iden').some(o=>o.action==='c1:localTalk:c1iden'));g.choose('c1:localTalk:c1iden');assert.equal(g.pending.id,'c1Conversation');assert.deepEqual(g.pending.lines,[['伊登','这里原是会馆练习队形的地下场地。我负责让人平安进出。薇蕾娜让鲁恩先看你的庭院实战，地下这几层由我安排。赫莎在侧廊等着检修。']]);const r=restore(g);assert.deepEqual(r.pending.lines,g.pending.lines);finish(r);assert.equal(r.quests.c1ExitDrill,undefined);
+ const g=setup('c1ExitDrill');assert.ok(g.npcOptions('c1iden').some(o=>o.action==='c1:localTalk:c1iden'));g.choose('c1:localTalk:c1iden');assert.equal(g.pending.id,'c1Conversation');assert.deepEqual(g.pending.lines,JSON.parse(fs.readFileSync(new URL('../docs/c1-character-flow/SCRIPT.json',import.meta.url))).entries.find(e=>e.key==='local:c1iden').after);const r=restore(g);assert.deepEqual(r.pending.lines,g.pending.lines);finish(r);assert.equal(r.quests.c1ExitDrill,undefined);
 });

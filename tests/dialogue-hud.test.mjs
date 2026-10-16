@@ -12,14 +12,15 @@ import {dialogueCorpus} from '../tools/harness/dialogue_corpus.mjs';
 const trial=JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/SCRIPT.json',import.meta.url))).scenes;
 Object.assign(trial,JSON.parse(fs.readFileSync(new URL('../docs/c1-restraint/SCRIPT.json',import.meta.url))).scenes);
 Object.assign(trial,JSON.parse(fs.readFileSync(new URL('../docs/c1-dialogue-voice/SCRIPT.json',import.meta.url))).scenes);
+const voice=JSON.parse(fs.readFileSync(new URL('../docs/c1-character-flow/SCRIPT.json',import.meta.url))).entries;
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/dialogue-hud/baseline/full-corpus.json',import.meta.url))).scenes;
 const clone=x=>structuredClone(x),finish=g=>{for(let n=0;g.pending&&n<20;n++)g.finishScene();};
 test('all static/dynamic providers are covered; only exact authored whole-scene revisions change',()=>{
- const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c1-dialogue-voice/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
+ const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c1-character-flow/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
  for(const[id,b]of Object.entries(baseline)){
   const e=DIALOGUE_COPYEDITS.find(e=>e.key===id)||DIALOGUE_COPYEDITS.find(e=>JSON.stringify(e.before)===JSON.stringify(b.text));
   if(e){assert.deepEqual(e.before,b.text,id);assert.deepEqual(e.after.map(r=>r[0]),b.text.map(r=>r[0]),id);}
-  assert.deepEqual(now[id].text,trial[id]||e?.after||b.text,id);
+  assert.deepEqual(now[id].text,voice.find(v=>v.key===id)?.after||trial[id]||e?.after||b.text,id);
  }
 });
 test('every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration',()=>{

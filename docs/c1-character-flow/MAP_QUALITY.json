@@ -1,0 +1,84 @@
+{
+  "schema": 1,
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "reviewed_paths": [
+    "dist/assets/c1-character-flow/merchant.png",
+    "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-natural-art.js",
+    "dist/core-v14.js",
+    "dist/game-v14.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/c1-character-flow/merchant.png",
+      "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+    },
+    {
+      "path": "docs/c1-character-flow/merchant-original.png",
+      "sha256": "97ef09c158214c6a6eb4b1a0ce7d206319786e16c7cde72225a40fb5c784c3ad"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "当前真实RPG九条moveActor路线到四门、四人和装置全部走通；实际碰撞图对照会馆截图，商人脚下可达，地图布局和碰撞未改。安全会馆没有战斗，本轮人物立绘不涉及野外实战。",
+        "evidence": [
+          {
+            "path": "docs/c1-character-flow/browser/QA.json",
+            "sha256": "11be9c8bc086b5813fa850fb0ff9da5033905073a7d7104c0fcf683265d4fceb"
+          },
+          {
+            "path": "docs/c1-character-flow/browser/hall-cells.json",
+            "sha256": "1ccacc7162c91e92f7a9faf1a22f246181ecf2dd15fba51f7424d931ce4563e6"
+          },
+          {
+            "path": "docs/c1-character-flow/browser/hall-collision.png",
+            "sha256": "47224a5ef360eccb4e3d0244845e2273b4561c3074f9640e4a34b139ff5aa304"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际会馆全景中商人在壁炉旁的原整备位置，机器、会客桌、书桌各有空间，四门和中央通路保持；新人物是携账本的常驻商人，没有发光背景或巨型展示。",
+        "evidence": [
+          {
+            "path": "docs/c1-character-flow/browser/hall.png",
+            "sha256": "71c004841b1144e2efd45fd956f41d2754614902133658d7b8ee7005b9c6db8f"
+          },
+          {
+            "path": "docs/c1-character-flow/browser/hall-collision.png",
+            "sha256": "47224a5ef360eccb4e3d0244845e2273b4561c3074f9640e4a34b139ff5aa304"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "逐图对照新原画、会馆角色、对白头像及货柜：同一栗色波浪长发、绿色裙装、白衬衣和成年女性五官；地图脚锚与原82像素成年身高保持。左右视图独立裁切、真透明边缘。该NPC固定站立，仅新增站姿及头像，不宣称新增行走或战斗帧。",
+        "evidence": [
+          {
+            "path": "docs/c1-character-flow/browser/hall.png",
+            "sha256": "71c004841b1144e2efd45fd956f41d2754614902133658d7b8ee7005b9c6db8f"
+          },
+          {
+            "path": "docs/c1-character-flow/browser/c1rosa-menu-390.png",
+            "sha256": "fd569589c8c85f1c04bfe7891b90130fcee6ac35b03a334ab4cbf1374cfa884f"
+          },
+          {
+            "path": "docs/c1-character-flow/browser/merchant-grid-1440.png",
+            "sha256": "3a8a1a839d666a149817f921416eae066cdfbce10d9d346cc8b1395806d004a2"
+          },
+          {
+            "path": "dist/assets/c1-character-flow/merchant.png",
+            "sha256": "4d27063dc1eb01abeb9dded89caaa692fc3c050146fe11febf8afd8737499e18"
+          }
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "编辑已分别查看实际画面、碰撞图和人物原画；用户审美评价仍待反馈。",
+    "本轮只更换会馆商人显示形象，不改变地图结构或战斗。"
+  ]
+}

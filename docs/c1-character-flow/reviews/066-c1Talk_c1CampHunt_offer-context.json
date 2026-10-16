@@ -1,0 +1,151 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1CampHunt_offer",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "b4757e9e54ab713de3c60ca6881042d5c09971548431673a046c4e6172dcddfe",
+  "before": [
+    [
+      "布莱克",
+      "等那两段路能走。磨坊的八只狼、废窑的八只夜蝠，一头堵取柴，一头堵回程，扛柴的人连手都腾不出来。"
+    ],
+    [
+      "诺恩",
+      "两边都得清。走哪条路能绕回来？"
+    ],
+    [
+      "布莱克",
+      "营地北边直通磨坊，东边经窑工院去废窑，能绕一圈。你把两处各八只清掉，回来叫我，我们才好去接人收柴。"
+    ],
+    [
+      "诺恩",
+      "我先看路，你让他们留在安全的地方等。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "blake",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/blake.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "补足营地清路来意，保持工人无空手防兽的困难和环路信息。",
+    "relationship": {
+      "participants": [
+        "布莱克",
+        "诺恩"
+      ],
+      "judgment": "补足营地清路来意，保持工人无空手防兽的困难和环路信息。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "b4757e9e54ab713de3c60ca6881042d5c09971548431673a046c4e6172dcddfe",
+      "event": {
+        "id": "R01:c1Talk_c1CampHunt_offer",
+        "scene": "c1Talk_c1CampHunt_offer",
+        "order": 102,
+        "summary": "布莱克：柴车都停着呢。磨坊有八只狼，废窑有八只夜蝠，一头堵着取柴，一头堵着回程。扛柴的人哪腾得出手对付它们。；诺恩：两边都得清。走哪条路能绕回来？；布莱克：营地北边直通磨坊，东边经窑工院去废窑，能绕一圈。你把两处各八只清掉，回来叫我，我们才好去接人收柴。；诺恩：好，你们在这里等消息。",
+        "participants": [
+          "blake",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1CampHunt_offer",
+          "runtime-c1-actions",
+          "character-flow:c1Talk_c1CampHunt_offer"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "blake",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1CampHunt_offer",
+        "scene": "c1Talk_c1CampHunt_offer",
+        "order": 102,
+        "summary": "布莱克：柴车都停着呢。磨坊有八只狼，废窑有八只夜蝠，一头堵着取柴，一头堵着回程。扛柴的人哪腾得出手对付它们。；诺恩：两边都得清。走哪条路能绕回来？；布莱克：营地北边直通磨坊，东边经窑工院去废窑，能绕一圈。你把两处各八只清掉，回来叫我，我们才好去接人收柴。；诺恩：好，你们在这里等消息。",
+        "participants": [
+          "blake",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_c1CampHunt_offer",
+          "runtime-c1-actions",
+          "character-flow:c1Talk_c1CampHunt_offer"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "blake",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_C1CAMPHUNT_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

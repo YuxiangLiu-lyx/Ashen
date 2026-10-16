@@ -63,7 +63,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    const guard='if(isStoryTestV25(this))n=Math.max(1,n,e.hp);',source=data.toString();
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
    let original=source.replace(guard,'');
-   for(const fragment of ["import {installEncounterRestraint} from './encounter-restraint.js';\n","installEncounterRestraint(RPG);\n","import {installC1Trial} from './chapter-one-trial-runtime.js';\n","\ninstallC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';\n","\ninstallDialogueCopyedits(DIALOGUES);\n"]){assert.equal(original.split(fragment).length,2);original=original.replace(fragment,'');}
+   for(const fragment of ["import {installC1Conversations} from './chapter-one-conversations.js';\n","installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installEncounterRestraint} from './encounter-restraint.js';\n","installEncounterRestraint(RPG);\n","import {installC1Trial} from './chapter-one-trial-runtime.js';\n","\ninstallC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';\n","\ninstallDialogueCopyedits(DIALOGUES);\n"]){assert.equal(original.split(fragment).length,2);original=original.replace(fragment,'');}
    const spoken=DIALOGUE_COPYEDITS.find(e=>e.key==='spoken:dist/core-v14.js:3');assert.equal(original.split(spoken.after[0][1]).length,2);original=original.replace(spoken.after[0][1],spoken.before[0][1]);
    // 1.0 fixes invalid overkill saves; no other original damage behavior changes.
    assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);

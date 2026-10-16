@@ -3,7 +3,8 @@ import {C1_PEOPLE} from './chapter-one-story-world.js';
 // across a different object's region. Original alpha and image files stay intact.
 const regions=[[0,0,620,315],[625,0,590,315],[1230,0,306,315],[0,320,620,310],[625,320,590,310],[1220,320,316,335],[0,645,615,379],[620,660,420,364],[1060,665,476,359]];
 export function installC1NaturalFrames(bank,name,data){let cells;
- if(name==='c1Scenery')cells=regions;
+ if(name==='c1Merchant')cells=[[0,0,600,data.height],[610,0,data.width-610,data.height]];
+ else if(name==='c1Scenery')cells=regions;
  else if(name==='c1UnderPortraits')cells=[[0,0,512,1024],[527,0,477,1024],[1024,0,512,1024]];
  else if(name==='c1QuestMarks')cells=Array.from({length:3},(_,i)=>[i*data.width/3,0,data.width/3,data.height].map(Math.floor));
  else if(name==='c1Walls')cells=[[0,0,512,340],[512,0,512,340],[0,340,512,605],[512,340,512,605],[0,950,512,586],[512,950,512,586]];
@@ -22,7 +23,7 @@ export function drawC1QuestMark(c,bank,mark,x,y){
  c.drawImage(cache[mark],x-12*f.w/f.h,y-24,24*f.w/f.h,24);
 }
 export function drawC1LocalPerson(c,a,bank){const p=C1_PEOPLE[a.id];if(!p)return false;const cosine=Math.cos(a.angle||0),side=!a.moving&&Math.abs(cosine)>.8,back=Math.sin(a.angle||0)<-.25,ix=p.index+(side?3:(back?4:0)+(a.moving?1+Math.floor((a.walkDistance||0)/23)%2:0)),f=bank.frame(p.sheet,ix),ref=bank.frame(p.sheet,p.index);if(!f||!ref)return false;const k=82/ref.h;c.save();c.translate(a.x,a.y);if(side&&(cosine<0)!==(p.sheet==='c1UnderNPC'&&p.index!==8))c.scale(-1,1);c.imageSmoothingEnabled=true;c.drawImage(bank.images[p.sheet],f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k,f.w*k,f.h*k);c.restore();return true;}
-export function c1LocalPortrait(bank,name){const p=name==='罗萨'?{sheet:'c1Artisans',index:0}:Object.values(C1_PEOPLE).find(p=>p.name===name);if(!p)return null;if(p.sheet==='c1UnderNPC'&&bank.frame('c1UnderPortraits',p.index/8))return bank.cropped('c1UnderPortraits',p.index/8);const key='c1Portrait:'+name;if(bank.urls[key])return bank.urls[key];const f=bank.frame(p.sheet,p.index);if(!f)return null;const c=document.createElement('canvas');c.width=180;c.height=200;const k=f.h*.43,w=k*.9;c.getContext('2d').drawImage(bank.images[p.sheet],f.x+(f.w-w)/2,f.y,w,k,0,0,180,200);return bank.urls[key]=c.toDataURL();}
+export function c1LocalPortrait(bank,name){if(['商人','罗萨'].includes(name)&&bank.frame('c1Merchant',1))return bank.cropped('c1Merchant',1);const p=name==='罗萨'?{sheet:'c1Artisans',index:0}:Object.values(C1_PEOPLE).find(p=>p.name===name);if(!p)return null;if(p.sheet==='c1UnderNPC'&&bank.frame('c1UnderPortraits',p.index/8))return bank.cropped('c1UnderPortraits',p.index/8);const key='c1Portrait:'+name;if(bank.urls[key])return bank.urls[key];const f=bank.frame(p.sheet,p.index);if(!f)return null;const c=document.createElement('canvas');c.width=180;c.height=200;const k=f.h*.43,w=k*.9;c.getContext('2d').drawImage(bank.images[p.sheet],f.x+(f.w-w)/2,f.y,w,k,0,0,180,200);return bank.urls[key]=c.toDataURL();}
 
 
 // Crop the last wall section to its remaining length rather than squeezing a

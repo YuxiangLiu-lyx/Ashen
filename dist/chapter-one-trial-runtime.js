@@ -1,3 +1,4 @@
+import {sortQuestOptions} from './quest-service-v14.js';
 import {CINEMATIC_SCENES} from './cinematics-v14.js';
 import {migrateTrialSave} from './chapter-one-trial-save.js';
 import {C1_TRIAL_DIALOGUES} from './chapter-one-trial-dialogues.js';
@@ -73,7 +74,7 @@ export function installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){
   if(id==='c1iden'&&!s.legacy)rows=rows.filter(x=>x.action!=='c1:claim:c1ExitDrill');
   if(id==='c1rosa'){rows=rows.map(x=>x.action==='c1:shop'?{...x,label:s.approved?'看看这次到的符文和药水。':'看看药水。'}:x);add('会馆这台装置能做什么？','trial:supplies');}
   if(this.map==='town'&&this.chapter===2&&['dolly','woman'].includes(id))add('问问圣女在街坊的事。',id==='dolly'?'trial:dolly':'trial:lena');
-  return rows;
+  return sortQuestOptions(this,id,rows);
  };
  P.choose=function(action){if(this.pending||this.transition||this.p.hp<=0)return false;
   if(action==='contractAccept'&&this.chapter===1&&!prep(this).legacy){if(!prep(this).started)this.beginScene('c1TrialInvitation','trial:start');else if(this.c1TrialComplete())this.beginScene('c1TrialReport','trial:report');else this.beginScene('c1TrainingReason');return true;}

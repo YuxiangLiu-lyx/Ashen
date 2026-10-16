@@ -1,0 +1,1592 @@
+{
+  "schema": 1,
+  "id": "c1-character-flow-20261016",
+  "goal": "第一章全文对白与闲聊自然化、保留人物性格；薇蕾娜姐姐式关心调侃与逐轮试炼交接；任务优先；商人美化并统一称商人",
+  "acceptance": [
+    "第一章全部当前对白逐场审读及前后对照；任务选项始终早于闲聊；试炼逐轮指引且旧档兼容；固定女性商人地图头像一致；相关测试集成、真实截图和默认试玩包通过，真人文风待验"
+  ],
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-16T04:24:47.772800+00:00",
+  "updated_at_utc": "2026-10-16T06:27:24.976214+00:00",
+  "decisions": [
+    "采用第一章1.5增量稿；覆盖整章所有对白，保留战斗经济和后章；逐轮试炼单独做事件审查",
+    "保全润色使用copyedit门禁；试炼揭露顺序、商人显示名及少数内容调整另用正常事件七维审查，非以copyedit授权新增事实。",
+    "用户已确认男主沿用诺恩；真人文风、审美和节奏独立待验"
+  ],
+  "completed": [
+    "Git远端已同步；真实全语料基线、技能、人物与风格范例已核对",
+    "263个第一章文本变体逐场审读，142场295行改写；25场采用正常事件审查；商人新资产与任务优先排序接入；实际菜单交易和九条会馆移动路线通过",
+    "完整263场文本审读及142场修改已落盘；来源、角色、事件与商人残留显示名已核对",
+    "最终67 Harness、52专项、225核心及完整集成通过；263场1020页三视口、会馆三维与默认离线/HTTP/手机包通过；5174逐字节核对"
+  ],
+  "remaining": [
+    "GitHub main保存并核验远端"
+  ],
+  "blockers": [],
+  "next": "审查差异、提交推送和归档回执",
+  "required_checks": [
+    "fast",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "dialogue-and-flow",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-character-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T04:46:36.552342+00:00",
+      "finished_at_utc": "2026-10-16T04:47:06.164090+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "ec712134f5d0c0102b436811bf1fdfd252b4c3e51b748840d7e9f7c416274918",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/001-dialogue-and-flow.txt",
+      "output_sha256": "a751ae9d2fd61f25a2c1628c677640e50b4a00d2594a17829317b73093aad6d0",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "merchant-menu-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T04:49:50.627839+00:00",
+      "finished_at_utc": "2026-10-16T04:50:24.723450+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "ab72547c3b25b8edcf08af018519f21d8396146a9de39f0753f5acbc0a0686b8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/002-merchant-menu-browser.txt",
+      "output_sha256": "ef4b3a6dce09ff01d4edf40288af0eb9097e14f5974a685ebf016f4e152984bb",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "baseline-provenance",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/check_baseline.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T04:54:58.216520+00:00",
+      "finished_at_utc": "2026-10-16T04:56:49.648345+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "d97a407e428cf08f7a2be0f3b2f752e2f179795f4839938bb0e2bcea81370b40",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/003-baseline-provenance.txt",
+      "output_sha256": "a214b6b526139b96a1ee29808014527dbf6fea1a40b2e36451bfd06218b16047",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "merchant-menu-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T04:56:49.721807+00:00",
+      "finished_at_utc": "2026-10-16T04:56:55.206123+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "d97a407e428cf08f7a2be0f3b2f752e2f179795f4839938bb0e2bcea81370b40",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/004-merchant-menu-browser.txt",
+      "output_sha256": "abb7b6c533f46b7bba7ebe1de4157e31d5ef7fdf24f35269c5ba1f7783e17c68",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "merchant-menu-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:00:21.705572+00:00",
+      "finished_at_utc": "2026-10-16T05:00:41.398544+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "6f82c606c8592c1cf5f41f757554b40054a20393acdde804e359746d91df0c00",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/005-merchant-menu-browser.txt",
+      "output_sha256": "39f4d577093fc159067c112ff8d713c3fdc117ca4edebbb23b8a7b06e4fa7c53",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "docs/c1-character-flow/verify_current.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:23:34.419854+00:00",
+      "finished_at_utc": "2026-10-16T05:23:34.648085+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "6079c670f22c72b80c1f67c59939fa09d705dceda6c948e0205ca314912a3d50",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/006-producer-current.txt",
+      "output_sha256": "036b9848381a6f6b8069c808caeb53a84fd04bf8eb7a15828e1b3e115ee3b281",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "chapter-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:23:34.722443+00:00",
+      "finished_at_utc": "2026-10-16T05:24:32.663812+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "6079c670f22c72b80c1f67c59939fa09d705dceda6c948e0205ca314912a3d50",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/007-chapter-browser.txt",
+      "output_sha256": "39f4d577093fc159067c112ff8d713c3fdc117ca4edebbb23b8a7b06e4fa7c53",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-16T05:27:00.081431+00:00",
+      "finished_at_utc": "2026-10-16T05:29:42.432087+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "2498262dbc62902b91df95cf536d01eeb30e23990abfe97d641976536279ffce",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/008-fast.txt",
+      "output_sha256": "0990571ac3e7a189239613e5de15545877ce3891d9b3fbc54f1860a606cdcac2",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "docs/c1-character-flow/verify_current.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:31:13.898561+00:00",
+      "finished_at_utc": "2026-10-16T05:31:14.126573+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "328da6bf984ea9d5cc71abb1bbddbb3922e408ece75414cc203424315fd605ca",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/009-producer-current.txt",
+      "output_sha256": "036b9848381a6f6b8069c808caeb53a84fd04bf8eb7a15828e1b3e115ee3b281",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:31:14.201088+00:00",
+      "finished_at_utc": "2026-10-16T05:32:09.941744+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "328da6bf984ea9d5cc71abb1bbddbb3922e408ece75414cc203424315fd605ca",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/010-fast.txt",
+      "output_sha256": "6a677664a47cda286ffd6567572e2ad94738366d755c08dee6b74d9b960fc497",
+      "timeout_seconds": 400.0
+    },
+    {
+      "label": "dialogue-and-flow",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-character-flow.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-care-ui.test.mjs",
+        "tests/encounter-restraint.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:32:10.017794+00:00",
+      "finished_at_utc": "2026-10-16T05:32:11.128972+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "328da6bf984ea9d5cc71abb1bbddbb3922e408ece75414cc203424315fd605ca",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/011-dialogue-and-flow.txt",
+      "output_sha256": "08f622ee14017bb86935f1939c0d03cd5d19901efc09740a22ebeb497a33af3c",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "dialogue-and-flow",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-character-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:48:30.665931+00:00",
+      "finished_at_utc": "2026-10-16T05:48:32.820925+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "328da6bf984ea9d5cc71abb1bbddbb3922e408ece75414cc203424315fd605ca",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/012-dialogue-and-flow.txt",
+      "output_sha256": "86d92adb065eae7d0540ac110304be72f5d0ffdeb9808c490c1ea7ad1d8f4185",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:48:32.897676+00:00",
+      "finished_at_utc": "2026-10-16T05:57:31.388595+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "328da6bf984ea9d5cc71abb1bbddbb3922e408ece75414cc203424315fd605ca",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/013-integration.txt",
+      "output_sha256": "78cd838bee15e982a0b984cbfb3559d5bd6ac7c9378e79bd5a507dd7ec8d51ee",
+      "timeout_seconds": 1600.0
+    },
+    {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "docs/c1-character-flow/verify_current.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:04:48.394746+00:00",
+      "finished_at_utc": "2026-10-16T06:04:48.589927+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/014-producer-current.txt",
+      "output_sha256": "036b9848381a6f6b8069c808caeb53a84fd04bf8eb7a15828e1b3e115ee3b281",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:04:48.664815+00:00",
+      "finished_at_utc": "2026-10-16T06:05:38.383664+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/015-fast.txt",
+      "output_sha256": "ec80f25b28f59811d47e669b00137e4bbe9b7bc34c0446c6c83c5223b8370ea0",
+      "timeout_seconds": 400.0
+    },
+    {
+      "label": "dialogue-and-flow",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-character-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:05:38.459428+00:00",
+      "finished_at_utc": "2026-10-16T06:05:40.616974+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/016-dialogue-and-flow.txt",
+      "output_sha256": "614ab5fab068b7458a3533337673f318e6d57eaac79f29718df399f57d5a520d",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:05:40.695085+00:00",
+      "finished_at_utc": "2026-10-16T06:14:22.253607+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/017-integration.txt",
+      "output_sha256": "91a96e74386252061625a1ba0020ab234aae371e0b5013bfa149149da9ddd048",
+      "timeout_seconds": 1600.0
+    },
+    {
+      "label": "chapter-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:14:22.364091+00:00",
+      "finished_at_utc": "2026-10-16T06:15:20.341522+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/018-chapter-browser.txt",
+      "output_sha256": "39f4d577093fc159067c112ff8d713c3fdc117ca4edebbb23b8a7b06e4fa7c53",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "package",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/build_package.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:15:20.437818+00:00",
+      "finished_at_utc": "2026-10-16T06:20:09.009112+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/019-package.txt",
+      "output_sha256": "f7f421eaa7d2d3ae935dd40edea441f7913e46c88db61c377cc8be8e4f3831d0",
+      "timeout_seconds": 1300.0
+    },
+    {
+      "label": "default-build",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/promote.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:23.675972+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.239164+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/020-default-build.txt",
+      "output_sha256": "69c305de144811a3710aa027b3da73258125e37ffdc7a5261b8173f7f350c1e1",
+      "timeout_seconds": 180.0
+    },
+    {
+      "label": "local-server",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:24.315367+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.537088+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/021-local-server.txt",
+      "output_sha256": "7e40b17040dd170b83160a7e8e0596f4e02709067ff511083fe4680395f39cf9",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "875c1855d37b398d2ca4a8b83586037553a5399d"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:24.617020+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.838817+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/022-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T06:04:48.260444+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/rosa.json\n M source/narrative/characters/vilerena.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? dist/assets/c1-character-flow/\n?? dist/chapter-one-conversations-data.js\n?? dist/chapter-one-conversations.js\n?? docs/c1-character-flow/\n?? docs/harness/CHAPTER_01_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-character-flow-20261016/\n?? source/tasks/active/c1-character-flow-20261016.json\n?? tests/browser-c1-character-flow.mjs\n?? tests/c1-character-flow.test.mjs"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T05:23:34.281097+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "6079c670f22c72b80c1f67c59939fa09d705dceda6c948e0205ca314912a3d50",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M docs/harness/CHAPTER_01.md\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/rosa.json\n M source/narrative/characters/vilerena.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? dist/assets/c1-character-flow/\n?? dist/chapter-one-conversations-data.js\n?? dist/chapter-one-conversations.js\n?? docs/c1-character-flow/\n?? docs/harness/CHAPTER_01_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-character-flow-20261016/\n?? source/tasks/active/c1-character-flow-20261016.json\n?? tests/browser-c1-character-flow.mjs\n?? tests/c1-character-flow.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T06:27:24.888071+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "worktree": "M .codex/progress.md\n M AGENTS.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/game-v14.js\n M docs/harness/CHAPTER_01.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/characters/noen.json\n M source/narrative/characters/rosa.json\n M source/narrative/characters/vilerena.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/c1-story-flow.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n?? dist/assets/c1-character-flow/\n?? dist/chapter-one-conversations-data.js\n?? dist/chapter-one-conversations.js\n?? docs/c1-character-flow/\n?? docs/harness/CHAPTER_01_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-character-flow-20261016/\n?? source/tasks/active/c1-character-flow-20261016.json\n?? tests/browser-c1-character-flow.mjs\n?? tests/c1-character-flow.test.mjs"
+    }
+  ],
+  "narrative_mode": "copyedit",
+  "narrative_reviews": [
+    {
+      "context": "docs/c1-character-flow/reviews/000-c1TrialInvitation-context.json",
+      "context_sha256": "fa42bbc29663f7ae6adbf54c85667bb3faed1d8afdb7a3c6b204b196bc914582",
+      "draft": "docs/c1-character-flow/reviews/000-c1TrialInvitation-draft.json",
+      "draft_sha256": "1f2e430e7842a912fb68f59dae908a6ef314a69de9a5c79544c9ef5b257394b0",
+      "review": "docs/c1-character-flow/reviews/000-c1TrialInvitation-review.json",
+      "review_sha256": "ca39844af47f40ee624dc3c4dc87f74ce1f46905f781b4156a2cce07f49225aa"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/001-c1TrainingReason-context.json",
+      "context_sha256": "cdba5a986ec7b8fe95f1714f8716b8488233a924958045c1be81701379930434",
+      "draft": "docs/c1-character-flow/reviews/001-c1TrainingReason-draft.json",
+      "draft_sha256": "d659f67ddc49f03e2a7f1a0e1e397c6ab66de05251f736803b6b89d2ee6adff4",
+      "review": "docs/c1-character-flow/reviews/001-c1TrainingReason-review.json",
+      "review_sha256": "4596e0a3ca71e176713879c3cc0d9782073c8c209d10baff1261b76ac3fa94b8"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/002-c1Talk_c1Readiness_offer-context.json",
+      "context_sha256": "0a892f7e53028d22246f005a594e9dd021513780852e02a35719e2b145a59308",
+      "draft": "docs/c1-character-flow/reviews/002-c1Talk_c1Readiness_offer-draft.json",
+      "draft_sha256": "a0626943dfc4f9534d1110deca64f21e5ece103412c431133f08df7ad5488ce6",
+      "review": "docs/c1-character-flow/reviews/002-c1Talk_c1Readiness_offer-review.json",
+      "review_sha256": "2c84a2397f58a96f3ff5f2c40bb4aba9d6c999f405cac90e05261e7a43f2de29"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/003-c1Talk_c1Readiness_progress-context.json",
+      "context_sha256": "4a64395bf6c936415f02d53b04c65a03502a4a171d3d028ce79a4c24f2318f27",
+      "draft": "docs/c1-character-flow/reviews/003-c1Talk_c1Readiness_progress-draft.json",
+      "draft_sha256": "5ac677bd17f62ca07ad0d836640f66dd4efdb76a01a22094f768076c0228a17e",
+      "review": "docs/c1-character-flow/reviews/003-c1Talk_c1Readiness_progress-review.json",
+      "review_sha256": "a533b756f10fcdb29179797a76f661c1eebf89d9c1840a7610a2070009b3b897"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/004-c1Talk_c1Readiness_report-context.json",
+      "context_sha256": "cc5ebbfb81bc4798c648424c7f9e830788eda3dc03f965bee26530041a8b97c5",
+      "draft": "docs/c1-character-flow/reviews/004-c1Talk_c1Readiness_report-draft.json",
+      "draft_sha256": "455ffdc11c3a24942c190218b886eab4e28d65d470016e475353ba1a48f60874",
+      "review": "docs/c1-character-flow/reviews/004-c1Talk_c1Readiness_report-review.json",
+      "review_sha256": "3e1de904e700504a61f4417d20f8cfebda2223fbe45f7675f7e4d4a4f62706ab"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/005-c1Talk_c1ExitDrill_offer-context.json",
+      "context_sha256": "9551f554eb43def42ba62e3d7e052f67fa72db91bbcfbb8d6e627814be8af9c5",
+      "draft": "docs/c1-character-flow/reviews/005-c1Talk_c1ExitDrill_offer-draft.json",
+      "draft_sha256": "6f3768b3b056e6e184dd78f413dc6c0e42293733a0f728dbc4bb2cfe2aa21155",
+      "review": "docs/c1-character-flow/reviews/005-c1Talk_c1ExitDrill_offer-review.json",
+      "review_sha256": "6951da31570169f995c58f8743447e9577a2d74d8363eacab8fac2f5f8a50dd7"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/006-c1Talk_c1ExitDrill_progress-context.json",
+      "context_sha256": "3f2b25238d3fe34a29752579b59e38ec0a5be1827a5384ab7b9b469de4f1944a",
+      "draft": "docs/c1-character-flow/reviews/006-c1Talk_c1ExitDrill_progress-draft.json",
+      "draft_sha256": "5e67af974c486b8f46c10043c289ab2e43b01649883dee4795f9401083307deb",
+      "review": "docs/c1-character-flow/reviews/006-c1Talk_c1ExitDrill_progress-review.json",
+      "review_sha256": "88c9526d394d6bbb3b0e7f5538fbc1d36ecc543e86672739090c655d44e1be6b"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/007-c1Talk_c1ExitDrill_report-context.json",
+      "context_sha256": "09e1c924c01a209d756726dffe55e57d6a6eaf632a69ad985988f71dd840c345",
+      "draft": "docs/c1-character-flow/reviews/007-c1Talk_c1ExitDrill_report-draft.json",
+      "draft_sha256": "77a4d70057c0143f870f27a948d09776593bf7090e537565a94d4feefff62672",
+      "review": "docs/c1-character-flow/reviews/007-c1Talk_c1ExitDrill_report-review.json",
+      "review_sha256": "5c2c6baf4e512b741b5bff6f83f96d6b86a3f1b7691035ee30142d6d7b5bea77"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/008-c1TrialReport-context.json",
+      "context_sha256": "7936fead356ea46d23478c714bd77037b749b9b31593c83b91ff463270e23309",
+      "draft": "docs/c1-character-flow/reviews/008-c1TrialReport-draft.json",
+      "draft_sha256": "c37e1640d06a8cbbfe440f9e4b41245cb42352c422a5589e56fee5eaa3d28cbe",
+      "review": "docs/c1-character-flow/reviews/008-c1TrialReport-review.json",
+      "review_sha256": "00e3566896c2c8b8e3c82088897cbae5edd91d86ff784def09811a5fb8cead7c"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/009-sisterIdle-context.json",
+      "context_sha256": "9799570d7de72e2a85642a20ecec266ffb8ff31141d9b69bd8219df76ac26cbc",
+      "draft": "docs/c1-character-flow/reviews/009-sisterIdle-draft.json",
+      "draft_sha256": "b0d21baea21a713acc1468cb8e5981d9480641a4748f0e9d29ca9f21518f92db",
+      "review": "docs/c1-character-flow/reviews/009-sisterIdle-review.json",
+      "review_sha256": "d441394432d17224e95d63a48d23ba627318aced63c2448c66779e3f21dd6f5a"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/010-sisterBeforeDeparture-context.json",
+      "context_sha256": "1076bed9d4650bf9475b381573880d1327e6a1affe8a717c53ec63a3a640d70a",
+      "draft": "docs/c1-character-flow/reviews/010-sisterBeforeDeparture-draft.json",
+      "draft_sha256": "c5fc5de7f5a59d545bd5eca45ff621ae4ca9c4b37738068041393706f5bfe88e",
+      "review": "docs/c1-character-flow/reviews/010-sisterBeforeDeparture-review.json",
+      "review_sha256": "0563e199443c29a49be44a1e23700b8d765cc3afdf993d90243e260cd9a7b865"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/011-farewellSister-context.json",
+      "context_sha256": "cf76fcdb4ce8f58455ba2d235868112c1e7aa92b62eab1d98024892356bb9841",
+      "draft": "docs/c1-character-flow/reviews/011-farewellSister-draft.json",
+      "draft_sha256": "eb274b571198ed4fd4fa6a33ca488a9a99a6b3621fc5226a6dc2a4ba824a0982",
+      "review": "docs/c1-character-flow/reviews/011-farewellSister-review.json",
+      "review_sha256": "6f57f7c360722ececaf2bb289e0fc2602bc85da46b5351b64bb19687a50ac3bc"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/012-ch1SisterBoots-context.json",
+      "context_sha256": "1124c4b0f3b16120132abc252b90c2846b3fc2d24b37a2444e8ee9c74effbc4b",
+      "draft": "docs/c1-character-flow/reviews/012-ch1SisterBoots-draft.json",
+      "draft_sha256": "09199ff01fffb8191ebe37a04b3d35fd3872b14125620bc6f03c9bc9dc1b0aed",
+      "review": "docs/c1-character-flow/reviews/012-ch1SisterBoots-review.json",
+      "review_sha256": "253110a3c0bbca3279d843965001d415d3b7b494f699a68fe853c9f3c1f9ec19"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/013-ambient_sister_beforeAssassination-context.json",
+      "context_sha256": "ec6dc06f2479ac45c3d02f4c3bbf32a1700c8173b82e961ec84dbcc244ac3ca4",
+      "draft": "docs/c1-character-flow/reviews/013-ambient_sister_beforeAssassination-draft.json",
+      "draft_sha256": "1519cd778a3434d9f3e5d7cd7c3911718f2d70dbddf06a0e79f3d5e09b7fa64f",
+      "review": "docs/c1-character-flow/reviews/013-ambient_sister_beforeAssassination-review.json",
+      "review_sha256": "896137fa3cbde586af272f89af5254852c6e3ec7b2b340d1267bd8eaa66e3239"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/014-ambient_sister_afterAssassination-context.json",
+      "context_sha256": "c0d4b8aa7854903f419772361a0555c76e7af5e52542681f3baad049b76dc1f0",
+      "draft": "docs/c1-character-flow/reviews/014-ambient_sister_afterAssassination-draft.json",
+      "draft_sha256": "046774987774a0dc0f3e53b7419335950c4b071578a07530f590499be7c0e008",
+      "review": "docs/c1-character-flow/reviews/014-ambient_sister_afterAssassination-review.json",
+      "review_sha256": "68b1e7d987fab0723d58cce57bf9e50edd1db3aa4bfbfa740c39c69ffd57f5d8"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/015-ambient_sister_chapterComplete-context.json",
+      "context_sha256": "1dd8cfdd121d65e4e9b04e900b75fb6ddbe4ae4d924c6a87578fa59764eff4bd",
+      "draft": "docs/c1-character-flow/reviews/015-ambient_sister_chapterComplete-draft.json",
+      "draft_sha256": "8503875fc99e5acd6bf684cd435ee8819aae2a0c9788fa0a36726e99293bff52",
+      "review": "docs/c1-character-flow/reviews/015-ambient_sister_chapterComplete-review.json",
+      "review_sha256": "ece7059a8109a7ec1bc2e66ba212ba00cb1070c7e1465a461a60cac795044294"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/016-sisterAfterBell-context.json",
+      "context_sha256": "7f7993bf66651a64385185a2133050b86b8f545667161b9f5322d985012597ba",
+      "draft": "docs/c1-character-flow/reviews/016-sisterAfterBell-draft.json",
+      "draft_sha256": "1b0169f2a44cb0f14d63f4d83f9bf17809973299f27a5a2dee5f456a089f1e07",
+      "review": "docs/c1-character-flow/reviews/016-sisterAfterBell-review.json",
+      "review_sha256": "1b2e542d7a78f5c1665e55e49f05fb47b5c6e70581d957d9958658979f5b37de"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/017-contract-context.json",
+      "context_sha256": "3ce055bf38b628140119aaf15e089e43cf2562cdcd6e0cdeeae978caeb008af5",
+      "draft": "docs/c1-character-flow/reviews/017-contract-draft.json",
+      "draft_sha256": "85d5d6a5474f0b259b61b6d8deb8f03f5a22e2b01de15ddde320953248fa9f07",
+      "review": "docs/c1-character-flow/reviews/017-contract-review.json",
+      "review_sha256": "6e47610888042f4dc399a1716559276da19fc912375cc9b547b9edd7ff66e7b6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/018-intro-context.json",
+      "context_sha256": "2549c5e68481d4ea31d44a16cec331e7fd410aec9dd4f024b4ee55502acdf0f3",
+      "draft": "docs/c1-character-flow/reviews/018-intro-draft.json",
+      "draft_sha256": "bda6473bb679fd5c32dc5e70e40fc5edc8e9345f78bf863debb6de17fdc9b8ce",
+      "review": "docs/c1-character-flow/reviews/018-intro-review.json",
+      "review_sha256": "e3ac8c64071dfb32b5a88a69ebc5792b5812fd11918d9b46c3df8ef32c0ae207"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/019-ratAccept-context.json",
+      "context_sha256": "d51294b674395e5738f547399bf32b6f9ab38fc21cdcf9e4123bdc78b157da2b",
+      "draft": "docs/c1-character-flow/reviews/019-ratAccept-draft.json",
+      "draft_sha256": "2b8063f8fab2fa53af3c98db75ba1f39792901bb32c360e022d1d7767304a5a4",
+      "review": "docs/c1-character-flow/reviews/019-ratAccept-review.json",
+      "review_sha256": "b80c7e17da7d4217bc0fbabded713c950f6e852127d27db39b4dacdb2c6e19f3"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/020-ratDone-context.json",
+      "context_sha256": "992d70f99d85bca48502d694e6863094b291b2dc4df05cb4170aaa58fcb98dd2",
+      "draft": "docs/c1-character-flow/reviews/020-ratDone-draft.json",
+      "draft_sha256": "ba67073adcd601a6410520a939c060df4f2712b2f872f7e18831424efd7bfe45",
+      "review": "docs/c1-character-flow/reviews/020-ratDone-review.json",
+      "review_sha256": "c75faf11956e65b246835bb00964aa7fcc22f70003a91fbe4e0b09bd0e0d19eb"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/021-clerkIdle-context.json",
+      "context_sha256": "d28d5a99f5590ad72946b11b152764079fffd2fa39081a8457f02757cebd071a",
+      "draft": "docs/c1-character-flow/reviews/021-clerkIdle-draft.json",
+      "draft_sha256": "dc3b1883239827a269b06ac89e7246b1027fe03639f1ca22a513769a6dc3d333",
+      "review": "docs/c1-character-flow/reviews/021-clerkIdle-review.json",
+      "review_sha256": "39b001e6c1a8121262e313f5d7bd34e6b3c851746701c9b2cd78dcd790f5e203"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/022-ambient_clerk_beforeAssassination-context.json",
+      "context_sha256": "5eaefe80cf8a313684d319592bd71852dff1af92c303d3af74762cbaaf0e9b93",
+      "draft": "docs/c1-character-flow/reviews/022-ambient_clerk_beforeAssassination-draft.json",
+      "draft_sha256": "95c3943f86299934546d1e455a8f0ec33fb50ee85194398865f862cf0990308d",
+      "review": "docs/c1-character-flow/reviews/022-ambient_clerk_beforeAssassination-review.json",
+      "review_sha256": "9be41eb9bd3cc9abc0a995e543dabca1d9cdad0eac2d73844806d3a0960002fe"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/023-ambient_clerk_chapterComplete-context.json",
+      "context_sha256": "5f0c7f75dcace2a336247517a788aaa90e9101525c66ed4a9ffb547b9c701731",
+      "draft": "docs/c1-character-flow/reviews/023-ambient_clerk_chapterComplete-draft.json",
+      "draft_sha256": "c0f247b117e427ad4c23f056f7dedbc1e1d0cd47b0438ad821783bd65eea3f5b",
+      "review": "docs/c1-character-flow/reviews/023-ambient_clerk_chapterComplete-review.json",
+      "review_sha256": "c48cac0d377f93f8146082d2bea0ca99079b62beb22936de556c22ef4565262f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/024-ambient_steward_afterAssassination-context.json",
+      "context_sha256": "7ecbe05d04b92993f3f0ad28fb9f96a7dfd884058225a53b2c53d6321df329c5",
+      "draft": "docs/c1-character-flow/reviews/024-ambient_steward_afterAssassination-draft.json",
+      "draft_sha256": "822b56c6959a19b88629173e01a32c6151ba78cbcbeb3cf9336f4ee7a8a6e667",
+      "review": "docs/c1-character-flow/reviews/024-ambient_steward_afterAssassination-review.json",
+      "review_sha256": "4bd8c72622c373e6f08a1c91f680257637f9da1e678ae3bc7c7a6ed10f116fdd"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/025-ambient_courier_afterAssassination-context.json",
+      "context_sha256": "e8738c56d2f783f36847cca0136815f2748b7717e10f62f2a136067ca1f75fc6",
+      "draft": "docs/c1-character-flow/reviews/025-ambient_courier_afterAssassination-draft.json",
+      "draft_sha256": "3b488f12244fdbacd01a3355d603ce4d2ced653f1b8d119c92e2d590ceb3ca3c",
+      "review": "docs/c1-character-flow/reviews/025-ambient_courier_afterAssassination-review.json",
+      "review_sha256": "35e2f2058bc120e15d0ba783acbdb0747fe8c464fc93d25961e3cb0c51c9a00e"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/026-ambient_woman_chapterComplete-context.json",
+      "context_sha256": "9cc15a51734afb58caafed2c9bcb400a43fd0f86006da6e9a98c500e526f01a0",
+      "draft": "docs/c1-character-flow/reviews/026-ambient_woman_chapterComplete-draft.json",
+      "draft_sha256": "d1477ab976d425e2b12c4a00e9e7624f5f067ef199390eecf8f4468e6ef9725e",
+      "review": "docs/c1-character-flow/reviews/026-ambient_woman_chapterComplete-review.json",
+      "review_sha256": "dcd6adbaf2aff4b9cab7bb68a1683aafe4f5522a17f3e9fa1c7c394790190f10"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/027-ambient_oldwoman_chapterComplete-context.json",
+      "context_sha256": "45426d1787676f9534208c37232979ac010ad6ea677f1c66c87ee262e8a4c148",
+      "draft": "docs/c1-character-flow/reviews/027-ambient_oldwoman_chapterComplete-draft.json",
+      "draft_sha256": "a1d970b1c606ca0f84099dc97c59a4b091104b631c744af37b2d29394d357ce4",
+      "review": "docs/c1-character-flow/reviews/027-ambient_oldwoman_chapterComplete-review.json",
+      "review_sha256": "c4656ca51b82dc131f376d018c33110897175224bd4362936b76367b9028de2f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/028-ambient_watch_beforeAssassination-context.json",
+      "context_sha256": "ae8d3a1b07b02f7bfe32ac60b49baedfdadea384163bc75d8efcc6bee835c2ca",
+      "draft": "docs/c1-character-flow/reviews/028-ambient_watch_beforeAssassination-draft.json",
+      "draft_sha256": "bd7b3a9f5573ec580ee3d1aaf2e497eb2fc531f673efc966ac1fa3fa408d6865",
+      "review": "docs/c1-character-flow/reviews/028-ambient_watch_beforeAssassination-review.json",
+      "review_sha256": "98180090f0046891a1c938b20b62f09290fed30113e2690bd53a056abab6ef90"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/029-farewellDolly-context.json",
+      "context_sha256": "3df18133a1b8e6f3075c4aaa6ec9274decf05f065230c827294867fc6086b9e9",
+      "draft": "docs/c1-character-flow/reviews/029-farewellDolly-draft.json",
+      "draft_sha256": "66165d2d11e790e3d3f9af757913daded7c4f2079c1e8def347660fa3898f5d6",
+      "review": "docs/c1-character-flow/reviews/029-farewellDolly-review.json",
+      "review_sha256": "330664c7dad9251419f8724f6083dd4e893cdb0c13dcf553a16d6d4d95e493f6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/030-farewellDollyUnfinished-context.json",
+      "context_sha256": "bc209279ef3211c7b9f0bdca2a25cc08cb8f9dd493e6e63354cf4ac6da06bc6a",
+      "draft": "docs/c1-character-flow/reviews/030-farewellDollyUnfinished-draft.json",
+      "draft_sha256": "ac6915e69669d1d7a53d490dc30cbb27137f7007bfe1c406f6df7d93149e4d1a",
+      "review": "docs/c1-character-flow/reviews/030-farewellDollyUnfinished-review.json",
+      "review_sha256": "12c2946c79f6cf829961effdd633db342efd2406b0b167682e7034418c018c49"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/031-farewellLottie-context.json",
+      "context_sha256": "50a94aa8096acda61af760d99f1661ff57f0c6dd569f3a1a8c956b33c39388ff",
+      "draft": "docs/c1-character-flow/reviews/031-farewellLottie-draft.json",
+      "draft_sha256": "dd539a14edc793f60b86c778500a564af93f59406025c45572663ee128a52f18",
+      "review": "docs/c1-character-flow/reviews/031-farewellLottie-review.json",
+      "review_sha256": "b14db378465b4042073743ab446eed154806ffc9d9696de6511d969a916d00b3"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/032-farewellLottieUnfinished-context.json",
+      "context_sha256": "598375a6664ada7a3cdd52e61d99bba6cbbd67b0596c6ec72f258901463bcc5c",
+      "draft": "docs/c1-character-flow/reviews/032-farewellLottieUnfinished-draft.json",
+      "draft_sha256": "739f7e0daaf11a4c084de3971b1d342310eba0b19f2b8bf1fae08acca936e084",
+      "review": "docs/c1-character-flow/reviews/032-farewellLottieUnfinished-review.json",
+      "review_sha256": "974ec54da1970f24fee3211aca5e4a537bd72d6f5eeafbd4cb0ddd330d96d020"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/033-ch1LottieLedger-context.json",
+      "context_sha256": "8d630f885fa54cc98dbe3ab03b7237bceeeb3cc1446a2297c2202ab86b754157",
+      "draft": "docs/c1-character-flow/reviews/033-ch1LottieLedger-draft.json",
+      "draft_sha256": "eba6aa2564bf092ce25fd1f07de3e5ca1c1c0fa506dc62798c232c0303fc344a",
+      "review": "docs/c1-character-flow/reviews/033-ch1LottieLedger-review.json",
+      "review_sha256": "8ea7c9462d775350454e35b9e20f312d236ecf8a2eba133aa9557fd4aaddcec9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/034-ch1DollyFitting-context.json",
+      "context_sha256": "48dd47824094da4fac31b0ffb13bd2abd878ac70e2917d0b1cace4eb0c7c6161",
+      "draft": "docs/c1-character-flow/reviews/034-ch1DollyFitting-draft.json",
+      "draft_sha256": "523c70dc62b67c66de192f5615aa448d26c5681e6c17cf5b0d1ffa7be4359112",
+      "review": "docs/c1-character-flow/reviews/034-ch1DollyFitting-review.json",
+      "review_sha256": "e7ccef85c955ff0b6e223903ce5cba6399176419ecb9efec000337919ea67cb6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/035-c1RepairAccept-context.json",
+      "context_sha256": "bba9c9272ac858412783b7e3868c7aea20d51b48bfae7e99b865e6055b902654",
+      "draft": "docs/c1-character-flow/reviews/035-c1RepairAccept-draft.json",
+      "draft_sha256": "42f67ac752a8d2e750e4db06703435246a3a976d4f9aee3df710049d73181d52",
+      "review": "docs/c1-character-flow/reviews/035-c1RepairAccept-review.json",
+      "review_sha256": "e910dc9d1e78e9188b3ed68eb87b1f7c3aa4483415316103a290e81f64e2a9b6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/036-c1RepairReturn-context.json",
+      "context_sha256": "cc36ed30c275a91ba44489e1cbd82903bf862226299ac5b79371f26e9fb964a3",
+      "draft": "docs/c1-character-flow/reviews/036-c1RepairReturn-draft.json",
+      "draft_sha256": "5f60c256d051fd9da82f73ee4ab2958ef56482023d790071cc5e0226d207c66f",
+      "review": "docs/c1-character-flow/reviews/036-c1RepairReturn-review.json",
+      "review_sha256": "b15412e03681cacde0a1ede925f8d7cd362199d7d238f6ca287535ea38012785"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/037-c1RepairLegacyReturn-context.json",
+      "context_sha256": "1a6006a4e9c1d0abced287c111e60c787246ed666ebc765f9abc2997ef7d7860",
+      "draft": "docs/c1-character-flow/reviews/037-c1RepairLegacyReturn-draft.json",
+      "draft_sha256": "80923d7b584522b605e24251994d3760f063255a336cbc9ed168cdc871fdeb3b",
+      "review": "docs/c1-character-flow/reviews/037-c1RepairLegacyReturn-review.json",
+      "review_sha256": "9cbe1077b90aac3bd9277fed976a2e94edd1d1e576dde159ae096fb8e7227078"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/038-c1VaultAccept-context.json",
+      "context_sha256": "79dc1219f4013cba426f5371b1e28d654aef828e4d12afa23a0bb2ba0c4a5870",
+      "draft": "docs/c1-character-flow/reviews/038-c1VaultAccept-draft.json",
+      "draft_sha256": "7698047b4b2df024937e1780e49c7d313f898a0c67ad54a2f25a9924760e2d14",
+      "review": "docs/c1-character-flow/reviews/038-c1VaultAccept-review.json",
+      "review_sha256": "3f7f2da4cb8a2c935cfea8667b6e4646412e1ecd44e8f49391a72d5ab98c60bb"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/039-c1VaultReturn-context.json",
+      "context_sha256": "90be18461dabee1f8b08947a1d5d407c6d58e2ac225ce82c4302ee3177ae9231",
+      "draft": "docs/c1-character-flow/reviews/039-c1VaultReturn-draft.json",
+      "draft_sha256": "d4adcb2f480354dfa1b5c5e782146d77636f39c3a4899fd33bf04ccc71ce2a27",
+      "review": "docs/c1-character-flow/reviews/039-c1VaultReturn-review.json",
+      "review_sha256": "b91af9d5faaabe68171b7a683e8b8af6961214629aaabd225cf572793371566d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/040-c1NorthBrief-context.json",
+      "context_sha256": "58bf18082ca276d9e9d433856f5f19ecd35501634e780eb3213a787174d819d8",
+      "draft": "docs/c1-character-flow/reviews/040-c1NorthBrief-draft.json",
+      "draft_sha256": "69a62ff47a9229c9f2fed3087f686e1eba1bdb01d0c8b12108082e1809e386bd",
+      "review": "docs/c1-character-flow/reviews/040-c1NorthBrief-review.json",
+      "review_sha256": "376457bd9f675a0696c37f36d3a0f385423f08532f1f82c47c24835d09fcd90f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/041-c1GateBrief-context.json",
+      "context_sha256": "2a7d1376b6d54f7e45066dc4e259216ac143bed4e87015211d691ad732934e41",
+      "draft": "docs/c1-character-flow/reviews/041-c1GateBrief-draft.json",
+      "draft_sha256": "1f394b3d50623a43fc98f12935fc294b44f3c6aa7ef65fc01567469b38937edc",
+      "review": "docs/c1-character-flow/reviews/041-c1GateBrief-review.json",
+      "review_sha256": "f2e70719eee24353055957c22c3202762610043455baf94ffc3f75ad423c62af"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/042-c1CanalAlreadyClear-context.json",
+      "context_sha256": "3f88d3b5ef0d9ff337e9c92f48b65c9158b2b6f3f67299bfa381839ad3dc3739",
+      "draft": "docs/c1-character-flow/reviews/042-c1CanalAlreadyClear-draft.json",
+      "draft_sha256": "f732235e7281fa5e6100bc43001a56428f6414d942c751e556a4253eec3aaa09",
+      "review": "docs/c1-character-flow/reviews/042-c1CanalAlreadyClear-review.json",
+      "review_sha256": "1be34f90086adec1f43d93b159e98421ce7152b7265f2c4bdf3ad314b479b80f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/043-c1HerbsToLena-context.json",
+      "context_sha256": "8ec25ab8ecc1233799c50c0635d4bf6d4b035c211b7d6aa35b4e4bb60dc1e246",
+      "draft": "docs/c1-character-flow/reviews/043-c1HerbsToLena-draft.json",
+      "draft_sha256": "ab268ae89b1f29607fe0cdcb0b22c49f537f17593a95beefb45401a715ec367f",
+      "review": "docs/c1-character-flow/reviews/043-c1HerbsToLena-review.json",
+      "review_sha256": "6026cde643e512d63f84e39d5fa5b54f985d541d3bf19ea1a9482c534cc08fad"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/044-c1Talk_rats_offer-context.json",
+      "context_sha256": "03c44ef34d6521f59a0890d0b5dacceb3bf3301683fa0217b0d367eeda96c2b2",
+      "draft": "docs/c1-character-flow/reviews/044-c1Talk_rats_offer-draft.json",
+      "draft_sha256": "ce039ca7042d8b2c35ecbbd96874bfbd9672a2349dfa3f1101e661b58817a79f",
+      "review": "docs/c1-character-flow/reviews/044-c1Talk_rats_offer-review.json",
+      "review_sha256": "39ace4d1bc4a57a8d09c63f932aeebbf2dfa91ad09aed05f1feb8cadb66f698a"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/045-c1Talk_rats_progress-context.json",
+      "context_sha256": "2aded1712e1b5ce017ed0960bb87423e32c42d9c7987ec4a87ef3fec8749d646",
+      "draft": "docs/c1-character-flow/reviews/045-c1Talk_rats_progress-draft.json",
+      "draft_sha256": "9cb5480a38d213d409b2eeb1926f2126de127c912f445d514d05ffbefed361d2",
+      "review": "docs/c1-character-flow/reviews/045-c1Talk_rats_progress-review.json",
+      "review_sha256": "7f43935ab05b677e51cccd824f56cef16836b40797aac7115fa2c204c5a51a38"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/046-c1Talk_oil_offer-context.json",
+      "context_sha256": "5912c0ad2156327bfa029ac0e75df2409154212d4884142e8a759e81e0d72381",
+      "draft": "docs/c1-character-flow/reviews/046-c1Talk_oil_offer-draft.json",
+      "draft_sha256": "5f60d4e63098a37955457175f4baaac5a38ddeb0e93b13f2c6ad893d44818c4d",
+      "review": "docs/c1-character-flow/reviews/046-c1Talk_oil_offer-review.json",
+      "review_sha256": "fcf38d1ca8dda6ae5ac82ac3813db0020011873931383711fa5130ddf12a5470"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/047-c1Talk_oil_progress-context.json",
+      "context_sha256": "4f018409e1cee2cf3075d3e33c9ff0d45830d51e21841ab0f6c016f32188282d",
+      "draft": "docs/c1-character-flow/reviews/047-c1Talk_oil_progress-draft.json",
+      "draft_sha256": "b5187e3fc3f13f0803a392a7ce9ff622e9aa19b2b3daded59d2c43f4f229e563",
+      "review": "docs/c1-character-flow/reviews/047-c1Talk_oil_progress-review.json",
+      "review_sha256": "28002b2b3c17c0f3cbdf2628e1fcfd8229bd7c041d6dd8a0dceca3af1ecd738d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/048-c1Talk_oil_report-context.json",
+      "context_sha256": "02e5cda6e63c108c9618d29f0ff0bcb0f431188d2ae3a8bd9ea3b172dbbc3ca5",
+      "draft": "docs/c1-character-flow/reviews/048-c1Talk_oil_report-draft.json",
+      "draft_sha256": "d4ceec2cc04dacd29297bfb1ef92f98d7fe6f42d7cddba203d706a3dfbc6f14b",
+      "review": "docs/c1-character-flow/reviews/048-c1Talk_oil_report-review.json",
+      "review_sha256": "fb608fafd8b29891ca5f69683948ed0867b2df436014d5f97aed39d9ce7f1f76"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/049-c1Talk_v12Water_offer-context.json",
+      "context_sha256": "56f58f31e6081704f8bf35fa9cc4a33f2bff042caab8d183da881794e21ef434",
+      "draft": "docs/c1-character-flow/reviews/049-c1Talk_v12Water_offer-draft.json",
+      "draft_sha256": "a7d50cc7abdbd5b3b0cf673b0a58f4b74ac267face3e36d23c8dda6c6968fc52",
+      "review": "docs/c1-character-flow/reviews/049-c1Talk_v12Water_offer-review.json",
+      "review_sha256": "add8249c5caaf5100a85361bb30e4dc5d9bffdb3eb0a2785110748d6060dd498"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/050-c1Talk_letter_offer-context.json",
+      "context_sha256": "f83dda57799d3a9c658c9b02525cf313ee6053d8e3380fe5f455cab82a56de7c",
+      "draft": "docs/c1-character-flow/reviews/050-c1Talk_letter_offer-draft.json",
+      "draft_sha256": "dfd43baa7e71fe022e20d95f242301bbe7d42e118d9d97bcab08e1431326bdc5",
+      "review": "docs/c1-character-flow/reviews/050-c1Talk_letter_offer-review.json",
+      "review_sha256": "0e4688183f2bb125a886c0010a54d7597bbdc64c0b5051b9cba29afb53381599"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/051-c1Talk_herbs_offer-context.json",
+      "context_sha256": "aa82be62f63f4d258be48bdd2f58e962572ac78f3a7aa558984f63ee9fa1448e",
+      "draft": "docs/c1-character-flow/reviews/051-c1Talk_herbs_offer-draft.json",
+      "draft_sha256": "d589c490c966a20292b3b2313ce14176fd52d978e9773afa26c753d650574e9f",
+      "review": "docs/c1-character-flow/reviews/051-c1Talk_herbs_offer-review.json",
+      "review_sha256": "94363c75a4880e3ec7ea3d119129a62adc8f8948c4e710ac5f27c314675e5905"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/052-c1Talk_herbs_progress-context.json",
+      "context_sha256": "dbf5daee05ef7a15f8f14f12be36c909dd6d764718fcd5a1fb15773c00c3f189",
+      "draft": "docs/c1-character-flow/reviews/052-c1Talk_herbs_progress-draft.json",
+      "draft_sha256": "20fa45a1d8c4ddf14614cbb446b3b2c9fcbb70e8db0a2a11bd2338b509c66f84",
+      "review": "docs/c1-character-flow/reviews/052-c1Talk_herbs_progress-review.json",
+      "review_sha256": "5459e2774f9f390098125d8433ebf973a54a701795dde6554873f421b357f1f3"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/053-c1Talk_lantern_offer-context.json",
+      "context_sha256": "d6f0ae6d554991ebc4c88d179fc339252d06f597a5a4d7ee44b4270bde0edc16",
+      "draft": "docs/c1-character-flow/reviews/053-c1Talk_lantern_offer-draft.json",
+      "draft_sha256": "1a97fdccc2fdcba58647297b29beb6110417d8490fb6341c4819bd7ad515f114",
+      "review": "docs/c1-character-flow/reviews/053-c1Talk_lantern_offer-review.json",
+      "review_sha256": "65db8403334100af231007cd64bb528c390f8d308b41ab7acca392fff3eb4e78"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/054-c1Talk_copper_offer-context.json",
+      "context_sha256": "c601b74ccd75c30edbd4c776a2e354bf4fcd3592e462f8fbe5ca90c7b85b0b93",
+      "draft": "docs/c1-character-flow/reviews/054-c1Talk_copper_offer-draft.json",
+      "draft_sha256": "bda6b7aff30c9d564d675b6a1ad92bf179cc943462a9742f10d2325f978fa400",
+      "review": "docs/c1-character-flow/reviews/054-c1Talk_copper_offer-review.json",
+      "review_sha256": "70a1726f4d3ba2662cd7e77e043fd3a10f60cd559feeb3a6577cc8e399f913d9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/055-c1Talk_copper_report-context.json",
+      "context_sha256": "2c07c7d28fddc2a99cc8e6429eea4373f7d633bf1aa9062db7b7608f8f523995",
+      "draft": "docs/c1-character-flow/reviews/055-c1Talk_copper_report-draft.json",
+      "draft_sha256": "c7df63ed0791c5537396f8c6fa1db4b7cca666ffdd141d63555e593d00c4a8fd",
+      "review": "docs/c1-character-flow/reviews/055-c1Talk_copper_report-review.json",
+      "review_sha256": "ef2098800f694291bc6f30fdaff595013e1f86fb2ac66df8038fc2f11d60b5b0"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/056-c1Talk_echo_offer-context.json",
+      "context_sha256": "46aaf36db9270543f2da20ec59f00b13cd49369844f45d618e38784027d77531",
+      "draft": "docs/c1-character-flow/reviews/056-c1Talk_echo_offer-draft.json",
+      "draft_sha256": "697a2cb395cba5c48a27b7f2b8079dca7b1d21094520652abdc313694f0970d1",
+      "review": "docs/c1-character-flow/reviews/056-c1Talk_echo_offer-review.json",
+      "review_sha256": "3a59a207ec45700841a5b646188b694595a94f3537d885aa974a6864726846b0"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/057-c1Talk_c1ClockMemory_offer-context.json",
+      "context_sha256": "7b6a323c52810c7ec754c6c042f97b9325320a0ba2585d1b232da22a37b8b91a",
+      "draft": "docs/c1-character-flow/reviews/057-c1Talk_c1ClockMemory_offer-draft.json",
+      "draft_sha256": "b0776be38b64c45fd9ac7c240aeec3103d1ea628d5388faedc3714fa44ddffde",
+      "review": "docs/c1-character-flow/reviews/057-c1Talk_c1ClockMemory_offer-review.json",
+      "review_sha256": "f6294a731c7cf194621152f23c2e0bc46ab3c88750a64bc039844fe3117851aa"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/058-c1Talk_c1ClockMemory_progress-context.json",
+      "context_sha256": "7c2b44c3b80cc0792e21cb3af24f7b486d51c56db34a2e144e4b9ce09f1ff574",
+      "draft": "docs/c1-character-flow/reviews/058-c1Talk_c1ClockMemory_progress-draft.json",
+      "draft_sha256": "e4019485fde01fff9dfb7015a7281501c91a4beeb5334514bb094e7424c295c7",
+      "review": "docs/c1-character-flow/reviews/058-c1Talk_c1ClockMemory_progress-review.json",
+      "review_sha256": "867d945eba6465fff077d7e3303c8f830db2f1890e24101e49a069defee515c6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/059-c1Talk_c1RuneWear_offer-context.json",
+      "context_sha256": "0a39907d9d7baa59acb0cc8d44762d58fba567cdd262d1c91d3d472939ff7832",
+      "draft": "docs/c1-character-flow/reviews/059-c1Talk_c1RuneWear_offer-draft.json",
+      "draft_sha256": "f5a743fb8d8c645d0e9e1691eaf618e125fa4ecf6c2363cf41a288800a7085b1",
+      "review": "docs/c1-character-flow/reviews/059-c1Talk_c1RuneWear_offer-review.json",
+      "review_sha256": "e7b29bf47b6296457414a4999d0f0d8e4b4dd8414ef22c08de94f071bdb62093"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/060-c1Talk_c1RuneWear_report-context.json",
+      "context_sha256": "3b41170c98a4201328d5b35d687c1e3df76f6024ee67a9781281d3a1c457916b",
+      "draft": "docs/c1-character-flow/reviews/060-c1Talk_c1RuneWear_report-draft.json",
+      "draft_sha256": "000d1710a3bbd111298d674648c5c692503c930fe04665f35b6460c716c63cc7",
+      "review": "docs/c1-character-flow/reviews/060-c1Talk_c1RuneWear_report-review.json",
+      "review_sha256": "f1f489262f8ba3b2d1115720950a2ead8dc897f224c2829b4ac899a96ee610f9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/061-c1Talk_c1RuneKiln_progress-context.json",
+      "context_sha256": "6255695770ae67691db8d095fbaad7badb926f06af0623287e602d58107690a9",
+      "draft": "docs/c1-character-flow/reviews/061-c1Talk_c1RuneKiln_progress-draft.json",
+      "draft_sha256": "c8181efec7b5485b1e796ae63c0920f4a12557668f6c9c8844543b03a47c27d8",
+      "review": "docs/c1-character-flow/reviews/061-c1Talk_c1RuneKiln_progress-review.json",
+      "review_sha256": "46f02fc23a8ce1a1aba75ce40d3a07e82e1c405ef18c487bf5dfc94fcb515cef"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/062-c1Talk_c1RuneKiln_report-context.json",
+      "context_sha256": "8bbee3e04baa2cb265db6979a0b2b9170a84ee102b7108dee47edca7ac9dab41",
+      "draft": "docs/c1-character-flow/reviews/062-c1Talk_c1RuneKiln_report-draft.json",
+      "draft_sha256": "5e0ca64f2bd451714477c801e6b0e003f6f499a98081fc65c43b4498990dfa7f",
+      "review": "docs/c1-character-flow/reviews/062-c1Talk_c1RuneKiln_report-review.json",
+      "review_sha256": "2c66c2df656e76a28bd6ef5986d80591c003bcb31e245196a9d1998340e6bf01"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/063-c1Talk_c1AlchemistSamples_offer-context.json",
+      "context_sha256": "2520ff573ca56de5a365a0eacf8d20aa30ab0e7d6a460caeb6de4b74d303a165",
+      "draft": "docs/c1-character-flow/reviews/063-c1Talk_c1AlchemistSamples_offer-draft.json",
+      "draft_sha256": "209ff25516de124ab119731e10db3f394d40e454e26a50b3708647fc6922bbc8",
+      "review": "docs/c1-character-flow/reviews/063-c1Talk_c1AlchemistSamples_offer-review.json",
+      "review_sha256": "690267507e4597889cbbad0af05012abcccec59f2a65c3fa8d4efa8c254169ce"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/064-c1Talk_c1AlchemistSamples_progress-context.json",
+      "context_sha256": "1b8fb5d65bd1751540e88e1db825a3267653bc37a1c26de10bf01a0561e298e6",
+      "draft": "docs/c1-character-flow/reviews/064-c1Talk_c1AlchemistSamples_progress-draft.json",
+      "draft_sha256": "34a466573e80154354e9ee5af7eb3f2947f919e48f108efb9d377467791a5afc",
+      "review": "docs/c1-character-flow/reviews/064-c1Talk_c1AlchemistSamples_progress-review.json",
+      "review_sha256": "c0f18bbdb1b05ab7a9730e4911fbad615ef8894c15677a5c0b6162411c472cb7"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/065-c1Talk_c1AlchemistSamples_report-context.json",
+      "context_sha256": "1fcfbd4fe95689b693e2bba8a71749be7345829ed39a34ec4772c45d79348ce0",
+      "draft": "docs/c1-character-flow/reviews/065-c1Talk_c1AlchemistSamples_report-draft.json",
+      "draft_sha256": "3232829ec89e14edd09643108fc25c92fe55ac65820f1c93c6571c22888e8ae5",
+      "review": "docs/c1-character-flow/reviews/065-c1Talk_c1AlchemistSamples_report-review.json",
+      "review_sha256": "caf99ea7bf92ad79be16434c7404f0d29ec564984488fe95295536d7fd9a1182"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/066-c1Talk_c1CampHunt_offer-context.json",
+      "context_sha256": "c99c7133fd57f84d0e3b74da19194f68ed35cca9b935a0f09491d3a480fde7e2",
+      "draft": "docs/c1-character-flow/reviews/066-c1Talk_c1CampHunt_offer-draft.json",
+      "draft_sha256": "cdffa55c22475f5bd0c65633c9b3e308e91344b142392cba834deadd330124b4",
+      "review": "docs/c1-character-flow/reviews/066-c1Talk_c1CampHunt_offer-review.json",
+      "review_sha256": "17a94ab831b8ed14efb04583d176542301958dccd3d50f5f7c6ed17501c0e7bd"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/067-c1Talk_c1CampHunt_report-context.json",
+      "context_sha256": "1f2921d47ef199e79002442a2bfb7bf32ca80fa3d6a9ba325dff2b2a6db78b24",
+      "draft": "docs/c1-character-flow/reviews/067-c1Talk_c1CampHunt_report-draft.json",
+      "draft_sha256": "87b0fa2ea17a4478e5997a8d63d624f5a4686dce684e04aba611c9f607fc4d65",
+      "review": "docs/c1-character-flow/reviews/067-c1Talk_c1CampHunt_report-review.json",
+      "review_sha256": "2f3551b24b9d9af93257e18bc10968674c227ab4963bcf288c61ab69881703f4"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/068-c1Talk_c1CampHerbs_offer-context.json",
+      "context_sha256": "bb4a216c1fd59c5e3cb47671a72670eb03d068003fd7f7d41b22cac78694cdec",
+      "draft": "docs/c1-character-flow/reviews/068-c1Talk_c1CampHerbs_offer-draft.json",
+      "draft_sha256": "9bbb735be2ba5dee34be3e49e53ae05889d31f7ff4771c7bebacf734365af2aa",
+      "review": "docs/c1-character-flow/reviews/068-c1Talk_c1CampHerbs_offer-review.json",
+      "review_sha256": "f414a5aafdda09335e99be2cf650d1ebf18f2664ab70c8fc01f26d6e6f55f628"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/069-c1Talk_c1CampHerbs_progress-context.json",
+      "context_sha256": "1a9b4ece4024b2e8baa3606147c181579124bfbeb7e0152c67a00233d40d7d04",
+      "draft": "docs/c1-character-flow/reviews/069-c1Talk_c1CampHerbs_progress-draft.json",
+      "draft_sha256": "c0f93754c9b7a423e817002c389dc0b926fd42fa0d70638a3c4c7d70aff827a4",
+      "review": "docs/c1-character-flow/reviews/069-c1Talk_c1CampHerbs_progress-review.json",
+      "review_sha256": "73ca61d7c455e8ae7ca62ca656e92a1a079c4f706b7c555f93853de55813f32d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/070-c1Talk_c1KilnRoost_offer-context.json",
+      "context_sha256": "28f6eed168ddb6d59bcddfc32b5c7c3379548ceaf3eb6857bcefafd8e51ff45e",
+      "draft": "docs/c1-character-flow/reviews/070-c1Talk_c1KilnRoost_offer-draft.json",
+      "draft_sha256": "3954723b5b74bbaaf9ef3d926b73383164419baf0a1fcd41894ea799a03fe5fc",
+      "review": "docs/c1-character-flow/reviews/070-c1Talk_c1KilnRoost_offer-review.json",
+      "review_sha256": "d575492d5b28709681a37a67dbbd40bdbb6360a9eadd4141fc36d825c936e427"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/071-c1Talk_c1KilnRoost_progress-context.json",
+      "context_sha256": "645f5e921aecf03eedc57d8940844231ae67c4790214100713752b97bdf2c981",
+      "draft": "docs/c1-character-flow/reviews/071-c1Talk_c1KilnRoost_progress-draft.json",
+      "draft_sha256": "3d54b147c94ca4b3ec3e99d54f7fa316c3f0ab2ea48da230a4818b9599ac46f9",
+      "review": "docs/c1-character-flow/reviews/071-c1Talk_c1KilnRoost_progress-review.json",
+      "review_sha256": "df215fcf06932e045cf8aa7033ecf8587a7bf52754e73752e027549ef9f21d1e"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/072-c1Talk_c1TrialSalvage_offer-context.json",
+      "context_sha256": "742b085a2e1780a82d4f1aca659c387c3b43916a7bddd5773de5baa90e59d2e5",
+      "draft": "docs/c1-character-flow/reviews/072-c1Talk_c1TrialSalvage_offer-draft.json",
+      "draft_sha256": "f550c25c7c3183d3a14c1e2d3256158f3c8c1950a5a4e8a082b39f45b4457d0b",
+      "review": "docs/c1-character-flow/reviews/072-c1Talk_c1TrialSalvage_offer-review.json",
+      "review_sha256": "f2728e2345eeb46f432d7df723a812e37cf4bcee1e893b16d570d1357b23d45c"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/073-c1Talk_c1CryptRepair_progress-context.json",
+      "context_sha256": "330fb6d4d1ce5c33f7f2650c88023ac3fb08d14e12479a3a3df23eed02bc3d2e",
+      "draft": "docs/c1-character-flow/reviews/073-c1Talk_c1CryptRepair_progress-draft.json",
+      "draft_sha256": "5ffe6cfcacfe44e7a533a308c455cf58d4fd78a53d5586a03afae7f097d051c6",
+      "review": "docs/c1-character-flow/reviews/073-c1Talk_c1CryptRepair_progress-review.json",
+      "review_sha256": "d9ae72486d0dade410565b33506bbe757973bb7479c7ce249851d341450ec6a5"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/074-c1Talk_c1VaultWatch_progress-context.json",
+      "context_sha256": "f6733467865b7223989d1168da3b443d911fcd2d79fe7a9dd4f837ff100a3927",
+      "draft": "docs/c1-character-flow/reviews/074-c1Talk_c1VaultWatch_progress-draft.json",
+      "draft_sha256": "403e86da892bc88a68ba6302dcef7fe258450bde11803adc7dda665f1351d0e9",
+      "review": "docs/c1-character-flow/reviews/074-c1Talk_c1VaultWatch_progress-review.json",
+      "review_sha256": "74c63547fa3934984495f8730d5bc3aa8f83c4102b8250e06f18811fdf0c3765"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/075-c1Talk_c1CanalBreak_offer-context.json",
+      "context_sha256": "0bb826d8ee0d66e66ffce92e1eaac4b5644645c72ef3853f43720e0f33a5cb0b",
+      "draft": "docs/c1-character-flow/reviews/075-c1Talk_c1CanalBreak_offer-draft.json",
+      "draft_sha256": "ec813296a26cc103466c04da60d630d02a6abb929bba81adfcf568d727e86201",
+      "review": "docs/c1-character-flow/reviews/075-c1Talk_c1CanalBreak_offer-review.json",
+      "review_sha256": "7b0a09aa99a6dd3880917a37601388f9431ce2628ab061034c9e9337cc81296b"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/076-c1Talk_c1CanalBreak_progress-context.json",
+      "context_sha256": "481dac749c54ea846f97b9b8a7218953040e2d2e6486757fde0f5dbbce8c7d1d",
+      "draft": "docs/c1-character-flow/reviews/076-c1Talk_c1CanalBreak_progress-draft.json",
+      "draft_sha256": "70b09a6c02c59da60ab62bd8af2b9eeaa1ce3def100b1052706a6499cfc8bc44",
+      "review": "docs/c1-character-flow/reviews/076-c1Talk_c1CanalBreak_progress-review.json",
+      "review_sha256": "7e96ac4cee42d927bfe522e5f5d19d9f0ad36b6ae797a7e376cb958cd81cf7f3"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/077-c1Talk_c1CanalBreak_report-context.json",
+      "context_sha256": "a381ec767515a4de59a75aaa9a9a81576fcec7d1384d004c402187d98a4e1f4c",
+      "draft": "docs/c1-character-flow/reviews/077-c1Talk_c1CanalBreak_report-draft.json",
+      "draft_sha256": "70c1d7e1e4b7c6cde2777b3357f9964b664407ca5b95c3c187a32d2b3562353b",
+      "review": "docs/c1-character-flow/reviews/077-c1Talk_c1CanalBreak_report-review.json",
+      "review_sha256": "5820787a975b651961d0ccf35c92227489dd83c90a7481beb22457d435e57449"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/078-c1HiddenPairArrangement-context.json",
+      "context_sha256": "4e678a96d1915543acd3c57cb4b67e6834c6c260e225242adf89c4f8d7dd0c71",
+      "draft": "docs/c1-character-flow/reviews/078-c1HiddenPairArrangement-draft.json",
+      "draft_sha256": "09269431361a6af64b4a18d725d3ae7dc801547b9c107e60ab48cc682c314c8d",
+      "review": "docs/c1-character-flow/reviews/078-c1HiddenPairArrangement-review.json",
+      "review_sha256": "8d93141e30658f55bcffacfa18c0b33c897a2d85817d612bbcfcc1b30b790c47"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/079-c1SaintAid-context.json",
+      "context_sha256": "9fab2ed65d3650fbb6b2dd8e76ec5d2f3511541ad66420feb4711b6f2cfeacb1",
+      "draft": "docs/c1-character-flow/reviews/079-c1SaintAid-draft.json",
+      "draft_sha256": "d1127eda58f8afb86b25a123457a7501d8067da5b14a19744c93e25c95e587ea",
+      "review": "docs/c1-character-flow/reviews/079-c1SaintAid-review.json",
+      "review_sha256": "44a7a155aaac8ea71e2a21d8e6a91fea313741f1bf24e4d63ea01c25e0eebe1d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/080-c1TownDolly-context.json",
+      "context_sha256": "da95f39b750384ccde254e4bda1343ac54404a6649046ff12c00b4983561bb06",
+      "draft": "docs/c1-character-flow/reviews/080-c1TownDolly-draft.json",
+      "draft_sha256": "f67bb1d78eccde4f5fe40e2d3a7f080e6f1c4c0610eee2e9dc65477b5ab9e0e4",
+      "review": "docs/c1-character-flow/reviews/080-c1TownDolly-review.json",
+      "review_sha256": "9d47c3975947cc8a97b4265d8b71f593782058fdbfa4fe27785d09775a8bbedd"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/081-c1TownLena-context.json",
+      "context_sha256": "f4793032c940e328a1e940479b4918678f76e8c6bd01ff435fca770cd99add5f",
+      "draft": "docs/c1-character-flow/reviews/081-c1TownLena-draft.json",
+      "draft_sha256": "cd653683571a079582f8ebee03fa9cb1b5ee6af62878e366a379334ad187f45e",
+      "review": "docs/c1-character-flow/reviews/081-c1TownLena-review.json",
+      "review_sha256": "dd6da1e949dda63ce4e7ec9efdf26d027a07d8d84ea7aaa2eafc31517902dd4f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/082-c1HuntOffer-context.json",
+      "context_sha256": "43aa6eaf956a4b9a82ae555bc207263f10e3790e7af11ebf3d8362afcda2f7d1",
+      "draft": "docs/c1-character-flow/reviews/082-c1HuntOffer-draft.json",
+      "draft_sha256": "e636d977e8d16242e89e3940474f61300d86bed6d761c50708d9f2eb1ba8da7c",
+      "review": "docs/c1-character-flow/reviews/082-c1HuntOffer-review.json",
+      "review_sha256": "47b2dfecf11a07aa9090663c20182e5e2d33a24cfd68995b803b297de80c40a8"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/083-c1HuntProgress-context.json",
+      "context_sha256": "88f584fa8109224e0bd3d4034f3dbbd93cce032542cbc3cc759f68f30611b475",
+      "draft": "docs/c1-character-flow/reviews/083-c1HuntProgress-draft.json",
+      "draft_sha256": "8ab9d5d9cfb90aa57990f6e5bf1dc3f244efc373bd95082ddb03d0e6e2b972ff",
+      "review": "docs/c1-character-flow/reviews/083-c1HuntProgress-review.json",
+      "review_sha256": "57c1b09bdca4b3f26d109790486370fe6d6d46d67c8cec107bcbc9036b8589e6"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/084-c1SupplyIntro-context.json",
+      "context_sha256": "60ce27256f8a018d2948eaad6b5c12be3966fa502322d927d1cbf203fcdcb50c",
+      "draft": "docs/c1-character-flow/reviews/084-c1SupplyIntro-draft.json",
+      "draft_sha256": "06c2d6c5c0aa9ab8d191a33e4313c7b4ca802222a6e25fbaeb789fbcfa84c1b6",
+      "review": "docs/c1-character-flow/reviews/084-c1SupplyIntro-review.json",
+      "review_sha256": "c43ff6aae5304a10c1971f0c574eb92f53f262cf800c3ccd4f4785fc32e9d7a2"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/085-c1CoreOrderOffer-context.json",
+      "context_sha256": "f44d6cf4348c3e5d2b1a78b263cf6466b6d2065642d102db846cd464dcda046e",
+      "draft": "docs/c1-character-flow/reviews/085-c1CoreOrderOffer-draft.json",
+      "draft_sha256": "067bb639a3fae0adc7e95cc60d4ce81b25d3f84fb277bed8233a26d4a7a88560",
+      "review": "docs/c1-character-flow/reviews/085-c1CoreOrderOffer-review.json",
+      "review_sha256": "9002b015b306b237625e597cc735ac8f2f3f51ae48b3e6cce79b5310bb7b59fc"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/086-c1Talk_c1LoomBrief_offer-context.json",
+      "context_sha256": "a680019952ccd6460f8c0762f423f6f5100909da329cce6a9aa42cf00fd622a4",
+      "draft": "docs/c1-character-flow/reviews/086-c1Talk_c1LoomBrief_offer-draft.json",
+      "draft_sha256": "e4c21c5d73210b6b07a2a69c24dd320e7297d94ed2ca9658344bd8ce250344c6",
+      "review": "docs/c1-character-flow/reviews/086-c1Talk_c1LoomBrief_offer-review.json",
+      "review_sha256": "66a1a6495ce759bb0a5a3b99489ca7c93ec7e21e65544a07865a0f5e7e749f05"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/087-c1Talk_c1LoomBrief_progress-context.json",
+      "context_sha256": "f0c8dde8d41b68d8e88d3a02cc3a6ffab6229a3f1807f687a2671f20495a5245",
+      "draft": "docs/c1-character-flow/reviews/087-c1Talk_c1LoomBrief_progress-draft.json",
+      "draft_sha256": "682ef84d66dcc430b2cfc71e28cf89489ec94cd8bcd886ce058f826700cd2cd8",
+      "review": "docs/c1-character-flow/reviews/087-c1Talk_c1LoomBrief_progress-review.json",
+      "review_sha256": "bfc4d0cdd9283c798d2b3fd6a3dac976daaa88539cf9f096e18bcb9d9d903a82"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/088-c1Talk_c1LoomBrief_report-context.json",
+      "context_sha256": "490b4a04e5848e2c59af753ccdfe3f5564eb8c364e0fcb38bad62504c16dd81c",
+      "draft": "docs/c1-character-flow/reviews/088-c1Talk_c1LoomBrief_report-draft.json",
+      "draft_sha256": "8fae09ed7b4100f1e0fefa943b206e9270ce019893c1f74537862d2c7e46e6fe",
+      "review": "docs/c1-character-flow/reviews/088-c1Talk_c1LoomBrief_report-review.json",
+      "review_sha256": "75e79a90e0ceab59868c7b0ad4f6351ab13fa5807fabacb7cbb98a0394b9b0a9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/089-c1PatrolRoad-context.json",
+      "context_sha256": "2a871e90c8048e17dd4ac0aec37ca1dcd075c8e40a854656ddabde28a1a6727c",
+      "draft": "docs/c1-character-flow/reviews/089-c1PatrolRoad-draft.json",
+      "draft_sha256": "2c48a0d4f5f3655861b0253612f8f8466e63fa298ba290634e196ce0f081c3a3",
+      "review": "docs/c1-character-flow/reviews/089-c1PatrolRoad-review.json",
+      "review_sha256": "76ecedc715bfa7d565acb73139dd4d0aaea5e7dc29d4191f882dc8828380d533"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/090-c1PatrolProgress-context.json",
+      "context_sha256": "847a034e0eda614378115aee5c96966e07c07ddfad4e950e1a928511b4f7e271",
+      "draft": "docs/c1-character-flow/reviews/090-c1PatrolProgress-draft.json",
+      "draft_sha256": "43b97008d6acbc4850d83b038ab4982386f44975fd2c1a62a06852189f86edde",
+      "review": "docs/c1-character-flow/reviews/090-c1PatrolProgress-review.json",
+      "review_sha256": "2ccc69cfb6e1729f4db97a058d68cbc637497b10a554a52421737bcf51e820bb"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/091-local-c1iden-context.json",
+      "context_sha256": "7428a5f211774c28f0b2702bfe5ddb545fc1e2e7370d9ed7923793a1b17c9b33",
+      "draft": "docs/c1-character-flow/reviews/091-local-c1iden-draft.json",
+      "draft_sha256": "dcd714639dbd4e87c004847b8e962b9e17ca130ebc2c08c97b255fc5f1a8f1cd",
+      "review": "docs/c1-character-flow/reviews/091-local-c1iden-review.json",
+      "review_sha256": "d058729ee39d35e287980dfd03ce08c1ba23ab0ba1fdae509f213a35d8c9d964"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/092-local-c1hesha-context.json",
+      "context_sha256": "f4a63d15c12756c5c0051e89d9e94d71e9b7505b945d6e0d91513ffa4eed1d34",
+      "draft": "docs/c1-character-flow/reviews/092-local-c1hesha-draft.json",
+      "draft_sha256": "305905a5bc59e59630eda2c43d769ddb8c73625aabeb507c9bf5b48c4ef40a54",
+      "review": "docs/c1-character-flow/reviews/092-local-c1hesha-review.json",
+      "review_sha256": "5b2df9d45c49aafae3abf274941cab810bd1d0d9bc197c7b96397b223bf83eb9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/093-local-c1venn-context.json",
+      "context_sha256": "d687eab795b799f6a17919d86514a9f2719a257d69861fd40b4c1eaf4562e054",
+      "draft": "docs/c1-character-flow/reviews/093-local-c1venn-draft.json",
+      "draft_sha256": "d9547c9cc665e3f5b913e81cb059f9e6a0721e0d832c2f360439b0faaf786b6b",
+      "review": "docs/c1-character-flow/reviews/093-local-c1venn-review.json",
+      "review_sha256": "31dfb3ee3a7c4822096314f5059098af400d393ec1eb9b4d755154f33ace2116"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/094-local-c1blake-context.json",
+      "context_sha256": "d104b2047254ac8193a5402885d14f0de1793c9c59911ff778f76f55401cccd3",
+      "draft": "docs/c1-character-flow/reviews/094-local-c1blake-draft.json",
+      "draft_sha256": "2711fec28e36b2996766a825a63f644307de9ffa768eba30d15dcfaa3cad931f",
+      "review": "docs/c1-character-flow/reviews/094-local-c1blake-review.json",
+      "review_sha256": "e9383d529a24a86c7ab3f672991de20b21c2f98f2fb0da0b1894105a13edc34a"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/095-local-c1eve-context.json",
+      "context_sha256": "b5b25c8d09b6c9cc23ed4ac388588072567dbd3c6463c816733d8838d1a27014",
+      "draft": "docs/c1-character-flow/reviews/095-local-c1eve-draft.json",
+      "draft_sha256": "e4fa4b862d6781c81aa786d1c6cf62207fbd523d4ac9633b564ecd8299ecd728",
+      "review": "docs/c1-character-flow/reviews/095-local-c1eve-review.json",
+      "review_sha256": "d00fc40e90cff3b6711a04564c136cea3f65c7939469888e77498fbf0a5942da"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/096-local-c1mada-context.json",
+      "context_sha256": "b2c575753448c376df0b4418abcb8938d8c6c7927e57a0024aa16c3c63c77c82",
+      "draft": "docs/c1-character-flow/reviews/096-local-c1mada-draft.json",
+      "draft_sha256": "d1275c4b949213ea2561463ab02d7c44465ad5ee97dd002be801ef3420e93066",
+      "review": "docs/c1-character-flow/reviews/096-local-c1mada-review.json",
+      "review_sha256": "d1f0fe0aababec65af0c2ba2d87ee81ce4a8a9eb506db15e962ae424faaa6278"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/097-lanternGuess-context.json",
+      "context_sha256": "65781939fbd79f0729727c6fc08f0212520555e56544335df380d51debc401f1",
+      "draft": "docs/c1-character-flow/reviews/097-lanternGuess-draft.json",
+      "draft_sha256": "d3652045c15788808b9e278833aa82825892fe357a71c63702793fcdcab61795",
+      "review": "docs/c1-character-flow/reviews/097-lanternGuess-review.json",
+      "review_sha256": "282fd70821edc3ba347ef97b4872dede2eede6860de6abee8f45b78974023b3c"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/098-lanternWatchAfter-context.json",
+      "context_sha256": "871916f543837de404d8a22186dfdf17adc5d9b8520045b930f696495d0afe2f",
+      "draft": "docs/c1-character-flow/reviews/098-lanternWatchAfter-draft.json",
+      "draft_sha256": "7ebab5cc973ab801caa214680a340a9f500f0067c4adee41f4f2dcd3a203579a",
+      "review": "docs/c1-character-flow/reviews/098-lanternWatchAfter-review.json",
+      "review_sha256": "e1e4afbfe6e89b26aca5afb252f332abb561dfeef0ceb2964f063c277b488f01"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/099-saintSealEarly-context.json",
+      "context_sha256": "260abebbca7017dc591f547c9456c7675d44c81ccd57599e817cd93a772f0c0d",
+      "draft": "docs/c1-character-flow/reviews/099-saintSealEarly-draft.json",
+      "draft_sha256": "5635e8e5abe85e46905c79cfaf99f307c854a66149fc690aae4f5d09e97e837b",
+      "review": "docs/c1-character-flow/reviews/099-saintSealEarly-review.json",
+      "review_sha256": "e563b4d848c309691fba7e405dfcb1b92cd2968e1b5a2b342c5a6f69101c8e21"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/100-saintRoadEarly-context.json",
+      "context_sha256": "009d0e19a1db09c67c89c9fc6e129aecc96a9206d148c0c8c53c8a6efa78d04d",
+      "draft": "docs/c1-character-flow/reviews/100-saintRoadEarly-draft.json",
+      "draft_sha256": "1f1e8479056386eb45c65028769e3f3fac8eb59827f98b91acb6dbbaad94f07f",
+      "review": "docs/c1-character-flow/reviews/100-saintRoadEarly-review.json",
+      "review_sha256": "c65016a4191c99e760ced1996117d0241a4fdc027a1c70d92aceacfbbedd192d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/101-saintWaitHostile-context.json",
+      "context_sha256": "277446827ee0717947feeb594239a3d1bfb2f3aab3d5679a946e8451c09d6c84",
+      "draft": "docs/c1-character-flow/reviews/101-saintWaitHostile-draft.json",
+      "draft_sha256": "76189e8102c21d8cba83fe2e67914087cd7082fb2b7067ec088224ea8c429e91",
+      "review": "docs/c1-character-flow/reviews/101-saintWaitHostile-review.json",
+      "review_sha256": "497e54b196a4703d5d84d26fed300b20d8ce284bdc7bb703c6094bb1243d52c5"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/102-saintGuestroom-context.json",
+      "context_sha256": "7acf7ec12201ac51a4aa1d1d033b641f565ad1e98b65887aff0cccda2860b82d",
+      "draft": "docs/c1-character-flow/reviews/102-saintGuestroom-draft.json",
+      "draft_sha256": "898d7d148a380606bd7e75d9be090361a96c02c04ef25c3b0d62ee5678bdac64",
+      "review": "docs/c1-character-flow/reviews/102-saintGuestroom-review.json",
+      "review_sha256": "48b982da94b81c9ac31f12911cff9a845e9e8e533bfd6656c4ff355ea4b5941d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/103-saintCave-context.json",
+      "context_sha256": "0862b86a5e82782a48d40fc581f2dbb68c170dd2b03f7c9c5b8f77f7e78292b2",
+      "draft": "docs/c1-character-flow/reviews/103-saintCave-draft.json",
+      "draft_sha256": "4167243c6822705adca0eb1771026c2cd5bbc4d980e0d5b8ffd968ce090efe53",
+      "review": "docs/c1-character-flow/reviews/103-saintCave-review.json",
+      "review_sha256": "e65661da4500e43e5696a0717fa40566fe21706b6014b653dd16ce834fe5059e"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/104-chapterEnd-context.json",
+      "context_sha256": "db00fa43704a2ec0b0039c7c4a2fa8b25210607b18ece8b68d31a39cdeb9f09e",
+      "draft": "docs/c1-character-flow/reviews/104-chapterEnd-draft.json",
+      "draft_sha256": "9702ead62ff0d7e6a38e966d84c628053ccb3c7bd3bd70dba7846a4c6f364c1c",
+      "review": "docs/c1-character-flow/reviews/104-chapterEnd-review.json",
+      "review_sha256": "d4bc66d478d9beaf4effa991e4cfd25b7bdac685b25a504d25b768790a472895"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/105-saintBrief-context.json",
+      "context_sha256": "63799cbfaa7ae3c17e00bd5ec4e69bb4be28f8fafb89d259631ec454a368b74c",
+      "draft": "docs/c1-character-flow/reviews/105-saintBrief-draft.json",
+      "draft_sha256": "84716f9db4dad1dea51a573e0e6af9b5a7e15ed182e310e8a19e5b51adfc8a5f",
+      "review": "docs/c1-character-flow/reviews/105-saintBrief-review.json",
+      "review_sha256": "356d36bf2b48d8d1127874e570afaa423bef47c98b0b99d453426efc747839a9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/106-lottieGreeting-context.json",
+      "context_sha256": "bae620fe9b97e7d43a6c39c5d6b424c22095ed2c30d6d526f271eed9640c4b79",
+      "draft": "docs/c1-character-flow/reviews/106-lottieGreeting-draft.json",
+      "draft_sha256": "36be2ac6c4960b92d1759bbef55a6edec3ab435169649b5edb7c5997a23e1f07",
+      "review": "docs/c1-character-flow/reviews/106-lottieGreeting-review.json",
+      "review_sha256": "1ca1e0ab60a4c749f0ea8ed343be706479a4df9d4f0887c69459e22e5fcd9b4a"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/107-lottieWork-context.json",
+      "context_sha256": "81a4fc111215ff0e599bf00dcfa4ffc86c511ea0202993e1fddebdb2ba95dbb8",
+      "draft": "docs/c1-character-flow/reviews/107-lottieWork-draft.json",
+      "draft_sha256": "45d01789b24b86e7a837d20e5018a791a9ae8aba6715aa7ee4524f2e03905d09",
+      "review": "docs/c1-character-flow/reviews/107-lottieWork-review.json",
+      "review_sha256": "ac32592619ab5501d918a7e3aa3813eed5d642906466230ac3a91c94f7c3e6bf"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/108-lottieFoundFirst-context.json",
+      "context_sha256": "94dd1a544b8ed9e2979bac63a9129fe5f0bd7393ced80ad55ddd741fe412fad7",
+      "draft": "docs/c1-character-flow/reviews/108-lottieFoundFirst-draft.json",
+      "draft_sha256": "11b1a83f06674081c5ea8e5c96fc2667e40f1761f3845e72a1aaadd5e4ff9dc1",
+      "review": "docs/c1-character-flow/reviews/108-lottieFoundFirst-review.json",
+      "review_sha256": "1ba89be4b49828b08b78ceec3d7a60ba1b7edea9868c3a8b662d7fa0ad2f3282"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/109-lottieProgress-context.json",
+      "context_sha256": "35460cdf3bced1f704698f5faef27045b51f66b5d54a6061b97cab403c1c69c3",
+      "draft": "docs/c1-character-flow/reviews/109-lottieProgress-draft.json",
+      "draft_sha256": "0aaecab767fa23ef4693a35481ec5773fa9501881d4996839904d9543c94ab87",
+      "review": "docs/c1-character-flow/reviews/109-lottieProgress-review.json",
+      "review_sha256": "1eb9cebf95876535329bd66f430fb9c63099639c70b56c663a70a125da4ae6d7"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/110-lottieCuring-context.json",
+      "context_sha256": "a114c08f4fbd6b29696d86eb3d2d9a2915fb938b3438adc3e5c0d10f346fd826",
+      "draft": "docs/c1-character-flow/reviews/110-lottieCuring-draft.json",
+      "draft_sha256": "24e95c20ee0331074bca38d82709b6d30aef1febcf665d81c6fb5b74ced32020",
+      "review": "docs/c1-character-flow/reviews/110-lottieCuring-review.json",
+      "review_sha256": "9a273a33b1dfdf2b7a1badf6871399711f10e87dad96410e106fff29b029b8bf"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/111-lottieResetReady-context.json",
+      "context_sha256": "1a6fa246a1cc546af577618a6ff62763edf825643e6bbe92bfe31711ae55b6d5",
+      "draft": "docs/c1-character-flow/reviews/111-lottieResetReady-draft.json",
+      "draft_sha256": "7e6677e5262d306703189c7d1364a570fafab927f741e69d16c24b1efb5535e6",
+      "review": "docs/c1-character-flow/reviews/111-lottieResetReady-review.json",
+      "review_sha256": "80a76f17df443f96133e832a9c5dbd5149adf0575e634379d78e4bb46b857abf"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/112-v29LottieWork-context.json",
+      "context_sha256": "a0bfaba960736f5d5d5b708eb64bd2dc05fc4f9c93d4ad5c9d4a288594eacc8b",
+      "draft": "docs/c1-character-flow/reviews/112-v29LottieWork-draft.json",
+      "draft_sha256": "300338b599c2ca72c6da7de6ae45b701bbd199c7abd7fdeb2566686b3d25553b",
+      "review": "docs/c1-character-flow/reviews/112-v29LottieWork-review.json",
+      "review_sha256": "b86aa3f0ed86653ba2178354c8bb448249bcd1a1a1c821e62ac87ede6f91eeef"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/113-v29LottieReturn-context.json",
+      "context_sha256": "3abdc6fbac2c4e0b397526ca37309af2fb2adb2a98c97f9a610ac145d36e2409",
+      "draft": "docs/c1-character-flow/reviews/113-v29LottieReturn-draft.json",
+      "draft_sha256": "e2ced693237aeaececc83d68d14a37c622641dd981b7f6ab8ec0dda64f871db1",
+      "review": "docs/c1-character-flow/reviews/113-v29LottieReturn-review.json",
+      "review_sha256": "f45fb79b9c365745c126a630aacd7955b3f6f2843c3e11b597aa19f30a0de643"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/114-v29RepairCuring-context.json",
+      "context_sha256": "1e52384dc5912c69a2dc1b433ed60e82f95c9f8c0b174cfafa94b020083c5444",
+      "draft": "docs/c1-character-flow/reviews/114-v29RepairCuring-draft.json",
+      "draft_sha256": "8273925f44c5033f87fd82354aac4b45f92c5165c712cad6f8b5e1c29269dd39",
+      "review": "docs/c1-character-flow/reviews/114-v29RepairCuring-review.json",
+      "review_sha256": "20962886467babe1f1be446c31c7c656f75bf1f1f47fa55b6964b11d451c0992"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/115-v29RepairReady-context.json",
+      "context_sha256": "de3c9096e3f98b1732ce9dc2fd5c126e78fc68fa9ebe2b6dc60d8a67b1344994",
+      "draft": "docs/c1-character-flow/reviews/115-v29RepairReady-draft.json",
+      "draft_sha256": "38fb1670e787815161d97c1bbd504c27ab0eeda754cc9b8ce3f2b767a013e2c2",
+      "review": "docs/c1-character-flow/reviews/115-v29RepairReady-review.json",
+      "review_sha256": "209bcde8491be572db66ecf42e341083e7a850ff266f46d99c079a6777a3949d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/116-v29EchoSeparateCore-context.json",
+      "context_sha256": "fa03f3387323d73f83cee3cb714a7f0d3774182362ebf73446b21e525e95b362",
+      "draft": "docs/c1-character-flow/reviews/116-v29EchoSeparateCore-draft.json",
+      "draft_sha256": "e57385187db552290315f31706876d76c8e6bdeb811af21eb53da85f6b7bdee3",
+      "review": "docs/c1-character-flow/reviews/116-v29EchoSeparateCore-review.json",
+      "review_sha256": "de622f7e55dd3c22c36b7702d9d31eb7d76da6e4e5d197f8535a53863aa4056f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/117-v29MillTracks-context.json",
+      "context_sha256": "ed380b5d354b3a9f675b7ae311b3575f2e19116c7cc392afdc3ba70d3c0c8ef7",
+      "draft": "docs/c1-character-flow/reviews/117-v29MillTracks-draft.json",
+      "draft_sha256": "b59295f81381cbe04e622a95230a585f8d616a0614c44e4571cc2574d4041d8f",
+      "review": "docs/c1-character-flow/reviews/117-v29MillTracks-review.json",
+      "review_sha256": "74c932426cd0fba6adf98df37b25af4f32b52ae6679ae62e8cdb6d0e340ea8f2"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/118-v29MillChannel-context.json",
+      "context_sha256": "7bf072bcee1432fd28a30e04cb398715ed733d474edbae489547cfffb25ddabb",
+      "draft": "docs/c1-character-flow/reviews/118-v29MillChannel-draft.json",
+      "draft_sha256": "727cd27f89b2253463d063b7e28c892552e3b02564b1473afeebeabecd3a861c",
+      "review": "docs/c1-character-flow/reviews/118-v29MillChannel-review.json",
+      "review_sha256": "80282e6d3c50b6624cbe55022f816200e4ebc65fcabaee94ee2c417fafa16b80"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/119-v29EchoNeedNotes-context.json",
+      "context_sha256": "cdfb261d218f9e7654a95fee4f3a71c300ed6c99ef993a163d7bba0996f66362",
+      "draft": "docs/c1-character-flow/reviews/119-v29EchoNeedNotes-draft.json",
+      "draft_sha256": "738a5afad2664d7baddb23e7b23a756a2c02328680f1031e4aa5ee0eb8ef8478",
+      "review": "docs/c1-character-flow/reviews/119-v29EchoNeedNotes-review.json",
+      "review_sha256": "919f0107a82d6e2e4ee845994e6c8b8eba8827cf3f98e8c7134009b0dab67a59"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/120-practiceBenchFirst-context.json",
+      "context_sha256": "d2dfde0525ec7a5362a5faddd46f9b8f514c5eac1b007737840836c6c4744237",
+      "draft": "docs/c1-character-flow/reviews/120-practiceBenchFirst-draft.json",
+      "draft_sha256": "702c62e0b4f3797d3d9182791181fbd76d1a3ec0d257349dfbc40677eef2249e",
+      "review": "docs/c1-character-flow/reviews/120-practiceBenchFirst-review.json",
+      "review_sha256": "c4ff348c8df7a48e6e531c67006b37b76d753256bc90cd7a9d297897658dcfd2"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/121-practiceBenchComplete-context.json",
+      "context_sha256": "41628d11ccdf90923db8427bd87fab0729013cd5948de997c5b10c5d23d76163",
+      "draft": "docs/c1-character-flow/reviews/121-practiceBenchComplete-draft.json",
+      "draft_sha256": "c03037977bb47996b0975610f3e5515f0e73395849377f93fdc599f243e3eff3",
+      "review": "docs/c1-character-flow/reviews/121-practiceBenchComplete-review.json",
+      "review_sha256": "8b6a36ec9b07ef19a596a913f0876163ef0ade06e1d5b42acbff1232c2476f23"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/122-millOldPractice-context.json",
+      "context_sha256": "1eb1ba4b56addc41646ff12dc5ef3b81f87b24a72974925c84ffc64eeaf4240e",
+      "draft": "docs/c1-character-flow/reviews/122-millOldPractice-draft.json",
+      "draft_sha256": "636ee3c55e90b80bc182224c66cb66800965b434b95e8f89c58d6c3ee8bb6399",
+      "review": "docs/c1-character-flow/reviews/122-millOldPractice-review.json",
+      "review_sha256": "eae987dc60e2e5cc6fb423e019b953ea1fcc3b991ff143da2ed4edb3d549e4da"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/123-echoMachineLocked-context.json",
+      "context_sha256": "23c6164fcaef74c30715068958d33b4855fd3b2afca7a0d00197cacb5ed47919",
+      "draft": "docs/c1-character-flow/reviews/123-echoMachineLocked-draft.json",
+      "draft_sha256": "850b6890e9ae05833edd9d4ba93cb1be65e532894f9e31591d2613bec6c21840",
+      "review": "docs/c1-character-flow/reviews/123-echoMachineLocked-review.json",
+      "review_sha256": "ac3a212dcd85f7d592be34d9c5e8361b8ee67799c64e8d8223472cef89693354"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/124-herbHintTalk-context.json",
+      "context_sha256": "2131e3fe81d268a11a74d14d72075188ebab20abdf8f0690b0e342822cd439fd",
+      "draft": "docs/c1-character-flow/reviews/124-herbHintTalk-draft.json",
+      "draft_sha256": "3bd1fd987e631d108148970ba4398e5340167dca913ef5fae235b2860d65f2bf",
+      "review": "docs/c1-character-flow/reviews/124-herbHintTalk-review.json",
+      "review_sha256": "346b06d82107b95e9c926c722a397ca0d2c560010cbf7dcd43235ab7630e72aa"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/125-herbWoman-context.json",
+      "context_sha256": "554b7fe48d527f3898f70f35a8a79f5f4c56962e9985cabd736be1ed75260c0d",
+      "draft": "docs/c1-character-flow/reviews/125-herbWoman-draft.json",
+      "draft_sha256": "73c6f5a6ca07fff9a42f5b7f684efbe9134657423e32d729a2a91114d350c2de",
+      "review": "docs/c1-character-flow/reviews/125-herbWoman-review.json",
+      "review_sha256": "64b5705bebc825eb7ee6d359d38c23edd2916dff2297d33f898995129dc4e228"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/126-herbSelf-context.json",
+      "context_sha256": "8ab45f064ebaff3a22e296f93e3764138f0651ee211b6180c318243b0d732def",
+      "draft": "docs/c1-character-flow/reviews/126-herbSelf-draft.json",
+      "draft_sha256": "3d44abbeca86b9cdf7700c0155e09927393b1080d214a6e47004fc337e37d8c4",
+      "review": "docs/c1-character-flow/reviews/126-herbSelf-review.json",
+      "review_sha256": "240a082351896a75c1a5d068a1d1c5e71309218779d2fffd2bd28d68d04a3e22"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/127-oilAcceptTalk-context.json",
+      "context_sha256": "95b7b9b80c7dc2dbc0c98155c7c4398a4728a9404316cc7de206df7aa0c03714",
+      "draft": "docs/c1-character-flow/reviews/127-oilAcceptTalk-draft.json",
+      "draft_sha256": "435162a6edd6928a2698aa1f78efbb1fd9ad5a261e6ba32ed2ff9826ca7e276c",
+      "review": "docs/c1-character-flow/reviews/127-oilAcceptTalk-review.json",
+      "review_sha256": "19e752f09849a388147570179fd35acbcb73f0431ec14a2c0d91644b3c91d8ca"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/128-letterProgressTalk-context.json",
+      "context_sha256": "6b4556d0aab075537dc48b7e202c4e67398070557be3066ead8412ad181d929b",
+      "draft": "docs/c1-character-flow/reviews/128-letterProgressTalk-draft.json",
+      "draft_sha256": "52563ce7269dfd4c745bf70d2ef5ba55d51bd83c253ad88519c408a7d282d7a1",
+      "review": "docs/c1-character-flow/reviews/128-letterProgressTalk-review.json",
+      "review_sha256": "8e7e87923452a2a7fce023123b8883db707eb2f537ef3958ccb1e41ea939e72d"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/129-restTalk-context.json",
+      "context_sha256": "11ff08c6aee62ea7b96c0d5d819beeec07b0958b96c43ff45f03531ee406e490",
+      "draft": "docs/c1-character-flow/reviews/129-restTalk-draft.json",
+      "draft_sha256": "f44b38c3c8ec4ace68e17f6b9892c3464cfe7b67e503b3a3c17884003ed16529",
+      "review": "docs/c1-character-flow/reviews/129-restTalk-review.json",
+      "review_sha256": "daa018895d3cc0b3b1c3d700c3820a011928eb9fbef8d1e67a015e5b8dcd00af"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/130-watchPracticeBefore-context.json",
+      "context_sha256": "bab180d48833ddb8f54e650d7267e04b6599a2643fe130b763b1f9cebb2e65b4",
+      "draft": "docs/c1-character-flow/reviews/130-watchPracticeBefore-draft.json",
+      "draft_sha256": "bdcf7ecd56ce83e8cc75b8348dce89bf796be35145acc9195d7308ec3b2c2adf",
+      "review": "docs/c1-character-flow/reviews/130-watchPracticeBefore-review.json",
+      "review_sha256": "d7a9f6899b3130da1315fc52bdc1ce110622f3a9744cbee196f00b6957139220"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/131-pacing-v12Water-accept-context.json",
+      "context_sha256": "6b425201923f4d547289347d1cd8c78b9e7df47b3af42e4dc70f40e668cc1ddc",
+      "draft": "docs/c1-character-flow/reviews/131-pacing-v12Water-accept-draft.json",
+      "draft_sha256": "d5b40ac10512839e657a04ba433e68f618f14b94d6468cf214706aeccb2231a5",
+      "review": "docs/c1-character-flow/reviews/131-pacing-v12Water-accept-review.json",
+      "review_sha256": "461ee82c4b9d4fea76602342a43498b5c863a770f7d37fe9af8a8c8d60817290"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/132-pacing-v12Water-progress-context.json",
+      "context_sha256": "b278f3eca6abaf0ea8bd433397974b7f2c43d8bd595070c0bed89b3844dc32e5",
+      "draft": "docs/c1-character-flow/reviews/132-pacing-v12Water-progress-draft.json",
+      "draft_sha256": "4a564f2bdfd2ae2b1fd0e6e30dec0493254b65f035b75c780b81134f5f5c0137",
+      "review": "docs/c1-character-flow/reviews/132-pacing-v12Water-progress-review.json",
+      "review_sha256": "001dc9e26e23d0543b9e8db2a0ee010715f128a9f7eaf18633a0ee622e1250f9"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/133-pacing-v12Water-complete-context.json",
+      "context_sha256": "07dd8b7ab1381c1a029b5e60af4bb8fd224a628eac483fb350f3b47afd623f0c",
+      "draft": "docs/c1-character-flow/reviews/133-pacing-v12Water-complete-draft.json",
+      "draft_sha256": "5d960c2fa78c04c2c8a26db5b4f5c57a3a911972221ac3a60b848a8de7e44186",
+      "review": "docs/c1-character-flow/reviews/133-pacing-v12Water-complete-review.json",
+      "review_sha256": "0897e0b666602e569dd8601ffb682fad646a9bf3f8a0b0477c1d88612f58392f"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/134-pacing-v12CourierRoad-accept-context.json",
+      "context_sha256": "a101f611d45bf36e7b743fcde7da4be463c0b5ba149851d21ba372aa98f6a33f",
+      "draft": "docs/c1-character-flow/reviews/134-pacing-v12CourierRoad-accept-draft.json",
+      "draft_sha256": "982de5c99f9027bba874f07d2bd001c87046506b65f3bb8cfc53a4fbb61d1548",
+      "review": "docs/c1-character-flow/reviews/134-pacing-v12CourierRoad-accept-review.json",
+      "review_sha256": "864a982a2c57cc9ec9a6d8440ac16242ae5649b267b5af16d56539fe034cec50"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/135-pacing-v12CourierRoad-complete-context.json",
+      "context_sha256": "eebc0d02897da97e11519ddf03fbc10cb7180c5e625129497f901bb0d5224169",
+      "draft": "docs/c1-character-flow/reviews/135-pacing-v12CourierRoad-complete-draft.json",
+      "draft_sha256": "0e3319a2874325581e5f600b91c437f01ddde7b449f1efdda92098d7d8aedf20",
+      "review": "docs/c1-character-flow/reviews/135-pacing-v12CourierRoad-complete-review.json",
+      "review_sha256": "a19dc6393f2087988bbe22810a18962b9d8ac4c00416baf4d1ff805aa5650db0"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/136-pacing-v12NorthDelivery-accept-context.json",
+      "context_sha256": "19e715c8801ca02554d989be3d1c4e75b628df5ca62564c165e69fc9ffd29b24",
+      "draft": "docs/c1-character-flow/reviews/136-pacing-v12NorthDelivery-accept-draft.json",
+      "draft_sha256": "f9c26c7f5893b83ee5447b9840d01f29859873ed77c721fc6667992d59be6e83",
+      "review": "docs/c1-character-flow/reviews/136-pacing-v12NorthDelivery-accept-review.json",
+      "review_sha256": "c64556d6d5d6a78142344670e78044ccf557257947000cb84b0ddbf654b2a458"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/137-pacing-v12NorthDelivery-complete-context.json",
+      "context_sha256": "7c0217eede0279b4ec7a59c0a58efb53959603851d459d08c10743056491987a",
+      "draft": "docs/c1-character-flow/reviews/137-pacing-v12NorthDelivery-complete-draft.json",
+      "draft_sha256": "1b48431498e11bd3d28d3186fabdcf8eb2f0be9f0923e9dd0ef3eda9a33a73eb",
+      "review": "docs/c1-character-flow/reviews/137-pacing-v12NorthDelivery-complete-review.json",
+      "review_sha256": "88417ab0086645a33bea46e160c69fe78a68cbd5d8190db6558164a287cda9e1"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/138-c1PatrolGrove-context.json",
+      "context_sha256": "31a8acdc25243684dd1c795057f5f8eca250ff156533cb0efc7093068757cb83",
+      "draft": "docs/c1-character-flow/reviews/138-c1PatrolGrove-draft.json",
+      "draft_sha256": "a4a00a52dbb5c488f980035d50f096f8ca712bc6a40daaa252b15d8d0632017c",
+      "review": "docs/c1-character-flow/reviews/138-c1PatrolGrove-review.json",
+      "review_sha256": "961b4f327e90571e00e8302ed80c7b0ddd2e39fd4a8d4f7136dc78aaa1b7717e"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/139-c1PatrolReturn-context.json",
+      "context_sha256": "bae33ffa27341f04b93eae0a1625538cb8ee14a102180bfdc3ff9f8cec003a39",
+      "draft": "docs/c1-character-flow/reviews/139-c1PatrolReturn-draft.json",
+      "draft_sha256": "e641a16616f92d7d8bd7d5d6dce4201ae70c832986b210ca7c918df89f353090",
+      "review": "docs/c1-character-flow/reviews/139-c1PatrolReturn-review.json",
+      "review_sha256": "fc7da17bb9db6034d11c5e233bf2ef8cac0a20de9e0da3cc8757548fad174881"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/140-c1Talk_c1RuneKiln_offer-context.json",
+      "context_sha256": "348c58ec8b06fa4e46057ca41bbbda379c32df2fa5c329a394e9d73e913fee4e",
+      "draft": "docs/c1-character-flow/reviews/140-c1Talk_c1RuneKiln_offer-draft.json",
+      "draft_sha256": "4ff45c83d4b0c7ac238f2702ce881990df8b71678cb49433b8fa7c7c25be602b",
+      "review": "docs/c1-character-flow/reviews/140-c1Talk_c1RuneKiln_offer-review.json",
+      "review_sha256": "74dded84810f32e407da2d4a71c11ca2f328ccc374f391c40be5cd3db9a778b2"
+    },
+    {
+      "context": "docs/c1-character-flow/reviews/141-c1Talk_c1RuneWear_progress-context.json",
+      "context_sha256": "ad4d268264dc85094118e4c65c5492ac616b87615b0e02e37517726af55bcbaf",
+      "draft": "docs/c1-character-flow/reviews/141-c1Talk_c1RuneWear_progress-draft.json",
+      "draft_sha256": "e2fece6a399322be069d5551ff2daff322b66f513410be7b2c2a7651c5a7f3a6",
+      "review": "docs/c1-character-flow/reviews/141-c1Talk_c1RuneWear_progress-review.json",
+      "review_sha256": "682cfd1dced9b10ebee1308da9c9056afec405b585bdf6ca2746682c9f91a9ca"
+    }
+  ]
+}

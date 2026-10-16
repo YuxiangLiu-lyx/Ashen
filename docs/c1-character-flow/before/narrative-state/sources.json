@@ -1,0 +1,1806 @@
+{
+  "schema": 1,
+  "sources": {
+    "runtime-installed": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "note": "导入全部安装层后读取最终表；不能将早期注册当最终文本。"
+    },
+    "runtime-knowledge": {
+      "path": "dist/core-v14.js",
+      "anchor": "if(sceneId==='darkExileV9')",
+      "kind": "runtime"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-local": {
+      "path": "dist/chapter-one-story-world.js",
+      "anchor": "export const C1_LOCAL_TALK",
+      "kind": "runtime"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-trigger": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.c1PrivateTalkTick",
+      "kind": "runtime",
+      "note": "新私谈在contract提交后真实离开hall触发；旧c1Tail由ChapterOneStoryFlow接续。"
+    },
+    "runtime-c2-trigger": {
+      "path": "dist/chapter-runtime-v14.js",
+      "anchor": "ch2Arrival",
+      "kind": "runtime"
+    },
+    "runtime-later": {
+      "path": "dist/core-v14.js",
+      "anchor": "installChapter3",
+      "kind": "runtime"
+    },
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "author-saint": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 2. 艾莉娅的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "author-pair": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+      "kind": "user_confirmed"
+    },
+    "author-church": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 5. 前期光明教廷事件",
+      "kind": "user_confirmed"
+    },
+    "author-open": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 4. 不平凡背景与预言的开放性",
+      "kind": "unresolved"
+    },
+    "world-proposals": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "## 二、建议方案：供讨论、采用或修改",
+      "kind": "proposal"
+    },
+    "architecture": {
+      "path": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+      "anchor": "## 整体结构",
+      "kind": "provisional"
+    },
+    "c1-current": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c2-plan": {
+      "path": "docs/harness/CHAPTER_02.md",
+      "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+      "kind": "adopted_plan"
+    },
+    "c2-difference": {
+      "path": "docs/harness/CHAPTER_02.md",
+      "anchor": "exile-was-unplanned",
+      "kind": "adopted_plan"
+    },
+    "withdrawn-rebuild": {
+      "path": "docs/harness/NARRATIVE_ARCHITECTURE.md",
+      "anchor": "旧稿可从Git历史追溯",
+      "kind": "withdrawn"
+    },
+    "style-A": {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "anchor": "## A：",
+      "kind": "style_only"
+    },
+    "style-B": {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "anchor": "## B：",
+      "kind": "style_only"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ratAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ratAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:aside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "aside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:clerkIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "clerkIdle",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:saintBrief": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "saintBrief",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:assassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "assassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2SearchAside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2SearchAside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:canalStart": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "canalStart",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:courierAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "courierAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:courierDone": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "courierDone",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:herbsAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "herbsAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:herbSelf": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "herbSelf",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:herbWoman": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "herbWoman",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ambient_woman_beforeAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_woman_beforeAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:old1": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "old1",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:old2": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "old2",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:watch": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "watch",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ambient_watch_beforeAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_watch_beforeAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ambient_dolly_beforeAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_dolly_beforeAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ambient_dolly_afterAssassination": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ambient_dolly_afterAssassination",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:lottieGreeting": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "lottieGreeting",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:lottieWork": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "lottieWork",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Arrival": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Arrival",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Relay": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Relay",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2OuterCourt": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2OuterCourt",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2TargetBefore": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2TargetBefore",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2TargetAfter": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2TargetAfter",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Souls": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Souls",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3RescueCart": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3RescueCart",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Doctor": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Doctor",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3MedicineDeparture": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3MedicineDeparture",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3SaltGrotto": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3SaltGrotto",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3SaltGather": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3SaltGather",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3FerryAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3FerryAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3FerryReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3FerryReturn",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4Arrival": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4Arrival",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4CampWelcome": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4CampWelcome",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4SmithLesson": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4SmithLesson",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4Boss1Before": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4Boss1Before",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4SealedDoor": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4SealedDoor",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4Boss2Before": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4Boss2Before",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4Boss3Before": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4Boss3Before",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V13Private": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V13Private",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5ForgeWorkAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5ForgeWorkAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5ForgeWorkReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5ForgeWorkReturn",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5DewWorkAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5DewWorkAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5DewWorkReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5DewWorkReturn",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5NamesAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5NamesAccept",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5NamesReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5NamesReturn",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5MentorBefore": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5MentorBefore",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5CareerTeach": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5CareerTeach",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5RecruiterFirst": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5RecruiterFirst",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5RecruiterContract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5RecruiterContract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5TavernFirst": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5TavernFirst",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5BarkeepDaily": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5BarkeepDaily",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch5ExteriorOrder": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch5ExteriorOrder",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V13Notice": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V13Notice",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V14Investigation": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V14Investigation",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V13Village": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V13Village",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V13Orders": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V13Orders",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch4V13BloodReady": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch4V13BloodReady",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v17BondGameIntro0": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v17BondGameIntro0",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v18CityBreadFound": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v18CityBreadFound",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v19DiscoveryTune": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v19DiscoveryTune",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v19DiscoveryTuneReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v19DiscoveryTuneReturn",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v19DiscoveryBell": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v19DiscoveryBell",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v24MomentBookA": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v24MomentBookA",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v24MomentBookB": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v24MomentBookB",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Checkpoint": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Checkpoint",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Village": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Village",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Tax": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Tax",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Conscription": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Conscription",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Departure": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Departure",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v25Rescue": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v25Rescue",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v26LastWagonIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v26LastWagonIntro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25ContractOne": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25ContractOne",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25FirstEscape": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25FirstEscape",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25ContractTwo": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25ContractTwo",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25Granary": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25Granary",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25Odric": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25Odric",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v26SecondWagonAxles": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v26SecondWagonAxles",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v26SecondWagonIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v26SecondWagonIntro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25Martha": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25Martha",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v26MedicineRoundsIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v26MedicineRoundsIntro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c7v25Severin": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c7v25Severin",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Pursuit": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Pursuit",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Defeat": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Defeat",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Sanctuary": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Sanctuary",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Warning": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Warning",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Hold": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Hold",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v26MissingNamesIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v26MissingNamesIntro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v26MissingNamesReceipts": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v26MissingNamesReceipts",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v26LastFerryIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v26LastFerryIntro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c6v26LastFerryReeds": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c6v26LastFerryReeds",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Terms": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Terms",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2ExileEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2ExileEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkCommissionV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkCommissionV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:darkExileV9": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "darkExileV9",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:v25C8Bind": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "v25C8Bind",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:chapterEnd": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "chapterEnd",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ratDone": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ratDone",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:c1HiddenPairArrangement": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2InnerDoor": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2InnerDoor",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2PursuitStops": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2PursuitStops",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Bridge": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Bridge",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Alarm": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Alarm",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Breakout": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Breakout",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2ExileApproach": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2ExileApproach",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Arrival": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Arrival",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3Wake": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Wake",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch3End": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3End",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "author-world": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 1. 故事的规模与基本立场",
+      "kind": "user_confirmed"
+    },
+    "world-unresolved": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "## 三、暂未完善、需要逐步讨论的内容",
+      "kind": "unresolved"
+    },
+    "runtime-saga-nodes": {
+      "path": "dist/saga-nodes-v25.js",
+      "anchor": "export const SAGA_NODES_V25",
+      "kind": "runtime"
+    },
+    "runtime-c3-trigger": {
+      "path": "dist/chapter3-runtime-v14.js",
+      "anchor": "chapter=",
+      "kind": "runtime"
+    },
+    "runtime-c4-trigger": {
+      "path": "dist/chapter4-runtime-v14.js",
+      "anchor": "chapter=",
+      "kind": "runtime"
+    },
+    "runtime-c5-trigger": {
+      "path": "dist/chapter5-runtime-v14.js",
+      "anchor": "chapter=",
+      "kind": "runtime"
+    },
+    "scene:sisterBeforeDeparture": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterBeforeDeparture"
+    },
+    "scene:sisterAfterBell": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterAfterBell"
+    },
+    "runtime-memory": {
+      "path": "dist/memory-runtime-v14.js",
+      "anchor": "const scenes=",
+      "kind": "runtime"
+    },
+    "c1-runtime-baseline": {
+      "path": "docs/harness/CHAPTER_01_LAYER_RULES.md",
+      "anchor": "V01C01 / 午钟之前 / DEV_FROZEN",
+      "kind": "adopted_plan"
+    },
+    "experience:c1RepairAccept": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairAccept:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairAccept",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairCable": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairCable:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairCable",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairDrain": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairDrain:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairDrain",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1RepairLegacyReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1RepairLegacyReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairLegacyReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1VaultAccept": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1VaultAccept:",
+      "kind": "runtime",
+      "runtime_scene": "c1VaultAccept",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1VaultLedger": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1VaultLedger:",
+      "kind": "runtime",
+      "runtime_scene": "c1VaultLedger",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1VaultReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1VaultReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1VaultReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1VaultLegacyReturn": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1VaultLegacyReturn:",
+      "kind": "runtime",
+      "runtime_scene": "c1VaultLegacyReturn",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1NorthBrief": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1NorthBrief:",
+      "kind": "runtime",
+      "runtime_scene": "c1NorthBrief",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c1GateBrief": {
+      "path": "dist/rpg-experience-dialogues.js",
+      "anchor": "c1GateBrief:",
+      "kind": "runtime",
+      "runtime_scene": "c1GateBrief",
+      "note": "第一章1.0实际安装场景；调用条件见runtime-c1-actions。"
+    },
+    "experience:c2PumpRest": {
+      "path": "dist/rpg-chapter-two-data.js",
+      "anchor": "c2PumpRest:",
+      "kind": "runtime",
+      "runtime_scene": "c2PumpRest",
+      "note": "第二章0.4有限玩法增量，原主线知识与作者A/B未采用。"
+    },
+    "experience:v9TollFound": {
+      "path": "dist/rpg-chapter-two.js",
+      "anchor": "DIALOGUES.v9TollFound=",
+      "kind": "runtime",
+      "runtime_scene": "v9TollFound",
+      "note": "第二章0.4有限玩法增量，原主线知识与作者A/B未采用。"
+    },
+    "c3-experience-plan": {
+      "path": "docs/harness/CHAPTER_03_RPG_EXPERIENCE.md",
+      "anchor": "运行第三章1.0",
+      "kind": "adopted_plan"
+    },
+    "experience:c3HerbMedicine": {
+      "path": "dist/rpg-chapter-three-data.js",
+      "anchor": "c3HerbMedicine:",
+      "kind": "runtime",
+      "runtime_scene": "c3HerbMedicine",
+      "note": "R03康复后营地服务；不改变救人不等于原谅的主线与知识边界。"
+    },
+    "experience:c3BrewMedicine": {
+      "path": "dist/rpg-chapter-three-data.js",
+      "anchor": "c3BrewMedicine:",
+      "kind": "runtime",
+      "runtime_scene": "c3BrewMedicine",
+      "note": "R03康复后营地服务；不改变救人不等于原谅的主线与知识边界。"
+    },
+    "scene:ch3AdvanceIntro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3AdvanceIntro",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3AdvanceBoss1Before": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3AdvanceBoss1Before",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3AdvanceBoss1After": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3AdvanceBoss1After",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3AdvanceBoss2Before": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3AdvanceBoss2Before",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3AdvanceBoss2After": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3AdvanceBoss2After",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Wound": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Wound",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Unseal": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Unseal",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3WorkshopLamp": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3WorkshopLamp",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3MineCrystal": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3MineCrystal",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Treatment": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Treatment",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3CampDeparture": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3CampDeparture",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3Pass": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3Pass",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3ArenaBefore": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3ArenaBefore",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3ArenaAfter": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3ArenaAfter",
+      "note": "第三章实际注册文本与章稿复核；触发语义另查chapter3-runtime、V11覆盖及安全队列。"
+    },
+    "scene:ch3MachineAccept": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3MachineAccept",
+      "note": "芮妲修理、材料与工钱表达的既有依据。"
+    },
+    "scene:ch3MachineReturn": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch3MachineReturn",
+      "note": "芮妲修理、材料与工钱表达的既有依据。"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "flow:c1CanalAlreadyClear": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1CanalAlreadyClear"
+    },
+    "flow:c1TrainingReason": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrainingReason"
+    },
+    "flow:c1HerbsToLena": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HerbsToLena"
+    },
+    "flow:c1PatrolRoad": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolRoad"
+    },
+    "flow:c1PatrolGrove": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolGrove"
+    },
+    "flow:c1PatrolProgress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolProgress"
+    },
+    "flow:c1PatrolReturn": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolReturn"
+    },
+    "flow:c1Talk_rats_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_rats_offer"
+    },
+    "flow:c1Talk_rats_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_rats_progress"
+    },
+    "flow:c1Talk_c1Readiness_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_offer"
+    },
+    "flow:c1Talk_c1Readiness_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_progress"
+    },
+    "flow:c1Talk_c1Readiness_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_report"
+    },
+    "flow:c1Talk_c1ExitDrill_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_offer"
+    },
+    "flow:c1Talk_c1ExitDrill_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_progress"
+    },
+    "flow:c1Talk_c1ExitDrill_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_report"
+    },
+    "flow:c1Talk_v12CourierRoad_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_offer"
+    },
+    "flow:c1Talk_v12CourierRoad_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_progress"
+    },
+    "flow:c1Talk_v12CourierRoad_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12CourierRoad_report"
+    },
+    "flow:c1Talk_c1LoomBrief_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_offer"
+    },
+    "flow:c1Talk_c1LoomBrief_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_progress"
+    },
+    "flow:c1Talk_c1LoomBrief_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_report"
+    },
+    "flow:c1Talk_v12NorthDelivery_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12NorthDelivery_offer"
+    },
+    "flow:c1Talk_v12NorthDelivery_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12NorthDelivery_progress"
+    },
+    "flow:c1Talk_c1CanalPrep_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_offer"
+    },
+    "flow:c1Talk_c1CanalPrep_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_progress"
+    },
+    "flow:c1Talk_c1CanalPrep_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalPrep_report"
+    },
+    "flow:c1Talk_c1CanalBreak_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_offer"
+    },
+    "flow:c1Talk_c1CanalBreak_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_progress"
+    },
+    "flow:c1Talk_c1CanalBreak_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CanalBreak_report"
+    },
+    "flow:c1Talk_oil_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_offer"
+    },
+    "flow:c1Talk_oil_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_progress"
+    },
+    "flow:c1Talk_oil_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_oil_report"
+    },
+    "flow:c1Talk_v12Water_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_offer"
+    },
+    "flow:c1Talk_v12Water_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_progress"
+    },
+    "flow:c1Talk_v12Water_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_v12Water_report"
+    },
+    "flow:c1Talk_letter_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_offer"
+    },
+    "flow:c1Talk_letter_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_progress"
+    },
+    "flow:c1Talk_letter_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_letter_report"
+    },
+    "flow:c1Talk_herbs_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_offer"
+    },
+    "flow:c1Talk_herbs_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_progress"
+    },
+    "flow:c1Talk_herbs_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_herbs_report"
+    },
+    "flow:c1Talk_lantern_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_offer"
+    },
+    "flow:c1Talk_lantern_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_progress"
+    },
+    "flow:c1Talk_lantern_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_lantern_report"
+    },
+    "flow:c1Talk_copper_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_offer"
+    },
+    "flow:c1Talk_copper_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_progress"
+    },
+    "flow:c1Talk_copper_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_copper_report"
+    },
+    "flow:c1Talk_echo_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_offer"
+    },
+    "flow:c1Talk_echo_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_progress"
+    },
+    "flow:c1Talk_echo_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_echo_report"
+    },
+    "flow:c1Talk_c1ClockMemory_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ClockMemory_offer"
+    },
+    "flow:c1Talk_c1ClockMemory_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ClockMemory_progress"
+    },
+    "flow:c1Talk_c1RuneWear_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_offer"
+    },
+    "flow:c1Talk_c1RuneWear_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_progress"
+    },
+    "flow:c1Talk_c1RuneWear_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneWear_report"
+    },
+    "flow:c1Talk_c1RuneKiln_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_offer"
+    },
+    "flow:c1Talk_c1RuneKiln_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_progress"
+    },
+    "flow:c1Talk_c1RuneKiln_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1RuneKiln_report"
+    },
+    "flow:c1Talk_c1AlchemistSamples_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_offer"
+    },
+    "flow:c1Talk_c1AlchemistSamples_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_progress"
+    },
+    "flow:c1Talk_c1AlchemistSamples_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1AlchemistSamples_report"
+    },
+    "flow:c1Talk_c1CampHunt_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_offer"
+    },
+    "flow:c1Talk_c1CampHunt_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_progress"
+    },
+    "flow:c1Talk_c1CampHunt_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHunt_report"
+    },
+    "flow:c1Talk_c1CampHerbs_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_offer"
+    },
+    "flow:c1Talk_c1CampHerbs_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_progress"
+    },
+    "flow:c1Talk_c1CampHerbs_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CampHerbs_report"
+    },
+    "flow:c1Talk_c1KilnRoost_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_offer"
+    },
+    "flow:c1Talk_c1KilnRoost_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_progress"
+    },
+    "flow:c1Talk_c1KilnRoost_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1KilnRoost_report"
+    },
+    "flow:c1Talk_c1TrialSalvage_offer": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_offer"
+    },
+    "flow:c1Talk_c1TrialSalvage_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_progress"
+    },
+    "flow:c1Talk_c1TrialSalvage_report": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1TrialSalvage_report"
+    },
+    "flow:c1Talk_c1CryptRepair_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1CryptRepair_progress"
+    },
+    "flow:c1Talk_c1VaultWatch_progress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1VaultWatch_progress"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-trial-plan": {
+      "path": "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+      "anchor": "# 第一章采用稿1.3",
+      "kind": "adopted_plan"
+    },
+    "c1-trial-runtime": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime"
+    },
+    "trial:c1HuntOffer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HuntOffer"
+    },
+    "trial:c1SupplyIntro": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SupplyIntro"
+    },
+    "trial:c1SaintAid": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "trial:c1TrialInvitation": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    },
+    "trial:c1HuntProgress": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HuntProgress"
+    },
+    "trial:c1TrialReport": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialReport"
+    },
+    "trial:contract": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "contract"
+    },
+    "trial:c1CoreOrderOffer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1CoreOrderOffer"
+    },
+    "trial:c1HuntReport": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HuntReport"
+    },
+    "trial:c1TownDolly": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TownDolly"
+    },
+    "trial:c1TownLena": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TownLena"
+    },
+    "trial:assassination": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "assassination"
+    },
+    "trial:sisterBeforeDeparture": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "sisterBeforeDeparture"
+    },
+    "trial:c1RepairReturn": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1RepairReturn"
+    },
+    "trial:c1VaultAccept": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1VaultAccept"
+    },
+    "trial:c1TrainingReason": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrainingReason"
+    },
+    "trial:c1Talk_c1Readiness_offer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1Readiness_offer"
+    },
+    "trial:c1Talk_c1ExitDrill_offer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_offer"
+    },
+    "trial:c1Talk_c1ExitDrill_progress": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_progress"
+    },
+    "trial:c1Talk_c1ExitDrill_report": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_report"
+    },
+    "trial:c1Talk_c1LoomBrief_offer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_offer"
+    },
+    "trial:c1Talk_c1LoomBrief_report": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1LoomBrief_report"
+    },
+    "c1-restraint-plan": {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "anchor": "# 第一章采用稿1.4",
+      "kind": "adopted_plan"
+    }
+  }
+}

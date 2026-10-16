@@ -1,0 +1,153 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1NorthBrief",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "3eec199bfaeded3c66971617e832d4b4bf08fbfee0ddc84b53fa90b58bef08d9",
+  "before": [
+    [
+      "托马",
+      "鲁恩的封套？给我。嗯，班次对得上，我把你的名字记进去了。"
+    ],
+    [
+      "诺恩",
+      "礼拜厅还是从正门进？"
+    ],
+    [
+      "托马",
+      "午钟后正门就落闩。维护班从北侧前厅进，你把来意告诉值守的人，他会给你指路。中间那条道留给礼拜的人。"
+    ],
+    [
+      "诺恩",
+      "北渠的检修道能走吗？"
+    ],
+    [
+      "托马",
+      "还不能。渠鼠把支木啃空了，我正等人清理。你若愿意帮忙，我把坏木料的位置说清楚，那上面已经承不住人了。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "toma",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/toma.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "托马说明维护入口和承重危险，去掉愿意的话再讲位置的空转。",
+    "relationship": {
+      "participants": [
+        "托马",
+        "诺恩"
+      ],
+      "judgment": "托马说明维护入口和承重危险，去掉愿意的话再讲位置的空转。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "3eec199bfaeded3c66971617e832d4b4bf08fbfee0ddc84b53fa90b58bef08d9",
+      "event": {
+        "id": "R01:c1NorthBrief",
+        "scene": "c1NorthBrief",
+        "order": 39,
+        "summary": "托马：鲁恩的封套？给我。嗯，班次对得上，我把你的名字记进去了。；诺恩：礼拜厅还是从正门进？；托马：午钟后正门就落闩。维护班从北侧前厅进，你把来意告诉值守的人，他会给你指路。中间那条道留给礼拜的人。；诺恩：北渠的检修道能走吗？；托马：还走不了。渠鼠把支木啃空了，工人正等着清场。你肯帮忙的话，我告诉你哪几根坏得厉害，脚下得绕开。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1NorthBrief",
+          "runtime-c1-actions",
+          "character-flow:c1NorthBrief"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1NorthBrief",
+        "scene": "c1NorthBrief",
+        "order": 39,
+        "summary": "托马：鲁恩的封套？给我。嗯，班次对得上，我把你的名字记进去了。；诺恩：礼拜厅还是从正门进？；托马：午钟后正门就落闩。维护班从北侧前厅进，你把来意告诉值守的人，他会给你指路。中间那条道留给礼拜的人。；诺恩：北渠的检修道能走吗？；托马：还走不了。渠鼠把支木啃空了，工人正等着清场。你肯帮忙的话，我告诉你哪几根坏得厉害，脚下得绕开。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1NorthBrief",
+          "runtime-c1-actions",
+          "character-flow:c1NorthBrief"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1NORTHBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

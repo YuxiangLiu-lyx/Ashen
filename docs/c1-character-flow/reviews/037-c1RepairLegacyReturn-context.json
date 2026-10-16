@@ -1,0 +1,131 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1RepairLegacyReturn",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "3eea6fa0dfb343d8bc494c184d74758c2fd7b5ee6a2c5b3c93478e04903ab175",
+  "before": [
+    [
+      "赫莎",
+      "你先前清过的地方我记着，不用重新跑。我带上工具去接好库门的线，你下去后先找维恩，他还守着那些账册。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "hesha",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/hesha.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "旧档豁免仍保留完成确认，去掉重跑话术。",
+    "relationship": {
+      "participants": [
+        "赫莎"
+      ],
+      "judgment": "旧档豁免仍保留完成确认，去掉重跑话术。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "3eea6fa0dfb343d8bc494c184d74758c2fd7b5ee6a2c5b3c93478e04903ab175",
+      "event": {
+        "id": "R01:c1RepairLegacyReturn",
+        "scene": "c1RepairLegacyReturn",
+        "order": 34,
+        "summary": "赫莎：你清过的地方我有记录，这就带工具去接库门的线。三层的维恩还守着账册，下去时找他问问吧。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1RepairLegacyReturn",
+          "runtime-c1-actions",
+          "character-flow:c1RepairLegacyReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1RepairLegacyReturn",
+        "scene": "c1RepairLegacyReturn",
+        "order": 34,
+        "summary": "赫莎：你清过的地方我有记录，这就带工具去接库门的线。三层的维恩还守着账册，下去时找他问问吧。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1RepairLegacyReturn",
+          "runtime-c1-actions",
+          "character-flow:c1RepairLegacyReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1REPAIRLEGACYRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

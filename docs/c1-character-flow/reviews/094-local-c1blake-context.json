@@ -1,0 +1,99 @@
+{
+  "kind": "copyedit_context",
+  "scene": "local:c1blake",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": false,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "eebd9a527069a13bb823113b867b35a4956c18763dda4ea4f28194bd839e1de8",
+  "before": [
+    [
+      "布莱克",
+      "河畔营地给运柴车歇脚，西边连着王道，东边通溪林。林里的兽群最近多，我们得打听清楚哪段路能走，才敢让搬柴的人过去。"
+    ]
+  ],
+  "producer": "dist/chapter-one-story-world.js",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "blake",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/blake.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "营地人忙于运柴，口语地说明路和担心。",
+    "relationship": {
+      "participants": [
+        "布莱克"
+      ],
+      "judgment": "营地人忙于运柴，口语地说明路和担心。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "eebd9a527069a13bb823113b867b35a4956c18763dda4ea4f28194bd839e1de8",
+      "event": {
+        "id": "R01:c1:localTalk:c1blake",
+        "scene": "c1:localTalk:c1blake",
+        "order": 24,
+        "summary": "布莱克：西边是王道，东边通溪林，柴车都在这儿歇脚。最近林里的兽多，出车前得找人打听，不然一车柴拖进去，谁知道还拉不拉得回来。",
+        "participants": [
+          "noen",
+          "blake"
+        ],
+        "sources": [
+          "runtime-c1-actions",
+          "character-flow:c1:localTalk:c1blake"
+        ],
+        "optional": true,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "choose(c1:localTalk:c1blake)，c1Conversation.pending.lines",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "dist/chapter-one-story-world.js",
+      "fixture": {
+        "source": "dist/chapter-one-story-world.js",
+        "action": "c1:localTalk:c1blake",
+        "chapter": 1
+      },
+      "event": {
+        "id": "R01:c1:localTalk:c1blake",
+        "scene": "c1:localTalk:c1blake",
+        "order": 24,
+        "summary": "布莱克：西边是王道，东边通溪林，柴车都在这儿歇脚。最近林里的兽多，出车前得找人打听，不然一车柴拖进去，谁知道还拉不拉得回来。",
+        "participants": [
+          "noen",
+          "blake"
+        ],
+        "sources": [
+          "runtime-c1-actions",
+          "character-flow:c1:localTalk:c1blake"
+        ],
+        "optional": true,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "choose(c1:localTalk:c1blake)，c1Conversation.pending.lines",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

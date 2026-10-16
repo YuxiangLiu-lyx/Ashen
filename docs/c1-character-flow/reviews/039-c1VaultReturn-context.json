@@ -1,0 +1,145 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1VaultReturn",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "534e99338ed8572ff0b6c4391c589167165c2ce4db4f392d64e03fad7aff1f13",
+  "before": [
+    [
+      "维恩",
+      "给我看看。页码齐，封条也在，幸好没沾上地上的水。"
+    ],
+    [
+      "诺恩",
+      "清册拿回来了，看守也停过了。以后有人下去，先把口令换掉。"
+    ],
+    [
+      "维恩",
+      "我会在门边写清楚，省得搬东西的人再吃亏。工钱和两瓶备用药都给你。要回一层，可以走西侧的检修便道。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "venn",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/venn.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "保留口令问题和回程便道，男主像交接工作，不是训导别人。",
+    "relationship": {
+      "participants": [
+        "维恩",
+        "诺恩"
+      ],
+      "judgment": "保留口令问题和回程便道，男主像交接工作，不是训导别人。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "534e99338ed8572ff0b6c4391c589167165c2ce4db4f392d64e03fad7aff1f13",
+      "event": {
+        "id": "R01:c1VaultReturn",
+        "scene": "c1VaultReturn",
+        "order": 37,
+        "summary": "维恩：给我看看。页码齐，封条也在，幸好没沾上地上的水。；诺恩：看守也停了。它还认旧口令，你们有人能改吗？；维恩：我会把口令写在门边，搬东西的人就好进去了。工钱和两瓶备用药给你，回一层走西侧检修便道就行。",
+        "participants": [
+          "venn",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1VaultReturn",
+          "runtime-c1-actions",
+          "character-flow:c1VaultReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "venn",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1VaultReturn",
+        "scene": "c1VaultReturn",
+        "order": 37,
+        "summary": "维恩：给我看看。页码齐，封条也在，幸好没沾上地上的水。；诺恩：看守也停了。它还认旧口令，你们有人能改吗？；维恩：我会把口令写在门边，搬东西的人就好进去了。工钱和两瓶备用药给你，回一层走西侧检修便道就行。",
+        "participants": [
+          "venn",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1VaultReturn",
+          "runtime-c1-actions",
+          "character-flow:c1VaultReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "venn",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1VAULTRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

@@ -1,0 +1,169 @@
+{
+  "kind": "copyedit_context",
+  "scene": "sisterBeforeDeparture",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "ec0a683a8ef2e173302fa36b5aa7e176af9a9d23b249b7408780c82ce193b72b",
+  "before": [
+    [
+      "薇蕾娜",
+      "侧门那张图看清楚了吗？看清楚就也看看我，这件披肩昨天才拿回来，你到现在都没说一句。"
+    ],
+    [
+      "诺恩",
+      "颜色很适合你。刚才我在记门闩的位置，没留意你换了披肩。"
+    ],
+    [
+      "薇蕾娜",
+      "我还没抱怨，你就先解释了。这句夸奖我收下，等你回来，再好好听你说城里的事。"
+    ],
+    [
+      "诺恩",
+      "我先看入口和退路，再确认护卫的位置。有事做不了，我会回来重新商量。"
+    ],
+    [
+      "薇蕾娜",
+      "嗯，刚才的话我记着。吃过饭，脸色也好多了，水囊还要添一些吗？"
+    ],
+    [
+      "诺恩",
+      "已经添满了。我准备好了，来跟你说一声。"
+    ],
+    [
+      "薇蕾娜",
+      "那就去吧。我还是会担心，不过我知道你心里有数。回来先到这里找我，我想第一眼就看见你。"
+    ],
+    [
+      "诺恩",
+      "好，我记得。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "vilerena",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/vilerena.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "临行关心与看披肩的玩笑连贯；男主保证遇难会回来，不再背诵入口退路流程。",
+    "relationship": {
+      "participants": [
+        "薇蕾娜",
+        "诺恩"
+      ],
+      "judgment": "临行关心与看披肩的玩笑连贯；男主保证遇难会回来，不再背诵入口退路流程。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "ec0a683a8ef2e173302fa36b5aa7e176af9a9d23b249b7408780c82ce193b72b",
+      "event": {
+        "id": "R01:sisterBeforeDeparture",
+        "scene": "sisterBeforeDeparture",
+        "order": 28,
+        "summary": "薇蕾娜：那张图都快让你看穿了。也看看我呀，这件披肩昨天才拿回来。；诺恩：颜色挺好看的，适合你。刚才在记门闩的位置，没留意。；薇蕾娜：难得听你夸一句。好了，图收着吧，回来跟我说说城里的事。；诺恩：好。要是那边有什么办不了的，我就回来找你商量。；薇蕾娜：嗯。吃了饭气色都好多了，水囊呢，添满了吗？；诺恩：已经添满了。我准备好了，来跟你说一声。；薇蕾娜：去吧。回来到这里找我，我想见着你，也省得一直猜外头怎么样了。；诺恩：好。",
+        "participants": [
+          "noen",
+          "vilerena"
+        ],
+        "sources": [
+          "trial:sisterBeforeDeparture",
+          "c1-trial-runtime",
+          "character-flow:sisterBeforeDeparture"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:assassination"
+        ],
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_care_revision": "1.2",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:sisterBeforeDeparture",
+        "scene": "sisterBeforeDeparture",
+        "order": 28,
+        "summary": "薇蕾娜：那张图都快让你看穿了。也看看我呀，这件披肩昨天才拿回来。；诺恩：颜色挺好看的，适合你。刚才在记门闩的位置，没留意。；薇蕾娜：难得听你夸一句。好了，图收着吧，回来跟我说说城里的事。；诺恩：好。要是那边有什么办不了的，我就回来找你商量。；薇蕾娜：嗯。吃了饭气色都好多了，水囊呢，添满了吗？；诺恩：已经添满了。我准备好了，来跟你说一声。；薇蕾娜：去吧。回来到这里找我，我想见着你，也省得一直猜外头怎么样了。；诺恩：好。",
+        "participants": [
+          "noen",
+          "vilerena"
+        ],
+        "sources": [
+          "trial:sisterBeforeDeparture",
+          "c1-trial-runtime",
+          "character-flow:sisterBeforeDeparture"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:assassination"
+        ],
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          },
+          {
+            "actor": "vilerena",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-SISTERBEFOREDEPARTURE",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_care_revision": "1.2",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

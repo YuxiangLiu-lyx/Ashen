@@ -1,0 +1,405 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1PatrolProgress",
+    "actors": [
+      "rosa"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "rosa": {
+      "name": "商人",
+      "base": "缀纹制作与废窑调查的本地工匠。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "runtime-c1-actions",
+        "runtime-c1-objectives"
+      ],
+      "profile": "source/narrative/characters/rosa.json"
+    }
+  },
+  "knowledge": {
+    "rosa": {},
+    "player": {
+      "F-C1-13-C1SAINTAID": {
+        "mode": "knows",
+        "via": "R01:c1SaintAid"
+      },
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      },
+      "F-C1-15-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      },
+      "F-C1-13-C1TRIALREPORT": {
+        "mode": "knows",
+        "via": "R01:c1TrialReport"
+      },
+      "F-C1-15-C1TRIALREPORT": {
+        "mode": "knows",
+        "via": "R01:c1TrialReport"
+      },
+      "F-C1-COMMISSION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-SEAL-INSTRUCTION": {
+        "mode": "knows",
+        "via": "R01:contract"
+      },
+      "F-C1-DOOR-CLAIM": {
+        "mode": "believes",
+        "via": "R01:contract"
+      },
+      "F-C1-13-CONTRACT": {
+        "mode": "knows",
+        "via": "R01:contract"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-13-C1SAINTAID": {
+      "id": "F-C1-13-C1SAINTAID",
+      "summary": "旁白：白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。；朵莉：圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。；艾莉娅：这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。；朵莉：南街贴了告示，可好多老人不认字。明天我早点到路口，领他们过来。；艾莉娅：我也来。粥放这边吧，坐着的几位端碗不方便，咱们给送过去。面包还够他们带些回家吗？；朵莉：够，这篮都留给他们，车上还有一篮。您也吃点吧，从早上忙到现在了。；艾莉娅：谢谢，等我把这几份送完就吃。那位婆婆脚磨破了，回去要走很久，我想请厨房留些热水，再找辆顺路的车送她。；朵莉：我父亲下午正好往南街送货，我去跟他说。他听说是您托的事，肯定乐意。；艾莉娅：好，替我谢谢他，我待会儿也过去。还得问问婆婆住哪户，劳烦他送到家门口。；旁白：朵莉把热粥递到老人手中。艾莉娅扶稳碗底，等老人坐好了，才端起下一碗。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1SaintAid",
+        "character-flow:c1SaintAid"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALREPORT": {
+      "id": "F-C1-13-C1TRIALREPORT",
+      "summary": "薇蕾娜：回来了？让我看看……地下那具执卫没难为你吧？；诺恩：盾挺结实，正面打不动。绕到侧面就好办了。；薇蕾娜：我是问你有没有伤着。一路走过来疼不疼？；诺恩：没有，衣服蹭脏了而已。地下全是灰。；薇蕾娜：那就好。看来这些年没偷懒，这趟任务可以交给你了。；诺恩：你一直在这儿等？；薇蕾娜：嗯。账本翻了半天，还是这一页。你倒好，进门只顾着跟我说盾有多硬。；诺恩：我回来了。吃饭吧，你也饿了。；薇蕾娜：可算想起我了。坐近一点，陪我好好吃顿饭。；旁白：薇蕾娜把桌边的纸挪开。两人吃过饭，诺恩放下空碗，接过她递来的水。；薇蕾娜：商人把新货送来了，会馆那台缀纹装置也能用了。出门前去看看，挑件合手的装备。；诺恩：做装备的材料，也找她买？；薇蕾娜：核心拿精粹换，装置上贴着加工单。每次能修好的不一样，这回换哪枚、要多少材料，都写在上面。；诺恩：符文呢？；薇蕾娜：她带着呢。有核心和符文，加点工费就能做。拿不准的问她，这个她比我懂。；诺恩：好，我去看看。；薇蕾娜：我还是有些放心不下。真碰上应付不了的事，就回来找我，我们一起想办法。；诺恩：知道了，我会小心。；薇蕾娜：嗯。通行纸就在这里，过来，我给你讲讲进城的事。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialReport",
+        "character-flow:c1TrialReport"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-COMMISSION": {
+      "id": "F-C1-COMMISSION",
+      "summary": "卡德兰为目标，诺恩被要求带走圣女，到灰石驿站接后续安排。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-SEAL-INSTRUCTION": {
+      "id": "F-C1-SEAL-INSTRUCTION",
+      "summary": "委托交代封术印只能封住圣术，要求制住圣女而不下重手。",
+      "truth": "instruction",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-DOOR-CLAIM": {
+      "id": "F-C1-DOOR-CLAIM",
+      "summary": "薇蕾娜向诺恩解释：需要圣女的圣徽开门。",
+      "truth": "reported_claim",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "scene:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-15-C1PATROLPROGRESS": {
+      "id": "F-C1-15-C1PATROLPROGRESS",
+      "summary": "商人：沿这趟运料路线清掉八只挡路野兽，办妥回来告诉我。车夫还等着消息，知道能通行了才敢出发。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "character-flow:c1PatrolProgress"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-FLOW-C1PATROLPROGRESS": {
+      "id": "F-C1-FLOW-C1PATROLPROGRESS",
+      "summary": "商人：沿这趟运料路线清掉八只挡路野兽，办妥回来告诉我。车夫还等着消息，知道能通行了才敢出发。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "flow:c1PatrolProgress",
+        "character-flow:c1PatrolProgress"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-15-C1TRIALREPORT": {
+      "id": "F-C1-15-C1TRIALREPORT",
+      "summary": "薇蕾娜：回来了？让我看看……地下那具执卫没难为你吧？；诺恩：盾挺结实，正面打不动。绕到侧面就好办了。；薇蕾娜：我是问你有没有伤着。一路走过来疼不疼？；诺恩：没有，衣服蹭脏了而已。地下全是灰。；薇蕾娜：那就好。看来这些年没偷懒，这趟任务可以交给你了。；诺恩：你一直在这儿等？；薇蕾娜：嗯。账本翻了半天，还是这一页。你倒好，进门只顾着跟我说盾有多硬。；诺恩：我回来了。吃饭吧，你也饿了。；薇蕾娜：可算想起我了。坐近一点，陪我好好吃顿饭。；旁白：薇蕾娜把桌边的纸挪开。两人吃过饭，诺恩放下空碗，接过她递来的水。；薇蕾娜：商人把新货送来了，会馆那台缀纹装置也能用了。出门前去看看，挑件合手的装备。；诺恩：做装备的材料，也找她买？；薇蕾娜：核心拿精粹换，装置上贴着加工单。每次能修好的不一样，这回换哪枚、要多少材料，都写在上面。；诺恩：符文呢？；薇蕾娜：她带着呢。有核心和符文，加点工费就能做。拿不准的问她，这个她比我懂。；诺恩：好，我去看看。；薇蕾娜：我还是有些放心不下。真碰上应付不了的事，就回来找我，我们一起想办法。；诺恩：知道了，我会小心。；薇蕾娜：嗯。通行纸就在这里，过来，我给你讲讲进城的事。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "character-flow:c1TrialReport"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-15-C1TRIALINVITATION": {
+      "id": "F-C1-15-C1TRIALINVITATION",
+      "summary": "薇蕾娜：回来啦。奥伦刚才夸了你半天，说库房总算能放粮食了。；诺恩：嗯，粮袋都搬好了。；薇蕾娜：怎么弄得满身木屑？过来，领口上也有。；诺恩：老鼠钻进了夹墙，我拆了块木板才找到。墙上的洞已经跟奥伦说过了。；薇蕾娜：抬一点头，我帮你弄掉。站这么远做什么，我又不吃人。；旁白：薇蕾娜走近，替他拈掉领口的木屑，又掸了掸肩头。；诺恩：奥伦说你找我，有任务？；薇蕾娜：有。这次任务风险很大，我得看看你这些年长进了多少，才放心让你去。；诺恩：要我做什么？；薇蕾娜：找鲁恩吧，试炼的事他会帮你安排。；诺恩：知道了。；薇蕾娜：回来陪我吃饭？奥伦炖了肉，给你留着呢。；诺恩：好。你也没吃？；薇蕾娜：等你呀。怎么，陪姐姐吃顿饭，还得问个清楚？；诺恩：我怕你饿着。忙起来连饭都忘了。；薇蕾娜：这会儿倒知道管我了。放心，我会吃的，你回来时喊我一声。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "character-flow:c1TrialInvitation"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-CONTRACT": {
+      "id": "F-C1-13-CONTRACT",
+      "summary": "薇蕾娜：明天午钟，卡德兰主祭会在白榆城礼拜厅。画像夹在通行纸里，就是这个人。；诺恩：确认过是他？；薇蕾娜：确认过，鲁恩的人今早刚回来。正门要验通行纸，侧门出去就是北门小巷。换岗的时辰也记在这里，一起带上。；诺恩：侧门能开？；薇蕾娜：能，从里面抽闩就行。另外，圣女艾莉娅也会到场，你得把她带出来。；诺恩：为什么要带圣女？；薇蕾娜：我们要进一扇门，得用她的圣徽才能打开。具体地点会送到灰石驿站，你带她去那里，接头人会给你路图。；诺恩：为什么不先查清地点？；薇蕾娜：地方已经查过了，但院里的人这两天还在换。等最后的消息到了，再把路图给你，免得你按旧图走。；诺恩：那接头人呢？名字也不能告诉我？；旁白：薇蕾娜停了一下，收回压着通行纸的手。；薇蕾娜：通行纸可能被搜走，接头人的名字不能留在上面。诺恩，这件事听我的，好吗？；诺恩：她不会自愿跟我走。；薇蕾娜：所以要带封术印。它只能封住圣术，你制住她就够了，别下重手。；诺恩：人我会带到。；薇蕾娜：鲁恩还备了一份维护班次的封套。进城后交给北街的托马，他核对过登记，就会告诉你礼拜厅的入口。；诺恩：知道了。北渠那条退路，我也会去看。；薇蕾娜：通行纸和行路药都在这里，收好。出门的时候叫我，我送送你。；诺恩：好，我去商人那里看看缺什么。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:contract",
+        "character-flow:contract"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALINVITATION": {
+      "id": "F-C1-13-C1TRIALINVITATION",
+      "summary": "薇蕾娜：回来啦。奥伦刚才夸了你半天，说库房总算能放粮食了。；诺恩：嗯，粮袋都搬好了。；薇蕾娜：怎么弄得满身木屑？过来，领口上也有。；诺恩：老鼠钻进了夹墙，我拆了块木板才找到。墙上的洞已经跟奥伦说过了。；薇蕾娜：抬一点头，我帮你弄掉。站这么远做什么，我又不吃人。；旁白：薇蕾娜走近，替他拈掉领口的木屑，又掸了掸肩头。；诺恩：奥伦说你找我，有任务？；薇蕾娜：有。这次任务风险很大，我得看看你这些年长进了多少，才放心让你去。；诺恩：要我做什么？；薇蕾娜：找鲁恩吧，试炼的事他会帮你安排。；诺恩：知道了。；薇蕾娜：回来陪我吃饭？奥伦炖了肉，给你留着呢。；诺恩：好。你也没吃？；薇蕾娜：等你呀。怎么，陪姐姐吃顿饭，还得问个清楚？；诺恩：我怕你饿着。忙起来连饭都忘了。；薇蕾娜：这会儿倒知道管我了。放心，我会吃的，你回来时喊我一声。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialInvitation",
+        "character-flow:c1TrialInvitation"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1PatrolProgress",
+    "position": "before",
+    "at": "R01:contract",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+      "revision": "1.5",
+      "status": "IMPLEMENTED"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1PatrolProgress",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "rosa",
+        "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-FLOW-C1PATROLPROGRESS",
+        "mode": "knows"
+      },
+      {
+        "actor": "rosa",
+        "fact": "F-C1-15-C1PATROLPROGRESS",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-15-C1PATROLPROGRESS",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "character-flow:c1PatrolProgress": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolProgress"
+    },
+    "character-flow:c1SaintAid": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "character-flow:c1TrialInvitation": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    },
+    "character-flow:c1TrialReport": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialReport"
+    },
+    "character-flow:contract": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "contract"
+    },
+    "flow:c1PatrolProgress": {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "anchor": "export const C1_QUEST_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1PatrolProgress"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "trial:c1SaintAid": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "trial:c1TrialInvitation": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    },
+    "trial:c1TrialReport": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialReport"
+    },
+    "trial:contract": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "contract"
+    }
+  },
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/rosa.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "prewriting_archive": "docs/c1-character-flow/before/",
+  "assembly_note": "当前上下文刷新用于验证；写作前基线全文、完整角色/事件与路由另存before，整理日期不冒充写作前生成时间。"
+}

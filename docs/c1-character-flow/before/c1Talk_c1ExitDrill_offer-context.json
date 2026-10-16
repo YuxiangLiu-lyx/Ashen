@@ -1,0 +1,299 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1Talk_c1ExitDrill_offer",
+    "actors": [
+      "iden",
+      "noen"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": true,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "iden": {
+      "name": "伊登",
+      "base": "地下接待室负责人，关心人员进出与检修。",
+      "voice": "先读实际出场对白和当前事件；不为区分人物凭空添加口头禅。",
+      "state": {
+        "emotion": "UNRESOLVED",
+        "goals": [],
+        "faction_view": "UNRESOLVED",
+        "expression": "UNRESOLVED",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "runtime-c1-local",
+        "runtime-c1-actions",
+        "c1-story-flow",
+        "scene:contract"
+      ],
+      "profile": "source/narrative/characters/iden.json"
+    },
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "处理库房问题，听取委托。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    }
+  },
+  "knowledge": {
+    "iden": {},
+    "noen": {
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      }
+    },
+    "player": {
+      "F-C1-13-C1SAINTAID": {
+        "mode": "knows",
+        "via": "R01:c1SaintAid"
+      },
+      "F-C1-13-C1TRIALINVITATION": {
+        "mode": "knows",
+        "via": "R01:c1TrialInvitation"
+      }
+    }
+  },
+  "facts": {
+    "F-C1-13-C1SAINTAID": {
+      "id": "F-C1-13-C1SAINTAID",
+      "summary": "旁白：白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。；朵莉：圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。；艾莉娅：这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。；朵莉：南街贴了告示，可认字的人也少。明天我早点来，在路口给他们指路。；艾莉娅：我也来。你把粥放在这边吧，坐着的几位先送过去。我来分面包，今天剩下的够他们带一份回家吗？；朵莉：够。这一篮都留给这边，另一篮还在车上。您也吃一点？从早晨忙到现在，手都是凉的。；艾莉娅：谢谢，等我把这几份送完就吃。那位婆婆脚磨破了，回去要走很久，我想请厨房留些热水，再找辆顺路的车送她。；朵莉：我父亲下午正好往南街送货，我去跟他说。他听说是您托的事，肯定乐意。；艾莉娅：那太好了，我待会儿过去向他道谢。还得问清婆婆住在哪一户，送到家里，我们才好放心。；旁白：朵莉把热粥递到老人手中。艾莉娅扶稳碗底，等老人坐好了，才端起下一碗。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1SaintAid"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TRIALINVITATION": {
+      "id": "F-C1-13-C1TRIALINVITATION",
+      "summary": "薇蕾娜：回来了？奥伦刚才还在夸你，说库房总算能放粮食了。；诺恩：嗯，粮袋都搬回去了。；薇蕾娜：怎么弄得满身木屑？过来，让我看看。；诺恩：有只老鼠躲在夹墙里，我拆了一块木板。墙上的洞已经跟奥伦说过了。；薇蕾娜：领口都掉进去了。抬头，我帮你弄出来。；旁白：薇蕾娜走近，替他拈掉领口的木屑，又掸了掸肩头。；诺恩：奥伦说你找我，有任务？；薇蕾娜：这次任务很危险，得进城把一个人带出来，途中可能会和护卫交手。我得看看你这些年练得怎么样，心里才有底。；诺恩：怎么试？；薇蕾娜：参加一次试炼。庭院那一关找鲁恩，地下由伊登负责，最后要打倒一具终试执卫。具体的安排他们会告诉你。；诺恩：知道了。；薇蕾娜：回来陪我吃饭吧。奥伦炖了肉，我给你留一份。；诺恩：好。你今天一直在会馆？；薇蕾娜：在啊。怎么，怕回来找不到我？；诺恩：我怕你忙起来顾不上吃饭。；薇蕾娜：还知道惦记我呀。那我等你，今天咱们一起吃。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1TrialInvitation"
+      ],
+      "risk_terms": []
+    },
+    "F-C1-13-C1TALK_C1EXITDRILL_OFFER": {
+      "id": "F-C1-13-C1TALK_C1EXITDRILL_OFFER",
+      "summary": "伊登：鲁恩已经捎信来了。地下这趟我带你认个路：旧廊的哨兵出了故障，二层又闹鼠患，维修班正愁进不去。；诺恩：先清出路，再去终点？；伊登：对，一层清八具哨兵，二层清八只啃线鼠。三层东厅放着终试执卫，它有专门的考核程序，会逼你换位置、找出手的机会。；诺恩：另外两名看守呢？鲁恩的单上也写着它们。；伊登：那是精英讨伐的两处，可以另找时间处理。终试执卫才是这趟试炼的最后一关。三层通道已经打开，赫莎的检修你愿意帮再去问她。；诺恩：完成后我回会馆向薇蕾娜汇报。；伊登：嗯，她等着亲自听。两层清完、执卫停下，试炼记录就齐了。我的维修班也能趁这个机会进去。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1Talk_c1ExitDrill_offer"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1Talk_c1ExitDrill_offer",
+    "position": "before",
+    "at": "R01:c1TrialInvitation",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "revision": "1.4",
+      "status": "IMPLEMENTED"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1Talk_c1ExitDrill_offer",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "iden",
+        "fact": "F-C1-13-C1TALK_C1EXITDRILL_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "noen",
+        "fact": "F-C1-13-C1TALK_C1EXITDRILL_OFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-13-C1TALK_C1EXITDRILL_OFFER",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-local": {
+      "path": "dist/chapter-one-story-world.js",
+      "anchor": "export const C1_LOCAL_TALK",
+      "kind": "runtime"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    },
+    "trial:c1SaintAid": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1SaintAid"
+    },
+    "trial:c1Talk_c1ExitDrill_offer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1Talk_c1ExitDrill_offer"
+    },
+    "trial:c1TrialInvitation": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1TrialInvitation"
+    }
+  }
+}

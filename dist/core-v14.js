@@ -1,3 +1,4 @@
+import {installC1Conversations} from './chapter-one-conversations.js';
 import {installEncounterRestraint} from './encounter-restraint.js';
 import {installC1Trial} from './chapter-one-trial-runtime.js';
 import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';
@@ -301,3 +302,4 @@ installDialogueCopyedits(DIALOGUES);
 
 installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});
 installEncounterRestraint(RPG);
+installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});

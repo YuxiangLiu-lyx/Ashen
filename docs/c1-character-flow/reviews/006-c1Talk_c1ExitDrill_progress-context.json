@@ -1,0 +1,123 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_c1ExitDrill_progress",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "8d167795b03e0257aa7cc37ed08e7f3b7e405ab9a28b4152880c173ba94b6b28",
+  "before": [
+    [
+      "伊登",
+      "一层哨兵、二层啃线鼠清完，去三层东厅挑战终试执卫。两名旧看守属于鲁恩的讨伐单，你可以另外安排。试炼完成后直接回会馆，薇蕾娜在等你。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "iden",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/iden.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "按询问目的简洁重复地下目标和回报对象，去掉考核记录术语。",
+    "relationship": {
+      "participants": [
+        "伊登"
+      ],
+      "judgment": "按询问目的简洁重复地下目标和回报对象，去掉考核记录术语。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "8d167795b03e0257aa7cc37ed08e7f3b7e405ab9a28b4152880c173ba94b6b28",
+      "event": {
+        "id": "R01:c1Talk_c1ExitDrill_progress",
+        "scene": "c1Talk_c1ExitDrill_progress",
+        "order": 54,
+        "summary": "伊登：旧廊的八具哨兵、二层的八只啃线鼠，还有三层东厅的终试执卫。内室两名旧看守是另一份委托。你这一轮打完，回会馆找薇蕾娜就好。",
+        "participants": [
+          "iden"
+        ],
+        "sources": [
+          "trial:c1Talk_c1ExitDrill_progress",
+          "c1-trial-runtime",
+          "character-flow:c1Talk_c1ExitDrill_progress"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "iden",
+            "fact": "F-C1-13-C1TALK_C1EXITDRILL_PROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1TALK_C1EXITDRILL_PROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_flow_revision": "1.1",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_c1ExitDrill_progress",
+        "scene": "c1Talk_c1ExitDrill_progress",
+        "order": 54,
+        "summary": "伊登：旧廊的八具哨兵、二层的八只啃线鼠，还有三层东厅的终试执卫。内室两名旧看守是另一份委托。你这一轮打完，回会馆找薇蕾娜就好。",
+        "participants": [
+          "iden"
+        ],
+        "sources": [
+          "trial:c1Talk_c1ExitDrill_progress",
+          "c1-trial-runtime",
+          "character-flow:c1Talk_c1ExitDrill_progress"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "iden",
+            "fact": "F-C1-13-C1TALK_C1EXITDRILL_PROGRESS",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1TALK_C1EXITDRILL_PROGRESS",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_flow_revision": "1.1",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

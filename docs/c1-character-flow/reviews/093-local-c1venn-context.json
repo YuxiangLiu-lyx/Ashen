@@ -1,0 +1,99 @@
+{
+  "kind": "copyedit_context",
+  "scene": "local:c1venn",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": false,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "c8ac847a35b9518d251a1628588480fad8a5cbad54161dc34d8090440ee182a1",
+  "before": [
+    [
+      "维恩",
+      "这些账册记着会馆历年的器物和修缮。人走了，守卫还认旧口令。我只想把账册和还能用的东西保住。"
+    ]
+  ],
+  "producer": "dist/chapter-one-story-world.js",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "venn",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/venn.json",
+      "coverage": "partial"
+    }
+  ],
+  "scene_context": {
+    "purpose": "守账人对账册和守卫有具体态度，去掉统一地点说明。",
+    "relationship": {
+      "participants": [
+        "维恩"
+      ],
+      "judgment": "守账人对账册和守卫有具体态度，去掉统一地点说明。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "c8ac847a35b9518d251a1628588480fad8a5cbad54161dc34d8090440ee182a1",
+      "event": {
+        "id": "R01:c1:localTalk:c1venn",
+        "scene": "c1:localTalk:c1venn",
+        "order": 23,
+        "summary": "维恩：会馆这些年的器物、修缮，账都在这里。人换了好几拨，守卫还认旧口令，连我也拦。账册要是坏了，这些东西的来历可就查不清了。",
+        "participants": [
+          "noen",
+          "venn"
+        ],
+        "sources": [
+          "runtime-c1-actions",
+          "character-flow:c1:localTalk:c1venn"
+        ],
+        "optional": true,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "choose(c1:localTalk:c1venn)，c1Conversation.pending.lines",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "dist/chapter-one-story-world.js",
+      "fixture": {
+        "source": "dist/chapter-one-story-world.js",
+        "action": "c1:localTalk:c1venn",
+        "chapter": 1
+      },
+      "event": {
+        "id": "R01:c1:localTalk:c1venn",
+        "scene": "c1:localTalk:c1venn",
+        "order": 23,
+        "summary": "维恩：会馆这些年的器物、修缮，账都在这里。人换了好几拨，守卫还认旧口令，连我也拦。账册要是坏了，这些东西的来历可就查不清了。",
+        "participants": [
+          "noen",
+          "venn"
+        ],
+        "sources": [
+          "runtime-c1-actions",
+          "character-flow:c1:localTalk:c1venn"
+        ],
+        "optional": true,
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "choose(c1:localTalk:c1venn)，c1Conversation.pending.lines",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

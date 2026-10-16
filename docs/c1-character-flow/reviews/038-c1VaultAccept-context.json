@@ -1,0 +1,155 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1VaultAccept",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "b23b88b6e7df9134c6e486555e04a44119b9529a5a37659af40816de12a50ebb",
+  "before": [
+    [
+      "维恩",
+      "伊登把通道打开了，我总算能把这几本账先搬出去。东厅还有一本封存清册，我一个人拿不了。"
+    ],
+    [
+      "诺恩",
+      "是什么拦着你？"
+    ],
+    [
+      "维恩",
+      "西边那名封存看守认的是旧口令，我一靠近，它就举盾。得先让它停下来，我才敢进去收拾。"
+    ],
+    [
+      "诺恩",
+      "我处理看守，再把清册带回来。你说的书架在哪里？"
+    ],
+    [
+      "维恩",
+      "东厅北墙，封皮上写着《封存清册》。东厅北墙的书架上只有这一册，我在入口等你。回来我分你两瓶备用药，护送账册的工钱也一起结。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "venn",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/venn.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "去掉清册位置的同句重复；维恩想搬账册，保持守卫、书架和报酬信息。",
+    "relationship": {
+      "participants": [
+        "维恩",
+        "诺恩"
+      ],
+      "judgment": "去掉清册位置的同句重复；维恩想搬账册，保持守卫、书架和报酬信息。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "b23b88b6e7df9134c6e486555e04a44119b9529a5a37659af40816de12a50ebb",
+      "event": {
+        "id": "R01:c1VaultAccept",
+        "scene": "c1VaultAccept",
+        "order": 35,
+        "summary": "维恩：伊登把通道开了，这几本账总算能搬出去了。可东厅还留着一本《封存清册》，我拿不出来。；诺恩：是什么拦着你？；维恩：西边那名封存看守还认旧口令，一靠近就举盾，我哪敢进去。；诺恩：我去处理。清册放在哪个书架上？；维恩：东厅北墙，书架上就这一册。我在入口等你，工钱和两瓶备用药都备好了。",
+        "participants": [
+          "venn",
+          "noen"
+        ],
+        "sources": [
+          "trial:c1VaultAccept",
+          "c1-trial-runtime",
+          "character-flow:c1VaultAccept"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "venn",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1VaultAccept",
+        "scene": "c1VaultAccept",
+        "order": 35,
+        "summary": "维恩：伊登把通道开了，这几本账总算能搬出去了。可东厅还留着一本《封存清册》，我拿不出来。；诺恩：是什么拦着你？；维恩：西边那名封存看守还认旧口令，一靠近就举盾，我哪敢进去。；诺恩：我去处理。清册放在哪个书架上？；维恩：东厅北墙，书架上就这一册。我在入口等你，工钱和两瓶备用药都备好了。",
+        "participants": [
+          "venn",
+          "noen"
+        ],
+        "sources": [
+          "trial:c1VaultAccept",
+          "c1-trial-runtime",
+          "character-flow:c1VaultAccept"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "venn",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1VAULTACCEPT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

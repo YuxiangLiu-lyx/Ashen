@@ -1,0 +1,145 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1GateBrief",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "aa25a4d97ab780b0ce63825a44bd6732f21ae992ba520a1398fcc3763b61305b",
+  "before": [
+    [
+      "托马",
+      "封套我已经收到了。再叮嘱你一句：午钟后走北侧前厅，跟值守的人说你是维护班来的。正门那时已经落闩了。"
+    ],
+    [
+      "诺恩",
+      "北渠的检修道呢？"
+    ],
+    [
+      "托马",
+      "支木让渠鼠啃空了，暂时别走。你愿意帮着清理的话，我再把位置告诉你。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "toma",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/toma.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "重复入口说明保留必要交接，去掉反复训导式叮嘱。",
+    "relationship": {
+      "participants": [
+        "托马",
+        "诺恩"
+      ],
+      "judgment": "重复入口说明保留必要交接，去掉反复训导式叮嘱。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "aa25a4d97ab780b0ce63825a44bd6732f21ae992ba520a1398fcc3763b61305b",
+      "event": {
+        "id": "R01:c1GateBrief",
+        "scene": "c1GateBrief",
+        "order": 40,
+        "summary": "托马：封套收到了。午钟后正门落闩，你走北侧前厅，跟值守的人说是维护班来的就行。；诺恩：北渠的检修道呢？；托马：支木被渠鼠啃空了，还走不了。想帮忙清理的话，找我说一声。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1GateBrief",
+          "runtime-c1-actions",
+          "character-flow:c1GateBrief"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1GateBrief",
+        "scene": "c1GateBrief",
+        "order": 40,
+        "summary": "托马：封套收到了。午钟后正门落闩，你走北侧前厅，跟值守的人说是维护班来的就行。；诺恩：北渠的检修道呢？；托马：支木被渠鼠啃空了，还走不了。想帮忙清理的话，找我说一声。",
+        "participants": [
+          "toma",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1GateBrief",
+          "runtime-c1-actions",
+          "character-flow:c1GateBrief"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "toma",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1GATEBRIEF",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

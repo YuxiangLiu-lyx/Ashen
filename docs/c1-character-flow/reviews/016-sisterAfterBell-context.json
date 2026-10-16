@@ -1,0 +1,139 @@
+{
+  "kind": "copyedit_context",
+  "scene": "sisterAfterBell",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "5e8c69f4cfc1df290a1cb90fcb5bae50762b5852e4a0280d939ded83e9dc7e22",
+  "before": [
+    [
+      "薇蕾娜",
+      "城里的钟都敲乱了。人带出来了吗？"
+    ],
+    [
+      "诺恩",
+      "带出来了。她不愿见你。"
+    ],
+    [
+      "薇蕾娜",
+      "那就让她在外面等吧。出了这样的事，她现在见着我，只会更生气。"
+    ],
+    [
+      "诺恩",
+      "接头的人到底是谁？"
+    ],
+    [
+      "薇蕾娜",
+      "到了驿站就能见着。先核对那封灰蜡信，封口对不上就走，也别当着客人的面提会馆。"
+    ],
+    [
+      "诺恩",
+      "我问的是她是谁。"
+    ],
+    [
+      "薇蕾娜",
+      "她只认会馆送去的凭信。路上若被拦住，少知道一个名字，就少牵连一个人。到了驿站，她会拿原信给你核对。"
+    ],
+    [
+      "诺恩",
+      "她只想回去救人。"
+    ],
+    [
+      "薇蕾娜",
+      "她急着回去，你又拦着，会恨你也不奇怪。把人看好，少跟她争几句。"
+    ],
+    [
+      "诺恩",
+      "我会带她出城。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "vilerena",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/vilerena.json",
+      "coverage": "full_for_c1_c2"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "保留她回避接头人身份与男主追问的张力，不把逼迫圣女改写成温柔同行。",
+    "relationship": {
+      "participants": [
+        "薇蕾娜",
+        "诺恩"
+      ],
+      "judgment": "保留她回避接头人身份与男主追问的张力，不把逼迫圣女改写成温柔同行。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "5e8c69f4cfc1df290a1cb90fcb5bae50762b5852e4a0280d939ded83e9dc7e22",
+      "event": {
+        "id": "R01:sisterAfterBell",
+        "scene": "sisterAfterBell",
+        "order": 29,
+        "summary": "薇蕾娜：城里的钟都敲乱了。人带出来了吗？；诺恩：带出来了。她不愿见你。；薇蕾娜：那就让她在外面等吧。出了这样的事，她现在见着我，只会更生气。；诺恩：接头的人到底是谁？；薇蕾娜：到驿站就能见到她。她带着灰蜡信，封口和你手里的凭信对不上就走。会馆的事，只在咱们这里说。；诺恩：我问的是她是谁。；薇蕾娜：她只认会馆送去的凭信。路上若被拦住，少知道一个名字，就少牵连一个人。到了驿站，她会拿原信给你核对。；诺恩：她只想回去救人。；薇蕾娜：我知道。她急着救人，你却把她带走，怎么会愿意听你的。路上照看好她，争下去也说不通。；诺恩：我会带她出城。",
+        "participants": [
+          "noen",
+          "vilerena"
+        ],
+        "sources": [
+          "scene:sisterAfterBell",
+          "character-flow:sisterAfterBell"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:assassination",
+          "R01:chapterEnd"
+        ],
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:sisterAfterBell",
+        "scene": "sisterAfterBell",
+        "order": 29,
+        "summary": "薇蕾娜：城里的钟都敲乱了。人带出来了吗？；诺恩：带出来了。她不愿见你。；薇蕾娜：那就让她在外面等吧。出了这样的事，她现在见着我，只会更生气。；诺恩：接头的人到底是谁？；薇蕾娜：到驿站就能见到她。她带着灰蜡信，封口和你手里的凭信对不上就走。会馆的事，只在咱们这里说。；诺恩：我问的是她是谁。；薇蕾娜：她只认会馆送去的凭信。路上若被拦住，少知道一个名字，就少牵连一个人。到了驿站，她会拿原信给你核对。；诺恩：她只想回去救人。；薇蕾娜：我知道。她急着救人，你却把她带走，怎么会愿意听你的。路上照看好她，争下去也说不通。；诺恩：我会带她出城。",
+        "participants": [
+          "noen",
+          "vilerena"
+        ],
+        "sources": [
+          "scene:sisterAfterBell",
+          "character-flow:sisterAfterBell"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:assassination",
+          "R01:chapterEnd"
+        ],
+        "grants": [],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "需核对npcOptions与当前chapter/flags；--at只能表达叙事进度，不替代游戏触发检查。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

@@ -1,0 +1,101 @@
+✔ full chapter edit matches adopted script, keeps page beats and all other chapter text (26.504875ms)
+✔ trial introduces each contact only when the previous round has been reported (6.765667ms)
+✔ every first-chapter menu sorts actionable tasks before services and idle talk at each progress state (78.073834ms)
+✖ previous full-text pages preserve progress, callbacks and merchant actor identity over reload (193.880208ms)
+✔ new durability preserves partial health and corpses over repeated loads and map queries (18395.092542ms)
+✔ selecting a grid only reveals details; unavailable early services remain locked (0.742584ms)
+✔ elite has no floor VFX; boss outlines use actual radius, arc and locked line origin (0.213084ms)
+✔ edited conversations keep page roles and pending full-text saves retain the original words (9.825667ms)
+✔ every authored request waits for its final page, survives import, and cannot overwrite another conversation (72.434542ms)
+✔ all reports defer rewards to completion and pay exactly once across import and retries (35.067458ms)
+✔ both herb recipients and rotating patrol retain their distinct, once-only results after reading (1.497416ms)
+✔ three careers complete the contract before the private meeting; crossing the hall exit opens the real hall stage once (10.654167ms)
+✔ private meeting waits through unsafe arrival and existing dialogue, and queued state survives loading (2.484583ms)
+✔ all new private scene pages and legacy tail cursors resume without replaying payment or revealing to the hero (42.118834ms)
+✔ the clerk walks around real hall furniture and never occupies a blocked foot position (0.816292ms)
+✔ original scenes outside adopted first-chapter care conversations stay byte identical; quest budgets remain intact (6.003958ms)
+✖ Iden local conversation uses the actual foyer menu and persists without inventing an injury (2.147ms)
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (30.910333ms)
+✔ warehouse charity scene uses town actors and returns without giving Noen private knowledge (3.594208ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (8.024041ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.726125ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (7.130625ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (4.913ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (4.954375ms)
+✔ default saint portrait uses the preserved gentle original; later disguises retain their own image (19146.497416ms)
+✔ original 118 maps, dialogue and retained art protected around explicitly authorized 0.6 additions (1055.485792ms)
+✔ normal dialogue completion preserves original outcomes and cannot commit twice for three classes (60.254959ms)
+✔ every original pending line resumes in both action and dialogue phases without duplicating completion (904.014208ms)
+✔ all hidden-tail cursors survive real snapshot/restore and keep backstage knowledge private (9.045667ms)
+✔ legacy H1 restarts the rewritten exchange once; revision3 then keeps its exact cursor (48.444542ms)
+✔ every retired H2 cursor completes the original assassination once without anonymous dialogue (651.4375ms)
+✔ past-event saves do not replay tails and already viewed flags suppress duplication (7.741583ms)
+✔ only the requested known-speaker exchange remains; anonymous dialogue and silhouette are removed (796.530458ms)
+✔ the well keeps its artwork and saved object, with a reachable south-rim interaction in old visited saves (8.582208ms)
+✔ guard, elite and officer select distinct 16-frame sheets at equal body scale (0.597375ms)
+✔ all static/dynamic providers are covered; only exact authored whole-scene revisions change (105.746333ms)
+✔ every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration (74.802458ms)
+✔ public save import accepts current and previous full texts in ordinary chapter-one dialogue (13.241375ms)
+✔ selected ordinary enemy takes priority; dead, distant, stale-map and disengaged targets clear without changing combat state (0.183833ms)
+✔ all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once (11.24175ms)
+✔ pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained (4.56525ms)
+✔ chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry (10.605917ms)
+✔ chapter three medicine and repair props stay available until actual task acceptance (6.886708ms)
+✔ chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains (6.8225ms)
+✔ legacy base storyline checkpoints accept previous full text at real scene tokens and resume original callbacks (660.352667ms)
+✔ read every previously reached commission page without changing pending, actors, knowledge or rewards (27.73425ms)
+✔ action phases cannot be advanced or rewound by reading controls (0.503459ms)
+✔ quest accept and reward wait for live final page; going backward and forward never commits (4.281542ms)
+✔ legacy private tail has its own read-back rows and never exposes the earlier commission (1.173375ms)
+✔ all 45 old static positions migrate once by meaning, including direct/imported/nested saves (133.437667ms)
+✔ exact inline old dialogue text and new authored cursors survive import unchanged (26.245167ms)
+✔ four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact (2.808583ms)
+ℹ tests 52
+ℹ suites 0
+ℹ pass 50
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 29514.09625
+
+✖ failing tests:
+
+test at tests/c1-character-flow.test.mjs:38:1
+✖ previous full-text pages preserve progress, callbacks and merchant actor identity over reload (193.880208ms)
+  TypeError: Cannot read properties of undefined (reading 'find')
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-character-flow.test.mjs:42:47)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/c1-story-flow.test.mjs:76:1
+✖ Iden local conversation uses the actual foyer menu and persists without inventing an injury (2.147ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  
+    [
+      [
+        '伊登',
+  +     '这下面原来是会馆练队形的地方。现在我得守着入口，谁进去、谁出来都要看清楚。赫莎还在侧廊忙着修那堆老机器呢。'
+  -     '这里原是会馆练习队形的地下场地。我负责让人平安进出。薇蕾娜让鲁恩先看你的庭院实战，地下这几层由我安排。赫莎在侧廊等着检修。'
+      ]
+    ]
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/c1-story-flow.test.mjs:77:190)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ [ '伊登', '这下面原来是会馆练队形的地方。现在我得守着入口，谁进去、谁出来都要看清楚。赫莎还在侧廊忙着修那堆老机器呢。' ] ],
+    expected: [ [ '伊登', '这里原是会馆练习队形的地下场地。我负责让人平安进出。薇蕾娜让鲁恩先看你的庭院实战，地下这几层由我安排。赫莎在侧廊等着检修。' ] ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

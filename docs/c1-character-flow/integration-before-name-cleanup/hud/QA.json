@@ -1,0 +1,221 @@
+{
+  "status": "passed",
+  "rows": [
+    {
+      "viewport": [
+        1440,
+        980
+      ],
+      "input": "mouse",
+      "enemy": "ordinary",
+      "hidden": false,
+      "name": "苔壳爬兽",
+      "hp": 64,
+      "target": "hud-rat",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 540,
+        "y": 10,
+        "w": 360,
+        "h": 49
+      },
+      "nav": {
+        "x": 1087.953125,
+        "y": 16,
+        "w": 332.046875,
+        "h": 38
+      },
+      "status": {
+        "x": 20,
+        "y": 18,
+        "w": 266,
+        "h": 90
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    },
+    {
+      "viewport": [
+        1440,
+        980
+      ],
+      "input": "mouse",
+      "enemy": "boss",
+      "hidden": false,
+      "name": "试炼守卫",
+      "hp": 64,
+      "target": "hud-boss",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 540,
+        "y": 10,
+        "w": 360,
+        "h": 49
+      },
+      "nav": {
+        "x": 1087.953125,
+        "y": 16,
+        "w": 332.046875,
+        "h": 38
+      },
+      "status": {
+        "x": 20,
+        "y": 18,
+        "w": 266,
+        "h": 90
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "input": "mouse",
+      "enemy": "ordinary",
+      "hidden": false,
+      "name": "苔壳爬兽",
+      "hp": 64,
+      "target": "hud-rat",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 307,
+        "y": 6,
+        "w": 230,
+        "h": 39
+      },
+      "nav": {
+        "x": 551,
+        "y": 10,
+        "w": 273,
+        "h": 70
+      },
+      "status": {
+        "x": 12,
+        "y": 10,
+        "w": 223,
+        "h": 81
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    },
+    {
+      "viewport": [
+        844,
+        390
+      ],
+      "input": "mouse",
+      "enemy": "boss",
+      "hidden": false,
+      "name": "试炼守卫",
+      "hp": 64,
+      "target": "hud-boss",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 307,
+        "y": 6,
+        "w": 230,
+        "h": 39
+      },
+      "nav": {
+        "x": 551,
+        "y": 10,
+        "w": 273,
+        "h": 70
+      },
+      "status": {
+        "x": 12,
+        "y": 10,
+        "w": 223,
+        "h": 81
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "input": "touch",
+      "enemy": "ordinary",
+      "hidden": false,
+      "name": "苔壳爬兽",
+      "hp": 64,
+      "target": "hud-rat",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 59,
+        "y": 8,
+        "w": 272,
+        "h": 49
+      },
+      "nav": {
+        "x": 10,
+        "y": 86,
+        "w": 360,
+        "h": 30
+      },
+      "status": {
+        "x": 10,
+        "y": 126,
+        "w": 201,
+        "h": 83
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    },
+    {
+      "viewport": [
+        390,
+        844
+      ],
+      "input": "touch",
+      "enemy": "boss",
+      "hidden": false,
+      "name": "试炼守卫",
+      "hp": 64,
+      "target": "hud-boss",
+      "locHidden": true,
+      "tellHidden": true,
+      "bar": {
+        "x": 59,
+        "y": 8,
+        "w": 272,
+        "h": 49
+      },
+      "nav": {
+        "x": 10,
+        "y": 86,
+        "w": 360,
+        "h": 30
+      },
+      "status": {
+        "x": 10,
+        "y": 126,
+        "w": 201,
+        "h": 83
+      },
+      "miniLabel": "灰烛练武庭",
+      "expectedMap": "灰烛练武庭"
+    }
+  ],
+  "checks": [
+    "real pointer selects ordinary then boss",
+    "health update",
+    "death hides bar",
+    "engaged fallback",
+    "disengaged hides bar",
+    "map change clears stale target",
+    "three viewports, target/nav/status no overlap",
+    "minimap text absent"
+  ],
+  "limits": "Actors and damage injected to isolate UI. Not a complete human playthrough or aesthetic acceptance.",
+  "errors": []
+}

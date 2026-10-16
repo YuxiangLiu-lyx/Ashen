@@ -1,0 +1,153 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1RepairAccept",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "2df2975cbe1a067ab039800464cd6338462d97e7554f26b645f58c5c8a554302",
+  "before": [
+    [
+      "赫莎",
+      "先别碰地上的线，外皮已经烧穿了。我得把封存库的门修好，可现在连哪一段在漏电都拿不准。"
+    ],
+    [
+      "诺恩",
+      "你要我看哪里？"
+    ],
+    [
+      "赫莎",
+      "北边供能机底下有个接头，东厅还有一道回水槽。帮我看看接头有没有咬断，槽里的水又是从哪儿漏出来的。回来把位置说清楚，我好带工具。"
+    ],
+    [
+      "诺恩",
+      "一层的看守还接在这条线上？"
+    ],
+    [
+      "赫莎",
+      "对。它不停，我不敢重新接线。你若已经处理过，就不用再替我跑一趟。二层的鼠群也当心些，别站在水里和它们纠缠。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "hesha",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/hesha.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "赫莎是维修人，警告裸线有真实危险，保留；安全说明用可观察故障而非兼容旧档术语。",
+    "relationship": {
+      "participants": [
+        "赫莎",
+        "诺恩"
+      ],
+      "judgment": "赫莎是维修人，警告裸线有真实危险，保留；安全说明用可观察故障而非兼容旧档术语。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "2df2975cbe1a067ab039800464cd6338462d97e7554f26b645f58c5c8a554302",
+      "event": {
+        "id": "R01:c1RepairAccept",
+        "scene": "c1RepairAccept",
+        "order": 30,
+        "summary": "赫莎：当心地上那根线，外皮烧穿了！封存库的门也得修，我还没找准是哪一段在漏电。；诺恩：你要我看哪里？；赫莎：北边供能机底下有个接头，东厅还有一道回水槽。帮我看看接头有没有咬断，槽里的水又是从哪儿漏出来的。回来把位置说清楚，我好带工具。；诺恩：一层的看守还接在这条线上？；赫莎：对，它不停，我没法接线。你要是已经让它停过，我就能开工。二层也闹鼠患，水边尤其危险，导线都让它们咬破了。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1RepairAccept",
+          "runtime-c1-actions",
+          "character-flow:c1RepairAccept"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1RepairAccept",
+        "scene": "c1RepairAccept",
+        "order": 30,
+        "summary": "赫莎：当心地上那根线，外皮烧穿了！封存库的门也得修，我还没找准是哪一段在漏电。；诺恩：你要我看哪里？；赫莎：北边供能机底下有个接头，东厅还有一道回水槽。帮我看看接头有没有咬断，槽里的水又是从哪儿漏出来的。回来把位置说清楚，我好带工具。；诺恩：一层的看守还接在这条线上？；赫莎：对，它不停，我没法接线。你要是已经让它停过，我就能开工。二层也闹鼠患，水边尤其危险，导线都让它们咬破了。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "experience:c1RepairAccept",
+          "runtime-c1-actions",
+          "character-flow:c1RepairAccept"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-EXP-C1REPAIRACCEPT",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章对应accept/claim或近处物件调用；调查要求活动任务、目标因果及附近无战斗。结算由pending.then在finishScene执行。LegacyReturn仅迁移达标证据。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

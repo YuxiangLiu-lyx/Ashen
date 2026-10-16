@@ -1,0 +1,151 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1Talk_echo_offer",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "e8a89c7e5457e49ca24d8ef3f0a9f8561e0fc8aa6696f49af6d70ffb1c07312f",
+  "before": [
+    [
+      "洛缇",
+      "回水机房后槽那枚机芯还能用，可守兽咬住了传动带，我连槽盖都靠近不了。"
+    ],
+    [
+      "诺恩",
+      "先停下守兽，再拆后槽。前面的装置要动吗？"
+    ],
+    [
+      "洛缇",
+      "不用替我拆前槽。机房里有检修记录，先读清楚，别把连在一起的细簧扯断了。"
+    ],
+    [
+      "诺恩",
+      "我把后槽机芯带回来，其他东西看过记录再决定。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "lottie",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/lottie.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "男主询问是否动前槽，洛缇给实际拆卸风险；不重复先停再拆的流程。",
+    "relationship": {
+      "participants": [
+        "洛缇",
+        "诺恩"
+      ],
+      "judgment": "男主询问是否动前槽，洛缇给实际拆卸风险；不重复先停再拆的流程。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "e8a89c7e5457e49ca24d8ef3f0a9f8561e0fc8aa6696f49af6d70ffb1c07312f",
+      "event": {
+        "id": "R01:c1Talk_echo_offer",
+        "scene": "c1Talk_echo_offer",
+        "order": 88,
+        "summary": "洛缇：回水机房后槽那枚机芯还能用，可守兽咬住了传动带，我连槽盖都靠近不了。；诺恩：后槽那枚，我记住了。前面的装置要动吗？；洛缇：前槽留着就行。机房里有检修记录，拆的时候照着看，细簧连在一起，扯断了可不好收拾。；诺恩：好，我把后槽机芯带回来。其他的看过记录再说。",
+        "participants": [
+          "lottie",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_echo_offer",
+          "runtime-c1-actions",
+          "character-flow:c1Talk_echo_offer"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "lottie",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1Talk_echo_offer",
+        "scene": "c1Talk_echo_offer",
+        "order": 88,
+        "summary": "洛缇：回水机房后槽那枚机芯还能用，可守兽咬住了传动带，我连槽盖都靠近不了。；诺恩：后槽那枚，我记住了。前面的装置要动吗？；洛缇：前槽留着就行。机房里有检修记录，拆的时候照着看，细簧连在一起，扯断了可不好收拾。；诺恩：好，我把后槽机芯带回来。其他的看过记录再说。",
+        "participants": [
+          "lottie",
+          "noen"
+        ],
+        "sources": [
+          "flow:c1Talk_echo_offer",
+          "runtime-c1-actions",
+          "character-flow:c1Talk_echo_offer"
+        ],
+        "optional": true,
+        "stage_window": [
+          "R01:contract",
+          "R01:chapterEnd"
+        ],
+        "grants": [
+          {
+            "actor": "lottie",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-FLOW-C1TALK_ECHO_OFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "trigger": "第一章对应NPC与任务前置下的choose；offer在最后一页接受、report在最后一页一次性结算。进度只提醒已接任务。具体前置见C1_QUESTS/C1_GIVERS及专项，不能按事件排列默认经历。",
+        "c1_flow_revision": "1.1",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

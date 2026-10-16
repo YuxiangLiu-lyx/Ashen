@@ -1,0 +1,195 @@
+{
+  "status": "passed",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "latest": {
+    "dialogue-and-flow": {
+      "label": "dialogue-and-flow",
+      "command": [
+        "node",
+        "--test",
+        "tests/c1-character-flow.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/c1-story-flow.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:05:38.459428+00:00",
+      "finished_at_utc": "2026-10-16T06:05:40.616974+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/016-dialogue-and-flow.txt",
+      "output_sha256": "614ab5fab068b7458a3533337673f318e6d57eaac79f29718df399f57d5a520d",
+      "timeout_seconds": 180.0
+    },
+    "merchant-menu-browser": {
+      "label": "merchant-menu-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T05:00:21.705572+00:00",
+      "finished_at_utc": "2026-10-16T05:00:41.398544+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "6f82c606c8592c1cf5f41f757554b40054a20393acdde804e359746d91df0c00",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/005-merchant-menu-browser.txt",
+      "output_sha256": "39f4d577093fc159067c112ff8d713c3fdc117ca4edebbb23b8a7b06e4fa7c53",
+      "timeout_seconds": 240.0
+    },
+    "baseline-provenance": {
+      "label": "baseline-provenance",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/check_baseline.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T04:54:58.216520+00:00",
+      "finished_at_utc": "2026-10-16T04:56:49.648345+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "d97a407e428cf08f7a2be0f3b2f752e2f179795f4839938bb0e2bcea81370b40",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/003-baseline-provenance.txt",
+      "output_sha256": "a214b6b526139b96a1ee29808014527dbf6fea1a40b2e36451bfd06218b16047",
+      "timeout_seconds": 120.0
+    },
+    "producer-current": {
+      "label": "producer-current",
+      "command": [
+        "node",
+        "docs/c1-character-flow/verify_current.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:04:48.394746+00:00",
+      "finished_at_utc": "2026-10-16T06:04:48.589927+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/014-producer-current.txt",
+      "output_sha256": "036b9848381a6f6b8069c808caeb53a84fd04bf8eb7a15828e1b3e115ee3b281",
+      "timeout_seconds": 120.0
+    },
+    "chapter-browser": {
+      "label": "chapter-browser",
+      "command": [
+        "node",
+        "tests/browser-c1-character-flow.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:14:22.364091+00:00",
+      "finished_at_utc": "2026-10-16T06:15:20.341522+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/018-chapter-browser.txt",
+      "output_sha256": "39f4d577093fc159067c112ff8d713c3fdc117ca4edebbb23b8a7b06e4fa7c53",
+      "timeout_seconds": 600.0
+    },
+    "fast": {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:04:48.664815+00:00",
+      "finished_at_utc": "2026-10-16T06:05:38.383664+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/015-fast.txt",
+      "output_sha256": "ec80f25b28f59811d47e669b00137e4bbe9b7bc34c0446c6c83c5223b8370ea0",
+      "timeout_seconds": 400.0
+    },
+    "integration": {
+      "label": "integration",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/integration.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:05:40.695085+00:00",
+      "finished_at_utc": "2026-10-16T06:14:22.253607+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/017-integration.txt",
+      "output_sha256": "91a96e74386252061625a1ba0020ab234aae371e0b5013bfa149149da9ddd048",
+      "timeout_seconds": 1600.0
+    },
+    "package": {
+      "label": "package",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/build_package.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:15:20.437818+00:00",
+      "finished_at_utc": "2026-10-16T06:20:09.009112+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/019-package.txt",
+      "output_sha256": "f7f421eaa7d2d3ae935dd40edea441f7913e46c88db61c377cc8be8e4f3831d0",
+      "timeout_seconds": 1300.0
+    },
+    "default-build": {
+      "label": "default-build",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/promote.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:23.675972+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.239164+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/020-default-build.txt",
+      "output_sha256": "69c305de144811a3710aa027b3da73258125e37ffdc7a5261b8173f7f350c1e1",
+      "timeout_seconds": 180.0
+    },
+    "local-server": {
+      "label": "local-server",
+      "command": [
+        "python3",
+        "docs/c1-character-flow/verify_local.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:24.315367+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.537088+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/021-local-server.txt",
+      "output_sha256": "7e40b17040dd170b83160a7e8e0596f4e02709067ff511083fe4680395f39cf9",
+      "timeout_seconds": 120.0
+    },
+    "map-quality": {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "875c1855d37b398d2ca4a8b83586037553a5399d"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-16T06:27:24.617020+00:00",
+      "finished_at_utc": "2026-10-16T06:27:24.838817+00:00",
+      "head_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+      "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/c1-character-flow-20261016/022-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    }
+  },
+  "all_attempts_in_task": true,
+  "human_status": "pending"
+}

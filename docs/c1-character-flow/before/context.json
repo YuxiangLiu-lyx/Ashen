@@ -1,0 +1,1261 @@
+{
+  "status": "budget_limited",
+  "task": "第一章所有任务对白和日常闲聊保留人物性格去除AI味；薇蕾娜亲昵调戏且担心男主，试炼由鲁恩逐轮交接；商人改称商人并美化；NPC任务选项排在闲聊前",
+  "basis_commit": "bafee2e82152e062492e69488f51909e5ad6d040",
+  "source_fingerprint": "104360d298474baa90041b7e609d77907f868807b30bdf1de778a9d3c4a44366",
+  "modules": [
+    "story",
+    "chapter01_plan"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter01_plan: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "722c56805d934a2de2043686763a22f7f09a4ee9b75904d5ef5b30e6fb717c40",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "2026-10-14扩展到所有人物对白、支线/NPC事件、日常、争执、情感或政治交流、认知/关系变化、伏笔与游戏事件交接。运行入口仍是 context.py、index.py、check.py、task.py 和既有剧情 Skill；[叙事 Harness](NARRATIVE_HARNESS.md) 说明可执行命令与结构。此次升级不重写现有剧情。",
+          "truncated": false
+        },
+        {
+          "line": 12,
+          "text": "4. 读 [对白规范](DIALOGUE_STYLE.md) 与 [纯风格样本](DIALOGUE_STYLE_SAMPLES.md)。写清本场信息、每个人的行为目的、结果、因果与情绪依据、游戏动作和对话框交接，再生成文字。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "7. 记录完整 context、候选/已实施 draft、review，挂入 task.py；修改行数时另做 pending、staging 和存档专项。finish 检查叙事记录与来源新鲜度。仅工具维护且未改运行/章稿的任务不伪造对白审查。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "5. 实现、回放、实际游玩、存档迁移验收后，更新为 `IMPLEMENTED`，登记真实入口、文件与证据。未开发章仍保持原状态，不能因第",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 9183
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "c47af4be79dd84662d4818fb2a67248a0f5923a4841b9a74b0c513d30ed0836d",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "2026-10-15用户进一步指出：避免把台词写成任务流程说明，尤其反复使用“先……再……”“不是……而是……”“别……”；这也包括把同一逻辑换词说两遍。对方已交代清楚时，“知道了”“好”可以是完整回应，不必复述安排或总结对方的用意。薇蕾娜应明确说出任务危险、想看看诺恩这些年的成长，然后安排试炼。日常调侃来自眼前互动和对方的回应，不套用考核点评或抽象关心。范例用于学习交流方式，其中旧有句式不凌驾于这次明确反馈。",
+          "truncated": false
+        },
+        {
+          "line": 27,
+          "text": "诺恩早期会观察、追问和解释任务判断，情感理解有限不等于没有正常交流能力。艾莉娅关心具体受伤的人，也能说明为什么反对某个决定；不必逢人发表生命演说。薇蕾娜可以亲昵逗趣，也能准确谈正事；不要把所有交流改成暧昧。以上方向仍要受当时的档案、事件和关系限制。",
+          "truncated": false
+        },
+        {
+          "line": 49,
+          "text": "游戏适配同样必要：长对白可以分页，不可破坏 pending 行号、演出动作、说话者与一次性提交。新增行数须检查存档迁移与实际对话框；不要因为技术上的旧行数方便，就删掉必要解释。此次 Harness 升级不自动改动任何现有对白。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6397
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        },
+        {
+          "line": 37,
+          "text": "## B：薇蕾娜与诺恩——成熟亲昵、轻松自然的日常调戏",
+          "truncated": false
+        },
+        {
+          "line": 39,
+          "text": "假设场景：薇蕾娜为一场宴会挑选衣服。宴会本身不属于游戏正史。",
+          "truncated": false
+        },
+        {
+          "line": 41,
+          "text": "薇蕾娜：“来得正好，诺恩。先别急着走，帮我看看这两件衣服，哪一件更适合明天的宴会？”",
+          "truncated": false
+        },
+        {
+          "line": 45,
+          "text": "薇蕾娜：“我又不是去跟人打架的。你挑衣服原来是先看这个？”",
+          "truncated": false
+        },
+        {
+          "line": 49,
+          "text": "薇蕾娜：“好好好，算我没说清楚。那我换个问法，你觉得我穿哪件更好看？”",
+          "truncated": false
+        },
+        {
+          "line": 53,
+          "text": "薇蕾娜：“这回总该有别的理由了吧？你要是再跟我说袖子，我可要生气了。”",
+          "truncated": false
+        },
+        {
+          "line": 57,
+          "text": "薇蕾娜：“你居然还记得？我还以为那天你只顾着留意周围的护卫呢。”",
+          "truncated": false
+        },
+        {
+          "line": 61,
+          "text": "薇蕾娜：“看来你当时还是认真听我说话的嘛。不错，姐姐很高兴。既然你也觉得好看，那就选这件了。”",
+          "truncated": false
+        },
+        {
+          "line": 65,
+          "text": "薇蕾娜：“哎，别急呀，还有件事没问你。明天晚上你有没有空？我想让你陪我一起去。”",
+          "truncated": false
+        },
+        {
+          "line": 69,
+          "text": "薇蕾娜：“护卫当然有，可我总不能让他们陪我吃饭聊天吧？明天有几位客人实在难应付，我想找个熟悉的人作伴。你要是愿意过来，我也能轻松一点。”",
+          "truncated": false
+        },
+        {
+          "line": 73,
+          "text": "薇蕾娜：“没关系，你不用替我谈事情。想吃什么就吃什么，实在觉得无聊，我也不会非让你一直坐在那里。不过既然要陪我去，衣服肯定得换一身。你总不能穿着训练服参加宴会吧？”",
+          "truncated": false
+        },
+        {
+          "line": 77,
+          "text": "薇蕾娜：“这个你不用操心，我会替你准备。说起来，你平时要是肯好好打扮一下，应该会有不少姑娘喜欢。”",
+          "truncated": false
+        },
+        {
+          "line": 81,
+          "text": "薇蕾娜：“我知道，你的心思不都在训练和任务上吗？不过这有什么关系，以后有的是机会。明天就当陪姐姐出去散散心，怎么样？”",
+          "truncated": false
+        },
+        {
+          "line": 85,
+          "text": "薇蕾娜：“好，那我就先替你准备衣服了",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "current_code",
+      "sha256": "7a0a0b15a7ab87ff795813d740179a67976042dc7fe9b171135ea219a2f29997",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.4 · 克制表现与日常交流",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "邀请由库房的木屑接到进城差事，薇蕾娜坦白放心不下；诺恩追问缘由，她说明护卫、窄路与陌生对手，商定试一趟再决定。不用点评学生的口气评价诺恩，也不在每次回话后加调情。回报由她问东厅的位置、他解释绕盾与引到中间展开，去掉总结式表扬。保留等人、留饭与出行担忧，不增新伤病、爱情确认或幕后知识。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "技术验收：新旧档、三职业实际战斗、正常UI交易与章节回归、三视口、地图三维和对白七维。真人文风、节奏与趣味继续待验。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2827
+    },
+    {
+      "path": "docs/harness/CHAPTER_01.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "current_code",
+      "sha256": "a1c03bdfd6a5299ff9508f4696ce105b912dede58bd35ff2b22bb7fc9e331748",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章剧情记录 · 午钟之前",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "> 2026-10-14最新采用1.2：[熟人的关心与对白回看](CHAPTER_01_CARE_UI.md)，IMPLEMENTED，任务c1-care-ui-20261014；按本轮用户要求扩写薇蕾娜、修复地下人物立绘并改善阅读操作。1.1交接和私谈继续保留。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "> 2026-10-14最新采用1.1：[任务缘由与场景内私谈](CHAPTER_01_STORY_FLOW.md)，IMPLEMENTED；任务c1-story-flow-20261014。诺恩没有预设肩伤，试炼因薇蕾娜担心而安排；私谈改到真实离场后。以下各稿保留历史，不再用肩伤或黑幕约束本轮。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "> 2026-10-14新采用稿第一章1.0：[RPG体验试点](CHAPTER_01_RPG_EXPERIENCE.md)，IMPLEMENTED（技术已实装，真人节奏待验），任务rpg-c1-20261014。全游戏当前授权与分章实施见[体验审计](../rpg-experience/AUDIT.md)。以下0.9为历史运行基线，后续章节新改造逐章登记，不等于已实现。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "> 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "> 历史0.8基线（DEV_FROZEN）：[自然场景与逐个任务交接](CHAPTER_01_STORY_WORLD.md)，任务c1-story-world-20261012。下述0.7为上一稿：[地图与任务全面优化](CHAPTER_01_MAP_QUESTS.md)。用户新要求替代下述0.6多步骤互动/几何保护；保留原刺杀、人物知识和成长预算。下文作为0.6主线与对白来源记录。",
+          "truncated": false
+        },
+        {
+          "line": 17,
+          "text": "- 2026-10-12采用用户《第一章流程扩充与成长系统》；任务c1-expansion-20261012。",
+          "truncated": false
+        },
+        {
+          "line": 23,
+          "text": "诺恩回到会馆，在库房处理六鼠和北墙漏口，向奥伦回报；薇蕾娜交付原委托，与鲁恩的私下对话保持0.5。上午她要求检查旧伤与行动状态，鲁恩记录警铃演练。诺恩在下午查清",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 11050
+    },
+    {
+      "path": "source/narrative/characters/vilerena.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "43fb7502adf330dcc2001f4af4401fdafb4cab66ffc272cbab03e9adac5f1bc4",
+      "excerpts": [
+        {
+          "line": 4,
+          "text": "  \"name\": \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 32,
+          "text": "  \"fears\": \"在当前对白中担忧诺恩受害或死在禁地；不补造创伤。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4503
+    },
+    {
+      "path": "source/narrative/characters/rune.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 189,
+      "category": "narrative_context",
+      "sha256": "8d8359fcc5934aa2273c0481576509f653752ae92d6a2ded0693dee6131152cb",
+      "excerpts": [
+        {
+          "line": 20,
+          "text": "    \"summary\": \"会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。\",",
+          "truncated": false
+        },
+        {
+          "line": 43,
+          "text": "    \"chapter_one_1_1\": \"听薇蕾娜安排检验能力；说明观察目标、地下联系人，对上层计划仍回避，不假设全知。\"",
+          "truncated": false
+        },
+        {
+          "line": 46,
+          "text": "    \"emotion\": \"处理传令事务；对薇蕾娜的追问回避。\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2731
+    },
+    {
+      "path": "source/narrative/chapters/R01.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 188,
+      "category": "narrative_context",
+      "sha256": "65b689ce32fee2b5b1fb3fd39adafaef3068e2d9bee58d85e752dea188007951",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "  \"title\": \"午钟之前（工作名；运行第一章）\",",
+          "truncated": false
+        },
+        {
+          "line": 54,
+          "text": "      \"summary\": \"薇蕾娜向诺恩解释：需要圣女的圣徽开门。\",",
+          "truncated": false
+        },
+        {
+          "line": 83,
+          "text": "      \"summary\": \"薇蕾娜要求别害诺恩；鲁恩称自己做不了主并道歉。\",",
+          "truncated": false
+        },
+        {
+          "line": 186,
+          "text": "      \"summary\": \"第一章1.3当前内容：赫莎：位置记下了。线和水槽得一起修，不然新线接上去，过不了多久还得烧。；诺恩：看守那边也处理过了，现在能接吗？；赫莎：能，这下维修班可以进来换线了。三层的维恩还在守着旧账，他要是托你带清册，你先问清位置，省得在架子间绕路。\",",
+          "truncated": false
+        },
+        {
+          "line": 208,
+          "text": "      \"summary\": \"第一章1.3当前内容：维恩：伊登把通道打开了，我总算能把这几本账先搬出去。东厅还有一本封存清册，我一个人拿不了。；诺恩：是什么拦着你？；维恩：西边那名封存看守认的是旧口令，我一靠近，它就举盾。得先让它停下来，我才敢进去收拾。；诺恩：我处理看守，再把清册带回来。你说的书架在哪里？；维恩：东厅北墙，封皮上写着《封存清册》。东厅北墙的书架上只有这一册，我在入口等你。回来我分你两瓶备用药，护送账册的工钱也一起结。\",",
+          "truncated": false
+        },
+        {
+          "line": 285,
+          "text": "      \"summary\": \"诺恩：鲁恩也会去地下吗？；薇蕾娜：他留在庭院。地下由伊登照应，入口和执卫的情况他都熟悉，有什么不清楚的尽管问他。；诺恩：好，我去找他。；薇蕾娜：嗯，我等你回来。答应陪我吃饭的，可得记着。；诺恩：记着呢。\",",
+          "truncated": false
+        },
+        {
+          "line": 373,
+          "text": "      \"summary\": \"第一章1.3当前内容：鲁恩：薇蕾娜跟我说了，先看看你现在的身手。庭院的苔壳兽把棚柱撞松了，工人正在等人清场，你就从那里开始。；诺恩：它们冲起来的时候，会追着",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 228901
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "story: current constraints",
+        "chapter01_plan: current constraints"
+      ],
+      "priority": 132,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "当前人物文本及迁移层为 chengli-text-v27、dialogue-runtime-v16、Saga V26 和其 text/chains/staging。先查具体场景 ID、运行对白和触发条件，按 router 结果读取少量资料。历史 delivery/候选文案不是现行权威；未取回的最新 source 稿明确缺失，不凭猜测补写。",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "诺恩、艾莉娅、澄璃的身份、知识与关系必须遵守现有场景知识边界，圣女在场时不提前揭露角色尚未知的真相。FUTURE_ONLY 构思只有用户授权后才能实装。对白改动同时检查已存 pending/行号迁移、演出节拍、坐席和小立绘。",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "第八章大图在注册/展示/预加载均禁用；小立绘、对白、任务和演出保留。原 CG 不删除，保留归档原件。章节测试种子只用于验收，不把其无敌 preview 行为用于平衡实验。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 112,
+      "category": "current_code",
+      "sha256": "8247612506cf7c3615c0be62248c81089b7dfb32e18f3b95b46bf1e59c461b9c",
+      "excerpts": [
+        {
+          "line": 17,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 33,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 38,
+          "text": "  \"薇蕾娜走近，替他拈掉领口的木屑，又掸了掸肩头。\"",
+          "truncated": false
+        },
+        {
+          "line": 45,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 53,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 61,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 69,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 77,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 83,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 91,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 99,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 107,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 115,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 120,
+          "text": "  \"薇蕾娜把桌边的纸挪开。两人吃过饭，诺恩放下空碗，接过她递来的水。\"",
+          "truncated": false
+        },
+        {
+          "line": 123,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 131,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 139,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 147,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 155,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 168,
+          "text": " c1SupplyIntro:[['罗萨','这边放的是药水，疗伤的、提神的都有。装置也搬来会馆了，你从怪物身上收来的药用精粹，可以拿去配药。'],['诺恩','用法复杂吗？'],['罗萨','照着面板放材料就行，瓶子和药引我备着，收一点工费。现在能做中、小两种；缀纹那边还封着，薇蕾娜说等你试炼回来，再给你讲装备的事。']],",
+          "truncated": false
+        },
+        {
+          "line": 178,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 186,
+          "text": "  \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 194,
+          "text": " c1Talk_c1Readiness_offer:[['鲁恩','薇蕾娜跟我说了，先看看你现在的身手。庭院的苔壳兽把棚柱撞松了，工人正在等人清场，你就从那里开始。'],['诺恩','它们冲起来的时候，会追着人转向吗？'],['鲁恩','起跑以后转得慢，留心它们低头的动作。清掉八只再回来，我听你说说经过，然后给伊登递个信。']],",
+          "truncated": false
+        },
+        {
+          "line": 195,
+          "text": " c1Talk_c1ExitDrill_offer:[['伊登','鲁恩已经捎信来了。地下这趟我带你认个路：旧廊的哨兵出了故障，二层又闹鼠患，维修班正愁进不去。'],['诺恩','先清出路，再去终点？'],['伊登','对，一层清八具哨兵，二层清八只啃线鼠。三层东厅放着终试执卫，它有专门的考核程序，会逼你换位置、找出手的机会。'],['诺恩','另外两名看守呢？鲁恩的单上也写着它们。'],['伊登','那是精英讨伐的两处，可以另找时间处理。终",
+          "truncated": true
+        },
+        {
+          "line": 196,
+          "text": " c",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 16128
+    },
+    {
+      "path": "dist/chapter-one-trial-runtime.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 111,
+      "category": "current_code",
+      "sha256": "99fc4217c119ebff9d804cc56f0df0044dcf110f937f053961824d9d8441b8e2",
+      "excerpts": [
+        {
+          "line": 26,
+          "text": " C1_QUESTS.c1ExitDrill.name='地下试炼';QUESTS.c1ExitDrill.name='地下试炼';QUESTS.c1ExitDrill.desc='清理旧廊八具哨兵、蓄能廊八只啃线鼠，再挑战三层东厅的终试执卫，最后回会馆向薇蕾娜汇报。';QUESTS.c1VaultWatch.desc='停下西侧封存看守，取回东厅北墙的清册，交给入口账桌旁的维恩。';QUESTS.c1LoomBrief.desc='薇蕾娜介绍了会馆装置：材料订单换核心，罗萨出售符文，两者加上工费可以制作装备。';",
+          "truncated": false
+        },
+        {
+          "line": 96,
+          "text": " P.canDoor=function(d){if(this.chapter<5&&!prep(this).legacy){if(d.to==='road'&&this.map==='hall'&&!prep(this).approved)return '薇蕾娜还没有交给你出行的通行纸。她在会馆里等你。';if(d.to==='c1TrialVault')return done(this,'c1Readiness')?null:'伊登正在等鲁恩确认庭院试炼的结果。';}return old.canDoor.call(this,d);};",
+          "truncated": false
+        },
+        {
+          "line": 99,
+          "text": "  if(id==='c1ExitDrill'&&!prep(this).legacy&&this.c1TrialComplete())return {text:'试炼完成 · 回会馆向薇蕾娜汇报',map:'hall',target:'sister'};",
+          "truncated": false
+        },
+        {
+          "line": 102,
+          "text": " P.objective=function(){if(this.chapter===1&&!prep(this).legacy){if(!prep(this).started)return {text:'回会馆和薇蕾娜交谈',map:'hall',target:'sister'};return this.questGoal(done(this,'c1Readiness')?'c1ExitDrill':'c1Readiness');}return old.objective.call(this);};",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19646
+    },
+    {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 110,
+      "category": "current_code",
+      "sha256": "ff2028a9db99b6723931aafdca2d2e614d013858cb9cf4359575e043c4f72f00",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 18,
+          "text": "   \"薇蕾娜绕到桌角，靠近了些。诺恩肩头挂着一小截木屑，通行纸就放在他手边。\"",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 37,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 45,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 53,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 62,
+          "text": "   \"薇蕾娜停了一下，收回压着通行纸的手。\"",
+          "truncated": false
+        },
+        {
+          "line": 65,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 73,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 81,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 89,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 97,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 105,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 113,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 121,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 129,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 137,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 145,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 155,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 163,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 171,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 179,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 187,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 195,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 209,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 217,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 225,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 235,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 243,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 251,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 259,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 267,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 275,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        },
+        {
+          "line": 283,
+          "text": "   \"薇蕾娜\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 8927
+    },
+    {
+      "path": "dist/chapter-one-care-save.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 109,
+      "category": "current_code",
+      "sha256": "5021afe12a447113769cd0fd1d122f75ab9d3eae8638aaa4176bb1b57b24884d",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Map pre-1.2 static cursors by meaning. Inline text remains its own saved",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// conversation; old backstage tails retain their independent cursor/commit.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export const C1_CARE_REVISION=1;",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "export const C1_CARE_CURSOR_MAP={",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " contract:[...Array.from({length:20},(_,i)=>i),21,22,23,26,31],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " sisterIdle:[0,1,2,3,8,9,10],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " sisterBeforeDeparture:[0,1,2,3,4,5,6,7,8,13],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " c1TrainingReason:[1,2,3],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 815
+    },
+    {
+      "path": "dist/dialogue-reader.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 108,
+      "category": "current_code",
+      "sha256": "6d176397c91f4327e3bb814cdca6d6366b898acc3a8a3bac69e212c402e3929f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Reading history is presentation-only. StoryFlow owns the durable cursor,",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "// cinematic beats, finishScene and all once-only game transactions.",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "export class DialogueReader {",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " constructor(flow){this.flow=flow;this.reviewIndex=null;}",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " get rows(){return this.flow.readingRows;}",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " get liveIndex(){return this.flow.readingIndex;}",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " get index(){return this.reviewIndex??this.liveIndex;}",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " get reviewing(){return this.reviewIndex!==null;}",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 916
+    },
+    {
+      "path": "dist/chapter-one-quest-dialogues.js",
+      "reasons": [
+        "story: task matched 对白, 第一章, 薇蕾娜, 人物性格; maintained entry"
+      ],
+      "priority": 107,
+      "category": "current_code",
+      "sha256": "63ef604e4c05612059e94f59c415cb910b8d685f0d3b5cfa9b2f8928c58c0932",
+      "excerpts": [
+        {
+          "line": 8,
+          "text": " c1Readiness:{label:'薇蕾娜让我先来找你。',",
+          "truncated": false
+        },
+        {
+          "line": 9,
+          "text": "  offer:[['鲁恩','她刚交代过。后院的苔壳兽钻进了棚下，八只挤在一起，已经啃坏几根柱脚。'],['诺恩','拿它们试身手？'],['鲁恩','它们会顶着甲壳冲人。你得看清哪只先动，再找空隙还手，不能只顾眼前那一",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 20986
+    }
+  ],
+  "excerpt_bytes": 16256,
+  "max_files": 24,
+  "budget_bytes": 24000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R01"
+      ],
+      "scene": null,
+      "actors": [
+        "vilerena",
+        "rune"
+      ],
+      "stage_candidates": [
+        {
+          "event": "R01:aside",
+          "scene": "aside",
+          "summary": "会馆核对午钟、通行纸与带人安排；诺恩不在此切镜中"
+        },
+        {
+          "event": "R01:c1HiddenPairArrangement",
+          "scene": "c1HiddenPairArrangement",
+          "summary": "诺恩真实离开会馆后，鲁恩走到薇蕾娜身边；两人在会馆私谈，玩家看见，主角均未听到。"
+        }
+      ],
+      "needs": [
+        "定位场景调用者与事件时点；不默认章末状态"
+      ]
+    },
+    "ready_to_write": false,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "vilerena": {
+        "name": "薇蕾娜",
+        "base": "会馆中向诺恩交付安排、处理行动事务的重要人物。",
+        "voice": "成熟、自信、熟悉中有亲昵；事务和玩笑自然穿插，不每句暧昧。",
+        "state": {
+          "emotion": "熟悉诺恩，准备委托，关注行动安全。",
+          "goals": [
+            "交付任务、核对入口和退路。"
+          ],
+          "faction_view": "参与组织行动但非全部秘密的知情者。",
+          "expression": "能亲昵也能明确说明正事。",
+          "conflicts": [
+            "知道带走圣女另有安排，却没有向诺恩说明。"
+          ]
+        },
+        "relationships": {
+          "rune": {
+            "trust": "共同处理事务",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "服从上级与保护诺恩的优先级冲突"
+          }
+        },
+        "sources": [
+          "author-pair",
+          "scene:contract",
+          "runtime-c1-hidden",
+          "scene:darkCommissionV9",
+          "scene:darkExileV9",
+          "c1-story-flow",
+          "runtime-c1-actions",
+          "c1-care-plan",
+          "c1-care-runtime"
+        ],
+        "profile": "source/narrative/characters/vilerena.json"
+      },
+      "rune": {
+        "name": "鲁恩",
+        "base": "会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。",
+        "voice": "事务信息具体，越权部分回避与道歉；不能用沉默推出他知道全部真相。",
+        "state": {
+          "emotion": "处理传令事务；对薇蕾娜的追问回避。",
+          "goals": [
+            "按上级安排传递任务。"
+          ],
+          "faction_view": "UNRESOLVED",
+          "expression": "能交代细节，遇越权问题不解释。",
+          "conflicts": []
+        },
+        "relationships": {
+          "vilerena": {
+            "trust": "共事",
+            "affection": "UNRESOLVED",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "UNRESOLVED",
+            "obligation": "UNRESOLVED",
+            "conflict": "对诺恩安危与服从的分歧"
+          }
+        },
+        "sources": [
+          "scene:aside",
+          "scene:clerkIdle",
+          "runtime-c1-hidden",
+          "c1-story-flow",
+          "scene:contract",
+          "runtime-c1-actions"
+        ],
+        "profile": "source/narrative/characters/rune.json"
+      }
+    },
+    "knowledge": {
+      "vilerena": {
+        "F-C1-ALT-DOOR": {
+          "mode": "knows",
+          "via": "R01:initial"
+        }
+      },
+      "rune": {},
+      "player": {}
+    },
+    "facts": {
+      "F-C1-ALT-DOOR": {
+        "id": "F-C1-ALT-DOOR",
+        "summary": "门的禁制另有解法；私谈确认存在，不确认具体办法或上层目的。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "runtime-c1-hidden"
+        ],
+        "risk_terms": [
+          "别的办法解开",
+          "另一种开门",
+          "其他开门办法"
+        ],
+        "initial_holders": [
+          "vilerena"
+        ]
+      }
+    },
+    "seeds": [
+      {
+        "id": "SEED-DOOR",
+        "fact_ids": [
+          "F-C1-ALT-DOOR"
+        ],
+        "state": "partially_revealed",
+        "planted_at": "R01:c1HiddenPairArrangement",
+        "shown": [
+          "存在其他解法，但带圣女仍是上级安排。"
+        ],
+        "interpretations": {
+          "player": "知道存在替代办法",
+          "vilerena": "追问为什么仍要带人",
+          "rune": "称服从上面安排",
+          "noen": "未获知",
+          "elyria": "未获知"
+        },
+        "withheld": [
+          "具体办法、代价、上层目的"
+        ],
+        "payoff": {
+          "chapter": null,
+          "status": "UNRESOLVED"
+        },
+        "consequences": [
+          "未来可能引发对隐瞒的追问；未确认具体关系结局。"
+        ],
+        "sources": [
+          "runtime-c1-hidden",
+          "c2-plan"
+        ]
+      }
+    ],
+    "conflicts": [
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "CONFIRMED",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+        "resolved": true
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R01",
+      "scene": null,
+      "position": "before",
+      "at": null,
+      "stage_exact": false,
+      "coverage": "curated_mainline",
+      "gaps": [
+        "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+        "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+      ],
+      "plan": {
+        "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+        "revision": "1.4",
+        "status": "IMPLEMENTED"
+      }
+    },
+    "reveal_ceiling": {
+      "this_event_only": [],
+      "author_secrets_do_not_grant_knowledge": true
+    },
+    "provenance": {
+      "author-pair": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 6. 第一、二章的行动真相与薇蕾娜",
+        "kind": "user_confirmed"
+      },
+      "c1-care-plan": {
+        "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+        "anchor": "# 第一章采用稿1.2",
+        "kind": "adopted_plan"
+      },
+      "c1-care-runtime": {
+        "path": "dist/chapter-one-care-dialogues.js",
+        "anchor": "export const C1_CARE_DIALOGUES",
+        "kind": "runtime"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "c1-story-flow": {
+        "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+        "anchor": "# 第一章采用稿1.1",
+        "kind": "adopted_plan"
+      },
+      "c2-plan": {
+        "path": "docs/harness/CHAPTER_02.md",
+        "anchor": "## 局部策划追加：只补两个已有幕后窗口",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-actions": {
+        "path": "dist/chapter-one-expansion-quests.js",
+        "anchor": "P.choose=function(action)",
+        "kind": "runtime"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "scene:aside": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "aside",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:clerkIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "clerkIdle",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkCommissionV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkCommissionV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:darkExileV9": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "darkExileV9",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      }
+    }
+  },
+  "narrative_bytes": 7744,
+  "total_context_bytes": 24000,
+  "deferred": [
+    "dist/chapter-one-private-staging.js",
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "dist/data-v14.js",
+    "dist/dialogue-runtime-v16.js",
+    "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+    "dist/saga-runtime-v26.js",
+    "docs/harness/CHAPTER_01_CARE_UI.md",
+    "dist/story-flow-v14.js",
+    "docs/harness/CHAPTER_01_STORY_FLOW.md",
+    "dist/chapter-one-dialogues-v31.js",
+    "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/rpg-experience-dialogues.js",
+    "dist/dialogue-save-migration-v26.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/c1-story-flow.test.mjs",
+    "node --test tests/c1-trial-forge.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/dialogue-reader.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative"
+  ],
+  "risks": [
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "第一章1.2扩写亲昵关心，1.1任务交代与离场私谈保留；对白回看不改变实际剧情进度，保留旧档和原奖励。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

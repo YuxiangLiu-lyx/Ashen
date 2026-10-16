@@ -1,0 +1,155 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1HuntOffer",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "c940223e56ef654f87a22ad9d0265913cbe010def8babba8784a80c075437b42",
+  "before": [
+    [
+      "鲁恩",
+      "诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。"
+    ],
+    [
+      "诺恩",
+      "地下的看守也在这张单上？伊登那边有人受伤吗？"
+    ],
+    [
+      "鲁恩",
+      "工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。"
+    ],
+    [
+      "诺恩",
+      "我路过时逐个处理。清完以后回来告诉你？"
+    ],
+    [
+      "鲁恩",
+      "对，我先把名字和位置给你记下。五处都清妥了，会馆一起付报酬，你也省得来回跑。碰上哪一处难办，可以先去准备装备。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "rune",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/rune.json",
+      "coverage": "partial_important"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "鲁恩清路委托保留五处名单与报酬，男主直接问是否伤人，去掉流程复述。",
+    "relationship": {
+      "participants": [
+        "鲁恩",
+        "诺恩"
+      ],
+      "judgment": "鲁恩清路委托保留五处名单与报酬，男主直接问是否伤人，去掉流程复述。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "c940223e56ef654f87a22ad9d0265913cbe010def8babba8784a80c075437b42",
+      "event": {
+        "id": "R01:c1HuntOffer",
+        "scene": "c1HuntOffer",
+        "order": 2,
+        "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+        "participants": [
+          "noen",
+          "rune"
+        ],
+        "sources": [
+          "trial:c1HuntOffer",
+          "c1-trial-runtime",
+          "character-flow:c1HuntOffer"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:intro",
+          "R01:chapterEnd"
+        ],
+        "c1_trial_revision": "1.3",
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1HuntOffer",
+        "scene": "c1HuntOffer",
+        "order": 2,
+        "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+        "participants": [
+          "noen",
+          "rune"
+        ],
+        "sources": [
+          "trial:c1HuntOffer",
+          "c1-trial-runtime",
+          "character-flow:c1HuntOffer"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "rune",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1HUNTOFFER",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:intro",
+          "R01:chapterEnd"
+        ],
+        "c1_trial_revision": "1.3",
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

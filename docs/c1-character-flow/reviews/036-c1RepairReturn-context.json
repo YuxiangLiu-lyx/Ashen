@@ -1,0 +1,147 @@
+{
+  "kind": "copyedit_context",
+  "scene": "c1RepairReturn",
+  "chapter": "R01",
+  "source_fingerprint": "4ca046198f3d8bed42964237a2c0c445ac5aef43597515b1d4c15b8b6ff75859",
+  "ready_to_write": false,
+  "ready_to_copyedit": true,
+  "static": true,
+  "baseline_commit": "875c1855d37b398d2ca4a8b83586037553a5399d",
+  "baseline_sha256": "71df79972f9cd62fc672d5d34338f07cfcc1c8c928f74b8ab2b06ae7019db750",
+  "before": [
+    [
+      "赫莎",
+      "位置记下了。线和水槽得一起修，不然新线接上去，过不了多久还得烧。"
+    ],
+    [
+      "诺恩",
+      "看守那边也处理过了，现在能接吗？"
+    ],
+    [
+      "赫莎",
+      "能，这下维修班可以进来换线了。三层的维恩还在守着旧账，他要是托你带清册，你先问清位置，省得在架子间绕路。"
+    ]
+  ],
+  "producer": "installed:DIALOGUES",
+  "baseline_check_label": "baseline-provenance",
+  "baseline_corpus": "docs/c1-character-flow/before/CORPUS.json",
+  "profiles": [
+    {
+      "id": "hesha",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/hesha.json",
+      "coverage": "partial"
+    },
+    {
+      "id": "noen",
+      "path": "docs/c1-character-flow/before/narrative-state/characters/noen.json",
+      "coverage": "full_for_c1_c2"
+    }
+  ],
+  "scene_context": {
+    "purpose": "指向维恩下一份帮助时像同行介绍，不再替玩家安排先问位置的步骤。",
+    "relationship": {
+      "participants": [
+        "赫莎",
+        "诺恩"
+      ],
+      "judgment": "指向维恩下一份帮助时像同行介绍，不再替玩家安排先问位置的步骤。 关心和熟悉未写成恋爱确认；刺杀后的圣女仍愤怒且受迫，鲁恩仍回避上层安排。"
+    },
+    "known_information": {
+      "scope": "内容限于在场者眼前经历与原有消息。诺恩没有救济切镜和会馆私谈知识，圣女不知上级计划，商人只谈业务和公开路况。",
+      "baseline_sha256": "71df79972f9cd62fc672d5d34338f07cfcc1c8c928f74b8ab2b06ae7019db750",
+      "event": {
+        "id": "R01:c1RepairReturn",
+        "scene": "c1RepairReturn",
+        "order": 33,
+        "summary": "赫莎：位置记下了。线和水槽得一起修，不然新线接上去，过不了多久还得烧。；诺恩：看守那边也处理过了，现在能接吗？；赫莎：能，我这就叫维修班换线。三层的维恩还守着旧账呢，你碰见他，问问他需不需要搭把手。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "trial:c1RepairReturn",
+          "c1-trial-runtime",
+          "character-flow:c1RepairReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "retained_outcome": "保持既有场景ID、同序说话者、页数和回调；闲聊不结算任务，接交仍在末页；旧档自带全文按原游标续读，新增正文只在新开启时出现。",
+    "caller": {
+      "provider": "installed:DIALOGUES",
+      "fixture": {
+        "source": "installed:DIALOGUES"
+      },
+      "event": {
+        "id": "R01:c1RepairReturn",
+        "scene": "c1RepairReturn",
+        "order": 33,
+        "summary": "赫莎：位置记下了。线和水槽得一起修，不然新线接上去，过不了多久还得烧。；诺恩：看守那边也处理过了，现在能接吗？；赫莎：能，我这就叫维修班换线。三层的维恩还守着旧账呢，你碰见他，问问他需不需要搭把手。",
+        "participants": [
+          "hesha",
+          "noen"
+        ],
+        "sources": [
+          "trial:c1RepairReturn",
+          "c1-trial-runtime",
+          "character-flow:c1RepairReturn"
+        ],
+        "optional": true,
+        "grants": [
+          {
+            "actor": "hesha",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "noen",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          },
+          {
+            "actor": "player",
+            "fact": "F-C1-13-C1REPAIRRETURN",
+            "mode": "knows"
+          }
+        ],
+        "state_changes": {},
+        "relationship_changes": {},
+        "stage_window": [
+          "R01:c1TrialInvitation",
+          "R01:chapterEnd"
+        ],
+        "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+        "c1_trial_revision": "1.3",
+        "c1_character_flow_revision": "1.5"
+      }
+    },
+    "limitations": "文风保全审查，不把来源未知的经历补为正史；试炼揭露顺序和改称呼场景另走正常事件审查。"
+  },
+  "prewriting_archive": "docs/c1-character-flow/before/"
+}

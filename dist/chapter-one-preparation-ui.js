@@ -26,7 +26,7 @@ function craftDetail(g,v,ui){
  const u=C1_RUNES[v.rune],fee=v.coupon&&g.p.items.c1FeeCoupon?0:6,p=u?g.c1Preview(r.id,u.id,v.weapon):null;
  let body=`<div class="item-heading">${icon(r.id,ui)}<h3>${r.name}</h3></div><p>稀有装备 · 需要等级 ${r.minLevel}</p><p>攻击 +${r.atk} · 生命 +${r.hp}</p><p>${C1_EFFECT_TEXT[r.effect]}</p>`;
  if(r.slot==='weapon')body+=`<div class="row">${c1Weapons(g.p.cls).map(k=>button((v.weapon===k?'✓ ':'')+weaponNames[k],'weapon:'+k)).join('')}</div>`;
- body+='<h4>嵌入符文</h4>'+(!selectable.length?'<p>还没有可用符文。罗萨的货柜可以买到，取得后即可回来制作。</p>':`<div class="preparation-runes">${selectable.map(id=>`<button class="inventory-cell ${v.rune===id?'chosen':''}" data-c1="rune:${id}" aria-label="选用${C1_RUNES[id].name}">${icon(id,ui)}<span>${C1_RUNES[id].name}</span><small>×${g.p.items[id]||0}</small></button>`).join('')}</div>`);
+ body+='<h4>嵌入符文</h4>'+(!selectable.length?'<p>还没有可用符文。商人的货柜可以买到，取得后即可回来制作。</p>':`<div class="preparation-runes">${selectable.map(id=>`<button class="inventory-cell ${v.rune===id?'chosen':''}" data-c1="rune:${id}" aria-label="选用${C1_RUNES[id].name}">${icon(id,ui)}<span>${C1_RUNES[id].name}</span><small>×${g.p.items[id]||0}</small></button>`).join('')}</div>`);
  if(u)body+=`<p>${u.name}：${names[u.stat]} +${u.min}～${u.max}</p>`;
  body+=`<p>需要 ${C1_CORES[r.core].name} ×1（持有 ${g.p.items[r.core]||0}）${u?'、'+u.name+' ×1（持有 '+(g.p.items[u.id]||0)+'）':''}、工费 ${fee} 金。</p>`;
  if(g.p.items.c1FeeCoupon)body+=button(v.coupon?'✓ 使用免工费券':'保留免工费券','coupon');
@@ -51,10 +51,10 @@ export function preparationPanel(g,kind,ui={}){
   if(verb==='order'){const o=s.order;detail+=`<p>交付药用精粹 ${o.amount} 份，取得${C1_CORES[o.core].name} ×1。</p><p>可制作：${Object.values(C1_RECIPES).filter(r=>r.core===o.core).map(r=>r.name).join('、')}。</p><p>订单会为你保留，完成后再换下一单。</p>${o.accepted?button('交付材料，领取核心','coreComplete:'+o.serial,n<o.amount):button('了解并接下这份订单','coreAccept:'+o.serial)}`;}
   if(verb==='recipe')detail=craftDetail(g,v,ui);
  }
- const face=ui.image?.(shop?'c1Artisans':'c1Loom',0),result=v.result?`<p class="affix preparation-receipt" role="status">已完成：${esc(v.result.name)}。${h.escrow.some(i=>i.id===v.result.id)?'行囊已满，成品已暂存。':'已放入行囊。'}</p>`:v.notice?`<p class="preparation-receipt" role="status">${esc(v.notice)}</p>`:'';
- const intro=shop?'药水随时有货。挑中哪一件，再看详细用途。':'配药、换取核心与缀纹制作';
- const body=`<div class="preparation-heading">${face?`<img src="${face}" alt="${shop?'罗萨，身穿工作围裙的女性商人':'会馆的小型缀纹装置'}">`:''}<div><h3>${shop?'罗萨':'会馆工作台'}</h3><p>${intro}</p><p>${g.p.gold} 金 · 药用精粹 ${n} 份</p></div></div>${result}<div class="preparation-layout"><section><h3>${shop?(s.approved?'药水与符文':'随身药水'):'配方与订单'}</h3>${grid(rows,v[field],field,ui)}${!shop&&!s.approved?'<p class="muted">缀纹部件尚未启用，试炼汇报后开放。</p>':''}</section><section class="selected-detail preparation-detail" aria-live="polite" tabindex="-1">${detail}</section></div>`;
- return {title:shop?'罗萨的货柜':'会馆缀纹装置',body};
+ const face=ui.image?.(shop?'c1Merchant':'c1Loom',shop?1:0),result=v.result?`<p class="affix preparation-receipt" role="status">已完成：${esc(v.result.name)}。${h.escrow.some(i=>i.id===v.result.id)?'行囊已满，成品已暂存。':'已放入行囊。'}</p>`:v.notice?`<p class="preparation-receipt" role="status">${esc(v.notice)}</p>`:'';
+ const intro=shop?'药水和旅途用得上的小物。点选货格查看详情。':'配药、换取核心与缀纹制作';
+ const body=`<div class="preparation-heading">${face?`<img src="${face}" alt="${shop?'商人，栗色长发、绿色旅行裙的女性':'会馆的小型缀纹装置'}">`:''}<div><h3>${shop?'商人':'会馆工作台'}</h3><p>${intro}</p><p>${g.p.gold} 金 · 药用精粹 ${n} 份</p></div></div>${result}<div class="preparation-layout"><section><h3>${shop?(s.approved?'药水与符文':'随身药水'):'配方与订单'}</h3>${grid(rows,v[field],field,ui)}${!shop&&!s.approved?'<p class="muted">缀纹部件尚未启用，试炼汇报后开放。</p>':''}</section><section class="selected-detail preparation-detail" aria-live="polite" tabindex="-1">${detail}</section></div>`;
+ return {title:shop?'商人的货柜':'会馆缀纹装置',body};
 }
 export function preparationAction(g,action){
  const v=view(g),s=c1State(g).preparation,[verb,id,serial]=action.split(':');
