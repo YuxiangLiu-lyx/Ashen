@@ -11,22 +11,21 @@
     "chapter01_plan",
     "chapter02_plan"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-16T12:21:07.600869+00:00",
-  "updated_at_utc": "2026-10-16T14:03:42.219649+00:00",
+  "updated_at_utc": "2026-10-16T15:16:55.958992+00:00",
   "decisions": [
     "采用按章增量；不恢复旧0.3追加A/B或撤回大重构，先核对当前全章实际文本与服务；计划docs/c2-optimization/PLAN.md"
   ],
   "completed": [
     "完整64场310页已审读，43场104句具体修订稿落盘；真实基线5项检查通过，采用0.5增量稿",
     "43场104句修订、分步任务目标及任务优先、寄卖格子详情已接入；全文提供者、旧全文档、交易及三职业第二章正常输入通过",
-    "67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。"
+    "67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。",
+    "实现c17e6a7已正常推送GitHub main，ls-remote与本地HEAD一致；默认包、旧包与完整证据已保存。"
   ],
-  "remaining": [
-    "Git提交与远端核验"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交已验收内容并推送main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration"
@@ -436,6 +435,14 @@
       "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
       "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
       "worktree": "M .codex/progress.md\n M .gitignore\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/encounter-restraint.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/balance-lab.test.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-chapter-two.mjs\n M tests/browser-world-v29.mjs\n M tests/c1-character-flow.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c2-optimization-evidence/\n?? dist/chapter-two-conversations-data.js\n?? dist/chapter-two-conversations.js\n?? docs/c1-endurance/\n?? docs/c2-optimization/\n?? docs/harness/CHAPTER_01_ENDURANCE.md\n?? docs/harness/CHAPTER_02_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-endurance-20261016/\n?? docs/harness/evidence/c2-optimization-20261016/\n?? source/tasks/active/c1-endurance-20261016.json\n?? source/tasks/active/c2-optimization-20261016.json\n?? tests/c1-endurance.test.mjs\n?? tests/c2-optimization.test.mjs\n?? tests/fixtures/endurance-c1-combat.json"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T15:16:55.714620+00:00",
+      "head_commit": "c17e6a70560b840f03661003be58fbe0a51eba67",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "worktree": "M .codex/progress.md\n M source/CURRENT_STATE.json\n?? docs/c2-optimization/GIT_SAVE.json"
     }
   ],
   "narrative_mode": "copyedit",
@@ -804,5 +811,8 @@
       "sha256": "a6442cffc1c75f88d6479fe1bc2e0581be5d3cd220ad895c9c6e192a3f09eef4",
       "chapter": "R01"
     }
-  ]
+  ],
+  "summary": "第二章0.5对白、任务交接和寄卖格子完成；第一章1.6耐久同批集成，全部技术门禁及默认包通过，GitHub main已核验；真人文风/节奏待验。",
+  "completed_at_utc": "2026-10-16T15:17:02.760439+00:00",
+  "verified_source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91"
 }

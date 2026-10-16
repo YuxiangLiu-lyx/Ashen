@@ -1,3 +1,5 @@
+2026-10-16本轮：第二章0.5自然对白、任务交接与寄卖格子；第一章普通怪HP+50%、精英/Boss+150%至2.5倍。技术验收、三职业正常UI、默认离线/HTTP/手机与5174通过；实现c17e6a7已推送GitHub main并ls-remote核验。真人文风/难度/节奏待验，旧0.6人工任务独立；未发布网站。详见docs/c2-optimization/ACCEPTANCE.md。
+
 2026-10-16本轮：第一章1.5 c1-character-flow-20261016；263场全文审读、142场295句修订，任务优先、逐轮试炼、商人新形象与统一显示名；67 Harness、52专项、225核心及完整集成和新默认包通过；实现a93fa0f已上传GitHub main并核验，任务收尾归档。用户确认沿用诺恩。真人文风/审美待验，见docs/c1-character-flow/ACCEPTANCE.md。
 
 2026-10-15最新完成：c1-dialogue-voice-20261015，重新润色三场薇蕾娜/诺恩试炼对白，明确风险和成长、自然答应及日常调侃；67 Harness、48专项及三视口/默认新包通过。c7439c8已保存GitHub main并核对，任务归档，文风待用户反馈。见docs/c1-dialogue-voice/ACCEPTANCE.md。
@@ -681,32 +683,34 @@
 
 <!-- task:c2-optimization-20261016 -->
 ## 任务 c2-optimization-20261016
-- 状态：in_progress
-- 更新：2026-10-16T14:03:42.219649+00:00
-- 下一步：提交已验收内容并推送main
-- 任务记录：source/tasks/active/c2-optimization-20261016.json
-- 已完成：完整64场310页已审读，43场104句具体修订稿落盘；真实基线5项检查通过，采用0.5增量稿；43场104句修订、分步任务目标及任务优先、寄卖格子详情已接入；全文提供者、旧全文档、交易及三职业第二章正常输入通过；67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。
-- 待完成：Git提交与远端核验
+- 状态：complete
+- 更新：2026-10-16T15:16:55.958992+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/c2-optimization-20261016.json
+- 已完成：完整64场310页已审读，43场104句具体修订稿落盘；真实基线5项检查通过，采用0.5增量稿；43场104句修订、分步任务目标及任务优先、寄卖格子详情已接入；全文提供者、旧全文档、交易及三职业第二章正常输入通过；67 Harness、225核心、24专项及完整集成命令覆盖通过；43场七维、两章三职业正常UI、15场景三维和默认离线/HTTP/手机包通过，5174逐字节验证。；实现c17e6a7已正常推送GitHub main，ls-remote与本地HEAD一致；默认包、旧包与完整证据已保存。
+- 待完成：无
 - 决定：采用按章增量；不恢复旧0.3追加A/B或撤回大重构，先核对当前全章实际文本与服务；计划docs/c2-optimization/PLAN.md
 - 阻塞：无
 - 阶段 audit：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
 - 阶段 implementation：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
 - 阶段 verification：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 delivery：complete；HEAD c17e6a70560b840f03661003be58fbe0a51eba67
 - 最近检查：map-quality，退出码 0；docs/harness/evidence/c2-optimization-20261016/021-map-quality.txt
 <!-- /task:c2-optimization-20261016 -->
 
 <!-- task:c1-endurance-20261016 -->
 ## 任务 c1-endurance-20261016
-- 状态：in_progress
-- 更新：2026-10-16T14:03:15.587301+00:00
-- 下一步：提交已验收内容并推送main
-- 任务记录：source/tasks/active/c1-endurance-20261016.json
-- 已完成：三个等级全部第一章生成样本及324单体/54群战真实基线已保存；采用1.6稿；普通怪1.5倍、精英Boss2.5倍及按比例旧档迁移完成；324单体54群战、三职业试炼与18经济路线均已实测，保留所有失败与补给成本。；306个HP样本与死亡/比例迁移通过；三职业正常路线含合法补给接续成功，324单体54群战保留全部胜负；当前fast/core、三维、默认包与5174通过。
-- 待完成：Git提交与远端核验
+- 状态：complete
+- 更新：2026-10-16T15:16:56.071302+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/c1-endurance-20261016.json
+- 已完成：三个等级全部第一章生成样本及324单体/54群战真实基线已保存；采用1.6稿；普通怪1.5倍、精英Boss2.5倍及按比例旧档迁移完成；324单体54群战、三职业试炼与18经济路线均已实测，保留所有失败与补给成本。；306个HP样本与死亡/比例迁移通过；三职业正常路线含合法补给接续成功，324单体54群战保留全部胜负；当前fast/core、三维、默认包与5174通过。；实现c17e6a7已推送并核对GitHub main；默认试玩包更新，原包及失败样本保留；真人难度待验。
+- 待完成：无
 - 决定：普通怪当前生命乘1.5；精英和Boss当前生命至少乘2.5，训练靶不算实战敌人；旧档按剩余比例迁移；与第二章共享本轮基线，附同一43场保全润色审查以覆盖共同安装器；本任务自身只改HP和迁移。
 - 阻塞：无
 - 阶段 audit：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
 - 阶段 implementation：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
 - 阶段 verification：complete；HEAD d57ae25f73e97e8002bbb6a3f9e42646714b8bdf
+- 阶段 delivery：complete；HEAD c17e6a70560b840f03661003be58fbe0a51eba67
 - 最近检查：core，退出码 0；docs/harness/evidence/c1-endurance-20261016/019-core.txt
 <!-- /task:c1-endurance-20261016 -->

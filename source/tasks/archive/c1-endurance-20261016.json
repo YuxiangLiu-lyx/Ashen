@@ -11,9 +11,9 @@
     "chapter01_plan",
     "story"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-16T12:21:07.766109+00:00",
-  "updated_at_utc": "2026-10-16T14:03:15.587301+00:00",
+  "updated_at_utc": "2026-10-16T15:16:56.071302+00:00",
   "decisions": [
     "普通怪当前生命乘1.5；精英和Boss当前生命至少乘2.5，训练靶不算实战敌人；旧档按剩余比例迁移",
     "与第二章共享本轮基线，附同一43场保全润色审查以覆盖共同安装器；本任务自身只改HP和迁移。"
@@ -21,13 +21,12 @@
   "completed": [
     "三个等级全部第一章生成样本及324单体/54群战真实基线已保存；采用1.6稿",
     "普通怪1.5倍、精英Boss2.5倍及按比例旧档迁移完成；324单体54群战、三职业试炼与18经济路线均已实测，保留所有失败与补给成本。",
-    "306个HP样本与死亡/比例迁移通过；三职业正常路线含合法补给接续成功，324单体54群战保留全部胜负；当前fast/core、三维、默认包与5174通过。"
+    "306个HP样本与死亡/比例迁移通过；三职业正常路线含合法补给接续成功，324单体54群战保留全部胜负；当前fast/core、三维、默认包与5174通过。",
+    "实现c17e6a7已推送并核对GitHub main；默认试玩包更新，原包及失败样本保留；真人难度待验。"
   ],
-  "remaining": [
-    "Git提交与远端核验"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "提交已验收内容并推送main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "core"
@@ -390,6 +389,14 @@
       "head_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
       "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
       "worktree": "M .codex/progress.md\n M .gitignore\n M AGENTS.md\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-combat.js\n M dist/chapter-one-expansion-data.js\n M dist/chapter-one-expansion-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/core-v14.js\n M dist/encounter-restraint.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-data.js\n M dist/rpg-experience-services-ui.js\n M docs/harness/CHAPTER_02.md\n M docs/harness/NARRATIVE_ARCHITECTURE.md\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/GLOBAL_PROMPT.md\n M source/README.md\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/chapters/R02.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.lock.json\n M tests/balance-lab.test.mjs\n M tests/browser-chapter-one-natural.mjs\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-chapter-two.mjs\n M tests/browser-world-v29.mjs\n M tests/c1-character-flow.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-story-world.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/fixtures/dialogue-copyedit-contract.mjs\n M tests/rpg-experience.test.mjs\n?? archives/c2-optimization-evidence/\n?? dist/chapter-two-conversations-data.js\n?? dist/chapter-two-conversations.js\n?? docs/c1-endurance/\n?? docs/c2-optimization/\n?? docs/harness/CHAPTER_01_ENDURANCE.md\n?? docs/harness/CHAPTER_02_CHARACTER_FLOW.md\n?? docs/harness/evidence/c1-endurance-20261016/\n?? docs/harness/evidence/c2-optimization-20261016/\n?? source/tasks/active/c1-endurance-20261016.json\n?? source/tasks/active/c2-optimization-20261016.json\n?? tests/c1-endurance.test.mjs\n?? tests/c2-optimization.test.mjs\n?? tests/fixtures/endurance-c1-combat.json"
+    },
+    {
+      "name": "delivery",
+      "status": "complete",
+      "updated_at_utc": "2026-10-16T15:16:56.006003+00:00",
+      "head_commit": "c17e6a70560b840f03661003be58fbe0a51eba67",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "worktree": "M .codex/progress.md\n M source/CURRENT_STATE.json\n M source/tasks/active/c2-optimization-20261016.json\n?? docs/c2-optimization/GIT_SAVE.json"
     }
   ],
   "narrative_mode": "copyedit",
@@ -752,5 +759,8 @@
       "sha256": "a6442cffc1c75f88d6479fe1bc2e0581be5d3cd220ad895c9c6e192a3f09eef4",
       "chapter": "R01"
     }
-  ]
+  ],
+  "summary": "第一章普通怪HP+50%、精英Boss+150%至2.5倍，旧档比例/死亡保留；三职业正常UI、真实经济路线与战斗对照通过，默认包及GitHub main已保存；真人难度待验。",
+  "completed_at_utc": "2026-10-16T15:17:09.322106+00:00",
+  "verified_source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91"
 }
