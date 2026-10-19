@@ -21,7 +21,7 @@
 
 素材原件、SHA256、提示与参考见 [ASSETS.json](ASSETS.json)、[ART_REVIEW.md](ART_REVIEW.md)。没有更改原剧情结果、扩建后章或发布网站。真人审美、近战手感与拾取舒适度仍待用户试玩，见 [观察表](HUMAN_OBSERVATION.md)；历史0.6人工节奏门禁独立保留。
 
-交付状态：默认包已提升到 `qa-export/release-build/Ashen-V28.1-Play.html`，570个文件逐字节核对通过；旧包保留在 `qa-export/release-build-before-loot-services-20261019`。本机5174服务269个运行文件/新素材核对通过。Git保存进行中。最终回执见 [DEFAULT_BUILD.json](DEFAULT_BUILD.json)、[LOCAL_SERVER.json](LOCAL_SERVER.json) 和 [GIT_SAVE.json](GIT_SAVE.json)。
+交付状态：默认包已提升到 `qa-export/release-build/Ashen-V28.1-Play.html`，570个文件逐字节核对通过；旧包保留在 `qa-export/release-build-before-loot-services-20261019`。本机5174服务269个运行文件/新素材核对通过。实现 `2bab38616b0520e3270482f7b4eceaf4afbbde80` 已推送GitHub main，并以ls-remote核验一致。最终回执见 [DEFAULT_BUILD.json](DEFAULT_BUILD.json)、[LOCAL_SERVER.json](LOCAL_SERVER.json) 和 [GIT_SAVE.json](GIT_SAVE.json)。
 
 大型重复JSON已逐字节归档至 `archives/loot-services-evidence/manifest.json`，原始文件保留本机，Git只对清单列出的已验证文件忽略；运行 `python3 docs/loot-services/RESTORE_EVIDENCE.py` 恢复。历史默认输出已按基线原字节还原，本轮另存 [INTEGRATION_OUTPUTS.json](INTEGRATION_OUTPUTS.json)。
 

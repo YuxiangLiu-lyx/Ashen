@@ -20,7 +20,7 @@
   "original_site_unchanged": true,
   "browser_interaction_retested": true,
   "known_limits": "5-minute automatic save, physical loot, unified purchasing, task rewards and five NPC identities technically verified; independent HD dialogue portraits included. Human appearance, melee feel and pickup comfort pending; historical chapter human gates remain independent. No website deployed.",
-  "checked_at_utc": "2026-10-19T17:33:47.462816+00:00",
+  "checked_at_utc": "2026-10-19T17:36:53.174365+00:00",
   "v28": {
     "date": "2026-09-19",
     "combat_module": "dist/combat-overhaul-v28.js",
@@ -32,7 +32,7 @@
   },
   "presentation_version": "30",
   "deployment_status": "not_deployed_by_this_release; GitHub save and site publication are separate",
-  "browser_qa_status": "Current full integration, 39 focused tests, real potion/manual save/death/60-second autosave UI at three viewports, merchant map quality, offline/HTTP/mobile package and localhost 5174 byte verification passed. Evidence: docs/ui-save-polish/ACCEPTANCE.md.",
+  "browser_qa_status": "Current 225 core and 44 focused runtime tests, 67 Harness checks, complete integration, seven commerce interfaces at three viewports, real 300-second autosave, five character animations/HD portraits, six-map quality checks, offline/HTTP/mobile package and localhost byte verification passed. Evidence: docs/loot-services/FINAL_VERIFICATION.json and ACCEPTANCE.md. Human aesthetics and combat feel pending.",
   "v28_1": {
     "base_commit": "6a4371c5c870f7900a77d7d3c35b1d638ba1d9b8",
     "presentation_modules": [
@@ -58,7 +58,7 @@
     "public_preview_verified": true,
     "offline_sha256": "2c552a8e6b63f5994b842de916a628c10747651fd51e4c5cdcad0005cb0e8f81"
   },
-  "runtime_source_commit": "2d4a43102b4758958fcc9a68b96ca55700ffd42f",
+  "runtime_source_commit": "2bab38616b0520e3270482f7b4eceaf4afbbde80",
   "harness": {
     "version": 1,
     "task_id": "harness-lab-20261007",
@@ -1106,7 +1106,7 @@
   },
   "loot_services": {
     "task": "loot-services-20261019",
-    "status": "delivered_locally_git_save_pending",
+    "status": "delivered_github_verified_human_feedback_pending",
     "scope": "5分钟存档/实体掉落/商店/任务报酬/开场自动接取/固定服务角色及试炼NPC",
     "autosave_seconds": 300,
     "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
@@ -1117,6 +1117,7 @@
     "human_observation": "docs/loot-services/HUMAN_OBSERVATION.md",
     "verification": "docs/loot-services/FINAL_VERIFICATION.json",
     "local_server": "docs/loot-services/LOCAL_SERVER.json",
-    "git_save": "docs/loot-services/GIT_SAVE.json"
+    "git_save": "docs/loot-services/GIT_SAVE.json",
+    "implementation_commit": "2bab38616b0520e3270482f7b4eceaf4afbbde80"
   }
 }
