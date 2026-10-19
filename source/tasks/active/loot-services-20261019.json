@@ -1,0 +1,594 @@
+{
+  "schema": 1,
+  "id": "loot-services-20261019",
+  "goal": "5分钟自动存档；首个老鼠主线剧情自动接取去重复；统一商人及赏金猎人造型与精英委托；所有购买界面格子详情简述；升级满血；修复普通怪近战白嫖；全部任务金币经验；实体掉落接近拾取及满包提示",
+  "acceptance": [
+    "新旧档首个任务不重复且接取正确；全商店可交易且价格属性明确；300秒自动保存及升级满血实测；普通怪边缘普攻有反击；任务金币经验一次性结算；掉落可见可保存跨图恢复、满包不丢物品；三维/fast/integration/默认包/Git保存"
+  ],
+  "baseline_commit": "15595193f01c14ef29237efad606367559099197",
+  "modules": [
+    "economy",
+    "gear",
+    "save"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-19T15:05:20.100997+00:00",
+  "updated_at_utc": "2026-10-19T17:33:47.665066+00:00",
+  "decisions": [
+    "2026-10-19追加美术要求：以主角和第一章关键人物的绘制比例与清晰轮廓为准，重做明亮精致商人、帅气猎人及伊登赫莎维恩；保留旧图和未采用方案",
+    "掉落保留既有随机结果，仅延后入包；任务击杀进度即时、材料拾取后计数；试炼与记忆无奖单位保持无掉落"
+  ],
+  "completed": [
+    "真实基线五项通过；已追踪存档、掉落、商店与首章任务发布链",
+    "300秒时钟、升级满血、普通近战边缘反击、实体掉落与跨图保存/满包保留专项通过；后续任务补充专项17/18，剩一项旧商人测试入口需改为实际医生服务",
+    "通用规则、实体掉落、任务奖励与交接、全部购买格子及五角色8帧已实现；18条经济路线和57项针对回归通过；七类商店三视口实际购买通过",
+    "225核心+44专项、67 Harness、18经济路线、完整集成和三视口七类商店均通过；300秒真实时钟及存档/满包/跨图掉落通过；5个角色40帧与独立高清立绘、6图三维和离线/HTTP/手机包已验证；21个大JSON已归档校验",
+    "默认包570个文件和本机服务269个文件核对通过，旧包完整保留"
+  ],
+  "remaining": [
+    "GitHub保存与任务归档"
+  ],
+  "blockers": [],
+  "next": "审查全部改动，提交并推送main",
+  "required_checks": [
+    "verification"
+  ],
+  "checks": [
+    {
+      "label": "baseline",
+      "command": [
+        "python3",
+        "tools/harness/baseline.py",
+        "--output",
+        "qa-export/baseline-loot-services-20261019"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T15:06:08.275767+00:00",
+      "finished_at_utc": "2026-10-19T15:06:27.732969+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/001-baseline.txt",
+      "output_sha256": "f6f3882a11a17ac8f2eec0f2aa2abfee43174be4eb7241cf65f69aa3c1735758",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "rules-loot",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T15:15:55.914398+00:00",
+      "finished_at_utc": "2026-10-19T15:15:56.547272+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "e887ac091dd66c8c8cfebd486db1c0b5883b857904eecfc4ae084dac7f9d5dc0",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/002-rules-loot.txt",
+      "output_sha256": "9c18495aaa79763a19d5fc50820b1b9477a2e7c9884a37b956585e7cc8677bb5",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "rules-loot",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T15:17:14.024656+00:00",
+      "finished_at_utc": "2026-10-19T15:17:14.330760+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "393c126b6a23556c1068662e910659a30893cb0134bcfdef3ab016ac667d8739",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/003-rules-loot.txt",
+      "output_sha256": "dd74ec0ec88bfa9912df6523db6fe1ec5aecfc9c9a445fbe352a33f4021907bf",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "rules-loot",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T15:33:00.637010+00:00",
+      "finished_at_utc": "2026-10-19T15:33:00.942884+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "8b24e1aef06fa60e5ccc6c9295f1c4325a375135f085273efc4dfa4a3b08aaa6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/004-rules-loot.txt",
+      "output_sha256": "a097cb49c69b4a3242dbe0b80763c04985d5cdeb9ba4b125977205b023793c77",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "rules-services",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:06:04.581791+00:00",
+      "finished_at_utc": "2026-10-19T16:06:04.885459+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "9a433733d956265e315510745b739ae5e601b13f2e60254ddfab1eaccba1cb38",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/005-rules-services.txt",
+      "output_sha256": "7091c8df9d45ab758db20fb5f72362391a3fac6dd4322bdafe9f2c58a04170d3",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "rules-services",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:09:22.668364+00:00",
+      "finished_at_utc": "2026-10-19T16:09:22.973208+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "af4a4aceeac735c458ddd59f98169424dd16767e0618725a8fd7a445bbcad717",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/006-rules-services.txt",
+      "output_sha256": "accfd5f7cc0df18457395d2b4629897fbe3c0038e3579bbbe4ca9e09158af7ba",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "rules-services",
+      "command": [
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/ui-save-polish.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T16:10:23.962475+00:00",
+      "finished_at_utc": "2026-10-19T16:10:24.277171+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "dc502252b6f3eff836468c37328ac58cbe65d6bfdcce44990be4cf460f9cd7f6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/007-rules-services.txt",
+      "output_sha256": "70e5a6c1b9c3548fc1d171ee8dfa2b345de409814ff76b69e7aa890df0595543",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "browser-services",
+      "command": [
+        "node",
+        "tests/browser-loot-services.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:11:50.068543+00:00",
+      "finished_at_utc": "2026-10-19T16:11:51.847333+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "841539f7cf52b5b23aaa65bcce4d080c1e0aaee911ecbbf99e077f7ea927a148",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/008-browser-services.txt",
+      "output_sha256": "1ce9485ae6c0fbf3f80ce8976d7be505d1e68450e506b95f999724133cf96a05",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "node-regression",
+      "command": [
+        "node",
+        "--test",
+        "tests/balance-lab.test.mjs",
+        "tests/c1-character-flow.test.mjs",
+        "tests/c1-endurance.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c2-optimization.test.mjs",
+        "tests/ch12-bugs.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter-test.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/loot-services.test.mjs",
+        "tests/presentation-v281.test.mjs",
+        "tests/rpg-chapter-three.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ui-save-polish.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:13:07.644658+00:00",
+      "finished_at_utc": "2026-10-19T16:14:08.434090+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "60701154a61ffe1c56287fae4ae159e39bd59128bed34c9877575109075435d6",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/009-node-regression.txt",
+      "output_sha256": "c0dd4ef9bf1fa992ea587e80e58cd79fae78dc7fe5b26558c9a44f6f2ffefcf5",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "browser-services",
+      "command": [
+        "node",
+        "tests/browser-loot-services.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:15:29.516285+00:00",
+      "finished_at_utc": "2026-10-19T16:15:34.741105+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "9f42cd7e0cf351b9f82841aad2c2ca8432ddd51e141d87457de0250697c58738",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/010-browser-services.txt",
+      "output_sha256": "ee29a2ce4ad42e75e9f7076ea00d863c728afd9ec845e6876e4f56c29896c85c",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "browser-services",
+      "command": [
+        "node",
+        "tests/browser-loot-services.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:21:11.570954+00:00",
+      "finished_at_utc": "2026-10-19T16:21:22.548113+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "7d350015a2d83406008759f1b23eee675d9c842e703c132055bb95a9954cd840",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/011-browser-services.txt",
+      "output_sha256": "fc4c2088be93629f7d9c2e822d3dd10fef5215f8881f6a944b4b66d168c6466c",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "node-regression",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/loot-services/economy",
+        "node",
+        "--test",
+        "tests/balance-lab.test.mjs",
+        "tests/c1-character-flow.test.mjs",
+        "tests/c1-endurance.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/c1-story-flow.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c2-optimization.test.mjs",
+        "tests/ch12-bugs.test.mjs",
+        "tests/chapter-one-crafting.test.mjs",
+        "tests/chapter-one-economy.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-expansion.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-layer-rules.test.mjs",
+        "tests/chapter-one-map-quests.test.mjs",
+        "tests/chapter-one-story-world.test.mjs",
+        "tests/chapter-one-v30.test.mjs",
+        "tests/chapter-test.test.mjs",
+        "tests/chapter123-v30.test.mjs",
+        "tests/chapter23-v30.test.mjs",
+        "tests/dialogue-hud.test.mjs",
+        "tests/dialogue-reader.test.mjs",
+        "tests/loot-services.test.mjs",
+        "tests/presentation-v281.test.mjs",
+        "tests/rpg-chapter-three.test.mjs",
+        "tests/rpg-chapter-two.test.mjs",
+        "tests/rpg-experience.test.mjs",
+        "tests/ui-save-polish.test.mjs",
+        "tests/world-v29.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:25:00.403956+00:00",
+      "finished_at_utc": "2026-10-19T16:26:36.776967+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "7d350015a2d83406008759f1b23eee675d9c842e703c132055bb95a9954cd840",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/012-node-regression.txt",
+      "output_sha256": "d3d5871f57f3fbc6113620cf681e0328957a0df66ec601c1e36f7c7fc4b4425f",
+      "timeout_seconds": 900.0
+    },
+    {
+      "label": "browser-services",
+      "command": [
+        "node",
+        "tests/browser-loot-services.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:29:36.060261+00:00",
+      "finished_at_utc": "2026-10-19T16:29:47.893892+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "a51c3e130c3fbeabdfc8e29b8785334611bd0bc118471e1c309c54338b6d3ce8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/013-browser-services.txt",
+      "output_sha256": "f8de71e51554990e2ad32e8b2fa950cff0c3d6d2fa96ab0594bad21a0604fef9",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "targeted",
+      "command": [
+        "env",
+        "ASHEN_C1_ECONOMY=docs/loot-services/economy",
+        "node",
+        "--test",
+        "tests/loot-services.test.mjs",
+        "tests/chapter-one-elites.test.mjs",
+        "tests/chapter-one-incremental.test.mjs",
+        "tests/chapter-one-economy.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T16:30:33.714838+00:00",
+      "finished_at_utc": "2026-10-19T16:32:22.368943+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "a51c3e130c3fbeabdfc8e29b8785334611bd0bc118471e1c309c54338b6d3ce8",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/014-targeted.txt",
+      "output_sha256": "85b14bd96cf88dac271418a0d1c920902b124efde61f0927706c5d5c054fb292",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "browser-services",
+      "command": [
+        "node",
+        "tests/browser-loot-services.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T16:33:29.080455+00:00",
+      "finished_at_utc": "2026-10-19T16:33:55.564150+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "1f3b1c0cfbb46c5b3bf166f7288956ce87678177b586fba185828b2f9eb6ec05",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/015-browser-services.txt",
+      "output_sha256": "d20cc2eeb5948835dd412c42c41200025e0a97f18c9329e8a1081714a5564ac4",
+      "timeout_seconds": 480.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T16:37:32.393537+00:00",
+      "finished_at_utc": "2026-10-19T16:38:22.808662+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "e38c427be84df3e5e5a8624fc8e25b6e658eaf8a259531041b0ad6a8018e1fd1",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/016-fast.txt",
+      "output_sha256": "fa8fe917de40495e48e414c57b39731ac162020254e94ea3b59afa44b7aba459",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "docs/loot-services/verify.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T16:39:03.983874+00:00",
+      "finished_at_utc": "2026-10-19T16:49:36.040938+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "ae1507098a3865facdd61172b6df4724d4d29bd10e9f305a378d839c80dfcc37",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/017-verification.txt",
+      "output_sha256": "f5f1938a608108ff4c3de5422bfdfe4b43a8a2ef516b690f3c8653c80839de14",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "portrait-reader",
+      "command": [
+        "env",
+        "ASHEN_READER_OUTPUT=docs/loot-services/reader",
+        "node",
+        "tests/browser-dialogue-reader.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T17:02:15.284404+00:00",
+      "finished_at_utc": "2026-10-19T17:02:57.965675+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "1cbbf12f9e7f0cc493f392ad8449836375283e15857669d11808e8672f057b18",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/018-portrait-reader.txt",
+      "output_sha256": "5cbf0b0e1ecba314534f325a8e614d3fb43623d544a3c7afb7215a39b9eda975",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "docs/loot-services/verify.py"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T17:04:13.677434+00:00",
+      "finished_at_utc": "2026-10-19T17:15:11.531819+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "1cbbf12f9e7f0cc493f392ad8449836375283e15857669d11808e8672f057b18",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/019-verification.txt",
+      "output_sha256": "85a688c759d4d6ad4be97051b59360c7aac7e3e41a4f7c5249579d7caa673453",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "package",
+      "command": [
+        "python3",
+        "docs/loot-services/build.py",
+        "--reuse-build"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T17:16:07.959071+00:00",
+      "finished_at_utc": "2026-10-19T17:17:17.549038+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "1cbbf12f9e7f0cc493f392ad8449836375283e15857669d11808e8672f057b18",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/020-package.txt",
+      "output_sha256": "629263c51a957bd1f9517d5c74abd8ed0473a8d7bb4ba318df3e36bbf7fd8cf7",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "package",
+      "command": [
+        "python3",
+        "docs/loot-services/build.py",
+        "--reuse-build"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T17:23:57.402826+00:00",
+      "finished_at_utc": "2026-10-19T17:25:32.184908+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/021-package.txt",
+      "output_sha256": "3e5204b62d74373ea63035a03748fca6302fceed9822ecaf286a938727f8e98b",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "archive-pack",
+      "command": [
+        "python3",
+        "docs/loot-services/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T17:27:13.365543+00:00",
+      "finished_at_utc": "2026-10-19T17:27:14.826953+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/022-archive-pack.txt",
+      "output_sha256": "da2e8cee54b2ef4265558c1cf8c12c0a7efd019ff20187a63765a128fc4286c7",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "verification",
+      "command": [
+        "python3",
+        "docs/loot-services/final_verify.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T17:28:24.899557+00:00",
+      "finished_at_utc": "2026-10-19T17:29:16.002428+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/023-verification.txt",
+      "output_sha256": "836d48aea52d2880e4fd97326bad6c4ab5dc54ddbb406e3243cdad86320a8a65",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "delivery",
+      "command": [
+        "python3",
+        "docs/loot-services/deliver.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T17:30:46.430898+00:00",
+      "finished_at_utc": "2026-10-19T17:30:48.317649+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/loot-services-20261019/024-delivery.txt",
+      "output_sha256": "7db761df78c822e4598656ed3ccd53a3621271610dede4f236b5b0e8f126c4db",
+      "timeout_seconds": 240.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T15:26:58.545662+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "8b24e1aef06fa60e5ccc6c9295f1c4325a375135f085273efc4dfa4a3b08aaa6",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-preparation-ui.js\n M dist/chapter4-ui-v14.js\n M dist/checkpoint-save.js\n M dist/combat-overhaul-v28.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/rpg-experience-combat.js\n M dist/save-protection-v23.js\n M dist/systems-ui-v14.js\n M source/harness/index.json\n M source/narrative/runtime-index.json\n M tests/browser-ui-save-polish.mjs\n M tests/ui-save-polish.test.mjs\n?? dist/assets/loot-services/\n?? dist/commerce-ui.js\n?? dist/ground-loot.js\n?? docs/harness/evidence/loot-services-20261019/\n?? docs/loot-services/\n?? source/tasks/active/loot-services-20261019.json\n?? tests/loot-services.test.mjs"
+    },
+    {
+      "name": "rules-loot",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T16:07:30.082627+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "af4a4aceeac735c458ddd59f98169424dd16767e0618725a8fd7a445bbcad717",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/chapter-runtime-v14.js\n M dist/chapter4-ui-v14.js\n M dist/chapter5-ui-v14.js\n M dist/checkpoint-save.js\n M dist/city-runtime-v18.js\n M dist/combat-overhaul-v28.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/hell-activities-v17.js\n M dist/mercenary-ui-v14.js\n M dist/pacing-data-v14.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-services-ui.js\n M dist/saga-nodes-v25.js\n M dist/saga-runtime-v25.js\n M dist/saga-runtime-v26.js\n M dist/save-protection-v23.js\n M dist/style-v14.css\n M dist/systems-ui-v14.js\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-ui-save-polish.mjs\n M tests/ui-save-polish.test.mjs\n?? dist/assets/loot-services/\n?? dist/commerce-ui.js\n?? dist/ground-loot.js\n?? dist/quest-reward-completion.js\n?? dist/service-character-art.js\n?? dist/service-quest-dialogues.js\n?? dist/service-quests.js\n?? docs/harness/CHAPTER_01_LOOT_SERVICES.md\n?? docs/harness/evidence/loot-services-20261019/\n?? docs/loot-services/\n?? source/narrative/characters/bounty_hunter.json\n?? source/tasks/active/loot-services-20261019.json\n?? tests/loot-services.test.mjs"
+    },
+    {
+      "name": "quests-services",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T16:37:31.434723+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "e38c427be84df3e5e5a8624fc8e25b6e658eaf8a259531041b0ad6a8018e1fd1",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/chapter-runtime-v14.js\n M dist/chapter4-ui-v14.js\n M dist/chapter5-ui-v14.js\n M dist/checkpoint-save.js\n M dist/city-runtime-v18.js\n M dist/combat-overhaul-v28.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/hell-activities-v17.js\n M dist/mercenary-ui-v14.js\n M dist/pacing-data-v14.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-services-ui.js\n M dist/saga-nodes-v25.js\n M dist/saga-runtime-v25.js\n M dist/saga-runtime-v26.js\n M dist/save-protection-v23.js\n M dist/style-v14.css\n M dist/systems-ui-v14.js\n M docs/ch1-layer-rules/MOVEMENT.json\n M docs/ch1-layer-rules/NAVIGATION.json\n M docs/ch1-layer-rules/economy/oath-typical.json\n M docs/ch1-layer-rules/economy/shadow-typical.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-experience-services.mjs\n M tests/browser-ui-save-polish.mjs\n M tests/c1-character-flow.test.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/c2-optimization.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/dialogue-reader.test.mjs\n M tests/rpg-experience.test.mjs\n M tests/ui-save-polish.test.mjs\n?? dist/assets/loot-services/\n?? dist/commerce-ui.js\n?? dist/ground-loot.js\n?? dist/quest-reward-completion.js\n?? dist/service-character-art.js\n?? dist/service-quest-dialogues.js\n?? dist/service-quests.js\n?? docs/ch1-layer-rules/economy/failures/\n?? docs/harness/CHAPTER_01_LOOT_SERVICES.md\n?? docs/harness/evidence/loot-services-20261019/\n?? docs/loot-services/\n?? source/narrative/characters/bounty_hunter.json\n?? source/tasks/active/loot-services-20261019.json\n?? tests/browser-loot-services.mjs\n?? tests/fixtures/loot-services-c1-combat.json\n?? tests/fixtures/loot-services-c23-combat.json\n?? tests/loot-services-fixtures.mjs\n?? tests/loot-services.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T17:30:46.278325+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/chapter-runtime-v14.js\n M dist/chapter4-ui-v14.js\n M dist/chapter5-ui-v14.js\n M dist/checkpoint-save.js\n M dist/city-runtime-v18.js\n M dist/combat-overhaul-v28.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/hell-activities-v17.js\n M dist/mercenary-ui-v14.js\n M dist/pacing-data-v14.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-services-ui.js\n M dist/saga-nodes-v25.js\n M dist/saga-runtime-v25.js\n M dist/saga-runtime-v26.js\n M dist/save-protection-v23.js\n M dist/style-v14.css\n M dist/systems-ui-v14.js\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-experience-services.mjs\n M tests/browser-ui-save-polish.mjs\n M tests/browser-web-play.py\n M tests/c1-character-flow.test.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/c2-optimization.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/dialogue-reader.test.mjs\n M tests/rpg-experience.test.mjs\n M tests/ui-save-polish.test.mjs\n?? archives/loot-services-evidence/\n?? dist/assets/loot-services/\n?? dist/commerce-ui.js\n?? dist/ground-loot.js\n?? dist/quest-reward-completion.js\n?? dist/service-character-art.js\n?? dist/service-quest-dialogues.js\n?? dist/service-quests.js\n?? docs/harness/CHAPTER_01_LOOT_SERVICES.md\n?? docs/harness/evidence/loot-services-20261019/\n?? docs/loot-services/\n?? source/narrative/characters/bounty_hunter.json\n?? source/tasks/active/loot-services-20261019.json\n?? tests/browser-loot-services.mjs\n?? tests/fixtures/loot-services-c1-combat.json\n?? tests/fixtures/loot-services-c23-combat.json\n?? tests/loot-services-fixtures.mjs\n?? tests/loot-services.test.mjs"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-19T17:33:47.585968+00:00",
+      "head_commit": "15595193f01c14ef29237efad606367559099197",
+      "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/chapter-one-trial-runtime.js\n M dist/chapter-runtime-v14.js\n M dist/chapter4-ui-v14.js\n M dist/chapter5-ui-v14.js\n M dist/checkpoint-save.js\n M dist/city-runtime-v18.js\n M dist/combat-overhaul-v28.js\n M dist/core-v14.js\n M dist/enemy-ai-v14.js\n M dist/game-v14.js\n M dist/hell-activities-v17.js\n M dist/mercenary-ui-v14.js\n M dist/pacing-data-v14.js\n M dist/rpg-experience-combat.js\n M dist/rpg-experience-services-ui.js\n M dist/saga-nodes-v25.js\n M dist/saga-runtime-v25.js\n M dist/saga-runtime-v26.js\n M dist/save-protection-v23.js\n M dist/style-v14.css\n M dist/systems-ui-v14.js\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/catalog.json\n M source/narrative/chapters/R01.json\n M source/narrative/runtime-index.json\n M source/narrative/sources.json\n M source/narrative/sources.lock.json\n M tests/browser-rpg-chapter-two-services.mjs\n M tests/browser-rpg-experience-services.mjs\n M tests/browser-ui-save-polish.mjs\n M tests/browser-web-play.py\n M tests/c1-character-flow.test.mjs\n M tests/c1-trial-forge.test.mjs\n M tests/c2-optimization.test.mjs\n M tests/chapter-one-economy.mjs\n M tests/chapter-one-elites.test.mjs\n M tests/chapter-one-incremental.test.mjs\n M tests/chapter-one-layer-rules.test.mjs\n M tests/chapter-one-map-quests.test.mjs\n M tests/chapter-one-v30.test.mjs\n M tests/chapter23-v30.test.mjs\n M tests/dialogue-hud.test.mjs\n M tests/dialogue-reader.test.mjs\n M tests/rpg-experience.test.mjs\n M tests/ui-save-polish.test.mjs\n?? archives/loot-services-evidence/\n?? dist/assets/loot-services/\n?? dist/commerce-ui.js\n?? dist/ground-loot.js\n?? dist/quest-reward-completion.js\n?? dist/service-character-art.js\n?? dist/service-quest-dialogues.js\n?? dist/service-quests.js\n?? docs/harness/CHAPTER_01_LOOT_SERVICES.md\n?? docs/harness/evidence/loot-services-20261019/\n?? docs/loot-services/\n?? source/narrative/characters/bounty_hunter.json\n?? source/tasks/active/loot-services-20261019.json\n?? tests/browser-loot-services.mjs\n?? tests/fixtures/loot-services-c1-combat.json\n?? tests/fixtures/loot-services-c23-combat.json\n?? tests/loot-services-fixtures.mjs\n?? tests/loot-services.test.mjs"
+    }
+  ],
+  "narrative_reviews": [
+    {
+      "context": "docs/loot-services/reviews/intro-context.json",
+      "context_sha256": "1ffc1ff6e07f2808d6564d9dd6bf9124922503e32b5c49689e3bc8eed557af30",
+      "draft": "docs/loot-services/reviews/intro-draft.json",
+      "draft_sha256": "a0b7ddf1c40a893f58e7076a7d02040f8baf2323c4c9b7a76637ebe95eb4aa5d",
+      "review": "docs/loot-services/reviews/intro-review.json",
+      "review_sha256": "873c33cd2ae00c1fe949a62c6f3477d06aaa012fa7253c3102dcce710c25cd7a"
+    },
+    {
+      "context": "docs/loot-services/reviews/c1HuntOffer-context.json",
+      "context_sha256": "6618b29ccbe5f6913686cc610c7f2dabef2c566ca27ee3bb929b206b8c4c2699",
+      "draft": "docs/loot-services/reviews/c1HuntOffer-draft.json",
+      "draft_sha256": "150cb181c337c583c3e738796bea47fca15babe20f195a00421761dd9e4ab9af",
+      "review": "docs/loot-services/reviews/c1HuntOffer-review.json",
+      "review_sha256": "3d5112cb3af93927b5c17c2cdbf5ba6d7fe4ea619706a1274412a44082bc211f"
+    },
+    {
+      "context": "docs/loot-services/reviews/c1HuntProgress-context.json",
+      "context_sha256": "ab7ac4d17c6809cdd3bec41c3448bd4d16eccbd803a84bb3bd63e5df30ba9164",
+      "draft": "docs/loot-services/reviews/c1HuntProgress-draft.json",
+      "draft_sha256": "28707a3410240c19b09978a1e617a2985e20df583474055670e3318f83f8527b",
+      "review": "docs/loot-services/reviews/c1HuntProgress-review.json",
+      "review_sha256": "b8ef0dacf4f7499c8a3d93365c1a6291530e56e027a95d80b6953fd1ed1fe060"
+    },
+    {
+      "context": "docs/loot-services/reviews/c1HuntReport-context.json",
+      "context_sha256": "579d20c68fa32a6c73c00b6eb99b8c7d11710ca0c2c561f6654ed1a3f0d1162c",
+      "draft": "docs/loot-services/reviews/c1HuntReport-draft.json",
+      "draft_sha256": "0c64d257f584b8e66eae7baf4ef659c40d7b86b516f69d4eb0e24c85645938da",
+      "review": "docs/loot-services/reviews/c1HuntReport-review.json",
+      "review_sha256": "7676ed857e83ff711064456166b1da776e72439f623ee1428481c95aafb68572"
+    },
+    {
+      "context": "docs/loot-services/reviews/c1Talk_c1ExitDrill_offer-context.json",
+      "context_sha256": "d52918392c54a18474438c39f4ce8611336f7b06a7fbe499c5b1e8a12680d3f5",
+      "draft": "docs/loot-services/reviews/c1Talk_c1ExitDrill_offer-draft.json",
+      "draft_sha256": "a430298b5e288564b938d2179acdec84a7c4393d3a203d2d4360c2979d4ce237",
+      "review": "docs/loot-services/reviews/c1Talk_c1ExitDrill_offer-review.json",
+      "review_sha256": "0d42e5befd8ae4a24ea75375fc33193b99076cbd963efed889c7fcc8b8d8e899"
+    }
+  ]
+}

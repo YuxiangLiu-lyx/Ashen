@@ -8,7 +8,7 @@ export function installSagaV26(RPG,{nodes,chains,stats}){
  const P=RPG.prototype;if(P._sagaInstalledV26)return;Object.defineProperty(P,'_sagaInstalledV26',{value:true});
  for(const c of chains){if(!c.id||!nodes.some(n=>n.id===c.beforeNode)||!DIALOGUES[c.introScene]||!Array.isArray(c.steps)||!c.steps.length)throw Error('新增任务链尚未注册完整：'+c.id);for(const t of c.steps){if(!MAPS[t.map]||!MAPS[t.turnIn?.map]||!DIALOGUES[t.scene]||!t.turnIn.npc||t.kills&&(!Number.isInteger(t.kills.count)||t.kills.count<1||t.kills.count>64))throw Error('新增任务阶段不完整：'+t.id);for(const i of t.collect||[])if(!i.id||!i.name||!['gather','drop'].includes(i.source)||!Number.isInteger(i.count)||i.count<1||i.count>32||i.source==='drop'&&!t.kills)throw Error('新增任务材料不完整：'+t.id);}}
  configureSagaValidationV26({nodes,chains,maps:MAPS,items:ITEMS,dialogues:DIALOGUES});
- for(const c of chains)QUESTS[c.id]={name:c.title,type:'主线',description:c.title,map:nodes.find(n=>n.id===c.beforeNode).map,xp:0,gold:0};
+ for(const c of chains)QUESTS[c.id]={name:c.title,type:'主线',description:c.title,map:nodes.find(n=>n.id===c.beforeNode).map,xp:c.steps.reduce((n,t)=>n+(t.reward?.xp||0),0),gold:c.steps.reduce((n,t)=>n+(t.reward?.gold||0),0)};
  const old={};for(const k of ['snapshot','restore','enter','update','beginScene','apply','useProp','choose','npcOptions','objective','trackedGoal','questGoal','questPropNeeded','ready','available','canDoor','canSave','saveBlockReason','handleHellDeath','respawn','beginPrivateMemory'])old[k]=P[k];
  const npcGetter=Object.getOwnPropertyDescriptor(P,'npcs').get;
  const chain=g=>chains.find(c=>c.id===state(g).active?.id),step=g=>chain(g)?.steps[state(g).active?.step];

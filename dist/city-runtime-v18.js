@@ -30,7 +30,7 @@ function register(){
   const key=id.includes('Bread')?'bread':id.includes('Chime')?'chime':id.includes('Mint')?'mint':null;
   if(key){const place=CITY_STORY_PLACES_V18[key];stage(id,place.home,place.actors);}
  }
- for(const [id,name]of Object.entries({bread:'写错的酒单',chime:'不肯响的风铃',mint:'太苦的好药'})){const a=CITY_STORY_PLACES_V18[id];QUESTS[QUEST_IDS[id]]={name,type:'支线',giver:a.npc,map:a.home,desc:{bread:'替瑟琳娜弄清夜市送错饼的原因。',chime:'看看格蕾娜做的风铃出了什么问题。',mint:'和艾莉娅一起为弥娅找一种更容易服药的办法。'}[id]};}
+ for(const [id,name]of Object.entries({bread:'写错的酒单',chime:'不肯响的风铃',mint:'太苦的好药'})){const a=CITY_STORY_PLACES_V18[id];QUESTS[QUEST_IDS[id]]={name,type:'支线',giver:a.npc,map:a.home,xp:150,gold:25,desc:{bread:'替瑟琳娜弄清夜市送错饼的原因。',chime:'看看格蕾娜做的风铃出了什么问题。',mint:'和艾莉娅一起为弥娅找一种更容易服药的办法。'}[id]};}
 }
 const expect={
  v18CityBreadStart:['bread',0,1],v18CityBreadFound:['bread',1,2],v18CityBreadFinish:['bread',2,3],

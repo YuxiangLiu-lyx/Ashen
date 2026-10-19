@@ -1,0 +1,666 @@
+{
+  "schema": 1,
+  "source_fingerprint": "2b75d0d079c007b16d1976c24800369050e2b7d3b86ebf4231eea1358b2f8bdc",
+  "reviewed_paths": [
+    "dist/assets/loot-services/bounty-hunter-v2.png",
+    "dist/assets/loot-services/bounty-hunter.png",
+    "dist/assets/loot-services/hesha-v2.png",
+    "dist/assets/loot-services/iden-v2.png",
+    "dist/assets/loot-services/merchant-v2.png",
+    "dist/assets/loot-services/merchant.png",
+    "dist/assets/loot-services/service-portraits-v2.png",
+    "dist/assets/loot-services/trial-portraits-v2.png",
+    "dist/assets/loot-services/venn-v2.png",
+    "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-natural-art.js",
+    "dist/core-v14.js",
+    "dist/game-v14.js",
+    "dist/service-character-art.js"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/loot-services/service-portraits-v2.png",
+      "sha256": "72d7208b9c4bccc30f4edc091c23d194e47cd325dd6254d81c343fb378921bd5"
+    },
+    {
+      "path": "dist/assets/loot-services/bounty-hunter-v2.png",
+      "sha256": "b18957f23da45b84dcd1e62bae63584f2935541c6dbfde7028e86b076e2d5231"
+    },
+    {
+      "path": "dist/assets/loot-services/merchant.png",
+      "sha256": "d26cc54fe4b6723251b974d1d884d5e318003731bac3ad639eb131322b37b53b"
+    },
+    {
+      "path": "dist/assets/loot-services/venn-v2.png",
+      "sha256": "7142f3c86abac644f4b7271f9b4a63e5e4b26a191185a868eefa78fb8458e9b1"
+    },
+    {
+      "path": "dist/assets/loot-services/iden-v2.png",
+      "sha256": "06b5bfc25dbc536b62f62efb226a2c5b09b8b8b71d09c02bc52598e258719c36"
+    },
+    {
+      "path": "dist/assets/loot-services/merchant-v2.png",
+      "sha256": "b040b2641a66fcf6f3b8d25de714a16435ee86f9999257d48f6b53d4cc43d5e3"
+    },
+    {
+      "path": "dist/assets/loot-services/bounty-hunter.png",
+      "sha256": "e3ac82fffd83ad782fc78844d29506cad1d48d29afcd1d3979c8ae9be4b3e500"
+    },
+    {
+      "path": "dist/assets/loot-services/hesha-v2.png",
+      "sha256": "a8d0174cd37afc9ed5963c00429e92fe274a2ba6047ed93395a7b7218972700d"
+    },
+    {
+      "path": "dist/assets/loot-services/trial-portraits-v2.png",
+      "sha256": "7f23eb5c075b4bb74992b461a2f8ccad0c006cf27282658acf1fe7dc1838fc52"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行9条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/hall.png",
+            "sha256": "a7fbe0fce697f7f350dd8eac975f8b62878cb966b099a6767e0fba7d3b102a3d"
+          },
+          {
+            "path": "docs/loot-services/browser/hall-collision.png",
+            "sha256": "a44ea28f2b5939eca0137112b9c2eea8e011f4525868f7024025d11d2336508d"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/hall-cells.json",
+            "sha256": "1ccacc7162c91e92f7a9faf1a22f246181ecf2dd15fba51f7424d931ce4563e6"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/hall.png",
+            "sha256": "a7fbe0fce697f7f350dd8eac975f8b62878cb966b099a6767e0fba7d3b102a3d"
+          },
+          {
+            "path": "docs/loot-services/browser/hall-collision.png",
+            "sha256": "a44ea28f2b5939eca0137112b9c2eea8e011f4525868f7024025d11d2336508d"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/hall.png",
+            "sha256": "a7fbe0fce697f7f350dd8eac975f8b62878cb966b099a6767e0fba7d3b102a3d"
+          },
+          {
+            "path": "docs/loot-services/browser/hall-collision.png",
+            "sha256": "a44ea28f2b5939eca0137112b9c2eea8e011f4525868f7024025d11d2336508d"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialFoyer",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行4条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer.png",
+            "sha256": "56c38fa3a6113af2dc663a4c6cd77fe358146397f9ce27f50cb3f5b9f9b4cc0d"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer-collision.png",
+            "sha256": "a043240ed80591991425a6130c3aba40d6997f6bafbac356afbecf3d3c9b0c98"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer-cells.json",
+            "sha256": "8993db8eb364a21d059da67679b346697368dcd3801a9fd430b940547a7795d4"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer.png",
+            "sha256": "56c38fa3a6113af2dc663a4c6cd77fe358146397f9ce27f50cb3f5b9f9b4cc0d"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer-collision.png",
+            "sha256": "a043240ed80591991425a6130c3aba40d6997f6bafbac356afbecf3d3c9b0c98"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer.png",
+            "sha256": "56c38fa3a6113af2dc663a4c6cd77fe358146397f9ce27f50cb3f5b9f9b4cc0d"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialFoyer-collision.png",
+            "sha256": "a043240ed80591991425a6130c3aba40d6997f6bafbac356afbecf3d3c9b0c98"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialCrypt",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行5条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt.png",
+            "sha256": "79f764ee78a15158346169a0cd37e4c4d11d653ec1834d7b478b6fcd15c0b997"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt-collision.png",
+            "sha256": "5dcb77ce9860022837a85f7495e64181f8a8440e217f962e86a8729f60fc6329"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt-cells.json",
+            "sha256": "615f5b590c5936ca6b9db7261134b0d8a2787abf85c9163f3f8392add7e5728a"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt.png",
+            "sha256": "79f764ee78a15158346169a0cd37e4c4d11d653ec1834d7b478b6fcd15c0b997"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt-collision.png",
+            "sha256": "5dcb77ce9860022837a85f7495e64181f8a8440e217f962e86a8729f60fc6329"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt.png",
+            "sha256": "79f764ee78a15158346169a0cd37e4c4d11d653ec1834d7b478b6fcd15c0b997"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialCrypt-collision.png",
+            "sha256": "5dcb77ce9860022837a85f7495e64181f8a8440e217f962e86a8729f60fc6329"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "c1TrialVault",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行3条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialVault.png",
+            "sha256": "6aae7fafaf094659a84cd5b77f741fbeebebd1d80a70dfc32878338468f21ef7"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialVault-collision.png",
+            "sha256": "1f44c341d8defb46c2f1ee8c28a8716896450e612e02c12088c5583ecb81040f"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialVault-cells.json",
+            "sha256": "23f4d3d4a1ec180052eef04f78304b82bc980b742b7f3b9163f621c656b1963f"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialVault.png",
+            "sha256": "6aae7fafaf094659a84cd5b77f741fbeebebd1d80a70dfc32878338468f21ef7"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialVault-collision.png",
+            "sha256": "1f44c341d8defb46c2f1ee8c28a8716896450e612e02c12088c5583ecb81040f"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/c1TrialVault.png",
+            "sha256": "6aae7fafaf094659a84cd5b77f741fbeebebd1d80a70dfc32878338468f21ef7"
+          },
+          {
+            "path": "docs/loot-services/browser/c1TrialVault-collision.png",
+            "sha256": "1f44c341d8defb46c2f1ee8c28a8716896450e612e02c12088c5583ecb81040f"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "deepCamp",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行8条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/deepCamp.png",
+            "sha256": "a3e7c002bc2889204b98ab7a349b8c84e4eff12415fd0027a431a16cb95408f1"
+          },
+          {
+            "path": "docs/loot-services/browser/deepCamp-collision.png",
+            "sha256": "1e48ae3025d41e2a77ca0565293f68a0af8368aabdbc1110b71da9b3c1a0529d"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/deepCamp-cells.json",
+            "sha256": "398777f64b575713ebe135f5258843057c45f37c711dcd5e863f47048c3ad423"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/deepCamp.png",
+            "sha256": "a3e7c002bc2889204b98ab7a349b8c84e4eff12415fd0027a431a16cb95408f1"
+          },
+          {
+            "path": "docs/loot-services/browser/deepCamp-collision.png",
+            "sha256": "1e48ae3025d41e2a77ca0565293f68a0af8368aabdbc1110b71da9b3c1a0529d"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/deepCamp.png",
+            "sha256": "a3e7c002bc2889204b98ab7a349b8c84e4eff12415fd0027a431a16cb95408f1"
+          },
+          {
+            "path": "docs/loot-services/browser/deepCamp-collision.png",
+            "sha256": "1e48ae3025d41e2a77ca0565293f68a0af8368aabdbc1110b71da9b3c1a0529d"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ch5Market",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG routeTo/moveActor执行5条NPC/出口路径，逐步检查无碰撞；6图总34条，角色外观不改变原碰撞和空间。会馆赏金猎人站位855,385可达。三职业18条实际任务路线覆盖试炼战斗、拾取和返回，连续浏览器磨坊路线补充共享绘制实战。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/ch5Market.png",
+            "sha256": "e3d098c6b3ae42215470af17962f6436ac109b80dfef9a0f16ec6b9f85aafe37"
+          },
+          {
+            "path": "docs/loot-services/browser/ch5Market-collision.png",
+            "sha256": "6dd39c012ae278442365a9e4d38a473977348ba3398c1f67affd97f0a97d182d"
+          },
+          {
+            "path": "docs/loot-services/browser/QA.json",
+            "sha256": "3749e27efeb5385f59c4430b50df42e01e61fdbfe41cd9157cec594757ee4ad0"
+          },
+          {
+            "path": "docs/loot-services/browser/ch5Market-cells.json",
+            "sha256": "907cc0e8de8787736e1dbaa9f294a4df0d9e7c66bffd7bedb8da924d526525af"
+          },
+          {
+            "path": "docs/loot-services/ECONOMY_SUMMARY.json",
+            "sha256": "2b764bcb591a8f39b54d41ed185499be9b29464df14ed5174077ca4593b1cd72"
+          },
+          {
+            "path": "docs/loot-services/verification/integration.txt",
+            "sha256": "cafeffc7d347fa031b2a9ea878da3e3d975e7760e3b9e4b666ee353b08686072"
+          },
+          {
+            "path": "docs/loot-services/world/BROWSER_WORLD.json",
+            "sha256": "5fa0b84766d85d9081653d6c221dfd190063ecb6a3acfaa7cf8a22a4f65846b1"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "对照当前实际截图与碰撞图，NPC站在原接待、维修或记录工作区；新猎人在会馆公共地面接悬赏，不占门/家具/主路。角色脚底在地面，无背景矩形；原场景布局、灯光、楼层和道具原件保持。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/ch5Market.png",
+            "sha256": "e3d098c6b3ae42215470af17962f6436ac109b80dfef9a0f16ec6b9f85aafe37"
+          },
+          {
+            "path": "docs/loot-services/browser/ch5Market-collision.png",
+            "sha256": "6dd39c012ae278442365a9e4d38a473977348ba3398c1f67affd97f0a97d182d"
+          },
+          {
+            "path": "docs/loot-services/ART_REVIEW.md",
+            "sha256": "0f98680f84165c78fe38891efc82b7b114a08499f25ee4c12a4422225e7d46f8"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "五角色40帧实际图与原画及主角/关键NPC对照检查；82参考身高、相同脚锚。商人在会馆、地底与市场使用同一翠绿象牙白女性；猎人银发红披肩，三位试炼角色保留年龄/职责，衣色与高清独立立绘一致。512×1015以上原生立绘经三视口对话检查，原型及未采用首稿保留；真人审美待验。",
+        "evidence": [
+          {
+            "path": "docs/loot-services/browser/ch5Market.png",
+            "sha256": "e3d098c6b3ae42215470af17962f6436ac109b80dfef9a0f16ec6b9f85aafe37"
+          },
+          {
+            "path": "docs/loot-services/browser/ch5Market-collision.png",
+            "sha256": "6dd39c012ae278442365a9e4d38a473977348ba3398c1f67affd97f0a97d182d"
+          },
+          {
+            "path": "docs/loot-services/browser/characters-40-frames.png",
+            "sha256": "35389a32642887784e874e18c1f52e5c9060f4458136f58585741e435cc4d88a"
+          },
+          {
+            "path": "docs/loot-services/ASSETS.json",
+            "sha256": "ce6305df9bd7d64f1970eff3a00edd2367e531e6d1e26fe42594e7c0bc067523"
+          },
+          {
+            "path": "docs/loot-services/reader/QA.json",
+            "sha256": "982bd3e96a5fddd5a4d1e1eca2aaa98493b113e270257786ef907c294880ad90"
+          },
+          {
+            "path": "docs/loot-services/reader/c1iden-1440.png",
+            "sha256": "f87bfe895366e157d164591e4987f0a8a088317b8ca71d5b7eec7d4733538989"
+          },
+          {
+            "path": "docs/loot-services/reader/c1hesha-1440.png",
+            "sha256": "0e46fa6ea35e62afc628a769d8ef002a9bb7190791091fe93594965c65f571a8"
+          },
+          {
+            "path": "docs/loot-services/reader/c1venn-1440.png",
+            "sha256": "e9e71a0c622cd31488ccc7d74a13e9d091cc89d3995340b0564d06224a6d6748"
+          },
+          {
+            "path": "dist/assets/v24/noen-walk-v24.png",
+            "sha256": "4057ef51531f356fc4b0828bec2bceaf2dcdb830b92b35c3db6153b74fb463ce"
+          },
+          {
+            "path": "dist/assets/v6/vilerena-world-v6.png",
+            "sha256": "71bcf8993a8ef3b6728ac72846183495e754e0888ad383dc5c851b9854fa2b26"
+          }
+        ]
+      }
+    }
+  ]
+}

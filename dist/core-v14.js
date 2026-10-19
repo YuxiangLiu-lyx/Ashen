@@ -1,3 +1,6 @@
+import {installQuestRewardCompletion} from './quest-reward-completion.js';
+import {installServiceQuests} from './service-quests.js';
+import {installGroundLoot} from './ground-loot.js';
 import {installC2Conversations} from './chapter-two-conversations.js';
 import {installC1Conversations} from './chapter-one-conversations.js';
 import {installEncounterRestraint} from './encounter-restraint.js';
@@ -305,3 +308,7 @@ installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});
 installEncounterRestraint(RPG);
 installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});
 installC2Conversations(RPG,{DIALOGUES});
+
+installServiceQuests(RPG,{MAPS,QUESTS,DIALOGUES});
+installQuestRewardCompletion(RPG,{QUESTS});
+installGroundLoot(RPG);

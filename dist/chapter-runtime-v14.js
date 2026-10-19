@@ -15,10 +15,10 @@ export function chapterApply(g,a,stats){
  if(a==='end'){if(g.chapter!==4||g.flags.chapterOneComplete)return true;g.quests.escape='done';if(!g.flags.legacyV6Completed){g.c1MainPayment('c1Departure');}g.flags.chapterOneComplete=true;g.flags.complete=false;g.flags.tracked=null;g.flags.mapGoal=null;g.chapter=5;g.quests.relay='active';g.enter('post',680,660);return true;}
  if(a==='ch2_arrival'){if(g.chapter!==5)return true;g.chapter=6;g.flags.postArrival=true;g.gainXP(20);g.flags.tracked=null;scene(g,'ch2SearchAside');return true;}
  if(a==='ch2_relay'){if(g.chapter!==6)return true;g.flags.relayRead=true;scene(g,'ch2Terms','ch2_terms');return true;}
- if(a==='ch2_terms'){if(g.chapter!==6)return true;g.chapter=7;g.quests.relay='done';g.quests.breakout='active';g.gainXP(35);g.addItem('mp');return true;}
+ if(a==='ch2_terms'){if(g.chapter!==6)return true;g.chapter=7;g.quests.relay='done';g.quests.breakout='active';g.gainXP(35);g.p.gold+=10;g.addItem('mp');return true;}
  if(a==='ch2_inner'){if(g.chapter===7)scene(g,'ch2Alarm','ch2_alarm');return true;}
  if(a==='ch2_alarm'){if(g.chapter!==7)return true;g.chapter=8;g.flags.alarm=true;g.flags.tracked=null;g.flags.mapGoal=null;g.flags.manorWave=1;g.enemies.push(g.enemy('guard',1200,700,'ch2-alarm-1'),g.enemy('guard',970,790,'ch2-alarm-2'),g.enemy('guard',1290,815,'ch2-v9-alarm-3'));g.relocate(1110,555);g.p.invuln=1;g.say('警钟响了。护卫堵住内门，先突破井边的包围。');return true;}
- if(a==='ch2_breakout'){if(g.chapter!==9)return true;g.chapter=10;g.flags.spillOpen=true;g.quests.breakout='done';g.quests.exile='active';g.gainXP(65);g.enter('spillway',260,700);return true;}
+ if(a==='ch2_breakout'){if(g.chapter!==9)return true;g.chapter=10;g.flags.spillOpen=true;g.quests.breakout='done';g.quests.exile='active';g.gainXP(65);g.p.gold+=15;g.enter('spillway',260,700);return true;}
  if(a==='ch2_target_after'){scene(g,'ch2TargetAfter','ch2_breakout');return true;}
  if(a==='ch2_cross'){if(g.chapter!==10)return true;g.flags.exileCrossed=true;g.chapter=11;g.relocate(1100,530);scene(g,'ch2PursuitStops','ch2_pursuit');return true;}
  if(a==='ch2_pursuit'){g.flags.pursuitStopped=true;g.saint={x:1020,y:560,visible:true,moving:false,angle:0};g.say('追兵停在界碑外。沿东南石阶离开他们的视线。');return true;}

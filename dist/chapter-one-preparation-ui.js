@@ -1,3 +1,4 @@
+import {potionSummary} from './commerce-ui.js';
 import {C1_RUNES,C1_CORES,C1_RECIPES,C1_EFFECT_TEXT} from './chapter-one-expansion-data.js';
 import {C1_BREWS,C1_MEDICINE} from './chapter-one-trial-runtime.js';
 import {POTIONS} from './systems-data-v14.js';
@@ -52,7 +53,7 @@ export function preparationPanel(g,kind,ui={}){
  if(!rows.some(x=>x.key===v[field]))v[field]=null;
  const selected=rows.find(x=>x.key===v[field]);let detail='<div class="detail-empty">点选一格查看详情<br><small>用途、属性和费用会显示在这里。</small></div>';
  if(selected){const [verb,id,serial]=selected.key.split(':');detail=`<div class="item-heading">${icon(selected.icon,ui)}<h3>${selected.name}</h3></div>`;
-  if(verb==='supply'||verb==='brew'){const p=POTIONS[id],b=C1_BREWS[id];detail+=`<p>${p.desc}</p><p>持有 ${g.p.items[id]||0} 瓶。疗伤药与清醒药各自冷却7秒。</p>`+(shop?button('购买 · '+p.cost+'金','supply:'+id,g.p.gold<p.cost):`${brewIngredients(g,id,ui)}${button('确认合成',`brew:${id}:${s.potionSequence+1}`,n<b.amount||g.p.gold<b.fee)}`);}
+  if(verb==='supply'||verb==='brew'){const p=POTIONS[id],b=C1_BREWS[id];detail+=`<p>${potionSummary(id)}</p><p>持有 ${g.p.items[id]||0} 瓶</p>`+(shop?button('购买 · '+p.cost+'金','supply:'+id,g.p.gold<p.cost):`${brewIngredients(g,id,ui)}${button('确认合成',`brew:${id}:${s.potionSequence+1}`,n<b.amount||g.p.gold<b.fee)}`);}
   if(verb==='stock'){const r=C1_RUNES[id];detail+=`<p>T1符文 · ${names[r.stat]} +${r.min}～${r.max}</p><p>可用于各类缀纹装备。持有 ${g.p.items[id]||0} 枚。</p><p>当前这枚售出后，货格会补上新货。</p>${button('购买 · '+r.price+'金',`stock:${id}:${serial}`,g.p.gold<r.price)}`;}
   if(verb==='order'){const o=s.order;detail+=`<p>交付药用精粹 ${o.amount} 份，取得${C1_CORES[o.core].name} ×1。</p><p>可制作：${Object.values(C1_RECIPES).filter(r=>r.core===o.core).map(r=>r.name).join('、')}。</p><p>订单会为你保留，完成后再换下一单。</p>${o.accepted?button('交付材料，领取核心','coreComplete:'+o.serial,n<o.amount):button('了解并接下这份订单','coreAccept:'+o.serial)}`;}
   if(verb==='recipe')detail=craftDetail(g,v,ui);

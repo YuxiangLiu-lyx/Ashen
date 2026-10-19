@@ -18,11 +18,11 @@ test('each potion displays live owned/required amounts and repeated real crafts 
   g.p.items[C1_MEDICINE]=0;const before=JSON.stringify(g.p);preparationAction(g,'brew:'+id+':3');assert.equal(JSON.stringify(g.p),before);assert.match(preparationPanel(g,'c1-loom').body,/ingredient-cell insufficient/);
  }
 });
-test('automatic timer only saves after 60 active seconds; failure retries and death never overwrites',()=>{
+test('automatic timer only saves after 300 active seconds; failure retries and death never overwrites',()=>{
  const g=fresh(),clock=new CheckpointClock();let writes=0;const write=kind=>{writes++;clock.saved(kind,123);return true;};
- for(let i=0;i<59;i++)clock.tick(1,g,true,write);assert.equal(writes,0);clock.tick(1,g,false,write);assert.equal(writes,0);clock.tick(1,g,true,write);assert.equal(writes,1);assert.equal(clock.savedAt,123);
+ for(let i=0;i<299;i++)clock.tick(1,g,true,write);assert.equal(writes,0);clock.tick(1,g,false,write);assert.equal(writes,0);clock.tick(1,g,true,write);assert.equal(writes,1);assert.equal(clock.savedAt,123);
  g.p.hp=0;for(let i=0;i<100;i++)clock.tick(1,g,true,write);assert.equal(writes,1);assert.ok(checkpointBlockReason(g));
- g.p.hp=100;clock.elapsed=60;clock.tick(1,g,true,()=>{writes++;return false;});assert.equal(clock.elapsed,61);clock.tick(1,g,true,write);assert.equal(writes,2);for(let i=0;i<4;i++)clock.tick(1,g,true,write);assert.equal(writes,3);
+ g.p.hp=100;clock.elapsed=300;clock.tick(1,g,true,()=>{writes++;return false;});assert.equal(clock.elapsed,301);clock.tick(1,g,true,write);assert.equal(writes,2);for(let i=0;i<4;i++)clock.tick(1,g,true,write);assert.equal(writes,3);
 });
 test('unsafe scenes, training and combat postpone automatic saving until safe',()=>{
  const g=fresh();assert.ok(automaticSaveSafe(g));g.pending={id:'hello'};assert.equal(automaticSaveSafe(g),false);g.pending=null;g.c1TrainingSession={};assert.ok(checkpointBlockReason(g));g.c1TrainingSession=null;

@@ -10,9 +10,9 @@
   ],
   "coverage": "curated_mainline",
   "plan": {
-    "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
-    "revision": "1.5",
-    "status": "IMPLEMENTED"
+    "path": "docs/harness/CHAPTER_01_LOOT_SERVICES.md",
+    "revision": "1.7",
+    "status": "DEV_FROZEN"
   },
   "sources": [
     "c1-current",
@@ -1265,12 +1265,12 @@
     },
     {
       "id": "F-C1-TRIAL-C1HUNTOFFER",
-      "summary": "鲁恩为维修班与运货安全请诺恩清除两地下三外部命名精英，全清后一起回报领奖。",
+      "summary": "赏金猎人为维修班与运货安全请诺恩清除两地下三外部命名精英，全清后一起回报领奖。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "c1-trial-runtime"
+        "loot-services:c1HuntOffer"
       ],
       "risk_terms": []
     },
@@ -1281,18 +1281,18 @@
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "c1-trial-runtime"
+        "loot-services:c1HuntProgress"
       ],
       "risk_terms": []
     },
     {
       "id": "F-C1-TRIAL-C1HUNTREPORT",
-      "summary": "五只指定精英清除后鲁恩安排工人和运输恢复，一次结算。",
+      "summary": "五只指定精英清除后赏金猎人安排工人和运输恢复，一次结算。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "c1-trial-runtime"
+        "loot-services:c1HuntReport"
       ],
       "risk_terms": []
     },
@@ -1342,13 +1342,12 @@
     },
     {
       "id": "F-C1-13-C1HUNTOFFER",
-      "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+      "summary": "赏金猎人：这张悬赏单你看看。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；赏金猎人：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；赏金猎人：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "trial:c1HuntOffer",
-        "character-flow:c1HuntOffer"
+        "loot-services:c1HuntOffer"
       ],
       "risk_terms": []
     },
@@ -1390,13 +1389,12 @@
     },
     {
       "id": "F-C1-13-C1HUNTPROGRESS",
-      "summary": "鲁恩：地下两名旧看守、郊外三头凶兽，位置都记在手记里。你办妥的我已经记下了，等余下几处也清了，就能安排人过去。",
+      "summary": "赏金猎人：地下两名旧看守、郊外三头凶兽，位置都记在手记里。你办妥的我已经记下了，等余下几处也清了，就能安排人过去。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "trial:c1HuntProgress",
-        "character-flow:c1HuntProgress"
+        "loot-services:c1HuntProgress"
       ],
       "risk_terms": []
     },
@@ -1438,12 +1436,12 @@
     },
     {
       "id": "F-C1-13-C1HUNTREPORT",
-      "summary": "诺恩：单上的五处都清过了，维修班和运货的人可以过去看看。；鲁恩：好，我这就给他们捎话。绕路费了不少工夫，这次总算能把积着的活接起来了。这份报酬你收好，是五处一起算的。",
+      "summary": "诺恩：单上的五处都清过了，维修班和运货的人可以过去看看。；赏金猎人：好，我这就给他们捎话。绕路费了不少工夫，这次总算能把积着的活接起来了。这份报酬你收好，是五处一起算的。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "trial:c1HuntReport"
+        "loot-services:c1HuntReport"
       ],
       "risk_terms": []
     },
@@ -1544,13 +1542,12 @@
     },
     {
       "id": "F-C1-13-C1TALK_C1EXITDRILL_OFFER",
-      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是鲁恩另外托人办的事。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
+      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是赏金猎人挂出的另一份悬赏。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "trial:c1Talk_c1ExitDrill_offer",
-        "character-flow:c1Talk_c1ExitDrill_offer"
+        "loot-services:c1Talk_c1ExitDrill_offer"
       ],
       "risk_terms": []
     },
@@ -1648,12 +1645,12 @@
     },
     {
       "id": "F-C1-15-C1TALK_C1EXITDRILL_OFFER",
-      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是鲁恩另外托人办的事。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
+      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是赏金猎人挂出的另一份悬赏。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
       "truth": "world_fact",
       "plane": "runtime",
       "status": "RUNTIME",
       "sources": [
-        "character-flow:c1Talk_c1ExitDrill_offer"
+        "loot-services:c1Talk_c1ExitDrill_offer"
       ],
       "risk_terms": []
     },
@@ -1876,6 +1873,61 @@
         "character-flow:c1Talk_c1RuneWear_progress"
       ],
       "risk_terms": []
+    },
+    {
+      "id": "F-C1-17-INTRO",
+      "summary": "奥伦：诺恩，你可起来了。昨晚睡得安稳吧？库房里的老鼠折腾了我半宿。；诺恩：库房又进老鼠了？；奥伦：我提着灯数了数，足足八只，咬破了两袋粮食。那只猫倒好，趴在炉边，怎么叫都不肯动。；诺恩：看来该给那只猫找个帮手。；奥伦：它在这里住了七年，你回来几天，就给它找上帮手了。再养一只还得添口粮，不如你进去帮我看看。；诺恩：库房钥匙给我。；奥伦：在我腰上呢，等我解下来。粮袋挤得紧，你用刀当心些。北墙也帮我瞧瞧，我堵了两回门缝，怎么还进老鼠。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "loot-services:intro"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-17-C1HUNTOFFER",
+      "summary": "赏金猎人：这张悬赏单你看看。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；赏金猎人：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；赏金猎人：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "loot-services:c1HuntOffer"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-17-C1HUNTPROGRESS",
+      "summary": "赏金猎人：地下两名旧看守、郊外三头凶兽，位置都记在手记里。你办妥的我已经记下了，等余下几处也清了，就能安排人过去。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "loot-services:c1HuntProgress"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-17-C1HUNTREPORT",
+      "summary": "诺恩：单上的五处都清过了，维修班和运货的人可以过去看看。；赏金猎人：好，我这就给他们捎话。绕路费了不少工夫，这次总算能把积着的活接起来了。这份报酬你收好，是五处一起算的。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "loot-services:c1HuntReport"
+      ],
+      "risk_terms": []
+    },
+    {
+      "id": "F-C1-17-C1TALK_C1EXITDRILL_OFFER",
+      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是赏金猎人挂出的另一份悬赏。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "loot-services:c1Talk_c1ExitDrill_offer"
+      ],
+      "risk_terms": []
     }
   ],
   "events": [
@@ -1889,28 +1941,42 @@
         "oren"
       ],
       "sources": [
-        "scene:intro",
-        "character-flow:intro"
+        "loot-services:intro"
       ],
       "optional": false,
-      "grants": [],
+      "grants": [
+        {
+          "actor": "noen",
+          "fact": "F-C1-17-INTRO",
+          "mode": "knows"
+        },
+        {
+          "actor": "oren",
+          "fact": "F-C1-17-INTRO",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-17-INTRO",
+          "mode": "knows"
+        }
+      ],
       "state_changes": {},
       "relationship_changes": {},
-      "c1_character_flow_revision": "1.5"
+      "c1_character_flow_revision": "1.5",
+      "loot_services_revision": "1.7"
     },
     {
       "id": "R01:c1HuntOffer",
       "scene": "c1HuntOffer",
       "order": 2,
-      "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+      "summary": "赏金猎人：这张悬赏单你看看。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；赏金猎人：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；赏金猎人：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
       "participants": [
         "noen",
-        "rune"
+        "bounty_hunter"
       ],
       "sources": [
-        "trial:c1HuntOffer",
-        "c1-trial-runtime",
-        "character-flow:c1HuntOffer"
+        "loot-services:c1HuntOffer"
       ],
       "optional": true,
       "grants": [
@@ -1920,13 +1986,28 @@
           "mode": "knows"
         },
         {
-          "actor": "rune",
+          "actor": "bounty_hunter",
           "fact": "F-C1-13-C1HUNTOFFER",
           "mode": "knows"
         },
         {
           "actor": "player",
           "fact": "F-C1-13-C1HUNTOFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-17-C1HUNTOFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "bounty_hunter",
+          "fact": "F-C1-17-C1HUNTOFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-17-C1HUNTOFFER",
           "mode": "knows"
         }
       ],
@@ -1938,7 +2019,8 @@
       ],
       "c1_trial_revision": "1.3",
       "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
-      "c1_character_flow_revision": "1.5"
+      "c1_character_flow_revision": "1.5",
+      "loot_services_revision": "1.7"
     },
     {
       "id": "R01:c1SupplyIntro",
@@ -2130,25 +2212,33 @@
       "id": "R01:c1HuntProgress",
       "scene": "c1HuntProgress",
       "order": 8,
-      "summary": "鲁恩：地下两名旧看守、郊外三头凶兽，位置都记在手记里。你办妥的我已经记下了，等余下几处也清了，就能安排人过去。",
+      "summary": "赏金猎人：地下两名旧看守、郊外三头凶兽，位置都记在手记里。你办妥的我已经记下了，等余下几处也清了，就能安排人过去。",
       "participants": [
-        "rune"
+        "bounty_hunter"
       ],
       "sources": [
-        "trial:c1HuntProgress",
-        "c1-trial-runtime",
-        "character-flow:c1HuntProgress"
+        "loot-services:c1HuntProgress"
       ],
       "optional": true,
       "grants": [
         {
-          "actor": "rune",
+          "actor": "bounty_hunter",
           "fact": "F-C1-13-C1HUNTPROGRESS",
           "mode": "knows"
         },
         {
           "actor": "player",
           "fact": "F-C1-13-C1HUNTPROGRESS",
+          "mode": "knows"
+        },
+        {
+          "actor": "bounty_hunter",
+          "fact": "F-C1-17-C1HUNTPROGRESS",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-17-C1HUNTPROGRESS",
           "mode": "knows"
         }
       ],
@@ -2160,7 +2250,8 @@
       ],
       "c1_trial_revision": "1.3",
       "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
-      "c1_character_flow_revision": "1.5"
+      "c1_character_flow_revision": "1.5",
+      "loot_services_revision": "1.7"
     },
     {
       "id": "R01:c1TrialReport",
@@ -2513,14 +2604,13 @@
       "id": "R01:c1HuntReport",
       "scene": "c1HuntReport",
       "order": 15,
-      "summary": "诺恩：单上的五处都清过了，维修班和运货的人可以过去看看。；鲁恩：好，我这就给他们捎话。绕路费了不少工夫，这次总算能把积着的活接起来了。这份报酬你收好，是五处一起算的。",
+      "summary": "诺恩：单上的五处都清过了，维修班和运货的人可以过去看看。；赏金猎人：好，我这就给他们捎话。绕路费了不少工夫，这次总算能把积着的活接起来了。这份报酬你收好，是五处一起算的。",
       "participants": [
         "noen",
-        "rune"
+        "bounty_hunter"
       ],
       "sources": [
-        "trial:c1HuntReport",
-        "c1-trial-runtime"
+        "loot-services:c1HuntReport"
       ],
       "optional": true,
       "grants": [
@@ -2530,13 +2620,28 @@
           "mode": "knows"
         },
         {
-          "actor": "rune",
+          "actor": "bounty_hunter",
           "fact": "F-C1-13-C1HUNTREPORT",
           "mode": "knows"
         },
         {
           "actor": "player",
           "fact": "F-C1-13-C1HUNTREPORT",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-17-C1HUNTREPORT",
+          "mode": "knows"
+        },
+        {
+          "actor": "bounty_hunter",
+          "fact": "F-C1-17-C1HUNTREPORT",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-17-C1HUNTREPORT",
           "mode": "knows"
         }
       ],
@@ -2547,7 +2652,8 @@
         "R01:chapterEnd"
       ],
       "c1_trial_revision": "1.3",
-      "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。"
+      "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
+      "loot_services_revision": "1.7"
     },
     {
       "id": "R01:c1TownDolly",
@@ -4166,15 +4272,13 @@
       "id": "R01:c1Talk_c1ExitDrill_offer",
       "scene": "c1Talk_c1ExitDrill_offer",
       "order": 53,
-      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是鲁恩另外托人办的事。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
+      "summary": "伊登：诺恩吧？鲁恩捎过信了。地下这轮归我安排。旧廊的哨兵出了故障，二层又闹鼠患，维修班一直进不去。；诺恩：要处理哪些？；伊登：一层八具哨兵，二层八只啃线鼠。三层东厅还有一具终试执卫，打倒它，这轮就算过了。；诺恩：地下的看守都算在里面？；伊登：内室的两名旧看守不算，那是赏金猎人挂出的另一份悬赏。你要找的是东厅的终试执卫，三层通道已经开了。赫莎也在下面，检修的事可以问她。；诺恩：明白。打完回来找你？；伊登：回会馆找薇蕾娜，她要听你亲口说。路清出来，维修班也能干活了，这趟麻烦你。",
       "participants": [
         "iden",
         "noen"
       ],
       "sources": [
-        "trial:c1Talk_c1ExitDrill_offer",
-        "c1-trial-runtime",
-        "character-flow:c1Talk_c1ExitDrill_offer"
+        "loot-services:c1Talk_c1ExitDrill_offer"
       ],
       "optional": true,
       "stage_window": [
@@ -4211,6 +4315,21 @@
           "actor": "player",
           "fact": "F-C1-15-C1TALK_C1EXITDRILL_OFFER",
           "mode": "knows"
+        },
+        {
+          "actor": "iden",
+          "fact": "F-C1-17-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "noen",
+          "fact": "F-C1-17-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-17-C1TALK_C1EXITDRILL_OFFER",
+          "mode": "knows"
         }
       ],
       "state_changes": {},
@@ -4218,7 +4337,8 @@
       "trigger": "第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。",
       "c1_flow_revision": "1.1",
       "c1_trial_revision": "1.3",
-      "c1_character_flow_revision": "1.5"
+      "c1_character_flow_revision": "1.5",
+      "loot_services_revision": "1.7"
     },
     {
       "id": "R01:c1Talk_c1ExitDrill_progress",

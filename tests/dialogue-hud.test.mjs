@@ -1,3 +1,5 @@
+import {serviceDialogue,serviceScript} from './loot-services-fixtures.mjs';
+import {damageAndCollect} from './loot-services-fixtures.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {RPG,MAPS,stats} from '../dist/core-v14.js';
 import {createStoryChapterTestV26} from '../dist/story-test-v26.js';
@@ -16,11 +18,11 @@ const voice=[...JSON.parse(fs.readFileSync(new URL('../docs/c1-character-flow/SC
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/dialogue-hud/baseline/full-corpus.json',import.meta.url))).scenes;
 const clone=x=>structuredClone(x),finish=g=>{for(let n=0;g.pending&&n<20;n++)g.finishScene();};
 test('all static/dynamic providers are covered; only exact authored whole-scene revisions change',()=>{
- const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/c2-optimization/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
+ const corpus=dialogueCorpus();assert.deepEqual(corpus,JSON.parse(fs.readFileSync(new URL('../docs/loot-services/CURRENT_CORPUS.json',import.meta.url))),'saved corpus must equal live installed providers');const now=corpus.scenes;assert.deepEqual(Object.keys(now).sort(),[...new Set([...Object.keys(baseline),...Object.keys(trial)])].sort());
  for(const[id,b]of Object.entries(baseline)){
   const e=DIALOGUE_COPYEDITS.find(e=>e.key===id)||DIALOGUE_COPYEDITS.find(e=>JSON.stringify(e.before)===JSON.stringify(b.text));
   if(e){assert.deepEqual(e.before,b.text,id);assert.deepEqual(e.after.map(r=>r[0]),b.text.map(r=>r[0]),id);}
-  assert.deepEqual(now[id].text,voice.find(v=>v.key===id)?.after||trial[id]||e?.after||b.text,id);
+  assert.deepEqual(now[id].text,serviceDialogue(id,voice.find(v=>v.key===id)?.after||trial[id]||e?.after||b.text),id);
  }
 });
 test('every edited pending page preserves cursor, callback and nested history; immutable input and idempotent migration',()=>{
@@ -42,10 +44,10 @@ test('selected ordinary enemy takes priority; dead, distant, stale-map and disen
 });
 test('all three elite samples require accepted quest; pre-accept kills do not spend eligibility; accepted reentry and saves complete once',()=>{
  for(const[id,c]of Object.entries(C1_ELITES).filter(([,c])=>c.part)){
-  const g=new RPG('shadow',null,()=>.44);g.chapter=2;g.enter(c.map,600,560);g.pending=null;const gold=g.p.gold;g.damage(g.enemies.find(e=>e.id===id),1e7);
+  const g=new RPG('shadow',null,()=>.44);g.chapter=2;g.enter(c.map,600,560);g.pending=null;const gold=g.p.gold;damageAndCollect(g,g.enemies.find(e=>e.id===id),1e7);
   assert.equal(g.p.gold,gold+12);assert.ok(!g.c1Expansion.samples[c.part]);assert.ok(!g.c1Expansion.elite[id].firstPartGranted);
-  g.quests.c1AlchemistSamples='active';g.enter('hall');g.enter(c.map);g.pending=null;g.damage(g.enemies.find(e=>e.id===id),1e7);assert.equal(g.c1Expansion.samples[c.part],true);
-  const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(r.c1Expansion.samples[c.part],true);r.quests.c1AlchemistSamples='done';r.c1Expansion.samples[c.part]=false;r.enter('hall');r.enter(c.map);r.pending=null;r.damage(r.enemies.find(e=>e.id===id),1e7);assert.equal(r.c1Expansion.samples[c.part],false);
+  g.quests.c1AlchemistSamples='active';g.enter('hall');g.enter(c.map);g.pending=null;damageAndCollect(g,g.enemies.find(e=>e.id===id),1e7);assert.equal(g.c1Expansion.samples[c.part],true);
+  const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(r.c1Expansion.samples[c.part],true);r.quests.c1AlchemistSamples='done';r.c1Expansion.samples[c.part]=false;r.enter('hall');r.enter(c.map);r.pending=null;damageAndCollect(r,r.enemies.find(e=>e.id===id),1e7);assert.equal(r.c1Expansion.samples[c.part],false);
  }
 });
 test('pump pole interaction and delayed callback cannot grant before acceptance; accepts, collects and survives reload; old owned pole retained',()=>{
@@ -56,11 +58,11 @@ test('pump pole interaction and delayed callback cannot grant before acceptance;
 test('chapter two/four quest drops require accepted unfinished tasks, survive import and stop after claim/expiry',()=>{
  for(const [qid,map,type,item,chapter,flag]of [['v12CartBuckles','bridge','wolf','v12HarnessBuckle',7,null],['v12ForgeRivets','deepCourt','deepGuard','v12ForgeJaw',16,'ch4EnchantUnlocked']]){
   const g=new RPG('shadow');g.chapter=chapter;if(flag)g.flags[flag]=true;g.enter(map);g.pending=null;let serial=0;
-  const kill=()=>{g.pending=null;const e=g.enemy(type,800,700,'drop-check-'+serial++);g.enemies.push(e);g.damage(e,1e7);};
+  const kill=()=>{g.pending=null;const e=g.enemy(type,800,700,'drop-check-'+serial++);g.enemies.push(e);damageAndCollect(g,e,1e7);};
   for(let i=0;i<6;i++)kill();assert.equal(g.p.items[item]||0,0,qid+' before');
   g.apply('v12q:accept:'+qid);assert.equal(g.quests[qid],'active');for(let i=0;i<6;i++)kill();const count=g.p.items[item];assert.ok(count>0,qid+' after');
   const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(r.p.items[item],count);g.claimPacing(qid);assert.equal(g.p.items[item],0);for(let i=0;i<6;i++)kill();assert.equal(g.p.items[item],0,qid+' claimed');
-  if(chapter===7){r.chapter=8;for(let i=0;i<4;i++){const e=r.enemy(type,800,700,'expired-'+i);r.enemies.push(e);r.damage(e,1e7);}assert.equal(r.p.items[item],count,'expired no new drops');}
+  if(chapter===7){r.chapter=8;for(let i=0;i<4;i++){const e=r.enemy(type,800,700,'expired-'+i);r.enemies.push(e);damageAndCollect(r,e,1e7);}assert.equal(r.p.items[item],count,'expired no new drops');}
  }
 });
 test('chapter three medicine and repair props stay available until actual task acceptance',()=>{
@@ -71,7 +73,7 @@ test('chapter three medicine and repair props stay available until actual task a
 });
 test('chapter five named pages drop only between accepting and claiming; ordinary crafting loot remains',()=>{
  const g=new RPG('shadow',null,()=>.1);g.chapter=21;g.flags.ch5CitySeen=true;g.enter('ch5Training');g.pending=null;let serial=0;
- const kill=()=>{g.pending=null;const e=g.enemy('deepGuard',800,700,'names-check-'+serial++);g.enemies.push(e);g.damage(e,1e7);};
+ const kill=()=>{g.pending=null;const e=g.enemy('deepGuard',800,700,'names-check-'+serial++);g.enemies.push(e);damageAndCollect(g,e,1e7);};
  for(let i=0;i<20;i++)kill();assert.equal(g.p.items.ch5CourierPage||0,0);assert.ok(g.p.items.ch5GoldSand>0);
  g.apply('v14ch5:accept:ch5Names');assert.equal(g.quests.ch5Names,'active');for(let i=0;i<20;i++)kill();assert.equal(g.p.items.ch5CourierPage,4);
  const r=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));assert.equal(r.p.items.ch5CourierPage,4);g.ch5.quests.ch5Names.claimed=true;g.p.items.ch5CourierPage=0;for(let i=0;i<20;i++)kill();assert.equal(g.p.items.ch5CourierPage,0);
@@ -85,7 +87,7 @@ test('legacy base storyline checkpoints accept previous full text at real scene 
   const t=SAGA_TASKS_V25[s.task?.id];assert.ok(t);if(g.map!==t.map)g.enter(t.map,...MAPS[t.map].entry);g.active=true;
   if(t.kind==='duel'){g.hurt(100000);continue;}
   if(t.kind==='escape'){g.relocate(t.escapeAt[0],t.escapeAt[1]);g.update(.02,{});continue;}
-  for(const id of t.enemyIds||[]){const e=g.enemies.find(e=>e.id===id);if(e&&!e.dead)g.damage(e,1e7,'enchant');}
+  for(const id of t.enemyIds||[]){const e=g.enemies.find(e=>e.id===id);if(e&&!e.dead)damageAndCollect(g,e,1e7,'enchant');}
   for(const id of t.propIds||[]){if(g.sagaV25.task?.id!==t.id)break;const p=g.props.find(p=>p.id===id);assert.ok(p);const at={x:p.interactX??p.x,y:p.interactY??p.y};let positioned=false;for(const r of [0,60,80,100])for(let i=0;i<(r?16:1);i++){const x=at.x+Math.cos(i*Math.PI/8)*r,y=at.y+Math.sin(i*Math.PI/8)*r;if(!g.blocked(x,y)&&g.clearLine({x,y},at,false)){g.relocate(x,y);positioned=true;break;}if(positioned)break;}assert.ok(positioned);assert.ok(g.useProp(id));}
   g.events=[];
  }

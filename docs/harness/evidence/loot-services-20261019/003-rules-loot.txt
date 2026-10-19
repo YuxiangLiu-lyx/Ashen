@@ -1,0 +1,79 @@
+✔ five-minute clock does not save at one minute, saves after 300 active seconds (6.052083ms)
+✔ level up heals the current hero to the final maximum for all three classes (5.144791ms)
+✖ real kill leaves gold, potion/material and gear on floor; pickup transfers exactly once (4.615625ms)
+✔ full bag keeps dropped gear instead of converting to gold, while stackables remain collectible (1.086959ms)
+✖ uncollected loot survives leaving the map, export/import and death checkpoint restore (8.553958ms)
+✔ quest drop credit waits for pickup and samples retain first-kill identity (0.954291ms)
+✔ nested kills each own their loot and repeat damage cannot duplicate drops (0.790125ms)
+✔ ordinary enemy can start its counter at both melee classes outer hit range (22.319041ms)
+✔ each potion displays live owned/required amounts and repeated real crafts consume exactly once (6.975125ms)
+✔ automatic timer only saves after 300 active seconds; failure retries and death never overwrites (0.391917ms)
+✔ unsafe scenes, training and combat postpone automatic saving until safe (0.872292ms)
+✔ full snapshot roundtrip restores location, money and inventory without changing gear stats (9.972583ms)
+✔ six quality palettes and rare equipment designs remain distinct with no gameplay mutation (0.222334ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 11
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.993583
+
+✖ failing tests:
+
+test at tests/loot-services.test.mjs:11:1
+✖ real kill leaves gold, potion/material and gear on floor; pickup transfers exactly once (4.615625ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.floorLoot().some(d=>d.kind==='item'))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:11:333)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/loot-services.test.mjs:13:1
+✖ uncollected loot survives leaving the map, export/import and death checkpoint restore (8.553958ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:
+  + actual - expected
+  ... Skipped lines
+  
+    [
+      {
+        amount: 2,
+        born: 0,
+        id: 'loot-1',
+  ...
+          slot: 'hands',
+  -       weaponType: undefined
+        },
+        id: 'loot-3',
+        kind: 'gear',
+        x: 667.9097123029237,
+        y: 410.31680431553184
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:13:298)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: [ { kind: 'gold', amount: 2, id: 'loot-1', x: 640.8284132046306, y: 417.5627520550629, born: 0 }, { kind: 'item', item: 'c1MedicinalEssence', amount: 1, id: 'loot-2', x: 663.4095854137366, y: 361.1493278397087, born: 0 }, { kind: 'gear', gear: [Object], id: 'loot-3', x: 667.9097123029237, y: 410.31680431553184, born: 0 } ],
+    expected: [ { kind: 'gold', amount: 2, id: 'loot-1', x: 640.8284132046306, y: 417.5627520550629, born: 0 }, { kind: 'item', item: 'c1MedicinalEssence', amount: 1, id: 'loot-2', x: 663.4095854137366, y: 361.1493278397087, born: 0 }, { kind: 'gear', gear: [Object], id: 'loot-3', x: 667.9097123029237, y: 410.31680431553184, born: 0 } ],
+    operator: 'deepStrictEqual',
+    diff: 'simple'
+  }

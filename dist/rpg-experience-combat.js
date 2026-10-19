@@ -34,7 +34,7 @@ export function installExperienceCombat(RPG,{stats}){
  P.gainXP=function(n){
   const p=this.p,before={level:p.level,hp:p.hp,mp:p.mp,stats:stats(p)},scoped=inChapterOne(this),result=old.gainXP.call(this,n);
   if(scoped&&p.level>before.level){const s=stats(p),levels=p.level-before.level;
-   p.hp=Math.min(s.hp,before.hp+s.hp-before.stats.hp+Math.round(s.hp*.15*levels));
+   p.hp=s.hp;
    p.mp=Math.min(s.mp,before.mp+s.mp-before.stats.mp+Math.round(s.mp*.2*levels));this.saveEvent();
   }return result;
  };

@@ -1,3 +1,4 @@
+import {serviceDialogue,serviceScript} from './loot-services-fixtures.mjs';
 import {copyedited} from './fixtures/dialogue-copyedit-contract.mjs';
 import test from 'node:test';
 import assert from 'node:assert/strict';
@@ -60,6 +61,6 @@ test('exact inline old dialogue text and new authored cursors survive import unc
  }
 });
 test('four care scenes plus explicit copyedits match adopted drafts; protected commission facts/staging rows remain exact',()=>{
- for(const [id,old]of Object.entries(baseline.scenes))assert.deepEqual(DIALOGUES[id]||C1_HIDDEN[id],copyedited(id,script[id]||old.text),id);
+ for(const [id,old]of Object.entries(baseline.scenes))assert.deepEqual(DIALOGUES[id]||C1_HIDDEN[id],serviceDialogue(id,copyedited(id,script[id]||old.text)),id);
  assert.deepEqual(DIALOGUES.contract.slice(1,15),copyedited('contract',script.contract).slice(1,15));
 });

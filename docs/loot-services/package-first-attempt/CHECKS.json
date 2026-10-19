@@ -1,0 +1,30 @@
+[
+  {
+    "name": "build",
+    "command": [
+      ".venv/bin/python",
+      "tools/build_web_play.py",
+      "--output",
+      "qa-export/loot-services-preview"
+    ],
+    "exit_code": 0,
+    "seconds": 31.79,
+    "output": "docs/loot-services/package/build.txt",
+    "sha256": "793407956f8d7fde85188fbf42b4699213814b3143b10c6cafcd3195164ba958"
+  },
+  {
+    "name": "browser",
+    "command": [
+      ".venv/bin/python",
+      "tests/browser-web-play.py",
+      "--build",
+      "qa-export/loot-services-preview",
+      "--out",
+      "docs/loot-services/package"
+    ],
+    "exit_code": 1,
+    "seconds": 0.2,
+    "output": "docs/loot-services/package/browser.txt",
+    "sha256": "2509be6f77bf75550f08a8b868a6ffd7bbac71732261ec53c45933d4646a778a"
+  }
+]

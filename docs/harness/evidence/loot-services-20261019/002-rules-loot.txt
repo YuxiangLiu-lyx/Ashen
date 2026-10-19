@@ -1,0 +1,130 @@
+✔ five-minute clock does not save at one minute, saves after 300 active seconds (3.464333ms)
+✔ level up heals the current hero to the final maximum for all three classes (6.222583ms)
+✖ real kill leaves gold, potion/material and gear on floor; pickup transfers exactly once (7.642292ms)
+✖ full bag keeps dropped gear instead of converting to gold, while stackables remain collectible (1.095459ms)
+✖ uncollected loot survives leaving the map, export/import and death checkpoint restore (2.929375ms)
+✖ quest drop credit waits for pickup and samples retain first-kill identity (0.907208ms)
+✔ nested kills each own their loot and repeat damage cannot duplicate drops (0.859458ms)
+✖ ordinary enemy can start its counter at both melee classes outer hit range (357.761708ms)
+✔ each potion displays live owned/required amounts and repeated real crafts consume exactly once (7.810708ms)
+✔ automatic timer only saves after 300 active seconds; failure retries and death never overwrites (0.434416ms)
+✔ unsafe scenes, training and combat postpone automatic saving until safe (1.016167ms)
+✖ full snapshot roundtrip restores location, money and inventory without changing gear stats (2.808625ms)
+✔ six quality palettes and rare equipment designs remain distinct with no gameplay mutation (0.296209ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 7
+ℹ fail 6
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 536.230625
+
+✖ failing tests:
+
+test at tests/loot-services.test.mjs:11:1
+✖ real kill leaves gold, potion/material and gear on floor; pickup transfers exactly once (7.642292ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(g.floorLoot().some(d=>d.kind==='gear'))
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:11:383)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/loot-services.test.mjs:12:1
+✖ full bag keeps dropped gear instead of converting to gold, while stackables remain collectible (1.095459ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(gear)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:12:306)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/loot-services.test.mjs:13:1
+✖ uncollected loot survives leaving the map, export/import and death checkpoint restore (2.929375ms)
+  Error: 这份存档包含当前版本尚不能接续的扩展进度。原始内容已保留，请先导出存档。
+      at assertSupportedSavedProgressV23 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-protection-v23.js:9:26)
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:35:44)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:13:240)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)
+
+test at tests/loot-services.test.mjs:14:1
+✖ quest drop credit waits for pickup and samples retain first-kill identity (0.907208ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(d)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:14:227)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/loot-services.test.mjs:16:1
+✖ ordinary enemy can start its counter at both melee classes outer hit range (357.761708ms)
+  AssertionError [ERR_ASSERTION]: shadow must face an ordinary counterattack
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:16:433)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }
+
+test at tests/ui-save-polish.test.mjs:31:1
+✖ full snapshot roundtrip restores location, money and inventory without changing gear stats (2.808625ms)
+  Error: 这份存档包含当前版本尚不能接续的扩展进度。原始内容已保留，请先导出存档。
+      at assertSupportedSavedProgressV23 (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-protection-v23.js:9:26)
+      at parseSave (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/save-transfer-v14.js:35:44)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/ui-save-polish.test.mjs:32:53)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7)

@@ -1,0 +1,1115 @@
+{
+  "status": "budget_limited",
+  "task": "第一章悬赏发布交接",
+  "basis_commit": "15595193f01c14ef29237efad606367559099197",
+  "source_fingerprint": "af2eff161faadf38b44397cdbae6458602f76df3a5b3caa2a0097f57117d66e8",
+  "modules": [
+    "chapter01_plan",
+    "story",
+    "build"
+  ],
+  "contexts": [
+    {
+      "path": "docs/harness/NARRATIVE_WORKFLOW.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 195,
+      "category": "current_rules",
+      "sha256": "722c56805d934a2de2043686763a22f7f09a4ee9b75904d5ef5b30e6fb717c40",
+      "excerpts": [
+        {
+          "line": 17,
+          "text": "权威顺序：当前用户确定方向决定变更目标；当前代码和可重复运行描述实际行为；CURRENT_STATE/发行回执描述交付；章节稿按采用状态提供策划。结构化资料是带来源的索引与事件补充，不是第二套独立正文。长期建议、未知项、已撤回设计、STYLE_ONLY样本不得升级为正史。第一章当前为0.9并保留0.5幕后，第二章0.3追加未实施；历史0.6人工节奏验收依旧独立。",
+          "truncated": false
+        },
+        {
+          "line": 21,
+          "text": "1. 读取 [分卷分章架构与登记表](NARRATIVE_ARCHITECTURE.md) 的对应条目，定位章节稿。对第一、二章分别运行 `context.py --task \"第一章剧情\"`、`context.py --task \"第二章剧情\"`；不要用一次混合查询代替每章定位。路由只提供摘录，开发前必须实际读取本章稿全文。",
+          "truncated": false
+        },
+        {
+          "line": 25,
+          "text": "5. 实现、回放、实际游玩、存档迁移验收后，更新为 `IMPLEMENTED`，登记真实入口、文件与证据。未开发章仍保持原状态，不能因第一章完成而宣称前两章都已实装。",
+          "truncated": false
+        },
+        {
+          "line": 29,
+          "text": "2026-10-10用户保留第一章人物形象和地图/交互优化，撤销新增分镜式剧情表现及其Harness设计。2026-10-12采用第一章0.5：保留原任务/对白/结果，接委托后加入薇蕾娜/鲁恩私下对话，删除新增匿名神秘人，已知角色用原立绘、旁白无人物占位；圣女默认立绘改为封面柔和形象；移除专用演出大图、附加等待和回看入口。第二章0.3仍只策划。两章记录分别见 [CHAPTER_01](CHAPTER_01.md)、[CHAPTER_02](CHAPTER_02.md)，不再有独立分镜开发prompt。长期世界观不扩大本轮范围。",
+          "truncated": false
+        },
+        {
+          "line": 57,
+          "text": "## 第一章0.6采用范围（2026-10-12）",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 9183
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 194,
+      "category": "narrative_context",
+      "sha256": "c47af4be79dd84662d4818fb2a67248a0f5923a4841b9a74b0c513d30ed0836d",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格规范",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6397
+    },
+    {
+      "path": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 193,
+      "category": "narrative_context",
+      "sha256": "1497c7dd6d99b322631b4ff7d7eb8012959b0f8f3c85012d10239674348cdd21",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 中文对白风格参考库",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 6098
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 192,
+      "category": "current_code",
+      "sha256": "f695ef4ecc0888e899a534b15aeafc3a140953f801900b7d4c79334f55c20001",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章1.5 · 熟人的话与逐轮试炼",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "验收：完整第一章语料审读记录；前后信息/人物对照；逐轮任务状态与选项排序；商人一致性真实截图；现有正文和存档兼容专项、集成、默认包。真人文风待验。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1896
+    },
+    {
+      "path": "docs/harness/CHAPTER_01.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry",
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 191,
+      "category": "current_code",
+      "sha256": "f2e468c66cd2bb98644b0d000112766c20e0d6f2373cb66458a7c101b0d9eca3",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章剧情记录 · 午钟之前",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "> 当前采用1.5：[人物口吻与逐轮试炼](CHAPTER_01_CHARACTER_FLOW.md)，IMPLEMENTED（真人文风待验），任务c1-character-flow-20261016。第一章全文及闲聊审读，薇蕾娜亲昵关心、鲁恩逐轮交接，任务优先、固定女性商人称“商人”。保留1.4战斗和1.3事件结果，旧稿仍保留。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "> 2026-10-14新采用稿第一章1.0：[RPG体验试点](CHAPTER_01_RPG_EXPERIENCE.md)，IMPLEMENTED（技术已实装，真人节奏待验），任务rpg-c1-20261014。全游戏当前授权与分章实施见[体验审计](../rpg-experience/AUDIT.md)。以下0.9为历史运行基线，后续章节新改造逐章登记，不等于已实现。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "> 2026-10-13当前采用第一章0.9：[分层任务与通用规则](CHAPTER_01_LAYER_RULES.md)，DEV_FROZEN，任务c1-layer-rules-20261013。下述0.8为保留基线。",
+          "truncated": false
+        },
+        {
+          "line": 19,
+          "text": "- 2026-10-12采用用户《第一章流程扩充与成长系统》；任务c1-expansion-20261012。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 11390
+    },
+    {
+      "path": "source/narrative/characters/noen.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 190,
+      "category": "narrative_context",
+      "sha256": "ecef3f02d30818bfc9b71f707f81a369e108de7dcf935271e57a12020dd2b3d4",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"noen\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"诺恩\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"诺恩\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "    \"男主\",",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"影刃\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 15506
+    },
+    {
+      "path": "source/narrative/characters/rune.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 189,
+      "category": "narrative_context",
+      "sha256": "8d8359fcc5934aa2273c0481576509f653752ae92d6a2ded0693dee6131152cb",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"rune\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"鲁恩\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"鲁恩\"",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "  ],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  \"scope\": \"individual\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2731
+    },
+    {
+      "path": "source/narrative/characters/bounty_hunter.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 188,
+      "category": "narrative_context",
+      "sha256": "414200a5bace46dfaf3467437ac7ec5523268da6c3eb49c33210604b6913a104",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "{",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "  \"schema\": 1,",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "  \"id\": \"bounty_hunter\",",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"name\": \"赏金猎人\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"aliases\": [",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "    \"赏金猎人\",",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "    \"c1hunter\"",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "  ],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1577
+    },
+    {
+      "path": "source/narrative/chapters/R01.json",
+      "reasons": [
+        "Narrative Workflow: selected chapter/character/style; full source still requires reading"
+      ],
+      "priority": 187,
+      "category": "narrative_context",
+      "sha256": "dd8fa110b5b7bf2bf57ed9dc4f23b0eb25408b045d8d2c551084cad760864683",
+      "excerpts": [
+        {
+          "line": 6,
+          "text": "  \"title\": \"午钟之前（工作名；运行第一章）\",",
+          "truncated": false
+        },
+        {
+          "line": 186,
+          "text": "      \"summary\": \"第一章1.3当前内容：赫莎：位置记下了。线和水槽得一起修，不然新线接上去，过不了多久还得烧。；诺恩：看守那边也处理过了，现在能接吗？；赫莎：能，这下维修班可以进来换线了。三层的维恩还在守着旧账，他要是托你带清册，你先问清位置，省得在架子间绕路。\",",
+          "truncated": false
+        },
+        {
+          "line": 208,
+          "text": "      \"summary\": \"第一章1.3当前内容：维恩：伊登把通道打开了，我总算能把这几本账先搬出去。东厅还有一本封存清册，我一个人拿不了。；诺恩：是什么拦着你？；维恩：西边那名封存看守认的是旧口令，我一靠近，它就举盾。得先让它停下来，我才敢进去收拾。；诺恩：我处理看守，再把清册带回来。你说的书架在哪里？；维恩：东厅北墙，封皮上写着《封存清册》。东厅北墙的书架上只有这一册，我在入口等你。回来我分你两瓶备用药，护送账册的工钱也一起结。\",",
+          "truncated": false
+        },
+        {
+          "line": 1940,
+          "text": "      \"trigger\": \"第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。\",",
+          "truncated": false
+        },
+        {
+          "line": 1997,
+          "text": "      \"trigger\": \"第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。\",",
+          "truncated": false
+        },
+        {
+          "line": 2035,
+          "text": "      \"trigger\": \"第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。\",",
+          "truncated": false
+        },
+        {
+          "line": 2124,
+          "text": "      \"trigger\": \"第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算。旧schema≤5在播正文单独保留。\",",
+          "truncated": false
+        },
+        {
+          "line": 2162,
+          "text": "      \"trigger\": \"第一章1.3按trial-runtime实际地图/进度/任务条件触发，pending.then末页结算",
+          "truncated": true
+        }
+      ],
+      "full_file_bytes": 269146
+    },
+    {
+      "path": "docs/harness/STORY.md",
+      "reasons": [
+        "chapter01_plan: current constraints",
+        "story: current constraints"
+      ],
+      "priority": 123,
+      "category": "current_rules",
+      "sha256": "d0e295fa397113d84ff432641113678002b2d641e1351d754a7c187047f197ec",
+      "excerpts": [
+        {
+          "line": 3,
+          "text": "所有人物/对白/伏笔任务先按 [Narrative Workflow](NARRATIVE_WORKFLOW.md) 定位时点，再读 [叙事资料与命令](NARRATIVE_HARNESS.md)。中文自然交流、长度与人物差异遵循 [对白规范](DIALOGUE_STYLE.md)，样本只学语言，不建立正史。当前第一章0.9保留0.5幕后与原刺杀；下方0.5是保留层，不代表回退现行任务。",
+          "truncated": false
+        },
+        {
+          "line": 15,
+          "text": "第一章现行0.5见 [CHAPTER_01](CHAPTER_01.md)，第二章0.3见 [CHAPTER_02](CHAPTER_02.md)。用户已撤下0.3新增分镜表现：原刺杀对白/地图内动作保持，0.5幕后只保留接委托后的薇蕾娜/鲁恩私下对话，使用原立绘，旁白无占位人影；新增匿名神秘人片段删除；圣女默认立绘改用封面柔和形象；人物/地图/交互优化保留。旧开发prompt不再是现行入口。必须兼容原pending与旧尾段游标、只执行一次原提交，不新增圣女实战，不扩大到第二章。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2296
+    },
+    {
+      "path": "docs/harness/GIT_SAVE.md",
+      "reasons": [
+        "build: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "0872d55a0974872e0d7d7284cea33d665e3570418c3af34462ffc3a8c3fcd953",
+      "excerpts": [
+        {
+          "line": 9,
+          "text": "失败保留本地提交和所有文件，记录原因、待上传分支/SHA，必要时 git bundle（LFS另存），明确“未完成远端同步”。产品/平台/运行源码/文档备份提交分别记；GitHub保存、CI、浏览器QA、站点发布互不替代。未请求站点发布时不运行 tools/web_play_ci.py 的 publish/record。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1789
+    },
+    {
+      "path": "docs/web-play/README.md",
+      "reasons": [
+        "build: current constraints"
+      ],
+      "priority": 122,
+      "category": "current_rules",
+      "sha256": "09c9d39b7d61f46bf7a1e2e3d03b99b6157edd4b40e648668e590fb1961c3a4f",
+      "excerpts": [
+        {
+          "line": 5,
+          "text": "当前第一章0.4修订运行代码在 `dist/`。用 `python3 tools/serve.py` 启动；端口占用时指定 `--port 5174`，打开终端显示的地址。不要用固定历史链接核对当前代码。",
+          "truncated": false
+        },
+        {
+          "line": 11,
+          "text": "以下为固定提交的历史V28.1页面，不包含第一章0.4回改：",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2048
+    },
+    {
+      "path": "dist/chapter-one-conversations.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "c9864c7a69e6d22d8222c9312ba6f3a44972a4fe7134eb2a3b9962340b0c5a14",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {C1_CONVERSATIONS} from './chapter-one-conversations-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {C1_HIDDEN} from './chapter-one-dialogues-v31.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {C1_LOCAL_TALK} from './chapter-one-story-world.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {C1_NPC_NAMES} from './chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {V12_PACING} from './pacing-data-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "// Install after the trial overlay. Keep shared arrays and saved full-text pages;",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "// only newly opened dialogue uses this edition. Actor IDs and quest commits stay stable.",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "export function installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1875
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_LOOT_SERVICES.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 103,
+      "category": "current_code",
+      "sha256": "a4bcc1c051002ea9a5e3d5b7818188a976a9af79dd8e8dbdcc579757403afc7f",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.7：任务交接和服务角色",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "会馆新增固定赏金猎人(c1hunter)，位于中央东侧可达地面(855,385)。他发布和结算五处隐患；原鲁恩保留传令、试炼安排和幕后私谈。三场悬赏对白保留目标、页数、结果及原任务ID；说话人改为赏金猎人，开头直接展示悬赏单；伊登地下试炼说明中的另一份委托同步指向赏金猎人。五处仍是两地下看守和三郊外凶兽，不包含终试执卫。领取80经验/60金一次。",
+          "truncated": false
+        },
+        {
+          "line": 13,
+          "text": "存档：保留任务ID、已击杀集合、pending游标和奖励记录；旧正在播放的悬赏文本可继续，结束动作与新发布者兼容。服务角色按固定ID补入已访问地图，不重复添加。",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 1864
+    },
+    {
+      "path": "dist/chapter-one-conversations-data.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "d4eca1f71630a40601310ca2bd2152790b950dc50a887c90c0543638e9284d60",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Adopted R01 1.5. Full before/after and editorial review: docs/c1-character-flow/SCRIPT.json.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const C1_CONVERSATIONS=[",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " {",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "  \"key\": \"c1TrialInvitation\",",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "  \"static\": true,",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "  \"rows\": [",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "   [",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "    \"薇蕾娜\",",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 76531
+    },
+    {
+      "path": "tools/serve.py",
+      "reasons": [
+        "build: task matched 发布; maintained entry"
+      ],
+      "priority": 102,
+      "category": "current_code",
+      "sha256": "bad8de4fb90f39fed4ec5a4ca14b52dfb5b850b398bef19b59457b1a1b5de804",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "#!/usr/bin/env python3",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "\"\"\"Restore original assets and serve current game code with a visible loading UI.\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import argparse",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "from functools import partial",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import io",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import json",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import re",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 4376
+    },
+    {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "8247612506cf7c3615c0be62248c81089b7dfb32e18f3b95b46bf1e59c461b9c",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "// Adopted chapter 1.3 with the three trial conversations revised by chapter 1.4. Installed after the preservation-only copyedit overlay.",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "export const C1_TRIAL_DIALOGUES={",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": " c1SaintAid:[",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": " ['旁白','白榆城的旧集市旁，几位老人仍在等饭。朵莉送来食篮，艾莉娅迎上去，接过了热粥。'],",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": " ['朵莉','圣女大人，粥和面包都拿来了。厨房以为这边没人等，差点把锅收了。'],",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": " ['艾莉娅','这里还有几位走得慢的老人。我刚才问过，他们早晨就到了旧地方，等了很久才听说施粥点搬了。'],",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": " ['朵莉','南街贴了告示，可认字的人也少。明天我早点来，在路口给他们指路。'],",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": " ['艾莉娅','我也来。你把粥放在这边吧，坐着的几位先送过去。我来分面包，今天剩下的够他们带一份回家吗？'],",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 16128
+    },
+    {
+      "path": "docs/harness/CHAPTER_01_RESTRAINT.md",
+      "reasons": [
+        "chapter01_plan: task matched 第一章; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "7a0a0b15a7ab87ff795813d740179a67976042dc7fe9b171135ea219a2f29997",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "# 第一章采用稿1.4 · 克制表现与日常交流",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2827
+    },
+    {
+      "path": "tools/web_runtime.py",
+      "reasons": [
+        "build: task matched 发布; maintained entry"
+      ],
+      "priority": 101,
+      "category": "current_code",
+      "sha256": "fd171642454fcda718f51ed0e5dbc109ce3f1eebe4316c6d3aa34f86555fcb04",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "\"\"\"Shared in-memory loading hooks for local HTTP and packaged play. Stdlib only.\"\"\"",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "from pathlib import Path",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 2385
+    },
+    {
+      "path": "dist/chapter-one-trial-runtime.js",
+      "reasons": [
+        "story: task matched 第一章; maintained entry"
+      ],
+      "priority": 100,
+      "category": "current_code",
+      "sha256": "aac191ebc05b5823b2e6ae8ae500cc60f2dded6c10f6fac3f5071a6c6b2ec1f6",
+      "excerpts": [
+        {
+          "line": 1,
+          "text": "import {sortQuestOptions} from './quest-service-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 2,
+          "text": "import {CINEMATIC_SCENES} from './cinematics-v14.js';",
+          "truncated": false
+        },
+        {
+          "line": 3,
+          "text": "import {migrateTrialSave} from './chapter-one-trial-save.js';",
+          "truncated": false
+        },
+        {
+          "line": 4,
+          "text": "import {C1_TRIAL_DIALOGUES} from './chapter-one-trial-dialogues.js';",
+          "truncated": false
+        },
+        {
+          "line": 5,
+          "text": "import {C1_QUESTS,C1_SIDE,C1_ELITES,C1_RUNES,C1_CORES} from './chapter-one-expansion-data.js';",
+          "truncated": false
+        },
+        {
+          "line": 6,
+          "text": "import {C1_OBJECTIVES,C1_GIVERS} from './chapter-one-objectives.js';",
+          "truncated": false
+        },
+        {
+          "line": 7,
+          "text": "import {C1_MAPS} from './chapter-one-layout.js';",
+          "truncated": false
+        },
+        {
+          "line": 8,
+          "text": "import {c1State,c1Clone} from './chapter-one-expansion-save.js';",
+          "truncated": false
+        }
+      ],
+      "full_file_bytes": 19738
+    }
+  ],
+  "excerpt_bytes": 9880,
+  "max_files": 20,
+  "budget_bytes": 60000,
+  "narrative": {
+    "selection": {
+      "requested": true,
+      "chapters": [
+        "R01"
+      ],
+      "scene": "c1HuntOffer",
+      "actors": [
+        "noen",
+        "rune",
+        "bounty_hunter"
+      ],
+      "stage_candidates": [],
+      "needs": []
+    },
+    "ready_to_write": true,
+    "style": {
+      "guide": "docs/harness/DIALOGUE_STYLE.md",
+      "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+      "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+    },
+    "characters": {
+      "noen": {
+        "name": "诺恩",
+        "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+        "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+        "state": {
+          "emotion": "日常回到会馆，进入任务准备。",
+          "goals": [
+            "处理库房问题，听取委托。"
+          ],
+          "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+          "expression": "能与熟人正常交谈；情感伦理理解不足。",
+          "conflicts": []
+        },
+        "relationships": {},
+        "sources": [
+          "author-hero",
+          "scene:contract",
+          "scene:sisterIdle",
+          "scene:ch2Spillway",
+          "runtime-c1-hidden",
+          "c1-story-flow",
+          "runtime-c1-actions",
+          "c1-care-plan",
+          "c1-care-runtime"
+        ],
+        "profile": "source/narrative/characters/noen.json"
+      },
+      "rune": {
+        "name": "鲁恩",
+        "base": "会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。",
+        "voice": "事务信息具体，越权部分回避与道歉；不能用沉默推出他知道全部真相。",
+        "state": {
+          "emotion": "处理传令事务；对薇蕾娜的追问回避。",
+          "goals": [
+            "按上级安排传递任务。"
+          ],
+          "faction_view": "UNRESOLVED",
+          "expression": "能交代细节，遇越权问题不解释。",
+          "conflicts": []
+        },
+        "relationships": {
+          "noen": {
+            "trust": "UNRESOLVED",
+            "affection": "看着他长大",
+            "caution": "UNRESOLVED",
+            "hostility": "UNRESOLVED",
+            "dependence": "UNRESOLVED",
+            "concealment": "未解释上级计划",
+            "obligation": "UNRESOLVED",
+            "conflict": "UNRESOLVED"
+          }
+        },
+        "sources": [
+          "scene:aside",
+          "scene:clerkIdle",
+          "runtime-c1-hidden",
+          "c1-story-flow",
+          "scene:contract",
+          "runtime-c1-actions"
+        ],
+        "profile": "source/narrative/characters/rune.json"
+      },
+      "bounty_hunter": {
+        "name": "赏金猎人",
+        "base": "受理公开精英悬赏、核对目标并结算报酬的固定赏金猎人。",
+        "voice": "直截了当谈目标、位置和工钱；与诺恩初识，没有旧交语气，不知会馆秘密。",
+        "state": {
+          "emotion": "平静，关注悬赏进度。",
+          "goals": [
+            "把五处隐患的委托交给能处理的人。"
+          ],
+          "faction_view": "UNRESOLVED",
+          "expression": "UNRESOLVED",
+          "conflicts": []
+        },
+        "relationships": {},
+        "sources": [
+          "loot-services-plan"
+        ],
+        "profile": "source/narrative/characters/bounty_hunter.json"
+      }
+    },
+    "knowledge": {
+      "noen": {},
+      "rune": {},
+      "bounty_hunter": {},
+      "player": {}
+    },
+    "facts": {
+      "F-C1-13-C1HUNTOFFER": {
+        "id": "F-C1-13-C1HUNTOFFER",
+        "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+        "truth": "world_fact",
+        "plane": "runtime",
+        "status": "RUNTIME",
+        "sources": [
+          "trial:c1HuntOffer",
+          "character-flow:c1HuntOffer"
+        ],
+        "risk_terms": []
+      }
+    },
+    "seeds": [],
+    "conflicts": [
+      {
+        "id": "DIFF-WORLD-ANONYMOUS",
+        "kind": "superseded_direction",
+        "status": "ISOLATED",
+        "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+        "sources": [
+          "c1-retained",
+          "runtime-c1-hidden"
+        ],
+        "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+      },
+      {
+        "id": "DIFF-C1-RATS",
+        "kind": "runtime_text_drift",
+        "status": "CONFIRMED",
+        "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+        "sources": [
+          "scene:intro",
+          "scene:contract",
+          "runtime-c1-objectives",
+          "c1-retained"
+        ],
+        "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+        "resolved": true
+      }
+    ],
+    "required_scene_brief": [
+      "实际传达的信息",
+      "每个说话人的目的",
+      "预期剧情结果",
+      "因果与情绪依据",
+      "任务/动作/对话框交接"
+    ],
+    "limits": [
+      "登记事件不是完整语义理解；未登记信息不得推为已知。"
+    ],
+    "stage": {
+      "chapter": "R01",
+      "scene": "c1HuntOffer",
+      "position": "before",
+      "at": "R01:intro",
+      "stage_exact": true,
+      "coverage": "curated_mainline",
+      "gaps": [
+        "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+        "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+      ],
+      "plan": {
+        "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+        "revision": "1.5",
+        "status": "IMPLEMENTED"
+      }
+    },
+    "runtime_reader": [
+      "node",
+      "tools/harness/narrative_runtime.mjs",
+      "--scene",
+      "c1HuntOffer",
+      "--text"
+    ],
+    "reveal_ceiling": {
+      "this_event_only": [
+        {
+          "actor": "noen",
+          "fact": "F-C1-13-C1HUNTOFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "rune",
+          "fact": "F-C1-13-C1HUNTOFFER",
+          "mode": "knows"
+        },
+        {
+          "actor": "player",
+          "fact": "F-C1-13-C1HUNTOFFER",
+          "mode": "knows"
+        }
+      ],
+      "author_secrets_do_not_grant_knowledge": true
+    },
+    "provenance": {
+      "author-hero": {
+        "path": "docs/harness/WORLD_VISION.md",
+        "anchor": "### 3. 诺恩的起点与成长",
+        "kind": "user_confirmed"
+      },
+      "c1-care-plan": {
+        "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+        "anchor": "# 第一章采用稿1.2",
+        "kind": "adopted_plan"
+      },
+      "c1-care-runtime": {
+        "path": "dist/chapter-one-care-dialogues.js",
+        "anchor": "export const C1_CARE_DIALOGUES",
+        "kind": "runtime"
+      },
+      "c1-retained": {
+        "path": "docs/harness/CHAPTER_01.md",
+        "anchor": "## 4. 接委托后的私下对话",
+        "kind": "adopted_plan"
+      },
+      "c1-story-flow": {
+        "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+        "anchor": "# 第一章采用稿1.1",
+        "kind": "adopted_plan"
+      },
+      "character-flow:c1HuntOffer": {
+        "path": "dist/chapter-one-conversations-data.js",
+        "anchor": "export const C1_CONVERSATIONS",
+        "kind": "runtime",
+        "runtime_scene": "c1HuntOffer"
+      },
+      "loot-services-plan": {
+        "path": "docs/harness/CHAPTER_01_LOOT_SERVICES.md",
+        "anchor": "# 第一章采用稿1.7",
+        "kind": "adopted_plan"
+      },
+      "runtime-c1-actions": {
+        "path": "dist/chapter-one-expansion-quests.js",
+        "anchor": "P.choose=function(action)",
+        "kind": "runtime"
+      },
+      "runtime-c1-hidden": {
+        "path": "dist/chapter-one-dialogues-v31.js",
+        "anchor": "export const C1_HIDDEN",
+        "kind": "runtime",
+        "runtime_scene": "c1HiddenPairArrangement"
+      },
+      "runtime-c1-objectives": {
+        "path": "dist/chapter-one-objectives.js",
+        "anchor": "export const C1_OBJECTIVES",
+        "kind": "runtime"
+      },
+      "scene:aside": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "aside",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:ch2Spillway": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "ch2Spillway",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:clerkIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "clerkIdle",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:contract": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "contract",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:intro": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "intro",
+        "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+      },
+      "scene:sisterIdle": {
+        "path": "dist/core-v14.js",
+        "anchor": "export",
+        "kind": "runtime",
+        "runtime_scene": "sisterIdle"
+      },
+      "trial:c1HuntOffer": {
+        "path": "dist/chapter-one-trial-dialogues.js",
+        "anchor": "export const C1_TRIAL_DIALOGUES",
+        "kind": "runtime",
+        "runtime_scene": "c1HuntOffer"
+      }
+    }
+  },
+  "narrative_bytes": 7942,
+  "total_context_bytes": 17822,
+  "deferred": [
+    "docs/harness/CHAPTER_01_TRIAL_FORGE.md",
+    "web/launcher.html",
+    "dist/chapter-one-care-dialogues.js",
+    "docs/harness/CHAPTER_01_CARE_UI.md",
+    "tools/restore_archives.py",
+    "dist/chapter-one-care-save.js",
+    "docs/harness/CHAPTER_01_STORY_FLOW.md",
+    "tools/build_web_play.py",
+    "dist/dialogue-reader.js",
+    "docs/harness/CHAPTER_01_RPG_EXPERIENCE.md",
+    "tests/browser-presentation-v281.mjs",
+    "dist/chapter-one-quest-dialogues.js",
+    "tests/browser-web-play.py",
+    "dist/chapter-one-private-staging.js",
+    "dist/dialogue-save-migration-v26.js",
+    "dist/world-dialogues-v29.js",
+    "dist/chengli-text-v27.js",
+    "dist/data-v14.js",
+    "dist/dialogue-runtime-v16.js",
+    "dist/saga-runtime-v26.js",
+    "dist/story-flow-v14.js",
+    "dist/chapter-one-dialogues-v31.js",
+    "dist/chapter-one-expansion-quests.js",
+    "dist/rpg-experience-dialogues.js"
+  ],
+  "test_suggestions": [
+    "node --test tests/c1-story-flow.test.mjs",
+    "node --test tests/c1-trial-forge.test.mjs",
+    "node --test tests/ch12-bugs.test.mjs",
+    "node --test tests/chapter-one-incremental.test.mjs",
+    "node --test tests/dialogue-reader.test.mjs",
+    "node --test tests/loot-services.test.mjs",
+    "node --test tests/presentation-v281.test.mjs",
+    "node --test tests/world-v29.test.mjs",
+    "node tests/browser-presentation-v281.mjs",
+    "python3 tests/test_local_serve.py",
+    "python3 tools/harness/check.py --tier fast",
+    "python3 tools/harness/check.py --tier narrative",
+    "python3 tools/harness/check.py --tier release"
+  ],
+  "risks": [
+    "第一章1.2扩写亲昵关心，1.1任务交代与离场私谈保留；对白回看不改变实际剧情进度，保留旧档和原奖励。",
+    "人物知识边界和剧情节点不能被历史旧稿覆盖；FUTURE_ONLY 不是实现授权。",
+    "GitHub 保存不是部署；历史分卷不覆盖；构建输出保留精确版本和哈希。"
+  ],
+  "installer_order": [],
+  "conflicts": [
+    "Historical prose and code may disagree; runtime is descriptive authority, user-approved intent is change authority"
+  ],
+  "not_loaded": [
+    "history/",
+    "archives/",
+    "FUTURE_ONLY"
+  ],
+  "limits": [
+    "Discovery excerpts are incomplete; inspect functions and callers before editing",
+    "Graph uses literal imports, not a complete JS call/prototype analysis"
+  ]
+}

@@ -1,0 +1,49 @@
+✔ five-minute clock does not save at one minute, saves after 300 active seconds (5.062458ms)
+✔ level up heals the current hero to the final maximum for all three classes (5.154708ms)
+✔ real kill leaves gold, potion/material and gear on floor; pickup transfers exactly once (2.670084ms)
+✔ full bag keeps dropped gear instead of converting to gold, while stackables remain collectible (0.79025ms)
+✔ uncollected loot survives leaving the map, export/import and death checkpoint restore (8.570292ms)
+✔ quest drop credit waits for pickup and samples retain first-kill identity (0.904833ms)
+✔ nested kills each own their loot and repeat damage cannot duplicate drops (0.7515ms)
+✔ ordinary enemy can start its counter at both melee classes outer hit range (22.96875ms)
+✔ intro automatically accepts rats and preserves active/done states through save migration (3.661375ms)
+✔ hunter owns elite quest, marker, dialogue and return objective; Rune retains other work (0.74975ms)
+✔ every current quest records both gold and XP, and chapter settlement is paid once (3.277333ms)
+✖ NPC catalog is read-only until purchase and validates proximity and current offers (3.252875ms)
+✔ all shop catalogs show a grid, selection is free, and potion detail is concise (1.982125ms)
+✔ each potion displays live owned/required amounts and repeated real crafts consume exactly once (8.841584ms)
+✔ automatic timer only saves after 300 active seconds; failure retries and death never overwrites (0.418792ms)
+✔ unsafe scenes, training and combat postpone automatic saving until safe (0.899208ms)
+✔ full snapshot roundtrip restores location, money and inventory without changing gear stats (8.188292ms)
+✔ six quality palettes and rare equipment designs remain distinct with no gameplay mutation (0.230666ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 17
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.359667
+
+✖ failing tests:
+
+test at tests/loot-services.test.mjs:21:1
+✖ NPC catalog is read-only until purchase and validates proximity and current offers (3.252875ms)
+  AssertionError [ERR_ASSERTION]: The expression evaluated to a falsy value:
+  
+    assert.ok(offer)
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/loot-services.test.mjs:21:314)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: undefined,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

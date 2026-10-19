@@ -28,7 +28,7 @@ export function installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){
  C1_QUESTS.c1LoomBrief.map='hall';C1_QUESTS.c1LoomBrief.requires=['c1CommissionBrief'];
  const hunt={id:'c1EliteHunt',name:'五处隐患',type:'支线',xp:80,gold:60,map:'hall',target:'clerk',requires:[]};
  C1_SIDE.push(hunt);C1_QUESTS[hunt.id]=hunt;QUESTS[hunt.id]={...hunt,giver:'clerk',desc:'为维修班和运货人清除两名地下看守、三头郊外凶兽，五处齐备后向鲁恩回报。'};C1_GIVERS[hunt.id]='clerk';
- const coreQ={id:'c1CoreOrder',name:'装置的核心订单',type:'支线',xp:0,gold:0,map:'hall',target:'c1-loom',requires:['c1CommissionBrief']};C1_QUESTS[coreQ.id]=coreQ;QUESTS[coreQ.id]=coreQ;
+ const coreQ={id:'c1CoreOrder',name:'装置的核心订单',type:'支线',xp:12,gold:6,map:'hall',target:'c1-loom',requires:['c1CommissionBrief']};C1_QUESTS[coreQ.id]=coreQ;QUESTS[coreQ.id]=coreQ;
  // Use the existing machine and merchant, with a clear approach from the hall's centre.
  const room=MAPS.c1LoomRoom,loom=room.props.find(p=>p.id==='c1-loom'),rosa=room.npcs.find(p=>p.id==='c1rosa');
  room.props=room.props.filter(p=>p!==loom);room.npcs=room.npcs.filter(p=>p!==rosa);room.blocks=room.blocks.filter(b=>JSON.stringify(b)!==JSON.stringify(loom.c1Box));room.c1Layout=11;
@@ -111,7 +111,7 @@ export function installC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES}){
  P.c1Brew=function(id,serial){const b=C1_BREWS[id],s=prep(this);if(!b||!this.c1AtService('loom')||serial!==s.potionSequence+1||(this.p.items[C1_MEDICINE]||0)<b.amount||this.p.gold<b.fee)return false;return this.c1Transaction('brew:'+serial,()=>{this.p.items[C1_MEDICINE]-=b.amount;this.p.gold-=b.fee;this.addItem(id);s.potionSequence=serial;return {items:[id]};});};
  P.c1AcceptCoreOrder=function(serial){const s=prep(this);if(!s.approved||!this.c1AtService('loom')||s.order?.serial!==serial||s.order.accepted)return false;this.beginScene('c1CoreOrderOffer','trial:orderAccept:'+serial);return true;};
  P.c1CompleteCoreOrder=function(serial){const s=prep(this),o=s.order;if(!s.approved||!this.c1AtService('loom')||!o?.accepted||o.serial!==serial||(this.p.items[C1_MEDICINE]||0)<o.amount)return false;
-  return this.c1Transaction('core-order:'+serial,()=>{this.p.items[C1_MEDICINE]-=o.amount;this.addItem(o.core);delete this.quests.c1CoreOrder;order(this);return {items:[o.core]};});};
+  return this.c1Transaction('core-order:'+serial,()=>{this.p.items[C1_MEDICINE]-=o.amount;this.addItem(o.core);this.gainXP(12);this.p.gold+=6;delete this.quests.c1CoreOrder;order(this);return {items:[o.core],xp:12,gold:6};});};
  P.c1Craft=function(...args){return prep(this).approved?old.c1Craft.apply(this,args):false;};
  P.c1FreeMaterials=function(...args){return prep(this).legacy&&prep(this).approved?old.c1FreeMaterials.apply(this,args):false;};
  P.c1Exchange=function(...args){return prep(this).approved?old.c1Exchange.apply(this,args):false;};

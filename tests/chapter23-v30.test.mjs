@@ -20,8 +20,8 @@ test('21 maps keep exact baseline geometry; two authorized C3 caves keep exits, 
  }
  assert.equal(chapter23V30('hellMemoryVillage'),false);assert.equal(chapter23V30('deepGate'),false);
 });
-test('24 adopted 1.4 seeded encounters preserve full combat, reward, cooldown and RNG event streams',()=>{
- for(const {config,result}of JSON.parse(fs.readFileSync(new URL('./fixtures/restraint-c23-combat.json',import.meta.url))).runs){
+test('24 adopted 1.7 seeded encounters preserve full combat, reward, cooldown and RNG event streams',()=>{
+ for(const {config,result}of JSON.parse(fs.readFileSync(new URL('./fixtures/loot-services-c23-combat.json',import.meta.url))).runs){
   // Original oracle remains in docs/chapter23. Authorized durability has its own
   // exact event oracle, preserving full timing, damage, cooldown and RNG checks.
   const expected=structuredClone(result);

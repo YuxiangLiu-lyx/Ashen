@@ -1,3 +1,4 @@
+import {serviceDialogue,serviceScript} from './loot-services-fixtures.mjs';
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {RPG,MAPS,QUESTS,ITEMS}from '../dist/core-v14.js';import{DIALOGUES}from '../dist/data-v14.js';
 import{C1_MAPS}from '../dist/chapter-one-layout.js';import{QUEST_PRIORITY}from '../dist/quest-service-v14.js';
@@ -10,7 +11,7 @@ const load=g=>new RPG('shadow',parseSave(JSON.stringify(g.snapshot())),()=>.44);
 test('full chapter edit matches adopted script, keeps page beats and all other chapter text',()=>{
  const corpus=dialogueCorpus().scenes,entries=new Map(script.entries.map(e=>[e.key,e]));
  for(const [id,old]of Object.entries(before)){
-  const e=entries.get(id),later=second.get(id);if(later)assert.deepEqual(later.before,e?.after||old.text,id+' chapter-two exact baseline');assert.deepEqual(corpus[id].text,later?.after||e?.after||old.text,id);if(e){assert.equal(e.after.length,old.text.length,id);assert.deepEqual(e.after.map(r=>r[0]),old.text.map(r=>r[0]==='罗萨'?'商人':r[0]),id);}
+  const e=entries.get(id),later=second.get(id);if(later)assert.deepEqual(later.before,e?.after||old.text,id+' chapter-two exact baseline');assert.deepEqual(corpus[id].text,serviceDialogue(id,later?.after||e?.after||old.text),id);if(e){assert.equal(e.after.length,old.text.length,id);assert.deepEqual(e.after.map(r=>r[0]),old.text.map(r=>r[0]==='罗萨'?'商人':r[0]),id);}
  }
  assert.equal(script.reviewed.length,263);assert.equal(entries.size,142);
  for(const id of script.reviewed)assert.doesNotMatch(JSON.stringify(corpus[id].text),/罗萨/,id);

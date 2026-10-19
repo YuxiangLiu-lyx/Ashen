@@ -2,8 +2,9 @@
 // Reward amounts are internal balancing data; the player sees only the opened parcel.
 import {SAGA_WORLD_TASKS_V25,SAGA_ENCOUNTERS_V25} from './saga-world-v25.js';
 const reward=(chapter,extra={})=>({xp:chapter===6?420:chapter===7?570:760,gold:chapter===6?90:chapter===7?125:160,...extra});
-const scene=(id,map,title,objective,extra={})=>({id,scene:id,map,chapter:Number(id.match(/c([67])v25/)?.[1]||8),title,objective,...extra});
-const task=(id,map,key,chapter,objective,extra={})=>({id,scene:null,map,task:key,chapter,title:objective,objective,...extra});
+const sceneReward=chapter=>({xp:chapter===6?60:chapter===7?80:100,gold:chapter===6?15:chapter===7?20:25});
+const scene=(id,map,title,objective,extra={})=>({reward:sceneReward(Number(id.match(/c([67])v25/)?.[1]||8)),id,scene:id,map,chapter:Number(id.match(/c([67])v25/)?.[1]||8),title,objective,...extra});
+const task=(id,map,key,chapter,objective,extra={})=>({reward:sceneReward(chapter),id,scene:null,map,task:key,chapter,title:objective,objective,...extra});
 export const SAGA_SPIRIT_TOPICS_V25={cup:{title:'说说那只旧杯子',scene:'v25C8SpiritCup'},practice:{title:'请她再看看起手',scene:'v25C8SpiritPractice'},boundary:{title:'隐庭留下的界纹',scene:'v25C8SpiritBoundary'},companions:{title:'聊聊同行的行装',scene:'v25C8SpiritCompanions'}};
 export const SAGA_NODES_V25=[
  scene('c6v25Musician','ch5Exit','微服私访','听完出口附近那位乐师的话。',{effects:['cloak'],travelTo:'ch6Outpost'}),

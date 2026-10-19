@@ -11,7 +11,7 @@ const live=g=>g.p?.cls!=='saint'&&!g._mercenaryContext&&!g.memoryV13?.active&&g.
 const resetEffects=g=>{g.bullets=[];g.zones=[];g.target=null;g.moveTo=null;g.p.attackAnim=0;g.p.dash=0;g.p.moving=false;g.paths?.clear();};
 export function installSagaV25(RPG,{stats,loot,nodes,tasks,encounters={},spawnEncounter,talks={}}){
  const P=RPG.prototype;if(P._sagaInstalledV25)return;Object.defineProperty(P,'_sagaInstalledV25',{value:true});
- Object.assign(ITEMS,ITEM_DATA);for(const n of nodes)QUESTS[n.id]={type:'主线',name:n.title||MAPS[n.map]?.name||'旅途',description:n.objective||'',xp:0,gold:0};
+ Object.assign(ITEMS,ITEM_DATA);for(const n of nodes)QUESTS[n.id]={type:'主线',name:n.title||MAPS[n.map]?.name||'旅途',description:n.objective||'',xp:n.reward.xp,gold:n.reward.gold};
  configureSagaValidationV25({nodes,tasks,maps:MAPS,talks,items:ITEMS});
  const old={};for(const k of ['snapshot','restore','enter','apply','update','useProp','choose','npcOptions','objective','trackedGoal','questGoal','ready','available','questPropNeeded','canDoor','handleHellDeath','respawn','hurt','damage','attack','skill','updateCompanion','activeMercenaries','activeMercenary','canSave','saveBlockReason','beginPrivateMemory','claimRewards','beginScene','ch5Action','restoreNoen','switchToSaint','canSell','sell','potionStock'])old[k]=P[k];
  const node=g=>nodes[state(g).stage],taskSpec=g=>tasks[state(g).task?.id],isHere=g=>sagaMapV25(g.map)||g.map==='ch5Exit'&&state(g).started;

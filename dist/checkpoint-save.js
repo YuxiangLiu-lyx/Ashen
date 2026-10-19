@@ -1,5 +1,5 @@
 // Browser persistence policy; snapshots remain owned by the installed RPG.
-export const AUTOSAVE_SECONDS=60;
+export const AUTOSAVE_SECONDS=300;
 export function checkpointBlockReason(g){
  if(!g)return '没有正在进行的旅程。';
  if(g.p.hp<=0)return '倒下后的状态不会覆盖存档。';

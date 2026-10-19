@@ -91,7 +91,8 @@ def run_case(browser,url,label,out,offline=False,remote=False):
     assert page.locator('.backstage-shadow').count()==0
     assert page.evaluate("JSON.parse(localStorage.getItem('ashen-vow-rpg-v10')).p.xp")==saved_tail['p']['xp']
     checks += ['legacy_tail_import','removed_anonymous_tail_skipped','tail_reload_migrates_once','tail_completes_once']
-    fixture="""async (module)=>{const {RPG,stats}=await import(module);const g=new RPG('shadow',null,()=>.4);g.ensureMap('warehouse');g.map='warehouse';const e=g.enemies[0];for(const other of g.enemies)if(other!==e){other.dead=true;other.hp=0;}const p=g.safePoint(e.x-40,e.y+22);g.relocate(p.x,p.y);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.pending=null;g.events=[];g.active=true;return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};}"""
+    # Isolated combat fixture: rat acceptance is now automatic; its first-story cutaway is tested separately.
+    fixture="""async (module)=>{const {RPG,stats}=await import(module);const g=new RPG('shadow',null,()=>.4);g.ensureMap('warehouse');g.map='warehouse';g.quests.rats='active';g.c1Expansion.preparation.saintSeen=true;const e=g.enemies[0];for(const other of g.enemies)if(other!==e){other.dead=true;other.hp=0;}const p=g.safePoint(e.x-40,e.y+22);g.relocate(p.x,p.y);g.p.hp=stats(g.p).hp;g.p.mp=stats(g.p).mp;g.pending=null;g.events=[];g.active=true;return {enemy_id:e.id,raw:JSON.stringify(g.snapshot())};}"""
     test_save=page.evaluate(fixture,module);enemy_id=test_save["enemy_id"]
     # Import through the real UI; beforeunload autosave must remain enabled.
     page.keyboard.press("Escape");page.locator('[data-act="import-save"]').click()

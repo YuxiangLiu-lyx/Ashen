@@ -1,3 +1,4 @@
+import {servicePortrait} from './service-character-art.js';
 import {C1_PEOPLE} from './chapter-one-story-world.js';
 // The generated scenery atlas uses authored unequal cells; no image is stretched
 // across a different object's region. Original alpha and image files stay intact.
@@ -24,7 +25,7 @@ export function drawC1QuestMark(c,bank,mark,x,y){
  c.drawImage(cache[mark],x-12*f.w/f.h,y-24,24*f.w/f.h,24);
 }
 export function drawC1LocalPerson(c,a,bank){const p=C1_PEOPLE[a.id];if(!p)return false;const cosine=Math.cos(a.angle||0),side=!a.moving&&Math.abs(cosine)>.8,back=Math.sin(a.angle||0)<-.25,ix=p.index+(side?3:(back?4:0)+(a.moving?1+Math.floor((a.walkDistance||0)/23)%2:0)),f=bank.frame(p.sheet,ix),ref=bank.frame(p.sheet,p.index);if(!f||!ref)return false;const k=82/ref.h;c.save();c.translate(a.x,a.y);if(side&&(cosine<0)!==(p.sheet==='c1UnderNPC'&&p.index!==8))c.scale(-1,1);c.imageSmoothingEnabled=true;c.drawImage(bank.images[p.sheet],f.x,f.y,f.w,f.h,-f.w*k/2,-f.h*k,f.w*k,f.h*k);c.restore();return true;}
-export function c1LocalPortrait(bank,name){const p=['商人','罗萨'].includes(name)?{sheet:'c1Merchant',index:0}:Object.values(C1_PEOPLE).find(p=>p.name===name);if(!p)return null;if(p.sheet==='c1UnderNPC'&&bank.frame('c1UnderPortraits',p.index/8))return bank.cropped('c1UnderPortraits',p.index/8);const key='c1Portrait:'+name;if(bank.urls[key])return bank.urls[key];const f=bank.frame(p.sheet,p.index);if(!f)return null;const c=document.createElement('canvas');c.width=180;c.height=200;const k=f.h*.43,w=k*.9;c.getContext('2d').drawImage(bank.images[p.sheet],f.x+(f.w-w)/2,f.y,w,k,0,0,180,200);return bank.urls[key]=c.toDataURL();}
+export function c1LocalPortrait(bank,name){const service=servicePortrait(bank,name);if(service)return service;const p=['商人','罗萨'].includes(name)?{sheet:'c1Merchant',index:0}:Object.values(C1_PEOPLE).find(p=>p.name===name);if(!p)return null;if(p.sheet==='c1UnderNPC'&&bank.frame('c1UnderPortraits',p.index/8))return bank.cropped('c1UnderPortraits',p.index/8);const key='c1Portrait:'+name;if(bank.urls[key])return bank.urls[key];const f=bank.frame(p.sheet,p.index);if(!f)return null;const c=document.createElement('canvas');c.width=180;c.height=200;const k=f.h*.43,w=k*.9;c.getContext('2d').drawImage(bank.images[p.sheet],f.x+(f.w-w)/2,f.y,w,k,0,0,180,200);return bank.urls[key]=c.toDataURL();}
 
 
 // Crop the last wall section to its remaining length rather than squeezing a

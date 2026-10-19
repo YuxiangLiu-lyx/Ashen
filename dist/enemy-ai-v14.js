@@ -1,7 +1,11 @@
 import {playerProjectileSourceValidV17} from './combat-input-v17.js';
 import {COMBAT_BALANCE as B,BOSS_MOVES,profileForEnemy} from './balance-v14.js';
 import {experienceProfile} from './rpg-experience-data.js';
-const profile=e=>({...profileForEnemy(e.type,e.id),...experienceProfile(e)});
+const profile=e=>{const cfg={...profileForEnemy(e.type,e.id),...experienceProfile(e)};
+ // Ordinary melee must engage the whole player melee contact band (up to 124).
+ // Boss/elite authored ranges and projectile attacks retain their own profiles.
+ if(!e.elite&&!e.isBoss&&!cfg.isBoss&&!['captain','bren','hellJailer','secretWolf'].includes(e.type)&&cfg.basicAttack!=='projectile')cfg.reach=Math.max(cfg.reach,116);
+ return cfg;};
 
 export const ENEMY_STATES=Object.freeze({IDLE:'IDLE',PATROL:'PATROL',ALERT:'ALERT',COMBAT:'COMBAT',RETURNING:'RETURNING',DEAD:'DEAD'});
 const distance=(a,b)=>Math.hypot(a.x-b.x,a.y-b.y);

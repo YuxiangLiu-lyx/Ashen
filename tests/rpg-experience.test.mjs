@@ -1,3 +1,4 @@
+import {selectCommerce} from '../dist/commerce-ui.js';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {RPG,stats,needXP} from '../dist/core-v14.js';
@@ -33,8 +34,8 @@ test('repeat entry retains quest evidence, gives less XP and load keeps injuries
  const save=parseSave(JSON.stringify(g.snapshot())),restored=new RPG('shadow',save,()=>.9);assert.equal(restored.enemies.find(x=>x.id===e.id).hp,fresh.hp);assert.equal(restored.enemies.find(x=>x.id===e.id).c1QuestGeneration,fresh.c1QuestGeneration);
  g.damage(fresh,99999,'enchant');const dead=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())),()=>.9);assert.equal(dead.enemies.find(x=>x.id===e.id).dead,true);
 });
-test('level-up restores a bounded amount in chapter one without stripping level or AP',()=>{
- const g=game();g.p.hp=10;g.p.mp=1;g.gainXP(needXP(1));assert.equal(g.p.level,2);assert.equal(g.p.ap,3);assert.ok(g.p.hp>10&&g.p.hp<stats(g.p).hp);assert.ok(g.p.mp>1&&g.p.mp<stats(g.p).mp);
+test('level-up restores full health in chapter one without stripping level or AP',()=>{
+ const g=game();g.p.hp=10;g.p.mp=1;g.gainXP(needXP(1));assert.equal(g.p.level,2);assert.equal(g.p.ap,3);assert.equal(g.p.hp,stats(g.p).hp);assert.ok(g.p.mp>1&&g.p.mp<stats(g.p).mp);
  const copy=new RPG('shadow',parseSave(JSON.stringify(g.snapshot())),()=>.9);assert.equal(copy.p.level,2);assert.equal(copy.p.ap,3);assert.equal(copy.p.hp,g.p.hp);
 });
 test('outfitter purchase is near, affordable, capacity-safe and idempotent after loading',()=>{
@@ -46,7 +47,7 @@ test('outfitter purchase is near, affordable, capacity-safe and idempotent after
  const blocked=game();blocked.p.gold=100;near(blocked,'clerk');blocked.p.bag=Array.from({length:60},(_,i)=>({id:'bag-'+i,slot:'relic',name:'旧饰物',atk:0,hp:0,rarity:'common'}));assert.equal(blocked.experienceBuy('clerk','fieldWeapon'),false);assert.equal(blocked.p.gold,100);
 });
 test('actual service panel buys/equips/sells, rest and potion restore real resources',()=>{
- const g=game();g.p.gold=100;near(g,'clerk');assert.match(c1Panel(g,'c1-outfit:clerk'),/换装后/);assert.equal(c1UIAction(g,'outfit-buy:clerk:fieldWeapon'),'c1-outfit:clerk');const item=g.p.bag.find(i=>i.id==='outfit-clerk-fieldWeapon');assert.ok(item);
+ const g=game();g.p.gold=100;near(g,'clerk');selectCommerce(g,'c1-outfit:clerk','fieldWeapon');assert.match(c1Panel(g,'c1-outfit:clerk'),/换装后/);assert.equal(c1UIAction(g,'outfit-buy:clerk:fieldWeapon'),'c1-outfit:clerk');const item=g.p.bag.find(i=>i.id==='outfit-clerk-fieldWeapon');assert.ok(item);
  assert.equal(g.experienceSellPrice(item),4);c1UIAction(g,'outfit-sell:clerk:'+item.id);assert.equal(g.p.gold,86);assert.equal(g.experienceSell('clerk',item.id),false);
  const n=g.p.items.hp;c1UIAction(g,'outfit-potion:clerk:hp');assert.equal(g.p.items.hp,n+1);assert.equal(g.p.gold,74);
  g.chapter=2;Object.assign(g.c1Expansion.preparation,{started:true,approved:true});g.enter('c1TrialFoyer');g.pending=null;near(g,'c1iden');g.p.hp=10;g.p.mp=1;assert.ok(g.experienceRest('c1iden'));assert.equal(g.p.hp,stats(g.p).hp);assert.equal(g.p.mp,stats(g.p).mp);assert.equal(g.p.gold,74);

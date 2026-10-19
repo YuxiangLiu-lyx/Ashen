@@ -1,3 +1,4 @@
+import {damageAndCollect} from './loot-services-fixtures.mjs';
 // Contract fixtures: verify independent state transitions, not human pacing.
 import test from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';
 import {RPG,MAPS} from '../dist/core-v14.js';
@@ -11,7 +12,7 @@ import {mapRoute} from '../dist/navigation-v14.js';
 const finish=g=>{for(let i=0;g.pending&&i<80;i++)g.finishScene();g.active=true;};
 const game=()=>{const g=new RPG('shadow',null,()=>.44);finish(g);g.chapter=2;Object.assign(g.c1Expansion.preparation,{started:true,approved:true});g.quests.c1CommissionBrief='done';g.quests.c1Readiness='done';return g;};
 const enter=(g,id)=>{g.enter(id,780,850);finish(g);};
-const killAll=g=>{for(const e of [...g.enemies])if(!e.dead)g.damage(e,e.maxHP*100);finish(g);};
+const killAll=g=>{for(const e of [...g.enemies])if(!e.dead)damageAndCollect(g,e,e.maxHP*100);finish(g);};
 const reload=g=>new RPG('shadow',parseSave(JSON.stringify(g.snapshot())));
 
 test('available gold exclamation, waiting gray question, ready gold question; main contact Vilerena is actionable',()=>{
@@ -34,7 +35,7 @@ test('each actual entry repopulates residents irrespective of quests; load, same
  }
 });
 test('elite reentry advances payout generation but sample and quest report are one-time',()=>{
- const g=game();g.quests.c1AlchemistSamples='active';enter(g,'grove');const id='c1-elite-rat';g.damage(g.enemies.find(e=>e.id===id),1e4);const samples=structuredClone(g.c1Expansion.samples);assert.ok(samples.c1PartJaw);enter(g,'hall');enter(g,'grove');const e=g.enemies.find(e=>e.id===id);assert.equal(e.c1Generation,2);assert.equal(g.enemies.filter(e=>e.elite).length,1);const before=g.p.gold;g.damage(e,1e4);assert.equal(g.p.gold,before+12);assert.equal(g.c1Expansion.elite[id].killSequence,2);assert.deepEqual(g.c1Expansion.samples,samples);g.c1EliteKill(e);assert.equal(g.p.gold,before+12);assert.deepEqual(reload(g).c1Expansion.elite,g.c1Expansion.elite);
+ const g=game();g.quests.c1AlchemistSamples='active';enter(g,'grove');const id='c1-elite-rat';damageAndCollect(g,g.enemies.find(e=>e.id===id),1e4);const samples=structuredClone(g.c1Expansion.samples);assert.ok(samples.c1PartJaw);enter(g,'hall');enter(g,'grove');const e=g.enemies.find(e=>e.id===id);assert.equal(e.c1Generation,2);assert.equal(g.enemies.filter(e=>e.elite).length,1);const before=g.p.gold;damageAndCollect(g,e,1e4);assert.equal(g.p.gold,before+12);assert.equal(g.c1Expansion.elite[id].killSequence,2);assert.deepEqual(g.c1Expansion.samples,samples);g.c1EliteKill(e);assert.equal(g.p.gold,before+12);assert.deepEqual(reload(g).c1Expansion.elite,g.c1Expansion.elite);
 });
 test('two herb sources cannot be replaced with four leaves from one source',()=>{
  const g=game();g.quests.c1ExitDrill='done';g.c1Accept('c1CampHerbs');for(const map of ['grove','road']){enter(g,map);for(const t of [...g.targets()].filter(t=>t.id.startsWith('c1-herb-'))){g.relocate(t.x,t.y);g.useProp(t.id);}assert.equal(g.c1Count('c1CampHerbs',map==='grove'?'groveLeaves':'roadLeaves'),2);assert.equal(g.c1Ready('c1CampHerbs'),map==='road');}assert.ok(reload(g).c1Ready('c1CampHerbs'));

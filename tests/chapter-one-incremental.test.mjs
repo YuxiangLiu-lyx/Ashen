@@ -20,6 +20,7 @@ import {sagaPortraitV25} from '../dist/saga-art-v25.js';
 const trialScript=JSON.parse(fs.readFileSync(new URL('../docs/c1-trial-forge/SCRIPT.json',import.meta.url))).scenes;
 const trialStageIds=['c1TrialLegacyContract','c1TrialInvitation','c1TrialReport','c1SaintAid','c1HuntOffer','c1HuntProgress','c1HuntReport','c1SupplyIntro','c1CoreOrderOffer','c1TownDolly','c1TownLena'];
 const baseline=JSON.parse(fs.readFileSync(new URL('../docs/ch1-dialogue-cleanup/BASELINE.json',import.meta.url)));
+const beforeServiceQuests=JSON.parse(fs.readFileSync('docs/loot-services/QUESTS_BEFORE.json'));
 const hash=v=>crypto.createHash('sha256').update(JSON.stringify(v)).digest('hex');
 const copy=v=>JSON.parse(JSON.stringify(v));
 function game(cls,id){const g=new RPG(cls,null,()=>.44);g.c1Expansion.preparation.legacy=true;g.chapter=id==='contract'?1:2;g.enter(id==='contract'?'hall':'chapel',800,850);g.beginScene(id,id==='contract'?'contractAccept':'assassinate');g.events=[];return g;}
@@ -52,6 +53,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    if(key==='dialogues'&&['contract','sisterIdle','sisterBeforeDeparture'].includes(id)){const prior=JSON.parse(fs.readFileSync(new URL('../docs/c1-story-flow/baseline/dialogues.json',import.meta.url)))[id],adopted=JSON.parse(fs.readFileSync(new URL('../docs/c1-care-ui/SCRIPT.json',import.meta.url))).scenes[id];assert.deepEqual(value,adopted,id+' adopted 1.2');if(id==='contract')assert.deepEqual(value.slice(3,19),prior.slice(3,19));value=prior;}
    if(key==='dialogues'&&id==='v9TollFound')value=value.map(([speaker,line],i)=>[speaker,i?line:line.replace('护符下面还压着两瓶蜡封的清醒药和一瓶疗伤药，瓶口没有渗漏。','')]); // C2 0.4: exact appended cache contents only.
    if(key==='maps'){value=copy(value);value.doors=value.doors.filter(d=>!d.c1Door);value.props=value.props.filter(p=>!p.action?.startsWith('c1:'));}
+   if(key==='quests'){value=copy(value);for(const k of ['xp','gold']){if(Object.hasOwn(beforeServiceQuests[id],k))value[k]=beforeServiceQuests[id][k];else delete value[k];}}
    assert.equal(hash(value),h,key+'/'+id);
   }
  }
@@ -63,7 +65,7 @@ test('original 118 maps, dialogue and retained art protected around explicitly a
    const guard='if(isStoryTestV25(this))n=Math.max(1,n,e.hp);',source=data.toString();
    assert.equal(source.split(guard).length,2,'exactly one approved test guard');
    let original=source.replace(guard,'');
-   for(const fragment of ["import {installC2Conversations} from './chapter-two-conversations.js';\n","installC2Conversations(RPG,{DIALOGUES});\n","import {installC1Conversations} from './chapter-one-conversations.js';\n","installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installEncounterRestraint} from './encounter-restraint.js';\n","installEncounterRestraint(RPG);\n","import {installC1Trial} from './chapter-one-trial-runtime.js';\n","\ninstallC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';\n","\ninstallDialogueCopyedits(DIALOGUES);\n"]){assert.equal(original.split(fragment).length,2);original=original.replace(fragment,'');}
+   for(const fragment of ["import {installServiceQuests} from './service-quests.js';\n","import {installQuestRewardCompletion} from './quest-reward-completion.js';\n","import {installGroundLoot} from './ground-loot.js';\n","\ninstallServiceQuests(RPG,{MAPS,QUESTS,DIALOGUES});\n","installQuestRewardCompletion(RPG,{QUESTS});\n","installGroundLoot(RPG);\n","import {installC2Conversations} from './chapter-two-conversations.js';\n","installC2Conversations(RPG,{DIALOGUES});\n","import {installC1Conversations} from './chapter-one-conversations.js';\n","installC1Conversations(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installEncounterRestraint} from './encounter-restraint.js';\n","installEncounterRestraint(RPG);\n","import {installC1Trial} from './chapter-one-trial-runtime.js';\n","\ninstallC1Trial(RPG,{MAPS,QUESTS,ITEMS,DIALOGUES});\n","import {installDialogueCopyedits} from './dialogue-copyedits-runtime.js';\n","\ninstallDialogueCopyedits(DIALOGUES);\n"]){assert.equal(original.split(fragment).length,2);original=original.replace(fragment,'');}
    const spoken=DIALOGUE_COPYEDITS.find(e=>e.key==='spoken:dist/core-v14.js:3');assert.equal(original.split(spoken.after[0][1]).length,2);original=original.replace(spoken.after[0][1],spoken.before[0][1]);
    // 1.0 fixes invalid overkill saves; no other original damage behavior changes.
    assert.equal(original.split('e.hp=Math.max(0,e.hp-n);').length,2);

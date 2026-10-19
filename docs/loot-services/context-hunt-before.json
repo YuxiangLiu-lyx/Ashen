@@ -1,0 +1,1510 @@
+{
+  "selection": {
+    "requested": true,
+    "chapters": [
+      "R01"
+    ],
+    "scene": "c1HuntOffer",
+    "actors": [
+      "noen",
+      "rune"
+    ],
+    "stage_candidates": [],
+    "needs": []
+  },
+  "ready_to_write": false,
+  "style": {
+    "guide": "docs/harness/DIALOGUE_STYLE.md",
+    "samples": "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "classification": "STYLE_ONLY; events, objects and shared memories cannot be used as canon"
+  },
+  "characters": {
+    "noen": {
+      "name": "诺恩",
+      "base": "黑暗教廷体系中的任务执行者；游戏职业选择不等于重新设定人格。",
+      "voice": "具体地问、判断、回答。必要时说完整理由；简洁来自目的，不等于永远只答随你或没必要。",
+      "state": {
+        "emotion": "日常回到会馆，进入任务准备。",
+        "goals": [
+          "处理库房问题，听取委托。"
+        ],
+        "faction_view": "以执行安排为常态，未形成终局反叛立场。",
+        "expression": "能与熟人正常交谈；情感伦理理解不足。",
+        "conflicts": []
+      },
+      "relationships": {},
+      "sources": [
+        "author-hero",
+        "scene:contract",
+        "scene:sisterIdle",
+        "scene:ch2Spillway",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "runtime-c1-actions",
+        "c1-care-plan",
+        "c1-care-runtime"
+      ],
+      "profile": "source/narrative/characters/noen.json"
+    },
+    "rune": {
+      "name": "鲁恩",
+      "base": "会馆传令与情报事务；同薇蕾娜看着诺恩长大，服从上级并回避解释。",
+      "voice": "事务信息具体，越权部分回避与道歉；不能用沉默推出他知道全部真相。",
+      "state": {
+        "emotion": "处理传令事务；对薇蕾娜的追问回避。",
+        "goals": [
+          "按上级安排传递任务。"
+        ],
+        "faction_view": "UNRESOLVED",
+        "expression": "能交代细节，遇越权问题不解释。",
+        "conflicts": []
+      },
+      "relationships": {
+        "noen": {
+          "trust": "UNRESOLVED",
+          "affection": "看着他长大",
+          "caution": "UNRESOLVED",
+          "hostility": "UNRESOLVED",
+          "dependence": "UNRESOLVED",
+          "concealment": "未解释上级计划",
+          "obligation": "UNRESOLVED",
+          "conflict": "UNRESOLVED"
+        }
+      },
+      "sources": [
+        "scene:aside",
+        "scene:clerkIdle",
+        "runtime-c1-hidden",
+        "c1-story-flow",
+        "scene:contract",
+        "runtime-c1-actions"
+      ],
+      "profile": "source/narrative/characters/rune.json"
+    }
+  },
+  "knowledge": {
+    "noen": {},
+    "rune": {},
+    "player": {}
+  },
+  "facts": {
+    "F-C1-13-C1HUNTOFFER": {
+      "id": "F-C1-13-C1HUNTOFFER",
+      "summary": "鲁恩：诺恩，有件清路的事想托给你。地下两名旧看守一直妨碍维修，郊外还有三头凶兽，运货的人吃过几次亏。；诺恩：有人受伤吗？；鲁恩：工人退得及时，现在只能绕路搬东西。试炼守卫在一层，封存看守在三层；外面是溪林的裂齿渠鼠、回声机房的灰脊守兽，还有废窑的苇窑夜翼。；诺恩：我路过时去看看，五处都处理完了找你？；鲁恩：对，名字和位置都写在单上，五处一并算工钱。难对付的就缓一缓，备好装备也来得及。",
+      "truth": "world_fact",
+      "plane": "runtime",
+      "status": "RUNTIME",
+      "sources": [
+        "trial:c1HuntOffer",
+        "character-flow:c1HuntOffer"
+      ],
+      "risk_terms": []
+    }
+  },
+  "seeds": [],
+  "conflicts": [
+    {
+      "id": "DIFF-WORLD-ANONYMOUS",
+      "kind": "superseded_direction",
+      "status": "ISOLATED",
+      "summary": "WORLD_VISION 0.3旧表现条款提匿名黑影，后被第一章0.5删除新匿名人物的决定替代。",
+      "sources": [
+        "c1-retained",
+        "runtime-c1-hidden"
+      ],
+      "resolution": "按第一章最新局部决定；不载入旧匿名片段。"
+    },
+    {
+      "id": "DIFF-C1-RATS",
+      "kind": "runtime_text_drift",
+      "status": "CONFIRMED",
+      "summary": "intro现为八鼠；contract保留六只老鼠。0.6章稿还包含旧训练描述。",
+      "sources": [
+        "scene:intro",
+        "scene:contract",
+        "runtime-c1-objectives",
+        "c1-retained"
+      ],
+      "resolution": "第一章1.1按用户当前任务叙事授权统一contract八鼠；旧章稿与历史运行保留，当前试炼无肩伤。",
+      "resolved": true
+    }
+  ],
+  "required_scene_brief": [
+    "实际传达的信息",
+    "每个说话人的目的",
+    "预期剧情结果",
+    "因果与情绪依据",
+    "任务/动作/对话框交接"
+  ],
+  "limits": [
+    "登记事件不是完整语义理解；未登记信息不得推为已知。"
+  ],
+  "stage": {
+    "chapter": "R01",
+    "scene": "c1HuntOffer",
+    "position": "before",
+    "at": "R01:intro",
+    "stage_exact": true,
+    "coverage": "curated_mainline",
+    "gaps": [
+      "动态接取/交付分支登记来源与角色，未把每个任务动作自动当已发生；需带quest/flags核对。",
+      "1.1逐项登记任务事件；可选与条件事件需带真实完成时点，任务清单不表示所有NPC消息在章末自动共享。"
+    ],
+    "plan": {
+      "path": "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+      "revision": "1.5",
+      "status": "IMPLEMENTED"
+    }
+  },
+  "runtime_reader": [
+    "node",
+    "tools/harness/narrative_runtime.mjs",
+    "--scene",
+    "c1HuntOffer",
+    "--text"
+  ],
+  "reveal_ceiling": {
+    "this_event_only": [
+      {
+        "actor": "noen",
+        "fact": "F-C1-13-C1HUNTOFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "rune",
+        "fact": "F-C1-13-C1HUNTOFFER",
+        "mode": "knows"
+      },
+      {
+        "actor": "player",
+        "fact": "F-C1-13-C1HUNTOFFER",
+        "mode": "knows"
+      }
+    ],
+    "author_secrets_do_not_grant_knowledge": true
+  },
+  "provenance": {
+    "author-hero": {
+      "path": "docs/harness/WORLD_VISION.md",
+      "anchor": "### 3. 诺恩的起点与成长",
+      "kind": "user_confirmed"
+    },
+    "c1-care-plan": {
+      "path": "docs/harness/CHAPTER_01_CARE_UI.md",
+      "anchor": "# 第一章采用稿1.2",
+      "kind": "adopted_plan"
+    },
+    "c1-care-runtime": {
+      "path": "dist/chapter-one-care-dialogues.js",
+      "anchor": "export const C1_CARE_DIALOGUES",
+      "kind": "runtime"
+    },
+    "c1-retained": {
+      "path": "docs/harness/CHAPTER_01.md",
+      "anchor": "## 4. 接委托后的私下对话",
+      "kind": "adopted_plan"
+    },
+    "c1-story-flow": {
+      "path": "docs/harness/CHAPTER_01_STORY_FLOW.md",
+      "anchor": "# 第一章采用稿1.1",
+      "kind": "adopted_plan"
+    },
+    "character-flow:c1HuntOffer": {
+      "path": "dist/chapter-one-conversations-data.js",
+      "anchor": "export const C1_CONVERSATIONS",
+      "kind": "runtime",
+      "runtime_scene": "c1HuntOffer"
+    },
+    "runtime-c1-actions": {
+      "path": "dist/chapter-one-expansion-quests.js",
+      "anchor": "P.choose=function(action)",
+      "kind": "runtime"
+    },
+    "runtime-c1-hidden": {
+      "path": "dist/chapter-one-dialogues-v31.js",
+      "anchor": "export const C1_HIDDEN",
+      "kind": "runtime",
+      "runtime_scene": "c1HiddenPairArrangement"
+    },
+    "runtime-c1-objectives": {
+      "path": "dist/chapter-one-objectives.js",
+      "anchor": "export const C1_OBJECTIVES",
+      "kind": "runtime"
+    },
+    "scene:aside": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "aside",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:ch2Spillway": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "ch2Spillway",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:clerkIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "clerkIdle",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:contract": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "contract",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:intro": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "intro",
+      "note": "来源为完整安装后的最终表；由 narrative_runtime.mjs 复核，不推断触发可达性。"
+    },
+    "scene:sisterIdle": {
+      "path": "dist/core-v14.js",
+      "anchor": "export",
+      "kind": "runtime",
+      "runtime_scene": "sisterIdle"
+    },
+    "trial:c1HuntOffer": {
+      "path": "dist/chapter-one-trial-dialogues.js",
+      "anchor": "export const C1_TRIAL_DIALOGUES",
+      "kind": "runtime",
+      "runtime_scene": "c1HuntOffer"
+    }
+  },
+  "provenance_errors": [
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "runtime-installed",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source runtime-installed --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "runtime-knowledge",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "if(sceneId==='darkExileV9')",
+        "action": "review records, then acknowledge --source runtime-knowledge --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "runtime-later",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "installChapter3",
+        "action": "review records, then acknowledge --source runtime-later --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:intro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:intro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ratAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ratAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:aside",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:aside --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:clerkIdle",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:clerkIdle --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:contract",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:contract --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:saintBrief",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:saintBrief --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:assassination",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:assassination --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2SearchAside",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2SearchAside --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:canalStart",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:canalStart --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:courierAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:courierAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:courierDone",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:courierDone --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:herbsAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:herbsAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:herbSelf",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:herbSelf --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:herbWoman",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:herbWoman --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ambient_woman_beforeAssassination",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ambient_woman_beforeAssassination --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:old1",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:old1 --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:old2",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:old2 --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:watch",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:watch --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ambient_watch_beforeAssassination",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ambient_watch_beforeAssassination --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ambient_dolly_beforeAssassination",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ambient_dolly_beforeAssassination --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ambient_dolly_afterAssassination",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ambient_dolly_afterAssassination --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:lottieGreeting",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:lottieGreeting --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:lottieWork",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:lottieWork --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Arrival",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Arrival --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Relay",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Relay --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2OuterCourt",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2OuterCourt --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2TargetBefore",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2TargetBefore --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2TargetAfter",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2TargetAfter --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Souls",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Souls --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3RescueCart",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3RescueCart --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Doctor",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Doctor --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3MedicineDeparture",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3MedicineDeparture --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3SaltGrotto",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3SaltGrotto --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3SaltGather",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3SaltGather --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3FerryAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3FerryAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3FerryReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3FerryReturn --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4Arrival",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4Arrival --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4CampWelcome",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4CampWelcome --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4SmithLesson",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4SmithLesson --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4Boss1Before",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4Boss1Before --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4SealedDoor",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4SealedDoor --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4Boss2Before",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4Boss2Before --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4Boss3Before",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4Boss3Before --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V13Private",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V13Private --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5ForgeWorkAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5ForgeWorkAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5ForgeWorkReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5ForgeWorkReturn --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5DewWorkAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5DewWorkAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5DewWorkReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5DewWorkReturn --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5NamesAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5NamesAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5NamesReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5NamesReturn --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5MentorBefore",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5MentorBefore --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5CareerTeach",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5CareerTeach --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5RecruiterFirst",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5RecruiterFirst --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5RecruiterContract",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5RecruiterContract --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5TavernFirst",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5TavernFirst --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5BarkeepDaily",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5BarkeepDaily --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch5ExteriorOrder",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch5ExteriorOrder --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V13Notice",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V13Notice --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V14Investigation",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V14Investigation --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V13Village",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V13Village --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V13Orders",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V13Orders --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch4V13BloodReady",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch4V13BloodReady --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v17BondGameIntro0",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v17BondGameIntro0 --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v18CityBreadFound",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v18CityBreadFound --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v19DiscoveryTune",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v19DiscoveryTune --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v19DiscoveryTuneReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v19DiscoveryTuneReturn --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v19DiscoveryBell",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v19DiscoveryBell --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v24MomentBookA",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v24MomentBookA --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v24MomentBookB",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v24MomentBookB --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Checkpoint",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Checkpoint --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Village",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Village --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Tax",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Tax --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Conscription",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Conscription --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Departure",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Departure --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v25Rescue",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v25Rescue --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v26LastWagonIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v26LastWagonIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25ContractOne",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25ContractOne --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25FirstEscape",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25FirstEscape --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25ContractTwo",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25ContractTwo --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25Granary",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25Granary --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25Odric",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25Odric --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v26SecondWagonAxles",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v26SecondWagonAxles --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v26SecondWagonIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v26SecondWagonIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25Martha",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25Martha --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v26MedicineRoundsIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v26MedicineRoundsIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c7v25Severin",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c7v25Severin --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Pursuit",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Pursuit --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Defeat",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Defeat --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Sanctuary",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Sanctuary --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Warning",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Warning --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Hold",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Hold --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v26MissingNamesIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v26MissingNamesIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v26MissingNamesReceipts",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v26MissingNamesReceipts --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v26LastFerryIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v26LastFerryIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c6v26LastFerryReeds",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c6v26LastFerryReeds --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:sisterIdle",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:sisterIdle --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Spillway",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Spillway --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Terms",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Terms --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2ExileEnd",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2ExileEnd --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:darkCommissionV9",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:darkCommissionV9 --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:darkExileV9",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:darkExileV9 --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:v25C8Bind",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:v25C8Bind --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:chapterEnd",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:chapterEnd --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ratDone",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ratDone --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:c1HiddenPairArrangement",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:c1HiddenPairArrangement --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2InnerDoor",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2InnerDoor --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2PursuitStops",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2PursuitStops --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Bridge",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Bridge --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Alarm",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Alarm --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2Breakout",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2Breakout --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch2ExileApproach",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch2ExileApproach --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Arrival",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Arrival --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Wake",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Wake --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3End",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3End --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:sisterBeforeDeparture",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:sisterBeforeDeparture --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:sisterAfterBell",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:sisterAfterBell --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3AdvanceIntro",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3AdvanceIntro --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3AdvanceBoss1Before",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3AdvanceBoss1Before --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3AdvanceBoss1After",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3AdvanceBoss1After --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3AdvanceBoss2Before",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3AdvanceBoss2Before --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3AdvanceBoss2After",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3AdvanceBoss2After --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Wound",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Wound --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Unseal",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Unseal --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3WorkshopLamp",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3WorkshopLamp --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3MineCrystal",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3MineCrystal --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Treatment",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Treatment --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3CampDeparture",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3CampDeparture --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3Pass",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3Pass --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3ArenaBefore",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3ArenaBefore --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3ArenaAfter",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3ArenaAfter --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3MachineAccept",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3MachineAccept --note ..."
+      }
+    },
+    {
+      "code": "SOURCE_DRIFT",
+      "where": "scene:ch3MachineReturn",
+      "message": {
+        "source": "dist/core-v14.js",
+        "anchor": "export",
+        "action": "review records, then acknowledge --source scene:ch3MachineReturn --note ..."
+      }
+    }
+  ],
+  "paths": [
+    "docs/harness/NARRATIVE_WORKFLOW.md",
+    "docs/harness/DIALOGUE_STYLE.md",
+    "docs/harness/DIALOGUE_STYLE_SAMPLES.md",
+    "docs/harness/CHAPTER_01_CHARACTER_FLOW.md",
+    "docs/harness/CHAPTER_01.md",
+    "source/narrative/characters/noen.json",
+    "source/narrative/characters/rune.json",
+    "source/narrative/chapters/R01.json"
+  ],
+  "source_fingerprint": "55a89e37e1c6b0a877cb4b7d5ecbd68e0506abd862e9f8b5533a5ce523c01015"
+}

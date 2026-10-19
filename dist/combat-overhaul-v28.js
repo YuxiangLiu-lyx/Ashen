@@ -105,7 +105,7 @@ function tuneEnemy(g,e,{restore=false}={}){
  if(v&&!boss){e.v28Variant=v.name;e.label=v.name;e.v28VisualType=v.visual;e.v28Filter=v.filter;}
  e.v28Tier=tier;e.v28Tuned=true;return e;
 }
-function owns(g,id){return [...(g.p?.bag||[]),...Object.values(g.p?.gear||{}),...(g.pendingRewards||[])].some(i=>i?.id===id);}
+function owns(g,id){return [...(g.p?.bag||[]),...Object.values(g.p?.gear||{}),...(g.pendingRewards||[]),...Object.values(g.groundLoot?.maps||{}).flat().map(d=>d.gear)].some(i=>i?.id===id);}
 function rareDrop(g,e,loot){
  if(!e||e.v28RareRoll||e.storyTag||e.trialFloor||e.v11Add)return false;
  e.v28RareRoll=true;
