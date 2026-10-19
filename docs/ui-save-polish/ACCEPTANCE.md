@@ -20,8 +20,8 @@
 
 离线、HTTP与手机横屏新包检查全部通过（[WEB_QA.json](package/WEB_QA.json)），无未捕获浏览器错误。默认入口 `qa-export/release-build/Ashen-V28.1-Play.html` 已更新，546个交付文件逐字节核对；旧包保存在 `qa-export/release-build-before-ui-save-polish-20261019`，见 [默认包回执](DEFAULT_BUILD.json)。本地 `http://127.0.0.1:5174/` 的247个模块、7个样式和两张新图均与当前文件核对，见 [本地服务回执](LOCAL_SERVER.json)。
 
-构建记录保留真实来源：基线提交 `1af137a` 加本轮未提交改动（`source_dirty: true`），运行输入SHA256为 `2d5d0adddd31ef92c5f06fea96ef21ca6d77df029752725449cea20069e27fb0`；离线文件SHA256为 `f1f078b8fb7d0226f8d15625df2a901666aaf35871e909c89796c1574a9e1f7f`。Git保存回执随后补齐，不把构建记录改写为事后提交。
+构建记录保留真实来源：基线提交 `1af137a` 加本轮未提交改动（`source_dirty: true`），运行输入SHA256为 `2d5d0adddd31ef92c5f06fea96ef21ca6d77df029752725449cea20069e27fb0`；离线文件SHA256为 `f1f078b8fb7d0226f8d15625df2a901666aaf35871e909c89796c1574a9e1f7f`。Git保存提交与构建输入对应关系见 [Git回执](GIT_SAVE.json)，构建记录保留原始生成时间的状态。
 
 集成产生的历史默认输出已逐字节保存到本轮目录，历史原件恢复，详见 [INTEGRATION_OUTPUTS.json](INTEGRATION_OUTPUTS.json)。大JSON原始字节存于 [分卷清单](../../archives/ui-save-polish-evidence/manifest.json)，打包及独立校验通过；运行 `python3 docs/ui-save-polish/RESTORE_EVIDENCE.py` 可恢复。`.gitignore`仅列出已经归档校验的具体文件，原图、截图和小报告直接入库。
 
-GitHub保存待核对；未发布网站。真人审美及操作舒适度见 [观察表](HUMAN_OBSERVATION.md)，旧章节人工门禁保持独立。
+实现与完整证据 `2d4a43102b4758958fcc9a68b96ca55700ffd42f` 已推送 GitHub main，`ls-remote` 核对一致；见 [Git回执](GIT_SAVE.json)。未发布网站。真人审美及操作舒适度见 [观察表](HUMAN_OBSERVATION.md)，旧章节人工门禁保持独立。

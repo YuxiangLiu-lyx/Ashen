@@ -11,24 +11,24 @@
     "save",
     "gear"
   ],
-  "status": "in_progress",
+  "status": "complete",
   "created_at_utc": "2026-10-19T12:44:00.663486+00:00",
-  "updated_at_utc": "2026-10-19T13:38:35.054472+00:00",
+  "updated_at_utc": "2026-10-19T13:40:46.794381+00:00",
   "decisions": [
     "60秒安全自动保存，手动保存可见；死亡读取最近成功存档，临时回忆保持专用重试；不改装备数值",
-    "商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性"
+    "商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性",
+    "原始失败日志含两行尾随空格，按证据原字节保留；其余staged diff whitespace检查通过"
   ],
   "completed": [
     "干净基线1af137a已同步；已核对实际制作/存档/图集和装备入口",
     "药水实时材料格、商人透明8帧、三态标记、60秒与死亡读档、48种装备图标和随身结构完成；三视口真实UI及一分钟游戏循环已通过",
     "最终fast 67、核心225、专项39、完整integration、三维与三视口真实保存制作和60秒循环全部通过；当前源指纹一致",
-    "离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验"
+    "离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验",
+    "实现2d4a431已保存GitHub main并ls-remote核对一致，默认包与5174已更新且旧包保留，归档、素材、验收与限制全部落盘"
   ],
-  "remaining": [
-    "GitHub main提交推送核对与任务收尾"
-  ],
+  "remaining": [],
   "blockers": [],
-  "next": "Git审查和保存main",
+  "next": "No required task work remains",
   "required_checks": [
     "fast",
     "integration"
@@ -352,11 +352,14 @@
     },
     {
       "name": "delivery",
-      "status": "in_progress",
-      "updated_at_utc": "2026-10-19T13:38:34.987385+00:00",
-      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T13:40:46.690541+00:00",
+      "head_commit": "2d4a43102b4758958fcc9a68b96ca55700ffd42f",
       "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
-      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/equipment-art-v281.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n?? archives/ui-save-polish-evidence/\n?? dist/assets/ui-save-polish/\n?? dist/checkpoint-save.js\n?? dist/equipment-icons.js\n?? docs/harness/evidence/ui-save-polish-20261019/\n?? docs/ui-save-polish/\n?? source/tasks/active/ui-save-polish-20261019.json\n?? tests/browser-ui-save-polish.mjs\n?? tests/ui-save-polish.test.mjs"
+      "worktree": "M .codex/progress.md\n M docs/ui-save-polish/ACCEPTANCE.md\n M source/CURRENT_STATE.json\n?? docs/ui-save-polish/GIT_SAVE.json"
     }
-  ]
+  ],
+  "summary": "完成药水实时材料、商人和任务标记、手动/60秒自动保存及死亡恢复、六品质颜色与48装备造型；技术验收、默认包与GitHub main核验通过，真人审美待验。",
+  "completed_at_utc": "2026-10-19T13:40:47.099690+00:00",
+  "verified_source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b"
 }

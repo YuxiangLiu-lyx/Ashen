@@ -1,3 +1,5 @@
+2026-10-19本轮完成：药水实时材料格、普通商人形象和任务标记质感、手动与60秒自动保存/死亡读档、六品质颜色和48种装备图标；完整集成、三视口及默认离线/HTTP/手机包通过。实现2d4a431已保存GitHub main并核验，旧包保留，真人审美待验；详见docs/ui-save-polish/ACCEPTANCE.md。
+
 2026-10-16本轮：第二章0.5自然对白、任务交接与寄卖格子；第一章普通怪HP+50%、精英/Boss+150%至2.5倍。技术验收、三职业正常UI、默认离线/HTTP/手机与5174通过；实现c17e6a7已推送GitHub main并ls-remote核验。真人文风/难度/节奏待验，旧0.6人工任务独立；未发布网站。详见docs/c2-optimization/ACCEPTANCE.md。
 
 2026-10-16本轮：第一章1.5 c1-character-flow-20261016；263场全文审读、142场295句修订，任务优先、逐轮试炼、商人新形象与统一显示名；67 Harness、52专项、225核心及完整集成和新默认包通过；实现a93fa0f已上传GitHub main并核验，任务收尾归档。用户确认沿用诺恩。真人文风/审美待验，见docs/c1-character-flow/ACCEPTANCE.md。
@@ -717,17 +719,17 @@
 
 <!-- task:ui-save-polish-20261019 -->
 ## 任务 ui-save-polish-20261019
-- 状态：in_progress
-- 更新：2026-10-19T13:38:35.054472+00:00
-- 下一步：Git审查和保存main
-- 任务记录：source/tasks/active/ui-save-polish-20261019.json
-- 已完成：干净基线1af137a已同步；已核对实际制作/存档/图集和装备入口；药水实时材料格、商人透明8帧、三态标记、60秒与死亡读档、48种装备图标和随身结构完成；三视口真实UI及一分钟游戏循环已通过；最终fast 67、核心225、专项39、完整integration、三维与三视口真实保存制作和60秒循环全部通过；当前源指纹一致；离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验
-- 待完成：GitHub main提交推送核对与任务收尾
-- 决定：60秒安全自动保存，手动保存可见；死亡读取最近成功存档，临时回忆保持专用重试；不改装备数值；商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性
+- 状态：complete
+- 更新：2026-10-19T13:40:46.794381+00:00
+- 下一步：No required task work remains
+- 任务记录：source/tasks/archive/ui-save-polish-20261019.json
+- 已完成：干净基线1af137a已同步；已核对实际制作/存档/图集和装备入口；药水实时材料格、商人透明8帧、三态标记、60秒与死亡读档、48种装备图标和随身结构完成；三视口真实UI及一分钟游戏循环已通过；最终fast 67、核心225、专项39、完整integration、三维与三视口真实保存制作和60秒循环全部通过；当前源指纹一致；离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验；实现2d4a431已保存GitHub main并ls-remote核对一致，默认包与5174已更新且旧包保留，归档、素材、验收与限制全部落盘
+- 待完成：无
+- 决定：60秒安全自动保存，手动保存可见；死亡读取最近成功存档，临时回忆保持专用重试；不改装备数值；商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性；原始失败日志含两行尾随空格，按证据原字节保留；其余staged diff whitespace检查通过
 - 阻塞：无
 - 阶段 audit：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
 - 阶段 implementation：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
 - 阶段 verification：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
-- 阶段 delivery：in_progress；HEAD 1af137a1b64c862bbea09982588409b335d30be0
+- 阶段 delivery：complete；HEAD 2d4a43102b4758958fcc9a68b96ca55700ffd42f
 - 最近检查：archive-verify，退出码 0；docs/harness/evidence/ui-save-polish-20261019/016-archive-verify.txt
 <!-- /task:ui-save-polish-20261019 -->
