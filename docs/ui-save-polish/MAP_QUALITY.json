@@ -1,0 +1,102 @@
+{
+  "schema": 1,
+  "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+  "reviewed_paths": [
+    "dist/assets/ui-save-polish/equipment.png",
+    "dist/assets/ui-save-polish/merchant.png",
+    "dist/chapter-one-expansion-art.js",
+    "dist/chapter-one-natural-art.js",
+    "dist/equipment-art-v281.js",
+    "dist/game-v14.js",
+    "dist/presentation-v17.css"
+  ],
+  "assets": [
+    {
+      "path": "dist/assets/ui-save-polish/merchant.png",
+      "sha256": "bf9e7a2d413e53f580739972b49f93835e5ebcecd31fbf2528967eb863bb8beb"
+    },
+    {
+      "path": "dist/assets/ui-save-polish/equipment.png",
+      "sha256": "a13f9458848ce7fd01839384b6c03eba923617d243589d91b14f97b27475a17c"
+    }
+  ],
+  "maps": [
+    {
+      "id": "hall",
+      "playability": {
+        "status": "pass",
+        "reason": "真实RPG九条moveActor路线覆盖四门、四人和机器，碰撞图与会馆截图分别核对；NPC脚锚、场景布局、碰撞、目标位置未改。会馆是安全场景。共享装备绘制只影响外观，实战与返程由当前正式浏览器磨坊路线及225核心回归另行覆盖。",
+        "evidence": [
+          {
+            "path": "docs/ui-save-polish/browser/QA.json",
+            "sha256": "4370730e7f62bfc8b2cd58f6d0f6c7d5a0ad84d8b4f1486a7f0db61961d64f68"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/hall-cells.json",
+            "sha256": "1ccacc7162c91e92f7a9faf1a22f246181ecf2dd15fba51f7424d931ce4563e6"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/hall-collision.png",
+            "sha256": "a91ddd289824bdcdc2574393f3bec88a06055dddabb69d127f4a307dc1e89e93"
+          },
+          {
+            "path": "docs/ui-save-polish/shared-renderer/BROWSER_WORLD.json",
+            "sha256": "1fa635d4582993f285e161f0c19ae4c04e505edf59bcc9c48caa10ed5fce1061"
+          },
+          {
+            "path": "docs/ui-save-polish/shared-renderer/journey-clear.png",
+            "sha256": "3d2ac2f6d6234438ce7c8a2aef217670dee06bfd6a879257dfe8832c8c09b275"
+          }
+        ]
+      },
+      "scene_credibility": {
+        "status": "pass",
+        "reason": "实际会馆截图中商人站在原壁炉/整备区域，与书记官、管家和薇蕾娜共用场景深度；新图没有背景块和立绘式镜头。机器、中央走道、四门与会客区关系保留。金色两态与灰问号同类金属材质，保留统一小尺寸。",
+        "evidence": [
+          {
+            "path": "docs/ui-save-polish/browser/hall.png",
+            "sha256": "20d7e1d3a9c79797a5d58e0eabc15416798c5ea752f17d49c48b8da9d8bc60e2"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/markers.png",
+            "sha256": "094b1192bf718599c741b4d46ec309387c205fa6ec5a4dfa924e691f03c0e7fd"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/hall-collision.png",
+            "sha256": "a91ddd289824bdcdc2574393f3bec88a06055dddabb69d127f4a307dc1e89e93"
+          }
+        ]
+      },
+      "character_consistency": {
+        "status": "pass",
+        "reason": "新8帧原图、地图和商店截图已对照：同一普通成年棕发女性、橄榄色衣服、皮包腰袋；82像素参考身高与足底锚保持。48图标原画与实际裁切图集逐行核对，未跨格拉伸；三职业普通/黑曜与命名武器的正式渲染图已检查，头脸、手握武器与脚底对齐，追加细节随身体骨架。审美满意度留待用户反馈。",
+        "evidence": [
+          {
+            "path": "dist/assets/ui-save-polish/merchant.png",
+            "sha256": "bf9e7a2d413e53f580739972b49f93835e5ebcecd31fbf2528967eb863bb8beb"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/hall.png",
+            "sha256": "20d7e1d3a9c79797a5d58e0eabc15416798c5ea752f17d49c48b8da9d8bc60e2"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/merchant-1440.png",
+            "sha256": "b07942fec2fa13b15abc62df6c335b087daf15a5ed62dfa23103199c7d20355c"
+          },
+          {
+            "path": "docs/ui-save-polish/browser/equipment-atlas.png",
+            "sha256": "905e1076d978eaf93fb5c02a101a698bf48b2efd742e3800b5b9ae95fbea00e5"
+          },
+          {
+            "path": "docs/ui-save-polish/shared-renderer/05-presentation-gallery.png",
+            "sha256": "42d15c0c069d29fcf1680b899c31b566f13ad0c68dc56f476b3f7189915ddda0"
+          },
+          {
+            "path": "docs/ui-save-polish/shared-renderer/BROWSER_QA.json",
+            "sha256": "1e6f7e8e6d48c6389b000768ebe7aab560f5582e8e9fe355009a9c387a8799ca"
+          }
+        ]
+      }
+    }
+  ]
+}

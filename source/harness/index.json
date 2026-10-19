@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "basis_commit": "d57ae25f73e97e8002bbb6a3f9e42646714b8bdf",
-  "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+  "basis_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+  "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
   "nodes": {
     ".agents/skills/ashen-art-maps/SKILL.md": {
       "sha256": "d2e70f5777c5877620d36da25dada036b8628a777aa63617612054b8cb15390c",
@@ -487,8 +487,8 @@
       ]
     },
     "dist/chapter-one-expansion-art.js": {
-      "sha256": "269323b8f9769427d23d644543b7f54ff13aa5268421f1c85a22f678de51c6f5",
-      "bytes": 7080,
+      "sha256": "b894e763625c8011dadebed84b07a00cb06a3bde76f5b88342630d219e0159dd",
+      "bytes": 7396,
       "imports": [
         "dist/chapter-one-layout.js",
         "dist/chapter-one-natural-art.js",
@@ -496,6 +496,7 @@
       ],
       "symbols": [
         "b",
+        "back",
         "base",
         "c",
         "c1Ground",
@@ -977,8 +978,8 @@
       ]
     },
     "dist/chapter-one-natural-art.js": {
-      "sha256": "8e02d1ef2d43ed6dca54b97fbe67299e79219f4a4ac2419a94d9db16cfec7a2f",
-      "bytes": 4546,
+      "sha256": "38afddf9e03f709547ff62a150f31d36a0d70a790908e35101d084f9cef378f1",
+      "bytes": 4720,
       "imports": [
         "dist/chapter-one-story-world.js"
       ],
@@ -1053,13 +1054,14 @@
       ]
     },
     "dist/chapter-one-preparation-ui.js": {
-      "sha256": "33010cab74044af5559dc7f99670e3f6ba6a871f76d4e2214630de8d60d8283f",
-      "bytes": 10725,
+      "sha256": "539fd87d91b29d6734699c6e5adee54d3aa126295656fb031be8cb4cbcf9a4b5",
+      "bytes": 11692,
       "imports": [
         "dist/chapter-one-expansion-data.js",
         "dist/chapter-one-expansion-gear.js",
         "dist/chapter-one-expansion-save.js",
         "dist/chapter-one-trial-runtime.js",
+        "dist/equipment-icons.js",
         "dist/systems-data-v14.js"
       ],
       "symbols": [
@@ -2127,6 +2129,20 @@
       ],
       "modules": [
         "art"
+      ]
+    },
+    "dist/checkpoint-save.js": {
+      "sha256": "c82b69fc398bf382f2175acbd5c083b36af0ecff39cac641dabc78b5461a68c9",
+      "bytes": 1320,
+      "imports": [],
+      "symbols": [
+        "AUTOSAVE_SECONDS",
+        "CheckpointClock",
+        "automaticSaveSafe",
+        "checkpointBlockReason"
+      ],
+      "modules": [
+        "save"
       ]
     },
     "dist/chengli-text-v27.js": {
@@ -3279,9 +3295,11 @@
       ]
     },
     "dist/equipment-art-v281.js": {
-      "sha256": "deff0e3c8349095cea130b38a371e23a8b8ce3a7950b5c4a8a730e80381770a5",
-      "bytes": 6720,
-      "imports": [],
+      "sha256": "aa4624f567ea4bc7c03320a3844ebde2adc68d6ef2b43364ce94537290a62526",
+      "bytes": 8564,
+      "imports": [
+        "dist/equipment-icons.js"
+      ],
       "symbols": [
         "PALETTES",
         "SIGNATURES",
@@ -3305,6 +3323,28 @@
       "modules": [
         "gear",
         "art",
+        "ui"
+      ]
+    },
+    "dist/equipment-icons.js": {
+      "sha256": "447fae9322bc8af6839edcd959bd549824dec4fc2214b9a60eca94408c6d7258",
+      "bytes": 2330,
+      "imports": [],
+      "symbols": [
+        "GEAR_COLORS",
+        "NAMED_EQUIPMENT_ICONS",
+        "c",
+        "cloth",
+        "d",
+        "equipmentDesign",
+        "equipmentIconURL",
+        "hash",
+        "pool",
+        "rarity",
+        "weapons"
+      ],
+      "modules": [
+        "gear",
         "ui"
       ]
     },
@@ -3417,8 +3457,8 @@
       ]
     },
     "dist/game-v14.js": {
-      "sha256": "982b23bf0618c5ac2f0da2d4e394cf51a487b876d847c1bbd51c2dc33b9aa2dd",
-      "bytes": 114401,
+      "sha256": "217ef9dd62ea28d41fcecda61a04fc3943062c4c939491eeb3f130a2b18aa0b2",
+      "bytes": 116082,
       "imports": [
         "dist/art-v14.js",
         "dist/attunement-v14.js",
@@ -3439,6 +3479,7 @@
         "dist/chapter4-ui-v14.js",
         "dist/chapter5-ui-v14.js",
         "dist/chapter5-world-v14.js",
+        "dist/checkpoint-save.js",
         "dist/combat-input-v17.js",
         "dist/combat-target-ui.js",
         "dist/combat-visuals-v14.js",
@@ -3448,6 +3489,7 @@
         "dist/effects-quality-v14.js",
         "dist/enchantments-v14.js",
         "dist/encounter-restraint.js",
+        "dist/equipment-icons.js",
         "dist/equipment-v14.js",
         "dist/growth-v14.js",
         "dist/hell-activities-v17.js",
@@ -4732,8 +4774,8 @@
       ]
     },
     "dist/presentation-v17.css": {
-      "sha256": "b795cc07044159741490557c8bce74108814432ce3f05c935946da1947b2bd05",
-      "bytes": 4015,
+      "sha256": "e0ae1f008c4aef0de77fd4998df3ee1590deef2e62f84f790bcee7409163e5b7",
+      "bytes": 7730,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -7781,8 +7823,8 @@
       "modules": []
     },
     "source/harness/modules.json": {
-      "sha256": "814618d61f076ab7eed5f2cf38de5479cb4e5efd3f35b0fce2e28ef70aacfa35",
-      "bytes": 33474,
+      "sha256": "3c65cc43dbc730a796e232db30cd4e79ecb277addcbe1a48893597257f62026a",
+      "bytes": 33597,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -8780,8 +8822,8 @@
       ]
     },
     "source/narrative/runtime-index.json": {
-      "sha256": "dfe0eb2bc0b58489ede1e9976a82d27e5c15fe77af8c5981dd25852d73419d6d",
-      "bytes": 163230,
+      "sha256": "c00ffdba95fd0a31bbf6ae69bd915ac2b538215189bd29f700c815d5aecc26c7",
+      "bytes": 163428,
       "imports": [],
       "symbols": [],
       "modules": [
@@ -9494,6 +9536,32 @@
         "pages",
         "rested",
         "state"
+      ],
+      "modules": [
+        "build"
+      ]
+    },
+    "tests/browser-ui-save-polish.mjs": {
+      "sha256": "67990cbd61ef72795290bf8e6d0ecda9de239bd8d8ae85ca3c8592751ba52c5f",
+      "bytes": 9708,
+      "imports": [
+        "tools/browser_session.mjs"
+      ],
+      "symbols": [
+        "auto",
+        "b",
+        "click",
+        "collision",
+        "d",
+        "elapsedStart",
+        "fail",
+        "hook",
+        "isolate",
+        "original",
+        "out",
+        "p",
+        "run",
+        "ss"
       ],
       "modules": [
         "build"
@@ -10790,6 +10858,36 @@
       "modules": [
         "build"
       ]
+    },
+    "tests/ui-save-polish.test.mjs": {
+      "sha256": "5da82c91090bb3c9f2289440d2ddea5abe807f4312b21c0d5de02e856975eae1",
+      "bytes": 4496,
+      "imports": [
+        "dist/chapter-one-preparation-ui.js",
+        "dist/chapter-one-trial-runtime.js",
+        "dist/checkpoint-save.js",
+        "dist/combat-overhaul-v28.js",
+        "dist/core-v14.js",
+        "dist/equipment-icons.js",
+        "dist/save-transfer-v14.js"
+      ],
+      "symbols": [
+        "before",
+        "e",
+        "fresh",
+        "g",
+        "i",
+        "icon",
+        "item",
+        "items",
+        "n",
+        "r",
+        "raw",
+        "snapshot",
+        "weaponType",
+        "write"
+      ],
+      "modules": []
     },
     "tests/world-v29.test.mjs": {
       "sha256": "badedbb6c81cda1426b3b41180e364ee4a2624c644b00b49e9daa339e948274d",

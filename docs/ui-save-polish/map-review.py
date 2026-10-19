@@ -1,0 +1,10 @@
+from pathlib import Path
+import json,hashlib,sys
+root=Path(__file__).resolve().parents[2];sys.path.insert(0,str(root/'tools/harness'))
+from common import inventory,fingerprint
+from map_quality import relevant,changed
+hash=lambda p:hashlib.sha256((root/p).read_bytes()).hexdigest()
+def evidence(*paths):return [{'path':p,'sha256':hash(p)} for p in paths]
+review={'schema':1,'source_fingerprint':fingerprint(inventory(root)),'reviewed_paths':relevant(changed('1af137a1b64c862bbea09982588409b335d30be0',root),root),'assets':evidence('dist/assets/ui-save-polish/merchant.png','dist/assets/ui-save-polish/equipment.png'),'maps':[{'id':'hall','playability':{'status':'pass','reason':'真实RPG九条moveActor路线覆盖四门、四人和机器，碰撞图与会馆截图分别核对；NPC脚锚、场景布局、碰撞、目标位置未改。会馆是安全场景。共享装备绘制只影响外观，实战与返程由当前正式浏览器磨坊路线及225核心回归另行覆盖。','evidence':evidence('docs/ui-save-polish/browser/QA.json','docs/ui-save-polish/browser/hall-cells.json','docs/ui-save-polish/browser/hall-collision.png','docs/ui-save-polish/shared-renderer/BROWSER_WORLD.json','docs/ui-save-polish/shared-renderer/journey-clear.png')},'scene_credibility':{'status':'pass','reason':'实际会馆截图中商人站在原壁炉/整备区域，与书记官、管家和薇蕾娜共用场景深度；新图没有背景块和立绘式镜头。机器、中央走道、四门与会客区关系保留。金色两态与灰问号同类金属材质，保留统一小尺寸。','evidence':evidence('docs/ui-save-polish/browser/hall.png','docs/ui-save-polish/browser/markers.png','docs/ui-save-polish/browser/hall-collision.png')},'character_consistency':{'status':'pass','reason':'新8帧原图、地图和商店截图已对照：同一普通成年棕发女性、橄榄色衣服、皮包腰袋；82像素参考身高与足底锚保持。48图标原画与实际裁切图集逐行核对，未跨格拉伸；三职业普通/黑曜与命名武器的正式渲染图已检查，头脸、手握武器与脚底对齐，追加细节随身体骨架。审美满意度留待用户反馈。','evidence':evidence('dist/assets/ui-save-polish/merchant.png','docs/ui-save-polish/browser/hall.png','docs/ui-save-polish/browser/merchant-1440.png','docs/ui-save-polish/browser/equipment-atlas.png','docs/ui-save-polish/shared-renderer/05-presentation-gallery.png','docs/ui-save-polish/shared-renderer/BROWSER_QA.json')}}]}
+for name in ['docs/ui-save-polish/MAP_QUALITY.json','docs/map-quality/LATEST.json']:(root/name).write_text(json.dumps(review,ensure_ascii=False,indent=2)+'\n')
+print('Saved independent three-dimension review for current sources')

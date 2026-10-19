@@ -1,0 +1,61 @@
+✔ new durability preserves partial health and corpses over repeated loads and map queries (8118.64175ms)
+✔ selecting a grid only reveals details; unavailable early services remain locked (0.750167ms)
+✔ elite has no floor VFX; boss outlines use actual radius, arc and locked line origin (0.222625ms)
+✔ edited conversations keep page roles and pending full-text saves retain the original words (9.205125ms)
+✔ three careers report the distinct Boss to Vilerena before authorization and depart to the private meeting (32.021417ms)
+✔ warehouse charity scene uses town actors and returns without giving Noen private knowledge (3.562417ms)
+✔ five accepted elite kills count separately; a final Boss and kills before accepting do not count (5.653084ms)
+✔ early machine only brews small/medium potions, trade and craft enforce authorization (0.713333ms)
+✔ random stock/order persists, rotates only on actual transactions, stale actions never spend twice (5.854041ms)
+✔ materials come from ordinary enemies, elites and Boss exactly once; summons cannot supply them (4.591709ms)
+✔ schema5 saves preserve progress, inventory and old in-flight text; new state is validated (2.799666ms)
+✔ each potion displays live owned/required amounts and repeated real crafts consume exactly once (9.230291ms)
+✔ automatic timer only saves after 60 active seconds; failure retries and death never overwrites (0.344ms)
+✖ unsafe scenes, training and combat postpone automatic saving until safe (1.069459ms)
+✔ full snapshot roundtrip restores location, money and inventory without changing gear stats (8.966583ms)
+✖ six quality palettes and rare equipment designs remain distinct with no gameplay mutation (0.586833ms)
+ℹ tests 16
+ℹ suites 0
+ℹ pass 14
+ℹ fail 2
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 8280.837375
+
+✖ failing tests:
+
+test at tests/ui-save-polish.test.mjs:27:1
+✖ unsafe scenes, training and combat postpone automatic saving until safe (1.069459ms)
+  TypeError: Cannot read properties of undefined (reading 'startsWith')
+      at P.enemy (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter-one-expansion-combat.js:21:84)
+      at P.enemy (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/rpg-experience-combat.js:30:46)
+      at P.enemy (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/rpg-chapter-two.js:21:43)
+      at P.enemy (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/chapter-one-trial-runtime.js:63:46)
+      at P.enemy (file:///Users/liuyuxiang/Documents/Ashen/Ashen/dist/encounter-restraint.js:29:46)
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/ui-save-polish.test.mjs:29:12)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+
+test at tests/ui-save-polish.test.mjs:35:1
+✖ six quality palettes and rare equipment designs remain distinct with no gameplay mutation (0.586833ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  22 !== 24
+  
+      at TestContext.<anonymous> (file:///Users/liuyuxiang/Documents/Ashen/Ashen/tests/ui-save-polish.test.mjs:37:127)
+      at Test.runInAsyncScope (node:async_hooks:213:14)
+      at Test.run (node:internal/test_runner/test:1106:25)
+      at Test.processPendingSubtests (node:internal/test_runner/test:788:18)
+      at Test.postRun (node:internal/test_runner/test:1235:19)
+      at Test.run (node:internal/test_runner/test:1163:12)
+      at async Test.processPendingSubtests (node:internal/test_runner/test:788:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: 22,
+    expected: 24,
+    operator: 'strictEqual',
+    diff: 'simple'
+  }

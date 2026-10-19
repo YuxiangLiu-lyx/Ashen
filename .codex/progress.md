@@ -714,3 +714,20 @@
 - 阶段 delivery：complete；HEAD c17e6a70560b840f03661003be58fbe0a51eba67
 - 最近检查：core，退出码 0；docs/harness/evidence/c1-endurance-20261016/019-core.txt
 <!-- /task:c1-endurance-20261016 -->
+
+<!-- task:ui-save-polish-20261019 -->
+## 任务 ui-save-polish-20261019
+- 状态：in_progress
+- 更新：2026-10-19T13:38:35.054472+00:00
+- 下一步：Git审查和保存main
+- 任务记录：source/tasks/active/ui-save-polish-20261019.json
+- 已完成：干净基线1af137a已同步；已核对实际制作/存档/图集和装备入口；药水实时材料格、商人透明8帧、三态标记、60秒与死亡读档、48种装备图标和随身结构完成；三视口真实UI及一分钟游戏循环已通过；最终fast 67、核心225、专项39、完整integration、三维与三视口真实保存制作和60秒循环全部通过；当前源指纹一致；离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验
+- 待完成：GitHub main提交推送核对与任务收尾
+- 决定：60秒安全自动保存，手动保存可见；死亡读取最近成功存档，临时回忆保持专用重试；不改装备数值；商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性
+- 阻塞：无
+- 阶段 audit：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
+- 阶段 implementation：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
+- 阶段 verification：complete；HEAD 1af137a1b64c862bbea09982588409b335d30be0
+- 阶段 delivery：in_progress；HEAD 1af137a1b64c862bbea09982588409b335d30be0
+- 最近检查：archive-verify，退出码 0；docs/harness/evidence/ui-save-polish-20261019/016-archive-verify.txt
+<!-- /task:ui-save-polish-20261019 -->

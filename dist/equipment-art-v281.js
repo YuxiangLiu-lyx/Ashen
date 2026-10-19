@@ -1,4 +1,5 @@
-// Small fitted details are anchored to the existing body rig, not a second floating costume.
+import {equipmentDesign} from './equipment-icons.js';
+// Equipment remains anchored to the existing body rig and foot-depth ordering.
 const PALETTES=Object.freeze({common:['#433d36','#8a8170'],uncommon:['#39443b','#8c987f'],rare:['#3a4851','#8296a0'],epic:['#48414f','#9c8aab'],legendary:['#554434','#baa071'],abyssal:['#25232b','#8f809c']});
 const SIGNATURES=Object.freeze({
  'v28-greyfang-edge':'fang','v28-cinder-cuff':'ember','v28-road-charm':'knot','v28-night-runner':'wing','v28-stonewatch':'plate','v28-spark-grip':'spark',
@@ -7,7 +8,7 @@ const SIGNATURES=Object.freeze({
  'v28-voidfang':'split','v28-mirrorflame':'mirror','v28-greycrown':'crown','v28-ashen-vow':'eclipse','v28-nameless-echo':'orbit','v28-last-guard':'raven'
 });
 export function gearAppearanceV281(item){
- if(!item)return null;return {id:item.id||'',rarity:PALETTES[item.rarity]?item.rarity:'common',palette:PALETTES[item.rarity]||PALETTES.common,signature:SIGNATURES[item.id]||item.affix||'plain',weaponType:item.weaponType||null};
+ if(!item)return null;return {id:item.id||'',rarity:PALETTES[item.rarity]?item.rarity:'common',palette:PALETTES[item.rarity]||PALETTES.common,signature:SIGNATURES[item.id]||item.affix||'plain',design:equipmentDesign(item).index,weaponType:item.weaponType||null};
 }
 function path(c,points,fill,stroke,width=1){c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.closePath();if(fill){c.fillStyle=fill;c.fill();}if(stroke){c.strokeStyle=stroke;c.lineWidth=width;c.stroke();}}
 function line(c,points,color,width=1){c.beginPath();points.forEach(([x,y],i)=>i?c.lineTo(x,y):c.moveTo(x,y));c.strokeStyle=color;c.lineWidth=width;c.lineJoin='round';c.stroke();}
@@ -30,6 +31,10 @@ export function drawWeaponSignatureV281(c,item,hand,angle,length=36,offhand=null
   const l=Math.min(31,length*.66);line(c,[[4,0],[l,0]],light,s.rarity==='abyssal'?1.35:.85);
   path(c,[[2,-3],[4,0],[2,3],[0,0]],dark,light,.45);
  }
+ if([1,5,11].includes(s.design))for(const x of [length*.3,length*.5,length*.7])path(c,[[x,-1],[x+3,-4.5],[x+4,-1]],dark,light,.7);
+ if(s.design===9)for(const side of [-1,1])path(c,[[2,side*2],[-2,side*7],[5,side*4],[7,side*2]],'#252a30',light,.7);
+ if(s.design===10)path(c,[[4,-2],[length*.8,-3],[length,0],[length*.8,2],[4,2]],'#8eaeb9','#d9edef',.7);
+ if([13,15].includes(s.design)){const x=length*.8;for(const side of [-1,1])path(c,[[x-4,0],[x-6,side*6],[x+2,side*4],[x+6,0]],dark,light,.7);}
  switch(s.signature){
   case 'fang':for(const x of [length*.3,length*.52])path(c,[[x,-1],[x+3,-4],[x+2,0]],'#d5c5a6','#756958',.6);break;
   case 'bone':
@@ -55,6 +60,10 @@ export function drawFittedEquipmentV281(c,gear,rig,cls='shadow',time=0,{back=fal
   if(!back){line(c,[[h[0]-4,torsoY+5],[h[0]-3,torsoY+19],[h[0]+4,torsoY+18]],light,.7);path(c,[[h[0]-2,torsoY+8],[h[0]+1,torsoY+6],[h[0]+3,torsoY+9],[h[0],torsoY+12]],dark,light,.65);}
   if(s.signature==='raven'){for(const side of [-1,1])path(c,[[h[0]+side*9,torsoY],[h[0]+side*13,torsoY+2],[h[0]+side*13,torsoY+5],[h[0]+side*12,torsoY+9],[h[0]+side*8,torsoY+6]],'#252330','#998aa5',.6);}
   if(s.signature==='scale')for(let i=0;i<3;i++)line(c,[[h[0]-3,torsoY+10+i*3],[h[0]+1,torsoY+12+i*3],[h[0]+5,torsoY+10+i*3]],light,.6);
+  if([29,30,31].includes(s.design))for(const side of [-1,1])path(c,[[h[0]+side*5,torsoY],[h[0]+side*11,torsoY-4],[h[0]+side*15,torsoY+3],[h[0]+side*12,torsoY+9],[h[0]+side*8,torsoY+5]],dark,light,.65);
+  if(!back&&s.design===25){line(c,[[h[0]-7,torsoY+4],[h[0]+6,torsoY+21]],'#80654c',2.5);path(c,[[h[0]-1,torsoY+12],[h[0]+3,torsoY+13],[h[0]+2,torsoY+17],[h[0]-2,torsoY+16]],dark,light,.7);}
+  if(!back&&[27,30].includes(s.design))for(let j=0;j<3;j++)path(c,[[h[0]-5,torsoY+7+j*4],[h[0],torsoY+10+j*4],[h[0]+5,torsoY+7+j*4],[h[0],torsoY+13+j*4]],dark,light,.6);
+  if(s.design===28)for(const side of [-1,1])path(c,[[h[0]+side*3,torsoY+17],[h[0]+side*8,torsoY+28],[h[0]+side*4,torsoY+32],[h[0]+side,torsoY+18]],'#34364e','#b29a6b',.6);
  }
  if(gear.head){
   const s=gearAppearanceV281(gear.head),[dark,light]=s.palette,y=h[1]-10;
@@ -67,10 +76,11 @@ export function drawFittedEquipmentV281(c,gear,rig,cls='shadow',time=0,{back=fal
    line(c,[[h[0]-7,y-1],[h[0]-2,y],[h[0]+5,y-1]],light,.5);
   }
   if(s.signature==='crown')path(c,[[h[0]-6,y-1],[h[0]-5,y-4],[h[0]-2,y-2],[h[0]+1,y-5],[h[0]+3,y-2],[h[0]+6,y-4],[h[0]+6,y]],dark,light,.5);
+  if([19,23].includes(s.design))for(const side of [-1,1])path(c,[[h[0]+side*5,y],[h[0]+side*9,y-7],[h[0]+side*10,y+2],[h[0]+side*6,y+3]],dark,light,.65);
   if(!back&&s.rarity!=='common')path(c,[[h[0]-1.2,y],[h[0],y-2],[h[0]+1.2,y],[h[0],y+1]],light,null);
  }
- if(gear.hands){const [dark,light]=gearAppearanceV281(gear.hands).palette;for(const p of [hand,off]){path(c,[[p[0]-2.5,p[1]-3],[p[0]+2,p[1]-3.5],[p[0]+2,p[1]-1],[p[0]-2,p[1] ]],dark,light,.4);}}
- if(gear.feet&&rig.feet){const s=gearAppearanceV281(gear.feet);for(const f of rig.feet)line(c,[[f[0]-3,f[1]-4],[f[0]+2,f[1]-4],[f[0]+3,f[1]-1]],s.palette[1],1);}
+ if(gear.hands){const s=gearAppearanceV281(gear.hands),[dark,light]=s.palette;for(const p of [hand,off]){path(c,[[p[0]-3,p[1]-5],[p[0]+3,p[1]-5.5],[p[0]+2.5,p[1]-1],[p[0]-2.5,p[1]]],dark,light,.5);if(s.design===33)path(c,[[p[0]-3,p[1]-4],[p[0]-5,p[1]-7],[p[0]+1,p[1]-5]],dark,light,.6);if(s.design===34)line(c,[[p[0]-2,p[1]-3],[p[0]+2,p[1]-3]],light,1);}}
+ if(gear.feet&&rig.feet){const s=gearAppearanceV281(gear.feet);for(const f of rig.feet){line(c,[[f[0]-3,f[1]-4],[f[0]+2,f[1]-4],[f[0]+3,f[1]-1]],s.palette[1],1);if(s.design===36)path(c,[[f[0]-2,f[1]-5],[f[0]-6,f[1]-9],[f[0]-5,f[1]-3]],s.palette[0],s.palette[1],.6);if(s.design===38)path(c,[[f[0]-3,f[1]-6],[f[0]+2,f[1]-6],[f[0]+5,f[1]],[f[0]-1,f[1]+1]],s.palette[0],s.palette[1],.6);}}
  if(gear.relic){
   const s=gearAppearanceV281(gear.relic),[dark,light]=s.palette,x=h[0]+6,y=torsoY+24;
   line(c,[[x-2,y-4],[x+1,y]],'#99866a',.8);path(c,[[x+1,y],[x+4,y+3],[x+1,y+7],[x-2,y+3]],dark,light,.9);

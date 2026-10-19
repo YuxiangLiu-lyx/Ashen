@@ -1,0 +1,362 @@
+{
+  "schema": 1,
+  "id": "ui-save-polish-20261019",
+  "goal": "药水材料图格实时数量、商人同场景风格、统一任务标记、手动及定时存档死亡读档、装备品质和专属造型",
+  "acceptance": [
+    "制作消耗立即刷新且不足拒绝；商人自然同层；三态标记同质感；手动/60秒自动保存和死亡位置恢复含旧档；装备品质清晰造型稳定；技术与默认包验证并保存GitHub"
+  ],
+  "baseline_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+  "modules": [
+    "game_settings",
+    "save",
+    "gear"
+  ],
+  "status": "in_progress",
+  "created_at_utc": "2026-10-19T12:44:00.663486+00:00",
+  "updated_at_utc": "2026-10-19T13:38:35.054472+00:00",
+  "decisions": [
+    "60秒安全自动保存，手动保存可见；死亡读取最近成功存档，临时回忆保持专用重试；不改装备数值",
+    "商人使用独立8帧透明图集；装备图标以代码绘制明确轮廓并复用稳定身份，不修改属性"
+  ],
+  "completed": [
+    "干净基线1af137a已同步；已核对实际制作/存档/图集和装备入口",
+    "药水实时材料格、商人透明8帧、三态标记、60秒与死亡读档、48种装备图标和随身结构完成；三视口真实UI及一分钟游戏循环已通过",
+    "最终fast 67、核心225、专项39、完整integration、三维与三视口真实保存制作和60秒循环全部通过；当前源指纹一致",
+    "离线/HTTP/手机包通过，默认546文件校验提升与5174内容核对完成；旧包及历史原件保留；重复大JSON已归档并独立校验"
+  ],
+  "remaining": [
+    "GitHub main提交推送核对与任务收尾"
+  ],
+  "blockers": [],
+  "next": "Git审查和保存main",
+  "required_checks": [
+    "fast",
+    "integration"
+  ],
+  "checks": [
+    {
+      "label": "polish-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/ui-save-polish.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T12:53:11.743948+00:00",
+      "finished_at_utc": "2026-10-19T12:53:20.080312+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "96bed5898774d451ba9557de8eabeda0b2b0b634d8427de12739b495813f2956",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/001-polish-unit.txt",
+      "output_sha256": "22ab73b465c79e60483dbf6c12982aed4aa558f75a39b4dc9a9c11040327fd27",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "polish-browser",
+      "command": [
+        "node",
+        "tests/browser-ui-save-polish.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T12:54:08.380727+00:00",
+      "finished_at_utc": "2026-10-19T12:54:16.092821+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "17d836a05da50da2fd4ded55381c99d743e19f1f51d0baada909bf6c95c0e29f",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/002-polish-browser.txt",
+      "output_sha256": "31ac1f3c544c99ed5855338fcb8cee25c6f0b75885f6f8ee2d8e9af55dd8d01d",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "polish-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/ui-save-polish.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 1,
+      "started_at_utc": "2026-10-19T12:55:15.794613+00:00",
+      "finished_at_utc": "2026-10-19T12:55:16.164032+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "5327ce686785b3c928e24886485d5fe43677d5439cf7e7331f326d9308eec956",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/003-polish-unit.txt",
+      "output_sha256": "e2693e3b98b562e8bf77f208ee1b8160ee3e2c4e461b9157201d68be6f4cc4a5",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "polish-browser",
+      "command": [
+        "node",
+        "tests/browser-ui-save-polish.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T12:55:16.237643+00:00",
+      "finished_at_utc": "2026-10-19T12:55:34.066856+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "5327ce686785b3c928e24886485d5fe43677d5439cf7e7331f326d9308eec956",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/004-polish-browser.txt",
+      "output_sha256": "9794468d0941ce5223ceb73f381e009f57247addb22c80d3602fef954976c5dd",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "polish-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/ui-save-polish.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T12:55:59.068906+00:00",
+      "finished_at_utc": "2026-10-19T12:55:59.438464+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "f0d07bfb40a70c3483cac29dfb23a35fa917b153738a52deb03ba8f8cfad3026",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/005-polish-unit.txt",
+      "output_sha256": "fd0309998c2fd0b28a262c6c91b829645aedf0399534340429f21275a2f2d90a",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "polish-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/ui-save-polish.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/presentation-v281.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:00:27.596147+00:00",
+      "finished_at_utc": "2026-10-19T13:00:28.444496+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "fbf4c917501990bb357eed4aeb0930b654162d5ca1f5f12bac7a9f0f75889bac",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/006-polish-unit.txt",
+      "output_sha256": "e12fa731ec8bec30e2b62caa7e771802ba5b1b686f24746345533ce601ead961",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "polish-browser",
+      "command": [
+        "node",
+        "tests/browser-ui-save-polish.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:01:16.196352+00:00",
+      "finished_at_utc": "2026-10-19T13:02:34.617930+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/007-polish-browser.txt",
+      "output_sha256": "2a90df591e92ed2a833d7051143ec1627a552096707bea2aaba26dabdeff9621",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "fast",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "fast"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:03:30.985215+00:00",
+      "finished_at_utc": "2026-10-19T13:07:36.826154+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/008-fast.txt",
+      "output_sha256": "04e276b02ae135f0afb93b5b6c57582e2144f50072b7d53933a52433a48ec7e5",
+      "timeout_seconds": 300.0
+    },
+    {
+      "label": "integration",
+      "command": [
+        "python3",
+        "tools/harness/check.py",
+        "--tier",
+        "integration"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:07:36.901496+00:00",
+      "finished_at_utc": "2026-10-19T13:20:38.539146+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/009-integration.txt",
+      "output_sha256": "556e6f9f584042f274cff3177a34f5cf1393021394d121e21d805660e9fd330f",
+      "timeout_seconds": 1200.0
+    },
+    {
+      "label": "polish-unit",
+      "command": [
+        "node",
+        "--test",
+        "tests/ui-save-polish.test.mjs",
+        "tests/c1-trial-forge.test.mjs",
+        "tests/c1-restraint.test.mjs",
+        "tests/presentation-v281.test.mjs"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:31:04.026381+00:00",
+      "finished_at_utc": "2026-10-19T13:31:04.842641+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/010-polish-unit.txt",
+      "output_sha256": "c2b609fc5dcfb68ba91045fa6aca6d9a6558124892e7ffddbfa4e61fbc31a9e4",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "map-quality",
+      "command": [
+        "python3",
+        "tools/harness/map_quality.py",
+        "--base",
+        "1af137a"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:31:04.924553+00:00",
+      "finished_at_utc": "2026-10-19T13:31:05.155363+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/011-map-quality.txt",
+      "output_sha256": "ff51b4cd98a00aa9e67a993f0480da4d15a62644f5f7729bde8a3f59662de1f7",
+      "timeout_seconds": 120.0
+    },
+    {
+      "label": "preview-build",
+      "command": [
+        ".venv/bin/python",
+        "tools/build_web_play.py",
+        "--output",
+        "qa-export/ui-save-polish-preview"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:31:05.235189+00:00",
+      "finished_at_utc": "2026-10-19T13:32:08.871993+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/012-preview-build.txt",
+      "output_sha256": "a04c09f74d7f939dab0bd4d5131a6289820466b1ef56008623b4e6b259e3cb11",
+      "timeout_seconds": 600.0
+    },
+    {
+      "label": "package-browser",
+      "command": [
+        "env",
+        "CHROME_BIN=/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+        ".venv/bin/python",
+        "tests/browser-web-play.py",
+        "--build",
+        "qa-export/ui-save-polish-preview",
+        "--out",
+        "docs/ui-save-polish/package"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:32:40.906934+00:00",
+      "finished_at_utc": "2026-10-19T13:36:53.389744+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/013-package-browser.txt",
+      "output_sha256": "4f80ce2001ea1287ad98664f146d2cba7700b9467803059d2c17dbd1a4eef0b5",
+      "timeout_seconds": 420.0
+    },
+    {
+      "label": "default-delivery",
+      "command": [
+        "python3",
+        "docs/ui-save-polish/deliver.py"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:36:53.489184+00:00",
+      "finished_at_utc": "2026-10-19T13:36:55.417662+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/014-default-delivery.txt",
+      "output_sha256": "be6d5ccc4d26b0e8385d79670e05bcc3729c3573471d63b9ced70b742c96b1bb",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "archive-pack",
+      "command": [
+        "python3",
+        "docs/ui-save-polish/RESTORE_EVIDENCE.py",
+        "--pack"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:36:55.492650+00:00",
+      "finished_at_utc": "2026-10-19T13:36:56.710174+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/015-archive-pack.txt",
+      "output_sha256": "fb04d52eeb226d668120550874c97fb8d9375819c98835418165b6204a237ce9",
+      "timeout_seconds": 240.0
+    },
+    {
+      "label": "archive-verify",
+      "command": [
+        "python3",
+        "docs/ui-save-polish/RESTORE_EVIDENCE.py",
+        "--verify-only"
+      ],
+      "exit_code": 0,
+      "started_at_utc": "2026-10-19T13:37:34.659339+00:00",
+      "finished_at_utc": "2026-10-19T13:37:34.954204+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "sources_changed_during_check": false,
+      "output": "docs/harness/evidence/ui-save-polish-20261019/016-archive-verify.txt",
+      "output_sha256": "fb04d52eeb226d668120550874c97fb8d9375819c98835418165b6204a237ce9",
+      "timeout_seconds": 120.0
+    }
+  ],
+  "narrative_style_policy": 2,
+  "stages": [
+    {
+      "name": "audit",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T12:48:14.871641+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "3be2d1b08f48b57c24a6dc2826eb50755e28c1537671e757f65beb68048dfe91",
+      "worktree": "M .codex/progress.md\n?? docs/ui-save-polish/\n?? source/tasks/active/ui-save-polish-20261019.json"
+    },
+    {
+      "name": "implementation",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T13:03:30.727718+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "worktree": "M .codex/progress.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/equipment-art-v281.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n?? dist/assets/ui-save-polish/\n?? dist/checkpoint-save.js\n?? dist/equipment-icons.js\n?? docs/harness/evidence/ui-save-polish-20261019/\n?? docs/ui-save-polish/\n?? source/tasks/active/ui-save-polish-20261019.json\n?? tests/browser-ui-save-polish.mjs\n?? tests/ui-save-polish.test.mjs"
+    },
+    {
+      "name": "verification",
+      "status": "complete",
+      "updated_at_utc": "2026-10-19T13:38:34.806731+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/equipment-art-v281.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n?? archives/ui-save-polish-evidence/\n?? dist/assets/ui-save-polish/\n?? dist/checkpoint-save.js\n?? dist/equipment-icons.js\n?? docs/harness/evidence/ui-save-polish-20261019/\n?? docs/ui-save-polish/\n?? source/tasks/active/ui-save-polish-20261019.json\n?? tests/browser-ui-save-polish.mjs\n?? tests/ui-save-polish.test.mjs"
+    },
+    {
+      "name": "delivery",
+      "status": "in_progress",
+      "updated_at_utc": "2026-10-19T13:38:34.987385+00:00",
+      "head_commit": "1af137a1b64c862bbea09982588409b335d30be0",
+      "source_fingerprint": "9c673f25fdbda94668c6013db362b4304bc66dbda24fdf3112063540a233393b",
+      "worktree": "M .codex/progress.md\n M .gitignore\n M BACKUP_STATUS.md\n M README.md\n M dist/chapter-one-expansion-art.js\n M dist/chapter-one-natural-art.js\n M dist/chapter-one-preparation-ui.js\n M dist/equipment-art-v281.js\n M dist/game-v14.js\n M dist/presentation-v17.css\n M docs/map-quality/LATEST.json\n M source/CURRENT_STATE.json\n M source/harness/index.json\n M source/harness/modules.json\n M source/narrative/runtime-index.json\n?? archives/ui-save-polish-evidence/\n?? dist/assets/ui-save-polish/\n?? dist/checkpoint-save.js\n?? dist/equipment-icons.js\n?? docs/harness/evidence/ui-save-polish-20261019/\n?? docs/ui-save-polish/\n?? source/tasks/active/ui-save-polish-20261019.json\n?? tests/browser-ui-save-polish.mjs\n?? tests/ui-save-polish.test.mjs"
+    }
+  ]
+}
